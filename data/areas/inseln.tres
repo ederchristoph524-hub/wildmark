@@ -63,6 +63,7 @@ settlements = Array[Dictionary]([{
 "type": &"inseldorf"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.3019608, 0.7647059, 1, 1),
 "count": 0,
 "guards": Array[StringName]([&"seekoenig", &"seeschlange", &"riesenkrabbe"]),
 "id": &"seekoenig_grotte",
@@ -86,9 +87,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"grotte",
 "text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -103,9 +106,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -120,6 +125,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }])

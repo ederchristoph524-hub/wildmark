@@ -1397,7 +1397,7 @@
    "gu": [
     "eisenhaut",
     "sternpfeil",
-    "weissjade"
+    "mondlicht"
    ],
    "rang": 3
   },
@@ -1406,9 +1406,9 @@
    "c": "#7fc8ff",
    "f": "righteous",
    "gu": [
-    "regenbogen",
-    "lichtzaun",
-    "goldlicht"
+    "goldlicht",
+    "sternpfeil",
+    "eisenhaut"
    ],
    "rang": 5
   },
@@ -1456,7 +1456,7 @@
     "mondlicht",
     "glutfunke",
     "steinhaut",
-    "windklinge"
+    "wirbelwind"
    ]
   },
   "wuestentempel": {
@@ -1466,7 +1466,7 @@
    "rang": 4,
    "gu": [
     "drehfels",
-    "sternpfeil_klein",
+    "eberstoss",
     "steinhaut",
     "glutatem"
    ]
@@ -1480,7 +1480,7 @@
     "stachelwurm",
     "klingenfaden",
     "aurahuelle",
-    "blutstropfen"
+    "glutfunke"
    ]
   },
   "wu_general": {
@@ -1503,7 +1503,7 @@
    "gu": [
     "mondlicht",
     "frostnadel",
-    "knallsamen",
+    "wirbelwind",
     "lebensblatt",
     "wasserlicht"
    ]
@@ -1526,10 +1526,10 @@
    "f": "demonic",
    "rang": 5,
    "gu": [
-    "blutstropfen",
+    "knochensplitter",
     "stachelwurm",
     "stummermund",
-    "knochensplitter"
+    "windklinge"
    ]
   },
   "zehn_extreme": {
@@ -1539,7 +1539,7 @@
    "rang": 5,
    "gu": [
     "klingenfaden",
-    "sternpfeil_klein",
+    "sprungwurm",
     "eberstoss",
     "steinhaut",
     "windklinge"
@@ -1564,7 +1564,7 @@
    "gu": [
     "frostnadel",
     "wasserlicht",
-    "knochensplitter"
+    "wirbelwind"
    ]
   }
  },

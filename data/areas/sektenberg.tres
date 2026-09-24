@@ -46,6 +46,7 @@ settlements = Array[Dictionary]([{
 "type": &"sekte"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -60,9 +61,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(1, 0.8235294, 0.23921569, 1),
 "count": 0,
 "guards": Array[StringName]([&"weisser_tiger", &"donnerkronenwolf", &"weisser_tiger"]),
 "id": &"zehn_extreme_pruefung",
@@ -85,9 +88,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([&"boeserGedanke"])
 },
+"style": &"altar",
 "text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -102,9 +107,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -119,6 +126,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }])

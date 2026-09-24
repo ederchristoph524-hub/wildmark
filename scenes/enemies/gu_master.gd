@@ -19,6 +19,10 @@ var gu_list: Array[GuInstance] = []
 var duel_state: DuelState = DuelState.IDLE
 var home: Vector3 = Vector3.ZERO
 var brain: GuMasterBrain = null
+## Killer Moves aus je zwei seiner Gu (GuMasterKillers.options), stärkste Stufe zuerst.
+var killer_options: Array[Dictionary] = []
+## Summe der selbst gezahlten Lebenskosten (Blutpfad), z. B. für die Balancing-Messung.
+var paid_hp: float = 0.0
 ## Gegner im Duell; beim Lesen verworfen, wenn er nicht mehr gültig ist.
 var opponent: Combatant = null:
 	get:
@@ -55,6 +59,7 @@ func _ready() -> void:
 		if chosen != null:
 			gu_list.append(GuInstance.create(chosen.id))
 	essence = essence_capacity()
+	killer_options = GuMasterKillers.options(self)
 	brain = GuMasterBrain.new(self)
 	_build_body()
 	health.damaged.connect(func(_amount: float) -> void: _update_label())
@@ -155,12 +160,20 @@ func use_gu(index: int, aim: Vector3, foe: Combatant) -> bool:
 	if not caster.cast():
 		return false
 	essence = maxf(0.0, essence - essence_cost(index))
-	if hp_cost(index) > 0.0:
-		health.apply_damage(hp_cost(index))
+	pay_hp(hp_cost(index))
+	put_on_cooldown(index)
+	return true
+
+
+func pay_hp(amount: float) -> void:
+	if amount > 0.0:
+		paid_hp += health.apply_damage(amount)
+
+
+func put_on_cooldown(index: int) -> void:
 	var gift_mult: float = GuGifts.number(gu_data(index), "cd_mult")
 	gu_list[index].cooldown_left = float(family_of(index).base_r1.get(GuHolderComponent.COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0)
 	_update_label()
-	return true
 
 
 func fist(foe: Combatant) -> void:

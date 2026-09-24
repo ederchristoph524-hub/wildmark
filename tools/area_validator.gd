@@ -4,6 +4,8 @@ extends RefCounted
 
 const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", &"frostquelle", &"friedhof", &"erbe"]
 const OBSTACLE_KINDS: Array[StringName] = [&"hecke", &"wasser", &"fels", &"schalter", &"lichtsiegel", &"blutsiegel", &"vorsprung"]
+## Bauformen der Erben (wie InheritanceLooks.STYLES; hier als Text, weil das Importskript ohne Autoloads läuft).
+const INHERITANCE_STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte"]
 const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf", &"stadt", &"zeltlager", &"oasenstadt", &"inseldorf", &"festung", &"sekte"]
 
 var _report: ImportReport
@@ -47,6 +49,8 @@ func _check_open(area: AreaData, context: String) -> void:
 		_inside(place["position"], half, context + " Ort '%s'" % place["name"])
 		if place["item"] != &"":
 			_require(place["item"], "items", context + " Ort '%s' Gegenstand" % place["name"])
+		if place["type"] == &"erbe" and place["style"] not in INHERITANCE_STYLES:
+			_report.error("%s: Erbe '%s' mit unbekanntem Stil '%s'" % [context, place["name"], place["style"]])
 		_check_place_reward(place, context)
 	for obstacle: Dictionary in area.obstacles:
 		if obstacle["kind"] not in OBSTACLE_KINDS:

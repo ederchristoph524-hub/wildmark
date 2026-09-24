@@ -15,6 +15,7 @@ func run() -> void:
 	await _test_slot_switch()
 	await _test_physiques()
 	await _test_duel()
+	await _test_master_killer()
 
 
 func _test_tap_target() -> void:
@@ -163,3 +164,26 @@ func _test_duel() -> void:
 	var wild: WildGu = DuelRewards.drop_gu(master)
 	steps._check(wild != null and wild.gu is GuData, "Gu-Meister kann einen Gu als wilden Gu verlieren")
 	wild.queue_free()
+
+
+## NPC-Gu-Meister finden Killer Moves aus ihren Gu-Paaren und wirken sie nach denselben Kosten.
+func _test_master_killer() -> void:
+	await steps._clear_enemies()
+	var world: World = steps.main.world
+	var master := GuMaster.new()
+	master.setup(DataRegistry.gu_master(&"zehn_extreme"), "Test", steps.player.global_position + Vector3(0, 0.3, -12.0))
+	world.add_child(master)
+	await steps._frames(2)
+	steps._check(not master.killer_options.is_empty() and (master.killer_options[0]["move"] as KillerMoveData).min_rank == 5, "Meister kennt einen Killer Move der höchsten passenden Stufe")
+	var dummy: Enemy = steps._spawn(&"golem", Vector3(0, 0, -16.0))
+	dummy.health.max_hp = 100000.0
+	dummy.health.hp = 100000.0
+	await steps._frames(2)
+	var option: Dictionary = master.killer_options[0]
+	var essence: float = master.essence
+	GuMasterKillers.execute(master, option, Vector3(0, 0, -1), dummy)
+	var paid: bool = master.essence < essence - 1.0
+	await steps._frames(90)
+	steps._check(dummy.health.hp < 100000.0 and paid and not master.is_ready(option["a"]), "Killer Move des Meisters trifft, kostet Essenz, beide Gu auf Abklingzeit")
+	master.queue_free()
+	dummy.queue_free()

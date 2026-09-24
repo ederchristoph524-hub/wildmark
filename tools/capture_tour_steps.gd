@@ -83,6 +83,32 @@ func _view(title: String, from: Vector3, to: Vector3) -> void:
 	print("Tour: %s · Draw Calls %d · Dreiecke %d" % [title,
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
 		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)])
+	if OS.get_cmdline_user_args().has("--census"):
+		_census()
+
+
+## Grobe Zählung der sichtbaren Meshes je Elternknoten-Art (vor der Kamera, innerhalb der Sichtweite).
+func _census() -> void:
+	var counts: Dictionary[String, int] = {}
+	var forward: Vector3 = -_camera.global_basis.z
+	for node: Node in main.world.find_children("*", "GeometryInstance3D", true, false):
+		var geometry: GeometryInstance3D = node as GeometryInstance3D
+		if not geometry.is_visible_in_tree() or geometry is Label3D:
+			continue
+		var offset: Vector3 = geometry.global_position - _camera.global_position
+		if geometry.visibility_range_end > 0.0 and offset.length() > geometry.visibility_range_end:
+			continue
+		if offset.length() > 30.0 and offset.normalized().dot(forward) < 0.3:
+			continue
+		var parent: Node = geometry.get_parent()
+		while parent.get_script() == null and parent.get_parent() != main.world and parent != main.world:
+			parent = parent.get_parent()
+		var key: String = parent.get_script().get_global_name() if parent.get_script() != null else String(parent.name)
+		counts[key] = counts.get(key, 0) + 1
+	var keys: Array = counts.keys()
+	keys.sort_custom(func(a: String, b: String) -> bool: return counts[a] > counts[b])
+	for key: String in keys.slice(0, 10):
+		print("    %s: %d" % [key, counts[key]])
 
 
 func _frames(count: int) -> void:

@@ -44,6 +44,7 @@ settlements = Array[Dictionary]([{
 "type": &"zeltlager"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.8156863, 0.1882353, 0.22745098, 1),
 "count": 0,
 "guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"bergbaer"]),
 "id": &"blutkoenig",
@@ -65,9 +66,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"grab",
 "text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([&"jadeaffe", &"jadeaffe", &"jadeaffe", &"steinkoenig"]),
 "id": &"steinkoenig_erbe",
@@ -90,9 +93,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"tempel",
 "text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute.",
 "type": &"erbe"
 }, {
+"accent": Color(0.5411765, 0.8156863, 1, 1),
 "count": 0,
 "guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"blitzwolf", &"elektrowolf"]),
 "id": &"wolfskoenig",
@@ -114,9 +119,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([&"vierwein"])
 },
+"style": &"altar",
 "text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -131,9 +138,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -148,9 +157,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 9,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -165,6 +176,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }])

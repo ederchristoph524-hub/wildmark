@@ -334,6 +334,8 @@ Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kos
 - Beschworene Wesen erhalten die Rangstärke des Gu relativ zu ihrem eigenen Rang (`EnemyData.rank`); Verbündete (Spieler, Gefährten) gehen durcheinander hindurch, damit Gefährten nicht hinter dir hängen bleiben.
 - **Rückstoß** ist ein einmaliger Geschwindigkeitsstoß (`knockback_force` m/s je Punkt, mehrere Treffer zusammen höchstens `knockback_max_speed`); Rückstoß 1 schiebt etwa 2 m.
 - **Kontrolle nimmt ab:** Betäubung und Einfrieren wirken in Folge 100 %, 50 %, 25 % … (`cc_diminish`), bis `cc_reset_time` Sekunden keine Kontrolle mehr kam; eine laufende Kontrolle wird nicht verlängert. Kein Dauer-Festsetzen, weder von Bestien noch vom Spieler.
+- **Killer Moves** sind je Stufe gedeckelt (`killer_total_cap`: Stufe 1 ×7, Stufe 3 ×10, Stufe 5 ×15 Grundschaden auf ein Ziel, inklusive `mult`; Zonen mit allen Takten, zielsuchende Geschosse vollständig gezählt). Stärkere Einträge werden gleichmäßig gedämpft (`KillerMoveEffects.cap_scale`).
+- **NPC-Gu-Meister** wirken Killer Moves nach denselben Regeln (höchste Stufe ihrer Gu-Paare, Kosten ×2), kündigen sie mit mindestens 1,45 s Ausholzeit und Warnkreis an und höchstens alle 14 s (`master_killer_*`).
 - **Blutpfad** (`hp_kosten`) kostet Prozent des Höchstlebens, damit der Preis mit dem Rang wächst; NPC-Meister zahlen ihn auch.
 - **Bestien-Leben** wächst stärker als die Formel allein (Rang 2 ×2,2 … Rang 5 ×3,8 gegenüber dem Prototyp), **Gu-Meister** bekommen `master_hp_rank_mult` (Schutz-Gu, Erfahrung).
 

@@ -122,6 +122,8 @@ func _place(entry: Dictionary) -> Dictionary:
 		offering[StringName(str(item))] = ImportUtil.to_int(entry["opfer"][item])
 	place["offering"] = offering
 	place["guards"] = ImportUtil.names(entry.get("waechter", []))
+	place["style"] = ImportUtil.sn(entry.get("stil", "hoehle"))
+	place["accent"] = ImportUtil.color(entry.get("akzent", "#d9b359"), "gebiete.json: Ort " + String(place["id"]), _report)
 	var reward: Dictionary = entry.get("belohnung", {})
 	var items: Dictionary = {}
 	for item: Variant in reward.get("items", {}):

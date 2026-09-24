@@ -1,11 +1,10 @@
 class_name Inheritance
 extends Node3D
-## Erbe eines verstorbenen Gu-Meisters (gebiete.json → orte, typ „erbe“): Felsspalte mit Siegelstein.
+## Erbe eines verstorbenen Gu-Meisters (gebiete.json → orte, typ „erbe“): Bauform nach `stil` mit Siegelstein.
 ## Opfergabe → Wächter erwachen → sind alle besiegt, gibt das Erbe seine Gu (als wilde Gu zum Verfeinern) und Schätze frei.
 
 const ROCK: Color = Color(0.42, 0.4, 0.37)
 const SEAL: Color = Color(0.85, 0.7, 0.35)
-const CAVE: Color = Color(0.05, 0.04, 0.04)
 const GUARD_DISTANCE: float = 7.0
 
 enum State { SEALED, GUARDED, CLAIMED }
@@ -34,32 +33,11 @@ func _ready() -> void:
 	_refresh()
 
 
-## Felshügel mit dunkler Spalte und leuchtendem Siegelstein davor.
+## Bauform nach Daten (InheritanceLooks) und leuchtender Siegelstein davor.
 func _build_rocks() -> void:
-	var b := MeshBuilder.new()
-	var rng := RandomNumberGenerator.new()
-	rng.seed = String(data["id"]).hash()
 	var world: World = get_parent() as World
 	var rock: Color = world.biome.color(&"fels", ROCK) if world != null else ROCK
-	var rock_dark: Color = rock.darkened(0.28)
-	for i: int in 9:
-		var angle: float = PI + (i - 4) * 0.33
-		var offset := Vector3(cos(angle) * 3.2, 0.0, sin(angle) * 2.4 - 1.2)
-		b.add(MeshBuilder.sphere(rng.randf_range(1.6, 2.4), 7, 4), MeshBuilder.at(offset + Vector3(0, 1.2, 0), Vector3(1.0, rng.randf_range(1.2, 1.8), 1.0)), rock if i % 2 == 0 else rock_dark)
-	b.add(MeshBuilder.sphere(3.0, 8, 4), MeshBuilder.at(Vector3(0, 2.6, -2.6), Vector3(1.4, 1.2, 1.0)), rock)
-	b.add(MeshBuilder.box(Vector3(1.6, 2.6, 0.4)), MeshBuilder.at(Vector3(0, 1.3, 0.4)), CAVE)
-	var rocks := MeshInstance3D.new()
-	rocks.mesh = b.build()
-	rocks.material_override = WorldMaterials.vertex_colored()
-	add_child(rocks)
-	var body := StaticBody3D.new()
-	var shape := CollisionShape3D.new()
-	var box := BoxShape3D.new()
-	box.size = Vector3(7.0, 4.0, 4.0)
-	shape.shape = box
-	shape.position = Vector3(0, 2.0, -1.8)
-	body.add_child(shape)
-	add_child(body)
+	InheritanceLooks.build(self, data.get("style", &"hoehle"), rock, data.get("accent", SEAL), String(data["id"]).hash())
 	_seal = MeshInstance3D.new()
 	_seal.mesh = MeshBuilder.cylinder(0.6, 0.7, 1.4, 8)
 	_seal.position = Vector3(0, 0.7, 1.6)

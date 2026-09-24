@@ -111,6 +111,10 @@ extends Resource
 
 @export_group("Killer Moves")
 @export var killer_cost_mult: float = 2.0
+## Obergrenze für den Gesamtschaden eines Killer Moves auf ein Ziel (× Grundschaden, inkl. damage_mult), je Stufe
+## (Index = min_rank − 1): Zonen zählen mit allen Takten, zielsuchende Geschosse alle, andere höchstens drei.
+## Stärkere Einträge werden gleichmäßig gedämpft – ein Killer Move ist etwa drei bis vier normale Gu-Einsätze wert.
+@export var killer_total_cap: Array[float] = [7.0, 7.0, 10.0, 10.0, 15.0]
 @export var insight_base: float = 0.15
 @export var insight_max: float = 0.5
 @export var insight_window: float = 2.0
@@ -278,6 +282,11 @@ extends Resource
 ## Ausholen vor Angriffs-Gu: Richtung steht fest, seitliches Ausweichen hilft (KAMPFSYSTEM: keine Treffer ohne Vorwarnung).
 @export var master_cast_windup: float = 0.45
 @export var master_preferred_range: float = 8.0
+## Killer Moves der Meister: höchstens alle master_killer_cooldown Sekunden, nur bis zu dieser Entfernung,
+## mindestens so lange Ausholzeit (zusätzlich zu master_cast_windup) – genug Zeit zum Ausweichen.
+@export var master_killer_cooldown: float = 14.0
+@export var master_killer_range: float = 11.0
+@export var master_killer_windup: float = 1.0
 @export var master_speed: float = 4.6
 @export var master_fist_cooldown: float = 1.3
 ## Unter diesem Lebensanteil greift er zu Schild oder Heilung.

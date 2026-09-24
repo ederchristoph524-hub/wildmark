@@ -8,5 +8,5 @@ id = &"bai_waechter"
 display_name = "Bai-Klanwächter"
 color = Color(0.8745098, 0.9019608, 0.9411765, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"frostnadel", &"wasserlicht", &"knochensplitter"])
+gu = Array[StringName]([&"frostnadel", &"wasserlicht", &"wirbelwind"])
 rank = 2

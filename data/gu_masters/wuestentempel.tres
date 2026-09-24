@@ -8,5 +8,5 @@ id = &"wuestentempel"
 display_name = "Tempelwächter der Wüste"
 color = Color(0.78431374, 0.627451, 0.3764706, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"drehfels", &"sternpfeil_klein", &"steinhaut", &"glutatem"])
+gu = Array[StringName]([&"drehfels", &"eberstoss", &"steinhaut", &"glutatem"])
 rank = 4

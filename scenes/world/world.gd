@@ -90,6 +90,8 @@ func _build_terrain() -> void:
 			terrain.lakes.append(Vector4(at.x, at.y, radius, 0.0))
 		else:
 			terrain.flats.append(Vector4(at.x, at.y, radius + 2.0, PLACE_FALLOFF))
+		if WorldAreas.GROUND_COLORS.has(place["type"]):
+			terrain.stains.append({"at": at, "radius": radius + 1.5, "color": WorldAreas.GROUND_COLORS[place["type"]]})
 		clearings.append(Vector4(at.x, 0.0, at.y, radius + 3.0))
 	for point: Vector2 in ObstacleSites.centers(area):
 		terrain.flats.append(Vector4(point.x, point.y, SITE_RADIUS, PLACE_FALLOFF))

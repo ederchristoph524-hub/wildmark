@@ -45,6 +45,7 @@ settlements = Array[Dictionary]([{
 "type": &"stadt"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -59,9 +60,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -76,9 +79,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(0.9098039, 0.95686275, 1, 1),
 "count": 0,
 "guards": Array[StringName]([&"riesenkrokodil", &"riesenskorpion", &"sturmadler"]),
 "id": &"klingengrab",
@@ -100,9 +105,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([&"sofortigererfolg"])
 },
+"style": &"grab",
 "text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter.",
 "type": &"erbe"
 }, {
+"accent": Color(0.41568628, 0.72156864, 0.41568628, 1),
 "count": 0,
 "guards": Array[StringName]([&"riesenkrokodil", &"riesenkrokodil", &"riesenkrokodil"]),
 "id": &"krokodilhort",
@@ -124,9 +131,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
@@ -141,6 +150,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"aschefeld"
 }])

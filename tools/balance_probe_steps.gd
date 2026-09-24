@@ -151,12 +151,17 @@ func _fight(rank: int, beast_id: StringName) -> void:
 	print("%d | %s | %d | %.1f | %.1f | %.1f | %d | %.1f" % [rank, beast_id, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
 
 
-## Duell gegen jeden NPC-Gu-Meister auf seinem Rang (Spieler mit LOADOUT desselben Rangs, Stufe 2).
+## Duell gegen jeden NPC-Gu-Meister auf seinem Rang (Spieler mit LOADOUT desselben Rangs, Stufe 2); --only=id1,id2 filtert.
 func _master_table() -> void:
 	print("Meister | Rang | Leben | dein Schaden/s | Sieg nach s | sein Schaden/s | dein Leben | Tod nach s")
+	var only: String = ""
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--only="):
+			only = arg.trim_prefix("--only=")
 	for resource: Resource in DataRegistry.all(&"gu_masters"):
 		var data: GuMasterData = resource as GuMasterData
-		await _duel(data)
+		if only.is_empty() or String(data.id) in only.split(","):
+			await _duel(data)
 
 
 func _duel(data: GuMasterData) -> void:
@@ -180,23 +185,16 @@ func _duel(data: GuMasterData) -> void:
 	player.health.floor_hp = 1.0
 	while master.duel_state != GuMaster.DuelState.FIGHT:
 		await tree.physics_frame
-	var self_cost: float = 0.0
 	for frame: int in MEASURE_FRAMES:
 		player.targeting.soft_target = master
 		for slot: int in LOADOUT.size():
 			if player.holder.is_ready(slot):
 				player.use_slot(slot)
 				break
-		var cooldowns: Array[float] = []
-		for instance: GuInstance in master.gu_list:
-			cooldowns.append(instance.cooldown_left)
 		await tree.physics_frame
-		# Lebenskosten (Blutpfad) zählen nicht als Schaden des Spielers.
-		for index: int in master.gu_list.size():
-			if master.gu_list[index].cooldown_left > cooldowns[index] + 0.01:
-				self_cost += master.hp_cost(index)
 	var seconds: float = MEASURE_FRAMES / 60.0
-	var dps_out: float = (DUMMY_HP - master.health.hp - self_cost) / seconds
+	# Lebenskosten des Meisters (Blutpfad) zählen nicht als Schaden des Spielers.
+	var dps_out: float = (DUMMY_HP - master.health.hp - master.paid_hp) / seconds
 	var dps_in: float = (DUMMY_HP - player.health.hp) / seconds
 	print("%s | %d | %d | %.1f | %.1f | %.1f | %d | %.1f" % [data.id, rank, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
 	master.queue_free()

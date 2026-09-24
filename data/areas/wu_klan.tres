@@ -44,6 +44,7 @@ settlements = Array[Dictionary]([{
 "type": &"festung"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -58,9 +59,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -75,9 +78,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -92,9 +97,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(1, 0.47843137, 0.22745098, 1),
 "count": 0,
 "guards": Array[StringName]([&"drache", &"drachenling", &"drachenling"]),
 "id": &"drachenhort",
@@ -117,9 +124,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -134,6 +143,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }])

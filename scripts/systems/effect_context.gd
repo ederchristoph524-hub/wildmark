@@ -34,7 +34,8 @@ func at_point(where: Vector3) -> EffectContext:
 	copy.damage = damage
 	copy.power = power
 	copy.aim = aim
-	copy.target = target
+	# Das Ziel kann inzwischen freigegeben sein (verzögerte Schritte, Aufschläge nach dem Tod).
+	copy.target = target if is_instance_valid(target) else null
 	copy.point = where
 	copy.color = color
 	copy.path = path

@@ -247,7 +247,9 @@
        "reliquie_gruenkupfer": 1
       }
      },
-     "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter."
+     "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter.",
+     "stil": "hoehle",
+     "akzent": "#e8c070"
     }
    ],
    "hindernisse": [
@@ -553,7 +555,9 @@
        "reliquie_rotstahl": 1
       }
      },
-     "text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst."
+     "text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst.",
+     "stil": "grab",
+     "akzent": "#d0303a"
     },
     {
      "typ": "erbe",
@@ -586,7 +590,9 @@
        "reliquie_rotstahl": 1
       }
      },
-     "text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute."
+     "text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute.",
+     "stil": "tempel",
+     "akzent": "#d9b359"
     },
     {
      "typ": "erbe",
@@ -621,7 +627,9 @@
        "reliquie_rotstahl": 1
       }
      },
-     "text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben."
+     "text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben.",
+     "stil": "altar",
+     "akzent": "#8ad0ff"
     },
     {
      "typ": "geisterquelle",
@@ -1000,7 +1008,9 @@
        "reliquie_weisssilber": 1
       }
      },
-     "text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter."
+     "text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter.",
+     "stil": "grab",
+     "akzent": "#e8f4ff"
     },
     {
      "typ": "erbe",
@@ -1034,7 +1044,9 @@
        "reliquie_weisssilber": 1
       }
      },
-     "text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu."
+     "text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu.",
+     "stil": "hoehle",
+     "akzent": "#6ab86a"
     },
     {
      "typ": "aschefeld",
@@ -1410,7 +1422,9 @@
        "reliquie_gelbgold": 2
       }
      },
-     "text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt."
+     "text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt.",
+     "stil": "hoehle",
+     "akzent": "#ff7a3a"
     },
     {
      "typ": "friedhof",
@@ -1749,7 +1763,9 @@
        "reliquie_weisssilber": 2
       }
      },
-     "text": "Wenn die Wolfsflut kommt, flieht die Steppe. Ihr Fürst wacht über die Beute ganzer Stämme."
+     "text": "Wenn die Wolfsflut kommt, flieht die Steppe. Ihr Fürst wacht über die Beute ganzer Stämme.",
+     "stil": "altar",
+     "akzent": "#c9a0ff"
     },
     {
      "typ": "friedhof",
@@ -2078,7 +2094,9 @@
        "reliquie_gelbgold": 1
       }
      },
-     "text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter."
+     "text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter.",
+     "stil": "tempel",
+     "akzent": "#ffb030"
     },
     {
      "typ": "aschefeld",
@@ -2452,7 +2470,9 @@
        "reliquie_lilakristall": 1
       }
      },
-     "text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus."
+     "text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus.",
+     "stil": "grotte",
+     "akzent": "#4dc3ff"
     },
     {
      "typ": "geisterquelle",
@@ -2729,7 +2749,9 @@
        "reliquie_lilakristall": 1
       }
      },
-     "text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen."
+     "text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen.",
+     "stil": "altar",
+     "akzent": "#ffd23d"
     },
     {
      "typ": "see",

@@ -8,5 +8,5 @@ id = &"zehn_extreme"
 display_name = "Sektenmeister der Zehn Extreme"
 color = Color(0.9098039, 0.7529412, 0.2509804, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"klingenfaden", &"sternpfeil_klein", &"eberstoss", &"steinhaut", &"windklinge"])
+gu = Array[StringName]([&"klingenfaden", &"sprungwurm", &"eberstoss", &"steinhaut", &"windklinge"])
 rank = 5

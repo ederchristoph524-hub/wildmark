@@ -8,5 +8,5 @@ id = &"shang_arena"
 display_name = "Arenameister der Shang"
 color = Color(0.84705883, 0.65882355, 0.1882353, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"mondlicht", &"glutfunke", &"steinhaut", &"windklinge"])
+gu = Array[StringName]([&"mondlicht", &"glutfunke", &"steinhaut", &"wirbelwind"])
 rank = 3

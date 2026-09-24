@@ -26,6 +26,8 @@ var flats: Array[Vector4] = []
 var lakes: Array[Vector4] = []
 ## Flächen mit Platz-Farbe (Siedlungen): (x, z, Radius, 0).
 var plazas: Array[Vector4] = []
+## Eingefärbte Böden besonderer Orte (Asche, Frost, Friedhofserde): {at: Vector2, radius, color} mit unregelmäßigem, weichem Rand.
+var stains: Array[Dictionary] = []
 var paths: Array = []
 ## Gitterpunkte auf Wegen (vorab berechnet, spart beim Einfärben die Suche über alle Wegstücke).
 var _path_mask: PackedByteArray = PackedByteArray()
@@ -185,6 +187,8 @@ func _color_at(x: float, z: float, normal: Vector3, h: float, on_path: bool) -> 
 		var d: float = Vector2(x - plaza.x, z - plaza.y).length()
 		if d < plaza.z:
 			color = color.lerp(biome.color(&"platz"), (1.0 - smoothstep(plaza.z * 0.75, plaza.z, d)) * (0.55 + 0.35 * variation))
+	for stain: Dictionary in stains:
+		color = _stain(color, stain, x, z, variation)
 	for lake: Vector4 in lakes:
 		var shore: float = Vector2(x - lake.x, z - lake.y).length() - lake.z
 		if shore < 3.0:
@@ -318,6 +322,19 @@ func map_color(x: float, z: float) -> Color:
 	var shade: float = clampf(0.8 + (-dx - dz) * 0.1, 0.5, 1.15)
 	var color: Color = colors[iz * resolution + ix]
 	return Color(color.r * shade, color.g * shade, color.b * shade)
+
+
+func _stain(color: Color, stain: Dictionary, x: float, z: float, variation: float) -> Color:
+	var at: Vector2 = stain["at"]
+	var radius: float = stain["radius"]
+	var d: float = Vector2(x - at.x, z - at.y).length()
+	if d > radius * 1.3:
+		return color
+	# Ausgefranster Rand: der Radius schwankt mit dem Rauschen, Übergang über gut ein Drittel des Radius.
+	var edge: float = radius * (0.85 + 0.35 * _detail.get_noise_2d(x * 0.35 + 50.0, z * 0.35))
+	var weight: float = 1.0 - smoothstep(edge * 0.6, edge, d)
+	var tint: Color = (stain["color"] as Color).lerp(color, 0.15 + 0.2 * variation)
+	return color.lerp(tint, clampf(weight, 0.0, 0.95))
 
 
 ## Bodenfarbe (sRGB) am nächsten Gitterpunkt.

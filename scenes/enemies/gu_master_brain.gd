@@ -15,8 +15,10 @@ var _think_left: float = 0.0
 var _fist_cooldown: float = 0.0
 var _strafe_sign: float = 1.0
 var _wish: Vector3 = Vector3.ZERO
-## Angriff in Vorbereitung (Index, feste Richtung, Restzeit).
+## Angriff in Vorbereitung (Index, feste Richtung, Restzeit); _pending_killer ist ein Killer Move (GuMasterKillers).
 var _pending: int = -1
+var _pending_killer: Dictionary = {}
+var _killer_wait: float = 0.0
 var _pending_aim: Vector3 = Vector3.FORWARD
 var _pending_left: float = 0.0
 
@@ -28,6 +30,14 @@ func _init(owner_master: GuMaster) -> void:
 ## Liefert die Laufrichtung; entscheidet in festen Abständen neu (Reaktionszeit).
 func tick(delta: float, foe: Combatant) -> Vector3:
 	_fist_cooldown = maxf(0.0, _fist_cooldown - delta)
+	_killer_wait = maxf(0.0, _killer_wait - delta)
+	if not _pending_killer.is_empty():
+		_pending_left -= delta
+		if _pending_left <= 0.0:
+			GuMasterKillers.execute(master, _pending_killer, _pending_aim, foe)
+			_pending_killer = {}
+			_think_left = 0.0
+		return Vector3.ZERO
 	if _pending >= 0:
 		_pending_left -= delta
 		if _pending_left <= 0.0:
@@ -55,6 +65,8 @@ func _decide(foe: Combatant) -> Vector3:
 		var defend: int = master.ready_index(DEFEND_FORMS)
 		if defend >= 0 and master.use_gu(defend, toward, foe):
 			return Vector3.ZERO
+	if _try_killer(foe, distance):
+		return Vector3.ZERO
 	var close: int = master.ready_index(CLOSE_FORMS)
 	if close >= 0 and distance <= close_reach(close) * 0.9:
 		_wind_up(close, toward)
@@ -79,6 +91,26 @@ func close_reach(index: int) -> float:
 		GuForms.FORM_CONE, GuForms.FORM_CHARGE, GuCaster.FORM_STAB:
 			return float(family.base_r1.get(&"reichweite", CLOSE_RANGE))
 	return float(family.base_r1.get(&"radius", CLOSE_RANGE)) + 0.4
+
+
+## Killer Move, wenn einer bereit ist und der Gegner nah genug steht: lange Ausholzeit mit großem Warnkreis
+## (Ausweichen oder Unterbrechen ist die Antwort des Spielers).
+func _try_killer(foe: Combatant, distance: float) -> bool:
+	var b: BalanceData = Balance.values
+	if _killer_wait > 0.0 or distance > b.master_killer_range:
+		return false
+	for option: Dictionary in master.killer_options:
+		if not GuMasterKillers.is_ready(master, option):
+			continue
+		var move: KillerMoveData = option["move"]
+		_pending_killer = option
+		_pending_aim = (foe.aim_point() - master.aim_point()).normalized()
+		_pending_left = b.master_cast_windup + maxf(move.channel_time, b.master_killer_windup)
+		_killer_wait = b.master_killer_cooldown
+		Telegraph.show_disc(master.get_tree(), foe.global_position, b.killer_radius, _pending_left)
+		EventBus.floating_text.emit(tr("%s sammelt Kraft …") % master.display_title(), master.aim_point() + Vector3.UP * 1.2, Color(1.0, 0.5, 0.3))
+		return true
+	return false
 
 
 ## Ausholen: Richtung wird jetzt festgelegt, der Gu wirkt erst nach der Vorwarnzeit.

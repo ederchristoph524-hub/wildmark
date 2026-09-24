@@ -3,11 +3,10 @@ extends RefCounted
 ## Besondere Orte eines Gebiets (gebiete.json → orte): Aschefeld, Frostquelle, alter Friedhof (Materialquellen),
 ## Seen, die Geisterquelle (Kultivieren doppelt so schnell) und Erbschaften mit Opfergabe, Wächtern und Belohnung.
 
+## Bodenfarbe der Materialorte (als Terrain.stains in den Boden gemalt).
 const GROUND_COLORS: Dictionary[StringName, Color] = {
-	&"aschefeld": Color(0.16, 0.15, 0.14), &"frostquelle": Color(0.75, 0.88, 0.95), &"friedhof": Color(0.3, 0.3, 0.27),
+	&"aschefeld": Color(0.2, 0.19, 0.18), &"frostquelle": Color(0.6, 0.7, 0.78), &"friedhof": Color(0.33, 0.31, 0.26),
 }
-const GRAVE_COLOR: Color = Color(0.5, 0.5, 0.48)
-const ICE_COLOR: Color = Color(0.7, 0.92, 1.0)
 
 
 ## Baut einen Ort; Seen müssen vorher im Gelände eingetragen sein (World).
@@ -17,13 +16,16 @@ static func build(world: World, place: Dictionary) -> void:
 	var name_text: String = place["name"]
 	match place["type"]:
 		&"aschefeld", &"frostquelle", &"friedhof":
-			_ground_patch(world, center, radius, GROUND_COLORS[place["type"]])
+			# Der Boden ist über Terrain.stains eingefärbt (World trägt die Orte vor dem Geländebau ein).
 			for i: int in int(place["count"]):
 				world.add_resource(place["item"], 1, world.random_point_near(center, radius * 0.9))
-			if place["type"] == &"friedhof":
-				_graves(world, center, radius)
-			elif place["type"] == &"frostquelle":
-				_ice(world, center, radius)
+			match place["type"]:
+				&"friedhof":
+					PlaceDecor.graveyard(world, center, radius)
+				&"frostquelle":
+					PlaceDecor.frost_spring(world, center, radius)
+				_:
+					PlaceDecor.ash_field(world, center, radius)
 			_sign(world, center, name_text)
 		&"see":
 			WaterSurface.lake(world, world.terrain.lake_at(center), world.terrain.biome.water, 0.0)
@@ -41,40 +43,6 @@ static func build(world: World, place: Dictionary) -> void:
 	world.add_poi(world.ground_point(center.x, center.y), MapData.KIND_PLACE, Loc.t(name_text))
 
 
-## Flache, eingefärbte Scheibe, die dem Gelände grob folgt.
-static func _ground_patch(world: World, center: Vector2, radius: float, color: Color) -> void:
-	var b := MeshBuilder.new()
-	var steps: int = 5
-	for ix: int in range(-steps, steps + 1):
-		for iz: int in range(-steps, steps + 1):
-			var offset := Vector2(ix, iz) * (radius / steps)
-			if offset.length() > radius:
-				continue
-			var point: Vector3 = world.ground_point(center.x + offset.x, center.y + offset.y)
-			b.add(MeshBuilder.cylinder(radius / steps * 0.9, radius / steps * 0.9, 0.1, 6), MeshBuilder.at(point + Vector3.UP * 0.03), color)
-	var node := MeshInstance3D.new()
-	node.mesh = b.build()
-	node.material_override = WorldMaterials.vertex_colored()
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	world.add_child(node)
-
-
-static func _graves(world: World, center: Vector2, radius: float) -> void:
-	var b := MeshBuilder.new()
-	for i: int in 7:
-		var point: Vector3 = world.random_point_near(center, radius)
-		b.add(MeshBuilder.box(Vector3(0.6, 1.0, 0.2)), MeshBuilder.at(point + Vector3.UP * 0.45, Vector3.ONE, Vector3(0, randf() * 0.6, randf_range(-0.15, 0.15))), GRAVE_COLOR)
-	_add(world, b.build(), WorldMaterials.vertex_colored())
-
-
-static func _ice(world: World, center: Vector2, radius: float) -> void:
-	var b := MeshBuilder.new()
-	for i: int in 9:
-		var point: Vector3 = world.random_point_near(center, radius)
-		b.add(MeshBuilder.cylinder(0.0, 0.35, randf_range(0.8, 1.8), 5), MeshBuilder.at(point + Vector3.UP * 0.5, Vector3.ONE, Vector3(randf_range(-0.3, 0.3), 0, randf_range(-0.3, 0.3))), Color.WHITE)
-	_add(world, b.build(), WorldMaterials.glowing(ICE_COLOR))
-
-
 static func _sign(world: World, center: Vector2, title: String) -> void:
 	var label := Label3D.new()
 	label.text = Loc.t(title)
@@ -85,10 +53,3 @@ static func _sign(world: World, center: Vector2, title: String) -> void:
 	label.visibility_range_end = 45.0
 	world.add_child(label)
 	label.position = world.ground_point(center.x, center.y) + Vector3.UP * 3.5
-
-
-static func _add(world: World, mesh: ArrayMesh, material: Material) -> void:
-	var node := MeshInstance3D.new()
-	node.mesh = mesh
-	node.material_override = material
-	world.add_child(node)

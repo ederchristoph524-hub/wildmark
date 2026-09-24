@@ -8,5 +8,5 @@ id = &"wu_aeltester"
 display_name = "Wu-Ältester"
 color = Color(0.5019608, 0.1254902, 0.1254902, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"mondlicht", &"frostnadel", &"knallsamen", &"lebensblatt", &"wasserlicht"])
+gu = Array[StringName]([&"mondlicht", &"frostnadel", &"wirbelwind", &"lebensblatt", &"wasserlicht"])
 rank = 5

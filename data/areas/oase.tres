@@ -62,6 +62,7 @@ settlements = Array[Dictionary]([{
 "type": &"zeltlager"
 }])
 places = Array[Dictionary]([{
+"accent": Color(1, 0.6901961, 0.1882353, 1),
 "count": 0,
 "guards": Array[StringName]([&"sandwurm", &"wuestenskorpion", &"wuestenskorpion", &"obsidian"]),
 "id": &"duenentempel",
@@ -84,9 +85,11 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([])
 },
+"style": &"tempel",
 "text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter.",
 "type": &"erbe"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 12,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
@@ -101,9 +104,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"aschefeld"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -118,9 +123,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -135,6 +142,7 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }])

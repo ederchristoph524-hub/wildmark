@@ -77,6 +77,7 @@ settlements = Array[Dictionary]([{
 "type": &"klan_dorf"
 }])
 places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
@@ -91,9 +92,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"geisterquelle"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
@@ -108,9 +111,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"see"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 9,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
@@ -125,9 +130,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"aschefeld"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"frostquelle",
@@ -142,9 +149,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"frostquelle"
 }, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
 "count": 7,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
@@ -159,9 +168,11 @@ places = Array[Dictionary]([{
 "items": {},
 "support": Array[StringName]([])
 },
+"style": &"hoehle",
 "text": "",
 "type": &"friedhof"
 }, {
+"accent": Color(0.9098039, 0.7529412, 0.4392157, 1),
 "count": 0,
 "guards": Array[StringName]([&"wolf", &"wolf", &"eber"]),
 "id": &"blumenwein",
@@ -182,6 +193,7 @@ places = Array[Dictionary]([{
 },
 "support": Array[StringName]([&"liquor"])
 },
+"style": &"hoehle",
 "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter.",
 "type": &"erbe"
 }])
