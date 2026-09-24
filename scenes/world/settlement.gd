@@ -105,7 +105,7 @@ static func _houses(b: MeshBuilder, boxes: Array[Array], base: Transform3D, radi
 		if absf(slot.x) < radius * 0.45 and slot.y > -radius * 0.2:
 			facing = -PI * 0.5 if slot.x > 0.0 else PI * 0.5
 		var t := base * Transform3D(Basis(Vector3.UP, facing), Vector3(slot.x, 0, slot.y))
-		boxes.append_array(Architecture.house(b, t, width, depth, palette))
+		boxes.append_array(HouseStyles.build(b, t, width, depth, palette, rng))
 
 
 static func _slot_free(slot: Vector2, radius: float, hall_size: Vector2) -> bool:

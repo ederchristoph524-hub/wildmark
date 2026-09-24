@@ -23,7 +23,8 @@
     "detail": 0.9,
     "berge": 20,
     "rand": 55,
-    "randhoehe": 42
+    "randhoehe": 42,
+    "horizont": 170
    },
    "ankunft": [
     0,
@@ -502,14 +503,14 @@
   "dschungel_berg": {
    "n": "Bergdschungel der Südlichen Grenze",
    "farben": {
-    "gras_dunkel": "#335e38",
-    "gras_hell": "#578f47",
-    "moos": "#667f33",
-    "erde": "#6b5638",
+    "gras_dunkel": "#3a6331",
+    "gras_hell": "#6a9446",
+    "moos": "#77833a",
+    "erde": "#6b5a40",
     "fels": "#5d5c55",
     "gipfel": "#8a8a80",
-    "weg": "#8a7350",
-    "platz": "#9a8a6a"
+    "weg": "#8d7b5e",
+    "platz": "#a09071"
    },
    "vegetation": {
     "laubbaum": 0.3,
@@ -521,11 +522,11 @@
    "buesche_pro_1000m2": 4.5,
    "gras_pro_1000m2": 30,
    "felsen_pro_1000m2": 1.4,
-   "himmel": "#9fd4b0",
-   "himmel_oben": "#5c99b8",
-   "nebel": "#9ec7a8",
-   "nebel_dichte": 0.0032,
-   "wasser": "#2c6f6a"
+   "himmel": "#c4dadb",
+   "himmel_oben": "#4f8cc6",
+   "nebel": "#b0c7cf",
+   "nebel_dichte": 0.0019,
+   "wasser": "#2a6670"
   }
  }
 }

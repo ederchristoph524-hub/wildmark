@@ -23,13 +23,16 @@ func run(scene_tree: SceneTree) -> void:
 	main.hud.visible = false
 	GameState.time_of_day = 0.28
 	_camera = Camera3D.new()
-	_camera.far = 800.0
+	_camera.near = PlayerCamera.VIEW_NEAR
+	_camera.far = PlayerCamera.VIEW_FAR
 	main.world.add_child(_camera)
 	_camera.current = true
 	var world: World = main.world
 	var views: Array[Array] = _views(world)
+	var only: PackedStringArray = _only_arg()
 	for view: Array in views:
-		await _view(view[0], view[1], view[2])
+		if only.is_empty() or String(view[0]) in only:
+			await _view(view[0], view[1], view[2])
 	tree.quit()
 
 
@@ -38,6 +41,14 @@ func _area_arg() -> StringName:
 		if arg.begins_with("--area="):
 			return StringName(arg.trim_prefix("--area="))
 	return &"qing_mao"
+
+
+## --only=name1,name2 beschränkt den Rundgang auf diese Aussichtspunkte.
+func _only_arg() -> PackedStringArray:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--only="):
+			return arg.trim_prefix("--only=").split(",")
+	return PackedStringArray()
 
 
 ## Aussichtspunkte: [Name, Kameraposition, Blickziel].
@@ -57,6 +68,7 @@ func _views(world: World) -> Array[Array]:
 		var target: Vector3 = world.ground_point(p.x, p.y)
 		var distance: float = float(place["radius"]) * 1.6 + 8.0
 		result.append([String(place["id"]), target + Vector3(distance * 0.7, distance * 0.45, distance), target])
+	result.append(["horizont", world.spawn_point() + Vector3.UP * 1.2, world.spawn_point() + Vector3(0.0, 8.0, 200.0)])
 	result.append(["wildnis", world.ground_point(-60.0, 120.0) + Vector3.UP * 1.8, world.ground_point(-110.0, 60.0) + Vector3.UP * 4.0])
 	return result
 

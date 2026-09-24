@@ -26,7 +26,7 @@ static func lake(world: World, lake_data: Vector4, color: Color, glow: float) ->
 static func material(color: Color, glow: float) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = WATER_SHADER
-	mat.set_shader_parameter(&"shallow_color", color.lightened(0.25))
-	mat.set_shader_parameter(&"deep_color", color.darkened(0.45))
+	mat.set_shader_parameter(&"shallow_color", color.lightened(0.1))
+	mat.set_shader_parameter(&"deep_color", color.darkened(0.55))
 	mat.set_shader_parameter(&"glow", glow)
 	return mat

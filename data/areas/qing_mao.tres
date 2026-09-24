@@ -18,6 +18,7 @@ relief = Dictionary[StringName, float]({
 &"detail": 0.9,
 &"frequenz": 0.0045,
 &"hoehe": 13.0,
+&"horizont": 170.0,
 &"rand": 55.0,
 &"randhoehe": 42.0
 })

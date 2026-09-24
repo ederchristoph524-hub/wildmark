@@ -70,6 +70,7 @@ func _ready() -> void:
 	for cz: int in chunks:
 		for cx: int in chunks:
 			add_child(_build_chunk(cx, cz))
+	add_child(TerrainBackdrop.build(self, _material))
 	var shape := HeightMapShape3D.new()
 	shape.map_width = resolution
 	shape.map_depth = resolution
@@ -302,6 +303,14 @@ func map_color(x: float, z: float) -> Color:
 	var shade: float = clampf(0.8 + (-dx - dz) * 0.1, 0.5, 1.15)
 	var color: Color = colors[iz * resolution + ix]
 	return Color(color.r * shade, color.g * shade, color.b * shade)
+
+
+## Bodenfarbe (sRGB) am nächsten Gitterpunkt.
+func ground_color(x: float, z: float) -> Color:
+	var half: float = size * 0.5
+	var ix: int = clampi(roundi((x + half) / CELL), 0, resolution - 1)
+	var iz: int = clampi(roundi((z + half) / CELL), 0, resolution - 1)
+	return colors[iz * resolution + ix]
 
 
 ## Kantenlänge des Gebiets (für Karten).

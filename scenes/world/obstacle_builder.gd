@@ -9,6 +9,7 @@ const THORN: Color = Color(0.45, 0.35, 0.2)
 const WATER: Color = Color(0.2, 0.45, 0.75, 0.75)
 const ICE: Color = Color(0.8, 0.95, 1.0)
 const BOULDER: Color = Color(0.45, 0.43, 0.4)
+const MOSS: Color = Color(0.3, 0.4, 0.18)
 const LIGHT_SEAL: Color = Color(1.0, 0.95, 0.6)
 const BLOOD_SEAL: Color = Color(0.8, 0.1, 0.12)
 const WALL_HEIGHT: float = 3.0
@@ -28,6 +29,7 @@ static func wall_ring(parent: Node3D, world: World, center: Vector3, radius: flo
 		var size := Vector3(radius * TAU / SEGMENTS * 1.1, WALL_HEIGHT, 0.8)
 		var transform := Transform3D(Basis(Vector3.UP, -angle + PI * 0.5), point + Vector3.UP * WALL_HEIGHT * 0.45)
 		b.add(MeshBuilder.box(size), transform, color.darkened(randf() * 0.1))
+		_ruin_details(b, transform, size, color)
 		var shape := CollisionShape3D.new()
 		var box := BoxShape3D.new()
 		box.size = size
@@ -35,6 +37,20 @@ static func wall_ring(parent: Node3D, world: World, center: Vector3, radius: flo
 		shape.transform = transform
 		body.add_child(shape)
 	_mesh(body, b.build(), WorldMaterials.vertex_colored())
+
+
+## Verwitterte Mauer: Steinfugen, Deckstein, teils eingestürzte Zinnen und Moos obenauf.
+static func _ruin_details(b: MeshBuilder, transform: Transform3D, size: Vector3, color: Color) -> void:
+	var top: float = size.y * 0.5
+	for level: float in [-size.y * 0.17, size.y * 0.17]:
+		b.add(MeshBuilder.box(Vector3(size.x, 0.07, size.z + 0.04)), transform * MeshBuilder.at(Vector3(0, level, 0)), color.darkened(0.28))
+	b.add(MeshBuilder.box(Vector3(size.x + 0.15, 0.22, size.z + 0.2)), transform * MeshBuilder.at(Vector3(0, top + 0.1, 0)), color.darkened(0.15))
+	for merlon: float in [-0.3, 0.3]:
+		if randf() < 0.6:
+			var height: float = randf_range(0.3, 0.7)
+			b.add(MeshBuilder.box(Vector3(0.9, height, size.z)), transform * MeshBuilder.at(Vector3(merlon * size.x, top + 0.2 + height * 0.5, 0)), color.darkened(0.05))
+	if randf() < 0.5:
+		b.add(MeshBuilder.box(Vector3(size.x * 0.45, 0.1, size.z + 0.24)), transform * MeshBuilder.at(Vector3(randf_range(-0.25, 0.25) * size.x, top + 0.24, 0)), MOSS)
 
 
 ## Ring aus Blocker-Formen als Kinder des Hindernisses (verschwinden beim Öffnen); visible = Mesh erzeugen.

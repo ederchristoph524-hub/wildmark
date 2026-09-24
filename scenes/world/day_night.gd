@@ -8,10 +8,15 @@ const SKY_NIGHT: Color = Color(0.07, 0.11, 0.1)
 const SKY_TOP_NIGHT: Color = Color(0.02, 0.03, 0.06)
 const FOG_DAY: Color = Color(0.62, 0.78, 0.66)
 const FOG_NIGHT: Color = Color(0.11, 0.17, 0.14)
-const SUN_DAY: Color = Color(1.0, 0.95, 0.85)
+const SUN_DAY: Color = Color(1.0, 0.94, 0.82)
 const SUN_EVENING: Color = Color(1.0, 0.6, 0.35)
 const MOON: Color = Color(0.55, 0.65, 0.9)
 const TRANSITION: float = 0.04
+const SUN_ENERGY_DAY: float = 1.25
+const SUN_ENERGY_NIGHT: float = 0.22
+## Umgebungslicht: halb aus dem Himmel, halb warmes Streulicht (sonst färbt der Himmel alles bläulich).
+const AMBIENT_WARM: Color = Color(0.78, 0.72, 0.62)
+const AMBIENT_SKY_SHARE: float = 0.3
 
 ## Landschaft des Gebiets (Himmel- und Nebelfarben); ohne Angabe die Südliche Grenze.
 var biome: BiomeData = null
@@ -30,12 +35,24 @@ func _ready() -> void:
 	environment.background_mode = Environment.BG_SKY
 	environment.sky = sky
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+	environment.ambient_light_color = AMBIENT_WARM
+	environment.ambient_light_sky_contribution = AMBIENT_SKY_SHARE
 	environment.ambient_light_energy = 0.7
-	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	environment.tonemap_exposure = 0.9
+	environment.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
+	environment.tonemap_mode = Environment.TONE_MAPPER_ACES
+	environment.tonemap_exposure = 1.0
+	environment.tonemap_white = 6.0
+	environment.adjustment_enabled = true
+	environment.adjustment_saturation = 1.04
+	environment.adjustment_contrast = 1.06
 	environment.fog_enabled = true
 	environment.fog_density = 0.012
-	environment.fog_sky_affect = 0.6
+	environment.fog_sky_affect = 0.45
+	environment.fog_sun_scatter = 0.18
+	_sky_material.sun_angle_max = 18.0
+	_sky_material.sun_curve = 0.12
+	_sky_material.sky_curve = 0.1
+	_sky_material.ground_curve = 0.04
 	var world_environment := WorldEnvironment.new()
 	world_environment.environment = environment
 	add_child(world_environment)
@@ -74,7 +91,7 @@ func _apply(time: float) -> void:
 	sun.rotation = Vector3(-elevation, lerpf(-1.3, 1.3, arc), 0.0)
 	var evening: float = 1.0 - clampf(sin(arc * PI) * 3.0, 0.0, 1.0)
 	sun.light_color = MOON.lerp(SUN_DAY.lerp(SUN_EVENING, evening), daylight)
-	sun.light_energy = lerpf(0.25, 0.85, daylight)
+	sun.light_energy = lerpf(SUN_ENERGY_NIGHT, SUN_ENERGY_DAY, daylight)
 	sun.shadow_enabled = daylight > 0.3
 	var sky_day: Color = biome.sky if biome != null else SKY_DAY
 	var sky_top_day: Color = biome.sky_top if biome != null else SKY_TOP_DAY
@@ -83,10 +100,10 @@ func _apply(time: float) -> void:
 	_sky_material.sky_horizon_color = SKY_NIGHT.lerp(sky_day, daylight)
 	_sky_material.sky_top_color = SKY_TOP_NIGHT.lerp(sky_top_day, daylight)
 	_sky_material.ground_horizon_color = _sky_material.sky_horizon_color
-	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(Color(0.25, 0.32, 0.25), daylight)
+	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(fog_day.darkened(0.45), daylight)
 	environment.fog_light_color = FOG_NIGHT.lerp(fog_day, daylight)
-	environment.fog_density = lerpf(0.022, fog_density, daylight)
-	environment.ambient_light_energy = lerpf(0.3, 0.4, daylight)
+	environment.fog_density = lerpf(fog_density * 3.0, fog_density, daylight)
+	environment.ambient_light_energy = lerpf(0.35, 0.6, daylight)
 
 
 func _daylight(time: float, day_part: float) -> float:

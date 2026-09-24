@@ -13,6 +13,7 @@ const LANTERN: Color = Color(0.95, 0.3, 0.18)
 const PLINTH: float = 0.4
 const WALL_HEIGHT: float = 3.2
 const EAVE: float = 0.9
+const TILE_ROWS: int = 4
 
 
 ## Wohnhaus: Steinsockel, verputzte Wände mit Holzrahmen, Tür, Gitterfenster, Satteldach mit geschwungenen Traufen.
@@ -149,6 +150,13 @@ static func roof(b: MeshBuilder, t: Transform3D, base: Vector3, width: float, de
 		b.add(MeshBuilder.box(Vector3(0.3, 0.7, 0.3)), t * MeshBuilder.at(base + Vector3(side * (width * 0.5 + 0.1), height + 0.3, 0), Vector3.ONE, Vector3(0, 0, side * 0.35)), color.darkened(0.3))
 		for front: float in [-1.0, 1.0]:
 			b.add(MeshBuilder.box(Vector3(0.9, 0.18, 0.5)), t * MeshBuilder.at(base + Vector3(side * width * 0.5, 0.18, front * depth * 0.5), Vector3.ONE, Vector3(-front * 0.5, 0, -side * 0.5)), color.darkened(0.15))
+	# Ziegelreihen: flache Leisten auf beiden Dachflächen.
+	var slope: float = atan2(height, depth * 0.5)
+	for side: float in [-1.0, 1.0]:
+		for row: int in TILE_ROWS:
+			var f: float = (row + 0.5) / TILE_ROWS
+			var at: Vector3 = base + Vector3(0, height * f + 0.04, side * depth * 0.5 * (1.0 - f))
+			b.add(MeshBuilder.box(Vector3(width - 0.1, 0.07, 0.16)), t * MeshBuilder.at(at, Vector3.ONE, Vector3(side * slope, 0, 0)), color.darkened(0.18))
 	b.add(MeshBuilder.box(Vector3(width - 0.2, 0.2, 0.2)), t * MeshBuilder.at(base + Vector3(0, -0.05, depth * 0.5 - 0.1)), wood)
 	b.add(MeshBuilder.box(Vector3(width - 0.2, 0.2, 0.2)), t * MeshBuilder.at(base + Vector3(0, -0.05, -depth * 0.5 + 0.1)), wood)
 

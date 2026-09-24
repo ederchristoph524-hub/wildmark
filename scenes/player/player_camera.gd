@@ -9,6 +9,9 @@ const PITCH_MAX: float = 0.45
 const ARM_LENGTH: float = 5.5
 const HEIGHT: float = 1.6
 const LOCK_TURN_SPEED: float = 6.0
+## Sichtweite bis zum Gebirgskranz am Horizont (Details blenden vorher per Sichtweite aus).
+const VIEW_NEAR: float = 0.1
+const VIEW_FAR: float = 1500.0
 
 var yaw: float = 0.0
 var pitch: float = -0.35
@@ -25,7 +28,8 @@ func _ready() -> void:
 	add_child(_arm)
 	camera = Camera3D.new()
 	camera.fov = 70.0
-	camera.far = 220.0
+	camera.near = VIEW_NEAR
+	camera.far = VIEW_FAR
 	_arm.add_child(camera)
 	camera.current = true
 	EventBus.camera_look.connect(func(delta: Vector2) -> void: rotate_by(delta * TOUCH_SENSITIVITY))

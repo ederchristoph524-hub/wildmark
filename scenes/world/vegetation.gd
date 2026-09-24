@@ -7,16 +7,11 @@ const SEED: int = 1234
 ## Kachelgröße je Art: große Kacheln für weit sichtbare Bäume (wenige Draw Calls), kleine für Gras (früh ausgeblendet).
 const CHUNK_LARGE: float = 80.0
 const CHUNK_SMALL: float = 30.0
-const TREE_VIEW: float = 150.0
-const TRUNK: Color = Color(0.36, 0.26, 0.17)
-const LEAF_DARK: Color = Color(0.12, 0.27, 0.14)
-const LEAF_MID: Color = Color(0.18, 0.35, 0.16)
-const LEAF_LIGHT: Color = Color(0.27, 0.43, 0.18)
-const BAMBOO: Color = Color(0.42, 0.52, 0.27)
-const BAMBOO_DARK: Color = Color(0.3, 0.4, 0.2)
-const ROCK_COLOR: Color = Color(0.45, 0.45, 0.42)
+const TREE_VIEW: float = 135.0
 ## Oberhalb dieser Höhe wachsen nur noch Nadelbäume.
 const TREE_LINE: float = 18.0
+## Mindestabstand zwischen Stämmen (keine Bäume ineinander).
+const TREE_SPACING: float = 3.2
 
 var terrain: Terrain = null
 var biome: BiomeData = null
@@ -41,14 +36,20 @@ func _ready() -> void:
 	add_child(_colliders)
 	var area_k: float = pow(terrain.size - terrain.area.relief.get(&"rand", 40.0), 2.0) / 1000.0
 	_place_trees(roundi(biome.trees_per_1000 * area_k))
-	_place_chunked(_bush_mesh(), _scatter(roundi(biome.bushes_per_1000 * area_k), 0.6, Vector2(0.7, 1.4)), 70.0, false, CHUNK_LARGE)
-	_place_chunked(_rock_mesh(), _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE)
-	_place_chunked(_grass_mesh(), _scatter(roundi(biome.grass_per_1000 * area_k), 0.5, Vector2(0.7, 1.3)), 32.0, false, CHUNK_SMALL)
+	var bushes: Array[Transform3D] = _scatter(roundi(biome.bushes_per_1000 * area_k), 0.6, Vector2(0.7, 1.4))
+	var half: int = floori(bushes.size() / 2.0)
+	_place_chunked(VegetationMeshes.bush(), bushes.slice(0, half), 70.0, false, CHUNK_LARGE)
+	_place_chunked(VegetationMeshes.fern(), bushes.slice(half), 60.0, false, CHUNK_LARGE)
+	_place_chunked(VegetationMeshes.rock(), _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE)
+	var grass: Array[Transform3D] = _scatter(roundi(biome.grass_per_1000 * area_k), 0.5, Vector2(0.7, 1.3))
+	var flowers: int = floori(grass.size() / 8.0)
+	_place_chunked(VegetationMeshes.grass(), grass.slice(flowers), 32.0, false, CHUNK_SMALL)
+	_place_chunked(VegetationMeshes.flowers(), grass.slice(0, flowers), 32.0, false, CHUNK_SMALL)
 
 
 ## Baumarten nach Biom-Anteilen; über der Baumgrenze nur Nadelbäume.
 func _place_trees(count: int) -> void:
-	var meshes: Dictionary[StringName, Mesh] = {&"laubbaum": _broadleaf_mesh(), &"palme": _palm_mesh(), &"nadelbaum": _cone_tree_mesh(), &"bambus": _bamboo_mesh()}
+	var meshes: Dictionary[StringName, Mesh] = {&"laubbaum": VegetationMeshes.broadleaf(), &"laubbaum_rund": VegetationMeshes.round_tree(), &"palme": VegetationMeshes.palm(), &"nadelbaum": VegetationMeshes.pine(), &"bambus": VegetationMeshes.bamboo()}
 	var kinds: Array[StringName] = []
 	var weights: Array[float] = []
 	for kind: StringName in biome.vegetation:
@@ -58,8 +59,10 @@ func _place_trees(count: int) -> void:
 	if kinds.is_empty():
 		return
 	var per_type: Dictionary[StringName, Array] = {}
-	for placement: Transform3D in _scatter(count, 0.55, Vector2(0.8, 1.35)):
+	for placement: Transform3D in _spaced(_scatter(count, 0.55, Vector2(0.8, 1.35)), TREE_SPACING):
 		var kind: StringName = kinds[_rng.rand_weighted(PackedFloat32Array(weights))] if placement.origin.y < TREE_LINE else &"nadelbaum"
+		if kind == &"laubbaum" and _rng.randf() < 0.45:
+			kind = &"laubbaum_rund"
 		if not per_type.has(kind):
 			per_type[kind] = []
 		per_type[kind].append(placement)
@@ -82,6 +85,27 @@ func _scatter(count: int, max_slope: float, scale_range: Vector2) -> Array[Trans
 		var size: float = _rng.randf_range(scale_range.x, scale_range.y)
 		var orientation := Basis(Vector3.UP, _rng.randf() * TAU).scaled(Vector3.ONE * size)
 		result.append(Transform3D(orientation, Vector3(x, terrain.height_at(x, z) - 0.1, z)))
+	return result
+
+
+## Verwirft Positionen, die näher als spacing an einer schon gewählten liegen (Raster als Suchhilfe).
+func _spaced(placements: Array[Transform3D], spacing: float) -> Array[Transform3D]:
+	var result: Array[Transform3D] = []
+	var grid: Dictionary[Vector2i, Array] = {}
+	for placement: Transform3D in placements:
+		var cell := Vector2i(floori(placement.origin.x / spacing), floori(placement.origin.z / spacing))
+		var free: bool = true
+		for dz: int in range(-1, 2):
+			for dx: int in range(-1, 2):
+				for other: Vector3 in grid.get(cell + Vector2i(dx, dz), []):
+					if Vector2(other.x - placement.origin.x, other.z - placement.origin.z).length() < spacing:
+						free = false
+		if not free:
+			continue
+		if not grid.has(cell):
+			grid[cell] = []
+		grid[cell].append(placement.origin)
+		result.append(placement)
 	return result
 
 
@@ -129,69 +153,3 @@ func _add_trunk_collider(placement: Transform3D, radius: float) -> void:
 	shape.shape = cylinder
 	shape.position = placement.origin + Vector3.UP * 2.0
 	_colliders.add_child(shape)
-
-
-## Bambushain: schlanke, leicht geneigte Halme mit Knoten und hängenden Blattbüscheln (wenige Dreiecke).
-func _bamboo_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	for i: int in 5:
-		var angle: float = i * TAU / 5.0 + 0.3
-		var offset := Vector3(cos(angle), 0.0, sin(angle)) * (0.3 + (i % 3) * 0.28)
-		var height: float = 6.5 + (i % 3) * 1.4
-		var tilt := Vector3(sin(angle) * 0.07, 0.0, -cos(angle) * 0.07)
-		var tip: Vector3 = offset + Basis.from_euler(tilt) * Vector3(0, height, 0)
-		b.add(MeshBuilder.cylinder(0.06, 0.09, height, 4), MeshBuilder.at(offset + Basis.from_euler(tilt) * Vector3(0, height * 0.5, 0), Vector3.ONE, tilt), BAMBOO if i % 2 == 0 else BAMBOO_DARK)
-		for leaf: int in 3:
-			var leaf_angle: float = angle + leaf * 2.1
-			var dir := Vector3(cos(leaf_angle), 0.0, sin(leaf_angle))
-			b.add(MeshBuilder.box(Vector3(0.18, 0.04, 1.3)), Transform3D(Basis(Vector3.UP, -leaf_angle + PI * 0.5) * Basis(Vector3.RIGHT, 0.5), tip - Vector3(0, 0.4 + leaf * 0.5, 0) + dir * 0.5), LEAF_MID if leaf % 2 == 0 else LEAF_LIGHT)
-	return b.build()
-
-
-func _broadleaf_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	b.add(MeshBuilder.cylinder(0.22, 0.38, 5.2), MeshBuilder.at(Vector3(0, 2.6, 0)), TRUNK)
-	b.add(MeshBuilder.sphere(2.3), MeshBuilder.at(Vector3(0, 5.4, 0), Vector3(1.0, 0.5, 1.0)), LEAF_DARK)
-	b.add(MeshBuilder.sphere(1.8), MeshBuilder.at(Vector3(0.9, 6.0, 0.4), Vector3(1.0, 0.55, 1.0)), LEAF_MID)
-	b.add(MeshBuilder.sphere(1.5), MeshBuilder.at(Vector3(-0.8, 6.3, -0.5), Vector3(1.0, 0.6, 1.0)), LEAF_LIGHT)
-	return b.build()
-
-
-func _palm_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	b.add(MeshBuilder.cylinder(0.16, 0.28, 6.5), MeshBuilder.at(Vector3(0.2, 3.25, 0), Vector3.ONE, Vector3(0, 0, 0.06)), TRUNK)
-	for i: int in 6:
-		var angle: float = i * TAU / 6.0
-		var dir := Vector3(cos(angle), 0.0, sin(angle))
-		b.add(MeshBuilder.box(Vector3(0.7, 0.08, 2.6)), MeshBuilder.at(Vector3(0.4, 6.4, 0) + dir * 1.1, Vector3.ONE, Vector3(0.35, -angle + PI * 0.5, 0)), LEAF_MID if i % 2 == 0 else LEAF_LIGHT)
-	return b.build()
-
-
-func _cone_tree_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	b.add(MeshBuilder.cylinder(0.18, 0.3, 2.0), MeshBuilder.at(Vector3(0, 1.0, 0)), TRUNK)
-	b.add(MeshBuilder.cylinder(0.0, 1.9, 3.2, 7), MeshBuilder.at(Vector3(0, 3.2, 0)), LEAF_DARK)
-	b.add(MeshBuilder.cylinder(0.0, 1.4, 2.6, 7), MeshBuilder.at(Vector3(0, 4.8, 0)), LEAF_MID)
-	return b.build()
-
-
-func _bush_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	b.add(MeshBuilder.sphere(0.7, 6, 3), MeshBuilder.at(Vector3(0, 0.45, 0), Vector3(1.2, 0.8, 1.0)), LEAF_MID)
-	b.add(MeshBuilder.sphere(0.5, 6, 3), MeshBuilder.at(Vector3(0.5, 0.55, 0.2)), LEAF_LIGHT)
-	return b.build()
-
-
-func _rock_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	b.add(MeshBuilder.sphere(0.8, 6, 3), MeshBuilder.at(Vector3(0, 0.3, 0), Vector3(1.3, 0.7, 1.0)), ROCK_COLOR)
-	return b.build()
-
-
-func _grass_mesh() -> ArrayMesh:
-	var b := MeshBuilder.new()
-	for i: int in 5:
-		var angle: float = i * TAU / 5.0
-		var height: float = 0.45 + (i % 3) * 0.12
-		b.add(MeshBuilder.cylinder(0.0, 0.05, height, 3), MeshBuilder.at(Vector3(cos(angle) * 0.08, height * 0.5, sin(angle) * 0.08), Vector3.ONE, Vector3(sin(angle) * 0.35, 0, -cos(angle) * 0.35)), LEAF_MID if i % 2 == 0 else LEAF_LIGHT)
-	return b.build()

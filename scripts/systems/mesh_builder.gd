@@ -31,6 +31,29 @@ func add(primitive: PrimitiveMesh, transform: Transform3D, color: Color, custom:
 	return self
 
 
+## Fügt Dreiecke (je drei Punkte) mit flacher Normale hinzu; beidseitig für dünne Blätter.
+func add_triangles(points: PackedVector3Array, color: Color, double_sided: bool = true) -> MeshBuilder:
+	for i: int in range(0, points.size() - 2, 3):
+		var a: Vector3 = points[i]
+		var b: Vector3 = points[i + 1]
+		var c: Vector3 = points[i + 2]
+		var normal: Vector3 = (b - a).cross(c - a).normalized()
+		_triangle(a, b, c, -normal, color)
+		if double_sided:
+			_triangle(a, c, b, normal, color)
+	return self
+
+
+func _triangle(a: Vector3, b: Vector3, c: Vector3, normal: Vector3, color: Color) -> void:
+	var offset: int = _vertices.size()
+	for point: Vector3 in [a, b, c]:
+		_vertices.append(point)
+		_normals.append(normal)
+		_colors.append(color)
+		_custom.append(Vector2.ZERO)
+	_indices.append_array([offset, offset + 1, offset + 2])
+
+
 func build() -> ArrayMesh:
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)

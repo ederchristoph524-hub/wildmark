@@ -23,10 +23,10 @@ void fragment() {
 	NORMAL = normalize((VIEW_MATRIX * vec4(normalize(wave), 0.0)).xyz);
 	float facing = clamp(dot(NORMAL, VIEW), 0.0, 1.0);
 	float fresnel = pow(1.0 - facing, 3.0);
-	vec3 color = mix(deep_color.rgb, shallow_color.rgb, 0.35 + 0.65 * fresnel);
+	vec3 color = mix(deep_color.rgb, shallow_color.rgb, 0.2 + 0.5 * fresnel);
 	ALBEDO = color;
-	ROUGHNESS = 0.08;
-	SPECULAR = 0.7;
+	ROUGHNESS = 0.2;
+	SPECULAR = 0.12 + 0.3 * fresnel;
 	EMISSION = shallow_color.rgb * glow * (0.7 + 0.3 * sin(t * 2.0 + p.x * 0.5));
 	ALPHA = alpha;
 }

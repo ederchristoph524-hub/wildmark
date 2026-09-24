@@ -7,14 +7,14 @@ script = ExtResource("1_pqv3s")
 id = &"dschungel_berg"
 display_name = "Bergdschungel der Südlichen Grenze"
 colors = Dictionary[StringName, Color]({
-&"erde": Color(0.41960785, 0.3372549, 0.21960784, 1),
+&"erde": Color(0.41960785, 0.3529412, 0.2509804, 1),
 &"fels": Color(0.3647059, 0.36078432, 0.33333334, 1),
 &"gipfel": Color(0.5411765, 0.5411765, 0.5019608, 1),
-&"gras_dunkel": Color(0.2, 0.36862746, 0.21960784, 1),
-&"gras_hell": Color(0.34117648, 0.56078434, 0.2784314, 1),
-&"moos": Color(0.4, 0.49803922, 0.2, 1),
-&"platz": Color(0.6039216, 0.5411765, 0.41568628, 1),
-&"weg": Color(0.5411765, 0.4509804, 0.3137255, 1)
+&"gras_dunkel": Color(0.22745098, 0.3882353, 0.19215687, 1),
+&"gras_hell": Color(0.41568628, 0.5803922, 0.27450982, 1),
+&"moos": Color(0.46666667, 0.5137255, 0.22745098, 1),
+&"platz": Color(0.627451, 0.5647059, 0.44313726, 1),
+&"weg": Color(0.5529412, 0.48235294, 0.36862746, 1)
 })
 vegetation = Dictionary[StringName, float]({
 &"bambus": 0.4,
@@ -25,8 +25,8 @@ vegetation = Dictionary[StringName, float]({
 trees_per_1000 = 5.5
 bushes_per_1000 = 4.5
 rocks_per_1000 = 1.4
-sky = Color(0.62352943, 0.83137256, 0.6901961, 1)
-sky_top = Color(0.36078432, 0.6, 0.72156864, 1)
-fog = Color(0.61960787, 0.78039217, 0.65882355, 1)
-fog_density = 0.0032
-water = Color(0.17254902, 0.43529412, 0.41568628, 1)
+sky = Color(0.76862746, 0.85490197, 0.85882354, 1)
+sky_top = Color(0.30980393, 0.54901963, 0.7764706, 1)
+fog = Color(0.6901961, 0.78039217, 0.8117647, 1)
+fog_density = 0.0019
+water = Color(0.16470589, 0.4, 0.4392157, 1)
