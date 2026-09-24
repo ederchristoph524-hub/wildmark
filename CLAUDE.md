@@ -45,6 +45,7 @@ res://
     progression.tres  Ränge, Stufen, Talentgrade (aus fortschritt.json)
     combat/        statuses/, reactions/
     killer_moves/  items/  enemies/  regions/  sects/  quests/
+    npcs/  builds/  gu_masters/   NPC-Arten, Bauteile, NPC-Gu-Meister (aus gegner.json bzw. bauen.json)
   scripts/
     resources/     Resource-Klassen (GuData, KillerMoveData, …)
     components/    wiederverwendbare Node-Komponenten
@@ -70,9 +71,9 @@ docs/
 
 **Datengetrieben:** Inhalte kommen ausschließlich aus `data/`. Ein neuer Gu darf keinen neuen Code erfordern, solange sein Effekttyp schon existiert. Gu-Wirkungen werden über die **Wirkformen** aus `GU_SYSTEM.md` (geschoss, strahl, stich, kreis, selbst, bewegung, zaehmen …) mit Tags und Zuständen umgesetzt, nie als Sonderfall pro Gu. Zustände und Reaktionen sind datengetrieben: Eine neue Reaktion ist ein Tabelleneintrag, kein neuer Code.
 
-**Komponenten statt Vererbungsketten:** `StatusComponent` (Zustände, Stapel, Reaktionen – auch auf Welt-Objekten), `HealthComponent`, `ApertureComponent` (Rang, Stufe, Uressenz, Talent, Wand), `GuHolderComponent` (Besitz, Slots, Hunger, Unterhalt), `DaoComponent`, `HitboxComponent`. Spieler und NPC-Gu-Meister nutzen dieselben Komponenten; der Unterschied ist nur, ob Eingabe oder KI sie steuert.
+**Komponenten statt Vererbungsketten:** `StatusComponent` (Zustände, Stapel, Reaktionen – auch auf Welt-Objekten), `HealthComponent`, `ApertureComponent` (Rang, Stufe, Uressenz, Talent, Wand), `GuHolderComponent` (Besitz, Slots, Hunger, Unterhalt), `LoadoutComponent` (Slot-Wechsel, im Kampf mit Kanalisierung), `TargetingComponent` (weiches Ziel, Fixierung, Antippen), `DaoComponent`, `HitboxComponent`. Spieler und NPC-Gu-Meister folgen denselben Regeln; der Unterschied ist nur, ob Eingabe oder KI sie steuert. Ausnahme bisher: `ApertureComponent` und `GuHolderComponent` lesen `GameState` direkt und gehören nur dem Spieler – `GuMaster` (`scenes/enemies/gu_master.gd`, KI in `gu_master_brain.gd`) rechnet Essenz, Kosten und Cooldowns mit denselben `Formulas` selbst.
 
-**Spielablauf:** `scenes/main.gd` (Startmenü, Sitzung, Menüs mit Pause, Autospeichern, Tod) → `World` (`scenes/world/`: Gelände, Vegetation als MultiMesh-Kacheln, Sammelstellen, Lager, wilde Gu, `EnemySpawner`, `DayNight`) → `Player` (`scenes/player/`) und `Enemy` (`scenes/enemies/`), beide `Combatant` (`scripts/components/combatant.gd`: Team, `HealthComponent`, `StatusComponent`, Treffer). Gu-Wirkungen: `GuCaster` (Wirkformen), `ReactionEffects`, `KillerMoveEffects`, `Projectile` in `scripts/systems/`. Oberfläche in `scenes/ui/`. `DaoComponent` und `HitboxComponent` gibt es noch nicht (Kampfabfragen laufen über Gruppen in `Combat`).
+**Spielablauf:** `scenes/main.gd` (Startmenü, Sitzung, Menüs mit Pause, Autospeichern, Tod) → `World` (`scenes/world/`: Gelände, Vegetation als MultiMesh-Kacheln, Sammelstellen, Lager, wilde Gu, `EnemySpawner`, `DayNight`) → `Player` (`scenes/player/`) und `Enemy` (`scenes/enemies/`), beide `Combatant` (`scripts/components/combatant.gd`: Team, `HealthComponent`, `StatusComponent`, Treffer). Gu-Wirkungen: `GuCaster` (Wirkformen), `ReactionEffects`, `KillerMoveEffects`, `Projectile` in `scripts/systems/`. Oberfläche in `scenes/ui/`. Spielbare Kindheit: `Childhood` (`scripts/systems/childhood.gd`, `GameState.childhood_step`, -1 = erwacht) und `AwakeningMenu`. Duell mit dem Klanlehrer: `GuMaster` + `DuelRewards`; `HealthComponent.floor_hp` verhindert den Tod im Duell. `DaoComponent` und `HitboxComponent` gibt es noch nicht (Kampfabfragen laufen über Gruppen in `Combat`).
 
 **Kern-Resources:**
 - `GuFamilyData`: `id`, `display_name`, `path`, `role`, `form`, `tags`, `status`, `feed_item`, `feed_amount`, `base_r1` (Dictionary), `members` (Array von `GuData`), `upgrade_materials`, `world_effect`
@@ -83,6 +84,7 @@ docs/
 - `GuSystemData`: Tags, Merkmal-Chancen, Start-Familien, Pfadnamen/-farben/-konflikte (`data/gu/gu_system.tres`)
 - `ProgressionData`: Rangnamen und -farben, Stufen, Durchbruchschancen, Rang-Obergrenzen je Talentgrad (`data/progression.tres`)
 - `KillerMoveData`: `id`, `display_name`, `family_a`, `family_b`, `channel_time`, `damage_mult`, `description`, `hint`
+- `GuMasterData`: `id`, `display_name`, `color`, `faction`, `gu` (IDs; der Meister nutzt das Familienmitglied seines Rangs); `NpcTypeData`, `BuildData`
 - `EnemyData` (Beute als `Array[DropEntry]`: jeder Eintrag wird einzeln gewürfelt, gleiche Items dürfen mehrfach vorkommen), `ItemData` (Grundressourcen und Materialien, ein ID-Raum), `RegionData` (ID ist int), `SectData`, `QuestData`
 
 ## Datenimport
@@ -129,7 +131,8 @@ Für Gu wird ausschließlich `gu_system.json` importiert; `gu.json` liefert nur 
 
 - `godot --headless --import --path .`
 - Alle Skripte mit Warnungen als Fehler laden: `godot --headless --path . --script res://tools/check_scripts.gd` (dazu die Warnstufen per `override.cfg` auf 2 setzen; `override.cfg` nie committen).
-- Tests: `tests/test_formulas.gd`, `tests/test_data_import.gd`, `tests/test_data_registry.gd` und der Durchspiel-Test `tests/test_game_smoke.gd` (mit `--fixed-fps 60`), jeweils `godot --headless --path . --script res://tests/<name>.gd`.
+- Tests: `tests/test_formulas.gd`, `tests/test_data_import.gd`, `tests/test_data_registry.gd`, der Durchspiel-Test `tests/test_game_smoke.gd` (Schritte in `game_smoke_steps.gd` und `combat_smoke_steps.gd`) und `tests/test_childhood.gd` (beide mit `--fixed-fps 60`), jeweils `godot --headless --path . --script res://tests/<name>.gd`.
+- Touch in Tests: `InputEventScreenTouch` per `Input.parse_input_event` erwartet Fensterkoordinaten – Viewport-Punkte (z. B. aus `Camera3D.unproject_position`) vorher mit `get_tree().root.get_final_transform()` umrechnen.
 - Bildschirmfotos samt Draw Calls: `xvfb-run godot --path . --rendering-driver opengl3 --fixed-fps 60 --script res://tools/capture_screenshots.gd` → `build/screenshots/`.
 
 ## Performance-Budget (Handy-Browser)

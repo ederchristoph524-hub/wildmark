@@ -103,7 +103,7 @@ Automatisch beim Schlafen, beim Betreten eines Ruheorts und alle 5 Minuten; zus�
 
 **M0 – Fundament:** Godot-Projekt, Struktur, Autoloads, Git, automatischer Web-Export auf GitHub Pages, Eingabe für Touch und Tastatur, Datenimport aus `docs/daten/`.
 
-**Aktueller Stand (erster spielbarer Stand):** Neues Spiel mit Wahl des ersten Gu, Talent und Todesmodus; Dschungelgebiet mit Lager, Sammelstellen und Tag-Nacht; Third-Person-Steuerung für Tastatur und Touch; alle 12 Gu-Familien auf Rang 1 spielbar (als wilde Gu in der Welt verfeinerbar), 6 Zustände, 8 Reaktionen, alle 8 Killer Moves mit Kanalisierung und Eingebung; Hunger und Fütterung; Bestien der Zonen 0–2 mit Telegraphen und Beute; Meditation, Stufen und Durchbruch; Speichern, Laden und Tod nach Modus. Noch offen: Rang 2 und 3 der Familien als eigene Ranggaben, Körper- und Hilfs-Gu, Aufstiegsverfeinerung, Welt-Hindernisse, Klan-Dorf mit NPCs und Quests, Bauen, spielbare Kindheit, Slot-Wechsel im Kampf mit Kanalisierung, Ziel antippen am Handy.
+**Aktueller Stand (M2 inhaltlich vollständig, noch ohne Playtest):** Neues Spiel mit spielbarer oder übersprungener Kindheit (Tutorial im Dorf, Erwachen mit Talenttest und Wahl des ersten Gu), Talent und Todesmodus; Dschungelgebiet mit Klan-Dorf, Sammelstellen, drei besonderen Gebieten und Tag-Nacht; Third-Person-Steuerung für Tastatur und Touch (Ziel antippen am Handy); alle 12 Gu-Familien auf Rang 1–2 mit Ranggaben und Aufstiegsverfeinerung, Körper- und Hilfs-Gu mit Unterhalt und Kapazität; 6 Zustände, 8 Reaktionen, alle 8 Killer Moves mit Kanalisierung und Eingebung; Slot-Wechsel im Kampf nur mit 3 s Kanalisierung; Hunger und Fütterung; Bestien der Zonen 0–2 mit Telegraphen und Beute; sieben Welt-Hindernisse mit versteckten Rang-2-Gu; Klan-Dorf mit NPCs, Händler, Aufgaben und Bauen; Duell gegen einen NPC-Gu-Meister auf Rang 2 (Klanlehrer); Meditation, Stufen und Durchbruch; Speichern, Laden und Tod nach Modus. Offen: Playtest gegen das Erfolgskriterium, Balancing (Essenz, Hunger, Duell-Schwierigkeit), Draw Calls im Dorf (~180–215 statt 150), Killer Moves für NPC-Gu-Meister (Gu-Yue-Meister hat kein Paar).
 
 **M1 – Bewegung und Welt:** Third-Person-Charakter (laufen, springen, Dash, Kamera), kleines Dschungelgebiet mit Vegetation, Tag-Nacht-Zyklus.
 
@@ -144,3 +144,7 @@ Automatisch beim Schlafen, beim Betreten eines Ruheorts und alle 5 Minuten; zus�
 ## Ideen (nicht im aktuellen Meilenstein)
 
 *Hier landen Ideen, die während der Entwicklung aufkommen, damit sie nicht verloren gehen, aber den Scope nicht sprengen.*
+
+- Feindliche Gu-Meister in der Wildnis (Schattensekte, wilde Horde): unterlegen fliehen oder ergeben sie sich – töten, laufen lassen oder ausrauben (KAMPFSYSTEM, Gegner). Der Code dafür steht mit `GuMaster` schon zur Hälfte.
+- Duell-Rangliste im Dorf: nach dem Klanlehrer stärkere Herausforderer (Rang 2 Höchststufe, später Rang 3).
+- Kindheit länger machen: Kampfübung mit Holzschwert gegen eine Ratte, Gespräch mit Eltern, erster Blick auf wilde Gu.
