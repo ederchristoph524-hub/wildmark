@@ -63,6 +63,7 @@ docs/
 - `EventBus` – nur Signale, keine Logik. Systeme kommunizieren darüber statt über direkte Referenzen.
 - `GameState` – alles, was gespeichert wird (Spieler, Welt, Zeit, bekannte Killer Moves, gewählte Startoptionen).
 - `DataRegistry` – lädt beim Start alle Resources aus `data/` und liefert sie per ID (`DataRegistry.gu(&"mondlicht")`).
+  Abfragen: `gu`, `family`, `family_of`, `body_gu`, `support_gu`, `trait_data`, `status`, `reaction`, `killer_move`, `enemy`, `item`, `region` (int), `sect`, `quest`, `gu_system`; Listen: `all(&"enemies")`, `all_gu()`; dazu `has`, `has_gu`, `count`. Unbekannte IDs liefern `null` und einen Fehler im Log. Lädt über `ResourceLoader.list_directory`, damit es auch im Web-Export funktioniert.
 - `SaveSystem` – JSON in `user://`, mit `save_version` und Migrationen bei Formatänderungen.
 - `Balance` – ein Resource mit allen Balancing-Konstanten aus `FORMELN.md`.
 
@@ -85,7 +86,7 @@ docs/
 `tools/import_data.gd` (EditorScript) liest `docs/daten/*.json` und erzeugt bzw. aktualisiert die `.tres`-Dateien in `data/`. Es validiert dabei alle Verweise (Futter, Drops, Killer-Move-Gu, Sekten-Gu) und bricht bei Fehlern mit klarer Meldung ab.
 
 - **Editor:** `tools/import_data.gd` öffnen, „Datei → Ausführen“ (Strg+Umschalt+X).
-- **Headless:** `godot --headless --path . --script res://tools/import_data_cli.gd` (Exit-Code 1 bei Fehlern). Danach `godot --headless --path . --script res://tests/test_data_import.gd`.
+- **Headless:** `godot --headless --path . --script res://tools/import_data_cli.gd` (Exit-Code 1 bei Fehlern). Danach die Tests `res://tests/test_data_import.gd` und `res://tests/test_data_registry.gd` (jeweils mit `--headless --path . --script`).
 - Die Logik liegt in `tools/data_importer.gd` (Ablauf, Schreiben), `gu_import_builder.gd`, `world_import_builder.gd` und `import_validator.gd`.
 - Erst wird alles gebaut und geprüft, dann geschrieben: Bei einem Fehler bleibt `data/` unverändert. Vorhandene UIDs bleiben erhalten; ein zweiter Lauf ohne Datenänderung ändert keine Datei.
 - `.tres`-Dateien, deren ID nicht mehr in den Daten steht, werden nur als Warnung gemeldet, nicht gelöscht.
