@@ -76,7 +76,7 @@ func harvest_hit(_player: Node3D) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(_visual, "scale", Vector3(1.12, 0.9, 1.12), 0.06)
 	tween.tween_property(_visual, "scale", Vector3.ONE, 0.1)
-	if _hits < HITS_NEEDED:
+	if _hits < maxi(1, HITS_NEEDED + roundi(PassiveGu.add("harvest_hits"))):
 		return
 	_hits = 0
 	Pickup.spawn(get_tree(), global_position + Vector3(0, 1.2, 0), {item: amount})

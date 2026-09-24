@@ -19,6 +19,16 @@ const RESOURCE_LAYOUT: Dictionary[StringName, Array] = {
 ## Unsichtbare Grenze hinter dem Randgebirge.
 const BOUND_DISTANCE: float = 112.0
 const BOUND_HEIGHT: float = 120.0
+## Passive Gu in der Wildnis: ID, Art (body/support), Entfernung vom Lager von–bis, versteckt (nur mit Kleines-Licht-Gu sichtbar).
+const WILD_PASSIVES: Array[Array] = [
+	[&"rosaeber", &"body", 30.0, 60.0, false],
+	[&"zehnjin", &"body", 86.0, 95.0, false],
+	[&"liquor", &"support", 25.0, 55.0, false],
+	[&"hoffnung", &"support", 60.0, 90.0, false],
+	[&"kleineslicht", &"support", 30.0, 60.0, false],
+	[&"signal", &"support", 45.0, 80.0, false],
+	[&"stealthstein", &"support", 50.0, 90.0, true],
+]
 const WILD_GU_MIN_DISTANCE: float = 30.0
 const WILD_GU_MAX_DISTANCE: float = 92.0
 
@@ -123,7 +133,22 @@ func _place_wild_gu() -> void:
 		var member: GuData = family.member_for_rank(1)
 		if member == null:
 			continue
-		var wild := WildGu.new()
-		wild.setup(spot, member)
-		add_child(wild)
-		wild.position = point
+		_add_wild(spot, member, point, false)
+	for entry: Array in WILD_PASSIVES:
+		var passive_point: Vector3 = _random_point(float(entry[2]), float(entry[3]))
+		var passive_spot: StringName = StringName("wild_" + String(entry[0]))
+		if passive_spot in GameState.collected_wild_gu:
+			continue
+		var data: Resource = null
+		if entry[1] == &"body":
+			data = DataRegistry.body_gu(entry[0])
+		else:
+			data = DataRegistry.support_gu(entry[0])
+		_add_wild(passive_spot, data, passive_point, bool(entry[4]))
+
+
+func _add_wild(spot: StringName, data: Resource, point: Vector3, is_hidden: bool) -> void:
+	var wild := WildGu.new()
+	wild.setup(spot, data, is_hidden)
+	add_child(wild)
+	wild.position = point

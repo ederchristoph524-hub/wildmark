@@ -175,7 +175,10 @@ func _find_target() -> Combatant:
 		return null
 	var b: BalanceData = Balance.values
 	var center: Vector3 = companion_owner.global_position if is_companion() else global_position
-	var candidates: Array[Combatant] = Combat.in_radius(Combat.hostiles(get_tree(), team), center, b.aggro_radius)
+	var candidates: Array[Combatant] = []
+	for candidate: Combatant in Combat.in_radius(Combat.hostiles(get_tree(), team), center, b.aggro_radius):
+		if candidate.global_position.distance_to(center) <= b.aggro_radius * candidate.aggro_mult + candidate.body_radius:
+			candidates.append(candidate)
 	return Combat.nearest(candidates, global_position)
 
 

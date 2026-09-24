@@ -7,8 +7,7 @@ const FOOD_HEAL: Dictionary[StringName, String] = {&"beeren": "berry_heal", &"fl
 
 static func gu_page(player: Player, refresh: Callable) -> Control:
 	var column := VBoxContainer.new()
-	var capacity: int = Formulas.gu_capacity(Balance.values, GameState.rank, GameState.apt)
-	column.add_child(UiTheme.label(Loc.t("Gu in deiner Apertur: %d / %d. Tippe eine Slot-Nummer, um den Gu dorthin zu legen.") % [GameState.gu.size(), capacity], 17, UiTheme.MUTED))
+	column.add_child(UiTheme.label(Loc.t("Gu in deiner Apertur: %d / %d (mit Hilfs-Gu). Tippe eine Slot-Nummer, um den Gu dorthin zu legen.") % [GameState.held_count(), PassiveGu.capacity()], 17, UiTheme.MUTED))
 	for index: int in GameState.gu.size():
 		column.add_child(_gu_row(player, index, refresh))
 	if GameState.gu.is_empty():

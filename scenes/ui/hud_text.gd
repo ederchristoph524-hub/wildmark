@@ -21,6 +21,8 @@ static func statuses(player: Player) -> String:
 		parts.append(Loc.t("Eingefroren"))
 	for key: StringName in player.reductions:
 		parts.append(Loc.t("Schild %d %%") % roundi(player.reductions[key] * 100.0))
+	if GameState.passives_suspended:
+		parts.append(Loc.t("Hilfs-Gu ruhen"))
 	var stones: int = GameState.item_count(&"kristall")
 	parts.append(Loc.t("Urstein: %d") % stones)
 	return " · ".join(parts)

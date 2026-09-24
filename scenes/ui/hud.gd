@@ -149,6 +149,9 @@ func _update_bars() -> void:
 	_essence_bar.max_value = aperture.capacity()
 	_essence_bar.value = aperture.essence()
 	_essence_text.text = tr("Uressenz %.1f / %.1f") % [aperture.essence(), aperture.capacity()]
+	var upkeep: float = PassiveGu.upkeep()
+	if upkeep > 0.0:
+		_essence_text.text += tr("  (Unterhalt −%.2f/s)") % upkeep
 	_essence_bar.add_theme_stylebox_override(&"fill", UiTheme.box(progression.rank_color(GameState.rank).lightened(0.15), 6, Color(0, 0, 0, 0)))
 	_rank_text.text = "%s · %s · %s %d %%" % [tr(progression.rank_name(GameState.rank)), tr(progression.stage_name(GameState.stage)), tr("Wand"), roundi(GameState.wall * 100.0)]
 	_status_text.text = HudText.statuses(player)

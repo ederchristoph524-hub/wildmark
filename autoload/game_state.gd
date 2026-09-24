@@ -30,6 +30,12 @@ var position: Vector3 = Vector3.ZERO
 var rest_point: Vector3 = Vector3.ZERO
 var inventory: Dictionary[StringName, int] = {}
 var gu: Array[GuInstance] = []
+## Hilfs-Gu (belegen Kapazität, brauchen Futter und Unterhalt).
+var support: Array[GuInstance] = []
+## Eingeprägte Körper-Gu (IDs), dauerhaft und ohne Kosten.
+var body_gu: Array[StringName] = []
+## Apertur leer gelaufen: Hilfs-Gu ruhen, bis wieder genug Essenz da ist (nicht gespeichert).
+var passives_suspended: bool = false
 ## Index in gu je Slot, EMPTY_SLOT = leer.
 var slots: Array[int] = []
 var known_killer_moves: Array[StringName] = []
@@ -61,6 +67,9 @@ func reset(options: Dictionary) -> void:
 	rest_point = position
 	inventory = {}
 	gu = []
+	support = []
+	body_gu = []
+	passives_suspended = false
 	slots = []
 	slots.resize(SLOT_COUNT)
 	slots.fill(EMPTY_SLOT)
@@ -137,6 +146,7 @@ func to_dict() -> Dictionary:
 			"bonus_hp": bonus_hp, "bonus_damage": bonus_damage,
 			"position": _vec_to_array(position), "rest_point": _vec_to_array(rest_point),
 			"inventory": _names_to_strings(inventory), "gu": gu_list, "slots": slots,
+			"support": _instances_to_list(support), "body_gu": body_gu,
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
 			"collected_wild_gu": collected_wild_gu, "loot_sack": _sack_to_dict(),
 		},
@@ -175,6 +185,10 @@ func _player_from_dict(p: Dictionary) -> void:
 	for entry: Variant in p.get("gu", []):
 		if entry is Dictionary:
 			gu.append(GuInstance.from_dict(entry))
+	for entry: Variant in p.get("support", []):
+		if entry is Dictionary:
+			support.append(GuInstance.from_dict(entry))
+	body_gu = _strings_to_names(p.get("body_gu", []))
 	var saved_slots: Array = p.get("slots", [])
 	for i: int in mini(saved_slots.size(), SLOT_COUNT):
 		var index: int = int(saved_slots[i])
@@ -194,6 +208,18 @@ func _sack_to_dict() -> Dictionary:
 	if loot_sack.is_empty():
 		return {}
 	return {"position": _vec_to_array(loot_sack["position"]), "items": _names_to_strings(loot_sack["items"])}
+
+
+static func _instances_to_list(list: Array[GuInstance]) -> Array:
+	var result: Array = []
+	for instance: GuInstance in list:
+		result.append(instance.to_dict())
+	return result
+
+
+## Alle Gu, die Platz in der Apertur belegen (Familien- und Hilfs-Gu).
+func held_count() -> int:
+	return gu.size() + support.size()
 
 
 static func _vec_to_array(v: Vector3) -> Array:

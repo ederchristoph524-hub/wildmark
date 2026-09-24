@@ -61,7 +61,7 @@ func _ready() -> void:
 
 
 func _max_hp() -> float:
-	return Balance.values.player_base_hp + GameState.bonus_hp
+	return Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
 
 
 func _physics_process(delta: float) -> void:
@@ -69,6 +69,7 @@ func _physics_process(delta: float) -> void:
 	if is_dead():
 		return
 	_update_timers(delta)
+	_apply_passives()
 	targeting.view_forward = camera_rig.flat_forward()
 	var move_input: Vector2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back") if input_enabled else Vector2.ZERO
 	var wish: Vector3 = camera_rig.flat_right() * move_input.x - camera_rig.flat_forward() * move_input.y
@@ -206,7 +207,7 @@ func fist() -> void:
 	_fist_cooldown = b.fist_cooldown
 	var forward: Vector3 = aim_direction() if targeting.soft_target != null else _facing
 	_face(forward)
-	var hit := HitInfo.create(b.player_base_damage + GameState.bonus_damage, self, team)
+	var hit := HitInfo.create(b.player_base_damage + GameState.bonus_damage + flat_damage, self, team)
 	hit.is_fist = true
 	hit.can_react = false
 	var targets: Array[Combatant] = Combat.in_cone(Combat.hostiles(get_tree(), team), global_position, forward, b.fist_range, FIST_ANGLE)
@@ -283,39 +284,21 @@ func dash_to(point: Vector3) -> void:
 
 
 func eat_stone() -> void:
-	if not _can_act():
-		return
-	if GameState.item_count(STONE_ITEM) <= 0:
-		EventBus.message.emit(tr("Kein Urstein im Gepäck"), Color(1.0, 0.6, 0.4))
-		return
-	if aperture.ratio() >= 0.99:
-		EventBus.message.emit(tr("Deine Apertur ist schon voll"), Color(0.8, 0.9, 0.8))
-		return
-	_cancel_idle_actions()
-	eat_time_left = Balance.values.stone_eat_time
+	if _can_act() and PlayerActions.can_eat_stone(self):
+		_cancel_idle_actions()
+		eat_time_left = Balance.values.stone_eat_time
 
 
 func _finish_eating() -> void:
-	if GameState.take_item(STONE_ITEM, 1):
-		aperture.gain(aperture.capacity() * Balance.values.stone_essence_fraction)
-		EventBus.message.emit(tr("Urstein aufgenommen"), Color(0.5, 0.9, 1.0))
+	PlayerActions.finish_eating(self)
 
 
 func toggle_meditation() -> void:
 	if aperture.meditating:
 		aperture.set_meditating(false)
-		return
-	if not is_on_floor() or not _can_act():
-		return
-	var danger: float = Balance.values.meditation_danger_radius
-	if not Combat.in_radius(Combat.hostiles(get_tree(), team), global_position, danger).is_empty():
-		EventBus.message.emit(tr("Zu gefährlich zum Meditieren – Bestien in der Nähe"), Color(1.0, 0.36, 0.45))
-		return
-	if GameState.stage >= Balance.values.max_stage:
-		EventBus.message.emit(tr("Höchststufe – jetzt hilft nur der Durchbruch"), Color(0.8, 0.9, 0.8))
-		return
-	aperture.set_meditating(true)
-	EventBus.message.emit(tr("Du meditierst und leitest Uressenz gegen die Aperturwand …"), Color(0.8, 0.9, 1.0))
+	elif is_on_floor() and _can_act() and PlayerActions.can_meditate(self):
+		aperture.set_meditating(true)
+		EventBus.message.emit(tr("Du meditierst und leitest Uressenz gegen die Aperturwand …"), Color(0.8, 0.9, 1.0))
 
 
 func interact() -> void:
@@ -326,6 +309,17 @@ func interact() -> void:
 
 func nearest_interactable() -> Node3D:
 	return WorldInteraction.nearest(self, GROUP_INTERACTABLES, INTERACT_RANGE)
+
+
+## Körper- und Hilfs-Gu auf die Figur übertragen (Schaden, Leben, Schutz, Tarnung, Licht).
+func _apply_passives() -> void:
+	flat_damage = PassiveGu.body(&"grundschaden")
+	aggro_mult = PassiveGu.mult("aggro_mult")
+	var body_reduction: float = -PassiveGu.body(&"schaden_erlitten")
+	if body_reduction > 0.0:
+		reductions[&"body"] = body_reduction
+	health.max_hp = _max_hp()
+	PlayerLight.update(self, PassiveGu.flag("light") and Formulas.is_night(Balance.values, GameState.time_of_day))
 
 
 func _face(direction: Vector3) -> void:

@@ -187,7 +187,7 @@ func _test_progress() -> void:
 	await _clear_enemies()
 	var wild: WildGu = null
 	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
-		if node is WildGu:
+		if node is WildGu and (node as WildGu).gu is GuData:
 			wild = node
 	_check(wild != null, "wilder Gu in der Welt")
 	GameState.essence = player.aperture.capacity()
@@ -207,11 +207,29 @@ func _test_progress() -> void:
 	GameState.essence = player.aperture.capacity()
 	_check(player.aperture.break_through(0.0) and GameState.rank == 2, "Durchbruch auf Rang 2")
 	await _test_upgrade()
+	await _test_passives()
 	var instance: GuInstance = GameState.gu[0]
 	instance.satiety = 0.0
 	_check(player.holder.blocked_reason(instance) != "", "ausgehungerter Gu ist blockiert")
 	GameState.add_item(player.holder.feed_item(instance), 10)
 	_check(player.holder.feed(0) and instance.satiety >= 99.0, "Füttern macht satt")
+
+
+func _test_passives() -> void:
+	GameState.essence = player.aperture.capacity()
+	_check(GuRefining.refine(DataRegistry.body_gu(&"rosaeber"), player.aperture, 0.0) != null and &"rosaeber" in GameState.body_gu, "Rosa-Eber eingeprägt")
+	await _frames(2)
+	_check(is_equal_approx(player.flat_damage, 4.0), "Körper-Gu gibt +4 Schaden")
+	var regen_before: float = player.aperture.regeneration()
+	GameState.essence = player.aperture.capacity()
+	var support_before: int = GameState.support.size()
+	_check(GuRefining.refine(DataRegistry.support_gu(&"liquor"), player.aperture, 0.0) != null and GameState.support.size() == support_before + 1, "Schnaps-Wurm als Hilfs-Gu")
+	_check(player.aperture.regeneration() > regen_before * 1.3, "Schnaps-Wurm erhöht Regeneration")
+	_check(PassiveGu.upkeep() > 0.0, "Hilfs-Gu kostet Unterhalt")
+	GameState.support[0].satiety = 10.0
+	GameState.add_item(&"beeren", 5)
+	GameState.add_item(&"kristall", 5)
+	_check(player.holder.feed_support(0) and GameState.support[0].satiety > 99.0, "Hilfs-Gu füttern")
 
 
 func _test_upgrade() -> void:
@@ -250,9 +268,12 @@ func _test_death_and_save() -> void:
 	_check(not GameState.loot_sack.is_empty() and GameState.item_count(&"holz") == 0, "Beutesack statt Inventar")
 	_check(SaveSystem.save_game(), "Speichern")
 	var gu_count: int = GameState.gu.size()
+	var support_count: int = GameState.support.size()
+	var body_count: int = GameState.body_gu.size()
 	var rank: int = GameState.rank
 	GameState.reset({})
 	_check(SaveSystem.load_game() and GameState.gu.size() == gu_count and GameState.rank == rank and not GameState.loot_sack.is_empty(), "Laden stellt den Stand wieder her")
+	_check(GameState.support.size() == support_count and GameState.body_gu.size() == body_count and support_count > 0, "Passive Gu werden gespeichert")
 	EventBus.return_to_menu_requested.emit()
 	await _frames(5)
 	EventBus.continue_requested.emit()

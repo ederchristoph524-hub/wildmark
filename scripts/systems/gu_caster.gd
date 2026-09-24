@@ -66,7 +66,8 @@ func cast() -> bool:
 
 ## Treffer mit Schaden, Tags und Zustand der Familie.
 func make_hit(damage_mult: float = 1.0) -> HitInfo:
-	var hit := HitInfo.create(base(&"schaden") * power * damage_mult, caster, caster.team).with_tags(family.tags)
+	var raw: float = base(&"schaden")
+	var hit := HitInfo.create((raw + (caster.flat_damage if raw > 0.0 else 0.0)) * power * damage_mult, caster, caster.team).with_tags(family.tags)
 	if family.status != &"":
 		hit.with_status(family.status, int(base(&"stapel", 1.0)) + extra_stacks)
 	hit.rank_factor = power

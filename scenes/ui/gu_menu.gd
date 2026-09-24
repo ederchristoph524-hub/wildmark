@@ -52,6 +52,7 @@ func refresh() -> void:
 		_tabs.remove_child(child)
 		child.queue_free()
 	_add_tab(tr("Gu"), GuMenuPages.gu_page(player, refresh))
+	_add_tab(tr("Passive Gu"), PassivePage.build(player, refresh))
 	_add_tab(tr("Kombinationsbuch"), GuMenuPages.combo_page())
 	_add_tab(tr("Inventar"), GuMenuPages.inventory_page(player, refresh))
 	_add_tab(tr("Kultivierung"), GuMenuPages.cultivation_page(player, refresh))

@@ -14,11 +14,12 @@ func _init(owner_combatant: Combatant) -> void:
 
 
 func capacity() -> float:
-	return Formulas.essence_cap(Balance.values, GameState.rank, GameState.stage, GameState.apt)
+	return Formulas.essence_cap(Balance.values, GameState.rank, GameState.stage, GameState.apt) * PassiveGu.mult("cap_mult")
 
 
+## Regeneration (Hilfs-Gu wie der Schnaps-Wurm eingerechnet), ohne Unterhalt.
 func regeneration() -> float:
-	return Formulas.essence_regen(Balance.values, capacity(), GameState.apt)
+	return Formulas.essence_regen(Balance.values, capacity(), GameState.apt) * PassiveGu.mult("regen_mult")
 
 
 func essence() -> float:
@@ -46,7 +47,7 @@ func gain(amount: float) -> void:
 
 
 func max_hp() -> float:
-	return Balance.values.player_base_hp + GameState.bonus_hp
+	return Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
 
 
 func _physics_process(delta: float) -> void:
@@ -56,6 +57,22 @@ func _physics_process(delta: float) -> void:
 		_meditate(delta)
 	else:
 		gain(regeneration() * delta)
+	_pay_upkeep(delta)
+
+
+## Unterhalt der Hilfs-Gu; läuft die Apertur leer, ruhen sie, bis wieder etwas Essenz da ist.
+func _pay_upkeep(delta: float) -> void:
+	var upkeep: float = PassiveGu.upkeep()
+	if GameState.passives_suspended:
+		if ratio() >= Balance.values.passive_restart_fraction:
+			GameState.passives_suspended = false
+		return
+	if upkeep <= 0.0:
+		return
+	GameState.essence = maxf(0.0, GameState.essence - upkeep * delta)
+	if GameState.essence <= 0.0:
+		GameState.passives_suspended = true
+		EventBus.message.emit(tr("Zu viele Gu – deine Essenz reicht nicht für den Unterhalt. Hilfs-Gu ruhen."), Color(1.0, 0.36, 0.45))
 
 
 func set_meditating(active: bool) -> void:

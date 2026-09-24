@@ -29,20 +29,33 @@ static func roll_trait(roll: float = -1.0, pick: float = -1.0) -> StringName:
 	return pool.back().id if not pool.is_empty() else &""
 
 
-static func essence_cost(gu: GuData) -> float:
-	return float(Formulas.refine_cost(Balance.values, gu.rank))
+## gu ist GuData, BodyGuData oder SupportGuData (alle haben id, display_name, rank).
+static func rank_of(gu: Resource) -> int:
+	return int(gu.get("rank"))
 
 
-static func chance(gu: GuData) -> float:
-	return Formulas.refine_chance(Balance.values, gu.rank, GameState.rank, GameState.apt)
+static func essence_cost(gu: Resource) -> float:
+	return float(Formulas.refine_cost(Balance.values, rank_of(gu)))
+
+
+static func chance(gu: Resource) -> float:
+	return Formulas.refine_chance(Balance.values, rank_of(gu), GameState.rank, GameState.apt)
+
+
+## Körper-Gu werden eingeprägt und belegen keinen Platz.
+static func needs_capacity(gu: Resource) -> bool:
+	return not gu is BodyGuData
 
 
 ## Leer = möglich, sonst Grund.
-static func blocked_reason(gu: GuData, aperture: ApertureComponent) -> String:
+static func blocked_reason(gu: Resource, aperture: ApertureComponent) -> String:
 	var b: BalanceData = Balance.values
-	if gu.rank - GameState.rank > b.refine_max_rank_gap:
-		return Loc.t("Dieser Gu ist dir %d Ränge überlegen – unmöglich zu verfeinern.") % (gu.rank - GameState.rank)
-	if GameState.gu.size() >= Formulas.gu_capacity(b, GameState.rank, GameState.apt):
+	var rank: int = rank_of(gu)
+	if rank - GameState.rank > b.refine_max_rank_gap:
+		return Loc.t("Dieser Gu ist dir %d Ränge überlegen – unmöglich zu verfeinern.") % (rank - GameState.rank)
+	if gu is BodyGuData and gu.get("id") in GameState.body_gu:
+		return Loc.t("Dieser Körper-Gu ist bereits eingeprägt.")
+	if needs_capacity(gu) and GameState.held_count() >= PassiveGu.capacity():
 		return Loc.t("Deine Apertur fasst keine weiteren Gu.")
 	var cost: float = essence_cost(gu)
 	if aperture.capacity() < cost:
@@ -53,19 +66,30 @@ static func blocked_reason(gu: GuData, aperture: ApertureComponent) -> String:
 
 
 ## Versucht die Verfeinerung. Liefert die neue Instanz oder null (Essenz ist dann trotzdem verbraucht).
-static func refine(gu: GuData, aperture: ApertureComponent, roll: float = -1.0) -> GuInstance:
+## Körper-Gu werden eingeprägt (Instanz ohne Merkmal), Hilfs-Gu kommen zu den Hilfs-Gu.
+static func refine(gu: Resource, aperture: ApertureComponent, roll: float = -1.0) -> GuInstance:
 	if not aperture.spend(essence_cost(gu)):
 		return null
 	if (randf() if roll < 0.0 else roll) >= chance(gu):
 		EventBus.message.emit(Loc.t("Die Verfeinerung misslingt – der Gu entwindet sich."), Color(1.0, 0.45, 0.4))
 		return null
-	var instance: GuInstance = GuInstance.create(gu.id, roll_trait())
-	GameState.add_gu(instance)
+	var id: StringName = gu.get("id")
+	var title: String = Loc.t(String(gu.get("display_name")))
+	if gu is BodyGuData:
+		GameState.body_gu.append(id)
+		EventBus.message.emit(Loc.t("%s ist jetzt dauerhaft in deinen Körper eingeprägt.") % title, Color(1.0, 0.85, 0.3))
+		EventBus.gu_obtained.emit(id)
+		return GuInstance.create(id)
+	var instance: GuInstance = GuInstance.create(id, roll_trait())
+	if gu is SupportGuData:
+		GameState.support.append(instance)
+	else:
+		GameState.add_gu(instance)
 	var trait_text: String = ""
 	if instance.trait_id != &"":
 		trait_text = " (" + Loc.t(DataRegistry.trait_data(instance.trait_id).display_name) + ")"
-	EventBus.message.emit(Loc.t("Verfeinert: %s%s") % [Loc.t(gu.display_name), trait_text], Color(1.0, 0.85, 0.3))
-	EventBus.gu_obtained.emit(gu.id)
+	EventBus.message.emit(Loc.t("Verfeinert: %s%s") % [title, trait_text], Color(1.0, 0.85, 0.3))
+	EventBus.gu_obtained.emit(id)
 	return instance
 
 

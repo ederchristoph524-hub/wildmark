@@ -21,6 +21,10 @@ var status: StatusComponent = null
 ## Schadensreduktionen (z. B. Schild): Quelle → Anteil 0–1, werden multiplikativ verrechnet.
 var reductions: Dictionary[StringName, float] = {}
 var invulnerable_time: float = 0.0
+## Fester Zuschlag auf direkten Schaden (Körper-Gu wie Rosa-Eber).
+var flat_damage: float = 0.0
+## Faktor auf den Umkreis, in dem Bestien diese Figur bemerken (Schleichstein-Gu).
+var aggro_mult: float = 1.0
 ## Ranggabe Eisenhaut: Geschosse prallen zurück, solange > 0.
 var reflect_time: float = 0.0
 

@@ -22,7 +22,7 @@ static func apply(death_position: Vector3) -> bool:
 			for id: StringName in GameState.inventory.keys():
 				GameState.add_item(id, -GameState.item_count(id))
 			GameState.essence *= 1.0 - b.death_essence_loss
-			for instance: GuInstance in GameState.gu:
+			for instance: GuInstance in GameState.gu + GameState.support:
 				instance.satiety = 0.0
 				instance.starved_time = 0.0
 			EventBus.message.emit(Loc.t("Deine Materialien liegen im Beutesack am Todesort. Deine Gu hungern – füttere sie."), UiTheme.DANGER)

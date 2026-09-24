@@ -160,6 +160,27 @@ extends Resource
 	&"glaenzend": {"effect": 1.3, "glow": true},
 }
 
+@export_group("Passive Gu")
+## Unterhalt je Rang des Hilfs-Gu pro Sekunde. FORMELN.md nennt 0,55 – das übersteigt auf Rang 1 die
+## gesamte Regeneration (ca. 0,2/s) und macht jeden Hilfs-Gu unbrauchbar. Startwert daher deutlich niedriger.
+@export var support_upkeep_per_rank: float = 0.05
+## Dauerhafte Gu ohne Unterhalt (Prototyp: PERM).
+@export var upkeep_free: Array[StringName] = [&"hoffnung", &"bohr"]
+## Nach leerer Apertur wirken Hilfs-Gu erst wieder ab diesem Füllstand.
+@export var passive_restart_fraction: float = 0.08
+## Wirkungen der Hilfs-Gu (Texte in gu_system.json → hilfs_gu).
+@export var support_rules: Dictionary[StringName, Dictionary] = {
+	&"liquor": {"regen_mult": 1.35},
+	&"hoffnung": {"capacity_add": 1, "cap_mult": 1.1},
+	&"kleineslicht": {"light": true, "reveal": true},
+	&"signal": {"detection_mult": 2.0},
+	&"stealthstein": {"aggro_mult": 0.6},
+	&"bohr": {"harvest_hits": -1},
+	&"zweiaufgaben": {"cooldown_mult": 0.8},
+}
+## Sichtweite von Namensschildern und wilden Gu (Signal-Gu verdoppelt sie).
+@export var detection_range: float = 26.0
+
 @export_group("Ranggaben")
 ## Schalter je Gu-ID (GU_SYSTEM.md, Familien-Tabelle). Höhere Ränge erben die Ranggaben der niedrigeren.
 ## pierce = zusätzlich durchdrungene Ziele, radius_add = Explosionsradius, beam_all = Strahl trifft alle,

@@ -15,6 +15,10 @@ func _init() -> void:
 	outline_size = 10
 
 
+func _process(_delta: float) -> void:
+	visibility_range_end = PassiveGu.detection_range()
+
+
 func refresh(title: String, health: HealthComponent, status: StatusComponent, companion: bool) -> void:
 	var filled: int = ceili(health.ratio() * BAR_SEGMENTS)
 	var lines: String = title + "\n" + "■".repeat(filled) + "□".repeat(BAR_SEGMENTS - filled)
