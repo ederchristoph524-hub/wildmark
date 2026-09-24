@@ -3,7 +3,6 @@ extends Node
 ## Lässt Bestien je nach Zone (Entfernung vom Lager) und Tageszeit erscheinen, entfernt ferne und beschwört Diener und Gefährten.
 
 const GROUP: StringName = &"enemy_spawner"
-const CAMP_SAFE_RADIUS: float = 24.0
 const SPAWN_ATTEMPTS: int = 12
 
 var terrain: Terrain = null
@@ -63,7 +62,7 @@ func _spawn_near(player: Player, night: bool) -> void:
 		var distance: float = randf_range(b.spawn_min_distance, b.spawn_max_distance)
 		var x: float = player.global_position.x + cos(angle) * distance
 		var z: float = player.global_position.z + sin(angle) * distance
-		if not terrain.is_inside(x, z, 4.0) or Vector2(x, z).length() < CAMP_SAFE_RADIUS:
+		if not terrain.is_inside(x, z, 4.0) or Vector2(x, z).length() < Balance.values.village_safe_radius:
 			continue
 		var point := Vector3(x, terrain.height_at(x, z) + 0.3, z)
 		var options: Array[EnemyData] = candidates(zone_at(point), night)

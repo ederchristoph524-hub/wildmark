@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://drbar5rtavkea"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_e4unw"]
+
+[resource]
+script = ExtResource("1_e4unw")
+id = &"banner"
+display_name = "Sektenbanner"
+cost = Dictionary[StringName, int]({
+&"fell": 2,
+&"holz": 6
+})
+description = "Zeigt deine Zugehörigkeit. Verbündete NPCs kommen häufiger vorbei."

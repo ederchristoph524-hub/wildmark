@@ -181,6 +181,20 @@ extends Resource
 ## Sichtweite von Namensschildern und wilden Gu (Signal-Gu verdoppelt sie).
 @export var detection_range: float = 26.0
 
+@export_group("Dorf und Quests")
+## Quests im Klan-Dorf (Texte in quests.json): Bedingung und Belohnung.
+## type: item (Gegenstand abgeben), kills (seit Annahme), built (Bauteile gesamt), area (Gebiet besucht), day (Spieltag).
+@export var quest_rules: Dictionary[StringName, Dictionary] = {
+	&"holz": {"type": &"item", "item": &"holz", "count": 10, "reward": {&"kristall": 3, &"beeren": 5}},
+	&"bau": {"type": &"built", "count": 5, "reward": {&"kristall": 4, &"fell": 2}},
+	&"j10": {"type": &"kills", "count": 10, "reward": {&"kristall": 5, &"wildfell": 2}},
+	&"ero": {"type": &"area", "area": "Aschefeld", "count": 1, "reward": {&"kristall": 6, &"glutasche": 3}},
+}
+## Umkreis des Dorfes, in dem keine Bestien erscheinen.
+@export var village_safe_radius: float = 32.0
+## Beim Schlafen im Bett: so viel Tageszeit wird übersprungen (bis zum Morgen).
+@export var bed_heal: float = 1.0
+
 @export_group("Ranggaben")
 ## Schalter je Gu-ID (GU_SYSTEM.md, Familien-Tabelle). Höhere Ränge erben die Ranggaben der niedrigeren.
 ## pierce = zusätzlich durchdrungene Ziele, radius_add = Explosionsradius, beam_all = Strahl trifft alle,

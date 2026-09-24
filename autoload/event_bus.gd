@@ -28,6 +28,9 @@ signal stage_reached(rank: int, stage: int)
 signal breakthrough_attempted(success: bool, rank: int)
 signal night_changed(is_night: bool)
 
+## Ein NPC möchte ein Gespräch öffnen (Npc).
+signal dialog_requested(npc: Node3D)
+
 ## Kamera drehen per Wischen (Pixel-Delta vom Touch-Bereich).
 signal camera_look(delta: Vector2)
 

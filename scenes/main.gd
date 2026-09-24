@@ -29,6 +29,8 @@ func _ready() -> void:
 	EventBus.return_to_menu_requested.connect(show_start_menu)
 	EventBus.player_died.connect(_on_player_died)
 	EventBus.reaction_triggered.connect(_on_reaction)
+	EventBus.dialog_requested.connect(_on_dialog)
+	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
 	show_start_menu()
 
 
@@ -97,11 +99,24 @@ func _end_session() -> void:
 func _process(delta: float) -> void:
 	if not GameState.active or get_tree().paused:
 		return
+	_track_areas()
 	_autosave -= delta
 	if _autosave <= 0.0:
 		_autosave = Balance.values.autosave_interval
 		if player != null and not player.is_dead() and SaveSystem.save_game():
 			EventBus.message.emit(tr("Automatisch gespeichert"), UiTheme.MUTED)
+
+
+## Merkt sich besuchte Gebiete (für Aufgaben wie „Eroberer").
+func _track_areas() -> void:
+	if player == null:
+		return
+	for area: Dictionary in WorldAreas.AREAS:
+		var center: Vector2 = area["center"]
+		var name_text: String = area["name"]
+		if name_text not in GameState.visited_areas and Vector2(player.global_position.x, player.global_position.z).distance_to(center) < float(area["radius"]):
+			GameState.visited_areas.append(name_text)
+			EventBus.message.emit(tr("Entdeckt: %s") % tr(name_text), UiTheme.ACCENT)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -132,6 +147,14 @@ func _on_menu_closed() -> void:
 	if hud != null:
 		hud.visible = true
 		hud.touch.visible = DisplayServer.is_touchscreen_available()
+
+
+func _on_dialog(npc: Node3D) -> void:
+	if player == null or player.is_dead():
+		return
+	var dialog := DialogMenu.new()
+	dialog.npc = npc as Npc
+	_open_menu(dialog)
 
 
 func _on_reaction(reaction_id: StringName, _where: Vector3) -> void:

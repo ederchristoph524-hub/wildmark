@@ -8,6 +8,8 @@ const LOG_COLOR: Color = Color(0.35, 0.24, 0.15)
 const TENT_COLOR: Color = Color(0.6, 0.5, 0.35)
 const STONE_COLOR: Color = Color(0.45, 0.45, 0.43)
 
+## Das Dorffeuer hat ein Zelt daneben, ein selbst gebautes Lagerfeuer nicht.
+var build_tent: bool = true
 var _flames: Node3D = null
 var _time: float = 0.0
 
@@ -39,7 +41,8 @@ func _ready() -> void:
 	light.light_energy = 1.6
 	light.position.y = 1.2
 	add_child(light)
-	_build_tent()
+	if build_tent:
+		_build_tent()
 
 
 func _build_tent() -> void:

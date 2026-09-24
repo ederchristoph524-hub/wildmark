@@ -26,6 +26,7 @@ func run(scene_tree: SceneTree) -> void:
 	await _test_killer_moves()
 	await _test_enemy_ai()
 	await _test_obstacles()
+	await _test_village()
 	await _test_progress()
 	await _test_death_and_save()
 	for failure: String in _failures:
@@ -181,6 +182,33 @@ func _test_enemy_ai() -> void:
 	spider._special_cooldown = 0.0
 	await _frames(120)
 	_check(not is_instance_valid(spider) or spider.minions.size() > 0, "Spinne beschwört Spinnlinge")
+
+
+func _test_village() -> void:
+	var npcs: Array[Node] = tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is Npc)
+	_check(npcs.size() == 6, "sechs Dorfbewohner (%d)" % npcs.size())
+	Quests.start(&"holz")
+	var stones: int = GameState.item_count(&"kristall")
+	GameState.add_item(&"holz", 10)
+	_check(Quests.is_complete(&"holz") and Quests.turn_in(&"holz"), "Aufgabe Holz abgegeben")
+	_check(GameState.item_count(&"kristall") == stones + 3 and Quests.state(&"holz") == Quests.DONE, "Belohnung erhalten")
+	Quests.start(&"j10")
+	for i: int in 10:
+		EventBus.enemy_killed.emit(&"wolf", Vector3.ZERO)
+	_check(Quests.is_complete(&"j10"), "Jäger-Aufgabe zählt Kills")
+	GameState.add_item(&"holz", 30)
+	GameState.add_item(&"stein", 20)
+	GameState.add_item(&"fell", 5)
+	var built_before: int = GameState.built_count
+	_check(BuildSystem.build(DataRegistry.build_part(&"bett"), player) and BuildSystem.build(DataRegistry.build_part(&"wand"), player), "Bett und Wand gebaut")
+	_check(GameState.built_count == built_before + 2 and tree.get_nodes_in_group(BuildPiece.GROUP).size() >= 2, "Bauteile stehen in der Welt")
+	var trader: Npc = null
+	for node: Node in npcs:
+		if (node as Npc).type.id == &"haendler":
+			trader = node
+	GameState.add_item(&"kristall", 5)
+	_check(Trade.trade(trader.type) and GameState.item_count(&"fleisch") >= 6, "Handel mit dem Händler")
+	_check(BuildSystem.demolish_nearest(player), "Abriss")
 
 
 func _test_obstacles() -> void:

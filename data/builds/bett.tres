@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://cubsx0q2lwc1l"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_nwdix"]
+
+[resource]
+script = ExtResource("1_nwdix")
+id = &"bett"
+display_name = "Bett"
+cost = Dictionary[StringName, int]({
+&"fell": 2,
+&"holz": 8
+})
+description = "Neuer Startpunkt nach dem Tod."

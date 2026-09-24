@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://b04gk8q7ud2ru"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_xnl3w"]
+
+[resource]
+script = ExtResource("1_xnl3w")
+id = &"feuer"
+display_name = "Lagerfeuer"
+cost = Dictionary[StringName, int]({
+&"holz": 6,
+&"stein": 3
+})
+description = "Licht im Radius 6, heilt in der Nähe 3 HP/s."
+light = 6.0

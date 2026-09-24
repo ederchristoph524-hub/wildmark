@@ -33,6 +33,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	_check_enemies(built["enemies"])
 	_check_items(built["items"])
 	_check_sects(built["sects"])
+	_check_trades(built["npcs"], built["builds"])
 
 
 func _collect_ids(resources: Array, type: String) -> Dictionary:
@@ -189,6 +190,15 @@ func _check_sects(list: Array) -> void:
 		for item: StringName in sect.join_gift:
 			_expect("items", item, context + " (Beitrittsgeschenk)")
 		_check_signature_gu(sect, context)
+
+
+func _check_trades(npcs: Array, parts: Array) -> void:
+	for npc: NpcTypeData in npcs:
+		for item: StringName in npc.trade_give.keys() + npc.trade_get.keys():
+			_expect("items", item, "NPC '%s' (Tausch)" % npc.id)
+	for part: BuildData in parts:
+		for item: StringName in part.cost:
+			_expect("items", item, "Bauteil '%s' (Kosten)" % part.id)
 
 
 ## Signatur-Gu außerhalb von gu_system.json kommen erst in späteren Meilensteinen.

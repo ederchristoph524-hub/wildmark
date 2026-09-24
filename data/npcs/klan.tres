@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://umulqogd3i6o"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_5o703"]
+
+[resource]
+script = ExtResource("1_5o703")
+id = &"klan"
+display_name = "Gu-Yue-Klanmitglied"
+color = Color(0.47843137, 0.72156864, 0.41568628, 1)
+region = 4
+side = &"righteous"
+lines = Array[String](["Der Gu-Yue-Klan hält diese Ländereien seit Generationen.", "Ohne Mondlicht-Gu ist man hier draußen so gut wie tot.", "Der Zentralkontinent ist reich — und darum immer umkämpft."])
+trade_give = Dictionary[StringName, int]({
+&"holz": 20
+})
+trade_get = Dictionary[StringName, int]({
+&"kristall": 3
+})
+trade_text = "20 🪵 gegen 3 💎"

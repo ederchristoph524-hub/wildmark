@@ -44,6 +44,14 @@ var seen_reactions: Array[StringName] = []
 var collected_wild_gu: Array[StringName] = []
 ## Geöffnete Welt-Hindernisse (IDs).
 var opened_obstacles: Array[StringName] = []
+## Quests: ID → {"state": "active"/"done", "start": Wert beim Annehmen}.
+var quests: Dictionary[StringName, Dictionary] = {}
+var kills: int = 0
+## Gebaute Lagerteile: {"id", "position", "yaw"}.
+var buildings: Array[Dictionary] = []
+var built_count: int = 0
+## Besuchte Gebiete (Namen), z. B. für die Quest „Eroberer".
+var visited_areas: Array[String] = []
 ## Beutesack nach dem Tod (Standard-Modus): {"position": Vector3, "items": Dictionary} oder leer.
 var loot_sack: Dictionary = {}
 
@@ -79,6 +87,11 @@ func reset(options: Dictionary) -> void:
 	seen_reactions = []
 	collected_wild_gu = []
 	opened_obstacles = []
+	quests = {}
+	kills = 0
+	buildings = []
+	built_count = 0
+	visited_areas = []
 	loot_sack = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
@@ -152,6 +165,8 @@ func to_dict() -> Dictionary:
 			"support": _instances_to_list(support), "body_gu": body_gu,
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
 			"collected_wild_gu": collected_wild_gu, "opened_obstacles": opened_obstacles, "loot_sack": _sack_to_dict(),
+			"quests": _names_to_strings(quests), "kills": kills, "built_count": built_count,
+			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -200,6 +215,16 @@ func _player_from_dict(p: Dictionary) -> void:
 	seen_reactions = _strings_to_names(p.get("seen_reactions", []))
 	collected_wild_gu = _strings_to_names(p.get("collected_wild_gu", []))
 	opened_obstacles = _strings_to_names(p.get("opened_obstacles", []))
+	var saved_quests: Dictionary = p.get("quests", {})
+	for key: Variant in saved_quests:
+		quests[StringName(str(key))] = saved_quests[key]
+	kills = int(p.get("kills", 0))
+	built_count = int(p.get("built_count", 0))
+	for entry: Variant in p.get("buildings", []):
+		if entry is Dictionary:
+			buildings.append({"id": StringName(str(entry.get("id", ""))), "position": _array_to_vec(entry.get("position", [])), "yaw": float(entry.get("yaw", 0.0))})
+	for area: Variant in p.get("visited_areas", []):
+		visited_areas.append(str(area))
 	var sack: Dictionary = p.get("loot_sack", {})
 	if not sack.is_empty():
 		var sack_items: Dictionary = {}
@@ -212,6 +237,13 @@ func _sack_to_dict() -> Dictionary:
 	if loot_sack.is_empty():
 		return {}
 	return {"position": _vec_to_array(loot_sack["position"]), "items": _names_to_strings(loot_sack["items"])}
+
+
+func _buildings_to_list() -> Array:
+	var result: Array = []
+	for entry: Dictionary in buildings:
+		result.append({"id": String(entry["id"]), "position": _vec_to_array(entry["position"]), "yaw": entry["yaw"]})
+	return result
 
 
 static func _instances_to_list(list: Array[GuInstance]) -> Array:

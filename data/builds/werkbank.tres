@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://bs6h13mj27m5o"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_hmmpk"]
+
+[resource]
+script = ExtResource("1_hmmpk")
+id = &"werkbank"
+display_name = "Werkbank"
+cost = Dictionary[StringName, int]({
+&"holz": 10,
+&"stein": 6
+})
+description = "Schaltet Waffen und Rüstung frei. Begehbar."

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://8f02min8x5pk"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_d418a"]
+
+[resource]
+script = ExtResource("1_d418a")
+id = &"steinwand"
+display_name = "Steinwand"
+cost = Dictionary[StringName, int]({
+&"stein": 5
+})
+description = "Blockiert Monster, hält 8 Treffer."

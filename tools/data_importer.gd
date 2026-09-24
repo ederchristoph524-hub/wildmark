@@ -18,6 +18,8 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"regions": "res://data/regions/",
 	"sects": "res://data/sects/",
 	"quests": "res://data/quests/",
+	"npcs": "res://data/npcs/",
+	"builds": "res://data/builds/",
 }
 const GU_SYSTEM_PATH := "res://data/gu/gu_system.tres"
 const PROGRESSION_PATH := "res://data/progression.tres"
@@ -35,6 +37,8 @@ const COUNT_LABELS: Dictionary[String, String] = {
 	"regions": "Regionen",
 	"sects": "Sekten",
 	"quests": "Quests",
+	"npcs": "NPC-Arten",
+	"builds": "Bauteile",
 }
 
 var report := ImportReport.new()

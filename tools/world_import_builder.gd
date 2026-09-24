@@ -22,6 +22,8 @@ func build(sources: Dictionary) -> Dictionary:
 		"regions": _build_listed(sources, "welt", "REGIONS", _build_region),
 		"sects": _build_listed(sources, "fraktionen", "SECTS", _build_sect),
 		"quests": _build_listed(sources, "quests", "QUESTS", _build_quest),
+		"npcs": _build_keyed(sources, "gegner", "NPCTYPE", _build_npc),
+		"builds": _build_keyed(sources, "materialien", "BUILD", _build_part),
 	}
 
 
@@ -176,6 +178,42 @@ func _build_sect(d: Dictionary) -> Resource:
 	sect.politics = ImportUtil.text(d.get("pol"))
 	sect.description = ImportUtil.text(d.get("d"))
 	return sect
+
+
+func _build_npc(id: StringName, d: Dictionary) -> Resource:
+	var context: String = "NPC '%s'" % id
+	if not ImportUtil.require(d, ["n"], context, _report):
+		return null
+	var npc := NpcTypeData.new()
+	npc.id = id
+	npc.display_name = ImportUtil.text(d["n"])
+	npc.color = ImportUtil.color(d.get("c"), context, _report)
+	npc.region = ImportUtil.to_int(d.get("region"))
+	npc.side = ImportUtil.sn(d.get("side"))
+	for line: Variant in d.get("lines", []):
+		npc.lines.append(ImportUtil.text(line))
+	var trade: Dictionary = d.get("trade", {})
+	for item: Variant in trade.get("give", {}):
+		npc.trade_give[StringName(str(item))] = ImportUtil.to_int(trade["give"][item])
+	for item: Variant in trade.get("get", {}):
+		npc.trade_get[StringName(str(item))] = ImportUtil.to_int(trade["get"][item])
+	npc.trade_gu = ImportUtil.to_int(trade.get("gu"))
+	npc.trade_text = ImportUtil.text(trade.get("d"))
+	return npc
+
+
+func _build_part(id: StringName, d: Dictionary) -> Resource:
+	if not ImportUtil.require(d, ["n"], "Bauteil '%s'" % id, _report):
+		return null
+	var part := BuildData.new()
+	part.id = id
+	part.display_name = ImportUtil.text(d["n"])
+	for item: Variant in d.get("cost", {}):
+		part.cost[StringName(str(item))] = ImportUtil.to_int(d["cost"][item])
+	part.description = ImportUtil.text(d.get("d"))
+	part.light = ImportUtil.to_float(d.get("light"))
+	part.min_rank = ImportUtil.to_int(d.get("rank"))
+	return part
 
 
 func _build_quest(d: Dictionary) -> Resource:

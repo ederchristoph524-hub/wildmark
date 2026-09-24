@@ -15,6 +15,7 @@ var _essence_bar: ProgressBar = null
 var _essence_text: Label = null
 var _rank_text: Label = null
 var _status_text: Label = null
+var _quest_text: Label = null
 var _clock: Label = null
 var _messages: VBoxContainer = null
 var _prompt: Label = null
@@ -69,6 +70,9 @@ func _build_status(root: Control) -> void:
 	_essence_text.position = Vector2(8, -1)
 	_status_text = UiTheme.label("", 15, UiTheme.MUTED)
 	_status_text.custom_minimum_size = Vector2(260, 0)
+	_quest_text = UiTheme.label("", 15, UiTheme.ACCENT)
+	_quest_text.custom_minimum_size = Vector2(260, 0)
+	column.add_child(_quest_text)
 	column.add_child(_status_text)
 	_clock = UiTheme.label("", 18)
 	_clock.set_anchors_preset(Control.PRESET_TOP_RIGHT)
@@ -155,6 +159,8 @@ func _update_bars() -> void:
 	_essence_bar.add_theme_stylebox_override(&"fill", UiTheme.box(progression.rank_color(GameState.rank).lightened(0.15), 6, Color(0, 0, 0, 0)))
 	_rank_text.text = "%s · %s · %s %d %%" % [tr(progression.rank_name(GameState.rank)), tr(progression.stage_name(GameState.stage)), tr("Wand"), roundi(GameState.wall * 100.0)]
 	_status_text.text = HudText.statuses(player)
+	_quest_text.text = Quests.tracker_text()
+	_quest_text.visible = _quest_text.text != ""
 	_clock.text = HudText.clock()
 
 

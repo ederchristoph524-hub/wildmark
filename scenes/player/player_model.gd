@@ -7,6 +7,9 @@ const CLOTH_COLOR: Color = Color(0.36, 0.3, 0.22)
 const SKIN_COLOR: Color = Color(0.86, 0.7, 0.55)
 const HAIR_COLOR: Color = Color(0.12, 0.1, 0.09)
 
+## Kleidungsfarben (NPCs tragen die Farbe ihrer Art).
+var cloth_color: Color = CLOTH_COLOR
+var body_color: Color = BODY_COLOR
 var aperture_glow: MeshInstance3D = null
 var _bob: float = 0.0
 var _body: Node3D = null
@@ -16,12 +19,12 @@ var _builder: MeshBuilder = MeshBuilder.new()
 func _ready() -> void:
 	_body = Node3D.new()
 	add_child(_body)
-	_builder.add(_capsule(0.32, 1.0), MeshBuilder.at(Vector3(0.0, 0.85, 0.0)), CLOTH_COLOR)
-	_builder.add(_capsule(0.3, 0.7), MeshBuilder.at(Vector3(0.0, 1.15, 0.0)), BODY_COLOR)
+	_builder.add(_capsule(0.32, 1.0), MeshBuilder.at(Vector3(0.0, 0.85, 0.0)), cloth_color)
+	_builder.add(_capsule(0.3, 0.7), MeshBuilder.at(Vector3(0.0, 1.15, 0.0)), body_color)
 	_builder.add(_sphere(0.24), MeshBuilder.at(Vector3(0.0, 1.62, 0.0)), SKIN_COLOR)
 	_builder.add(_sphere(0.25), MeshBuilder.at(Vector3(0.0, 1.7, 0.05), Vector3(1.0, 0.7, 1.0)), HAIR_COLOR)
-	_builder.add(_capsule(0.09, 0.62), MeshBuilder.at(Vector3(-0.38, 1.1, 0.0)), BODY_COLOR)
-	_builder.add(_capsule(0.09, 0.62), MeshBuilder.at(Vector3(0.38, 1.1, 0.0)), BODY_COLOR)
+	_builder.add(_capsule(0.09, 0.62), MeshBuilder.at(Vector3(-0.38, 1.1, 0.0)), body_color)
+	_builder.add(_capsule(0.09, 0.62), MeshBuilder.at(Vector3(0.38, 1.1, 0.0)), body_color)
 	_builder.add(_sphere(0.07), MeshBuilder.at(Vector3(0.0, 1.62, -0.24), Vector3(2.4, 0.4, 0.4)), HAIR_COLOR)
 	var body := MeshInstance3D.new()
 	body.mesh = _builder.build()

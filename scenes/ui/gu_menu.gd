@@ -55,6 +55,8 @@ func refresh() -> void:
 	_add_tab(tr("Passive Gu"), PassivePage.build(player, refresh))
 	_add_tab(tr("Kombinationsbuch"), GuMenuPages.combo_page())
 	_add_tab(tr("Inventar"), GuMenuPages.inventory_page(player, refresh))
+	_add_tab(tr("Bauen"), BuildPage.build(player, close))
+	_add_tab(tr("Aufgaben"), BuildPage.quests_page())
 	_add_tab(tr("Kultivierung"), GuMenuPages.cultivation_page(player, refresh))
 	_tabs.current_tab = clampi(current, 0, _tabs.get_tab_count() - 1)
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://cl7u8uft2tk8c"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_nvfwu"]
+
+[resource]
+script = ExtResource("1_nvfwu")
+id = &"haendler"
+display_name = "Karawanen-Händler"
+color = Color(0.8509804, 0.7058824, 0.41568628, 1)
+region = 3
+side = &"righteous"
+lines = Array[String](["In der Westlichen Wüste zählt nur, wer Wasser und Wege kennt.", "Ein Gu ist wie eine Mätresse: teuer im Unterhalt, unbezahlbar im Wert.", "Kristalle? Die grabe ich aus dem roten Fels. Für den richtigen Preis."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 2
+})
+trade_get = Dictionary[StringName, int]({
+&"fell": 4,
+&"fleisch": 6
+})
+trade_text = "2 💎 gegen Vorräte"

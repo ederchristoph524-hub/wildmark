@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://cj5whrviypp1x"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_m45aj"]
+
+[resource]
+script = ExtResource("1_m45aj")
+id = &"falle"
+display_name = "Falle"
+cost = Dictionary[StringName, int]({
+&"holz": 3,
+&"stein": 2
+})
+description = "30 Schaden an das erste Monster, das drauftritt."

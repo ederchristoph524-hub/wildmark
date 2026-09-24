@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://ds76j4a4q8bk2"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_gfmvg"]
+
+[resource]
+script = ExtResource("1_gfmvg")
+id = &"segen"
+display_name = "Gesegnetes Land"
+description = "Ab Rang 6. Entfaltet deine Unsterblichen-Apertur als eigene Welt: Betrittst du den Radius, wirst du hineingezogen. Drinnen: Weltenbaum, Perlen, Felder, gezüchtete Gu. Ab Rang 8 Grotten-Himmel."
+light = 12.0
+min_rank = 6

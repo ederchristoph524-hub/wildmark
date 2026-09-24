@@ -8,13 +8,13 @@ const CAMP_CENTER: Vector3 = Vector3.ZERO
 const SPAWN_OFFSET: Vector3 = Vector3(3.0, 0.0, 4.0)
 ## Sammelstellen: Gegenstand → [Anzahl, Ertrag, minimale und maximale Entfernung vom Lager].
 const RESOURCE_LAYOUT: Dictionary[StringName, Array] = {
-	&"beeren": [46, 3, 20.0, 100.0],
-	&"stein": [30, 2, 22.0, 105.0],
-	&"kristall": [18, 1, 26.0, 108.0],
-	&"holz": [26, 2, 20.0, 100.0],
-	&"gruenkraut": [34, 2, 18.0, 100.0],
+	&"beeren": [46, 3, 25.0, 100.0],
+	&"stein": [30, 2, 25.0, 105.0],
+	&"kristall": [18, 1, 28.0, 108.0],
+	&"holz": [26, 2, 24.0, 100.0],
+	&"gruenkraut": [34, 2, 24.0, 100.0],
 	&"eisenerz": [18, 1, 60.0, 108.0],
-	&"mondtau": [40, 1, 15.0, 95.0],
+	&"mondtau": [40, 1, 24.0, 95.0],
 }
 ## Unsichtbare Grenze hinter dem Randgebirge.
 const BOUND_DISTANCE: float = 112.0
@@ -65,12 +65,14 @@ func _ready() -> void:
 	camp = Campfire.new()
 	add_child(camp)
 	camp.position = ground_point(CAMP_CENTER.x, CAMP_CENTER.z)
+	Village.build(self, camp.position)
 	_place_resources()
 	WorldAreas.build(self)
 	ObstacleSites.build(self, site_centers)
 	_place_wild_gu()
 	spawner = EnemySpawner.new(terrain, entities)
 	add_child(spawner)
+	BuildSystem.restore(self)
 	if not GameState.loot_sack.is_empty():
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://c1urwhyr50ui4"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_1x7n3"]
+
+[resource]
+script = ExtResource("1_1x7n3")
+id = &"stamm"
+display_name = "Krieger der Nordebene"
+color = Color(0.6039216, 0.72156864, 0.41568628, 1)
+side = &"demonic"
+lines = Array[String](["In der Nördlichen Ebene gibt es keine Klans, nur Stämme und Stärke.", "Der Riesensonnen-Ehrwürdige kam aus diesen Steppen. Vergiss das nie.", "Wölfe jagen im Rudel. Menschen sollten das auch."])
+trade_give = Dictionary[StringName, int]({
+&"fell": 6
+})
+trade_get = Dictionary[StringName, int]({
+&"stein": 25
+})
+trade_text = "6 🟫 gegen 25 🪨"

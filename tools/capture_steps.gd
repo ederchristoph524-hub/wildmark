@@ -27,6 +27,21 @@ func run(scene_tree: SceneTree) -> void:
 	await _shot("02b_touch")
 	main.hud.touch.visible = false
 	var player: Player = main.player
+	player.camera_rig.pitch = -0.2
+	player.camera_rig.yaw = -0.4
+	await _frames(20)
+	await _shot("02c_dorf")
+	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
+		if node is Npc and (node as Npc).quest_id == &"bau":
+			var dialog := DialogMenu.new()
+			dialog.npc = node
+			main._open_menu(dialog)
+			await _frames(10)
+			await _shot("02d_gespraech")
+			dialog.close()
+			break
+	await _frames(5)
+	player.camera_rig.pitch = -0.35
 	player.camera_rig.yaw = PI * 0.75
 	await _frames(30)
 	await _shot("03_dschungel")

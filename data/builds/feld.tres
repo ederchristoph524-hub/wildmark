@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://xh2uc4euroff"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_fypu1"]
+
+[resource]
+script = ExtResource("1_fypu1")
+id = &"feld"
+display_name = "Apertur-Feld"
+cost = Dictionary[StringName, int]({
+&"holz": 8,
+&"stein": 4
+})
+description = "Nur im Gesegneten Land. Wächst Ressourcen passend zu deinem stärksten Pfad — je höher deine Beherrschung, desto mehr."
+min_rank = 6

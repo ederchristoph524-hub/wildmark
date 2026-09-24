@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://cd34em0kmilfd"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_pextx"]
+
+[resource]
+script = ExtResource("1_pextx")
+id = &"seemann"
+display_name = "Inselfischer"
+color = Color(0.22745098, 0.5411765, 0.7882353, 1)
+region = 2
+side = &"righteous"
+lines = Array[String](["Zehntausend Inseln, und auf jeder ein anderes Ungeheuer.", "Das Östliche Meer ernährt dich — oder es verschlingt dich.", "Ohne ein Gu, das über Wasser trägt, kommst du hier nicht weit."])
+trade_give = Dictionary[StringName, int]({
+&"fleisch": 8
+})
+trade_get = Dictionary[StringName, int]({
+&"kristall": 2
+})
+trade_text = "8 🍖 gegen 2 💎"

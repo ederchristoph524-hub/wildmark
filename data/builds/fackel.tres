@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildData" format=3 uid="uid://ct5lcyup1fnor"]
+
+[ext_resource type="Script" path="res://scripts/resources/build_data.gd" id="1_1wm6t"]
+
+[resource]
+script = ExtResource("1_1wm6t")
+id = &"fackel"
+display_name = "Fackel"
+cost = Dictionary[StringName, int]({
+&"holz": 2,
+&"stein": 1
+})
+description = "Licht im Radius 4. Monster meiden das Licht."
+light = 4.0
