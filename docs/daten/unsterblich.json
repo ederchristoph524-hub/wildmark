@@ -1,0 +1,471 @@
+{
+ "TRIALS": {
+  "erd": {
+   "n": "Erdkalamität",
+   "ic": "🌋",
+   "c": "#c9a070",
+   "min": 6,
+   "dmg": 0.9,
+   "warn": "Die Erde bebt.",
+   "ranks": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "every": "[fn] r=>10"
+  },
+  "himm": {
+   "n": "Himmlische Trübsal",
+   "ic": "⛈️",
+   "c": "#7fc8ff",
+   "min": 6,
+   "dmg": 1.7,
+   "warn": "Der Himmel verdunkelt sich.",
+   "ranks": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "every": "[fn] r=>r===6?100:r===7?50:10"
+  },
+  "gross": {
+   "n": "Große Trübsal",
+   "ic": "🌪️",
+   "c": "#c93bff",
+   "min": 7,
+   "dmg": 2.6,
+   "warn": "Die Welt selbst wendet sich gegen dich.",
+   "ranks": [
+    7,
+    8,
+    9
+   ],
+   "every": "[fn] r=>r===7?100:50"
+  },
+  "myriad": {
+   "n": "Myriaden-Trübsal",
+   "ic": "☄️",
+   "c": "#ff5d73",
+   "min": 8,
+   "dmg": 3.8,
+   "warn": "Ein apokalyptisches Zeichen steht am Himmel.",
+   "ranks": [
+    8,
+    9
+   ],
+   "every": "[fn] r=>100"
+  },
+  "chaos": {
+   "n": "Chaos-Katastrophe",
+   "ic": "🕳️",
+   "c": "#ffd23d",
+   "min": 9,
+   "dmg": 5.5,
+   "warn": "Aus dem Chaos jenseits der Weltgrenze naht etwas.",
+   "ranks": [
+    9
+   ],
+   "every": "[fn] r=>100"
+  }
+ },
+ "CALAMITY": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  {
+   "boss": "waldgeist",
+   "n": "Erste Erdkalamität",
+   "d": "Der Waldgeist muss bezwungen werden, damit sich dein Gesegnetes Land festigt."
+  },
+  {
+   "boss": "steinkoenig",
+   "n": "Zweite Erdkalamität",
+   "d": "Der Steinkönig prüft, ob dein Fundament auch dem nächsten Rang standhält."
+  },
+  {
+   "boss": "drache",
+   "n": "Himmlische Trübsal",
+   "d": "Der Lavadrache ist die letzte Prüfung vor dem Ehrwürdigen-Reich."
+  },
+  null
+ ],
+ "BLANDS": {
+  "eigen": {
+   "n": "Deine Apertur",
+   "ic": "🫧",
+   "cx": 20000,
+   "cy": 0,
+   "r": "[getter]",
+   "c": "#5ee1c1",
+   "reg": null,
+   "d": "Deine eigene Unsterblichen-Apertur. Ihre Landschaft folgt deinen Dao-Markierungen.",
+   "spirit": {
+    "n": "Dein Landgeist",
+    "ic": "🧿",
+    "c": "#5ee1c1",
+    "lines": [
+     "Diese Welt ist dein Werk, Herr. Jede Dao-Markierung formt sie mit.",
+     "Ich bin aus deiner Apertur geboren. Ohne dich gäbe es mich nicht.",
+     "Baue Felder, verdichte Perlen — ich verwalte, was du schaffst."
+    ]
+   }
+  },
+  "langya": {
+   "n": "Lang-Ya-Gesegnetes-Land",
+   "ic": "🌊",
+   "cx": 22000,
+   "cy": 0,
+   "r": 90,
+   "c": "#7fc8ff",
+   "reg": 0,
+   "entry": [
+    -52,
+    -118
+   ],
+   "d": "Am großen See der Nördlichen Ebene. Sitz der Lang-Ya-Sekte und ihrer gewaltigen Bibliothek.",
+   "annex": {
+    "path": "weisheit",
+    "attain": 3,
+    "size": 60,
+    "rank": 7,
+    "grow": 14,
+    "gift": {
+     "himmelsjade": 4,
+     "daokern": 3,
+     "kristall": 60
+    }
+   },
+   "spirit": {
+    "n": "Lang-Ya-Landgeist",
+    "ic": "📚",
+    "c": "#7fc8ff",
+    "lines": [
+     "Willkommen. Ich hüte hier mehr Wissen als jede Sekte der fünf Regionen.",
+     "Der Selbst-Glück-Wahre-Erbe des Riesensonnen-Ehrwürdigen liegt bei mir.",
+     "Ich handle gern. Wissen gegen Wissen, Schatz gegen Schatz."
+    ],
+    "shop": 1
+   }
+  },
+  "hof": {
+   "n": "Kaiserhof-Gesegnetes-Land",
+   "ic": "👑",
+   "cx": 24000,
+   "cy": 0,
+   "r": 110,
+   "c": "#ffd23d",
+   "reg": 0,
+   "entry": [
+    38,
+    -132
+   ],
+   "d": "Das erste Gesegnete Land der Nördlichen Ebene. Heimat des Achtundachtzig-Wahres-Yang-Gebäudes.",
+   "annex": {
+    "path": "kraft",
+    "attain": 4,
+    "size": 72,
+    "rank": 8,
+    "grow": 18,
+    "gift": {
+     "sonnengold": 5,
+     "seelenkern": 3,
+     "material": 8
+    }
+   },
+   "spirit": {
+    "n": "Frostjade-Pfau",
+    "ic": "🦚",
+    "c": "#bfeaff",
+    "lines": [
+     "Dies ist der Hof des Riesensonnen-Ehrwürdigen. Tritt ein, wenn du dich traust.",
+     "Die Wahren Erben liegen im Achtundachtzig-Wahres-Yang-Gebäude — erklimm es.",
+     "Der Wille des Ehrwürdigen wacht noch immer über diesen Ort."
+    ]
+   }
+  },
+  "longevity": {
+   "n": "Langlebigkeits-Himmel",
+   "ic": "☁️",
+   "cx": 26000,
+   "cy": 0,
+   "r": 95,
+   "c": "#c9a0ff",
+   "reg": 4,
+   "entry": [
+    10,
+    20
+   ],
+   "rank": 8,
+   "d": "Die schwebende Feste des Riesensonnen-Ehrwürdigen über dem Zentralkontinent.",
+   "annex": {
+    "path": "zeit",
+    "attain": 5,
+    "size": 88,
+    "rank": 9,
+    "grow": 24,
+    "gift": {
+     "ehrwuerdenessenz": 1,
+     "schicksalsfaden": 2,
+     "grottenstein": 6
+    }
+   },
+   "spirit": {
+    "n": "Wächter der Nördlichen Öde",
+    "ic": "🕯️",
+    "c": "#c9a0ff",
+    "lines": [
+     "Hier ruht der Himmel-und-Erde-Glück-Wahre-Erbe.",
+     "Nur Unsterbliche ab Rang 8 dürfen diesen Ort betreten.",
+     "Der Ehrwürdige lebte über achttausend Jahre. Und starb doch."
+    ]
+   }
+  }
+ },
+ "HEAVEN": {
+  "white": {
+   "cx": 4000,
+   "cy": 0,
+   "n": "Weißer Himmel",
+   "c": "#fff3d0",
+   "d": "Ein Meer aus Licht und Wolken. Die Ordnung des Himmlischen Hofes."
+  },
+  "black": {
+   "cx": -4000,
+   "cy": 0,
+   "n": "Schwarzer Himmel",
+   "c": "#b070ff",
+   "d": "Leere zwischen den Sternen. Heimat der Dämonen-Ehrwürdigen."
+  }
+ },
+ "INHERIT": {
+  "selbstglueck": {
+   "n": "Selbst-Glück · Wahrer Erbe",
+   "ic": "🍀",
+   "bl": "langya",
+   "c": "#7dff9b",
+   "d": "Das Glück des Riesensonnen-Ehrwürdigen über sich selbst.",
+   "apply": "[fn] ()=>{P.inhLuck=1;P.skills.glueck=1}",
+   "perk": "Dauerhaft doppelte Beute und +20 % Ausweichen."
+  },
+  "wesenglueck": {
+   "n": "Alle-Lebewesen-Glück · Wahrer Erbe",
+   "ic": "🌟",
+   "bl": "hof",
+   "c": "#ffd23d",
+   "d": "Im Achtundachtzig-Wahres-Yang-Gebäude verwahrt.",
+   "apply": "[fn] ()=>{P.inhBeings=1}",
+   "perk": "Verbündete leben doppelt so lang, Kalamitäten treffen halb so hart."
+  },
+  "himmelglueck": {
+   "n": "Himmel-und-Erde-Glück · Wahrer Erbe",
+   "ic": "☯️",
+   "bl": "longevity",
+   "c": "#c9a0ff",
+   "d": "Im Langlebigkeits-Himmel verwahrt. Der letzte der drei Glücks-Erben.",
+   "apply": "[fn] ()=>{P.inhHeaven=1}",
+   "perk": "Alle Dao-Markierungen verdreifacht."
+  },
+  "riesensonne": {
+   "n": "Riesensonnen-Wahrer-Erbe",
+   "ic": "☀️",
+   "bl": "longevity",
+   "c": "#ffd23d",
+   "need": 8,
+   "d": "Das Vermächtnis des Riesensonnen-Ehrwürdigen selbst, tief im Langlebigkeits-Himmel.",
+   "apply": "[fn] ()=>{P.inhSun=1;P.maxhp+=500;P.hp=P.maxhp;P.cultDmg+=45}",
+   "perk": "+500 HP, +45 Schaden, Kraft-Pfad zählt zwei Stufen höher."
+  },
+  "langya_erbe": {
+   "n": "Lang-Ya-Wissens-Erbe",
+   "ic": "📚",
+   "bl": "langya",
+   "c": "#7fc8ff",
+   "need": 6,
+   "d": "Die gesammelte Weisheit der Lang-Ya-Bibliothek.",
+   "apply": "[fn] ()=>{P.inhWisdom=1}",
+   "perk": "Alle Verfeinerungen +30 % Erfolg, doppelte XP."
+  },
+  "hof_erbe": {
+   "n": "Kaiserhof-Kriegs-Erbe",
+   "ic": "⚔️",
+   "bl": "hof",
+   "c": "#e07a4a",
+   "need": 7,
+   "d": "Die Kampfkunst der Wachen des Kaiserhofs, hinter dem 88-Wahres-Yang-Gebäude.",
+   "apply": "[fn] ()=>{P.inhWar=1}",
+   "perk": "+35 % Schaden, Killer Moves kosten nichts."
+  },
+  "spectral": {
+   "n": "Geisterseelen-Dämonen-Erbe",
+   "ic": "👻",
+   "bl": null,
+   "ruin": 1,
+   "c": "#a04ad0",
+   "need": 6,
+   "d": "In einer Ruine verborgen. Das Vermächtnis der Geisterseelen-Dämonen-Ehrwürdigen.",
+   "apply": "[fn] ()=>{P.inhSoul=1}",
+   "perk": "Seelen-Pfad zwei Stufen höher, Gu hungern halb so schnell."
+  },
+  "thieving": {
+   "n": "Diebeshimmel-Erbe",
+   "ic": "🕳️",
+   "bl": null,
+   "ruin": 1,
+   "c": "#6ad04a",
+   "need": 5,
+   "d": "Der Dämonen-Ehrwürdige, der dem Himmel seine Methoden stahl.",
+   "apply": "[fn] ()=>{P.inhThief=1}",
+   "perk": "Dreifache Beute, 20 % Chance auf ein zweites Gu beim Verfeinern."
+  },
+  "redlotus": {
+   "n": "Rot-Lotus-Dämonen-Erbe",
+   "ic": "🪷",
+   "bl": null,
+   "ruin": 1,
+   "c": "#ff5d73",
+   "need": 7,
+   "d": "Ein Traum-Pfad-Vermächtnis aus dem Zentralkontinent.",
+   "apply": "[fn] ()=>{P.inhDream=1}",
+   "perk": "Traumreich hält doppelt so lange, alle Gu 25 % billiger."
+  },
+  "paradise": {
+   "n": "Paradies-Erdenwall-Erbe",
+   "ic": "🏔️",
+   "bl": null,
+   "ruin": 1,
+   "c": "#c9a070",
+   "need": 4,
+   "d": "Ein Erd-Pfad-Vermächtnis aus der Westlichen Wüste.",
+   "apply": "[fn] ()=>{P.inhEarth=1;P.maxhp+=260;P.hp=P.maxhp}",
+   "perk": "+260 HP, −20 % erlittener Schaden."
+  },
+  "starconst": {
+   "n": "Sternbild-Wahrer-Erbe",
+   "ic": "🌌",
+   "bl": null,
+   "ruin": 1,
+   "c": "#9ff",
+   "need": 8,
+   "d": "Das Vermächtnis der Sternbild-Unsterblichen-Ehrwürdigen.",
+   "apply": "[fn] ()=>{P.inhStar=1}",
+   "perk": "Zeigt alles auf der Weltkarte, +3 Skillpunkte pro Level."
+  }
+ },
+ "LANDGRADE": [
+  {
+   "n": "niedrig",
+   "m": 1,
+   "c": "#a9b5a0"
+  },
+  {
+   "n": "mittel",
+   "m": 1.35,
+   "c": "#7dd35a"
+  },
+  {
+   "n": "hoch",
+   "m": 1.8,
+   "c": "#4a9ad0"
+  },
+  {
+   "n": "super",
+   "m": 2.6,
+   "c": "#ffd23d"
+  }
+ ],
+ "LANGYA_SHOP": [
+  {
+   "id": "wissen",
+   "n": "Dao-Unterweisung",
+   "ic": "📖",
+   "cost": {
+    "kristall": 20
+   },
+   "d": "+40 Dao-Markierungen deines stärksten Pfades",
+   "run": "[fn] ()=>{let bp=null,bv=0;for(const p in (P.dao||{}))if(P.dao[p]>bv){bv=P.dao[p];bp=p}addDao(bp||'weisheit',40)}"
+  },
+  {
+   "id": "karte",
+   "n": "Standort-Aufzeichnungen",
+   "ic": "🗺️",
+   "cost": {
+    "kristall": 15
+   },
+   "d": "Verrät alle Gesegneten Länder",
+   "run": "[fn] ()=>{P.knownBlands=Object.keys(BLANDS).filter(k=>BLANDS[k].entry);toast('🗺️ Alle Standorte aufgezeichnet','#7fc8ff')}"
+  },
+  {
+   "id": "mat6",
+   "n": "Unsterbliche Stoffe",
+   "ic": "🔮",
+   "cost": {
+    "kristall": 30
+   },
+   "d": "3× Himmelsjade und 2× Dao-Kern",
+   "run": "[fn] ()=>{P.inv.himmelsjade=(P.inv.himmelsjade||0)+3;P.inv.daokern=(P.inv.daokern||0)+2}"
+  },
+  {
+   "id": "perlen",
+   "n": "Essenz-Vorrat",
+   "ic": "💠",
+   "cost": {
+    "kristall": 25
+   },
+   "d": "5 Perlen unsterblicher Essenz",
+   "run": "[fn] ()=>{P.inv.perle=(P.inv.perle||0)+5}"
+  },
+  {
+   "id": "rezept",
+   "n": "Verlorenes Gu-Rezept",
+   "ic": "📜",
+   "cost": {
+    "kristall": 40,
+    "daokern": 1
+   },
+   "d": "Ein zufälliges unbekanntes Gu deines Ranges",
+   "run": "[fn] ()=>{const pool=Object.keys(GUDEX).filter(k=>!guOwned(k)&&GUDEX[k].rank<=P.rank&&!GUDEX[k].imm);\n     if(!pool.length||guCount()>=guCap()){toast('Kein passendes Rezept oder Apertur voll','#ff5d73');return}\n     const k=pick(pool);P.guState[k]={hunger:100};applyGuPassive(k);addDao(GUDEX[k].path,8);\n     toast(`${GUDEX[k].ic} ${GUDEX[k].n} erlernt`,RANKGU_C[GUDEX[k].rank])}"
+  }
+ ],
+ "INSPIRATION": [
+  {
+   "k": "perlen",
+   "ic": "💠",
+   "n": "Wie verdichtet sich Essenz?",
+   "d": "Dein Gesegnetes Land erzeugt Perlen 40 % schneller.",
+   "apply": "[fn] ()=>{P.inspBead=1.4}"
+  },
+  {
+   "k": "kosten",
+   "ic": "✴️",
+   "n": "Was ist der wahre Preis der Macht?",
+   "d": "Alle Gu kosten 25 % weniger Essenz.",
+   "apply": "[fn] ()=>{P.inspCost=.75}"
+  },
+  {
+   "k": "kalamitaet",
+   "ic": "⛈️",
+   "n": "Wie übersteht man den Zorn des Himmels?",
+   "d": "Kalamitäten fügen dir nur halben Schaden zu.",
+   "apply": "[fn] ()=>{P.inspCal=.5}"
+  },
+  {
+   "k": "dao",
+   "ic": "🜂",
+   "n": "Woraus besteht die Welt?",
+   "d": "Doppelte Dao-Markierungen aus allem.",
+   "apply": "[fn] ()=>{P.inspDao=2}"
+  },
+  {
+   "k": "leben",
+   "ic": "❤️",
+   "n": "Was hält den Körper zusammen?",
+   "d": "+250 maximale Lebenspunkte.",
+   "apply": "[fn] ()=>{P.maxhp+=250;P.hp=P.maxhp}"
+  }
+ ]
+}

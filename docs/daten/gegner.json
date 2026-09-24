@@ -1,0 +1,828 @@
+{
+ "MON": {
+  "slime": {
+   "n": "Schleim",
+   "hp": 14,
+   "dmg": 5,
+   "spd": 1.6,
+   "xp": 9,
+   "r": 0.38,
+   "c": "#7dd35a",
+   "z": 0,
+   "drop": [
+    [
+     "kristall",
+     0.12
+    ]
+   ],
+   "shape": "slime"
+  },
+  "giftschleim": {
+   "n": "Giftschleim",
+   "hp": 18,
+   "dmg": 4,
+   "spd": 1.8,
+   "xp": 14,
+   "r": 0.4,
+   "c": "#9b3bff",
+   "z": 0,
+   "drop": [
+    [
+     "kristall",
+     0.2
+    ]
+   ],
+   "shape": "slime",
+   "poison": 1
+  },
+  "ratte": {
+   "n": "Ratte",
+   "hp": 8,
+   "dmg": 3,
+   "spd": 4.5,
+   "xp": 6,
+   "r": 0.25,
+   "c": "#8a6a4a",
+   "z": 0,
+   "drop": [
+    [
+     "fleisch",
+     0.4
+    ]
+   ],
+   "shape": "quad"
+  },
+  "pilz": {
+   "n": "Knallpilz",
+   "hp": 10,
+   "dmg": 22,
+   "spd": 1.2,
+   "xp": 16,
+   "r": 0.35,
+   "c": "#e05a7a",
+   "z": 0,
+   "drop": [
+    [
+     "beeren",
+     0.7
+    ]
+   ],
+   "shape": "pilz",
+   "beh": "explode"
+  },
+  "wolf": {
+   "n": "Wolf",
+   "hp": 32,
+   "dmg": 9,
+   "spd": 3.6,
+   "xp": 20,
+   "r": 0.4,
+   "c": "#8b8f9a",
+   "z": 1,
+   "drop": [
+    [
+     "fleisch",
+     0.9
+    ],
+    [
+     "fell",
+     0.6
+    ]
+   ],
+   "shape": "quad"
+  },
+  "eber": {
+   "n": "Wildschwein",
+   "hp": 45,
+   "dmg": 14,
+   "spd": 2.4,
+   "xp": 26,
+   "r": 0.45,
+   "c": "#5a3a2a",
+   "z": 1,
+   "drop": [
+    [
+     "fleisch",
+     1
+    ],
+    [
+     "fell",
+     0.4
+    ]
+   ],
+   "shape": "quad",
+   "beh": "charge"
+  },
+  "spinne": {
+   "n": "Riesenspinne",
+   "hp": 40,
+   "dmg": 8,
+   "spd": 2.2,
+   "xp": 30,
+   "r": 0.5,
+   "c": "#3a2a3a",
+   "z": 1,
+   "drop": [
+    [
+     "kristall",
+     0.3
+    ]
+   ],
+   "shape": "spider",
+   "beh": "spawn",
+   "minion": "spinnling"
+  },
+  "spinnling": {
+   "n": "Spinnling",
+   "hp": 6,
+   "dmg": 3,
+   "spd": 4,
+   "xp": 3,
+   "r": 0.2,
+   "c": "#5a4a5a",
+   "z": 9,
+   "drop": [],
+   "shape": "spider",
+   "nospawn": 1
+  },
+  "schuetze": {
+   "n": "Skelettschütze",
+   "hp": 26,
+   "dmg": 11,
+   "spd": 2.4,
+   "xp": 28,
+   "r": 0.38,
+   "c": "#d8d0c0",
+   "z": 1,
+   "drop": [
+    [
+     "stein",
+     0.5
+    ],
+    [
+     "kristall",
+     0.2
+    ]
+   ],
+   "shape": "skel",
+   "beh": "ranged",
+   "rng": 6
+  },
+  "bat": {
+   "n": "Fledermaus",
+   "hp": 12,
+   "dmg": 6,
+   "spd": 4.4,
+   "xp": 12,
+   "r": 0.3,
+   "c": "#5a4a8a",
+   "z": 1,
+   "drop": [
+    [
+     "kristall",
+     0.25
+    ]
+   ],
+   "shape": "bat",
+   "night": 1,
+   "fly": 1
+  },
+  "golem": {
+   "n": "Golem",
+   "hp": 95,
+   "dmg": 16,
+   "spd": 1.4,
+   "xp": 60,
+   "r": 0.55,
+   "c": "#7a6a5a",
+   "z": 2,
+   "drop": [
+    [
+     "stein",
+     1
+    ],
+    [
+     "stein",
+     0.8
+    ],
+    [
+     "kristall",
+     0.7
+    ]
+   ],
+   "shape": "golem"
+  },
+  "kaefer": {
+   "n": "Panzerkäfer",
+   "hp": 70,
+   "dmg": 12,
+   "spd": 2,
+   "xp": 50,
+   "r": 0.45,
+   "c": "#2a5a8a",
+   "z": 2,
+   "drop": [
+    [
+     "kristall",
+     0.5
+    ],
+    [
+     "fell",
+     0.5
+    ]
+   ],
+   "shape": "beetle",
+   "beh": "armor"
+  },
+  "schamane": {
+   "n": "Schamane",
+   "hp": 40,
+   "dmg": 9,
+   "spd": 2.6,
+   "xp": 55,
+   "r": 0.4,
+   "c": "#4a8a4a",
+   "z": 2,
+   "drop": [
+    [
+     "kristall",
+     0.8
+    ]
+   ],
+   "shape": "skel",
+   "beh": "heal",
+   "rng": 5
+  },
+  "schatten": {
+   "n": "Schatten",
+   "hp": 50,
+   "dmg": 18,
+   "spd": 3,
+   "xp": 65,
+   "r": 0.4,
+   "c": "#1a1030",
+   "z": 2,
+   "drop": [
+    [
+     "kristall",
+     0.9
+    ]
+   ],
+   "shape": "ghost",
+   "beh": "teleport",
+   "night": 1
+  },
+  "troll": {
+   "n": "Troll",
+   "hp": 160,
+   "dmg": 26,
+   "spd": 1.8,
+   "xp": 90,
+   "r": 0.65,
+   "c": "#6a8a4a",
+   "z": 2,
+   "drop": [
+    [
+     "fell",
+     1
+    ],
+    [
+     "fell",
+     0.7
+    ],
+    [
+     "kristall",
+     0.6
+    ]
+   ],
+   "shape": "golem"
+  },
+  "imp": {
+   "n": "Feuerteufel",
+   "hp": 48,
+   "dmg": 14,
+   "spd": 3.4,
+   "xp": 50,
+   "r": 0.4,
+   "c": "#ff7a3a",
+   "z": 3,
+   "drop": [
+    [
+     "kristall",
+     0.8
+    ],
+    [
+     "fleisch",
+     0.5
+    ]
+   ],
+   "shape": "imp",
+   "burn": 1
+  },
+  "lavaschnecke": {
+   "n": "Lavaschnecke",
+   "hp": 120,
+   "dmg": 20,
+   "spd": 1,
+   "xp": 70,
+   "r": 0.5,
+   "c": "#ff4a1a",
+   "z": 3,
+   "drop": [
+    [
+     "kristall",
+     1
+    ],
+    [
+     "stein",
+     1
+    ]
+   ],
+   "shape": "slime",
+   "burn": 1,
+   "beh": "armor"
+  },
+  "drachenling": {
+   "n": "Drachenling",
+   "hp": 60,
+   "dmg": 16,
+   "spd": 3.6,
+   "xp": 80,
+   "r": 0.45,
+   "c": "#c92a2a",
+   "z": 3,
+   "drop": [
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "bat",
+   "beh": "ranged",
+   "rng": 5,
+   "fly": 1,
+   "burn": 1
+  },
+  "obsidian": {
+   "n": "Obsidiangolem",
+   "hp": 260,
+   "dmg": 30,
+   "spd": 1.5,
+   "xp": 150,
+   "r": 0.7,
+   "c": "#2a2a3a",
+   "z": 3,
+   "drop": [
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "stein",
+     1
+    ]
+   ],
+   "shape": "golem",
+   "beh": "armor"
+  },
+  "seuche": {
+   "n": "Seuchenschamane",
+   "hp": 70,
+   "dmg": 12,
+   "spd": 2.8,
+   "xp": 95,
+   "r": 0.4,
+   "c": "#7a3aaa",
+   "z": 3,
+   "drop": [
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "skel",
+   "beh": "heal",
+   "rng": 5,
+   "poison": 1
+  },
+  "waldgeist": {
+   "n": "Waldgeist",
+   "hp": 600,
+   "dmg": 22,
+   "spd": 2.6,
+   "xp": 400,
+   "r": 0.9,
+   "c": "#3aa05a",
+   "z": 9,
+   "drop": [
+    [
+     "herz",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "minion": "spinnling"
+  },
+  "steinkoenig": {
+   "n": "Steinkönig",
+   "hp": 1400,
+   "dmg": 34,
+   "spd": 1.8,
+   "xp": 1000,
+   "r": 1.1,
+   "c": "#8a8a9a",
+   "z": 9,
+   "drop": [
+    [
+     "kern",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "armor": 1
+  },
+  "seekoenig": {
+   "n": "Seekönig",
+   "hp": 1900,
+   "dmg": 38,
+   "spd": 2.6,
+   "xp": 1500,
+   "r": 1.1,
+   "c": "#2a8ac9",
+   "z": 9,
+   "drop": [
+    [
+     "kern",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "minion": "bat"
+  },
+  "steppenfuerst": {
+   "n": "Steppenfürst",
+   "hp": 1600,
+   "dmg": 32,
+   "spd": 3.4,
+   "xp": 1300,
+   "r": 1,
+   "c": "#9ab86a",
+   "z": 9,
+   "drop": [
+    [
+     "fell",
+     1
+    ],
+    [
+     "kern",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "minion": "spinnling"
+  },
+  "drache": {
+   "n": "Lavadrache",
+   "hp": 2600,
+   "dmg": 45,
+   "spd": 3,
+   "xp": 2500,
+   "r": 1.2,
+   "c": "#ff3a1a",
+   "z": 9,
+   "drop": [
+    [
+     "schuppe",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "burn": 1,
+   "fly": 1
+  }
+ },
+ "VARIANTS": {
+  "tinte": {
+   "n": "Tintenmensch",
+   "ic": "🖋️",
+   "c": "#3a3a4a",
+   "reg": 2,
+   "gu": [
+    "schattenbild",
+    "mondgift"
+   ],
+   "lines": [
+    "Wir Tintenmenschen wurden aus Schrift und Willen geformt.",
+    "Menschen misstrauen uns. Zu Recht, meistens."
+   ]
+  },
+  "fels": {
+   "n": "Felsenmensch",
+   "ic": "🗿",
+   "c": "#8a8a94",
+   "reg": 3,
+   "gu": [
+    "weissjade",
+    "drehfels"
+   ],
+   "lines": [
+    "Mein Volk lebt seit tausend Jahren im roten Fels.",
+    "Wir sind langsam. Aber wir halten aus."
+   ]
+  },
+  "feder": {
+   "n": "Federmensch",
+   "ic": "🪶",
+   "c": "#bfeaff",
+   "reg": 0,
+   "gu": [
+    "blitzfluegel",
+    "sternpfeil"
+   ],
+   "lines": [
+    "Der Himmel gehörte uns, bevor die Ehrwürdigen kamen.",
+    "Auf zwei Beinen zu gehen ist eine Zumutung."
+   ]
+  },
+  "zombie_v": {
+   "n": "Unsterblicher Zombie",
+   "ic": "🧟",
+   "c": "#7a9a6a",
+   "reg": 0,
+   "gu": [
+    "zombie",
+    "blutrausch"
+   ],
+   "rank": 6,
+   "lines": [
+    "Ich starb vor sechshundert Jahren. Es hat sich als unpraktisch erwiesen.",
+    "Zombies zahlen keine Lebensspanne für Weisheits-Gu."
+   ]
+  },
+  "halbbestie": {
+   "n": "Halbbestien-Krieger",
+   "ic": "🐗",
+   "c": "#a0703a",
+   "reg": 1,
+   "gu": [
+    "rosaeber",
+    "berserk"
+   ],
+   "lines": [
+    "Halb Mensch, halb Bestie — und stärker als beides.",
+    "Die Klans nennen uns unrein. Wir nennen sie schwach."
+   ]
+  }
+ },
+ "GUMASTER": {
+  "gu_yue": {
+   "n": "Gu-Yue-Gu-Meister",
+   "c": "#7ab86a",
+   "f": "righteous",
+   "gu": [
+    "mondlicht",
+    "steinhaut",
+    "wirbelwind"
+   ]
+  },
+  "yi_tian": {
+   "n": "Yi-Tian-Schüler",
+   "c": "#9ab86a",
+   "f": "righteous",
+   "gu": [
+    "eisenhaut",
+    "sternpfeil",
+    "weissjade"
+   ]
+  },
+  "himmelshof": {
+   "n": "Hüter des Himmelshofs",
+   "c": "#7fc8ff",
+   "f": "righteous",
+   "gu": [
+    "regenbogen",
+    "lichtzaun",
+    "goldlicht"
+   ]
+  },
+  "blutfluegel": {
+   "n": "Blutflügel-Dämon",
+   "c": "#d0303a",
+   "f": "demonic",
+   "gu": [
+    "blutrausch",
+    "knochenspeer",
+    "blutschaedel"
+   ]
+  },
+  "schattensekte": {
+   "n": "Schattenschüler",
+   "c": "#a04ad0",
+   "f": "demonic",
+   "gu": [
+    "schattenbild",
+    "mondgift",
+    "giftskorpion"
+   ]
+  },
+  "wilde_horde": {
+   "n": "Horden-Krieger",
+   "c": "#c9a070",
+   "f": "demonic",
+   "gu": [
+    "wolfssklave",
+    "zehnjin",
+    "berserk"
+   ]
+  }
+ },
+ "NPCTYPE": {
+  "klan": {
+   "n": "Gu-Yue-Klanmitglied",
+   "ic": "🧑‍🌾",
+   "c": "#7ab86a",
+   "region": 4,
+   "side": "righteous",
+   "lines": [
+    "Der Gu-Yue-Klan hält diese Ländereien seit Generationen.",
+    "Ohne Mondlicht-Gu ist man hier draußen so gut wie tot.",
+    "Der Zentralkontinent ist reich — und darum immer umkämpft."
+   ],
+   "trade": {
+    "give": {
+     "holz": 20
+    },
+    "get": {
+     "kristall": 3
+    },
+    "d": "20 🪵 gegen 3 💎"
+   }
+  },
+  "haendler": {
+   "n": "Karawanen-Händler",
+   "ic": "🐪",
+   "c": "#d9b46a",
+   "region": 3,
+   "side": "righteous",
+   "lines": [
+    "In der Westlichen Wüste zählt nur, wer Wasser und Wege kennt.",
+    "Ein Gu ist wie eine Mätresse: teuer im Unterhalt, unbezahlbar im Wert.",
+    "Kristalle? Die grabe ich aus dem roten Fels. Für den richtigen Preis."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 2
+    },
+    "get": {
+     "fleisch": 6,
+     "fell": 4
+    },
+    "d": "2 💎 gegen Vorräte"
+   }
+  },
+  "stamm": {
+   "n": "Krieger der Nordebene",
+   "ic": "🪓",
+   "c": "#9ab86a",
+   "region": 0,
+   "side": "demonic",
+   "lines": [
+    "In der Nördlichen Ebene gibt es keine Klans, nur Stämme und Stärke.",
+    "Der Riesensonnen-Ehrwürdige kam aus diesen Steppen. Vergiss das nie.",
+    "Wölfe jagen im Rudel. Menschen sollten das auch."
+   ],
+   "trade": {
+    "give": {
+     "fell": 6
+    },
+    "get": {
+     "stein": 25
+    },
+    "d": "6 🟫 gegen 25 🪨"
+   }
+  },
+  "seemann": {
+   "n": "Inselfischer",
+   "ic": "🎣",
+   "c": "#3a8ac9",
+   "region": 2,
+   "side": "righteous",
+   "lines": [
+    "Zehntausend Inseln, und auf jeder ein anderes Ungeheuer.",
+    "Das Östliche Meer ernährt dich — oder es verschlingt dich.",
+    "Ohne ein Gu, das über Wasser trägt, kommst du hier nicht weit."
+   ],
+   "trade": {
+    "give": {
+     "fleisch": 8
+    },
+    "get": {
+     "kristall": 2
+    },
+    "d": "8 🍖 gegen 2 💎"
+   }
+  },
+  "daemon": {
+   "n": "Dämonischer Kultivierender",
+   "ic": "🥷",
+   "c": "#a04ad0",
+   "region": 1,
+   "side": "demonic",
+   "lines": [
+    "Die Südliche Grenze ist voller Miasma — und voller Gelegenheiten.",
+    "Rechtschaffen, dämonisch… am Ende zählt nur, wer noch atmet.",
+    "Ich verkaufe dir ein Gu. Frag nicht, woher ich es habe."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 5
+    },
+    "get": {},
+    "gu": 1,
+    "d": "5 💎 gegen ein zufälliges Gu"
+   }
+  }
+ }
+}

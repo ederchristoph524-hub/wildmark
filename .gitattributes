@@ -1,0 +1,28 @@
+# Textdateien normalisieren (LF im Repository und im Arbeitsordner)
+* text=auto eol=lf
+
+# Binärdateien
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+*.exr binary
+*.hdr binary
+*.glb binary
+*.gltf text
+*.blend binary
+*.fbx binary
+*.obj text
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.wasm binary
+*.pck binary
+*.scn binary
+*.res binary
+*.zip binary

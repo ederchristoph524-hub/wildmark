@@ -1,0 +1,168 @@
+{
+ "RANKS": [
+  null,
+  {
+   "n": "Rang 1 · Grünkupfer",
+   "c": "#7a9a4a",
+   "ess": "grünkupferne Urenergie",
+   "realm": "Sterblicher Gu-Meister"
+  },
+  {
+   "n": "Rang 2 · Rot-Eisen",
+   "c": "#b0503a",
+   "ess": "rot-eiserne Urenergie",
+   "realm": "Sterblicher Gu-Meister"
+  },
+  {
+   "n": "Rang 3 · Weißsilber",
+   "c": "#c9c9d4",
+   "ess": "weißsilberne Urenergie",
+   "realm": "Sterblicher Gu-Meister"
+  },
+  {
+   "n": "Rang 4 · Hell-Gold",
+   "c": "#e0b83a",
+   "ess": "hell-goldene Urenergie",
+   "realm": "Sterblicher Gu-Meister"
+  },
+  {
+   "n": "Rang 5 · Lilakristall",
+   "c": "#a04ad0",
+   "ess": "lilakristallene Urenergie",
+   "realm": "Sterblicher Gu-Meister · Überlord"
+  },
+  {
+   "n": "Rang 6 · Grüntraube",
+   "c": "#6ad04a",
+   "ess": "unsterbliche Grüntraubenenergie",
+   "realm": "Gu-Unsterblicher · Gesegnetes Land"
+  },
+  {
+   "n": "Rang 7 · Rotdattel",
+   "c": "#d0503a",
+   "ess": "unsterbliche Rotdattelenergie",
+   "realm": "Gu-Unsterblicher · Gesegnetes Land"
+  },
+  {
+   "n": "Rang 8 · Weißlitschi",
+   "c": "#f0eef5",
+   "ess": "unsterbliche Weißlitschienergie",
+   "realm": "Gu-Unsterblicher · Grotten-Himmel"
+  },
+  {
+   "n": "Rang 9 · Gelb-Aprikose",
+   "c": "#ffd23d",
+   "ess": "gelb-aprikosene Unsterblichkeitsessenz",
+   "realm": "Gu-Ehrwürdiger · Höchstes Reich"
+  }
+ ],
+ "STAGES": [
+  "Anfangsstufe",
+  "Mittelstufe",
+  "Oberstufe",
+  "Höchststufe"
+ ],
+ "SUCCESS": {
+  "D": 0.45,
+  "C": 0.62,
+  "B": 0.8,
+  "A": 0.95,
+  "Durchbrochen": 1
+ },
+ "RANKCAP": {
+  "D": 2,
+  "C": 3,
+  "B": 4,
+  "A": 5,
+  "Durchbrochen": 5
+ },
+ "ASCEND_LVL": 10,
+ "AWAKEN_AGE": 13,
+ "APT_COLOR": {
+  "D": "#93a37a",
+  "C": "#6fbf4a",
+  "B": "#4a9ad0",
+  "A": "#e8c23a",
+  "Durchbrochen": "#ff6ad0"
+ },
+ "APT_FLAVOR": {
+  "D": "Ein schwaches Fundament (20–39%). Die meisten mit dieser Aptitude kommen nie über Rang 2 hinaus.",
+  "C": "Ein durchschnittliches Talent (40–59%). Meist reicht es bis Rang 2 oder 3.",
+  "B": "Ein gutes Talent (60–79%). Rang 4 gilt als erreichbar.",
+  "A": "Ein herausragendes Talent (80–99%). Solche Genies erreichen für gewöhnlich Rang 5 — den Gipfel der sterblichen Welt.",
+  "Durchbrochen": "Eine durchbrochene Apertur (100%)! Eines der Zehn Extremen Physiques — unerreicht im selben Rang, aber die Chance, je unsterblich zu werden, ist verschwindend gering."
+ },
+ "CFG": {
+  "apt": "random",
+  "phys": "",
+  "vital": "random",
+  "eggs": [],
+  "rank": 1,
+  "spawn": "center",
+  "sect": "",
+  "god": false,
+  "child": false
+ },
+ "PHYS": {
+  "strength": {
+   "n": "Große-Kraft-Wahrhaft-Martial",
+   "path": "Kraft",
+   "d": "+8 Schaden, +50 max. HP. (Hei Lou Lan)",
+   "apply": "[fn] ()=>{P.cultDmg+=8;P.maxhp+=50;P.hp+=50}"
+  },
+  "wisdom": {
+   "n": "Sorgloses-Weisheitsherz",
+   "path": "Weisheit",
+   "d": "+3 Skillpunkte, doppelter XP-Gewinn. (Star Constellation)",
+   "apply": "[fn] ()=>{P.sp+=3;P.xpMult=2}"
+  },
+  "dream": {
+   "n": "Reine-Traum-Wahrheitssucher",
+   "path": "Traum",
+   "d": "Gu kosten 40 % weniger Urenergie.",
+   "apply": "[fn] ()=>{P.essDisc=.6}"
+  },
+  "moon": {
+   "n": "Öde-Uralter-Mond",
+   "path": "Zeit",
+   "d": "Alle Gu-Abklingzeiten halbiert.",
+   "apply": "[fn] ()=>{P.cdMult=.5}"
+  },
+  "ice": {
+   "n": "Nördliche-Dunkle-Eisseele",
+   "path": "Eis & Seele",
+   "d": "Immun gegen Gift und Brand, +30 % Rüstung.",
+   "apply": "[fn] ()=>{P.skills.gift_res=1;P.physArmor=.3}"
+  },
+  "forest": {
+   "n": "Grenzenloser-Wald-Samsara",
+   "path": "Holz",
+   "d": "Heilt 3 HP/s überall, doppelte Ernte.",
+   "apply": "[fn] ()=>{P.physRegen=3;P.skills.ernte=1}"
+  },
+  "lightning": {
+   "n": "Lodernde-Glorie-Blitzglanz",
+   "path": "Feuer & Blitz",
+   "d": "+40 % Lauftempo, Treffer entzünden.",
+   "apply": "[fn] ()=>{P.guSpeedMult=1.4;P.physBurn=1}"
+  },
+  "earth": {
+   "n": "Zentrale-Erd-Essenz",
+   "path": "Erde",
+   "d": "+120 max. HP, Dornen.",
+   "apply": "[fn] ()=>{P.maxhp+=120;P.hp+=120;P.skills.dornen=1}"
+  },
+  "universe": {
+   "n": "Universum-Große-Ableitung",
+   "path": "Regeln",
+   "d": "+2 Skillpunkte pro Level statt 1.",
+   "apply": "[fn] ()=>{P.spPerLvl=2}"
+  },
+  "metal": {
+   "n": "Metall-Physique (Name laut Fan-Konsens)",
+   "path": "Metall",
+   "d": "+12 Schaden, 30 % Krit.",
+   "apply": "[fn] ()=>{P.cultDmg+=12;P.physCrit=.3}"
+  }
+ }
+}

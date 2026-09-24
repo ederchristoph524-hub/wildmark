@@ -1,0 +1,1097 @@
+{
+ "_hinweis": "Neues Kern-Gu-System (siehe docs/GU_SYSTEM.md). Ersetzt für M2–M3 die Gu-Auswahl aus GUDEX. IDs von Mitgliedern mit neu=false existieren auch in GUDEX (dort Lore-Texte). Basiswerte gelten für Rang 1, höhere Ränge skalieren mit 1,48^(Rang−1) plus Ranggabe.",
+ "familien": [
+  {
+   "id": "mondlicht",
+   "name": "Mondlicht",
+   "pfad": "licht",
+   "rolle": "Fernkampf-Allrounder",
+   "wirkform": "geschoss",
+   "tags": [
+    "schnitt",
+    "licht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "kristall",
+    "n": 1
+   },
+   "basis_r1": {
+    "schaden": 20,
+    "cd": 2.0,
+    "ess": 6,
+    "reichweite": 14
+   },
+   "aufstieg": {
+    "r2": {
+     "mondtau": 3
+    },
+    "r3": {
+     "mondtau": 6,
+     "jadeader": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "mondlicht",
+     "name": "Mondlicht-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Schleudert eine Mondklinge."
+    },
+    {
+     "rang": 2,
+     "id": "mondsichel",
+     "name": "Mondsichel-Gu",
+     "neu": true,
+     "ranggabe": "Klinge durchdringt ein weiteres Ziel.",
+     "beschreibung": "Eine breitere Klinge, die durch den ersten Gegner hindurchschneidet."
+    },
+    {
+     "rang": 3,
+     "id": "regenbogen",
+     "name": "Regenbogenlicht-Gu",
+     "neu": false,
+     "ranggabe": "Fächert in sieben Klingen auf.",
+     "beschreibung": "Sieben Lichtklingen in einem Fächer."
+    }
+   ],
+   "welt": "Licht blendet Nacht- und Schattenwesen und lässt versteckte Lichtsiegel aufleuchten."
+  },
+  {
+   "id": "flamme",
+   "name": "Flamme",
+   "pfad": "feuer",
+   "rolle": "Flächenschaden",
+   "wirkform": "geschoss_explodierend",
+   "tags": [
+    "feuer"
+   ],
+   "status": "brand",
+   "futter": {
+    "r": "holz",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 14,
+    "cd": 3.0,
+    "ess": 8,
+    "radius": 1.5,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "glutasche": 3
+    },
+    "r3": {
+     "glutasche": 6,
+     "donnerholz": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "glutfunke",
+     "name": "Glutfunken-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Funke, der beim Aufprall zerplatzt und entzündet."
+    },
+    {
+     "rang": 2,
+     "id": "flammenzunge",
+     "name": "Flammenzungen-Gu",
+     "neu": false,
+     "ranggabe": "Explosionsradius +1 m.",
+     "beschreibung": "Ein Feuerball mit größerer Explosion."
+    },
+    {
+     "rang": 3,
+     "id": "feuerlotus",
+     "name": "Feuerlotus-Gu",
+     "neu": true,
+     "ranggabe": "Hinterlässt 4 s brennenden Boden.",
+     "beschreibung": "Eine Feuerblüte, die den Boden in Brand setzt."
+    }
+   ],
+   "welt": "Brennt Ranken, Dornenhecken und trockenes Gras ab; entzündet Fackeln und Signalfeuer."
+  },
+  {
+   "id": "stroemung",
+   "name": "Strömung",
+   "pfad": "wasser",
+   "rolle": "Kontrolle und Vorbereitung",
+   "wirkform": "strahl",
+   "tags": [
+    "wasser"
+   ],
+   "status": "nass",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 14,
+    "cd": 2.0,
+    "ess": 5,
+    "reichweite": 10,
+    "verlangsamung": 0.3
+   },
+   "aufstieg": {
+    "r2": {
+     "mondtau": 3
+    },
+    "r3": {
+     "mondtau": 5,
+     "jadeader": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "wasserlicht",
+     "name": "Wasserlicht-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Ein Wasserstrahl, der durchnässt und verlangsamt."
+    },
+    {
+     "rang": 2,
+     "id": "wasserbohrer",
+     "name": "Wasserbohrer-Gu",
+     "neu": false,
+     "ranggabe": "Durchbohrt alle Ziele auf der Linie.",
+     "beschreibung": "Ein gebündelter Strahl, der durch Reihen von Gegnern geht."
+    },
+    {
+     "rang": 3,
+     "id": "flutdrache",
+     "name": "Flutdrachen-Gu",
+     "neu": true,
+     "ranggabe": "Breiter Strahl mit Rückstoß, hinterlässt Wasserfläche.",
+     "beschreibung": "Ein Wasserdrache, der Gegner zurückspült."
+    }
+   ],
+   "welt": "Löscht Feuerbarrieren, füllt Becken, macht Flächen nass (Vorbereitung für Blitz und Frost)."
+  },
+  {
+   "id": "blitz",
+   "name": "Blitz",
+   "pfad": "blitz",
+   "rolle": "schneller Einzelschaden",
+   "wirkform": "geschoss_schnell",
+   "tags": [
+    "blitz"
+   ],
+   "status": "ladung",
+   "futter": {
+    "r": "kristall",
+    "n": 1
+   },
+   "basis_r1": {
+    "schaden": 12,
+    "cd": 1.2,
+    "ess": 4,
+    "reichweite": 12,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "eisenerz": 3
+    },
+    "r3": {
+     "donnerholz": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "funkenwurm",
+     "name": "Funkenwurm-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein schneller Funke, der das Ziel auflädt."
+    },
+    {
+     "rang": 2,
+     "id": "blauplasma",
+     "name": "Blauplasma-Gu",
+     "neu": false,
+     "ranggabe": "Ignoriert Rüstung.",
+     "beschreibung": "Ein Plasmastoß, der Panzer durchschlägt."
+    },
+    {
+     "rang": 3,
+     "id": "kettenblitz",
+     "name": "Kettenblitz-Gu",
+     "neu": false,
+     "ranggabe": "Springt auf bis zu 3 weitere Ziele.",
+     "beschreibung": "Ein Blitz, der von Gegner zu Gegner springt."
+    }
+   ],
+   "welt": "Lädt alte Ruinenmechanismen auf (Tore, Aufzüge); Blitz in Wasser elektrisiert die ganze Fläche."
+  },
+  {
+   "id": "frost",
+   "name": "Frost",
+   "pfad": "eis",
+   "rolle": "Kontrolle",
+   "wirkform": "geschoss",
+   "tags": [
+    "eis"
+   ],
+   "status": "frost",
+   "futter": {
+    "r": "fell",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 12,
+    "cd": 2.0,
+    "ess": 6,
+    "reichweite": 12,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "frostsplitter": 2
+    },
+    "r3": {
+     "frostsplitter": 5,
+     "jadeader": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "frostnadel",
+     "name": "Frostnadel-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Eine Eisnadel, die das Ziel unterkühlt."
+    },
+    {
+     "rang": 2,
+     "id": "eisvogel",
+     "name": "Eisvogel-Gu",
+     "neu": false,
+     "ranggabe": "Trifft mit 2 Frost-Stapeln.",
+     "beschreibung": "Ein Eisvogel, der am Ziel zerspringt."
+    },
+    {
+     "rang": 3,
+     "id": "frostnova",
+     "name": "Frostnova-Gu",
+     "neu": false,
+     "ranggabe": "Wird zum Kreis um dich (Radius 3).",
+     "beschreibung": "Eine Kältewelle um dich herum."
+    }
+   ],
+   "welt": "Friert Wasserflächen zu begehbarem Eis, stoppt Wasserfälle kurz, löscht Feuer."
+  },
+  {
+   "id": "gift",
+   "name": "Gift",
+   "pfad": "gift",
+   "rolle": "Schaden über Zeit",
+   "wirkform": "stich",
+   "tags": [
+    "gift"
+   ],
+   "status": "gift",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 8,
+    "cd": 1.5,
+    "ess": 4,
+    "reichweite": 3,
+    "stapel": 2
+   },
+   "aufstieg": {
+    "r2": {
+     "gruenkraut": 3
+    },
+    "r3": {
+     "giftdrüse": 3
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "stachelwurm",
+     "name": "Stachelwurm-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Giftstich auf kurze Distanz."
+    },
+    {
+     "rang": 2,
+     "id": "giftskorpion",
+     "name": "Giftskorpion-Gu",
+     "neu": false,
+     "ranggabe": "Gift springt beim Tod des Ziels über.",
+     "beschreibung": "Ein Skorpionstich, dessen Gift sich ausbreitet."
+    },
+    {
+     "rang": 3,
+     "id": "giftnebel",
+     "name": "Giftnebel-Gu",
+     "neu": false,
+     "ranggabe": "Wird zur Giftwolke (Zone, Radius 3).",
+     "beschreibung": "Eine Giftwolke, die Stapel aufbaut."
+    }
+   ],
+   "welt": "Zersetzt Pilzbarrieren und morsche Wurzeln; Gift in Wasser macht Beutetiere schwach."
+  },
+  {
+   "id": "wirbel",
+   "name": "Wirbel",
+   "pfad": "kraft",
+   "rolle": "Nahkampf und Positionierung",
+   "wirkform": "kreis",
+   "tags": [
+    "wucht",
+    "wind"
+   ],
+   "status": null,
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 18,
+    "cd": 4.0,
+    "ess": 8,
+    "radius": 2.5
+   },
+   "aufstieg": {
+    "r2": {
+     "wildfell": 3
+    },
+    "r3": {
+     "wildfell": 5,
+     "knochenmehl": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "wirbelwind",
+     "name": "Wirbelwind-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Ein Rundumschlag mit Windstoß."
+    },
+    {
+     "rang": 2,
+     "id": "sogwirbel",
+     "name": "Sogwirbel-Gu",
+     "neu": true,
+     "ranggabe": "Zieht Gegner vorher zu dir.",
+     "beschreibung": "Ein Wirbel, der Gegner einsaugt und dann schlägt."
+    },
+    {
+     "rang": 3,
+     "id": "bergschlag",
+     "name": "Bergschlag-Gu",
+     "neu": true,
+     "ranggabe": "Bodenschlag, betäubt 1 s.",
+     "beschreibung": "Ein Schlag, der den Boden bersten lässt."
+    }
+   ],
+   "welt": "Zertrümmert Felsbrocken und morsche Wände; Wind verweht Nebel und Giftwolken."
+  },
+  {
+   "id": "knochen",
+   "name": "Knochen",
+   "pfad": "blut",
+   "rolle": "Hohes Risiko, hoher Schaden",
+   "wirkform": "geschoss",
+   "tags": [
+    "durchbohren",
+    "schnitt"
+   ],
+   "status": "wunde",
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 26,
+    "cd": 2.5,
+    "ess": 0,
+    "hp_kosten": 4,
+    "reichweite": 12
+   },
+   "aufstieg": {
+    "r2": {
+     "knochenmehl": 2
+    },
+    "r3": {
+     "blutkoralle": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "blutdorn",
+     "name": "Blutdorn-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Dorn aus eigenem Blut. Kostet HP statt Essenz."
+    },
+    {
+     "rang": 2,
+     "id": "knochenspeer",
+     "name": "Spiral-Knochenspeer-Gu",
+     "neu": false,
+     "ranggabe": "Durchbohrt Rüstung vollständig.",
+     "beschreibung": "Ein Speer aus eigenem Knochen."
+    },
+    {
+     "rang": 3,
+     "id": "blutschaedel",
+     "name": "Blutschädel-Gu",
+     "neu": false,
+     "ranggabe": "Heilt dich um die Hälfte des Schadens.",
+     "beschreibung": "Ein Schädelgeschoss, das Lebenskraft zurückholt."
+    }
+   ],
+   "welt": "Blutsiegel an alten Klan-Toren öffnen sich nur mit Blut-Pfad."
+  },
+  {
+   "id": "haut",
+   "name": "Haut",
+   "pfad": "metall",
+   "rolle": "Verteidigung",
+   "wirkform": "selbstschild",
+   "tags": [
+    "wucht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "stein",
+    "n": 3
+   },
+   "basis_r1": {
+    "reduktion": 0.5,
+    "dauer": 4,
+    "cd": 12,
+    "ess": 8,
+    "rueckstoss": true
+   },
+   "aufstieg": {
+    "r2": {
+     "eisenerz": 3
+    },
+    "r3": {
+     "jadeader": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "steinhaut",
+     "name": "Steinhaut-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Aktiv: 4 s lang halber Schaden, Nahangreifer werden zurückgestoßen."
+    },
+    {
+     "rang": 2,
+     "id": "eisenhaut",
+     "name": "Eisenhaut-Gu",
+     "neu": false,
+     "ranggabe": "Wirft Geschosse zurück.",
+     "beschreibung": "Eisenpanzer, der Geschosse reflektiert."
+    },
+    {
+     "rang": 3,
+     "id": "bronzhaut",
+     "name": "Uralte-Bronzehaut-Gu",
+     "neu": false,
+     "ranggabe": "Unbeweglich: kein Rückstoß, keine Betäubung.",
+     "beschreibung": "Uralter Bronzepanzer."
+    }
+   ],
+   "welt": "Ermöglicht das Durchqueren von Dornen- und Giftfeldern ohne Schaden, solange aktiv."
+  },
+  {
+   "id": "blatt",
+   "name": "Blatt",
+   "pfad": "holz",
+   "rolle": "Heilung",
+   "wirkform": "selbst_heilung",
+   "tags": [
+    "holz"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 3
+   },
+   "basis_r1": {
+    "heilung_anteil": 0.25,
+    "dauer": 5,
+    "cd": 18,
+    "ess": 10
+   },
+   "aufstieg": {
+    "r2": {
+     "gruenkraut": 3
+    },
+    "r3": {
+     "gruenkraut": 6,
+     "mondtau": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "lebensblatt",
+     "name": "Lebenskraft-Blatt-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Heilt 25 % der max. HP über 5 s."
+    },
+    {
+     "rang": 2,
+     "id": "frischesblatt",
+     "name": "Frisches-Blatt-Gu",
+     "neu": false,
+     "ranggabe": "Entfernt dabei Gift, Brand und Frost.",
+     "beschreibung": "Ein Blatt, das auch reinigt."
+    },
+    {
+     "rang": 3,
+     "id": "lebensbrunnen",
+     "name": "Lebensbrunnen-Gu",
+     "neu": false,
+     "ranggabe": "Wird zur Heilzone für dich und Gefährten.",
+     "beschreibung": "Eine Quelle des Lebens am Boden."
+    }
+   ],
+   "welt": "Lässt Kletterranken wachsen und verdorrte Heilpflanzen wieder sprießen."
+  },
+  {
+   "id": "sklaverei",
+   "name": "Sklaverei",
+   "pfad": "seele",
+   "rolle": "Beschwörung",
+   "wirkform": "zaehmen",
+   "tags": [
+    "seele"
+   ],
+   "status": null,
+   "futter": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "basis_r1": {
+    "hp_schwelle": 0.3,
+    "dauer": 25,
+    "cd": 30,
+    "ess": 12,
+    "max_gefaehrten": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "wildfell": 3
+    },
+    "r3": {
+     "seelenglas": 2
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "rattensklave",
+     "name": "Ratten-Sklaverei-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Unterwirft ein geschwächtes kleines Tier (unter 30 % HP)."
+    },
+    {
+     "rang": 2,
+     "id": "wolfssklave",
+     "name": "Wolfs-Sklaverei-Gu",
+     "neu": false,
+     "ranggabe": "Auch mittelgroße Bestien; 2 Gefährten.",
+     "beschreibung": "Unterwirft Wölfe und Wildschweine."
+    },
+    {
+     "rang": 3,
+     "id": "bestiensklave",
+     "name": "Bestien-Sklaverei-Gu",
+     "neu": false,
+     "ranggabe": "Ein Gefährte bleibt dauerhaft, bis er stirbt.",
+     "beschreibung": "Unterwirft auch starke Bestien."
+    }
+   ],
+   "welt": "Gezähmte Tiere graben, tragen Beute oder lenken Gegner ab; Ratten erreichen enge Gänge."
+  },
+  {
+   "id": "schritt",
+   "name": "Schritt",
+   "pfad": "raum",
+   "rolle": "Bewegung und Erkundung",
+   "wirkform": "bewegung",
+   "tags": [
+    "raum"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "cd": 1.5,
+    "ess": 2
+   },
+   "aufstieg": {
+    "r2": {
+     "windfeder": 2
+    },
+    "r3": {
+     "windfeder": 5
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "sprungwurm",
+     "name": "Sprungwurm-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Doppelsprung."
+    },
+    {
+     "rang": 2,
+     "id": "wolkenschritt",
+     "name": "Wolkenschritt-Gu",
+     "neu": true,
+     "ranggabe": "Gleiten und ein Luft-Dash.",
+     "beschreibung": "Du gleitest über Schluchten."
+    },
+    {
+     "rang": 3,
+     "id": "schattenbild",
+     "name": "Schattenbild-Gu",
+     "neu": false,
+     "ranggabe": "Teleport 8 m, auch durch Gitter.",
+     "beschreibung": "Teleportiert dich ein Stück nach vorn."
+    }
+   ],
+   "welt": "Der wichtigste Erkundungs-Gu: erreicht Vorsprünge, Schluchten, Inseln und Käfige."
+  }
+ ],
+ "koerper_gu": [
+  {
+   "id": "rosaeber",
+   "name": "Rosa-Eber-Gu",
+   "rang": 1,
+   "wirkung": {
+    "grundschaden": 4
+   }
+  },
+  {
+   "id": "zehnjin",
+   "name": "Zehn-Jin-Kraft-Gu",
+   "rang": 2,
+   "wirkung": {
+    "grundschaden": 12
+   }
+  },
+  {
+   "id": "junkraft",
+   "name": "Jun-Kraft-Gu",
+   "rang": 3,
+   "wirkung": {
+    "grundschaden": 27
+   }
+  },
+  {
+   "id": "eisenknochen",
+   "name": "Eisenknochen-Gu",
+   "rang": 3,
+   "wirkung": {
+    "max_hp": 60,
+    "schaden_erlitten": -0.1
+   }
+  }
+ ],
+ "hilfs_gu": [
+  {
+   "id": "liquor",
+   "name": "Schnaps-Wurm",
+   "rang": 1,
+   "pfad": "weisheit",
+   "wirkung": "Essenz-Regeneration +35 %",
+   "futter": {
+    "r": "beeren",
+    "n": 3
+   }
+  },
+  {
+   "id": "hoffnung",
+   "name": "Hoffnungs-Gu",
+   "rang": 1,
+   "pfad": "weisheit",
+   "wirkung": "Gu-Kapazität +1, Apertur +10 %",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   }
+  },
+  {
+   "id": "kleineslicht",
+   "name": "Kleines-Licht-Gu",
+   "rang": 1,
+   "pfad": "licht",
+   "wirkung": "Lichtkreis bei Nacht; macht Lichtsiegel und versteckte wilde Gu sichtbar",
+   "futter": {
+    "r": "kristall",
+    "n": 1
+   }
+  },
+  {
+   "id": "signal",
+   "name": "Signal-Gu",
+   "rang": 1,
+   "pfad": "information",
+   "wirkung": "Zeigt Gegner und wilde Gu in doppelter Entfernung",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   }
+  },
+  {
+   "id": "stealthstein",
+   "name": "Schleichstein-Gu",
+   "rang": 1,
+   "pfad": "metall",
+   "wirkung": "Wilde Gu fliehen seltener, Bestien bemerken dich später",
+   "futter": {
+    "r": "stein",
+    "n": 2
+   }
+  },
+  {
+   "id": "bohr",
+   "name": "Bohr-Gu",
+   "rang": 2,
+   "pfad": "metall",
+   "wirkung": "Rohstoffe brauchen einen Schlag weniger, seltenere Funde",
+   "futter": {
+    "r": "stein",
+    "n": 2
+   }
+  },
+  {
+   "id": "zweiaufgaben",
+   "name": "Zwei-Aufgaben-Gu",
+   "rang": 2,
+   "pfad": "weisheit",
+   "wirkung": "Cooldowns −20 %",
+   "futter": {
+    "r": "kristall",
+    "n": 2
+   }
+  }
+ ],
+ "zustaende": {
+  "brand": {
+   "name": "Brand",
+   "wirkung": "4 Schaden/s (× Rangfaktor), 4 s",
+   "stapel": 1,
+   "endet_durch": [
+    "nass"
+   ]
+  },
+  "nass": {
+   "name": "Nass",
+   "wirkung": "keine direkte Wirkung, 6 s; Vorbereitung für Blitz und Frost",
+   "stapel": 1,
+   "endet_durch": [
+    "brand"
+   ]
+  },
+  "frost": {
+   "name": "Frost",
+   "wirkung": "je Stapel −20 % Tempo, 5 s; bei 3 Stapeln 2 s eingefroren",
+   "stapel": 3,
+   "endet_durch": [
+    "brand"
+   ]
+  },
+  "ladung": {
+   "name": "Ladung",
+   "wirkung": "bei 3 Stapeln Entladung: 25 Schaden im Umkreis 2 und 0,5 s Betäubung",
+   "stapel": 3
+  },
+  "gift": {
+   "name": "Gift",
+   "wirkung": "2 Schaden/s pro Stapel, 8 s, halbiert Heilung",
+   "stapel": 5
+  },
+  "wunde": {
+   "name": "Wunde",
+   "wirkung": "nächster Treffer +30 %; Blut-Gu heilen an verwundeten Zielen",
+   "stapel": 1
+  }
+ },
+ "reaktionen": [
+  {
+   "id": "ueberschlag",
+   "name": "Überschlag",
+   "ausloeser": "blitz",
+   "auf": "nass",
+   "wirkung": "×2 Schaden, springt auf alle nassen Ziele im Umkreis 6",
+   "endet": [
+    "nass"
+   ]
+  },
+  {
+   "id": "schockfrost",
+   "name": "Schockfrost",
+   "ausloeser": "eis",
+   "auf": "nass",
+   "wirkung": "sofort eingefroren (2 s)",
+   "endet": [
+    "nass"
+   ]
+  },
+  {
+   "id": "dampf",
+   "name": "Dampf",
+   "ausloeser": "feuer",
+   "auf": "nass",
+   "wirkung": "Dampfwolke 4 s: Gegner darin verlieren ihr Ziel",
+   "endet": [
+    "nass",
+    "brand"
+   ]
+  },
+  {
+   "id": "schmelze",
+   "name": "Schmelze",
+   "ausloeser": "feuer",
+   "auf": "frost",
+   "wirkung": "×1,5 Schaden, Ziel wird nass",
+   "endet": [
+    "frost"
+   ]
+  },
+  {
+   "id": "zerschmettern",
+   "name": "Zerschmettern",
+   "ausloeser": "wucht",
+   "auf": "eingefroren",
+   "wirkung": "×2,5 Schaden",
+   "endet": [
+    "frost"
+   ]
+  },
+  {
+   "id": "feuerwirbel",
+   "name": "Feuerwirbel",
+   "ausloeser": "wind",
+   "auf": "brand",
+   "wirkung": "Brand springt auf alle Ziele im Umkreis 4",
+   "endet": []
+  },
+  {
+   "id": "giftexplosion",
+   "name": "Giftexplosion",
+   "ausloeser": "feuer",
+   "auf": "gift_ab_3",
+   "wirkung": "Explosion: Stapel × 8 Schaden im Umkreis 3",
+   "endet": [
+    "gift"
+   ]
+  },
+  {
+   "id": "blutgift",
+   "name": "Blutgift",
+   "ausloeser": "gift",
+   "auf": "wunde",
+   "wirkung": "Gift-Stapel werden verdoppelt",
+   "endet": [
+    "wunde"
+   ]
+  }
+ ],
+ "tags": {
+  "wucht": "stößt zurück, zerschmettert Eingefrorene, bricht Felsen",
+  "schnitt": "20 % Chance auf Wunde",
+  "durchbohren": "ignoriert Rüstung",
+  "wind": "verteilt Brand und Gift auf Nachbarn, verweht Wolken",
+  "licht": "blendet Nacht- und Schattenwesen (−50 % Treffgenauigkeit), enthüllt Verborgenes",
+  "feuer": "löst Feuer-Reaktionen aus",
+  "wasser": "macht nass",
+  "blitz": "löst Blitz-Reaktionen aus",
+  "eis": "löst Frost-Reaktionen aus",
+  "gift": "löst Gift-Reaktionen aus",
+  "seele": "wirkt auf Geist statt Körper",
+  "holz": "Heilung und Wachstum",
+  "raum": "Bewegung"
+ },
+ "merkmale": [
+  {
+   "id": "genuegsam",
+   "name": "Genügsam",
+   "wirkung": "Hunger −50 %",
+   "gewicht": 10
+  },
+  {
+   "id": "gierig",
+   "name": "Gierig",
+   "wirkung": "Hunger +50 %, Wirkung +15 %",
+   "gewicht": 8
+  },
+  {
+   "id": "flink",
+   "name": "Flink",
+   "wirkung": "Cooldown −20 %",
+   "gewicht": 8
+  },
+  {
+   "id": "sparsam",
+   "name": "Sparsam",
+   "wirkung": "Essenzkosten −20 %",
+   "gewicht": 8
+  },
+  {
+   "id": "wild",
+   "name": "Wild",
+   "wirkung": "Wirkung +25 %, 10 % Chance zu versagen",
+   "gewicht": 6
+  },
+  {
+   "id": "zaeh",
+   "name": "Zäh",
+   "wirkung": "verhungert nicht, fällt nur aus",
+   "gewicht": 6
+  },
+  {
+   "id": "scheu",
+   "name": "Scheu",
+   "wirkung": "Einfangen schwerer, Aufstiegsverfeinerung +15 % Chance",
+   "gewicht": 6
+  },
+  {
+   "id": "dao",
+   "name": "Dao-geprägt",
+   "wirkung": "doppelte Dao-Markierungen bei Nutzung",
+   "gewicht": 4
+  },
+  {
+   "id": "reizbar",
+   "name": "Reizbar",
+   "wirkung": "Status-Stapel +1, Essenzkosten +15 %",
+   "gewicht": 6
+  },
+  {
+   "id": "glaenzend",
+   "name": "Glänzend (selten)",
+   "wirkung": "Wirkung +30 %, leuchtet sichtbar",
+   "gewicht": 1
+  }
+ ],
+ "killer_moves": [
+  {
+   "id": "feuersturm",
+   "name": "Feuersturm",
+   "a": "flamme",
+   "b": "wirbel",
+   "kanal_s": 0.9,
+   "mult": 2.8,
+   "wirkung": "Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter",
+   "hinweis": "Wo Flamme auf Wirbel trifft …"
+  },
+  {
+   "id": "mondschritt",
+   "name": "Mondschritt",
+   "a": "mondlicht",
+   "b": "schritt",
+   "kanal_s": 0.6,
+   "mult": 2.5,
+   "wirkung": "Du jagst durch eine Gegnerreihe und hinterlässt Mondklingen auf deinem Weg",
+   "hinweis": "Ein Schritt im Mondlicht schneidet."
+  },
+  {
+   "id": "gewitterflut",
+   "name": "Gewitterflut",
+   "a": "stroemung",
+   "b": "blitz",
+   "kanal_s": 1.2,
+   "mult": 3.2,
+   "wirkung": "Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle",
+   "hinweis": "Wasser ruft den Donner."
+  },
+  {
+   "id": "gletscherbruch",
+   "name": "Gletscherbruch",
+   "a": "frost",
+   "b": "wirbel",
+   "kanal_s": 1.0,
+   "mult": 3.0,
+   "wirkung": "Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag",
+   "hinweis": "Was gefriert, zerbricht."
+  },
+  {
+   "id": "pestfeuer",
+   "name": "Pestfeuer",
+   "a": "gift",
+   "b": "flamme",
+   "kanal_s": 1.1,
+   "mult": 3.0,
+   "wirkung": "Giftwolke, die sich entzündet: große Giftexplosion und brennender Boden",
+   "hinweis": "Fäulnis brennt am hellsten."
+  },
+  {
+   "id": "knochenfestung",
+   "name": "Knochenfestung",
+   "a": "knochen",
+   "b": "haut",
+   "kanal_s": 0.8,
+   "mult": 2.5,
+   "wirkung": "Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP)",
+   "hinweis": "Die Haut aus Knochen beißt zurück."
+  },
+  {
+   "id": "donnerpanzer",
+   "name": "Donnerpanzer",
+   "a": "haut",
+   "b": "blitz",
+   "kanal_s": 0.6,
+   "mult": 2.5,
+   "wirkung": "Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel",
+   "hinweis": "Wer den Donner berührt …"
+  },
+  {
+   "id": "rudelsegen",
+   "name": "Rudelsegen",
+   "a": "sklaverei",
+   "b": "blatt",
+   "kanal_s": 1.5,
+   "mult": 2.5,
+   "wirkung": "Heilt und stärkt alle Gefährten, ein weiterer Gefährte erscheint für 20 s",
+   "hinweis": "Das Rudel lebt vom Grün."
+  }
+ ],
+ "start_familien": [
+  "mondlicht",
+  "flamme",
+  "stroemung",
+  "wirbel"
+ ],
+ "merkmal_chance": {
+  "eines": 0.39,
+  "glaenzend": 0.01
+ }
+}

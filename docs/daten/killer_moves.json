@@ -1,0 +1,53 @@
+{
+ "KILLERS": [
+  {
+   "a": "flammenzunge",
+   "b": "wirbelwind",
+   "n": "Feuersturm",
+   "ic": "🔥🌀",
+   "d": "Ein Wirbel aus Flammen reißt alles im Umkreis mit.",
+   "run": "[fn] ()=>{shake=10;SFX.fire();zones.push({t:'ring',x:P.x,y:P.y,r:4.5,life:.7,c:'#ff8a3a'});\n     for(const m of mons.slice())if(dist(P.x,P.y,m.x,m.y)<4.5){hurtMon(m,dmg()*2.6,Math.atan2(m.y-P.y,m.x-P.x),2,'magic');m.burn=4}\n     for(let i=0;i<40;i++){const a=rnd(0,6.28),r=rnd(1,4.5);parts.push({x:P.x+Math.cos(a)*r,y:P.y+Math.sin(a)*r,vx:-Math.sin(a)*4,vy:Math.cos(a)*4,life:.8,c:pick(['#ff8a3a','#ffd23d','#ff3a1a'])})}}"
+  },
+  {
+   "a": "frostnova",
+   "b": "kettenblitz",
+   "n": "Sturmfront",
+   "ic": "❄️⚡",
+   "d": "Gefrorene Feinde leiten den Blitz weiter — dreifacher Schaden.",
+   "run": "[fn] ()=>{SFX.ice();SFX.zap();zones.push({t:'ring',x:P.x,y:P.y,r:4,life:.6,c:'#bff'});\n     const hit=mons.filter(m=>dist(P.x,P.y,m.x,m.y)<4.5);\n     for(const m of hit){m.freeze=4;hurtMon(m,(40+dmg())*3,0,.3,'magic');\n       zones.push({t:'bolt',x1:P.x,y1:P.y,x2:m.x,y2:m.y,life:.35,c:'#9df'})}\n     if(!hit.length)toast('Keine Ziele in Reichweite','#7fc8ff')}"
+  },
+  {
+   "a": "schattenbild",
+   "b": "wirbelwind",
+   "n": "Klingentanz",
+   "ic": "🌑🌀",
+   "d": "Du erscheinst hinter dem Feind und schlägst im Vorbeigehen.",
+   "run": "[fn] ()=>{SFX.dash();const t=mons.slice().sort((x,y)=>dist(P.x,P.y,x.x,x.y)-dist(P.x,P.y,y.x,y.y))[0];\n     if(!t){toast('Kein Ziel','#c9a0ff');return}\n     for(let i=0;i<4;i++){const m=mons[(mons.indexOf(t)+i)%mons.length];if(!m)break;\n       P.x=m.x-Math.cos(P.face)*.8;P.y=m.y-Math.sin(P.face)*.8;hurtMon(m,dmg()*1.9,P.face,1,'melee');\n       parts.push(...Array.from({length:8},()=>({x:P.x,y:P.y,vx:rnd(-3,3),vy:rnd(-3,3),life:.5,c:'#8a6aff'})))}\n     camX=P.x;camY=P.y;P.inv_t=.5}"
+  },
+  {
+   "a": "lebensbrunnen",
+   "b": "sklaverei",
+   "n": "Blutpakt",
+   "ic": "✨⛓️",
+   "d": "Heilt dich und macht dein Ziel zum Verbündeten.",
+   "run": "[fn] ()=>{P.hp=Math.min(P.maxhp,P.hp+P.maxhp*.5);SFX.heal();\n     let best=null,bd=5;for(const m of mons)if(!m.boss){const d2=dist(P.x,P.y,m.x,m.y);if(d2<bd){bd=d2;best=m}}\n     if(best){allies.push({x:best.x,y:best.y,hp:best.maxhp*1.5,life:45,cd:0});mons.splice(mons.indexOf(best),1)}\n     parts.push(...Array.from({length:20},()=>({x:P.x,y:P.y,vx:rnd(-2,2),vy:-2,life:.9,c:'#c9fff2'})))}"
+  },
+  {
+   "a": "drachenatem",
+   "b": "frostnova",
+   "n": "Eis und Feuer",
+   "ic": "🐉❄️",
+   "d": "Zwei gegensätzliche Pfade prallen aufeinander — verheerend.",
+   "run": "[fn] ()=>{shake=16;SFX.roar();SFX.boom();zones.push({t:'ring',x:P.x,y:P.y,r:6,life:.9,c:'#fff'});\n     for(const m of mons.slice())if(dist(P.x,P.y,m.x,m.y)<6){hurtMon(m,dmg()*4,Math.atan2(m.y-P.y,m.x-P.x),2.5,'magic');m.freeze=2;m.burn=4}\n     for(let i=0;i<60;i++){const a=rnd(0,6.28);parts.push({x:P.x,y:P.y,vx:Math.cos(a)*rnd(2,9),vy:Math.sin(a)*rnd(2,9),life:1,c:pick(['#ff6a1a','#bff','#fff'])})}}"
+  },
+  {
+   "a": "fruehlingherbst",
+   "b": "menschwiezuvor",
+   "n": "Zeitumkehr",
+   "ic": "🦗⏪",
+   "d": "Die Zeit selbst weicht zurück: volle Heilung, alle Abklingzeiten frei.",
+   "run": "[fn] ()=>{P.hp=P.maxhp;P.poison=P.burn=P.slow=0;P.cd={};slowT=6;shake=14;SFX.level();\n     zones.push({t:'ring',x:P.x,y:P.y,r:7,life:1,c:'#d9b0ff'});\n     for(const m of mons)m.stun=3;\n     parts.push(...Array.from({length:50},()=>({x:P.x,y:P.y,vx:rnd(-5,5),vy:rnd(-5,5),life:1.1,c:'#c9a0ff'})))}"
+  }
+ ],
+ "_hinweis": "KILLERS stammen aus dem Prototyp (Gu-Paare, Feld run = JS-Referenzlogik) und dienen nur als Referenz für spätere Ränge. Die gültigen Killer Moves für M2–M3 stehen auf Familienebene in gu_system.json → killer_moves."
+}

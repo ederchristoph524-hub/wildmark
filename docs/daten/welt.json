@@ -1,0 +1,58 @@
+{
+ "REGIONS": [
+  {
+   "id": 0,
+   "n": "Nördliche Ebene",
+   "c": "#9ab86a",
+   "d": "Endlose Steppe. Keine Klans, nur Stämme — Heimat des Riesensonnen-Ehrwürdigen."
+  },
+  {
+   "id": 1,
+   "n": "Südliche Grenze",
+   "c": "#3f8a4a",
+   "d": "Dschungel voller Miasma und Gift. Herrschaft der Klans — Fang Yuans Heimat."
+  },
+  {
+   "id": 2,
+   "n": "Östliches Meer",
+   "c": "#3a8ac9",
+   "d": "Zehntausend Inseln und endloses Wasser. Reich an Ressourcen, voller Seeungeheuer."
+  },
+  {
+   "id": 3,
+   "n": "Westliche Wüste",
+   "c": "#d9b46a",
+   "d": "Dünen und roter Fels. Karawanen, Oasen und uralte Tempel."
+  },
+  {
+   "id": 4,
+   "n": "Zentralkontinent",
+   "c": "#7ab86a",
+   "d": "Das reiche Herz der Welt. Sitz des Himmlischen Hofes und der großen Sekten."
+  },
+  {
+   "id": 5,
+   "n": "Weißer Himmel",
+   "c": "#fff3d0",
+   "d": "Ein Meer aus Licht und Wolken. Die Ordnung des Himmlischen Hofes."
+  },
+  {
+   "id": 6,
+   "n": "Schwarzer Himmel",
+   "c": "#b070ff",
+   "d": "Leere zwischen den Sternen. Heimat der Dämonen-Ehrwürdigen."
+  },
+  {
+   "id": 7,
+   "n": "Gesegnetes Land",
+   "c": "#5ee1c1",
+   "d": "Eine eigene Welt innerhalb einer Apertur."
+  }
+ ],
+ "ZONE_NAMES": [
+  "Sichelwiesen",
+  "Dunkler Forst",
+  "Steinöde",
+  "Aschefeld"
+ ]
+}

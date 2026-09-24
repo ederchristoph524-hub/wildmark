@@ -1,0 +1,463 @@
+{
+ "SECTS": [
+  {
+   "id": "gu_yue",
+   "n": "Gu-Yue-Klan",
+   "f": "righteous",
+   "reg": 1,
+   "ic": "🌙",
+   "type": "klan",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "blutfluegel"
+   ],
+   "pol": "Ein mittlerer Klan ohne eigenen Unsterblichen — nur ein Rang-4-Ältester schützt ihn. Die Nachbarklans warten auf einen Fehler.",
+   "d": "Der Klan aus der Südlichen Grenze. Bekannt für das Mondlicht-Gu.",
+   "gift": {
+    "kristall": 6,
+    "holz": 20
+   },
+   "gu": "mondlicht"
+  },
+  {
+   "id": "himmelshof",
+   "n": "Himmlischer Hof",
+   "f": "righteous",
+   "reg": 4,
+   "ic": "⛩️",
+   "type": "sekte",
+   "imm": 3,
+   "power": 5,
+   "rivals": [
+    "schattensekte",
+    "meereszombies"
+   ],
+   "pol": "Die stärkste Macht der Welt. Mehrere Rang-8-Unsterbliche. Wer hier aufwächst, ist von Anfang an geschützt — und beobachtet.",
+   "d": "Die höchste Ordnungsmacht der Welt. Nimmt nur Fortgeschrittene auf.",
+   "req": 5,
+   "gift": {
+    "kristall": 15,
+    "stein": 30
+   },
+   "gu": "goldlicht"
+  },
+  {
+   "id": "yi_tian",
+   "n": "Yi-Tian-Sekte",
+   "f": "righteous",
+   "reg": 0,
+   "ic": "🏔️",
+   "type": "sekte",
+   "imm": 1,
+   "power": 3,
+   "rivals": [
+    "wilde_horde"
+   ],
+   "pol": "Ein Rang-6-Unsterblicher hält die Sekte am Leben. Genug, um nicht überrannt zu werden — zu wenig, um zu expandieren.",
+   "d": "Strenge Bergsekte der Nördlichen Ebene.",
+   "gift": {
+    "stein": 40,
+    "fell": 8
+   },
+   "gu": "eisenhaut"
+  },
+  {
+   "id": "blutfluegel",
+   "n": "Blutflügel-Dämonensekte",
+   "f": "demonic",
+   "reg": 1,
+   "ic": "🩸",
+   "type": "sekte",
+   "imm": 1,
+   "power": 2,
+   "rivals": [
+    "gu_yue",
+    "wu_clan"
+   ],
+   "pol": "Ein einziger Unsterblicher, sonst nur Sterbliche. Wird von allen rechtschaffenen Klans der Südgrenze gejagt.",
+   "d": "Von Fang Yuan gegründet. Nur Sterbliche, ein einziger Unsterblicher.",
+   "gift": {
+    "fleisch": 15,
+    "kristall": 8
+   },
+   "gu": "blutrausch"
+  },
+  {
+   "id": "schattensekte",
+   "n": "Schattensekte",
+   "f": "demonic",
+   "reg": 4,
+   "ic": "🌑",
+   "type": "sekte",
+   "imm": 2,
+   "power": 4,
+   "rivals": [
+    "himmelshof"
+   ],
+   "pol": "Zwei Unsterbliche, die niemand kennt. Wirkt im Verborgenen und unterwandert den Himmlischen Hof.",
+   "d": "Verborgene Macht hinter den Kulissen des Zentralkontinents.",
+   "req": 4,
+   "gift": {
+    "kristall": 12
+   },
+   "gu": "schattenbild"
+  },
+  {
+   "id": "wilde_horde",
+   "n": "Wilde Horde",
+   "f": "demonic",
+   "reg": 0,
+   "ic": "🐺",
+   "type": "stamm",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "yi_tian",
+    "huang_jin"
+   ],
+   "pol": "Kein Unsterblicher, dafür Zehntausende Krieger. Überlebt durch Zahl und Brutalität, nicht durch Schutz.",
+   "d": "Stämme der Nordebene, die nur Stärke anerkennen.",
+   "gift": {
+    "fleisch": 20,
+    "fell": 10
+   },
+   "gu": "wirbelwind"
+  },
+  {
+   "id": "wu_clan",
+   "n": "Wu-Klan",
+   "f": "righteous",
+   "reg": 1,
+   "ic": "🏛️",
+   "type": "klan",
+   "imm": 2,
+   "power": 4,
+   "rivals": [
+    "blutfluegel"
+   ],
+   "pol": "Zwei Unsterbliche und ein tiefer Erbschatz. Der beste Ort, um als Hauptlinie geboren zu werden — und der schlimmste als Diener.",
+   "d": "Die größte rechtschaffene Macht der Südlichen Grenze.",
+   "req": 3,
+   "gift": {
+    "kristall": 10,
+    "beeren": 20
+   },
+   "gu": "lebensbrunnen"
+  },
+  {
+   "id": "shang_clan",
+   "n": "Shang-Klan",
+   "f": "righteous",
+   "reg": 1,
+   "ic": "💰",
+   "type": "klan",
+   "imm": 1,
+   "power": 3,
+   "rivals": [],
+   "pol": "Reich statt stark. Kauft sich Schutz und Frieden — solange das Gold reicht.",
+   "d": "Händlerklan der Südlichen Grenze, reich und weitverzweigt.",
+   "gift": {
+    "kristall": 12
+   },
+   "gu": "schatzlicht"
+  },
+  {
+   "id": "lang_ya",
+   "n": "Lang-Ya-Sekte",
+   "f": "righteous",
+   "reg": 0,
+   "ic": "📚",
+   "type": "sekte",
+   "imm": 1,
+   "power": 4,
+   "rivals": [],
+   "pol": "Ein Unsterblicher, aber ein ganzes Gesegnetes Land voller Wissen. Niemand greift sie an — alle wollen ihre Bibliothek.",
+   "d": "Sekte am großen See der Nordebene. Hütet gewaltiges Wissen.",
+   "req": 4,
+   "gift": {
+    "kristall": 14,
+    "stein": 20
+   },
+   "gu": "sterngedanke"
+  },
+  {
+   "id": "huang_jin",
+   "n": "Huang-Jin-Familie",
+   "f": "righteous",
+   "reg": 0,
+   "ic": "🥇",
+   "type": "klan",
+   "imm": 3,
+   "power": 5,
+   "rivals": [
+    "wilde_horde"
+   ],
+   "pol": "Die Blutlinie eines Ehrwürdigen. Drei Unsterbliche, unantastbar in der Nordebene — aber erdrückende Erwartungen an jedes Kind.",
+   "d": "Blutlinie des Riesensonnen-Ehrwürdigen. Herrscht über die Nordebene.",
+   "req": 5,
+   "gift": {
+    "kristall": 18
+   },
+   "gu": "dogshit"
+  },
+  {
+   "id": "ostmeer_allianz",
+   "n": "Ostmeer-Klanallianz",
+   "f": "righteous",
+   "reg": 2,
+   "ic": "⚓",
+   "type": "klan",
+   "imm": 1,
+   "power": 3,
+   "rivals": [
+    "meereszombies"
+   ],
+   "pol": "Ein Bündnis vieler kleiner Klans mit einem geteilten Unsterblichen. Zusammen stark, einzeln schwach.",
+   "d": "Bündnis der maritimen Klans der zehntausend Inseln.",
+   "gift": {
+    "fleisch": 20,
+    "kristall": 8
+   },
+   "gu": "wasserschild"
+  },
+  {
+   "id": "meereszombies",
+   "n": "Meeres-Zombie-Bund",
+   "f": "demonic",
+   "reg": 2,
+   "ic": "🧟",
+   "type": "stamm",
+   "imm": 2,
+   "power": 4,
+   "rivals": [
+    "ostmeer_allianz",
+    "himmelshof"
+   ],
+   "pol": "Untote Unsterbliche, die keine Lebensspanne mehr verlieren. Zeit arbeitet für sie.",
+   "d": "Die untoten Herren der östlichen Tiefsee.",
+   "req": 4,
+   "gift": {
+    "fleisch": 25
+   },
+   "gu": "zombie"
+  },
+  {
+   "id": "wuestentempel",
+   "n": "Wüstentempel-Orden",
+   "f": "righteous",
+   "reg": 3,
+   "ic": "🕌",
+   "type": "sekte",
+   "imm": 1,
+   "power": 3,
+   "rivals": [
+    "karawanenbund"
+   ],
+   "pol": "Ein alter Unsterblicher, der selten erwacht. Der Orden lebt von seinem Ruf mehr als von seiner Kraft.",
+   "d": "Uralte Tempel zwischen den Dünen der Westwüste.",
+   "gift": {
+    "stein": 35,
+    "kristall": 6
+   },
+   "gu": "himmelsdach"
+  },
+  {
+   "id": "karawanenbund",
+   "n": "Karawanenbund",
+   "f": "demonic",
+   "reg": 3,
+   "ic": "🐪",
+   "type": "stamm",
+   "imm": 0,
+   "power": 1,
+   "rivals": [
+    "wuestentempel"
+   ],
+   "pol": "Kein Unsterblicher, keine Festung, keine Freunde. Überlebt nur, weil niemand die Mühe wert findet.",
+   "d": "Schmuggler und Sklavenhändler der Westwüste.",
+   "gift": {
+    "kristall": 14,
+    "fell": 10
+   },
+   "gu": "sklaverei"
+  },
+  {
+   "id": "zehn_extreme",
+   "n": "Sekte der Zehn Extreme",
+   "f": "righteous",
+   "reg": 4,
+   "ic": "🔟",
+   "type": "sekte",
+   "imm": 2,
+   "power": 4,
+   "rivals": [
+    "schattensekte"
+   ],
+   "pol": "Sammelt Extreme Physiques wie andere Schätze. Wer hier geboren wird, wird von klein auf vermessen.",
+   "d": "Sammelt Träger Extremer Physiques des Zentralkontinents.",
+   "req": 6,
+   "gift": {
+    "kristall": 25,
+    "material": 2
+   },
+   "gu": "verstaerkung"
+  }
+ ],
+ "SECTRANKS": [
+  {
+   "n": "Außenschüler",
+   "need": 0,
+   "c": "#a9b5a0",
+   "perk": "Zutritt zum Lager der Sekte.",
+   "give": {}
+  },
+  {
+   "n": "Innerer Schüler",
+   "need": 60,
+   "c": "#7dd35a",
+   "perk": "Größere Zuteilung, Zugang zu besseren Gu.",
+   "give": {
+    "kristall": 10
+   }
+  },
+  {
+   "n": "Kernschüler",
+   "need": 180,
+   "c": "#7fc8ff",
+   "perk": "Doppelte Zuteilung, ein Sekten-Gu geschenkt.",
+   "give": {
+    "kristall": 20,
+    "material": 1
+   }
+  },
+  {
+   "n": "Ältester",
+   "need": 420,
+   "c": "#c9a0ff",
+   "perk": "Dreifache Zuteilung, eigene Schatzkammer.",
+   "give": {
+    "kristall": 40,
+    "material": 2,
+    "perle": 2
+   }
+  },
+  {
+   "n": "Großältester",
+   "need": 900,
+   "c": "#ffb347",
+   "perk": "Vierfache Zuteilung, Zugang zum Sektenschatz.",
+   "give": {
+    "kristall": 70,
+    "material": 4,
+    "perle": 5
+   }
+  },
+  {
+   "n": "Sektenherr",
+   "need": 1800,
+   "c": "#ffd23d",
+   "perk": "Die Sekte gehorcht dir. Höchste Zuteilung.",
+   "give": {
+    "kristall": 120,
+    "material": 8,
+    "perle": 10
+   }
+  }
+ ],
+ "FACTIONS": {
+  "none": {
+   "n": "Einzelgänger",
+   "ic": "🚶",
+   "c": "#a9b5a0",
+   "d": "Keiner Macht verpflichtet. Kein Rückhalt, aber auch keine Fesseln.",
+   "perk": "+15 % Dao-Markierungen — wer allein forscht, versteht tiefer."
+  },
+  "righteous": {
+   "n": "Rechtschaffene Sekte",
+   "ic": "⛩️",
+   "c": "#7fc8ff",
+   "d": "Die großen Sekten des Zentralkontinents und die Klans der Südlichen Grenze.",
+   "perk": "Wöchentliche Zuteilung an Ressourcen. Rechtschaffene NPCs helfen dir, dämonische greifen an."
+  },
+  "demonic": {
+   "n": "Dämonischer Pfad",
+   "ic": "🩸",
+   "c": "#d0303a",
+   "d": "Blutflügel-Sekte und die Dämonen der Nördlichen Ebene.",
+   "perk": "Doppelte Beute von Monstern. Alle rechtschaffenen NPCs werden feindselig."
+  }
+ },
+ "ORGTYPE": {
+  "klan": {
+   "n": "Klan",
+   "d": "Blutsverwandtschaft entscheidet über alles. Die Hauptlinie herrscht, Nebenlinien dienen."
+  },
+  "stamm": {
+   "n": "Stamm",
+   "d": "Keine Blutlinien, nur Stärke. Wer gewinnt, führt."
+  },
+  "sekte": {
+   "n": "Sekte",
+   "d": "Aufnahme nach Talent. Wer nichts leistet, fliegt."
+  }
+ },
+ "STANDING": {
+  "haupt": {
+   "n": "Hauptlinie",
+   "ic": "👑",
+   "d": "Direkter Nachkomme der Führung. Beste Ressourcen, hohe Erwartungen.",
+   "gift": {
+    "kristall": 25,
+    "beeren": 15,
+    "fleisch": 10
+   },
+   "rep": 60,
+   "aptBonus": 8
+  },
+  "neben": {
+   "n": "Nebenlinie",
+   "ic": "🧬",
+   "d": "Verwandt, aber zweitrangig. Solide Versorgung, wenig Beachtung.",
+   "gift": {
+    "kristall": 10,
+    "beeren": 10
+   },
+   "rep": 20,
+   "aptBonus": 3
+  },
+  "diener": {
+   "n": "Dienerfamilie",
+   "ic": "🧹",
+   "d": "Deine Familie dient dem Klan seit Generationen. Wenig, aber du kennst jeden Winkel.",
+   "gift": {
+    "holz": 25,
+    "stein": 20,
+    "beeren": 8
+   },
+   "rep": 5,
+   "aptBonus": 0
+  },
+  "waise": {
+   "n": "Waise",
+   "ic": "🕯️",
+   "d": "Ohne Eltern aufgewachsen. Niemand erwartet etwas von dir — niemand hilft dir.",
+   "gift": {
+    "beeren": 6
+   },
+   "rep": 0,
+   "aptBonus": 0
+  },
+  "fremd": {
+   "n": "Aufgenommener",
+   "ic": "🚪",
+   "d": "Von außen aufgenommen. Man misstraut dir, aber du bist frei von Erwartungen.",
+   "gift": {
+    "kristall": 6,
+    "fleisch": 8
+   },
+   "rep": 10,
+   "aptBonus": 2
+  }
+ }
+}

@@ -1,0 +1,516 @@
+{
+ "MATS": {
+  "mondtau": {
+   "n": "Mondtau",
+   "ic": "💧",
+   "rank": 1,
+   "path": "wasser",
+   "src": "Nachts auf Gras",
+   "d": "Tau, der bei Mondlicht gesammelt wird."
+  },
+  "eisenerz": {
+   "n": "Grobeisenerz",
+   "ic": "⛏️",
+   "rank": 1,
+   "path": "metall",
+   "src": "Fels in allen Regionen",
+   "d": "Rohes Erz, Grundstoff jeder Metall-Verfeinerung."
+  },
+  "wildfell": {
+   "n": "Wildfell",
+   "ic": "🟫",
+   "rank": 1,
+   "path": "kraft",
+   "src": "Bestien",
+   "d": "Zähes Fell erlegter Bestien."
+  },
+  "gruenkraut": {
+   "n": "Grünkraut",
+   "ic": "🌿",
+   "rank": 1,
+   "path": "holz",
+   "src": "Wiesen und Wälder",
+   "d": "Ein einfaches Kraut voller Lebenskraft."
+  },
+  "glutasche": {
+   "n": "Glutasche",
+   "ic": "🔥",
+   "rank": 1,
+   "path": "feuer",
+   "src": "Aschefelder",
+   "d": "Asche, die noch immer glimmt."
+  },
+  "knochenmehl": {
+   "n": "Knochenmehl",
+   "ic": "🦴",
+   "rank": 2,
+   "path": "blut",
+   "src": "Skelette und Gräber",
+   "d": "Zermahlener Knochen. Trägt noch Erinnerung."
+  },
+  "frostsplitter": {
+   "n": "Frostsplitter",
+   "ic": "❄️",
+   "rank": 2,
+   "path": "eis",
+   "src": "Hoher Norden",
+   "d": "Ein Splitter, der niemals schmilzt."
+  },
+  "giftdrüse": {
+   "n": "Giftdrüse",
+   "ic": "🧪",
+   "rank": 2,
+   "path": "gift",
+   "src": "Giftige Bestien",
+   "d": "Aus dem Leib giftiger Kreaturen geschnitten."
+  },
+  "windfeder": {
+   "n": "Windfeder",
+   "ic": "🪶",
+   "rank": 2,
+   "path": "raum",
+   "src": "Fliegende Bestien",
+   "d": "Federleicht und immer in Bewegung."
+  },
+  "jadeader": {
+   "n": "Jadeader",
+   "ic": "💚",
+   "rank": 3,
+   "path": "metall",
+   "src": "Tiefe Felsadern",
+   "d": "Grüne Ader im Gestein, zäh wie Sehne."
+  },
+  "blutkoralle": {
+   "n": "Blutkoralle",
+   "ic": "🪸",
+   "rank": 3,
+   "path": "blut",
+   "src": "Östliches Meer",
+   "d": "Koralle, die sich von Blut nährt."
+  },
+  "donnerholz": {
+   "n": "Donnerholz",
+   "ic": "⚡",
+   "rank": 3,
+   "path": "blitz",
+   "src": "Vom Blitz getroffene Bäume",
+   "d": "Holz, in dem der Blitz noch nachhallt."
+  },
+  "seelenglas": {
+   "n": "Seelenglas",
+   "ic": "🔮",
+   "rank": 3,
+   "path": "seele",
+   "src": "Ruinen",
+   "d": "Glas, in dem sich Seelen spiegeln."
+  },
+  "sternsand": {
+   "n": "Sternensand",
+   "ic": "✨",
+   "rank": 4,
+   "path": "licht",
+   "src": "Westliche Wüste bei Nacht",
+   "d": "Sand, der Sternenlicht gespeichert hat."
+  },
+  "drachenschuppe": {
+   "n": "Drachenschuppe",
+   "ic": "🐉",
+   "rank": 4,
+   "path": "feuer",
+   "src": "Drachenartige Bestien",
+   "d": "Schuppe eines echten Drachenblüters."
+  },
+  "zeitharz": {
+   "n": "Zeitharz",
+   "ic": "⏳",
+   "rank": 4,
+   "path": "zeit",
+   "src": "Uralte Bäume",
+   "d": "Harz, in dem die Zeit zäh geworden ist."
+  },
+  "geisterseide": {
+   "n": "Geisterseide",
+   "ic": "🕸️",
+   "rank": 4,
+   "path": "verwandlung",
+   "src": "Riesenspinnen",
+   "d": "Seide, die Gestalt annimmt."
+  },
+  "urkristall": {
+   "n": "Urkristall",
+   "ic": "💎",
+   "rank": 5,
+   "path": "qi",
+   "src": "Kristalladern, Ruinen",
+   "d": "Verdichtete Ur-Essenz in fester Form."
+  },
+  "heldenherz": {
+   "n": "Heldenherz",
+   "ic": "❤️",
+   "rank": 5,
+   "path": "kraft",
+   "src": "Bosse",
+   "d": "Das Herz einer Bestie, die viele Kämpfe überlebte."
+  },
+  "himmelsjade": {
+   "n": "Himmelsjade",
+   "ic": "🟩",
+   "rank": 6,
+   "imm": 1,
+   "path": "metall",
+   "src": "Gesegnete Länder",
+   "d": "Jade, die nur in Aperturen wächst."
+  },
+  "daokern": {
+   "n": "Dao-Kern",
+   "ic": "🟣",
+   "rank": 6,
+   "imm": 1,
+   "path": "weisheit",
+   "src": "Unsterbliche Gegner",
+   "d": "Verdichtete Dao-Markierungen."
+  },
+  "wolkenerz": {
+   "n": "Wolkenerz",
+   "ic": "☁️",
+   "rank": 6,
+   "imm": 1,
+   "path": "raum",
+   "src": "Himmelsreiche",
+   "d": "Erz, das von selbst schwebt."
+  },
+  "ewigholz": {
+   "n": "Ewigholz",
+   "ic": "🌲",
+   "rank": 7,
+   "imm": 1,
+   "path": "holz",
+   "src": "Weltenbaum",
+   "d": "Holz, das nicht altert."
+  },
+  "seelenkern": {
+   "n": "Seelenkern",
+   "ic": "👁️",
+   "rank": 7,
+   "imm": 1,
+   "path": "seele",
+   "src": "Bosse und Trübsale",
+   "d": "Der harte Kern einer unsterblichen Seele."
+  },
+  "trübsalsstahl": {
+   "n": "Trübsalsstahl",
+   "ic": "⛈️",
+   "rank": 7,
+   "imm": 1,
+   "path": "blitz",
+   "src": "Überstandene Trübsale",
+   "d": "Stahl, geschmiedet im Himmelsblitz."
+  },
+  "grottenstein": {
+   "n": "Grottenstein",
+   "ic": "🪨",
+   "rank": 8,
+   "imm": 1,
+   "path": "raum",
+   "src": "Grotten-Himmel",
+   "d": "Baustein einer eigenen Welt."
+  },
+  "sonnengold": {
+   "n": "Riesensonnen-Gold",
+   "ic": "🟡",
+   "rank": 8,
+   "imm": 1,
+   "path": "licht",
+   "src": "Kaiserhof, 88-Yang-Gebäude",
+   "d": "Gold aus der Zeit des Riesensonnen-Ehrwürdigen."
+  },
+  "schicksalsfaden": {
+   "n": "Schicksalsfaden",
+   "ic": "🧵",
+   "rank": 9,
+   "imm": 1,
+   "path": "glueck",
+   "src": "Chaos-Katastrophen",
+   "d": "Ein Faden aus dem Gewebe des Schicksals."
+  },
+  "ehrwuerdenessenz": {
+   "n": "Ehrwürden-Essenz",
+   "ic": "👑",
+   "rank": 9,
+   "imm": 1,
+   "path": "himmel",
+   "src": "Wahre Erben",
+   "d": "Ein Tropfen dessen, was einen Ehrwürdigen ausmacht."
+  }
+ },
+ "MAT_KEYS": [
+  "mondtau",
+  "eisenerz",
+  "wildfell",
+  "gruenkraut",
+  "glutasche",
+  "knochenmehl",
+  "frostsplitter",
+  "giftdrüse",
+  "windfeder",
+  "jadeader",
+  "blutkoralle",
+  "donnerholz",
+  "seelenglas",
+  "sternsand",
+  "drachenschuppe",
+  "zeitharz",
+  "geisterseide",
+  "urkristall",
+  "heldenherz",
+  "himmelsjade",
+  "daokern",
+  "wolkenerz",
+  "ewigholz",
+  "seelenkern",
+  "trübsalsstahl",
+  "grottenstein",
+  "sonnengold",
+  "schicksalsfaden",
+  "ehrwuerdenessenz"
+ ],
+ "GEAR": {
+  "w1": {
+   "ic": "🗡️",
+   "n": "Steinschwert",
+   "cost": {
+    "stein": 12
+   },
+   "d": "+6 Schaden.",
+   "slot": "w",
+   "v": 6
+  },
+  "w2": {
+   "ic": "⚔️",
+   "n": "Kristallklinge",
+   "cost": {
+    "kristall": 8,
+    "stein": 6
+   },
+   "d": "+14 Schaden.",
+   "slot": "w",
+   "v": 14,
+   "req": "w1"
+  },
+  "w3": {
+   "ic": "🔱",
+   "n": "Obsidianklinge",
+   "cost": {
+    "kristall": 15,
+    "schuppe": 1
+   },
+   "d": "+26 Schaden, 10 % Krit.",
+   "slot": "w",
+   "v": 26,
+   "req": "w2"
+  },
+  "a1": {
+   "ic": "🧥",
+   "n": "Fellrüstung",
+   "cost": {
+    "fell": 6
+   },
+   "d": "−15 % Schaden.",
+   "slot": "a",
+   "v": 0.15
+  },
+  "a2": {
+   "ic": "🛡️",
+   "n": "Steinpanzer",
+   "cost": {
+    "stein": 20,
+    "fell": 4
+   },
+   "d": "−30 % Schaden.",
+   "slot": "a",
+   "v": 0.3,
+   "req": "a1"
+  },
+  "a3": {
+   "ic": "💠",
+   "n": "Kristallrüstung",
+   "cost": {
+    "kristall": 10,
+    "fell": 6,
+    "kern": 1
+   },
+   "d": "−45 % Schaden.",
+   "slot": "a",
+   "v": 0.45,
+   "req": "a2"
+  }
+ },
+ "BUILD": {
+  "wand": {
+   "ic": "🧱",
+   "n": "Holzwand",
+   "cost": {
+    "holz": 4
+   },
+   "d": "Blockiert Monster, hält 3 Treffer."
+  },
+  "steinwand": {
+   "ic": "🪨",
+   "n": "Steinwand",
+   "cost": {
+    "stein": 5
+   },
+   "d": "Blockiert Monster, hält 8 Treffer."
+  },
+  "fackel": {
+   "ic": "🔥",
+   "n": "Fackel",
+   "cost": {
+    "holz": 2,
+    "stein": 1
+   },
+   "d": "Licht im Radius 4. Monster meiden das Licht.",
+   "light": 4
+  },
+  "feuer": {
+   "ic": "🏕️",
+   "n": "Lagerfeuer",
+   "cost": {
+    "holz": 6,
+    "stein": 3
+   },
+   "d": "Licht im Radius 6, heilt in der Nähe 3 HP/s.",
+   "light": 6
+  },
+  "werkbank": {
+   "ic": "⚒️",
+   "n": "Werkbank",
+   "cost": {
+    "holz": 10,
+    "stein": 6
+   },
+   "d": "Schaltet Waffen und Rüstung frei. Begehbar."
+  },
+  "bett": {
+   "ic": "🛏️",
+   "n": "Bett",
+   "cost": {
+    "holz": 8,
+    "fell": 2
+   },
+   "d": "Neuer Startpunkt nach dem Tod."
+  },
+  "feld": {
+   "ic": "🌾",
+   "n": "Apertur-Feld",
+   "cost": {
+    "holz": 8,
+    "stein": 4
+   },
+   "rank": 6,
+   "d": "Nur im Gesegneten Land. Wächst Ressourcen passend zu deinem stärksten Pfad — je höher deine Beherrschung, desto mehr."
+  },
+  "banner": {
+   "ic": "🚩",
+   "n": "Sektenbanner",
+   "cost": {
+    "holz": 6,
+    "fell": 2
+   },
+   "d": "Zeigt deine Zugehörigkeit. Verbündete NPCs kommen häufiger vorbei."
+  },
+  "koeder": {
+   "ic": "🍯",
+   "n": "Gu-Köder",
+   "cost": {
+    "beeren": 3,
+    "fleisch": 2
+   },
+   "d": "Lockt wilde Gu aus 7 Feldern an, statt dass sie fliehen."
+  },
+  "falle": {
+   "ic": "🪤",
+   "n": "Falle",
+   "cost": {
+    "holz": 3,
+    "stein": 2
+   },
+   "d": "30 Schaden an das erste Monster, das drauftritt."
+  },
+  "boden": {
+   "ic": "🪵",
+   "n": "Holzboden",
+   "cost": {
+    "holz": 1
+   },
+   "d": "Deko für die Basis."
+  },
+  "segen": {
+   "ic": "🌅",
+   "n": "Gesegnetes Land",
+   "cost": {},
+   "d": "Ab Rang 6. Entfaltet deine Unsterblichen-Apertur als eigene Welt: Betrittst du den Radius, wirst du hineingezogen. Drinnen: Weltenbaum, Perlen, Felder, gezüchtete Gu. Ab Rang 8 Grotten-Himmel.",
+   "light": 12,
+   "rank": 6
+  },
+  "abriss": {
+   "ic": "⛏️",
+   "n": "Abreißen",
+   "cost": {},
+   "d": "Entfernt ein Gebäude, gibt die Hälfte zurück."
+  }
+ },
+ "BASIS_RES": {
+  "holz": {
+   "n": "Holz",
+   "ic": "🪵"
+  },
+  "stein": {
+   "n": "Stein",
+   "ic": "🪨"
+  },
+  "beeren": {
+   "n": "Beeren",
+   "ic": "🫐"
+  },
+  "fleisch": {
+   "n": "Fleisch",
+   "ic": "🍖"
+  },
+  "fell": {
+   "n": "Fell",
+   "ic": "🟫"
+  },
+  "kristall": {
+   "n": "Urstein",
+   "ic": "💎",
+   "d": "Währung und Essenzquelle; Futter vieler Gu."
+  },
+  "herz": {
+   "n": "Herz",
+   "ic": "💚"
+  },
+  "kern": {
+   "n": "Kern",
+   "ic": "🟤"
+  },
+  "schuppe": {
+   "n": "Schuppe",
+   "ic": "🐉"
+  },
+  "perle": {
+   "n": "Essenzperle",
+   "ic": "💠",
+   "d": "Verdichtete unsterbliche Essenz, entsteht nur im Gesegneten Land."
+  },
+  "material": {
+   "n": "Seltenes Material",
+   "ic": "🔮"
+  },
+  "stein_ue": {
+   "n": "Unsterblichen-Urstein",
+   "ic": "🟣"
+  }
+ },
+ "_hinweis": "BASIS_RES sind die Grundressourcen des Inventars (Futter, Bauen, Währung). MATS sind Verfeinerungs-Materialien. Beide teilen sich einen ID-Raum. Anzeigenamen von BASIS_RES wurden ergänzt, der Prototyp zeigte nur Icons; 'kristall' = Urstein ist eine Annahme aus der Verwendung."
+}

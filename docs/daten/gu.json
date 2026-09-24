@@ -1,0 +1,2765 @@
+{
+ "GUDEX": {
+  "mondlicht": {
+   "n": "Mondlicht-Gu",
+   "ic": "🌙",
+   "rank": 1,
+   "path": "licht",
+   "type": "act",
+   "d": "Schleudert eine Mondklinge, 20 Schaden auf Distanz.",
+   "cd": 2,
+   "ess": 6,
+   "decay": 0.06,
+   "feed": {
+    "r": "kristall",
+    "n": 1
+   },
+   "lore": "Das Wahrzeichen des Gu-Yue-Klans. Ein Gu des Licht-Pfades, geschaffen vom Ersten Gu Yue.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "liquor": {
+   "n": "Schnaps-Wurm",
+   "ic": "🍶",
+   "rank": 1,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Urenergie regeneriert 35 % schneller.",
+   "feed": {
+    "r": "beeren",
+    "n": 3
+   },
+   "decay": 0.05,
+   "lore": "Der berühmteste Kultivierungs-Helfer der Gu-Welt. Fang Yuans erstes wertvolles Gu.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 2
+   },
+   "zone": 0
+  },
+  "steinhaut": {
+   "n": "Steinhaut-Gu",
+   "ic": "🪨",
+   "rank": 1,
+   "path": "metall",
+   "type": "pas",
+   "d": "−12 % erlittener Schaden.",
+   "feed": {
+    "r": "stein",
+    "n": 3
+   },
+   "decay": 0.05,
+   "lore": "Verdichtet die Haut zu Stein. Jeder Anfänger-Krieger kennt es.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 2
+   },
+   "zone": 0
+  },
+  "kleineslicht": {
+   "n": "Kleines-Licht-Gu",
+   "ic": "💡",
+   "rank": 1,
+   "path": "licht",
+   "type": "pas",
+   "d": "Größerer Lichtkreis bei Nacht.",
+   "feed": {
+    "r": "kristall",
+    "n": 1
+   },
+   "decay": 0.04,
+   "lore": "Ein schwaches, aber verlässliches Licht in der Dunkelheit.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "wirbelwind": {
+   "n": "Wirbelwind-Gu",
+   "ic": "🌀",
+   "rank": 1,
+   "path": "kraft",
+   "type": "act",
+   "d": "Rundumschlag, 1,5× Schaden.",
+   "cd": 4,
+   "ess": 8,
+   "decay": 0.07,
+   "feed": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "lore": "Ein Sturm aus Klingen um den Träger herum.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "eisenhaut": {
+   "n": "Eisenhaut-Gu",
+   "ic": "🛡️",
+   "rank": 2,
+   "path": "metall",
+   "type": "pas",
+   "d": "−22 % erlittener Schaden.",
+   "feed": {
+    "r": "stein",
+    "n": 5
+   },
+   "decay": 0.07,
+   "lore": "Die Weiterentwicklung der Steinhaut. Standard jedes Rang-2-Kriegers.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 4
+   },
+   "zone": 1
+  },
+  "donnermantel": {
+   "n": "Donnermantel-Gu",
+   "ic": "⚡",
+   "rank": 2,
+   "path": "blitz",
+   "type": "pas",
+   "d": "Angreifer nehmen 40 % Schaden zurück.",
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "decay": 0.09,
+   "lore": "Hüllt den Körper in knisternde Blitze.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 1
+  },
+  "sternpfeil": {
+   "n": "Sternpfeil-Gu",
+   "ic": "🏹",
+   "rank": 2,
+   "path": "licht",
+   "type": "act",
+   "d": "Drei Lichtpfeile auf einmal, je 22 Schaden.",
+   "cd": 3,
+   "ess": 10,
+   "decay": 0.08,
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "lore": "Verschießt Pfeile aus verdichtetem Sternenlicht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 1
+  },
+  "flammenzunge": {
+   "n": "Flammenzungen-Gu",
+   "ic": "🔥",
+   "rank": 2,
+   "path": "feuer",
+   "type": "act",
+   "d": "Feuerball, 25+ Schaden, entzündet.",
+   "cd": 3,
+   "ess": 10,
+   "decay": 0.07,
+   "feed": {
+    "r": "kristall",
+    "n": 1
+   },
+   "lore": "Speit eine Zunge aus Flammen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 1
+  },
+  "frischesblatt": {
+   "n": "Lebenskraft-Blatt",
+   "ic": "🌿",
+   "rank": 2,
+   "path": "holz",
+   "type": "pas",
+   "d": "Heilt 1,5 HP/s dauerhaft.",
+   "feed": {
+    "r": "beeren",
+    "n": 4
+   },
+   "decay": 0.08,
+   "lore": "Ein grünes Blatt-Gu, das die Lebenskraft stetig erneuert.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 3
+   },
+   "zone": 1
+  },
+  "knochenfleisch": {
+   "n": "Knochen-Fleisch-Einheit-Gu",
+   "ic": "💀",
+   "rank": 3,
+   "path": "verwandlung",
+   "type": "pas",
+   "d": "+80 max. HP, aber Aussehen leidet.",
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "decay": 0.11,
+   "lore": "Verschmilzt Fleisch und Knochen zu einem grotesken, aber zähen Amalgam.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "zone": 2
+  },
+  "blutrausch": {
+   "n": "Blutrausch-Gu",
+   "ic": "🩸",
+   "rank": 3,
+   "path": "blut",
+   "type": "pas",
+   "d": "18 % des Schadens heilen dich.",
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "decay": 0.12,
+   "lore": "Verwandelt fremdes Blut in eigene Lebenskraft.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "lebensbrunnen": {
+   "n": "Lebensbrunnen-Gu",
+   "ic": "✨",
+   "rank": 3,
+   "path": "holz",
+   "type": "act",
+   "d": "Heilt 40 % der maximalen HP.",
+   "cd": 20,
+   "ess": 15,
+   "decay": 0.09,
+   "feed": {
+    "r": "beeren",
+    "n": 4
+   },
+   "lore": "Ein Quell reiner Lebenskraft.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "schneckenzeit": {
+   "n": "Schneckenzeit-Gu",
+   "ic": "⏳",
+   "rank": 3,
+   "path": "zeit",
+   "type": "act",
+   "d": "Verlangsamt alle Monster 5 s lang.",
+   "cd": 25,
+   "ess": 14,
+   "decay": 0.09,
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "lore": "Zieht die Zeit um den Träger herum zäh wie Harz.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 2
+   },
+   "zone": 2
+  },
+  "schattenbild": {
+   "n": "Schattenbild-Gu",
+   "ic": "🌑",
+   "rank": 3,
+   "path": "raum",
+   "type": "act",
+   "d": "Teleport 4 Felder nach vorn.",
+   "cd": 5,
+   "ess": 12,
+   "decay": 0.09,
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "lore": "Der Träger zerfällt zu Schatten und formt sich anderswo neu.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 2
+   },
+   "zone": 2
+  },
+  "giftnebel": {
+   "n": "Giftnebel-Gu",
+   "ic": "☠️",
+   "rank": 3,
+   "path": "gift",
+   "type": "act",
+   "d": "Giftwolke, 12 Schaden/s im Umkreis 3.",
+   "cd": 8,
+   "ess": 14,
+   "decay": 0.1,
+   "feed": {
+    "r": "beeren",
+    "n": 5
+   },
+   "lore": "Ein Schwaden, der Fleisch und Willen gleichermaßen zersetzt.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 5
+   },
+   "zone": 2
+  },
+  "kettenblitz": {
+   "n": "Kettenblitz-Gu",
+   "ic": "⛈️",
+   "rank": 4,
+   "path": "blitz",
+   "type": "act",
+   "d": "Springt auf 4 Gegner, je 35 Schaden.",
+   "cd": 6,
+   "ess": 18,
+   "decay": 0.11,
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "lore": "Ein Blitz, der von Feind zu Feind springt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 3
+  },
+  "frostnova": {
+   "n": "Frostnova-Gu",
+   "ic": "❄️",
+   "rank": 4,
+   "path": "eis",
+   "type": "act",
+   "d": "Friert alles im Umkreis 3 für 3 s ein.",
+   "cd": 12,
+   "ess": 20,
+   "decay": 0.11,
+   "feed": {
+    "r": "fell",
+    "n": 2
+   },
+   "lore": "Eine Explosion aus Kälte, die selbst Blut gefrieren lässt.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 3
+   },
+   "zone": 3
+  },
+  "blutschaedel": {
+   "n": "Blutschädel-Gu",
+   "ic": "💀",
+   "rank": 4,
+   "path": "blut",
+   "type": "act",
+   "d": "Schädel-Geschoss, 60 Schaden, heilt dich um die Hälfte.",
+   "cd": 7,
+   "ess": 22,
+   "decay": 0.13,
+   "feed": {
+    "r": "fleisch",
+    "n": 6
+   },
+   "lore": "Ein grinsender Blutschädel, gefürchtet unter Dämonen-Kultivierenden.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "schatzlicht": {
+   "n": "Schatzlicht-Gu",
+   "ic": "💠",
+   "rank": 4,
+   "path": "glueck",
+   "type": "pas",
+   "d": "Deutlich mehr Beute, +30 % Kristallfunde.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.12,
+   "lore": "Lässt verborgene Schätze in einem sanften Schimmer aufleuchten.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 5
+   },
+   "zone": 3
+  },
+  "goldlicht": {
+   "n": "Allumfassender-Goldlicht-Wurm",
+   "ic": "🌟",
+   "rank": 4,
+   "path": "licht",
+   "type": "pas",
+   "d": "+25 % Schaden auf alles.",
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "decay": 0.14,
+   "lore": "Eines der Gu, mit denen Fang Yuan berühmt wurde. Goldenes Licht, das alles durchdringt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "neunaugen": {
+   "n": "Neun-Augen-Schnaps-Wurm",
+   "ic": "🍷",
+   "rank": 5,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Urenergie regeneriert doppelt so schnell.",
+   "feed": {
+    "r": "kristall",
+    "n": 5
+   },
+   "decay": 0.16,
+   "lore": "Die Königsklasse der Schnaps-Würmer. Ein Schatz, um den Klans Kriege führen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 11
+   },
+   "zone": 3
+  },
+  "erdbeben": {
+   "n": "Erdbeben-Gu",
+   "ic": "🌋",
+   "rank": 5,
+   "path": "kraft",
+   "type": "act",
+   "d": "60 Schaden + Betäubung im Umkreis 4.",
+   "cd": 15,
+   "ess": 26,
+   "decay": 0.17,
+   "feed": {
+    "r": "stein",
+    "n": 6
+   },
+   "lore": "Lässt die Erde selbst gegen die Feinde aufbegehren.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 13
+   },
+   "zone": 3
+  },
+  "waldgeistruf": {
+   "n": "Wolfsklauen-Sklaverei-Gu",
+   "ic": "🐺",
+   "rank": 5,
+   "path": "verwandlung",
+   "type": "act",
+   "d": "Ruft einen Geisterwolf, der 30 s für dich kämpft.",
+   "cd": 45,
+   "ess": 22,
+   "decay": 0.14,
+   "feed": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "lore": "Unterwirft den Willen einer Bestie und bindet sie an den Träger.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 7
+   },
+   "zone": 3
+  },
+  "feineschwarzehaar": {
+   "n": "Feines-Schwarzes-Haar-Gu",
+   "ic": "🕸️",
+   "rank": 5,
+   "path": "verwandlung",
+   "type": "act",
+   "d": "Haarnetz fesselt alle Gegner im Umkreis 4 für 4 s.",
+   "cd": 14,
+   "ess": 24,
+   "decay": 0.15,
+   "feed": {
+    "r": "fell",
+    "n": 4
+   },
+   "lore": "Feine schwarze Haare, härter als Stahl. Eines von Fang Yuans Markenzeichen.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "fruehlingherbst": {
+   "n": "Frühling-Herbst-Zikade",
+   "ic": "🦗",
+   "rank": 6,
+   "path": "zeit",
+   "type": "act",
+   "imm": 1,
+   "d": "Rettet dich vor dem Tod: einmal je Einsatz volle HP statt zu sterben.",
+   "cd": 120,
+   "ess": 40,
+   "decay": 0.2,
+   "feed": {
+    "r": "kristall",
+    "n": 8
+   },
+   "lore": "Das legendäre Zeit-Pfad-Gu, mit dem Fang Yuan durch die Zeit zurückkehrte. Der Grund seiner Wiedergeburt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 26
+   },
+   "zone": null
+  },
+  "drachenatem": {
+   "n": "Drachenatem-Gu",
+   "ic": "🐉",
+   "rank": 6,
+   "path": "feuer",
+   "type": "act",
+   "imm": 1,
+   "d": "Feuerkegel, 3 s lang 40 Schaden/s.",
+   "cd": 20,
+   "ess": 32,
+   "decay": 0.2,
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "lore": "Der Atem eines uralten Drachen, in einem Gu gebunden.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 13
+   },
+   "zone": null
+  },
+  "festeunsterbliche": {
+   "n": "Feste-Unsterblichen-Reise-Gu",
+   "ic": "🌀",
+   "rank": 6,
+   "path": "raum",
+   "type": "act",
+   "imm": 1,
+   "d": "Teleport zu deinem Bett — egal wo du bist.",
+   "cd": 60,
+   "ess": 35,
+   "decay": 0.18,
+   "feed": {
+    "r": "kristall",
+    "n": 6
+   },
+   "lore": "Verbindet zwei feste Punkte im Raum. Fang Yuans Fluchtweg aus tausend Fallen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 19
+   },
+   "zone": null
+  },
+  "glueckuebersteigt": {
+   "n": "Glück-übersteigt-Himmel-Gu",
+   "ic": "🍀",
+   "rank": 7,
+   "path": "glueck",
+   "type": "pas",
+   "imm": 1,
+   "d": "25 % Chance, jeden Schaden komplett zu vermeiden.",
+   "feed": {
+    "r": "kristall",
+    "n": 10
+   },
+   "decay": 0.22,
+   "lore": "Das Glück-Pfad-Gu von Ma Hong Yun. Wer es trägt, dem lächelt der Himmel — meistens.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 46
+   },
+   "zone": null
+  },
+  "weisheitsgu": {
+   "n": "Weisheits-Gu",
+   "ic": "🧠",
+   "rank": 7,
+   "path": "weisheit",
+   "type": "pas",
+   "imm": 1,
+   "d": "Doppelte XP und +2 Skillpunkte pro Level.",
+   "feed": {
+    "r": "kristall",
+    "n": 12
+   },
+   "decay": 0.24,
+   "lore": "Schenkte Ren Zu den Verstand — im Tausch gegen seine Lebensspanne. Vital-Gu der Sternbild-Unsterblichen-Ehrwürdigen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 56
+   },
+   "zone": null
+  },
+  "ewigkeit": {
+   "n": "Ewigkeits-Gu",
+   "ic": "♾️",
+   "rank": 8,
+   "path": "zeit",
+   "type": "pas",
+   "imm": 1,
+   "d": "Gu hungern nicht mehr — alle bleiben ewig satt.",
+   "feed": {
+    "r": "kristall",
+    "n": 15
+   },
+   "decay": 0,
+   "lore": "Ein Rang-8-Unsterblichen-Gu des Zeit-Pfades. Bewahrt, was ist, vor dem Vergehen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 101
+   },
+   "zone": null
+  },
+  "liebesgu": {
+   "n": "Liebes-Gu",
+   "ic": "💗",
+   "rank": 8,
+   "path": "seele",
+   "type": "act",
+   "imm": 1,
+   "d": "Bekehrt ein Monster für 45 s zum Verbündeten.",
+   "cd": 50,
+   "ess": 60,
+   "decay": 0.26,
+   "feed": {
+    "r": "herz",
+    "n": 1
+   },
+   "lore": "Verwandelt Hass in Zuneigung. Eines der gefürchtetsten Seelen-Pfad-Gu überhaupt.",
+   "feed_effektiv": {
+    "r": "herz",
+    "n": 7
+   },
+   "zone": null
+  },
+  "hoffnung": {
+   "n": "Hoffnungs-Gu",
+   "ic": "🕊️",
+   "rank": 1,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "+10 % Apertur-Fassungsvermögen.",
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Ohne dieses Gu öffnet sich bei der Erwachenszeremonie keine Apertur. Jeder Gu-Meister beginnt hiermit.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "sklaverei": {
+   "n": "Sklaverei-Gu",
+   "ic": "⛓️",
+   "rank": 2,
+   "path": "seele",
+   "type": "act",
+   "d": "Unterwirft ein schwaches Monster für 25 s.",
+   "cd": 30,
+   "ess": 16,
+   "decay": 0.1,
+   "feed": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "lore": "Bricht den Willen einer Bestie. Grundlage des gesamten Sklaverei-Pfades.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "bohr": {
+   "n": "Bohr-Gu",
+   "ic": "🔩",
+   "rank": 2,
+   "path": "metall",
+   "type": "pas",
+   "d": "Rohstoffe brauchen einen Schlag weniger.",
+   "feed": {
+    "r": "stein",
+    "n": 3
+   },
+   "decay": 0.07,
+   "lore": "Ein unscheinbarer Wurm, der sich durch Fels frisst wie durch Butter.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "zweiteapertur": {
+   "n": "Zweite-Apertur-Gu",
+   "ic": "⭕",
+   "rank": 3,
+   "path": "raum",
+   "type": "pas",
+   "d": "+50 % Apertur-Fassungsvermögen und Gu-Plätze.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.12,
+   "lore": "Ein legendäres Gu, das eine zweite Apertur öffnet. Verdoppelt die Grundlage eines Kultivierenden.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "menschwiezuvor": {
+   "n": "Mensch-wie-zuvor-Gu",
+   "ic": "⏪",
+   "rank": 4,
+   "path": "zeit",
+   "type": "act",
+   "d": "Setzt deinen Körper zurück — heilt vollständig, entfernt alle Leiden.",
+   "cd": 45,
+   "ess": 28,
+   "decay": 0.15,
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "lore": "Die ultimative Heilung des Zeit-Pfades: Wunden werden nicht geheilt, sondern haben nie existiert.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "haltung": {
+   "n": "Haltungs-Gu",
+   "ic": "🎭",
+   "rank": 4,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Monster bemerken dich erst auf halber Distanz.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.12,
+   "lore": "Verbirgt die wahren Absichten so vollkommen, dass selbst Weisheits-Pfad-Meister darauf hereinfallen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 5
+   },
+   "zone": 2
+  },
+  "sterngedanke": {
+   "n": "Sterngedanken-Gu",
+   "ic": "✴️",
+   "rank": 4,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "+50 % XP aus allen Quellen.",
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "decay": 0.14,
+   "lore": "Erzeugt abertausende Gedanken-Sterne im Kopf. Fang Yuans Werkzeug für gewaltige Deduktionen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "zombie": {
+   "n": "Zombie-Gu",
+   "ic": "🧟",
+   "rank": 4,
+   "path": "blut",
+   "type": "pas",
+   "d": "Gift und Brand können dich nicht mehr töten.",
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "decay": 0.14,
+   "lore": "Verwandelt den Körper in einen unsterblichen Kadaver. Der Preis: du bist kein Mensch mehr.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "allout": {
+   "n": "Alles-oder-nichts-Gu",
+   "ic": "💥",
+   "rank": 5,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+40 % Schaden, aber du nimmst 15 % mehr.",
+   "feed": {
+    "r": "fleisch",
+    "n": 6
+   },
+   "decay": 0.16,
+   "lore": "Fang Yuans zweites Vital-Gu. Kraft ohne Rückhalt, ohne Rückzug.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 13
+   },
+   "zone": 3
+  },
+  "traumfluegel": {
+   "n": "Traumflügel-Gu",
+   "ic": "🦋",
+   "rank": 5,
+   "path": "seele",
+   "type": "act",
+   "d": "8 s im Traumreich: unverwundbar, aber wehrlos.",
+   "cd": 40,
+   "ess": 26,
+   "decay": 0.16,
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "lore": "Trägt den Träger sicher in Traumreiche, wo Kultivierung rasend schnell vorangeht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "dogshit": {
+   "n": "Hundedreck-Glücks-Gu",
+   "ic": "🍀",
+   "rank": 5,
+   "path": "glueck",
+   "type": "pas",
+   "d": "Doppelte Beute von allen Monstern.",
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "decay": 0.15,
+   "lore": "Zieht das Pech aller Umstehenden ab und verwandelt es in grotesk gutes Glück für den Träger.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "wolke": {
+   "n": "Wolkenreise-Gu",
+   "ic": "☁️",
+   "rank": 6,
+   "path": "raum",
+   "type": "pas",
+   "imm": 1,
+   "d": "Du kannst über Wasser laufen.",
+   "feed": {
+    "r": "kristall",
+    "n": 6
+   },
+   "decay": 0.18,
+   "lore": "Trägt den Unsterblichen auf einer Wolke über jedes Hindernis.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 19
+   },
+   "zone": null
+  },
+  "sterneisen": {
+   "n": "Sternenkonstellations-Gu",
+   "ic": "🌠",
+   "rank": 7,
+   "path": "information",
+   "type": "pas",
+   "imm": 1,
+   "d": "Zeigt alle Monster und wilden Gu auf der Weltkarte.",
+   "feed": {
+    "r": "kristall",
+    "n": 10
+   },
+   "decay": 0.22,
+   "lore": "Vital-Gu der Sternbild-Unsterblichen-Ehrwürdigen. Sammelt Information aus der ganzen Welt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 46
+   },
+   "zone": null
+  },
+  "souveraen": {
+   "n": "Souveräner-Unsterblicher-Fötus-Gu",
+   "ic": "👶",
+   "rank": 9,
+   "path": "verwandlung",
+   "imm": 1,
+   "type": "pas",
+   "d": "Perfekter Körper eines Anderweltlichen Dämons: alle Pfad-Konflikte verschwinden vollständig, jeder Pfad zählt als eine Stufe höher beherrscht, +60 % Schaden, +400 HP, kein Gu-Unterhalt.",
+   "feed": {
+    "r": "kern",
+    "n": 1
+   },
+   "decay": 0.3,
+   "lore": "Von der Geisterseelen-Dämonen-Ehrwürdigen geschaffen. Ein makelloser Körper, in dem alle Pfade harmonieren.",
+   "feed_effektiv": {
+    "r": "kern",
+    "n": 10
+   },
+   "zone": null
+  },
+  "brise": {
+   "n": "Brisen-Gu",
+   "ic": "🌬️",
+   "rank": 1,
+   "path": "raum",
+   "type": "pas",
+   "d": "+12 % Lauftempo.",
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Ein Hauch Wind in den Sehnen. Das erste Bewegungs-Gu vieler Anfänger.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "wasserlicht": {
+   "n": "Wasserlicht-Gu",
+   "ic": "💧",
+   "rank": 1,
+   "path": "wasser",
+   "type": "act",
+   "d": "Wasserstrahl, 16 Schaden, verlangsamt.",
+   "cd": 2,
+   "ess": 5,
+   "decay": 0.06,
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "lore": "Ein dünner, kalter Strahl. Mehr Werkzeug als Waffe.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "signal": {
+   "n": "Signal-Gu",
+   "ic": "📣",
+   "rank": 1,
+   "path": "information",
+   "type": "pas",
+   "d": "Zeigt Monster in doppelter Entfernung auf der Minimap.",
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Sendet ein stilles Zeichen an alle, die es empfangen können.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "reisbeutel": {
+   "n": "Reisbeutel-Gras-Gu",
+   "ic": "🌾",
+   "rank": 1,
+   "path": "holz",
+   "type": "pas",
+   "d": "Beeren und Fleisch heilen doppelt so viel.",
+   "feed": {
+    "r": "beeren",
+    "n": 3
+   },
+   "decay": 0.05,
+   "lore": "Ein genügsames Gras-Gu, das jeden Bissen nährstoffreicher macht.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 2
+   },
+   "zone": 0
+  },
+  "stealthstein": {
+   "n": "Schleichstein-Gu",
+   "ic": "🪨",
+   "rank": 1,
+   "path": "metall",
+   "type": "pas",
+   "d": "Anschleichen gelingt leichter — wilde Gu fliehen seltener.",
+   "feed": {
+    "r": "stein",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Dämpft jeden Schritt zu einem Rascheln.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "blauplasma": {
+   "n": "Blauplasma-Gu",
+   "ic": "🔵",
+   "rank": 2,
+   "path": "blitz",
+   "type": "act",
+   "d": "Plasmastoß, 30 Schaden, ignoriert Rüstung.",
+   "cd": 3,
+   "ess": 11,
+   "decay": 0.07,
+   "feed": {
+    "r": "kristall",
+    "n": 1
+   },
+   "lore": "Blaues Plasma, das selbst Stahlpanzer durchschlägt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 1
+  },
+  "knochenschild": {
+   "n": "Knochenschild-Gu",
+   "ic": "🛡️",
+   "rank": 3,
+   "path": "metall",
+   "type": "act",
+   "d": "Drei Knochenschilde kreisen 8 s und blocken Geschosse.",
+   "cd": 14,
+   "ess": 14,
+   "decay": 0.09,
+   "feed": {
+    "r": "stein",
+    "n": 4
+   },
+   "lore": "Drei fliegende Schilde aus Knochen. Fang Yuans Wahl im Bai-Gu-Erbe.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "eisvogel": {
+   "n": "Eisvogel-Gu",
+   "ic": "🐦",
+   "rank": 3,
+   "path": "eis",
+   "type": "act",
+   "d": "Eisvogel explodiert am Ziel und friert es ein.",
+   "cd": 6,
+   "ess": 13,
+   "decay": 0.09,
+   "feed": {
+    "r": "fell",
+    "n": 2
+   },
+   "lore": "Ein eisblauer Vogel, der beim Aufprall zerbirst und alles in Eis schließt.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 2
+   },
+   "zone": 2
+  },
+  "aurahuelle": {
+   "n": "Aura-Verschleierungs-Gu",
+   "ic": "🌫️",
+   "rank": 3,
+   "path": "information",
+   "type": "pas",
+   "d": "Verbirgt deinen Rang — Monster unterschätzen dich, Elite spawnt seltener.",
+   "feed": {
+    "r": "beeren",
+    "n": 4
+   },
+   "decay": 0.09,
+   "lore": "Ein Gras-Gu, das Aura und Kultivierungsstufe verschleiert.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "wildwut": {
+   "n": "Berserker-Gu",
+   "ic": "😤",
+   "rank": 4,
+   "path": "kraft",
+   "type": "act",
+   "d": "12 s lang doppelter Schaden und Tempo, danach kurz erschöpft.",
+   "cd": 35,
+   "ess": 20,
+   "decay": 0.13,
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "lore": "Verdoppelt Kraft, Tempo und Beweglichkeit — der Körper zahlt später.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "knochenschwingen": {
+   "n": "Knochenschwingen-Gu",
+   "ic": "🦅",
+   "rank": 4,
+   "path": "verwandlung",
+   "type": "pas",
+   "d": "Du überquerst Wasser und Abgründe zu Fuß.",
+   "feed": {
+    "r": "fell",
+    "n": 4
+   },
+   "decay": 0.12,
+   "lore": "Knochenflügel wachsen aus dem Rücken. Fang Yuans Ausführung war besonders zäh.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "blauhimmel": {
+   "n": "Blauhimmel-Gu",
+   "ic": "🟦",
+   "rank": 4,
+   "path": "raum",
+   "type": "act",
+   "d": "Wirft alle Gegner im Umkreis 4 weit zurück.",
+   "cd": 10,
+   "ess": 17,
+   "decay": 0.12,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Öffnet für einen Wimpernschlag den Himmel — und alles fällt hinein.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 5
+   },
+   "zone": 3
+  },
+  "reinigung": {
+   "n": "Reinigungs-Gu",
+   "ic": "🫧",
+   "rank": 3,
+   "path": "wasser",
+   "type": "act",
+   "d": "Entfernt Gift, Brand und Verlangsamung sofort.",
+   "cd": 12,
+   "ess": 10,
+   "decay": 0.08,
+   "feed": {
+    "r": "beeren",
+    "n": 3
+   },
+   "lore": "Spült alles Fremde aus dem Körper.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "tausendjun": {
+   "n": "Tausend-Jun-Kraft-Gu",
+   "ic": "🗻",
+   "rank": 5,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+76 Schaden dauerhaft.",
+   "feed": {
+    "r": "fleisch",
+    "n": 8
+   },
+   "decay": 0.15,
+   "lore": "Tausend Jun Kraft. Schnitzt tiefe Kraft-Markierungen, die bleiben.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 18
+   },
+   "zone": 3
+  },
+  "jadeknochen": {
+   "n": "Jadeknochen-Gu",
+   "ic": "💚",
+   "rank": 3,
+   "path": "metall",
+   "type": "pas",
+   "d": "+90 max. HP. Wirkt dauerhaft über Dao-Markierungen.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.1,
+   "lore": "Formt das Skelett zu Jade — härter und geschmeidiger zugleich.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "schwarzeber": {
+   "n": "Schwarzeber-Gu",
+   "ic": "🐗",
+   "rank": 3,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+10 Schaden, dauerhaft eingeprägt.",
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "decay": 0.1,
+   "lore": "Pflanzt das Phantom eines Ebers in den Körper. Die Kraft bleibt.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "bitterkraft": {
+   "n": "Bitterkraft-Gu",
+   "ic": "🍂",
+   "rank": 4,
+   "path": "kraft",
+   "type": "pas",
+   "d": "Je weniger HP du hast, desto mehr Schaden — bis +60 %.",
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "decay": 0.13,
+   "lore": "Aus Bitterkeit wächst Stärke. Je näher der Tod, desto härter der Schlag.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "hellperle": {
+   "n": "Hellperlen-Gu",
+   "ic": "🔆",
+   "rank": 4,
+   "path": "licht",
+   "type": "pas",
+   "d": "Taghelles Licht im Radius 8, auch nachts.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.11,
+   "lore": "Eine Perle, die alles in mildes Tageslicht taucht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 5
+   },
+   "zone": 3
+  },
+  "bambusherr": {
+   "n": "Bambus-Gentleman-Gu",
+   "ic": "🎋",
+   "rank": 4,
+   "path": "holz",
+   "type": "act",
+   "d": "Beschwört drei Bambuswächter für 30 s.",
+   "cd": 45,
+   "ess": 22,
+   "decay": 0.13,
+   "feed": {
+    "r": "holz",
+    "n": 8
+   },
+   "lore": "Aufrechte Bambusgeister, die für ihren Herrn kämpfen.",
+   "feed_effektiv": {
+    "r": "holz",
+    "n": 12
+   },
+   "zone": 3
+  },
+  "atmosphaere": {
+   "n": "Atmosphären-Gu",
+   "ic": "🌀",
+   "rank": 4,
+   "path": "seele",
+   "type": "pas",
+   "d": "NPCs sind dir wohler gesinnt, Handel bringt mehr.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.11,
+   "lore": "Umgibt den Träger mit einer Aura, der man schwer widersteht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 5
+   },
+   "zone": 3
+  },
+  "verstaerker": {
+   "n": "Wirkungs-Verstärker-Gu",
+   "ic": "📢",
+   "rank": 4,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Alle aktiven Gu wirken 25 % stärker.",
+   "feed": {
+    "r": "kristall",
+    "n": 5
+   },
+   "decay": 0.14,
+   "lore": "Verstärkt die Wirkung anderer Gu — Grundpfeiler jedes Killer Moves.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "bronzhaut": {
+   "n": "Uralte-Bronzehaut-Gu",
+   "ic": "🥉",
+   "rank": 4,
+   "path": "metall",
+   "type": "pas",
+   "d": "−28 % erlittener Schaden.",
+   "feed": {
+    "r": "stein",
+    "n": 6
+   },
+   "decay": 0.12,
+   "lore": "Haut wie uralte Bronze. Schwer, aber fast undurchdringlich.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "blutrasend": {
+   "n": "Blutraserei-Gu",
+   "ic": "🩸",
+   "rank": 4,
+   "path": "blut",
+   "type": "act",
+   "d": "Verwandelt 25 % deiner HP in einen verheerenden Schlag.",
+   "cd": 16,
+   "ess": 15,
+   "decay": 0.14,
+   "feed": {
+    "r": "fleisch",
+    "n": 6
+   },
+   "lore": "Wer sein eigenes Blut opfert, schlägt umso härter zu.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "bergziehen": {
+   "n": "Berge-Ziehen-Gu",
+   "ic": "⛰️",
+   "rank": 6,
+   "path": "kraft",
+   "type": "act",
+   "imm": 1,
+   "d": "Wirft einen Felsbrocken: 200 Schaden im Umkreis 3.",
+   "cd": 14,
+   "ess": 30,
+   "decay": 0.19,
+   "feed": {
+    "r": "stein",
+    "n": 14
+   },
+   "lore": "Erlaubt es, Berge zu heben und zu versetzen, ohne sie zu beschädigen.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 45
+   },
+   "zone": null
+  },
+  "knochenweich": {
+   "n": "Knochenerweichungs-Gu",
+   "ic": "🫠",
+   "rank": 5,
+   "path": "verwandlung",
+   "type": "act",
+   "d": "Alle Gegner im Umkreis 5 verlieren 50 % Rüstung für 8 s.",
+   "cd": 18,
+   "ess": 24,
+   "decay": 0.15,
+   "feed": {
+    "r": "fleisch",
+    "n": 7
+   },
+   "lore": "Lässt alle Knochen im Umkreis zu Brei erweichen.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 15
+   },
+   "zone": 3
+  },
+  "phoenixfeder": {
+   "n": "Phönixfeder-Gu",
+   "ic": "🪶",
+   "rank": 5,
+   "path": "feuer",
+   "type": "act",
+   "d": "Drei Feuerklingen hintereinander auf dieselbe Stelle.",
+   "cd": 9,
+   "ess": 23,
+   "decay": 0.15,
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "lore": "Drei sichelförmige Flammenklingen — Grundlage der Dreiflügel-Klinge.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "schwertflug": {
+   "n": "Fliegendes-Schwert-Gu",
+   "ic": "🗡️",
+   "rank": 7,
+   "path": "metall",
+   "type": "act",
+   "imm": 1,
+   "d": "Ein Schwert jagt selbstständig 10 s lang Feinde.",
+   "cd": 22,
+   "ess": 34,
+   "decay": 0.21,
+   "feed": {
+    "r": "kristall",
+    "n": 11
+   },
+   "lore": "Rang-7-Schwertpfad-Gu, Kern zahlloser fliegender Schwert-Killer-Moves.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 51
+   },
+   "zone": null
+  },
+  "schwaechung": {
+   "n": "Schwächungs-Gu",
+   "ic": "📉",
+   "rank": 8,
+   "path": "gift",
+   "type": "act",
+   "imm": 1,
+   "d": "Halbiert Schaden und Tempo aller Gegner für 10 s.",
+   "cd": 26,
+   "ess": 44,
+   "decay": 0.24,
+   "feed": {
+    "r": "kristall",
+    "n": 14
+   },
+   "lore": "Ein Rang-8-Gu, das selbst uralte Bestien schwächt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 94
+   },
+   "zone": null
+  },
+  "heilkern": {
+   "n": "Menschenpfad-Heil-Gu",
+   "ic": "💗",
+   "rank": 8,
+   "path": "seele",
+   "type": "act",
+   "imm": 1,
+   "d": "Heilt dich und alle Verbündeten vollständig.",
+   "cd": 40,
+   "ess": 48,
+   "decay": 0.24,
+   "feed": {
+    "r": "herz",
+    "n": 1
+   },
+   "lore": "Rang-8-Menschenpfad-Gu, Kern der Heil-Killer-Moves von Shen Shang.",
+   "feed_effektiv": {
+    "r": "herz",
+    "n": 7
+   },
+   "zone": null
+  },
+  "regionsgu": {
+   "n": "Regions-Gu",
+   "ic": "🗺️",
+   "rank": 7,
+   "path": "raum",
+   "type": "pas",
+   "imm": 1,
+   "d": "Reisen kostet nichts mehr, Weltkarte zeigt alles.",
+   "feed": {
+    "r": "kristall",
+    "n": 12
+   },
+   "decay": 0.22,
+   "lore": "Rang-7-Regelpfad-Gu aus Tao Zhus wahrem Erbe.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 56
+   },
+   "zone": null
+  },
+  "sternpfeil_klein": {
+   "n": "Sternenpfeil-Gu",
+   "ic": "✦",
+   "rank": 1,
+   "path": "licht",
+   "type": "act",
+   "d": "Ein schneller Lichtpfeil, 18 Schaden.",
+   "cd": 1.5,
+   "ess": 5,
+   "decay": 0.06,
+   "feed": {
+    "r": "kristall",
+    "n": 1
+   },
+   "lore": "Das billigste Fernkampf-Gu der Gu-Welt. Jeder Anfänger hat eines.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "lebensblatt": {
+   "n": "Lebenskraft-Blatt-Gu",
+   "ic": "🍃",
+   "rank": 1,
+   "path": "holz",
+   "type": "pas",
+   "d": "Beeren und Fleisch heilen doppelt so viel.",
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Ein einfaches grünes Blatt, das Nahrung besser verwerten lässt.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "drehfels": {
+   "n": "Dreh-Fels-Gu",
+   "ic": "🪨",
+   "rank": 1,
+   "path": "metall",
+   "type": "act",
+   "d": "Schleudert einen Felsbrocken, 24 Schaden.",
+   "cd": 3,
+   "ess": 7,
+   "decay": 0.06,
+   "feed": {
+    "r": "stein",
+    "n": 2
+   },
+   "lore": "Reißt Gestein aus dem Boden und wirft es.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "rosaeber": {
+   "n": "Rosa-Eber-Gu",
+   "ic": "🐷",
+   "rank": 1,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+4 Schaden dauerhaft.",
+   "feed": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Verleiht die Kraft eines Ebers. Der Anfang jedes Kraft-Pfades.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "boeserGedanke": {
+   "n": "Bösartiger-Gedanken-Gu",
+   "ic": "💭",
+   "rank": 1,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "+20 % Schaden gegen bereits verwundete Gegner.",
+   "feed": {
+    "r": "beeren",
+    "n": 2
+   },
+   "decay": 0.05,
+   "lore": "Flüstert dem Träger zu, wo der Feind am schwächsten ist.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 1
+   },
+   "zone": 0
+  },
+  "zehnjin": {
+   "n": "Zehn-Jin-Kraft-Gu",
+   "ic": "💪",
+   "rank": 2,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+12 Schaden dauerhaft.",
+   "feed": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "decay": 0.07,
+   "lore": "Zehn Jin zusätzliche Kraft in jedem Schlag.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "wasserschild": {
+   "n": "Wasserschild-Gu",
+   "ic": "🛡️",
+   "rank": 2,
+   "path": "wasser",
+   "type": "act",
+   "d": "Wasserbarriere: 6 s lang halber Schaden.",
+   "cd": 14,
+   "ess": 12,
+   "decay": 0.08,
+   "feed": {
+    "r": "beeren",
+    "n": 3
+   },
+   "lore": "Eine fließende Barriere, die Schläge ableitet statt sie zu blocken.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "wasserbohrer": {
+   "n": "Wasserbohrer-Gu",
+   "ic": "🌀",
+   "rank": 2,
+   "path": "wasser",
+   "type": "act",
+   "d": "Durchbohrender Strahl, 34 Schaden auf eine Linie.",
+   "cd": 4,
+   "ess": 11,
+   "decay": 0.08,
+   "feed": {
+    "r": "beeren",
+    "n": 3
+   },
+   "lore": "Verdichtetes Wasser schneidet durch Rüstung wie durch Papier.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "weissjade": {
+   "n": "Weißjade-Gu",
+   "ic": "⬜",
+   "rank": 2,
+   "path": "metall",
+   "type": "pas",
+   "d": "−18 % erlittener Schaden.",
+   "feed": {
+    "r": "stein",
+    "n": 4
+   },
+   "decay": 0.07,
+   "lore": "Härtet die Haut zu weißer Jade. Exzellenter Schutz auf frühen Rängen.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 3
+   },
+   "zone": 1
+  },
+  "knochenspeer": {
+   "n": "Spiral-Knochenspeer-Gu",
+   "ic": "🦴",
+   "rank": 2,
+   "path": "blut",
+   "type": "act",
+   "d": "Speer aus eigenem Knochen, 40 Schaden, kostet 5 HP.",
+   "cd": 3,
+   "ess": 9,
+   "decay": 0.08,
+   "feed": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "lore": "Lässt scharfe Knochenspeere aus dem Körper wachsen.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "tarnschuppe": {
+   "n": "Tarnschuppen-Gu",
+   "ic": "🦎",
+   "rank": 2,
+   "path": "verwandlung",
+   "type": "pas",
+   "d": "Nachts bemerken Monster dich kaum.",
+   "feed": {
+    "r": "fell",
+    "n": 3
+   },
+   "decay": 0.07,
+   "lore": "Schuppen, die das Licht der Umgebung annehmen.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "wolfssklave": {
+   "n": "Wolfs-Sklaverei-Gu",
+   "ic": "🐺",
+   "rank": 2,
+   "path": "seele",
+   "type": "act",
+   "d": "Ruft einen Wolf, der 30 s kämpft.",
+   "cd": 35,
+   "ess": 14,
+   "decay": 0.09,
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "lore": "Unterwirft den Willen eines Wolfes. Standard der Nordebenen-Stämme.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "zone": 1
+  },
+  "zweiaufgaben": {
+   "n": "Zwei-Aufgaben-Gu",
+   "ic": "⚖️",
+   "rank": 2,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Abklingzeiten laufen 25 % schneller ab.",
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "decay": 0.08,
+   "lore": "Erlaubt es, zwei Dinge zugleich zu bedenken.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 1
+   },
+   "zone": 1
+  },
+  "jahresgu": {
+   "n": "Jahres-Gu",
+   "ic": "📅",
+   "rank": 2,
+   "path": "zeit",
+   "type": "pas",
+   "d": "Die Aperturzeit läuft 30 % schneller — mehr Prüfungen, mehr Markierungen.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.09,
+   "lore": "Misst und beschleunigt den Lauf der Jahre.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 2
+   },
+   "zone": 1
+  },
+  "eisenknochen": {
+   "n": "Eisenknochen-Gu",
+   "ic": "☠️",
+   "rank": 3,
+   "path": "metall",
+   "type": "pas",
+   "d": "+60 max. HP, −10 % Schaden erlitten. Das Umschmieden schmerzt.",
+   "feed": {
+    "r": "stein",
+    "n": 5
+   },
+   "decay": 0.1,
+   "lore": "Färbt die Knochen eisenschwarz. Viele berühmte Gu-Meister starben am Schmerz der Anwendung.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 5
+   },
+   "zone": 2
+  },
+  "junkraft": {
+   "n": "Jun-Kraft-Gu",
+   "ic": "🏋️",
+   "rank": 3,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+27 Schaden dauerhaft.",
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "decay": 0.1,
+   "lore": "Ein Jun Kraft in jedem Hieb. Schnitzt bleibende Kraft-Markierungen.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "blitzfluegel": {
+   "n": "Blitzflügel-Gu",
+   "ic": "🪽",
+   "rank": 3,
+   "path": "blitz",
+   "type": "act",
+   "d": "Blitzschneller Satz nach vorn, verletzt alles auf dem Weg.",
+   "cd": 6,
+   "ess": 13,
+   "decay": 0.1,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Flügel aus Blitz tragen den Träger über das Schlachtfeld.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "mondgift": {
+   "n": "Mondgift-Gu",
+   "ic": "🌙",
+   "rank": 3,
+   "path": "gift",
+   "type": "act",
+   "d": "Vergiftete Mondklinge, 30 Schaden + starkes Gift.",
+   "cd": 4,
+   "ess": 12,
+   "decay": 0.1,
+   "feed": {
+    "r": "beeren",
+    "n": 4
+   },
+   "lore": "Die dunkle Weiterentwicklung des Mondlicht-Gu.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "mondseele": {
+   "n": "Mondseelen-Gu",
+   "ic": "🌜",
+   "rank": 3,
+   "path": "seele",
+   "type": "act",
+   "d": "Seelenangriff im Umkreis 4, ignoriert Rüstung.",
+   "cd": 9,
+   "ess": 15,
+   "decay": 0.1,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Greift nicht den Körper an, sondern das, was ihn bewohnt.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "regenbogen": {
+   "n": "Regenbogenlicht-Gu",
+   "ic": "🌈",
+   "rank": 3,
+   "path": "licht",
+   "type": "act",
+   "d": "Sieben Lichtklingen in alle Richtungen, je 26 Schaden.",
+   "cd": 7,
+   "ess": 16,
+   "decay": 0.1,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Bricht Licht in sieben schneidende Farben.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "rippenschild": {
+   "n": "Rippenschild-Gu",
+   "ic": "🩻",
+   "rank": 3,
+   "path": "blut",
+   "type": "act",
+   "d": "Rippenkäfig blockt 8 s lang 70 % Schaden.",
+   "cd": 20,
+   "ess": 14,
+   "decay": 0.11,
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "lore": "Die eigenen Rippen wachsen zu einem Schild nach außen.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "zone": 2
+  },
+  "selbstentzuendung": {
+   "n": "Selbstentzündungs-Gu",
+   "ic": "🔥",
+   "rank": 3,
+   "path": "feuer",
+   "type": "act",
+   "d": "Du brennst 8 s: Gegner in Reichweite nehmen 20 Schaden/s.",
+   "cd": 16,
+   "ess": 14,
+   "decay": 0.11,
+   "feed": {
+    "r": "kristall",
+    "n": 2
+   },
+   "lore": "Setzt den eigenen Körper in Brand, ohne ihn zu verzehren.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 2
+   },
+   "zone": 2
+  },
+  "siebenduefte": {
+   "n": "Sieben-Düfte-Schnaps-Wurm",
+   "ic": "🍾",
+   "rank": 3,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Essenz regeneriert 70 % schneller.",
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "decay": 0.11,
+   "lore": "Die dritte Stufe des Schnaps-Wurms. Ein Schatz für jeden Klan.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "himmelsdach": {
+   "n": "Himmelsdach-Gu",
+   "ic": "⛱️",
+   "rank": 3,
+   "path": "raum",
+   "type": "act",
+   "d": "Kuppel: 10 s lang treffen dich keine Geschosse.",
+   "cd": 25,
+   "ess": 16,
+   "decay": 0.11,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Spannt ein Dach aus verdichtetem Raum über den Träger.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "langsamschritt": {
+   "n": "Langsamschritt-Gu",
+   "ic": "🐌",
+   "rank": 3,
+   "path": "zeit",
+   "type": "act",
+   "d": "Ein Ziel bewegt sich 8 s lang kaum noch.",
+   "cd": 12,
+   "ess": 13,
+   "decay": 0.1,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Zieht die Zeit um die Füße des Feindes zäh wie Sirup.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "schneeball": {
+   "n": "Schneeball-Gu",
+   "ic": "⛄",
+   "rank": 3,
+   "path": "eis",
+   "type": "act",
+   "d": "Wachsende Eiskugel, 45 Schaden, friert ein.",
+   "cd": 5,
+   "ess": 13,
+   "decay": 0.1,
+   "feed": {
+    "r": "fell",
+    "n": 3
+   },
+   "lore": "Rollt und wächst, bis sie alles vor sich niederwalzt.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "seelensuche": {
+   "n": "Seelensuch-Gu",
+   "ic": "👁️",
+   "rank": 3,
+   "path": "information",
+   "type": "pas",
+   "d": "Zeigt alle Ruinen und Bosse auf der Weltkarte.",
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "decay": 0.1,
+   "lore": "Tastet die Umgebung nach fremden Seelen ab.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "stummermund": {
+   "n": "Stummer-Mund-Gu",
+   "ic": "🤐",
+   "rank": 3,
+   "path": "seele",
+   "type": "act",
+   "d": "Gegner im Umkreis 5 können 6 s nicht angreifen.",
+   "cd": 22,
+   "ess": 15,
+   "decay": 0.11,
+   "feed": {
+    "r": "beeren",
+    "n": 4
+   },
+   "lore": "Nimmt dem Feind Stimme und Willen zum Angriff.",
+   "feed_effektiv": {
+    "r": "beeren",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "giftskorpion": {
+   "n": "Giftskorpion-Gu",
+   "ic": "🦂",
+   "rank": 3,
+   "path": "gift",
+   "type": "act",
+   "d": "Skorpionstich, 35 Schaden + Gift, das sich ausbreitet.",
+   "cd": 5,
+   "ess": 13,
+   "decay": 0.1,
+   "feed": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "lore": "Ein schwarzer Skorpion, dessen Gift von Feind zu Feind springt.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 4
+   },
+   "zone": 2
+  },
+  "lichtzaun": {
+   "n": "Lichtzaun-Gu",
+   "ic": "🚧",
+   "rank": 3,
+   "path": "licht",
+   "type": "act",
+   "d": "Lichtwand hält Monster 10 s auf Abstand.",
+   "cd": 24,
+   "ess": 15,
+   "decay": 0.11,
+   "feed": {
+    "r": "kristall",
+    "n": 3
+   },
+   "lore": "Zieht einen Zaun aus reinem Licht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 3
+   },
+   "zone": 2
+  },
+  "knochenfluegel": {
+   "n": "Knochenflügel-Gu",
+   "ic": "🦇",
+   "rank": 4,
+   "path": "verwandlung",
+   "type": "pas",
+   "d": "+35 % Tempo — Knochenflügel tragen dich.",
+   "feed": {
+    "r": "fell",
+    "n": 5
+   },
+   "decay": 0.12,
+   "lore": "Flügel aus dem eigenen Rückgrat. Fang Yuans Exemplar war besonders robust.",
+   "feed_effektiv": {
+    "r": "fell",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "berserk": {
+   "n": "Berserker-Gu",
+   "ic": "😤",
+   "rank": 4,
+   "path": "kraft",
+   "type": "act",
+   "d": "12 s lang doppelter Schaden, aber doppelt verwundbar.",
+   "cd": 40,
+   "ess": 20,
+   "decay": 0.13,
+   "feed": {
+    "r": "fleisch",
+    "n": 6
+   },
+   "lore": "Raubt dem Träger die Vorsicht und gibt ihm dafür Wut.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 9
+   },
+   "zone": 3
+  },
+  "tapferkampf": {
+   "n": "Tapferer-Kampf-Gu",
+   "ic": "⚔️",
+   "rank": 4,
+   "path": "kraft",
+   "type": "pas",
+   "d": "+3 % Schaden je 10 % fehlender Lebenspunkte.",
+   "feed": {
+    "r": "fleisch",
+    "n": 5
+   },
+   "decay": 0.12,
+   "lore": "Je aussichtsloser der Kampf, desto härter der Hieb.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "auraverbergen": {
+   "n": "Aura-Verbergungs-Gu",
+   "ic": "👤",
+   "rank": 4,
+   "path": "verwandlung",
+   "type": "pas",
+   "d": "Elite-Gegner und Bosse bemerken dich später.",
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "decay": 0.12,
+   "lore": "Löscht die eigene Aura vollständig aus.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "verstaerkung": {
+   "n": "Wirkungs-Verstärkungs-Gu",
+   "ic": "📈",
+   "rank": 4,
+   "path": "weisheit",
+   "type": "pas",
+   "d": "Alle aktiven Gu wirken 30 % stärker.",
+   "feed": {
+    "r": "kristall",
+    "n": 5
+   },
+   "decay": 0.13,
+   "lore": "Ein Hilfs-Gu, das die Wirkung aller anderen anhebt. Grundstein vieler Killer Moves.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 8
+   },
+   "zone": 3
+  },
+  "blauerhimmel": {
+   "n": "Blauer-Himmel-Gu",
+   "ic": "🟦",
+   "rank": 4,
+   "path": "raum",
+   "type": "act",
+   "d": "Zieht alle Gegner im Umkreis 7 zu dir.",
+   "cd": 18,
+   "ess": 19,
+   "decay": 0.13,
+   "feed": {
+    "r": "kristall",
+    "n": 4
+   },
+   "lore": "Faltet den Raum zusammen wie ein Tuch.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 6
+   },
+   "zone": 3
+  },
+  "bestiensklave": {
+   "n": "Bestien-Sklaverei-Gu",
+   "ic": "🐾",
+   "rank": 4,
+   "path": "seele",
+   "type": "act",
+   "d": "Unterwirft auch starke Bestien für 40 s.",
+   "cd": 50,
+   "ess": 24,
+   "decay": 0.13,
+   "feed": {
+    "r": "fleisch",
+    "n": 7
+   },
+   "lore": "Der Sklaverei-Pfad in seiner ausgereiften Form.",
+   "feed_effektiv": {
+    "r": "fleisch",
+    "n": 11
+   },
+   "zone": 3
+  },
+  "essenzeisenknochen": {
+   "n": "Essenz-Eisenknochen-Gu",
+   "ic": "⬛",
+   "rank": 5,
+   "path": "metall",
+   "type": "pas",
+   "d": "+180 max. HP, −15 % Schaden erlitten.",
+   "feed": {
+    "r": "stein",
+    "n": 8
+   },
+   "decay": 0.15,
+   "lore": "Die vollendete Form des Eisenknochen-Gu — zwei- bis dreimal so wirksam.",
+   "feed_effektiv": {
+    "r": "stein",
+    "n": 18
+   },
+   "zone": 3
+  },
+  "qigeist": {
+   "n": "Qi-Geist-Gu",
+   "ic": "💠",
+   "rank": 5,
+   "path": "qi",
+   "type": "act",
+   "d": "Ein Qi-Doppelgänger kämpft 25 s an deiner Seite.",
+   "cd": 55,
+   "ess": 26,
+   "decay": 0.16,
+   "feed": {
+    "r": "kristall",
+    "n": 6
+   },
+   "lore": "Verdichtet Qi zu einem Geist mit eigenem Willen.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 13
+   },
+   "zone": 3
+  },
+  "schwarzpfeil": {
+   "n": "Schwarzpfeil-Gu",
+   "ic": "🏹",
+   "rank": 6,
+   "path": "gift",
+   "type": "act",
+   "imm": 1,
+   "d": "Zielsuchende schwarze Pfeile, die Schwachstellen treffen: 5×70 Schaden.",
+   "cd": 14,
+   "ess": 34,
+   "decay": 0.19,
+   "feed": {
+    "r": "kristall",
+    "n": 6
+   },
+   "lore": "Hei Chengs Angriffs-Gu. Die Pfeile suchen sich Kopf und Herz.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 19
+   },
+   "zone": null
+  },
+  "sternenauge": {
+   "n": "Sternenaugen-Gu",
+   "ic": "👀",
+   "rank": 6,
+   "path": "information",
+   "type": "pas",
+   "imm": 1,
+   "d": "Zeigt alles auf der Weltkarte und verrät Schwachstellen: +20 % Krit.",
+   "feed": {
+    "r": "kristall",
+    "n": 8
+   },
+   "decay": 0.19,
+   "lore": "Fang Yuan verfeinerte es nach der Frühling-Herbst-Zikade als zweites großes Werk.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 26
+   },
+   "zone": null
+  },
+  "anpassung": {
+   "n": "Anpassungs-Gu",
+   "ic": "🔄",
+   "rank": 7,
+   "path": "verwandlung",
+   "type": "pas",
+   "imm": 1,
+   "d": "Wiederholter Schaden derselben Art trifft dich immer schwächer.",
+   "feed": {
+    "r": "kristall",
+    "n": 10
+   },
+   "decay": 0.22,
+   "lore": "Der Körper lernt jeden Angriff, den er einmal überstanden hat.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 46
+   },
+   "zone": null
+  },
+  "rueckschritt": {
+   "n": "Rückschritt-Gu",
+   "ic": "⏮️",
+   "rank": 7,
+   "path": "zeit",
+   "type": "act",
+   "imm": 1,
+   "d": "Springt zu deiner Position von vor 10 s zurück — mit den HP von damals.",
+   "cd": 60,
+   "ess": 40,
+   "decay": 0.22,
+   "feed": {
+    "r": "kristall",
+    "n": 9
+   },
+   "lore": "Der Zeit-Pfad als Fluchtweg: nicht Heilung, sondern Rücknahme.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 42
+   },
+   "zone": null
+  },
+  "haltung8": {
+   "n": "Haltungs-Gu (Unsterblich)",
+   "ic": "🎭",
+   "rank": 8,
+   "path": "weisheit",
+   "type": "pas",
+   "imm": 1,
+   "d": "Kein Gegner sieht dich, bis du zuerst angreifst.",
+   "feed": {
+    "r": "kristall",
+    "n": 14
+   },
+   "decay": 0.25,
+   "lore": "Selbst Weisheits-Pfad-Ehrwürdige durchschauen diese Maske nicht.",
+   "feed_effektiv": {
+    "r": "kristall",
+    "n": 94
+   },
+   "zone": null
+  },
+  "weisheit9": {
+   "n": "Weisheits-Gu",
+   "ic": "🧠",
+   "rank": 9,
+   "path": "weisheit",
+   "type": "pas",
+   "imm": 1,
+   "d": "Grenzenlose Inspiration: dreifache XP, +4 SP je Level, alle Verfeinerungen gelingen 40 % häufiger. Kostet Lebensspanne — außer du bist ein Zombie.",
+   "feed": {
+    "r": "kern",
+    "n": 1
+   },
+   "decay": 0.3,
+   "lore": "Schenkte Ren Zu den Verstand — im Tausch gegen seine Lebensspanne. Vital-Gu der Sternbild-Unsterblichen-Ehrwürdigen.",
+   "feed_effektiv": {
+    "r": "kern",
+    "n": 10
+   },
+   "zone": null
+  },
+  "liebe9": {
+   "n": "Liebes-Gu",
+   "ic": "💗",
+   "rank": 9,
+   "path": "seele",
+   "type": "act",
+   "imm": 1,
+   "d": "Unvorhersehbar: heilt, zerstört, bekehrt oder teleportiert — der Himmel entscheidet. Fordert Lebenskraft als Tribut.",
+   "cd": 35,
+   "ess": 70,
+   "decay": 0.3,
+   "feed": {
+    "r": "herz",
+    "n": 1
+   },
+   "lore": "Kann jeden Effekt im Universum erzeugen, verlangt aber Hoffnungen und Lebenskraft des Anwenders.",
+   "feed_effektiv": {
+    "r": "herz",
+    "n": 10
+   },
+   "zone": null
+  },
+  "zikade9": {
+   "n": "Frühling-Herbst-Zikade (Rang 9)",
+   "ic": "🦗",
+   "rank": 9,
+   "path": "zeit",
+   "type": "act",
+   "imm": 1,
+   "d": "Dreht die Zeit zurück: volle HP, alle Abklingzeiten frei, alle Gegner um 6 s zurückgesetzt. Kostet die Hälfte deiner Essenz.",
+   "cd": 180,
+   "ess": 0,
+   "decay": 0.3,
+   "feed": {
+    "r": "schuppe",
+    "n": 1
+   },
+   "lore": "In vollem Rang trägt die Zikade nicht nur den Willen zurück, sondern die Zeit selbst.",
+   "feed_effektiv": {
+    "r": "schuppe",
+    "n": 10
+   },
+   "zone": null
+  },
+  "diebeshimmel": {
+   "n": "Diebeshimmel-Gu",
+   "ic": "🕳️",
+   "rank": 9,
+   "path": "raffinerie",
+   "type": "pas",
+   "imm": 1,
+   "d": "Stiehlt bei jedem Treffer Dao-Markierungen vom Feind — und Beute von allem, was stirbt.",
+   "feed": {
+    "r": "kern",
+    "n": 1
+   },
+   "decay": 0.3,
+   "lore": "Der Diebeshimmel-Dämonen-Ehrwürdige stahl dem Himmel selbst seine Methoden und schenkte sie den Menschen.",
+   "feed_effektiv": {
+    "r": "kern",
+    "n": 10
+   },
+   "zone": null
+  },
+  "qi_glueck": {
+   "n": "Qi-Glück-Unsterblichen-Gu",
+   "ic": "🎐",
+   "rank": 9,
+   "path": "glueck",
+   "type": "pas",
+   "imm": 1,
+   "d": "Das Glück ganzer Völker fließt dir zu: dreifache Beute, 40 % Chance jeden Schaden zu vermeiden.",
+   "feed": {
+    "r": "schuppe",
+    "n": 1
+   },
+   "decay": 0.3,
+   "lore": "Bündelt das Qi-Glück einer ganzen Fraktion in einer einzigen Person.",
+   "feed_effektiv": {
+    "r": "schuppe",
+    "n": 10
+   },
+   "zone": null
+  },
+  "schicksal": {
+   "n": "Schicksals-Gu",
+   "ic": "☯️",
+   "rank": 9,
+   "path": "glueck",
+   "type": "pas",
+   "imm": 1,
+   "d": "Alle Gu kosten 50 % weniger, alle Abklingzeiten halbiert, +50 % Schaden.",
+   "feed": {
+    "r": "schuppe",
+    "n": 1
+   },
+   "decay": 0.3,
+   "lore": "Das höchste Gu des Himmlischen Hofes. Es webt das Schicksal aller Lebewesen — und niemand hat es je wirklich beherrscht.",
+   "feed_effektiv": {
+    "r": "schuppe",
+    "n": 10
+   },
+   "zone": null
+  }
+ },
+ "PATHS": {
+  "raffinerie": "Raffinerie",
+  "qi": "Qi",
+  "kraft": "Kraft",
+  "licht": "Licht",
+  "blitz": "Blitz",
+  "eis": "Eis",
+  "feuer": "Feuer",
+  "holz": "Holz",
+  "metall": "Metall",
+  "wasser": "Wasser",
+  "gift": "Gift",
+  "seele": "Seele",
+  "raum": "Raum",
+  "zeit": "Zeit",
+  "glueck": "Glück",
+  "weisheit": "Weisheit",
+  "verwandlung": "Verwandlung",
+  "blut": "Blut",
+  "ton": "Ton",
+  "information": "Information"
+ },
+ "PATH_COLOR": {
+  "raffinerie": "#c9a070",
+  "qi": "#9ff",
+  "kraft": "#e07a4a",
+  "licht": "#ffe9a0",
+  "blitz": "#8ad0ff",
+  "eis": "#bfeaff",
+  "feuer": "#ff7a3a",
+  "holz": "#6fbf4a",
+  "metall": "#c9c9d4",
+  "wasser": "#4a9ad0",
+  "gift": "#9b3bff",
+  "seele": "#c9a0ff",
+  "raum": "#6ad04a",
+  "zeit": "#a04ad0",
+  "glueck": "#7dff9b",
+  "weisheit": "#7fc8ff",
+  "verwandlung": "#ff8ae2",
+  "blut": "#d0303a",
+  "ton": "#d9c27a",
+  "information": "#9ff"
+ },
+ "PATH_CONFLICT": {
+  "feuer": [
+   "eis",
+   "wasser"
+  ],
+  "eis": [
+   "feuer"
+  ],
+  "wasser": [
+   "feuer"
+  ],
+  "licht": [
+   "seele"
+  ],
+  "seele": [
+   "licht"
+  ],
+  "kraft": [
+   "weisheit"
+  ],
+  "weisheit": [
+   "kraft"
+  ],
+  "blut": [
+   "holz"
+  ],
+  "holz": [
+   "blut"
+  ],
+  "zeit": [
+   "raum"
+  ],
+  "raum": [
+   "zeit"
+  ]
+ },
+ "ATTAIN": [
+  {
+   "n": "Gewöhnlich",
+   "need": 0,
+   "c": "#8a8a94"
+  },
+  {
+   "n": "Quasi-Meister",
+   "need": 25,
+   "c": "#9ab86a"
+  },
+  {
+   "n": "Meister",
+   "need": 70,
+   "c": "#6fbf4a"
+  },
+  {
+   "n": "Großmeister",
+   "need": 180,
+   "c": "#4a9ad0"
+  },
+  {
+   "n": "Großer Großmeister",
+   "need": 420,
+   "c": "#a04ad0"
+  },
+  {
+   "n": "Höchster Großmeister",
+   "need": 900,
+   "c": "#ffd23d"
+  }
+ ],
+ "RANKGU_C": [
+  "#888",
+  "#7a9a4a",
+  "#b0503a",
+  "#c9c9d4",
+  "#e0b83a",
+  "#a04ad0",
+  "#6ad04a",
+  "#d0503a",
+  "#f0eef5",
+  "#ffd23d"
+ ],
+ "GU_BOSSDROP": {
+  "waldgeist": [
+   "fruehlingherbst",
+   "festeunsterbliche",
+   "wolke",
+   "bergziehen"
+  ],
+  "steinkoenig": [
+   "glueckuebersteigt",
+   "weisheitsgu",
+   "sterneisen",
+   "schwertflug",
+   "regionsgu"
+  ],
+  "drache": [
+   "drachenatem",
+   "ewigkeit",
+   "liebesgu",
+   "schicksal",
+   "souveraen",
+   "schwaechung",
+   "heilkern"
+  ]
+ },
+ "ACT": {
+  "wirbel": {
+   "cd": 4
+  },
+  "feuer": {
+   "cd": 3
+  },
+  "heil": {
+   "cd": 20
+  },
+  "zeit": {
+   "cd": 25
+  },
+  "blitz": {
+   "cd": 6
+  },
+  "eis": {
+   "cd": 12
+  },
+  "schatten": {
+   "cd": 5
+  },
+  "begleiter": {
+   "cd": 45
+  },
+  "erdbeben": {
+   "cd": 15
+  },
+  "drachenatem": {
+   "cd": 20
+  }
+ },
+ "VITALGU": {
+  "kraft": {
+   "n": "Bärenkraft-Gu",
+   "ic": "🐻",
+   "d": "+3 Schaden auf jeden Schlag — von Anfang an.",
+   "flavor": "Ein uraltes Gu, das Jäger und Krieger seit Generationen begleitet. Es lässt Sehnen reißfest und Fäuste zu Hämmern werden.",
+   "apply": "[fn] ()=>{P.cultDmg+=3}"
+  },
+  "mond": {
+   "n": "Mondlicht-Gu",
+   "ic": "🌙",
+   "d": "Formt Urenergie zu schneidenden Klingen — dein Zustrom fließt spürbar schneller.",
+   "flavor": "Kalt und scharf wie Mondlicht auf Stahl. Manche Meister formen daraus fliegende Klingen; du nutzt es, um deine Apertur schneller zu füllen.",
+   "apply": "[fn] ()=>{P.guRegenMult=1.35}"
+  },
+  "panzer": {
+   "n": "Panzerhaut-Gu",
+   "ic": "🐢",
+   "d": "+25 maximale Lebenspunkte.",
+   "flavor": "Verdichtet Haut und Fleisch wie den Panzer einer Urzeitschildkröte. Nicht elegant, aber fast unmöglich zu töten.",
+   "apply": "[fn] ()=>{P.maxhp+=25;P.hp+=25}"
+  },
+  "wind": {
+   "n": "Windläufer-Gu",
+   "ic": "🐆",
+   "d": "+10% Lauftempo.",
+   "flavor": "Durchdringt Muskeln und Sehnen mit dem Wesen des Windes. Wer es trägt, wird selten eingeholt — und holt selten jemanden ein, der flieht.",
+   "apply": "[fn] ()=>{P.guSpeedMult=1.10}"
+  },
+  "wucher": {
+   "n": "Wucher-Gu",
+   "ic": "🌾",
+   "d": "Doppelte Ausbeute beim Ernten und Abbauen (wie Skill „Holzfäller\").",
+   "flavor": "Ein stiller, unscheinbarer Wurm, der die Lebenskraft alles Geschnittenen und Erlegten verdoppelt, bevor sie verwelkt.",
+   "apply": "[fn] ()=>{P.skills.ernte=1}"
+  }
+ }
+}
