@@ -34,6 +34,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	_check_items(built["items"])
 	_check_sects(built["sects"])
 	_check_trades(built["npcs"], built["builds"])
+	_check_masters(built["gu_masters"], built["body"])
 
 
 func _collect_ids(resources: Array, type: String) -> Dictionary:
@@ -199,6 +200,22 @@ func _check_trades(npcs: Array, parts: Array) -> void:
 	for part: BuildData in parts:
 		for item: StringName in part.cost:
 			_expect("items", item, "Bauteil '%s' (Kosten)" % part.id)
+
+
+## Gu der Meister: im Gu-System (Familie oder Körper-Gu) in Ordnung, nur im Ideenpool Warnung, sonst Fehler.
+func _check_masters(masters: Array, body: Array) -> void:
+	var body_ids: Array[String] = []
+	for data: BodyGuData in body:
+		body_ids.append(String(data.id))
+	for master: GuMasterData in masters:
+		for id: StringName in master.gu:
+			var key: String = String(id)
+			if (_ids["gu"] as Dictionary).has(key) or key in body_ids:
+				continue
+			if _gudex.has(key):
+				_report.warn("Gu-Meister '%s': Gu '%s' gibt es nur im Ideenpool (gu.json)" % [master.id, key])
+			else:
+				_report.error("Gu-Meister '%s': unbekannter Gu '%s'" % [master.id, key])
 
 
 ## Signatur-Gu außerhalb von gu_system.json kommen erst in späteren Meilensteinen.

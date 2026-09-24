@@ -5,7 +5,11 @@ extends Node
 signal damaged(amount: float)
 signal healed(amount: float)
 signal died
+## Leben ist auf floor_hp gefallen (Duelle: niemand stirbt, der Kampf endet).
+signal floored
 
+## Untergrenze für Schaden (0 = keine); z. B. Duell bis 15 % Leben.
+var floor_hp: float = 0.0
 var max_hp: float = 100.0
 var hp: float = 100.0
 
@@ -23,9 +27,13 @@ func is_dead() -> bool:
 func apply_damage(amount: float) -> float:
 	if is_dead() or amount <= 0.0:
 		return 0.0
-	var dealt: float = minf(amount, hp)
+	var dealt: float = minf(amount, maxf(0.0, hp - floor_hp))
 	hp -= dealt
-	damaged.emit(dealt)
+	if dealt > 0.0:
+		damaged.emit(dealt)
+	if floor_hp > 0.0 and hp <= floor_hp + 0.001:
+		floored.emit()
+		return dealt
 	if hp <= 0.0:
 		hp = 0.0
 		died.emit()

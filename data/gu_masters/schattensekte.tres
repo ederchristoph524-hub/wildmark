@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://qstxxadr5joh"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_eysrh"]
+
+[resource]
+script = ExtResource("1_eysrh")
+id = &"schattensekte"
+display_name = "Schattenschüler"
+color = Color(0.627451, 0.2901961, 0.8156863, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"schattenbild", &"mondgift", &"giftskorpion"])

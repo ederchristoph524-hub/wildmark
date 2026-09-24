@@ -37,3 +37,7 @@ signal camera_look(delta: Vector2)
 ## Menüs öffnen und schließen (Gu-Menü, Pause).
 signal menu_toggled(menu_name: StringName)
 signal saved
+
+## Duell mit einem Gu-Meister beginnt bzw. endet (master ist ein GuMaster).
+signal duel_started(master: Node3D)
+signal duel_ended(master: Node3D, player_won: bool)

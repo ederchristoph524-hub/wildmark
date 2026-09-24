@@ -278,6 +278,31 @@ extends Resource
 @export var despawn_distance: float = 70.0
 @export var pickup_radius: float = 1.6
 
+@export_group("Gu-Meister und Duell")
+## Kultivierung des Dorf-Gu-Meisters (Rang 2, Stufe 1, durchschnittliches Talent).
+@export var master_rank: int = 2
+@export var master_stage: int = 1
+@export var master_apt: float = 60.0
+## Wie oft die KI neu entscheidet (Sekunden) – kürzer = schwerer.
+@export var master_think_interval: float = 0.35
+## Ausholen vor Angriffs-Gu: Richtung steht fest, seitliches Ausweichen hilft (KAMPFSYSTEM: keine Treffer ohne Vorwarnung).
+@export var master_cast_windup: float = 0.45
+@export var master_preferred_range: float = 8.0
+@export var master_speed: float = 4.6
+@export var master_fist_cooldown: float = 1.3
+## Unter diesem Lebensanteil greift er zu Schild oder Heilung.
+@export var master_defend_ratio: float = 0.7
+@export var duel_countdown: float = 3.0
+## Der Gu-Meister gibt bei 25 % Leben auf, der Spieler unterliegt bei 15 %.
+@export var duel_surrender_ratio: float = 0.25
+@export var duel_player_floor: float = 0.15
+## Entfernt sich der Spieler weiter vom Duellplatz, endet das Duell.
+@export var duel_leash: float = 26.0
+@export var duel_reward_stones: int = 4
+@export var duel_first_win_stones: int = 10
+## Chance, dass einer seiner Gu nach einem Sieg wild zurückbleibt (einmal pro Tag).
+@export var duel_gu_drop_chance: float = 0.35
+
 @export_group("Tod und Speichern")
 @export var death_essence_loss: float = 0.3
 @export var relaxed_material_loss: float = 0.5

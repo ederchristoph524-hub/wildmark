@@ -26,7 +26,8 @@ func run(scene_tree: SceneTree) -> void:
 	await _test_killer_moves()
 	await _test_enemy_ai()
 	await _test_obstacles()
-	await _test_village()
+	_test_village()
+	await _test_duel()
 	await _test_progress()
 	await _test_death_and_save()
 	for failure: String in _failures:
@@ -209,6 +210,39 @@ func _test_village() -> void:
 	GameState.add_item(&"kristall", 5)
 	_check(Trade.trade(trader.type) and GameState.item_count(&"fleisch") >= 6, "Handel mit dem Händler")
 	_check(BuildSystem.demolish_nearest(player), "Abriss")
+
+
+func _test_duel() -> void:
+	await _clear_enemies()
+	var masters: Array[Node] = tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is GuMaster)
+	_check(masters.size() == 1, "ein Gu-Meister im Dorf")
+	if masters.is_empty():
+		return
+	var master: GuMaster = masters[0]
+	_check(master.gu_list.size() == 3 and not master in Combat.hostiles(tree, player.team), "drei Gu, außerhalb des Duells kein Ziel")
+	player.global_position = master.global_position + Vector3(0.0, 0.3, 6.0)
+	master.start_duel(player)
+	await _frames(roundi(Balance.values.duel_countdown * 60.0) + 10)
+	_check(master.duel_state == GuMaster.DuelState.FIGHT and master in Combat.hostiles(tree, player.team), "Duell beginnt nach dem Countdown")
+	var hp_before: float = player.health.hp
+	await _frames(240)
+	_check(master.essence < master.essence_capacity() - 1.0 and player.health.hp < hp_before, "Gu-Meister setzt Gu ein und trifft")
+	player.health.apply_damage(9999.0)
+	await _frames(2)
+	_check(not player.is_dead() and player.health.ratio() > 0.99 and master.duel_state == GuMaster.DuelState.IDLE, "Niederlage bei 15 %: niemand stirbt, beide geheilt")
+	var stones: int = GameState.item_count(&"kristall")
+	var drop_chance: float = Balance.values.duel_gu_drop_chance
+	Balance.values.duel_gu_drop_chance = 0.0
+	master.start_duel(player)
+	await _frames(roundi(Balance.values.duel_countdown * 60.0) + 10)
+	master.receive_hit(HitInfo.create(master.health.max_hp * 0.9, player, player.team))
+	await _frames(2)
+	Balance.values.duel_gu_drop_chance = drop_chance
+	_check(GameState.duels_won == 1 and GameState.item_count(&"kristall") == stones + Balance.values.duel_first_win_stones, "Sieg: Gu-Meister gibt auf, Lohn erhalten")
+	_check(master.team == Combatant.TEAM_PLAYER and master.health.ratio() > 0.99 and player.health.floor_hp == 0.0, "nach dem Duell zurückgesetzt")
+	var wild: WildGu = DuelRewards.drop_gu(master)
+	_check(wild != null and wild.gu is GuData, "Gu-Meister kann einen Gu als wilden Gu verlieren")
+	wild.queue_free()
 
 
 func _test_obstacles() -> void:

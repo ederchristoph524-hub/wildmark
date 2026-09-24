@@ -12,12 +12,12 @@ var host: Combatant = null
 ## Weiches Ziel; freigegebene oder tote Ziele werden beim Lesen verworfen (Web-Export stürzt sonst ab).
 var soft_target: Combatant = null:
 	get:
-		if soft_target != null and (not is_instance_valid(soft_target) or soft_target.is_dead()):
+		if soft_target != null and _invalid(soft_target):
 			soft_target = null
 		return soft_target
 var locked_target: Combatant = null:
 	get:
-		if locked_target != null and (not is_instance_valid(locked_target) or locked_target.is_dead()):
+		if locked_target != null and _invalid(locked_target):
 			locked_target = null
 		return locked_target
 ## Blickrichtung, in der gesucht wird (setzt der Besitzer).
@@ -85,6 +85,11 @@ func switch_target() -> void:
 	candidates.sort_custom(func(a: Combatant, b: Combatant) -> bool: return a.global_position.distance_squared_to(host.global_position) < b.global_position.distance_squared_to(host.global_position))
 	var index: int = candidates.find(locked_target if locked_target != null else soft_target)
 	locked_target = candidates[(index + 1) % candidates.size()]
+
+
+## Freigegeben, tot oder inzwischen verbündet (z. B. Gu-Meister nach dem Duell).
+func _invalid(target: Combatant) -> bool:
+	return not is_instance_valid(target) or target.is_dead() or target.team == host.team
 
 
 func _too_far(target: Combatant) -> bool:

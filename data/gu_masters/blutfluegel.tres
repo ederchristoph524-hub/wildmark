@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://c6e41vtbquljf"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_b5xg1"]
+
+[resource]
+script = ExtResource("1_b5xg1")
+id = &"blutfluegel"
+display_name = "Blutflügel-Dämon"
+color = Color(0.8156863, 0.1882353, 0.22745098, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"blutrausch", &"knochenspeer", &"blutschaedel"])

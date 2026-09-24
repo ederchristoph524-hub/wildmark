@@ -70,6 +70,19 @@ static func gu_power(b: BalanceData, gu_rank: int, rank: int) -> float:
 	return gu_rank_pow(b, gu_rank) * gu_fit(b, gu_rank, rank)
 
 
+## Leben einer Figur mit Rang und Stufe, wenn sie alle Stufen und Durchbrüche regulär genommen hat (NPC-Gu-Meister).
+static func cultivated_hp(b: BalanceData, rank: int, stage: int) -> float:
+	var hp: float = b.player_base_hp + ((rank - 1) * b.max_stage + stage) * b.stage_max_hp
+	for reached: int in range(2, rank + 1):
+		hp += b.breakthrough_hp_per_rank * reached
+	return hp
+
+
+## Grundschaden-Bonus aus Stufen und Durchbrüchen (wie beim Spieler).
+static func cultivated_damage(b: BalanceData, rank: int, stage: int) -> float:
+	return ((rank - 1) * b.max_stage + stage) * b.stage_damage + (rank - 1) * b.breakthrough_damage
+
+
 ## Tageszeit 0–1 → ist es Nacht? Die Nacht liegt am Ende des Tages.
 static func is_night(b: BalanceData, time_of_day: float) -> bool:
 	return time_of_day >= 1.0 - b.night_length / b.day_length

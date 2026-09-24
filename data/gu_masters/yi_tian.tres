@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://hvv6wvvjuq6a"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ostm5"]
+
+[resource]
+script = ExtResource("1_ostm5")
+id = &"yi_tian"
+display_name = "Yi-Tian-Schüler"
+color = Color(0.6039216, 0.72156864, 0.41568628, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"eisenhaut", &"sternpfeil", &"weissjade"])

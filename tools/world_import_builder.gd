@@ -24,6 +24,7 @@ func build(sources: Dictionary) -> Dictionary:
 		"quests": _build_listed(sources, "quests", "QUESTS", _build_quest),
 		"npcs": _build_keyed(sources, "gegner", "NPCTYPE", _build_npc),
 		"builds": _build_keyed(sources, "materialien", "BUILD", _build_part),
+		"gu_masters": _build_keyed(sources, "gegner", "GUMASTER", _build_master),
 	}
 
 
@@ -200,6 +201,19 @@ func _build_npc(id: StringName, d: Dictionary) -> Resource:
 	npc.trade_gu = ImportUtil.to_int(trade.get("gu"))
 	npc.trade_text = ImportUtil.text(trade.get("d"))
 	return npc
+
+
+func _build_master(id: StringName, d: Dictionary) -> Resource:
+	var context: String = "Gu-Meister '%s'" % id
+	if not ImportUtil.require(d, ["n", "gu"], context, _report):
+		return null
+	var master := GuMasterData.new()
+	master.id = id
+	master.display_name = ImportUtil.text(d["n"])
+	master.color = ImportUtil.color(d.get("c"), context, _report)
+	master.faction = ImportUtil.sn(d.get("f"))
+	master.gu = ImportUtil.names(d["gu"])
+	return master
 
 
 func _build_part(id: StringName, d: Dictionary) -> Resource:

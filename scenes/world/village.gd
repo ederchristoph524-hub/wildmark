@@ -19,6 +19,8 @@ const PEOPLE: Array[Array] = [
 	[&"haendler", "", &"", true, 5.7, 9.5],
 	[&"daemon", "", &"", true, 0.7, 27.0],
 ]
+## Gu-Meister des Klans (Daten-ID, Titel, Winkel, Abstand): fordert man ihn heraus, gibt es ein Duell auf dem Dorfplatz.
+const MASTER: Array = [&"gu_yue", "Klanlehrer", 2.1, 6.5]
 
 
 static func build(world: World, center: Vector3) -> void:
@@ -31,6 +33,10 @@ static func build(world: World, center: Vector3) -> void:
 		world.add_child(npc)
 		var angle: float = float(entry[4])
 		npc.position = world.ground_point(center.x + cos(angle) * float(entry[5]), center.z + sin(angle) * float(entry[5]))
+	var master := GuMaster.new()
+	var master_angle: float = float(MASTER[2])
+	master.setup(DataRegistry.gu_master(MASTER[0]), String(MASTER[1]), world.ground_point(center.x + cos(master_angle) * float(MASTER[3]), center.z + sin(master_angle) * float(MASTER[3])))
+	world.add_child(master)
 
 
 static func _hut(world: World, at: Vector3, angle: float) -> void:

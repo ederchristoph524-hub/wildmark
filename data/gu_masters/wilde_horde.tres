@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://cw70yntybsj0m"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_h1cio"]
+
+[resource]
+script = ExtResource("1_h1cio")
+id = &"wilde_horde"
+display_name = "Horden-Krieger"
+color = Color(0.7882353, 0.627451, 0.4392157, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"wolfssklave", &"zehnjin", &"berserk"])

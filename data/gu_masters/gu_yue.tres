@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://che58g0qe620s"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ic2rc"]
+
+[resource]
+script = ExtResource("1_ic2rc")
+id = &"gu_yue"
+display_name = "Gu-Yue-Gu-Meister"
+color = Color(0.47843137, 0.72156864, 0.41568628, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"mondlicht", &"steinhaut", &"wirbelwind"])

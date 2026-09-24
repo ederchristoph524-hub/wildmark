@@ -41,6 +41,7 @@ func run(scene_tree: SceneTree) -> void:
 			dialog.close()
 			break
 	await _frames(5)
+	await _shoot_duel(player)
 	player.camera_rig.pitch = -0.35
 	player.camera_rig.yaw = PI * 0.75
 	await _frames(30)
@@ -67,6 +68,25 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(10)
 	await _shot("07_gu_menue")
 	tree.quit()
+
+
+## Duell mit dem Klanlehrer: Spieler vor dem Gu-Meister, kurz nach dem Countdown.
+func _shoot_duel(player: Player) -> void:
+	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
+		if node is GuMaster:
+			var master: GuMaster = node
+			var start: Vector3 = player.global_position
+			player.global_position = master.global_position + Vector3(0.0, 0.3, 6.0)
+			player.camera_rig.yaw = 0.0
+			player.camera_rig.pitch = -0.25
+			master.start_duel(player)
+			await _frames(roundi(Balance.values.duel_countdown * 60.0) + 50)
+			await _shot("02e_duell")
+			player.health.apply_damage(9999.0)
+			await _frames(5)
+			player.global_position = start
+			await _frames(10)
+			return
 
 
 ## Ein Bild je Hindernis-Ort, aus Richtung des Lagers gesehen.
