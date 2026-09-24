@@ -51,7 +51,30 @@ static func _gu_row(player: Player, index: int, refresh: Callable) -> Control:
 		button.button_pressed = GameState.slots[slot] == index
 		button.custom_minimum_size.x = 48.0
 		actions.add_child(button)
+	_add_upgrade_row(row, player, instance, refresh)
 	return panel
+
+
+## Aufstiegsverfeinerung: Zielgu, Materialien, Chance und Knopf.
+static func _add_upgrade_row(row: VBoxContainer, player: Player, instance: GuInstance, refresh: Callable) -> void:
+	var target: GuData = GuRefining.upgrade_target(instance)
+	if target == null:
+		return
+	var needs: PackedStringArray = []
+	var materials: Dictionary = GuRefining.upgrade_materials(target)
+	for item: Variant in materials:
+		needs.append("%d %s (%d)" % [int(materials[item]), Loc.t(DataRegistry.item(item).display_name), GameState.item_count(item)])
+	var reason: String = GuRefining.upgrade_blocked_reason(instance, player.aperture)
+	var info: String = Loc.t("Aufstieg zu %s (Rang %d): %s, %d Uressenz, Chance %d %%. Ranggabe: %s") % [
+		Loc.t(target.display_name), target.rank, ", ".join(needs), roundi(GuRefining.essence_cost(target)),
+		roundi(GuRefining.upgrade_chance(instance, target) * 100.0), Loc.t(target.rank_gift)]
+	row.add_child(UiTheme.label(info, 15, UiTheme.MUTED))
+	var on_upgrade: Callable = func() -> void:
+		GuRefining.upgrade(instance, player.aperture)
+		refresh.call()
+	var button: Button = UiTheme.button(Loc.t("Aufsteigen") if reason == "" else reason, on_upgrade, 44.0)
+	button.disabled = reason != ""
+	row.add_child(button)
 
 
 static func _assign(index: int, slot: int) -> void:

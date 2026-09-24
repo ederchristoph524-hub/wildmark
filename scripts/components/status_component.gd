@@ -160,6 +160,8 @@ func process_hit(hit: HitInfo) -> float:
 		remove_status(WOUND)
 	if hit.status != &"":
 		apply_status(hit.status, hit.status_stacks, hit.rank_factor)
+		if hit.spread_on_death:
+			host.set_meta(ReactionEffects.META_SPREAD, hit.status)
 	if TAG_CUT in hit.tags and randf() < Balance.values.cut_wound_chance:
 		apply_status(WOUND, 1)
 	if TAG_LIGHT in hit.tags and host.fears_light():

@@ -63,6 +63,9 @@ func _check_targets(from: Vector3, to: Vector3) -> bool:
 	for target: Combatant in Combat.on_line(Combat.hostiles(get_tree(), hit.team), from, to, radius * 2.0):
 		if target in _already_hit:
 			continue
+		if target.reflect_time > 0.0:
+			_reflect(target)
+			return false
 		_already_hit.append(target)
 		if explode_radius > 0.0:
 			_finish(target.aim_point())
@@ -73,6 +76,17 @@ func _check_targets(from: Vector3, to: Vector3) -> bool:
 			return true
 		pierce -= 1
 	return false
+
+
+## Eisenhaut: Das Geschoss fliegt zurück und gehört nun dem Getroffenen.
+func _reflect(target: Combatant) -> void:
+	direction = -direction
+	hit.team = target.team
+	hit.source = target
+	_already_hit.clear()
+	_already_hit.append(target)
+	_travelled = 0.0
+	Fx.ring(get_tree(), global_position, 0.8, Color(0.8, 0.8, 0.9), 0.2)
 
 
 func _hits_world(from: Vector3, to: Vector3) -> bool:

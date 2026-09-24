@@ -206,11 +206,37 @@ func _test_progress() -> void:
 	GameState.stage = 3
 	GameState.essence = player.aperture.capacity()
 	_check(player.aperture.break_through(0.0) and GameState.rank == 2, "Durchbruch auf Rang 2")
+	await _test_upgrade()
 	var instance: GuInstance = GameState.gu[0]
 	instance.satiety = 0.0
 	_check(player.holder.blocked_reason(instance) != "", "ausgehungerter Gu ist blockiert")
 	GameState.add_item(player.holder.feed_item(instance), 10)
 	_check(player.holder.feed(0) and instance.satiety >= 99.0, "Füttern macht satt")
+
+
+func _test_upgrade() -> void:
+	GameState.gu.clear()
+	GameState.slots.fill(GameState.EMPTY_SLOT)
+	var whirl: GuInstance = _give(&"wirbel", 0)
+	_check(GuRefining.upgrade_blocked_reason(whirl, player.aperture) != "", "Aufstieg ohne Material blockiert")
+	var fur_before: int = GameState.item_count(&"wildfell")
+	GameState.add_item(&"wildfell", 3)
+	GameState.essence = player.aperture.capacity()
+	_check(GuRefining.upgrade(whirl, player.aperture, 0.0) and whirl.gu_id == &"sogwirbel", "Aufstieg Wirbelwind → Sogwirbel")
+	_check(GameState.item_count(&"wildfell") == fur_before, "Aufstieg verbraucht Material")
+	await _clear_enemies()
+	var rat: Enemy = _spawn(&"ratte", player.camera_rig.flat_forward() * 4.5)
+	await _frames(2)
+	_freeze_in_place(rat)
+	var before: float = rat.global_position.distance_to(player.global_position)
+	GameState.essence = player.aperture.capacity()
+	player.use_slot(0)
+	await _frames(20)
+	_check(not is_instance_valid(rat) or rat.global_position.distance_to(player.global_position) < before, "Sogwirbel zieht heran")
+	_check(Pickup._matches(DataRegistry.enemy(&"wolf"), &"beast") and Pickup._matches(DataRegistry.enemy(&"bat"), &"fly"), "Materialquellen nach Fundort")
+	GameState.gu.clear()
+	GameState.slots.fill(GameState.EMPTY_SLOT)
+	_give(&"mondlicht", 0)
 
 
 func _test_death_and_save() -> void:

@@ -70,6 +70,9 @@ func make_hit(damage_mult: float = 1.0) -> HitInfo:
 	if family.status != &"":
 		hit.with_status(family.status, int(base(&"stapel", 1.0)) + extra_stacks)
 	hit.rank_factor = power
+	hit.pierce_armor = hit.pierce_armor or GuGifts.has(gu, "pierce_armor")
+	hit.status_stacks += int(GuGifts.number(gu, "stacks_add")) if family.status != &"" else 0
+	hit.spread_on_death = GuGifts.has(gu, "spread_on_death")
 	if TAG_FORCE in family.tags:
 		hit.knockback = aim_direction * Balance.values.knockback_force
 	return hit
@@ -77,11 +80,11 @@ func make_hit(damage_mult: float = 1.0) -> HitInfo:
 
 func _cast_projectile() -> bool:
 	var b: BalanceData = Balance.values
-	var config: Dictionary = {"range": base(&"reichweite", DEFAULT_RANGE), "color": color()}
+	var config: Dictionary = {"range": base(&"reichweite", DEFAULT_RANGE), "color": color(), "pierce": int(GuGifts.number(gu, "pierce"))}
 	if family.form == FORM_FAST:
 		config["speed"] = b.fast_projectile_speed
 	if family.form == FORM_EXPLODING:
-		config["explode_radius"] = base(&"radius", 1.5)
+		config["explode_radius"] = base(&"radius", 1.5) + GuGifts.number(gu, "radius_add")
 	var start: Vector3 = caster.aim_point() + Vector3(aim_direction.x, 0.0, aim_direction.z).normalized() * 0.6
 	Projectile.launch(caster.get_tree(), start, make_hit(), _aim_from(start), config)
 	return true
@@ -99,12 +102,15 @@ func _cast_beam() -> bool:
 	var end: Vector3 = start + _aim_from(start) * base(&"reichweite", DEFAULT_RANGE)
 	var targets: Array[Combatant] = Combat.on_line(Combat.hostiles(caster.get_tree(), caster.team), start, end, Balance.values.beam_width)
 	if not targets.is_empty():
-		var first: Combatant = targets[0]
-		first.receive_hit(make_hit())
-		var slow_amount: float = base(&"verlangsamung")
-		if slow_amount > 0.0:
-			first.status.slow(slow_amount, Balance.values.status_durations.get(family.status, 3.0))
-		end = first.aim_point()
+		var hit_all: bool = GuGifts.has(gu, "beam_all")
+		var struck: Array[Combatant] = targets if hit_all else targets.slice(0, 1)
+		for target_hit: Combatant in struck:
+			target_hit.receive_hit(make_hit())
+			var slow_amount: float = base(&"verlangsamung")
+			if slow_amount > 0.0:
+				target_hit.status.slow(slow_amount, Balance.values.status_durations.get(family.status, 3.0))
+		if not hit_all:
+			end = targets[0].aim_point()
 	Fx.beam(caster.get_tree(), start, end, color(), 0.3, 0.35)
 	return true
 
@@ -120,23 +126,29 @@ func _cast_stab() -> bool:
 	return true
 
 
+## Kreis um den Wirker; mit Ranggabe „Sog" werden Gegner aus größerem Umkreis herangezogen.
 func _cast_circle() -> bool:
+	var pull: float = GuGifts.number(gu, "pull")
 	var radius: float = base(&"radius", 2.5)
 	var center: Vector3 = caster.global_position
-	for other: Combatant in Combat.in_radius(Combat.hostiles(caster.get_tree(), caster.team), center, radius):
+	for other: Combatant in Combat.in_radius(Combat.hostiles(caster.get_tree(), caster.team), center, radius + pull):
 		var hit: HitInfo = make_hit()
-		if hit.knockback != Vector3.ZERO:
-			var away: Vector3 = other.global_position - center
-			away.y = 0.0
+		var away: Vector3 = other.global_position - center
+		away.y = 0.0
+		if pull > 0.0:
+			hit.knockback = -away.normalized() * Balance.values.knockback_force
+		elif hit.knockback != Vector3.ZERO:
 			hit.knockback = away.normalized() * Balance.values.knockback_force
 		other.receive_hit(hit)
-	Fx.ring(caster.get_tree(), center, radius, color(), 0.35)
+	Fx.ring(caster.get_tree(), center, radius + pull, color(), 0.35)
 	return true
 
 
 func _cast_shield() -> bool:
 	var duration: float = base(&"dauer", 4.0)
 	caster.add_timed_reduction(SHIELD_KEY, clampf(base(&"reduktion", 0.5) * minf(power, 1.5), 0.0, 0.9), duration)
+	if GuGifts.has(gu, "reflect"):
+		caster.reflect_time = duration
 	if family.base_r1.get(&"rueckstoss", false):
 		for other: Combatant in Combat.in_radius(Combat.hostiles(caster.get_tree(), caster.team), caster.global_position, 2.5):
 			var push := HitInfo.create(0.0, caster, caster.team)
@@ -152,6 +164,8 @@ func _cast_shield() -> bool:
 func _cast_heal() -> bool:
 	var total: float = base(&"heilung_anteil", 0.25) * caster.health.max_hp * power
 	caster.start_regeneration(total, base(&"dauer", 5.0))
+	if GuGifts.has(gu, "cleanse"):
+		caster.status.clear_negative()
 	Fx.ring(caster.get_tree(), caster.global_position, 1.6, HEAL_COLOR, 0.6)
 	return true
 
@@ -166,6 +180,6 @@ func _cast_tame() -> bool:
 	if chosen == null:
 		EventBus.message.emit(tr("Keine geschwächte Bestie in der Nähe (unter %d %% Leben)") % roundi(threshold * 100.0), Color(1.0, 0.6, 0.4))
 		return false
-	chosen.call("tame", caster, base(&"dauer", 25.0), int(base(&"max_gefaehrten", 1.0)))
+	chosen.call("tame", caster, base(&"dauer", 25.0), int(base(&"max_gefaehrten", 1.0)) + int(GuGifts.number(gu, "companions_add")))
 	Fx.beam(caster.get_tree(), caster.aim_point(), chosen.aim_point(), color(), 0.5)
 	return true

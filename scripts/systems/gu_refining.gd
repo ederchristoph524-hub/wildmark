@@ -67,3 +67,63 @@ static func refine(gu: GuData, aperture: ApertureComponent, roll: float = -1.0) 
 	EventBus.message.emit(Loc.t("Verfeinert: %s%s") % [Loc.t(gu.display_name), trait_text], Color(1.0, 0.85, 0.3))
 	EventBus.gu_obtained.emit(gu.id)
 	return instance
+
+
+# --- Aufstiegsverfeinerung (GU_SYSTEM.md, Gu-Aufstieg) ---
+
+## Das nächste Mitglied der Familie oder null.
+static func upgrade_target(instance: GuInstance) -> GuData:
+	var gu: GuData = DataRegistry.gu(instance.gu_id)
+	var family: GuFamilyData = DataRegistry.family(gu.family)
+	return family.member_for_rank(gu.rank + 1)
+
+
+static func upgrade_materials(target: GuData) -> Dictionary:
+	return DataRegistry.family(target.family).upgrade_materials.get(target.rank, {})
+
+
+## Chance: Verfeinerungsformel mit dem Zielrang, Merkmal „Scheu" +15 %.
+static func upgrade_chance(instance: GuInstance, target: GuData) -> float:
+	var bonus: float = 0.0
+	if instance.trait_id != &"":
+		bonus = float((Balance.values.trait_rules.get(instance.trait_id, {}) as Dictionary).get("upgrade", 0.0))
+	return clampf(chance(target) + bonus, Balance.values.refine_min, Balance.values.refine_max)
+
+
+## Leer = möglich, sonst Grund.
+static func upgrade_blocked_reason(instance: GuInstance, aperture: ApertureComponent) -> String:
+	var target: GuData = upgrade_target(instance)
+	if target == null:
+		return Loc.t("Höchster Rang dieser Familie erreicht.")
+	if target.rank > GameState.rank + 1:
+		return Loc.t("Der Zielrang darf höchstens 1 über deinem Rang liegen.")
+	var materials: Dictionary = upgrade_materials(target)
+	for item: Variant in materials:
+		if GameState.item_count(item) < int(materials[item]):
+			var data: ItemData = DataRegistry.item(item)
+			return Loc.t("Es fehlt: %s (%d/%d)") % [Loc.t(data.display_name), GameState.item_count(item), int(materials[item])]
+	var cost: float = essence_cost(target)
+	if aperture.capacity() < cost:
+		return Loc.t("Du brauchst %d Uressenz, deine Apertur fasst nur %d. Meditiere, um sie zu stärken.") % [roundi(cost), floori(aperture.capacity())]
+	if not aperture.has_essence(cost):
+		return Loc.t("Zu wenig Uressenz (%d nötig).") % roundi(cost)
+	return ""
+
+
+## Materialien und Essenz sind in jedem Fall verbraucht; bei Erfolg wird der Gu zum nächsten Mitglied und behält sein Merkmal.
+static func upgrade(instance: GuInstance, aperture: ApertureComponent, roll: float = -1.0) -> bool:
+	if upgrade_blocked_reason(instance, aperture) != "":
+		return false
+	var target: GuData = upgrade_target(instance)
+	var materials: Dictionary = upgrade_materials(target)
+	for item: Variant in materials:
+		GameState.take_item(item, int(materials[item]))
+	aperture.spend(essence_cost(target))
+	if (randf() if roll < 0.0 else roll) >= upgrade_chance(instance, target):
+		EventBus.message.emit(Loc.t("Aufstieg misslungen – die Materialien sind verloren."), Color(1.0, 0.45, 0.4))
+		return false
+	instance.gu_id = target.id
+	instance.satiety = Balance.values.satiety_max
+	EventBus.message.emit(Loc.t("Aufstieg! Dein Gu ist jetzt %s.") % Loc.t(target.display_name), Color(1.0, 0.85, 0.3))
+	EventBus.gu_obtained.emit(target.id)
+	return true

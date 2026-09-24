@@ -120,6 +120,15 @@ func use_slot(slot: int, aim: Vector3, target: Combatant) -> bool:
 	return true
 
 
+## Liegt ein einsatzfähiger Gu mit dieser Ranggabe in einem Slot (z. B. „glide")?
+func slotted_gift(key: String) -> bool:
+	for slot: int in GameState.SLOT_COUNT:
+		var instance: GuInstance = GameState.slot_instance(slot)
+		if instance != null and not is_starved(instance) and GuGifts.has(gu_data(instance), key):
+			return true
+	return false
+
+
 # --- Hunger und Fütterung ---
 
 func feed_item(instance: GuInstance) -> StringName:

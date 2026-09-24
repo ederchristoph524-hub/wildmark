@@ -12,6 +12,9 @@ const RESOURCE_LAYOUT: Dictionary[StringName, Array] = {
 	&"stein": [30, 2, 22.0, 105.0],
 	&"kristall": [18, 1, 26.0, 108.0],
 	&"holz": [26, 2, 20.0, 100.0],
+	&"gruenkraut": [34, 2, 18.0, 100.0],
+	&"eisenerz": [18, 1, 60.0, 108.0],
+	&"mondtau": [40, 1, 15.0, 95.0],
 }
 ## Unsichtbare Grenze hinter dem Randgebirge.
 const BOUND_DISTANCE: float = 112.0
@@ -45,6 +48,7 @@ func _ready() -> void:
 	add_child(camp)
 	camp.position = ground_point(CAMP_CENTER.x, CAMP_CENTER.z)
 	_place_resources()
+	WorldAreas.build(self)
 	_place_wild_gu()
 	spawner = EnemySpawner.new(terrain, entities)
 	add_child(spawner)
@@ -85,14 +89,26 @@ func _random_point(min_distance: float, max_distance: float) -> Vector3:
 	return ground_point(min_distance, 0.0)
 
 
+## Sammelstelle an einem Punkt (auch für besondere Gebiete).
+func add_resource(item: StringName, yield_amount: int, at: Vector3) -> ResourceNode:
+	var node := ResourceNode.new(item, yield_amount)
+	add_child(node)
+	node.position = at
+	node.rotation.y = _rng.randf() * TAU
+	return node
+
+
+func random_point_near(center: Vector2, radius: float) -> Vector3:
+	var angle: float = _rng.randf() * TAU
+	var distance: float = sqrt(_rng.randf()) * radius
+	return ground_point(center.x + cos(angle) * distance, center.y + sin(angle) * distance)
+
+
 func _place_resources() -> void:
 	for item: StringName in RESOURCE_LAYOUT:
 		var layout: Array = RESOURCE_LAYOUT[item]
 		for i: int in int(layout[0]):
-			var node := ResourceNode.new(item, int(layout[1]))
-			add_child(node)
-			node.position = _random_point(float(layout[2]), float(layout[3]))
-			node.rotation.y = _rng.randf() * TAU
+			add_resource(item, int(layout[1]), _random_point(float(layout[2]), float(layout[3])))
 
 
 ## Je ein wilder Rang-1-Gu jeder Familie außer der gewählten; gefundene erscheinen nicht erneut.

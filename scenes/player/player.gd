@@ -25,6 +25,7 @@ var _dash_cooldown: float = 0.0
 var _dash_direction: Vector3 = Vector3.ZERO
 var _fist_cooldown: float = 0.0
 var _air_leaps: int = 0
+var _air_dashes: int = 0
 var _facing: Vector3 = Vector3.FORWARD
 ## Reaktive Panzer aus Killer Moves: Art → {time, value}.
 var _reactive: Dictionary[StringName, Dictionary] = {}
@@ -107,10 +108,13 @@ func _move(delta: float, wish: Vector3) -> void:
 		velocity.z = move_toward(velocity.z, target_velocity.z, b.acceleration * delta)
 	if is_on_floor():
 		_air_leaps = 1
+		_air_dashes = 1
 		if velocity.y < 0.0:
 			velocity.y = 0.0
 	else:
 		velocity.y -= b.gravity * delta
+		if velocity.y < -b.glide_fall_speed and Input.is_action_pressed(&"jump") and holder.slotted_gift("glide"):
+			velocity.y = -b.glide_fall_speed
 	apply_knockback(delta)
 	move_and_slide()
 	var flat_velocity: Vector3 = Vector3(velocity.x, 0.0, velocity.z)
@@ -255,6 +259,10 @@ func gu_leap() -> bool:
 func _dash() -> void:
 	if not _can_act() or _dash_cooldown > 0.0:
 		return
+	if not is_on_floor():
+		if _air_dashes <= 0 or not holder.slotted_gift("air_dash"):
+			return
+		_air_dashes -= 1
 	var b: BalanceData = Balance.values
 	_cancel_idle_actions()
 	var input: Vector2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")

@@ -21,6 +21,8 @@ var status: StatusComponent = null
 ## Schadensreduktionen (z. B. Schild): Quelle → Anteil 0–1, werden multiplikativ verrechnet.
 var reductions: Dictionary[StringName, float] = {}
 var invulnerable_time: float = 0.0
+## Ranggabe Eisenhaut: Geschosse prallen zurück, solange > 0.
+var reflect_time: float = 0.0
 
 var _knockback: Vector3 = Vector3.ZERO
 var _dead: bool = false
@@ -114,6 +116,7 @@ func start_regeneration(total: float, duration: float) -> void:
 ## Zeitgeber der Basisklasse; Unterklassen rufen das in _physics_process auf.
 func tick_combatant(delta: float) -> void:
 	invulnerable_time = maxf(0.0, invulnerable_time - delta)
+	reflect_time = maxf(0.0, reflect_time - delta)
 	for key: StringName in _reduction_time.keys():
 		_reduction_time[key] -= delta
 		if _reduction_time[key] <= 0.0:
@@ -138,6 +141,7 @@ func _on_died() -> void:
 	if _dead:
 		return
 	_dead = true
+	ReactionEffects.spread_on_death(self)
 	died_signal.emit(self)
 	_die()
 

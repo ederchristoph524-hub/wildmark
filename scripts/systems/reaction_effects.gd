@@ -3,6 +3,8 @@ extends RefCounted
 ## Führt die Reaktionen aus gu_system.json aus; Parameter stehen in Balance.reaction_rules.
 
 const REACTION_COLOR: Color = Color(1.0, 0.85, 0.3)
+## Merkt sich am Ziel, welcher Zustand beim Tod überspringt (Ranggabe Giftskorpion).
+const META_SPREAD: StringName = &"spread_on_death"
 
 
 ## Prüft alle Reaktionen für einen Treffer und liefert den gesamten Schadensfaktor.
@@ -89,6 +91,23 @@ static func discharge(host: Combatant, damage: float, radius: float) -> void:
 		other.receive_hit(hit.derived(damage))
 	Fx.sphere(tree, host.global_position + Vector3.UP, radius, Color(0.55, 0.75, 1.0, 0.6), 0.3)
 	EventBus.floating_text.emit(Loc.t("Entladung!"), host.aim_point(), Color(0.6, 0.8, 1.0))
+
+
+## Beim Tod: Zustand samt Stapeln springt auf das nächste Ziel desselben Teams über.
+static func spread_on_death(host: Combatant) -> void:
+	if not host.has_meta(META_SPREAD):
+		return
+	var id: StringName = host.get_meta(META_SPREAD)
+	var stacks: int = host.status.stacks_of(id)
+	if stacks <= 0:
+		return
+	var others: Array[Combatant] = Combat.in_radius(Combat.members(host.get_tree(), host.team), host.global_position, Balance.values.poison_spread_radius)
+	others.erase(host)
+	var next: Combatant = Combat.nearest(others, host.global_position)
+	if next != null:
+		next.status.apply_status(id, stacks)
+		next.set_meta(META_SPREAD, id)
+		Fx.beam(host.get_tree(), host.aim_point(), next.aim_point(), Color(0.55, 0.9, 0.2), 0.3)
 
 
 static func _announce(reaction: ReactionData, host: Combatant) -> void:

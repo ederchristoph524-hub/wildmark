@@ -154,10 +154,42 @@ extends Resource
 	&"sparsam": {"cost": 0.8},
 	&"wild": {"effect": 1.25, "fail": 0.1},
 	&"zaeh": {"no_starve": true},
-	&"scheu": {"catch": 0.7},
+	&"scheu": {"catch": 0.7, "upgrade": 0.15},
 	&"dao": {"dao": 2.0},
 	&"reizbar": {"stacks": 1, "cost": 1.15},
 	&"glaenzend": {"effect": 1.3, "glow": true},
+}
+
+@export_group("Ranggaben")
+## Schalter je Gu-ID (GU_SYSTEM.md, Familien-Tabelle). Höhere Ränge erben die Ranggaben der niedrigeren.
+## pierce = zusätzlich durchdrungene Ziele, radius_add = Explosionsradius, beam_all = Strahl trifft alle,
+## pierce_armor, stacks_add, spread_on_death (Gift springt beim Tod über), pull (Sog), reflect (Geschosse zurück),
+## cleanse (Heilung entfernt Gift, Brand, Frost), companions_add, glide und air_dash (Wolkenschritt).
+@export var rank_gifts: Dictionary[StringName, Dictionary] = {
+	&"mondsichel": {"pierce": 1},
+	&"flammenzunge": {"radius_add": 1.0},
+	&"wasserbohrer": {"beam_all": true},
+	&"blauplasma": {"pierce_armor": true},
+	&"eisvogel": {"stacks_add": 1},
+	&"giftskorpion": {"spread_on_death": true},
+	&"sogwirbel": {"pull": 3.0},
+	&"knochenspeer": {"pierce_armor": true, "pierce": 1},
+	&"eisenhaut": {"reflect": true},
+	&"frischesblatt": {"cleanse": true},
+	&"wolfssklave": {"companions_add": 1},
+	&"wolkenschritt": {"glide": true, "air_dash": true},
+}
+## Gift springt beim Tod auf das nächste Ziel in diesem Umkreis über.
+@export var poison_spread_radius: float = 5.0
+
+@export_group("Materialquellen")
+## Zusätzliche Beute nach dem Fundort (src) der Materialien in materialien.json:
+## beast = Bestien (Vierbeiner, Spinnen, Käfer), poison = giftige Bestien, fly = fliegende Bestien, skeleton = Skelette.
+@export var material_drops: Dictionary[StringName, Dictionary] = {
+	&"wildfell": {"filter": &"beast", "chance": 0.35},
+	&"windfeder": {"filter": &"fly", "chance": 0.5},
+	&"knochenmehl": {"filter": &"skeleton", "chance": 0.5},
+	&"giftdrüse": {"filter": &"poison", "chance": 0.3},
 }
 
 @export_group("Wirkformen")

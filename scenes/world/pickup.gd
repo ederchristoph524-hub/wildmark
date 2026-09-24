@@ -10,6 +10,9 @@ const SACK_COLOR: Color = Color(0.85, 0.7, 0.35)
 const ITEM_COLORS: Dictionary[StringName, Color] = {
 	&"kristall": Color(0.45, 0.95, 1.0), &"beeren": Color(0.55, 0.3, 0.9), &"fleisch": Color(0.85, 0.35, 0.3),
 	&"fell": Color(0.55, 0.4, 0.25), &"stein": Color(0.6, 0.6, 0.62), &"holz": Color(0.6, 0.42, 0.22),
+	&"wildfell": Color(0.45, 0.3, 0.18), &"windfeder": Color(0.85, 0.9, 1.0), &"knochenmehl": Color(0.92, 0.9, 0.82),
+	&"mondtau": Color(0.7, 0.85, 1.0), &"gruenkraut": Color(0.4, 0.85, 0.3), &"eisenerz": Color(0.45, 0.35, 0.3),
+	&"glutasche": Color(1.0, 0.5, 0.2), &"frostsplitter": Color(0.7, 0.95, 1.0), &"giftdrüse": Color(0.6, 0.9, 0.2),
 }
 
 var items: Dictionary = {}
@@ -32,6 +35,24 @@ static func drop_loot(tree: SceneTree, data: EnemyData, at: Vector3) -> void:
 	for drop: DropEntry in data.drops:
 		if data.boss or randf() < drop.chance:
 			spawn(tree, at + Vector3(randf_range(-0.6, 0.6), 0.6, randf_range(-0.6, 0.6)), {drop.item: 1})
+	var rules: Dictionary[StringName, Dictionary] = Balance.values.material_drops
+	for item: StringName in rules:
+		if _matches(data, rules[item].get("filter", &"")) and randf() < float(rules[item].get("chance", 0.0)):
+			spawn(tree, at + Vector3(randf_range(-0.6, 0.6), 0.6, randf_range(-0.6, 0.6)), {item: 1})
+
+
+## Filter für Materialquellen nach dem Fundort in materialien.json.
+static func _matches(data: EnemyData, filter: StringName) -> bool:
+	match filter:
+		&"beast":
+			return data.shape in [&"quad", &"spider", &"beetle"]
+		&"fly":
+			return data.flying
+		&"skeleton":
+			return data.shape == &"skel"
+		&"poison":
+			return data.poison
+	return false
 
 
 func _ready() -> void:
