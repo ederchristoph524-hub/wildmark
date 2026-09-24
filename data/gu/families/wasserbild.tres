@@ -31,7 +31,6 @@ rank = 3
 rank_gift = "Zwei Wasserkrieger (12 s)."
 description = "Die Bilder werden zu Wasserkriegern, die wirklich zuschlagen."
 gifts = {
-"count_add": 1.0,
 "step": {
 "enemy": "wasserkrieger",
 "time": 12.0
@@ -47,7 +46,7 @@ rank = 4
 rank_gift = "Drei Krieger (15 s)."
 description = "Drei Wasserkrieger stehen dir 15 s zur Seite."
 gifts = {
-"count_add": 2.0,
+"count_add": 1.0,
 "step": {
 "enemy": "wasserkrieger",
 "time": 15.0
@@ -63,7 +62,7 @@ rank = 5
 rank_gift = "Zwei Meeresgeister (20 s), Heilung für alle."
 description = "Zwei Meeresgeister erheben sich; ihre Flut heilt deine Verbündeten."
 gifts = {
-"count_add": 1.0,
+"count_add": -1.0,
 "extra": [{
 "allies": true,
 "frac": 0.2,

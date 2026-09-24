@@ -49,7 +49,7 @@ rank = 4
 rank_gift = "Sternschnuppe (Radius 3, doppelter Schaden)."
 description = "Dem Schwarm folgt eine Sternschnuppe, die am Ziel einschlägt."
 gifts = {
-"count_add": 2.0,
+"count_add": 1.0,
 "extra": [{
 "t": "delay",
 "then": [{
@@ -78,7 +78,7 @@ rank = 5
 rank_gift = "Zehn Sterne, Sternschnuppe, Teleport 6 m."
 description = "Ein Sternentor öffnet sich: Zehn Sterne stürzen hindurch, du trittst auf die andere Seite."
 gifts = {
-"count_add": 5.0,
+"count_add": 2.0,
 "extra": [{
 "distance": 6.0,
 "t": "teleport"

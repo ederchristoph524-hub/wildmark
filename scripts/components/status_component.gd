@@ -25,6 +25,9 @@ var _stacks: Dictionary[StringName, int] = {}
 var _time_left: Dictionary[StringName, float] = {}
 var _rank_factor: Dictionary[StringName, float] = {}
 var _tick: float = 0.0
+## Wie viele Kontrollen (Betäubung, Einfrieren) in Folge; läuft nach Balance.cc_reset_time ohne Kontrolle ab.
+var _cc_chain: int = 0
+var _cc_reset: float = 0.0
 
 
 func _init(owner_combatant: Combatant) -> void:
@@ -37,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	stun_time = maxf(0.0, stun_time - delta)
 	blind_time = maxf(0.0, blind_time - delta)
 	slow_time = maxf(0.0, slow_time - delta)
+	_cc_reset = maxf(0.0, _cc_reset - delta)
+	if _cc_reset <= 0.0:
+		_cc_chain = 0
 	for id: StringName in _time_left.keys():
 		_time_left[id] -= delta
 		if _time_left[id] <= 0.0:
@@ -122,13 +128,26 @@ func is_feared() -> bool:
 func stun(duration: float) -> void:
 	if host.unstoppable_time > 0.0:
 		return
-	stun_time = maxf(stun_time, duration)
+	stun_time = maxf(stun_time, _controlled(duration))
 	changed.emit()
 
 
 func freeze(duration: float) -> void:
-	frozen_time = maxf(frozen_time, duration)
+	frozen_time = maxf(frozen_time, _controlled(duration))
 	changed.emit()
+
+
+## Dauer einer Kontrolle nach abnehmender Wirkung; zählt die Folge weiter. Läuft schon eine Kontrolle,
+## verlängert eine neue sie nicht (mehrere Treffer eines Gu in einem Moment zählen nur einmal).
+func _controlled(duration: float) -> float:
+	var remaining: float = maxf(stun_time, frozen_time)
+	if remaining > 0.0:
+		return minf(duration, remaining)
+	var b: BalanceData = Balance.values
+	var scaled: float = duration * pow(b.cc_diminish, _cc_chain)
+	_cc_chain += 1
+	_cc_reset = maxf(_cc_reset, scaled + b.cc_reset_time)
+	return scaled
 
 
 func slow(amount: float, duration: float) -> void:

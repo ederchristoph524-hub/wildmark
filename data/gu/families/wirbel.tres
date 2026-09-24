@@ -68,6 +68,28 @@ rank_gift = "Betäubt 2 s, Radius +1,5."
 description = "Die Kraft, Berge zu versetzen, in einem einzigen Wirbel."
 lore = "Erlaubt es, Berge zu heben und zu versetzen, ohne sie zu beschädigen."
 gifts = {
+"extra": [{
+"color": "#e0a070",
+"follow": true,
+"mult": 0.3,
+"pull": 0.6,
+"radius": 4.0,
+"t": "zone",
+"tags": ["wind"],
+"time": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0a070",
+"knockback": 1.2,
+"mult": 1.4,
+"radius": 5.5,
+"stun": 0.6,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}],
+"time": 0.45
+}],
 "radius_add": 1.5,
 "stun": 1.0
 }

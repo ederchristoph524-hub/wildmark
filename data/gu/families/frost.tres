@@ -71,11 +71,11 @@ rank_gift = "Frostkreis Radius 7 mit drei Frost-Stapeln (sofort eingefroren) und
 description = "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein."
 gifts = {
 "as_circle": 7.0,
-"cd_mult": 2.5,
+"cd_mult": 1.8,
 "extra": [{
 "at": "self",
 "color": "#dff6ff",
-"mult": 0.2,
+"mult": 0.3,
 "radius": 6.0,
 "slow": 0.5,
 "slow_time": 1.0,

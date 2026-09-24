@@ -25,7 +25,10 @@ static func run_step(step: Dictionary, ctx: EffectContext) -> void:
 		"stealth":
 			caster.start_stealth(float(step.get("time", 5.0)))
 		"teleport":
-			blink(caster, float(step.get("distance", 8.0)), ctx.aim)
+			if step.get("to") == "target" and ctx.target != null and is_instance_valid(ctx.target):
+				_blink_to_target(caster, ctx.target, float(step.get("distance", 8.0)))
+			else:
+				blink(caster, float(step.get("distance", 8.0)), ctx.aim)
 		"dash":
 			if caster.has_method("dash_to"):
 				caster.call("dash_to", caster.global_position + ctx.aim * float(step.get("distance", 6.0)))
@@ -81,6 +84,16 @@ static func _summon(step: Dictionary, ctx: EffectContext) -> void:
 		else:
 			spawner.call("spawn_minion", id, at, ctx.team)
 	Fx.sphere(ctx.tree(), ctx.caster.aim_point(), 2.5, Color(EffectSteps.step_color(step, ctx), 0.35), 0.6)
+
+
+## Taucht direkt vor dem Ziel wieder auf (Erdloch, Schattensprung); ist es weiter weg, nur so weit wie erlaubt.
+static func _blink_to_target(caster: Combatant, target: Combatant, max_distance: float) -> void:
+	var offset: Vector3 = target.global_position - caster.global_position
+	offset.y = 0.0
+	var gap: float = target.body_radius + caster.body_radius + 0.3
+	var travel: float = clampf(offset.length() - gap, 0.0, max_distance)
+	if travel > 0.5:
+		blink(caster, travel, offset.normalized())
 
 
 ## Sofortiger Ortswechsel in Blickrichtung (auch durch Gitter und Tore); landet auf dem Gelände.

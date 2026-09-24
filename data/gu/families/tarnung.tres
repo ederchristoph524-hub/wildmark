@@ -55,7 +55,7 @@ gifts = {
 "radius": 5.0,
 "t": "circle"
 }],
-"time_add": 2.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_sternennebel"]
@@ -85,7 +85,7 @@ gifts = {
 "t": "zone",
 "time": 6.0
 }],
-"time_add": 4.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_auraverbergen"]
@@ -94,7 +94,7 @@ id = &"auraverbergen"
 display_name = "Aura-Verbergungs-Gu"
 family = &"tarnung"
 rank = 5
-rank_gift = "+6 s, 8 s +50 % Schaden und Tempo."
+rank_gift = "Tarnung 12 s, danach 8 s +50 % Schaden und Tempo."
 description = "Deine Aura erlischt völlig; aus dem Nichts schlägst du mit doppelter Wucht zu."
 lore = "Löscht die eigene Aura vollständig aus."
 gifts = {
@@ -116,7 +116,7 @@ gifts = {
 "t": "zone",
 "time": 6.0
 }],
-"time_add": 6.0
+"time_add": 4.0
 }
 
 [resource]

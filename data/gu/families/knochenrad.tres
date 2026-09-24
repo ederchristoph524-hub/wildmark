@@ -40,7 +40,6 @@ rank_gift = "30 % Schutz, +2 s."
 description = "Drei fliegende Knochenschilde: 30 % Schutz, dicker und länger."
 lore = "Drei fliegende Schilde aus Knochen. Fang Yuans Wahl im Bai-Gu-Erbe."
 gifts = {
-"count_add": 1.0,
 "step": {
 "reduction": 0.3,
 "size": 0.5
@@ -54,18 +53,18 @@ id = &"kampfknochenrad"
 display_name = "Kampfknochenrad-Gu"
 family = &"knochenrad"
 rank = 4
-rank_gift = "Größer, schneller, 1,6-facher Schaden."
+rank_gift = "Vier Räder, größer und schneller, stärkerer Schlag, +1 s."
 description = "Rasende Knochenräder mit weitem Radius und hartem Schnitt."
 gifts = {
 "count_add": 1.0,
 "step": {
-"mult": 1.6,
+"mult": 1.15,
 "radius": 2.6,
 "reduction": 0.3,
 "size": 0.6,
 "speed": 1.3
 },
-"time_add": 2.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_weissknochenrad"]
@@ -77,11 +76,11 @@ rank = 5
 rank_gift = "Fünf Räder, 35 % Schutz, sechs Knochengeschosse."
 description = "Das große weiße Knochenrad: Schutz und Angriff zugleich, dazu ein Knochenhagel."
 gifts = {
-"count_add": 3.0,
+"count_add": 1.0,
 "extra": [{
 "color": "#f2ead8",
 "count": 6.0,
-"mult": 1.0,
+"mult": 0.8,
 "pierce": 2.0,
 "range": 12.0,
 "spread": 360.0,
@@ -89,13 +88,13 @@ gifts = {
 "tags": ["durchbohren", "wucht"]
 }],
 "step": {
-"mult": 1.8,
+"mult": 1.25,
 "radius": 2.8,
 "reduction": 0.35,
 "size": 0.65,
 "speed": 1.3
 },
-"time_add": 3.0
+"time_add": 2.0
 }
 
 [resource]

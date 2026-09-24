@@ -63,8 +63,14 @@ func set_team(new_team: int) -> void:
 		collision_layer = LAYER_WORLD
 		collision_mask = 0
 		return
-	collision_layer = LAYER_PLAYER_SIDE if team == TEAM_PLAYER else LAYER_ENEMY_SIDE
-	collision_mask = LAYER_WORLD | LAYER_PLAYER_SIDE | LAYER_ENEMY_SIDE
+	# Verbündete gehen durcheinander hindurch (Gefährten bleiben sonst hinter dem Spieler hängen);
+	# Bestien schieben sich weiter gegenseitig weg, damit ein Rudel nicht in einem Punkt steht.
+	if team == TEAM_PLAYER:
+		collision_layer = LAYER_PLAYER_SIDE
+		collision_mask = LAYER_WORLD | LAYER_ENEMY_SIDE
+	else:
+		collision_layer = LAYER_ENEMY_SIDE
+		collision_mask = LAYER_WORLD | LAYER_PLAYER_SIDE | LAYER_ENEMY_SIDE
 
 
 func is_dead() -> bool:
@@ -197,13 +203,14 @@ func tick_combatant(delta: float) -> void:
 
 
 ## Rückstoß abbauen und auf velocity anwenden (in _physics_process aufrufen).
-func apply_knockback(delta: float) -> void:
+## Gibt gesammelten Rückstoß einmal als Stoß an die Geschwindigkeit weiter (vor move_and_slide aufrufen).
+## Früher wurde er über viele Bilder addiert und schleuderte Ziele dutzende Meter weit.
+func apply_knockback(_delta: float) -> void:
 	if _knockback.length_squared() > 0.01:
-		velocity.x += _knockback.x
-		velocity.z += _knockback.z
-		_knockback = _knockback.lerp(Vector3.ZERO, clampf(delta * 10.0, 0.0, 1.0))
-	else:
-		_knockback = Vector3.ZERO
+		var impulse: Vector3 = _knockback.limit_length(Balance.values.knockback_max_speed)
+		velocity.x += impulse.x
+		velocity.z += impulse.z
+	_knockback = Vector3.ZERO
 
 
 func _on_died() -> void:

@@ -91,16 +91,17 @@ id = &"erdloch"
 display_name = "Erdloch-Gu"
 family = &"erde"
 rank = 5
-rank_gift = "Teleport 10 m und Beben (Radius 6, betäubt 1,2 s)."
+rank_gift = "Taucht durch die Erde bis zu 10 m zum Ziel und bricht mit einem Beben hervor (Radius 6, betäubt 1,2 s)."
 description = "Du tauchst durch die Erde und brichst am Ziel mit einem Beben hervor."
 gifts = {
 "extra": [{
 "distance": 10.0,
-"t": "teleport"
+"t": "teleport",
+"to": "target"
 }, {
 "color": "#a08050",
 "knockback": 1.0,
-"mult": 1.6,
+"mult": 2.2,
 "radius": 6.0,
 "stun": 1.2,
 "t": "circle",

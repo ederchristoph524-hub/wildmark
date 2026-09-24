@@ -413,7 +413,8 @@
      "ranggabe": "Ignoriert Rüstung.",
      "beschreibung": "Ein Plasmastoß, der Panzer durchschlägt.",
      "gaben": {
-      "pierce_armor": true
+      "pierce_armor": true,
+      "cd_mult": 0.9
      }
     },
     {
@@ -425,7 +426,8 @@
      "beschreibung": "Ein Blitz, der von Gegner zu Gegner springt.",
      "gaben": {
       "chain": 3,
-      "chain_radius": 6.0
+      "chain_radius": 6.0,
+      "cd_mult": 0.8
      }
     },
     {
@@ -436,8 +438,8 @@
      "ranggabe": "Springt auf 3 weitere Ziele, jeder Treffer betäubt 0,3 s.",
      "beschreibung": "Blitze jagen wie ein Wolfsrudel von Ziel zu Ziel und lähmen kurz.",
      "gaben": {
-      "chain": 3,
-      "stun": 0.3
+      "stun": 0.3,
+      "cd_mult": 0.7
      }
     },
     {
@@ -460,7 +462,8 @@
         "stacks": 2,
         "color": "#8ad0ff"
        }
-      ]
+      ],
+      "cd_mult": 0.7
      }
     }
    ],
@@ -571,7 +574,7 @@
      "beschreibung": "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein.",
      "gaben": {
       "as_circle": 7.0,
-      "cd_mult": 2.5,
+      "cd_mult": 1.8,
       "stacks_add": 1,
       "extra": [
        {
@@ -579,7 +582,7 @@
         "at": "self",
         "radius": 6.0,
         "time": 4.0,
-        "mult": 0.2,
+        "mult": 0.3,
         "tags": [
          "eis"
         ],
@@ -832,7 +835,39 @@
      "beschreibung": "Die Kraft, Berge zu versetzen, in einem einzigen Wirbel.",
      "gaben": {
       "radius_add": 1.5,
-      "stun": 1.0
+      "stun": 1.0,
+      "extra": [
+       {
+        "t": "zone",
+        "follow": true,
+        "radius": 4.0,
+        "time": 3.0,
+        "mult": 0.3,
+        "tags": [
+         "wind"
+        ],
+        "pull": 0.6,
+        "color": "#e0a070"
+       },
+       {
+        "t": "delay",
+        "time": 0.45,
+        "then": [
+         {
+          "t": "circle",
+          "radius": 5.5,
+          "mult": 1.4,
+          "tags": [
+           "wucht",
+           "erde"
+          ],
+          "stun": 0.6,
+          "knockback": 1.2,
+          "color": "#e0a070"
+         }
+        ]
+       }
+      ]
      }
     }
    ],
@@ -1471,7 +1506,6 @@
      "ranggabe": "Nachschlag: Landung Radius 4 mit Rückstoß.",
      "beschreibung": "Ein fliegender Bär landet nach dem Schlag mitten unter den Feinden.",
      "gaben": {
-      "stun": 0.6,
       "step": {
        "reach": 6.0,
        "angle": 120.0
@@ -1689,7 +1723,7 @@
      "id": "erdloch",
      "name": "Erdloch-Gu",
      "neu": true,
-     "ranggabe": "Teleport 10 m und Beben (Radius 6, betäubt 1,2 s).",
+     "ranggabe": "Taucht durch die Erde bis zu 10 m zum Ziel und bricht mit einem Beben hervor (Radius 6, betäubt 1,2 s).",
      "beschreibung": "Du tauchst durch die Erde und brichst am Ziel mit einem Beben hervor.",
      "gaben": {
       "step": {
@@ -1699,12 +1733,13 @@
       "extra": [
        {
         "t": "teleport",
-        "distance": 10.0
+        "distance": 10.0,
+        "to": "target"
        },
        {
         "t": "circle",
         "radius": 6.0,
-        "mult": 1.6,
+        "mult": 2.2,
         "tags": [
          "erde",
          "wucht"
@@ -1852,7 +1887,6 @@
      "ranggabe": "Taifun (Radius 5, 5 s) zieht Gegner hinein.",
      "beschreibung": "Ein Taifun bleibt stehen und saugt alles in sein schneidendes Herz.",
      "gaben": {
-      "stun": 0.5,
       "step": {
        "reach": 10.0,
        "angle": 80.0,
@@ -1963,7 +1997,7 @@
      "ranggabe": "Sternschnuppe (Radius 3, doppelter Schaden).",
      "beschreibung": "Dem Schwarm folgt eine Sternschnuppe, die am Ziel einschlägt.",
      "gaben": {
-      "count_add": 2,
+      "count_add": 1,
       "step": {
        "status": "schwaeche",
        "stacks": 1
@@ -1998,7 +2032,7 @@
      "ranggabe": "Zehn Sterne, Sternschnuppe, Teleport 6 m.",
      "beschreibung": "Ein Sternentor öffnet sich: Zehn Sterne stürzen hindurch, du trittst auf die andere Seite.",
      "gaben": {
-      "count_add": 5,
+      "count_add": 2,
       "step": {
        "status": "schwaeche",
        "stacks": 1
@@ -2101,8 +2135,7 @@
      "ranggabe": "Vier Klingen, drei Schwertschatten als Geschosse.",
      "beschreibung": "Vier Klingen – und drei Schwertschatten fliegen nach vorn.",
      "gaben": {
-      "count_add": 2,
-      "time_add": 2.0,
+      "count_add": 1,
       "extra": [
        {
         "t": "projectiles",
@@ -2124,11 +2157,10 @@
      "id": "einzelklinge",
      "name": "Einzelklinge-Gu",
      "neu": true,
-     "ranggabe": "Ignoriert Rüstung, Hinrichtung.",
+     "ranggabe": "+1 s, ignoriert Rüstung, Hinrichtung.",
      "beschreibung": "Die Klingen ignorieren jede Rüstung und richten Sterbende hin.",
      "gaben": {
-      "count_add": 2,
-      "time_add": 2.0,
+      "time_add": 1.0,
       "pierce_armor": true,
       "execute": 0.5,
       "extra": [
@@ -2153,11 +2185,11 @@
      "id": "zehntausendschwert",
      "name": "Zehntausend-Schwerter-Gu",
      "neu": true,
-     "ranggabe": "Sieben Klingen (Radius 3), sieben Schatten.",
+     "ranggabe": "Sieben Klingen (Radius 3, 9 s), sieben Schatten, stärkere Hinrichtung.",
      "beschreibung": "Ein Sturm aus sieben Klingen im weiten Kreis, dazu sieben Schwertschatten.",
      "gaben": {
-      "count_add": 5,
-      "time_add": 3.0,
+      "count_add": 3,
+      "time_add": 2.0,
       "pierce_armor": true,
       "execute": 0.5,
       "step": {
@@ -2441,7 +2473,7 @@
      "ranggabe": "Blendet alle im Umkreis 5 für 3 s.",
      "beschreibung": "Ein Nebel blendet alle Gegner um dich.",
      "gaben": {
-      "time_add": 2.0,
+      "time_add": 1.0,
       "extra": [
        {
         "t": "buff",
@@ -2469,7 +2501,7 @@
      "ranggabe": "Nebelzone folgt dir 6 s.",
      "beschreibung": "Sternennebel folgt dir, blendet und verlangsamt jeden, der dir nahe kommt.",
      "gaben": {
-      "time_add": 4.0,
+      "time_add": 1.0,
       "extra": [
        {
         "t": "buff",
@@ -2498,10 +2530,10 @@
      "id": "auraverbergen",
      "name": "Aura-Verbergungs-Gu",
      "neu": false,
-     "ranggabe": "+6 s, 8 s +50 % Schaden und Tempo.",
+     "ranggabe": "Tarnung 12 s, danach 8 s +50 % Schaden und Tempo.",
      "beschreibung": "Deine Aura erlischt völlig; aus dem Nichts schlägst du mit doppelter Wucht zu.",
      "gaben": {
-      "time_add": 6.0,
+      "time_add": 4.0,
       "extra": [
        {
         "t": "buff",
@@ -2547,7 +2579,7 @@
     "schaden": 12,
     "cd": 2.2,
     "ess": 0,
-    "hp_kosten": 2,
+    "hp_kosten": 3,
     "reichweite": 13.0,
     "stapel": 1
    },
@@ -2738,7 +2770,6 @@
      "ranggabe": "30 % Schutz, +2 s.",
      "beschreibung": "Drei fliegende Knochenschilde: 30 % Schutz, dicker und länger.",
      "gaben": {
-      "count_add": 1,
       "time_add": 2.0,
       "step": {
        "reduction": 0.3,
@@ -2751,17 +2782,17 @@
      "id": "kampfknochenrad",
      "name": "Kampfknochenrad-Gu",
      "neu": true,
-     "ranggabe": "Größer, schneller, 1,6-facher Schaden.",
+     "ranggabe": "Vier Räder, größer und schneller, stärkerer Schlag, +1 s.",
      "beschreibung": "Rasende Knochenräder mit weitem Radius und hartem Schnitt.",
      "gaben": {
       "count_add": 1,
-      "time_add": 2.0,
+      "time_add": 1.0,
       "step": {
        "reduction": 0.3,
        "size": 0.6,
        "radius": 2.6,
        "speed": 1.3,
-       "mult": 1.6
+       "mult": 1.15
       }
      }
     },
@@ -2773,21 +2804,21 @@
      "ranggabe": "Fünf Räder, 35 % Schutz, sechs Knochengeschosse.",
      "beschreibung": "Das große weiße Knochenrad: Schutz und Angriff zugleich, dazu ein Knochenhagel.",
      "gaben": {
-      "count_add": 3,
-      "time_add": 3.0,
+      "count_add": 1,
+      "time_add": 2.0,
       "step": {
        "reduction": 0.35,
        "size": 0.65,
        "radius": 2.8,
        "speed": 1.3,
-       "mult": 1.8
+       "mult": 1.25
       },
       "extra": [
        {
         "t": "projectiles",
         "count": 6,
         "spread": 360.0,
-        "mult": 1.0,
+        "mult": 0.8,
         "tags": [
          "durchbohren",
          "wucht"
@@ -2870,7 +2901,7 @@
      "ranggabe": "Radius +1, 6 s +20 % Schaden.",
      "beschreibung": "Du wirst zur lebenden Fackel: größerer Feuerkreis und mehr Schaden.",
      "gaben": {
-      "time_add": 2.0,
+      "time_add": 1.0,
       "radius_add": 1.0,
       "extra": [
        {
@@ -2892,8 +2923,7 @@
      "ranggabe": "20 % Schutz, Dornen.",
      "beschreibung": "Ein Panzer aus Glut: weniger Schaden, Angreifer verbrennen.",
      "gaben": {
-      "time_add": 3.0,
-      "radius_add": 1.0,
+      "time_add": 1.0,
       "extra": [
        {
         "t": "buff",
@@ -2923,8 +2953,8 @@
      "ranggabe": "Radius +3, 1,8-facher Schaden, 25 % Schutz.",
      "beschreibung": "Du brennst wie eine kleine Sonne: riesiger Feuerkreis, doppelte Hitze.",
      "gaben": {
-      "time_add": 4.0,
-      "radius_add": 3.0,
+      "time_add": 2.0,
+      "radius_add": 2.0,
       "step": {
        "mult": 1.8
       },
@@ -3029,7 +3059,6 @@
      "ranggabe": "Kettenblitz nach der Explosion.",
      "beschreibung": "Die Explosion springt als Blitz auf drei weitere Ziele.",
      "gaben": {
-      "count_add": 2,
       "step": {
        "tags": [
         "feuer",
@@ -3059,7 +3088,7 @@
      "ranggabe": "Vier Fallen, Radius 3,5, betäubt 1 s.",
      "beschreibung": "Vier Knollen, deren Beben betäubt.",
      "gaben": {
-      "count_add": 3,
+      "count_add": 1,
       "step": {
        "tags": [
         "feuer",
@@ -3091,7 +3120,7 @@
      "ranggabe": "Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele.",
      "beschreibung": "Sechs Knollen, deren Feuer liegen bleibt und deren Blitz weit springt.",
      "gaben": {
-      "count_add": 5,
+      "count_add": 2,
       "step": {
        "tags": [
         "feuer",
@@ -3100,7 +3129,7 @@
        "status": "ladung",
        "radius": 3.5,
        "stun": 1.0,
-       "spacing": 3.2
+       "spacing": 2.5
       },
       "then": [
        {
@@ -3125,7 +3154,7 @@
         "color": "#8ad0ff"
        }
       ],
-      "cd_mult": 1.6
+      "cd_mult": 1.3
      }
     }
    ],
@@ -3197,7 +3226,6 @@
      "ranggabe": "Zwei Wasserkrieger (12 s).",
      "beschreibung": "Die Bilder werden zu Wasserkriegern, die wirklich zuschlagen.",
      "gaben": {
-      "count_add": 1,
       "step": {
        "enemy": "wasserkrieger",
        "time": 12.0
@@ -3212,7 +3240,7 @@
      "ranggabe": "Drei Krieger (15 s).",
      "beschreibung": "Drei Wasserkrieger stehen dir 15 s zur Seite.",
      "gaben": {
-      "count_add": 2,
+      "count_add": 1,
       "step": {
        "enemy": "wasserkrieger",
        "time": 15.0
@@ -3227,7 +3255,7 @@
      "ranggabe": "Zwei Meeresgeister (20 s), Heilung für alle.",
      "beschreibung": "Zwei Meeresgeister erheben sich; ihre Flut heilt deine Verbündeten.",
      "gaben": {
-      "count_add": 1,
+      "count_add": -1,
       "step": {
        "enemy": "meeresgeist",
        "time": 20.0

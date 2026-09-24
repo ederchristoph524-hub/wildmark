@@ -114,14 +114,14 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Sklaverei | Seele | Zähmen | Ratten-Sklaverei-Gu | Wolfs-Sklaverei-Gu (Auch mittelgroße Bestien; 2 Gefährten) | Bestien-Sklaverei-Gu (Ein Gefährte bleibt dauerhaft, bis er stirbt) | Bären-Sklaverei-Gu (Drei Gefährten, auch große Bestien) | Sklaverei-Gu (Fünf Gefährten) |
 | Schritt | Raum | Bewegung | Sprungwurm-Gu | Wolkenschritt-Gu (Gleiten und ein Luft-Dash) | Schattenbild-Gu (Teleport 8 m, auch durch Gitter) | Blitzflügel-Gu (Teleport 14 m) | Blauer-Himmel-Gu (Teleport 20 m, danach 5 s +50 % Tempo) |
 | Bestienphantom | Kraft | Kegel | Eberstoß-Gu | Großbär-Gu (Größerer Kegel (5 m, 120°)) | Alles-oder-nichts-Gu (Betäubt 0,6 s, danach 5 s +25 % Schaden) | Flugbär-Kraft-Gu (Nachschlag: Landung Radius 4 mit Rückstoß) | Kraft-leihen-Gu (Zweites Phantom (8 m, Wind), Hinrichtung) |
-| Erdstachel | Erde | Zone | Dreh-Fels-Gu | Steinfaust-Gu (Radius 3, stößt weg) | Felssturz-Gu (Felsbrocken (Radius 3,5, betäubt 0,8 s)) | Berg-wie-zuvor-Gu (Stachelfeld Radius 4,5, Bergsturz Radius 5) | Erdloch-Gu (Teleport 10 m und Beben (Radius 6, betäubt 1,2 s)) |
+| Erdstachel | Erde | Zone | Dreh-Fels-Gu | Steinfaust-Gu (Radius 3, stößt weg) | Felssturz-Gu (Felsbrocken (Radius 3,5, betäubt 0,8 s)) | Berg-wie-zuvor-Gu (Stachelfeld Radius 4,5, Bergsturz Radius 5) | Erdloch-Gu (Taucht durch die Erde bis zu 10 m zum Ziel und bricht mit einem Beben hervor (Radius 6, betäubt 1,2 s)) |
 | Windklinge | Wind | Kegel | Windklingen-Gu | Windwand-Gu (Breiter (80°), stärkerer Rückstoß) | Verletzungswind-Gu (Hinterlässt 3 s einen Klingenwirbel (Blutung)) | Sturmgeheul-Gu (Reichweite 10, betäubt 0,5 s) | Taifun-Gu (Taifun (Radius 5, 5 s) zieht Gegner hinein) |
 | Sternschwarm | Stern | Schwarm | Sternenpfeil-Gu | Sternpfeil-Gu (Fünf Pfeile) | Sternlicht-Glühwürmchen-Gu (Sieben Sterne, jeder schwächt (Schwäche)) | Sternschnuppen-Gu (Sternschnuppe (Radius 3, doppelter Schaden)) | Sternentor-Gu (Zehn Sterne, Sternschnuppe, Teleport 6 m) |
-| Schwertschatten | Schwert | Umkreisen | Klingenfaden-Gu | Schwertflügel-Gu (Drei Klingen, +2 s) | Schwertschatten-Gu (Vier Klingen, drei Schwertschatten als Geschosse) | Einzelklinge-Gu (Ignoriert Rüstung, Hinrichtung) | Zehntausend-Schwerter-Gu (Sieben Klingen (Radius 3), sieben Schatten) |
+| Schwertschatten | Schwert | Umkreisen | Klingenfaden-Gu | Schwertflügel-Gu (Drei Klingen, +2 s) | Schwertschatten-Gu (Vier Klingen, drei Schwertschatten als Geschosse) | Einzelklinge-Gu (+1 s, ignoriert Rüstung, Hinrichtung) | Zehntausend-Schwerter-Gu (Sieben Klingen (Radius 3, 9 s), sieben Schatten, stärkere Hinrichtung) |
 | Seelenschrei | Seele | Kegel | Stummer-Mund-Gu | Wolfsseelen-Gu (Ruft einen Geisterwolf (12 s)) | Angstballung-Gu (Schwächt alle Getroffenen (2 Stapel)) | Seelenexplosion-Gu (Seelenexplosion am Ziel (Radius 4)) | Göttlicher-Sinn-Gu (Kegel 10 m / 120°, betäubt 0,8 s, zwei Wölfe) |
-| Tarnung | Verbergen | Tarnung | Aura-Verschleierungs-Gu | Tarnschuppen-Gu (+2 s, +30 % Tempo) | Nebelschleier-Gu (Blendet alle im Umkreis 5 für 3 s) | Sternnebel-Tarn-Gu (Nebelzone folgt dir 6 s) | Aura-Verbergungs-Gu (+6 s, 8 s +50 % Schaden und Tempo) |
+| Tarnung | Verbergen | Tarnung | Aura-Verschleierungs-Gu | Tarnschuppen-Gu (+2 s, +30 % Tempo) | Nebelschleier-Gu (Blendet alle im Umkreis 5 für 3 s) | Sternnebel-Tarn-Gu (Nebelzone folgt dir 6 s) | Aura-Verbergungs-Gu (Tarnung 12 s, danach 8 s +50 % Schaden und Tempo) |
 | Blutmond | Blut | Geschoss | Blutstropfen-Gu | Blutmond-Gu (Drei Sicheln) | Blutguillotine-Gu (Hinrichtung, Blutspritzer am Aufschlag) | Blutrausch-Gu (20 % Lebensraub, 6 s +35 % Schaden) | Blutraserei-Gu (Sieben Sicheln, 3 s Rückprall) |
-| Knochenrad | Knochen | Umkreisen | Knochensplitter-Gu | Knochenring-Gu (Drei Knochen, 20 % Schutz) | Knochenschild-Gu (30 % Schutz, +2 s) | Kampfknochenrad-Gu (Größer, schneller, 1,6-facher Schaden) | Weißes-Knochenrad-Gu (Fünf Räder, 35 % Schutz, sechs Knochengeschosse) |
+| Knochenrad | Knochen | Umkreisen | Knochensplitter-Gu | Knochenring-Gu (Drei Knochen, 20 % Schutz) | Knochenschild-Gu (30 % Schutz, +2 s) | Kampfknochenrad-Gu (Vier Räder, größer und schneller, stärkerer Schlag, +1 s) | Weißes-Knochenrad-Gu (Fünf Räder, 35 % Schutz, sechs Knochengeschosse) |
 | Menschenfackel | Feuer | Aura | Glutatem-Gu | Feuerhaut-Gu (+2 s) | Selbstentzündungs-Gu (Radius +1, 6 s +20 % Schaden) | Glutpanzer-Gu (20 % Schutz, Dornen) | Sonnenkörper-Gu (Radius +3, 1,8-facher Schaden, 25 % Schutz) |
 | Donnerknolle | Blitz | Falle | Knallsamen-Gu | Verkohlte-Donnerknolle-Gu (Drei Fallen, Blitz und Ladung) | Kettenknollen-Gu (Kettenblitz nach der Explosion) | Bebenknollen-Gu (Vier Fallen, Radius 3,5, betäubt 1 s) | Himmelsfeuer-Knollen-Gu (Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele) |
 | Wasserbild | Wasser | Beschwörung | Wasserspiegel-Gu | Zwillingsspiegel-Gu (Zwei Bilder) | Wasserbild-Gu (Zwei Wasserkrieger (12 s)) | Gezeitenwächter-Gu (Drei Krieger (15 s)) | Meeresgeist-Gu (Zwei Meeresgeister (20 s), Heilung für alle) |
@@ -312,12 +312,12 @@ Die zwölf neuen Familien haben ebenfalls Welt-Wirkungen (`welt` je Familie): Ph
 | `summon` | `enemy`, `count`, `time` (Spieler: Gefährten, Bestien: Diener) |
 | `buff` | `key`, `damage`, `speed`, `reduction`, `time` |
 | `stealth` | `time` |
-| `teleport` / `dash` | `distance` |
+| `teleport` / `dash` | `distance`; `teleport` mit `to: "target"` taucht direkt vor dem Ziel auf |
 | `cleanse`, `unstoppable`, `reflect` | `time` |
 
 **Treffer-Parameter** jedes Schritts: `mult`, `tags`, `status`, `stacks`, `stun`, `knockback` (+ weg, − heran), `lifesteal`, `execute` (Bonus unter 30 % Leben), `pierce_armor`, `slow`/`slow_time`, `blind`, `freeze`, `set_stacks`, `color`.
 
-**Ranggaben** (`mitglieder[].gaben`, `GuGifts`) erben sich nach oben; Zahlen addieren sich, Listen und Objekte ersetzt der höhere Rang:
+**Ranggaben** (`mitglieder[].gaben`, `GuGifts`) erben sich nach oben; Zahlen addieren sich (Rang 3 mit `count_add: 1` nach Rang 2 mit `count_add: 1` = +2; der `ranggabe`-Text nennt das Ergebnis), außer `fan_angle`, `as_circle`, `teleport`, `chain_radius`, `width_mult`, `orbit_speed` und `cd_mult`, die der höhere Rang ersetzt. Listen und Objekte ersetzt der höhere Rang:
 `pierce`, `pierce_armor`, `fan`/`fan_angle`, `homing`, `chain`/`chain_radius`, `impact` (Schritte am Aufschlag), `radius_add`, `beam_all`, `width_mult`, `knockback`, `stacks_add`, `spread_on_death`, `stun`, `lifesteal`, `execute`, `as_circle`, `as_zone`, `pull`, `reflect`, `unstoppable`, `cleanse`, `heal_zone`, `companions_add`, `permanent`, `glide`, `air_dash`, `teleport`, `extra` (Schritte nach dem Wirken), für die neuen Wirkformen außerdem `step` (überschreibt Schritt-Parameter), `then`, `count_add`, `time_add`.
 
 ## 10. Spielstart
@@ -330,9 +330,19 @@ Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kos
 - **Fächer** (`fan`): jede Klinge trifft mit `min(1, 2,2 / Anzahl)`; Aufschlag-Wirkungen (`impact`) nur an der mittleren Klinge.
 - **Schwarm**: alle Sterne zusammen höchstens 3-facher Grundschaden, **Fallen** zusammen höchstens 2,5-fach.
 - Ranggaben, die eine Wirkform in eine lange Zone oder großen Kreis verwandeln, verlängern die Abklingzeit (`cd_mult`).
-- Beschworene Wesen erhalten die Rangstärke des Gu relativ zu ihrem eigenen Rang (`EnemyData.rank`).
+- **Fallen-Folgeschritte** (`then`, z. B. Feuerfeld und Kettenblitz) teilen sich den Schaden wie die Fallen selbst.
+- Beschworene Wesen erhalten die Rangstärke des Gu relativ zu ihrem eigenen Rang (`EnemyData.rank`); Verbündete (Spieler, Gefährten) gehen durcheinander hindurch, damit Gefährten nicht hinter dir hängen bleiben.
+- **Rückstoß** ist ein einmaliger Geschwindigkeitsstoß (`knockback_force` m/s je Punkt, mehrere Treffer zusammen höchstens `knockback_max_speed`); Rückstoß 1 schiebt etwa 2 m.
+- **Kontrolle nimmt ab:** Betäubung und Einfrieren wirken in Folge 100 %, 50 %, 25 % … (`cc_diminish`), bis `cc_reset_time` Sekunden keine Kontrolle mehr kam; eine laufende Kontrolle wird nicht verlängert. Kein Dauer-Festsetzen, weder von Bestien noch vom Spieler.
+- **Blutpfad** (`hp_kosten`) kostet Prozent des Höchstlebens, damit der Preis mit dem Rang wächst; NPC-Meister zahlen ihn auch.
+- **Bestien-Leben** wächst stärker als die Formel allein (Rang 2 ×2,2 … Rang 5 ×3,8 gegenüber dem Prototyp), **Gu-Meister** bekommen `master_hp_rank_mult` (Schutz-Gu, Erfahrung).
 
-Messen: `godot --headless --fixed-fps 60 --path . --script res://tools/balance_probe.gd` (Spieler je Rang gegen typische Bestien) und mit `-- --solo` (Schaden pro Sekunde jeder Familie je Rang gegen ein stehendes Ziel).
+Zielwerte (Spieler Stufe 2 mit vier Gu seines Rangs): gleichrangige Bestie in 3–15 s besiegt, gleichrangiger Gu-Meister im Duell in 6–17 s; Bestien brauchen ohne Ausweichen 15–60 s, um dich zu besiegen, starke Meister 5–10 s.
+
+Messen mit `godot --headless --fixed-fps 60 --path . --script res://tools/balance_probe.gd`:
+- ohne Zusatz: Spieler je Rang gegen typische Bestien,
+- `-- --solo`: Schaden pro Sekunde jeder Familie je Rang gegen ein stehendes, nicht wegstoßbares Ziel in 2 m,
+- `-- --masters`: Duell gegen jeden NPC-Gu-Meister auf seinem Rang (Lebenskosten des Meisters zählen nicht als dein Schaden).
 
 ## 12. Prüfung
 

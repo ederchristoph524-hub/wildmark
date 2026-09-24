@@ -32,7 +32,7 @@ rank = 3
 rank_gift = "Vier Klingen, drei Schwertschatten als Geschosse."
 description = "Vier Klingen – und drei Schwertschatten fliegen nach vorn."
 gifts = {
-"count_add": 2.0,
+"count_add": 1.0,
 "extra": [{
 "color": "#e8f4ff",
 "count": 3.0,
@@ -42,8 +42,7 @@ gifts = {
 "spread": 30.0,
 "t": "projectiles",
 "tags": ["schnitt"]
-}],
-"time_add": 2.0
+}]
 }
 
 [sub_resource type="Resource" id="gu_einzelklinge"]
@@ -52,10 +51,9 @@ id = &"einzelklinge"
 display_name = "Einzelklinge-Gu"
 family = &"schwert"
 rank = 4
-rank_gift = "Ignoriert Rüstung, Hinrichtung."
+rank_gift = "+1 s, ignoriert Rüstung, Hinrichtung."
 description = "Die Klingen ignorieren jede Rüstung und richten Sterbende hin."
 gifts = {
-"count_add": 2.0,
 "execute": 0.5,
 "extra": [{
 "color": "#e8f4ff",
@@ -69,7 +67,7 @@ gifts = {
 "tags": ["schnitt"]
 }],
 "pierce_armor": true,
-"time_add": 2.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_zehntausendschwert"]
@@ -78,10 +76,10 @@ id = &"zehntausendschwert"
 display_name = "Zehntausend-Schwerter-Gu"
 family = &"schwert"
 rank = 5
-rank_gift = "Sieben Klingen (Radius 3), sieben Schatten."
+rank_gift = "Sieben Klingen (Radius 3, 9 s), sieben Schatten, stärkere Hinrichtung."
 description = "Ein Sturm aus sieben Klingen im weiten Kreis, dazu sieben Schwertschatten."
 gifts = {
-"count_add": 5.0,
+"count_add": 3.0,
 "execute": 0.5,
 "extra": [{
 "color": "#e8f4ff",
@@ -99,7 +97,7 @@ gifts = {
 "radius": 3.0,
 "speed": 1.0
 },
-"time_add": 3.0
+"time_add": 2.0
 }
 
 [resource]

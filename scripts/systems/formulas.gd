@@ -78,6 +78,18 @@ static func cultivated_hp(b: BalanceData, rank: int, stage: int) -> float:
 	return hp
 
 
+## Lebenskosten eines Blutpfad-Gu: percent % des Höchstlebens.
+static func gu_hp_cost(percent: float, max_hp: float) -> float:
+	return max_hp * percent / 100.0
+
+
+## Leben eines NPC-Gu-Meisters: kultiviertes Leben × Rangfaktor aus master_hp_rank_mult.
+static func master_hp(b: BalanceData, rank: int, stage: int) -> float:
+	var table: Array[float] = b.master_hp_rank_mult
+	var mult: float = table[clampi(rank - 1, 0, table.size() - 1)] if not table.is_empty() else 1.0
+	return cultivated_hp(b, rank, stage) * mult
+
+
 ## Grundschaden-Bonus aus Stufen und Durchbrüchen (wie beim Spieler).
 static func cultivated_damage(b: BalanceData, rank: int, stage: int) -> float:
 	return ((rank - 1) * b.max_stage + stage) * b.stage_damage + (rank - 1) * b.breakthrough_damage

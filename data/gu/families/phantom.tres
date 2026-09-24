@@ -79,8 +79,7 @@ gifts = {
 "step": {
 "angle": 120.0,
 "reach": 6.0
-},
-"stun": 0.6
+}
 }
 
 [sub_resource type="Resource" id="gu_kraftleihen"]

@@ -119,6 +119,10 @@ extends Resource
 
 @export_group("Zustände")
 @export var freeze_time: float = 2.0
+## Abnehmende Wirkung von Betäubung und Einfrieren: jede weitere Kontrolle in Folge wirkt nur noch so stark
+## (0,5 → 100 %, 50 %, 25 % …); nach cc_reset_time ohne Kontrolle wieder voll. Verhindert Dauer-Festsetzen.
+@export var cc_diminish: float = 0.5
+@export var cc_reset_time: float = 3.0
 @export var discharge_damage: float = 25.0
 @export var discharge_radius: float = 2.0
 @export var discharge_stun: float = 0.5
@@ -126,7 +130,10 @@ extends Resource
 @export var cut_wound_chance: float = 0.2
 ## Licht blendet Nacht- und Schattenwesen so lange.
 @export var light_blind_time: float = 2.0
-@export var knockback_force: float = 7.0
+## Rückstoß als einmaliger Geschwindigkeitsstoß (m/s je Rückstoß-Punkt); die normale Bremsung stoppt ihn
+## (bei 30 m/s² fliegt ein Ziel mit Rückstoß 1 etwa 2 m). Mehrere Treffer im selben Moment höchstens bis knockback_max_speed.
+@export var knockback_force: float = 11.0
+@export var knockback_max_speed: float = 18.0
 @export var status_tick: float = 0.5
 ## Multiplikatoren der Merkmale (Texte in gu_system.json → merkmale).
 ## effect = Wirkung, cost = Essenzkosten, cooldown, hunger, fail = Versagenschance, stacks = zusätzliche Stapel.
@@ -263,6 +270,9 @@ extends Resource
 @export var master_rank: int = 2
 @export var master_stage: int = 1
 @export var master_apt: float = 60.0
+## Lebensfaktor erfahrener Gu-Meister je Rang (Index = Rang − 1; darüber gilt der letzte Wert): Schutz-Gu und
+## Kampferfahrung. Ohne ihn endet ein Duell auf Rang 5 nach einer Sekunde (tools/balance_probe.gd -- --masters).
+@export var master_hp_rank_mult: Array[float] = [1.0, 1.5, 1.6, 2.2, 6.0]
 ## Wie oft die KI neu entscheidet (Sekunden) – kürzer = schwerer.
 @export var master_think_interval: float = 0.35
 ## Ausholen vor Angriffs-Gu: Richtung steht fest, seitliches Ausweichen hilft (KAMPFSYSTEM: keine Treffer ohne Vorwarnung).

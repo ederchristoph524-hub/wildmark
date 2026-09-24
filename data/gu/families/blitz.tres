@@ -20,6 +20,7 @@ rank_gift = "Ignoriert Rüstung."
 description = "Ein Plasmastoß, der Panzer durchschlägt."
 lore = "Blaues Plasma, das selbst Stahlpanzer durchschlägt."
 gifts = {
+"cd_mult": 0.9,
 "pierce_armor": true
 }
 
@@ -33,6 +34,7 @@ rank_gift = "Springt auf bis zu 3 weitere Ziele."
 description = "Ein Blitz, der von Gegner zu Gegner springt."
 lore = "Ein Blitz, der von Feind zu Feind springt."
 gifts = {
+"cd_mult": 0.8,
 "chain": 3.0,
 "chain_radius": 6.0
 }
@@ -46,7 +48,7 @@ rank = 4
 rank_gift = "Springt auf 3 weitere Ziele, jeder Treffer betäubt 0,3 s."
 description = "Blitze jagen wie ein Wolfsrudel von Ziel zu Ziel und lähmen kurz."
 gifts = {
-"chain": 3.0,
+"cd_mult": 0.7,
 "stun": 0.3
 }
 
@@ -59,6 +61,7 @@ rank = 5
 rank_gift = "Einschlag ruft einen Donnerschlag (Radius 3,5, doppelte Ladung)."
 description = "Wo der Blitz einschlägt, fährt ein Donnerschlag vom Himmel."
 gifts = {
+"cd_mult": 0.7,
 "impact": [{
 "color": "#8ad0ff",
 "mult": 1.0,

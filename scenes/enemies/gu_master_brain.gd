@@ -55,19 +55,30 @@ func _decide(foe: Combatant) -> Vector3:
 		var defend: int = master.ready_index(DEFEND_FORMS)
 		if defend >= 0 and master.use_gu(defend, toward, foe):
 			return Vector3.ZERO
-	if distance <= CLOSE_RANGE:
-		var close: int = master.ready_index(CLOSE_FORMS)
-		if close >= 0:
-			_wind_up(close, toward)
-			Telegraph.show_disc(master.get_tree(), master.global_position, float(master.family_of(close).base_r1.get(&"radius", CLOSE_RANGE)), Balance.values.master_cast_windup)
-			return Vector3.ZERO
+	var close: int = master.ready_index(CLOSE_FORMS)
+	if close >= 0 and distance <= close_reach(close) * 0.9:
+		_wind_up(close, toward)
+		Telegraph.show_disc(master.get_tree(), master.global_position, close_reach(close), Balance.values.master_cast_windup)
+		return Vector3.ZERO
 	var ranged: int = master.ready_index(RANGED_FORMS)
 	if ranged >= 0 and distance <= master.range_of(ranged) * 0.9:
 		_wind_up(ranged, (foe.aim_point() - master.aim_point()).normalized())
 		return Vector3.ZERO
 	if not master.can_afford_any():
 		return _brawl(foe, toward, distance)
+	# Nahkämpfer (oder ein bereiter Nah-Gu ohne bereiten Fern-Gu): heran an den Gegner statt Abstand halten.
+	if close >= 0 and ranged < 0:
+		return toward
 	return _keep_range(toward, distance)
+
+
+## Wie nah ein Nah-Gu heran muss: Kegel, Sturmlauf und Stich nach Reichweite, Kreise nach Radius.
+func close_reach(index: int) -> float:
+	var family: GuFamilyData = master.family_of(index)
+	match family.form:
+		GuForms.FORM_CONE, GuForms.FORM_CHARGE, GuCaster.FORM_STAB:
+			return float(family.base_r1.get(&"reichweite", CLOSE_RANGE))
+	return float(family.base_r1.get(&"radius", CLOSE_RANGE)) + 0.4
 
 
 ## Ausholen: Richtung wird jetzt festgelegt, der Gu wirkt erst nach der Vorwarnzeit.

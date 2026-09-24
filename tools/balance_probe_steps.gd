@@ -38,6 +38,10 @@ func run(scene_tree: SceneTree) -> void:
 		await _solo_table()
 		tree.quit()
 		return
+	if OS.get_cmdline_user_args().has("--masters"):
+		await _master_table()
+		tree.quit()
+		return
 	print("Rang | Bestie | Leben | dein Schaden/s | Sieg nach s | Schaden/s an dir | dein Leben | Tod nach s")
 	for rank: int in range(1, 6):
 		for beast: StringName in BEASTS[rank]:
@@ -145,3 +149,54 @@ func _fight(rank: int, beast_id: StringName) -> void:
 	var dps_out: float = dealt / seconds
 	var dps_in: float = taken / seconds
 	print("%d | %s | %d | %.1f | %.1f | %.1f | %d | %.1f" % [rank, beast_id, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
+
+
+## Duell gegen jeden NPC-Gu-Meister auf seinem Rang (Spieler mit LOADOUT desselben Rangs, Stufe 2).
+func _master_table() -> void:
+	print("Meister | Rang | Leben | dein Schaden/s | Sieg nach s | sein Schaden/s | dein Leben | Tod nach s")
+	for resource: Resource in DataRegistry.all(&"gu_masters"):
+		var data: GuMasterData = resource as GuMasterData
+		await _duel(data)
+
+
+func _duel(data: GuMasterData) -> void:
+	for node: Node in tree.get_nodes_in_group(Combat.GROUP_COMBATANTS):
+		if node is Enemy or node is GuMaster:
+			node.queue_free()
+	await _frames(2)
+	var rank: int = data.rank if data.rank > 0 else Balance.values.master_rank
+	_setup(rank)
+	var master := GuMaster.new()
+	master.setup(data, String(data.display_name), player.global_position + Vector3(0, 0, -7.0))
+	main.world.add_child(master)
+	await _frames(2)
+	var real_hp: float = master.health.max_hp
+	master.health.max_hp = DUMMY_HP
+	master.health.hp = DUMMY_HP
+	var start_hp: float = player.health.max_hp
+	player.health.max_hp = DUMMY_HP
+	player.health.hp = DUMMY_HP
+	master.start_duel(player)
+	player.health.floor_hp = 1.0
+	while master.duel_state != GuMaster.DuelState.FIGHT:
+		await tree.physics_frame
+	var self_cost: float = 0.0
+	for frame: int in MEASURE_FRAMES:
+		player.targeting.soft_target = master
+		for slot: int in LOADOUT.size():
+			if player.holder.is_ready(slot):
+				player.use_slot(slot)
+				break
+		var cooldowns: Array[float] = []
+		for instance: GuInstance in master.gu_list:
+			cooldowns.append(instance.cooldown_left)
+		await tree.physics_frame
+		# Lebenskosten (Blutpfad) zählen nicht als Schaden des Spielers.
+		for index: int in master.gu_list.size():
+			if master.gu_list[index].cooldown_left > cooldowns[index] + 0.01:
+				self_cost += master.hp_cost(index)
+	var seconds: float = MEASURE_FRAMES / 60.0
+	var dps_out: float = (DUMMY_HP - master.health.hp - self_cost) / seconds
+	var dps_in: float = (DUMMY_HP - player.health.hp) / seconds
+	print("%s | %d | %d | %.1f | %.1f | %.1f | %d | %.1f" % [data.id, rank, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
+	master.queue_free()

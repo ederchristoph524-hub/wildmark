@@ -43,8 +43,21 @@ static func build_step(family: GuFamilyData, gu: GuData) -> Dictionary:
 	if family.form == FORM_SWARM:
 		step["mult"] = float(step.get("mult", 1.0)) * minf(1.0, SWARM_TOTAL / count)
 	elif family.form == FORM_TRAP:
-		step["mult"] = float(step.get("mult", 1.0)) * minf(1.0, TRAP_TOTAL / count)
+		var share: float = minf(1.0, TRAP_TOTAL / count)
+		step["mult"] = float(step.get("mult", 1.0)) * share
+		# Folgeschritte (Feuerfeld, Kettenblitz) teilen sich den Schaden ebenso, sonst stapeln sich sechs Felder.
+		if step.get("then") is Array:
+			step["then"] = _scaled(step["then"], share)
 	return step
+
+
+static func _scaled(steps: Array, factor: float) -> Array:
+	var result: Array = []
+	for raw: Variant in steps:
+		var scaled: Dictionary = (raw as Dictionary).duplicate(true)
+		scaled["mult"] = float(scaled.get("mult", 1.0)) * factor
+		result.append(scaled)
+	return result
 
 
 static func _base_step(family: GuFamilyData, gifts: Dictionary) -> Dictionary:

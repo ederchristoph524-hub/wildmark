@@ -66,8 +66,9 @@ func essence_cost(instance: GuInstance) -> float:
 	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult")
 
 
+## Lebenskosten (Blutpfad): hp_kosten ist ein Prozentsatz des Höchstlebens, damit der Preis mit dem Rang mitwächst.
 func hp_cost(instance: GuInstance) -> float:
-	return float(family_of(instance).base_r1.get(HP_COST_KEY, 0.0))
+	return Formulas.gu_hp_cost(float(family_of(instance).base_r1.get(HP_COST_KEY, 0.0)), host.health.max_hp)
 
 
 func cooldown_of(instance: GuInstance) -> float:

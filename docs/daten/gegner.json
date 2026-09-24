@@ -155,7 +155,7 @@
   },
   "schuetze": {
    "n": "Skelettschütze",
-   "hp": 26,
+   "hp": 55,
    "dmg": 11,
    "spd": 2.4,
    "xp": 28,
@@ -199,7 +199,7 @@
   },
   "golem": {
    "n": "Golem",
-   "hp": 95,
+   "hp": 210,
    "dmg": 16,
    "spd": 1.4,
    "xp": 60,
@@ -225,7 +225,7 @@
   },
   "kaefer": {
    "n": "Panzerkäfer",
-   "hp": 70,
+   "hp": 155,
    "dmg": 12,
    "spd": 2,
    "xp": 50,
@@ -248,7 +248,7 @@
   },
   "schamane": {
    "n": "Schamane",
-   "hp": 40,
+   "hp": 90,
    "dmg": 9,
    "spd": 2.6,
    "xp": 55,
@@ -268,7 +268,7 @@
   },
   "schatten": {
    "n": "Schatten",
-   "hp": 50,
+   "hp": 130,
    "dmg": 18,
    "spd": 3,
    "xp": 65,
@@ -288,7 +288,7 @@
   },
   "troll": {
    "n": "Troll",
-   "hp": 160,
+   "hp": 415,
    "dmg": 26,
    "spd": 1.8,
    "xp": 90,
@@ -314,7 +314,7 @@
   },
   "imp": {
    "n": "Feuerteufel",
-   "hp": 48,
+   "hp": 155,
    "dmg": 14,
    "spd": 3.4,
    "xp": 50,
@@ -337,7 +337,7 @@
   },
   "lavaschnecke": {
    "n": "Lavaschnecke",
-   "hp": 120,
+   "hp": 385,
    "dmg": 20,
    "spd": 1,
    "xp": 70,
@@ -361,7 +361,7 @@
   },
   "drachenling": {
    "n": "Drachenling",
-   "hp": 60,
+   "hp": 190,
    "dmg": 16,
    "spd": 3.6,
    "xp": 80,
@@ -383,7 +383,7 @@
   },
   "obsidian": {
    "n": "Obsidiangolem",
-   "hp": 260,
+   "hp": 830,
    "dmg": 30,
    "spd": 1.5,
    "xp": 150,
@@ -410,7 +410,7 @@
   },
   "seuche": {
    "n": "Seuchenschamane",
-   "hp": 70,
+   "hp": 225,
    "dmg": 12,
    "spd": 2.8,
    "xp": 95,
@@ -431,7 +431,7 @@
   },
   "waldgeist": {
    "n": "Waldgeist",
-   "hp": 600,
+   "hp": 840,
    "dmg": 22,
    "spd": 2.6,
    "xp": 400,
@@ -468,7 +468,7 @@
   },
   "steinkoenig": {
    "n": "Steinkönig",
-   "hp": 1400,
+   "hp": 2240,
    "dmg": 34,
    "spd": 1.8,
    "xp": 1000,
@@ -509,7 +509,7 @@
   },
   "seekoenig": {
    "n": "Seekönig",
-   "hp": 1900,
+   "hp": 6650,
    "dmg": 38,
    "spd": 2.6,
    "xp": 1500,
@@ -546,7 +546,7 @@
   },
   "steppenfuerst": {
    "n": "Steppenfürst",
-   "hp": 1600,
+   "hp": 3520,
    "dmg": 32,
    "spd": 3.4,
    "xp": 1300,
@@ -583,7 +583,7 @@
   },
   "drache": {
    "n": "Lavadrache",
-   "hp": 2600,
+   "hp": 9100,
    "dmg": 45,
    "spd": 3,
    "xp": 2500,
@@ -698,7 +698,7 @@
   },
   "blitzwolf": {
    "n": "Blitzwolf",
-   "hp": 62,
+   "hp": 135,
    "dmg": 12,
    "spd": 4.6,
    "xp": 40,
@@ -740,7 +740,7 @@
   },
   "jadeaffe": {
    "n": "Jadeaugen-Steinaffe",
-   "hp": 70,
+   "hp": 155,
    "dmg": 13,
    "spd": 3.4,
    "xp": 45,
@@ -764,7 +764,7 @@
   },
   "bergbaer": {
    "n": "Bergbär",
-   "hp": 135,
+   "hp": 295,
    "dmg": 20,
    "spd": 2.6,
    "xp": 70,
@@ -808,7 +808,7 @@
   },
   "schwarzeber_bestie": {
    "n": "Schwarzborsten-Eber",
-   "hp": 95,
+   "hp": 210,
    "dmg": 18,
    "spd": 2.8,
    "xp": 55,
@@ -831,7 +831,7 @@
   },
   "elektrowolf": {
    "n": "Irrer Elektrowolf",
-   "hp": 230,
+   "hp": 600,
    "dmg": 26,
    "spd": 5.0,
    "xp": 140,
@@ -872,7 +872,7 @@
   },
   "riesenkrokodil": {
    "n": "Riesenkrokodil",
-   "hp": 340,
+   "hp": 885,
    "dmg": 30,
    "spd": 2.2,
    "xp": 170,
@@ -899,7 +899,7 @@
   },
   "riesenskorpion": {
    "n": "Riesenskorpion",
-   "hp": 190,
+   "hp": 495,
    "dmg": 22,
    "spd": 3.0,
    "xp": 130,
@@ -936,7 +936,7 @@
   },
   "sturmadler": {
    "n": "Sturmadler",
-   "hp": 150,
+   "hp": 390,
    "dmg": 20,
    "spd": 5.0,
    "xp": 120,
@@ -971,7 +971,7 @@
   },
   "sandwurm": {
    "n": "Sandwurm",
-   "hp": 520,
+   "hp": 1665,
    "dmg": 40,
    "spd": 2.4,
    "xp": 260,
@@ -1009,7 +1009,7 @@
   },
   "wuestenskorpion": {
    "n": "Wüstenskorpion",
-   "hp": 380,
+   "hp": 1215,
    "dmg": 36,
    "spd": 3.2,
    "xp": 230,
@@ -1049,7 +1049,7 @@
   },
   "feuerfuchs": {
    "n": "Feuerfuchs",
-   "hp": 300,
+   "hp": 960,
    "dmg": 32,
    "spd": 4.8,
    "xp": 210,
@@ -1088,7 +1088,7 @@
   },
   "seeschlange": {
    "n": "Seeschlange",
-   "hp": 950,
+   "hp": 3610,
    "dmg": 60,
    "spd": 3.2,
    "xp": 480,
@@ -1127,7 +1127,7 @@
   },
   "riesenkrabbe": {
    "n": "Riesenkrabbe",
-   "hp": 1150,
+   "hp": 4370,
    "dmg": 55,
    "spd": 2.0,
    "xp": 520,
@@ -1154,7 +1154,7 @@
   },
   "donnerkronenwolf": {
    "n": "Donnerkronen-Wolf",
-   "hp": 1400,
+   "hp": 5320,
    "dmg": 70,
    "spd": 5.2,
    "xp": 700,
@@ -1205,7 +1205,7 @@
   },
   "weisser_tiger": {
    "n": "Weißer Tiger",
-   "hp": 1250,
+   "hp": 4750,
    "dmg": 75,
    "spd": 5.0,
    "xp": 650,
@@ -1275,7 +1275,7 @@
   "meeresgeist": {
    "n": "Meeresgeist",
    "hp": 420,
-   "dmg": 38,
+   "dmg": 48,
    "spd": 3.4,
    "xp": 0,
    "r": 0.6,
@@ -1284,7 +1284,25 @@
    "rang": 5,
    "drop": [],
    "shape": "ghost",
-   "nospawn": 1
+   "nospawn": 1,
+   "faehigkeit": [
+    {
+     "t": "circle",
+     "at": "target",
+     "distance": 8.0,
+     "radius": 3.0,
+     "mult": 1.2,
+     "tags": [
+      "wasser",
+      "wucht"
+     ],
+     "status": "nass",
+     "knockback": 0.8,
+     "color": "#3a8ad0"
+    }
+   ],
+   "f_reichweite": 9,
+   "f_cd": 4
   }
  },
  "VARIANTS": {
@@ -1401,7 +1419,7 @@
    "gu": [
     "blutrausch",
     "knochenspeer",
-    "blutschaedel"
+    "steinhaut"
    ],
    "rang": 3
   },

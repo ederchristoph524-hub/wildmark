@@ -104,8 +104,7 @@ gifts = {
 "angle": 80.0,
 "knockback": 1.7,
 "reach": 10.0
-},
-"stun": 0.5
+}
 }
 
 [resource]

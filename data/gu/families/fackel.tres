@@ -41,7 +41,7 @@ gifts = {
 "time": 6.0
 }],
 "radius_add": 1.0,
-"time_add": 2.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_glutpanzer"]
@@ -69,8 +69,7 @@ gifts = {
 "time": 6.0,
 "value_mult": 0.4
 }],
-"radius_add": 1.0,
-"time_add": 3.0
+"time_add": 1.0
 }
 
 [sub_resource type="Resource" id="gu_sonnenkoerper"]
@@ -98,11 +97,11 @@ gifts = {
 "time": 8.0,
 "value_mult": 0.5
 }],
-"radius_add": 3.0,
+"radius_add": 2.0,
 "step": {
 "mult": 1.8
 },
-"time_add": 4.0
+"time_add": 2.0
 }
 
 [resource]

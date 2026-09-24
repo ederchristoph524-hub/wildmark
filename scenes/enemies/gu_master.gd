@@ -45,7 +45,7 @@ func _ready() -> void:
 	rank = data.rank if data.rank > 0 else b.master_rank
 	stage = data.stage if data.stage >= 0 else b.master_stage
 	display_name = display_title()
-	_init_combatant(TEAM_PLAYER, Formulas.cultivated_hp(b, rank, stage))
+	_init_combatant(TEAM_PLAYER, Formulas.master_hp(b, rank, stage))
 	# Gu-Meister sterben im Duell nicht; bei 1 Leben ist spätestens Schluss.
 	health.floor_hp = 1.0
 	_set_fighting(false)
@@ -121,7 +121,12 @@ func range_of(index: int) -> float:
 
 
 func is_ready(index: int) -> bool:
-	return gu_list[index].cooldown_left <= 0.0 and essence + 0.001 >= essence_cost(index)
+	return gu_list[index].cooldown_left <= 0.0 and essence + 0.001 >= essence_cost(index) and health.hp > hp_cost(index) * 2.0
+
+
+## Lebenskosten wie beim Spieler (Blutpfad).
+func hp_cost(index: int) -> float:
+	return Formulas.gu_hp_cost(float(family_of(index).base_r1.get(GuHolderComponent.HP_COST_KEY, 0.0)), health.max_hp)
 
 
 ## Erster einsatzbereiter Gu mit einer dieser Wirkformen, sonst -1.
@@ -150,6 +155,8 @@ func use_gu(index: int, aim: Vector3, foe: Combatant) -> bool:
 	if not caster.cast():
 		return false
 	essence = maxf(0.0, essence - essence_cost(index))
+	if hp_cost(index) > 0.0:
+		health.apply_damage(hp_cost(index))
 	var gift_mult: float = GuGifts.number(gu_data(index), "cd_mult")
 	gu_list[index].cooldown_left = float(family_of(index).base_r1.get(GuHolderComponent.COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0)
 	_update_label()

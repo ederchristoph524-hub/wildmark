@@ -17,6 +17,8 @@ var tick: float = 0.5
 var _angle: float = 0.0
 var _blades: Array[MeshInstance3D] = []
 var _last_hit: Dictionary = {}
+## Spielzeit seit dem Start (nicht Echtzeit, damit Pausen und schnelle Tests richtig zählen).
+var _clock: float = 0.0
 
 
 static func spawn(orbit_step: Dictionary, context: EffectContext) -> OrbitBlades:
@@ -55,7 +57,8 @@ func _physics_process(delta: float) -> void:
 		return
 	global_position = ctx.caster.global_position
 	_angle += delta * speed * TAU
-	var now: float = Time.get_ticks_msec() / 1000.0
+	_clock += delta
+	var now: float = _clock
 	var hostiles: Array[Combatant] = Combat.hostiles(get_tree(), ctx.team)
 	for i: int in _blades.size():
 		var angle: float = _angle + i * TAU / _blades.size()

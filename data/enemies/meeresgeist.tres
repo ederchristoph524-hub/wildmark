@@ -8,11 +8,24 @@ script = ExtResource("2_8iurd")
 id = &"meeresgeist"
 display_name = "Meeresgeist"
 max_hp = 420
-damage = 38
+damage = 48
 speed = 3.4
 radius = 0.6
 color = Color(0.22745098, 0.5411765, 0.7529412, 1)
 zone = 9
 rank = 5
+ability = [{
+"at": "target",
+"color": "#3a8ad0",
+"distance": 8.0,
+"knockback": 0.8,
+"mult": 1.2,
+"radius": 3.0,
+"status": "nass",
+"t": "circle",
+"tags": ["wasser", "wucht"]
+}]
+ability_range = 9.0
+ability_cooldown = 4.0
 shape = &"ghost"
 no_spawn = true
