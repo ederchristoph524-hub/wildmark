@@ -17,6 +17,7 @@ const DATA_DIRS: Dictionary[StringName, String] = {
 	&"quests": "res://data/quests/",
 }
 const GU_SYSTEM_PATH: String = "res://data/gu/gu_system.tres"
+const PROGRESSION_PATH: String = "res://data/progression.tres"
 const RESOURCE_EXTENSIONS: Array[String] = [".tres", ".res"]
 
 ## Kategorie → {ID → Resource}. Regionen sind nach int-ID geschlüsselt, alles andere nach StringName.
@@ -24,6 +25,7 @@ var _tables: Dictionary[StringName, Dictionary] = {}
 ## Mitglieder aller Familien nach ID.
 var _gu: Dictionary[StringName, GuData] = {}
 var _gu_system: GuSystemData = null
+var _progression: ProgressionData = null
 
 
 func _ready() -> void:
@@ -42,6 +44,9 @@ func load_all() -> void:
 	_gu_system = load(GU_SYSTEM_PATH) as GuSystemData
 	if _gu_system == null:
 		push_error("DataRegistry: %s fehlt – Datenimport ausführen" % GU_SYSTEM_PATH)
+	_progression = load(PROGRESSION_PATH) as ProgressionData
+	if _progression == null:
+		push_error("DataRegistry: %s fehlt – Datenimport ausführen" % PROGRESSION_PATH)
 	print("DataRegistry: %d Einträge geladen (%d Gu)" % [count_all(), _gu.size()])
 
 
@@ -144,6 +149,10 @@ func quest(id: StringName) -> QuestData:
 
 func gu_system() -> GuSystemData:
 	return _gu_system
+
+
+func progression() -> ProgressionData:
+	return _progression
 
 
 # --- Listen und Existenzprüfung ------------------------------------------

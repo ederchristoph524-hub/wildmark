@@ -8,11 +8,14 @@ const SOURCE := "gu_system.json"
 
 var _report: ImportReport
 var _gudex: Dictionary
+var _gu_json: Dictionary
 
 
-func _init(report: ImportReport, gudex: Dictionary) -> void:
+## gu_json ist die geparste gu.json (Ideenpool): liefert Lore-Texte und die Pfad-Tabellen.
+func _init(report: ImportReport, gu_json: Dictionary) -> void:
 	_report = report
-	_gudex = gudex
+	_gu_json = gu_json
+	_gudex = gu_json.get("GUDEX", {})
 
 
 ## Liefert {families, body, support, statuses, reactions, traits, killer_moves, gu_system}.
@@ -234,4 +237,20 @@ func _build_system(src: Dictionary) -> GuSystemData:
 		for key: Variant in chances:
 			system.trait_chances[StringName(str(key))] = ImportUtil.to_float(chances[key])
 	system.start_families = ImportUtil.names(src.get("start_familien"))
+	_fill_paths(system)
 	return system
+
+
+func _fill_paths(system: GuSystemData) -> void:
+	var names: Variant = _gu_json.get("PATHS", {})
+	var colors: Variant = _gu_json.get("PATH_COLOR", {})
+	var conflicts: Variant = _gu_json.get("PATH_CONFLICT", {})
+	if not names is Dictionary or not colors is Dictionary or not conflicts is Dictionary:
+		_report.error("gu.json: PATHS, PATH_COLOR oder PATH_CONFLICT fehlt")
+		return
+	for key: Variant in names:
+		system.path_names[StringName(str(key))] = ImportUtil.text(names[key])
+	for key: Variant in colors:
+		system.path_colors[StringName(str(key))] = ImportUtil.color(colors[key], "Pfadfarbe " + str(key), _report)
+	for key: Variant in conflicts:
+		system.path_conflicts[StringName(str(key))] = ImportUtil.names(conflicts[key])

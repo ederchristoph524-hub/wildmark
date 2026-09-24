@@ -23,4 +23,61 @@ trait_chances = Dictionary[StringName, float]({
 &"eines": 0.39,
 &"glaenzend": 0.01
 })
+path_names = Dictionary[StringName, String]({
+&"blitz": "Blitz",
+&"blut": "Blut",
+&"eis": "Eis",
+&"feuer": "Feuer",
+&"gift": "Gift",
+&"glueck": "Glück",
+&"holz": "Holz",
+&"information": "Information",
+&"kraft": "Kraft",
+&"licht": "Licht",
+&"metall": "Metall",
+&"qi": "Qi",
+&"raffinerie": "Raffinerie",
+&"raum": "Raum",
+&"seele": "Seele",
+&"ton": "Ton",
+&"verwandlung": "Verwandlung",
+&"wasser": "Wasser",
+&"weisheit": "Weisheit",
+&"zeit": "Zeit"
+})
+path_colors = Dictionary[StringName, Color]({
+&"blitz": Color(0.5411765, 0.8156863, 1, 1),
+&"blut": Color(0.8156863, 0.1882353, 0.22745098, 1),
+&"eis": Color(0.7490196, 0.91764706, 1, 1),
+&"feuer": Color(1, 0.47843137, 0.22745098, 1),
+&"gift": Color(0.60784316, 0.23137255, 1, 1),
+&"glueck": Color(0.49019608, 1, 0.60784316, 1),
+&"holz": Color(0.43529412, 0.7490196, 0.2901961, 1),
+&"information": Color(0.6, 1, 1, 1),
+&"kraft": Color(0.8784314, 0.47843137, 0.2901961, 1),
+&"licht": Color(1, 0.9137255, 0.627451, 1),
+&"metall": Color(0.7882353, 0.7882353, 0.83137256, 1),
+&"qi": Color(0.6, 1, 1, 1),
+&"raffinerie": Color(0.7882353, 0.627451, 0.4392157, 1),
+&"raum": Color(0.41568628, 0.8156863, 0.2901961, 1),
+&"seele": Color(0.7882353, 0.627451, 1, 1),
+&"ton": Color(0.8509804, 0.7607843, 0.47843137, 1),
+&"verwandlung": Color(1, 0.5411765, 0.8862745, 1),
+&"wasser": Color(0.2901961, 0.6039216, 0.8156863, 1),
+&"weisheit": Color(0.49803922, 0.78431374, 1, 1),
+&"zeit": Color(0.627451, 0.2901961, 0.8156863, 1)
+})
+path_conflicts = Dictionary[StringName, Array]({
+&"blut": Array[StringName]([&"holz"]),
+&"eis": Array[StringName]([&"feuer"]),
+&"feuer": Array[StringName]([&"eis", &"wasser"]),
+&"holz": Array[StringName]([&"blut"]),
+&"kraft": Array[StringName]([&"weisheit"]),
+&"licht": Array[StringName]([&"seele"]),
+&"raum": Array[StringName]([&"zeit"]),
+&"seele": Array[StringName]([&"licht"]),
+&"wasser": Array[StringName]([&"feuer"]),
+&"weisheit": Array[StringName]([&"kraft"]),
+&"zeit": Array[StringName]([&"raum"])
+})
 start_families = Array[StringName]([&"mondlicht", &"flamme", &"stroemung", &"wirbel"])

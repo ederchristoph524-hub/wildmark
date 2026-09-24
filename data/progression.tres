@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ProgressionData" format=3 uid="uid://u54cwwb4qoq5"]
+
+[ext_resource type="Script" path="res://scripts/resources/progression_data.gd" id="1_fv6nl"]
+
+[resource]
+script = ExtResource("1_fv6nl")
+rank_names = Array[String](["", "Rang 1 · Grünkupfer", "Rang 2 · Rot-Eisen", "Rang 3 · Weißsilber", "Rang 4 · Hell-Gold", "Rang 5 · Lilakristall", "Rang 6 · Grüntraube", "Rang 7 · Rotdattel", "Rang 8 · Weißlitschi", "Rang 9 · Gelb-Aprikose"])
+rank_colors = Array[Color]([Color(1, 1, 1, 1), Color(0.47843137, 0.6039216, 0.2901961, 1), Color(0.6901961, 0.3137255, 0.22745098, 1), Color(0.7882353, 0.7882353, 0.83137256, 1), Color(0.8784314, 0.72156864, 0.22745098, 1), Color(0.627451, 0.2901961, 0.8156863, 1), Color(0.41568628, 0.8156863, 0.2901961, 1), Color(0.8156863, 0.3137255, 0.22745098, 1), Color(0.9411765, 0.93333334, 0.9607843, 1), Color(1, 0.8235294, 0.23921569, 1)])
+rank_essence_names = Array[String](["", "grünkupferne Urenergie", "rot-eiserne Urenergie", "weißsilberne Urenergie", "hell-goldene Urenergie", "lilakristallene Urenergie", "unsterbliche Grüntraubenenergie", "unsterbliche Rotdattelenergie", "unsterbliche Weißlitschienergie", "gelb-aprikosene Unsterblichkeitsessenz"])
+stage_names = Array[String](["Anfangsstufe", "Mittelstufe", "Oberstufe", "Höchststufe"])
+breakthrough_chance = Dictionary[StringName, float]({
+&"A": 0.95,
+&"B": 0.8,
+&"C": 0.62,
+&"D": 0.45,
+&"Durchbrochen": 1.0
+})
+rank_cap = Dictionary[StringName, int]({
+&"A": 5,
+&"B": 4,
+&"C": 3,
+&"D": 2,
+&"Durchbrochen": 5
+})
+talent_flavor = Dictionary[StringName, String]({
+&"A": "Ein herausragendes Talent (80–99%). Solche Genies erreichen für gewöhnlich Rang 5 — den Gipfel der sterblichen Welt.",
+&"B": "Ein gutes Talent (60–79%). Rang 4 gilt als erreichbar.",
+&"C": "Ein durchschnittliches Talent (40–59%). Meist reicht es bis Rang 2 oder 3.",
+&"D": "Ein schwaches Fundament (20–39%). Die meisten mit dieser Aptitude kommen nie über Rang 2 hinaus.",
+&"Durchbrochen": "Eine durchbrochene Apertur (100%)! Eines der Zehn Extremen Physiques — unerreicht im selben Rang, aber die Chance, je unsterblich zu werden, ist verschwindend gering."
+})
+talent_colors = Dictionary[StringName, Color]({
+&"A": Color(0.9098039, 0.7607843, 0.22745098, 1),
+&"B": Color(0.2901961, 0.6039216, 0.8156863, 1),
+&"C": Color(0.43529412, 0.7490196, 0.2901961, 1),
+&"D": Color(0.5764706, 0.6392157, 0.47843137, 1),
+&"Durchbrochen": Color(1, 0.41568628, 0.8156863, 1)
+})

@@ -103,6 +103,8 @@ Automatisch beim Schlafen, beim Betreten eines Ruheorts und alle 5 Minuten; zus�
 
 **M0 – Fundament:** Godot-Projekt, Struktur, Autoloads, Git, automatischer Web-Export auf GitHub Pages, Eingabe für Touch und Tastatur, Datenimport aus `docs/daten/`.
 
+**Aktueller Stand (erster spielbarer Stand):** Neues Spiel mit Wahl des ersten Gu, Talent und Todesmodus; Dschungelgebiet mit Lager, Sammelstellen und Tag-Nacht; Third-Person-Steuerung für Tastatur und Touch; alle 12 Gu-Familien auf Rang 1 spielbar (als wilde Gu in der Welt verfeinerbar), 6 Zustände, 8 Reaktionen, alle 8 Killer Moves mit Kanalisierung und Eingebung; Hunger und Fütterung; Bestien der Zonen 0–2 mit Telegraphen und Beute; Meditation, Stufen und Durchbruch; Speichern, Laden und Tod nach Modus. Noch offen: Rang 2 und 3 der Familien als eigene Ranggaben, Körper- und Hilfs-Gu, Aufstiegsverfeinerung, Welt-Hindernisse, Klan-Dorf mit NPCs und Quests, Bauen, spielbare Kindheit, Slot-Wechsel im Kampf mit Kanalisierung, Ziel antippen am Handy.
+
 **M1 – Bewegung und Welt:** Third-Person-Charakter (laufen, springen, Dash, Kamera), kleines Dschungelgebiet mit Vegetation, Tag-Nacht-Zyklus.
 
 **M2 – Vertical Slice (Südliche Grenze, Rang 1–2)**

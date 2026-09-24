@@ -33,7 +33,7 @@ Widersprechen sich Dokumente, gilt: `GU_SYSTEM.md` > `KAMPFSYSTEM.md` > `GDD.md`
 - **Renderer:** Compatibility. Keine Features, die nur mit Forward+ funktionieren (z. B. SDFGI, volumetrischer Nebel, bestimmte Post-Effekte), ohne Fallback.
 - **Web-Export:** Single-Threaded (ohne SharedArrayBuffer, damit er auf GitHub Pages läuft). Preset „Web“ in `export_presets.cfg`, Build und Veröffentlichung über `.github/workflows/web.yml` bei jedem Push auf `main` (`GODOT_VERSION` dort bei jedem Godot-Update mitändern). Die Engine allein sind ca. 10 MB komprimierter Download; der Workflow schreibt die Größe in die Build-Zusammenfassung. Für Handy-Texturen ist `import_etc2_astc` aktiv.
 - **Eingabe:** Tastatur/Maus und Touch. Jede Aktion ist in der Input Map definiert und hat beide Eingabewege. Keine hart codierten Tasten.
-- **Input Map** (in `project.godot`, Tasten als physische Tasten): `move_forward/back/left/right`, `jump`, `attack_fist`, `gu_slot_1`–`gu_slot_4`, `killer_move`, `killer_move_next`/`killer_move_prev`, `dash`, `target_lock`, `target_switch`, `eat_primeval_stone`. Touch-Bedienelemente lösen dieselben Aktionen aus. Die Kamera ist keine Aktion (Mausbewegung bzw. Wischen, im Code). Achtung: Godot emuliert Touch als Mausklick – Klicks mit `device == InputEvent.DEVICE_ID_EMULATION` dürfen `attack_fist` nicht auslösen.
+- **Input Map** (in `project.godot`, Tasten als physische Tasten): `move_forward/back/left/right`, `jump`, `attack_fist`, `gu_slot_1`–`gu_slot_4`, `killer_move`, `killer_move_next`/`killer_move_prev`, `dash`, `target_lock`, `target_switch`, `eat_primeval_stone`, `interact` (E), `meditate` (M), `gu_menu` (G), `pause_menu` (Esc). Touch-Bedienelemente lösen dieselben Aktionen aus. Die Kamera ist keine Aktion (Mausbewegung bzw. Wischen, im Code). Achtung: Godot emuliert Touch als Mausklick – Klicks mit `device == InputEvent.DEVICE_ID_EMULATION` dürfen `attack_fist` nicht auslösen. Die Touch-Steuerung (`scenes/ui/touch_controls.gd`) wertet Multitouch selbst aus (Joystick, Kamera-Wischen, Buttons) und sendet `InputEventAction`s; GUI-Buttons können nur einen Finger gleichzeitig.
 
 ## Ordnerstruktur
 
@@ -42,6 +42,7 @@ res://
   autoload/        EventBus, GameState, DataRegistry, SaveSystem, Balance
   data/            generierte Resources (.tres) – nie von Hand bearbeiten
     gu/            families/ (Mitglieder eingebettet), body/, support/, traits/, gu_system.tres
+    progression.tres  Ränge, Stufen, Talentgrade (aus fortschritt.json)
     combat/        statuses/, reactions/
     killer_moves/  items/  enemies/  regions/  sects/  quests/
   scripts/
@@ -65,11 +66,13 @@ docs/
 - `DataRegistry` – lädt beim Start alle Resources aus `data/` und liefert sie per ID (`DataRegistry.gu(&"mondlicht")`).
   Abfragen: `gu`, `family`, `family_of`, `body_gu`, `support_gu`, `trait_data`, `status`, `reaction`, `killer_move`, `enemy`, `item`, `region` (int), `sect`, `quest`, `gu_system`; Listen: `all(&"enemies")`, `all_gu()`; dazu `has`, `has_gu`, `count`. Unbekannte IDs liefern `null` und einen Fehler im Log. Lädt über `ResourceLoader.list_directory`, damit es auch im Web-Export funktioniert.
 - `SaveSystem` – JSON in `user://`, mit `save_version` und Migrationen bei Formatänderungen.
-- `Balance` – ein Resource mit allen Balancing-Konstanten aus `FORMELN.md`.
+- `Balance` – `Balance.values` ist ein `BalanceData` mit allen Balancing-Konstanten aus `FORMELN.md` und `KAMPFSYSTEM.md` (Standardwerte im Skript; optional überschrieben durch `res://data/balance.tres`). Auch die Parameter der Reaktionen (`reaction_rules`), Merkmale (`trait_rules`) und Killer Moves (`killer_rules`) stehen dort.
 
 **Datengetrieben:** Inhalte kommen ausschließlich aus `data/`. Ein neuer Gu darf keinen neuen Code erfordern, solange sein Effekttyp schon existiert. Gu-Wirkungen werden über die **Wirkformen** aus `GU_SYSTEM.md` (geschoss, strahl, stich, kreis, selbst, bewegung, zaehmen …) mit Tags und Zuständen umgesetzt, nie als Sonderfall pro Gu. Zustände und Reaktionen sind datengetrieben: Eine neue Reaktion ist ein Tabelleneintrag, kein neuer Code.
 
 **Komponenten statt Vererbungsketten:** `StatusComponent` (Zustände, Stapel, Reaktionen – auch auf Welt-Objekten), `HealthComponent`, `ApertureComponent` (Rang, Stufe, Uressenz, Talent, Wand), `GuHolderComponent` (Besitz, Slots, Hunger, Unterhalt), `DaoComponent`, `HitboxComponent`. Spieler und NPC-Gu-Meister nutzen dieselben Komponenten; der Unterschied ist nur, ob Eingabe oder KI sie steuert.
+
+**Spielablauf:** `scenes/main.gd` (Startmenü, Sitzung, Menüs mit Pause, Autospeichern, Tod) → `World` (`scenes/world/`: Gelände, Vegetation als MultiMesh-Kacheln, Sammelstellen, Lager, wilde Gu, `EnemySpawner`, `DayNight`) → `Player` (`scenes/player/`) und `Enemy` (`scenes/enemies/`), beide `Combatant` (`scripts/components/combatant.gd`: Team, `HealthComponent`, `StatusComponent`, Treffer). Gu-Wirkungen: `GuCaster` (Wirkformen), `ReactionEffects`, `KillerMoveEffects`, `Projectile` in `scripts/systems/`. Oberfläche in `scenes/ui/`. `DaoComponent` und `HitboxComponent` gibt es noch nicht (Kampfabfragen laufen über Gruppen in `Combat`).
 
 **Kern-Resources:**
 - `GuFamilyData`: `id`, `display_name`, `path`, `role`, `form`, `tags`, `status`, `feed_item`, `feed_amount`, `base_r1` (Dictionary), `members` (Array von `GuData`), `upgrade_materials`, `world_effect`
@@ -77,7 +80,8 @@ docs/
 - `GuInstance` (Laufzeit, gespeichert): `gu_id`, `trait_id`, `satiety`, `cooldown_left` (`trait` ist ab Godot 4.7 ein reserviertes Wort)
 - `StatusData`, `ReactionData`, `TraitData`, `BodyGuData`, `SupportGuData`
 - `ReactionData`: `target_status` ist eine Zustands-ID oder eine abgeleitete Bedingung aus `ReactionData.DERIVED_CONDITIONS` (derzeit `eingefroren`); `min_stacks` > 0 verlangt Mindeststapel (aus `gift_ab_3` wird `gift` mit 3)
-- `GuSystemData`: Tags, Merkmal-Chancen, Start-Familien (`data/gu/gu_system.tres`)
+- `GuSystemData`: Tags, Merkmal-Chancen, Start-Familien, Pfadnamen/-farben/-konflikte (`data/gu/gu_system.tres`)
+- `ProgressionData`: Rangnamen und -farben, Stufen, Durchbruchschancen, Rang-Obergrenzen je Talentgrad (`data/progression.tres`)
 - `KillerMoveData`: `id`, `display_name`, `family_a`, `family_b`, `channel_time`, `damage_mult`, `description`, `hint`
 - `EnemyData` (Beute als `Array[DropEntry]`: jeder Eintrag wird einzeln gewürfelt, gleiche Items dürfen mehrfach vorkommen), `ItemData` (Grundressourcen und Materialien, ein ID-Raum), `RegionData` (ID ist int), `SectData`, `QuestData`
 
@@ -91,7 +95,7 @@ docs/
 - Erst wird alles gebaut und geprüft, dann geschrieben: Bei einem Fehler bleibt `data/` unverändert. Vorhandene UIDs bleiben erhalten; ein zweiter Lauf ohne Datenänderung ändert keine Datei.
 - `.tres`-Dateien, deren ID nicht mehr in den Daten steht, werden nur als Warnung gemeldet, nicht gelöscht.
 - Warnung statt Fehler: Sekten-Signatur-Gu, die nur im Ideenpool `gu.json` stehen (kommen in späteren Meilensteinen), und Material-Pfade, die in `gu.json → PATHS` fehlen.
-- Nicht importiert: `fortschritt.json`, `unsterblich.json`, `KILLERS` aus `killer_moves.json`, `GEAR`, `BUILD`, `GUMASTER`, `VARIANTS`, `NPCTYPE`, `SECTRANKS`, `FACTIONS`, `STANDING`, `ZONE_NAMES` – dafür gibt es noch keine Resource-Klasse.
+- Nicht importiert: `unsterblich.json`, aus `fortschritt.json` nur `PHYS` und `CFG`, `KILLERS` aus `killer_moves.json`, `GEAR`, `BUILD`, `GUMASTER`, `VARIANTS`, `NPCTYPE`, `SECTRANKS`, `FACTIONS`, `STANDING`, `ZONE_NAMES` – dafür gibt es noch keine Resource-Klasse.
 
 IDs aus dem JSON bleiben als `StringName` erhalten. Werte mit `[fn]` sind JavaScript-Referenzlogik und werden nicht importiert, sondern beim Umsetzen des Effekts gelesen. Nach Datenänderungen das Skript erneut ausführen.
 
@@ -116,6 +120,17 @@ Für Gu wird ausschließlich `gu_system.json` importiert; `gu.json` liefert nur 
 - Neue `class_name`-Klassen werden erst nach einem Import erkannt: nach dem Anlegen `godot --headless --import --path .` ausführen.
 - `export_presets.cfg` gehört ins Repository (ohne Passwörter), sonst kann der Build-Workflow nicht exportieren.
 - Physik in `_physics_process`, Eingabe-Aktionen über `Input.is_action_*`, nie über Tastencodes.
+- **Packed-Arrays in Resources** (`PackedStringArray`, `PackedColorArray` …) kamen im Web-Export leer an. In Resource-Klassen deshalb `Array[String]`, `Array[Color]` usw. verwenden.
+- **Freigegebene Objekte:** Im Release-Build (auch Web) stürzt ein Methodenaufruf auf ein freigegebenes Objekt ab. Gespeicherte Verweise auf Figuren (Ziele, Angreifer) vor der Nutzung mit `is_instance_valid()` prüfen.
+- **Test-Skripte** (`extends SceneTree`) kennen die Autoload-Namen beim Kompilieren nicht. Die eigentlichen Schritte stehen deshalb in einer eigenen Datei, die nach dem Start geladen wird (siehe `tests/test_game_smoke.gd`). Tests setzen `SaveSystem.save_path` auf einen eigenen Pfad.
+- Controls, die per Code den ganzen Bildschirm füllen sollen, mit `set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)` anlegen, nicht nur `set_anchors_preset`.
+
+## Prüfen und Testen
+
+- `godot --headless --import --path .`
+- Alle Skripte mit Warnungen als Fehler laden: `godot --headless --path . --script res://tools/check_scripts.gd` (dazu die Warnstufen per `override.cfg` auf 2 setzen; `override.cfg` nie committen).
+- Tests: `tests/test_formulas.gd`, `tests/test_data_import.gd`, `tests/test_data_registry.gd` und der Durchspiel-Test `tests/test_game_smoke.gd` (mit `--fixed-fps 60`), jeweils `godot --headless --path . --script res://tests/<name>.gd`.
+- Bildschirmfotos samt Draw Calls: `xvfb-run godot --path . --rendering-driver opengl3 --fixed-fps 60 --script res://tools/capture_screenshots.gd` → `build/screenshots/`.
 
 ## Performance-Budget (Handy-Browser)
 

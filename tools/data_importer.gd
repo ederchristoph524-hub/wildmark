@@ -4,7 +4,7 @@ extends RefCounted
 
 const SOURCE_DIR := "res://docs/daten/"
 ## Nur diese Dateien werden gelesen; gu.json liefert Pfade und Lore, nicht die Gu selbst.
-const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests"]
+const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests", "fortschritt"]
 const TARGET_DIRS: Dictionary[String, String] = {
 	"families": "res://data/gu/families/",
 	"body": "res://data/gu/body/",
@@ -20,6 +20,7 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"quests": "res://data/quests/",
 }
 const GU_SYSTEM_PATH := "res://data/gu/gu_system.tres"
+const PROGRESSION_PATH := "res://data/progression.tres"
 const REGION_FILE_PREFIX := "region_"
 const COUNT_LABELS: Dictionary[String, String] = {
 	"families": "Familien",
@@ -46,9 +47,9 @@ func run() -> bool:
 	var sources: Dictionary = _load_sources()
 	if report.has_errors():
 		return _finish(false)
-	var gudex: Dictionary = (sources["gu"] as Dictionary).get("GUDEX", {})
-	var built: Dictionary = GuImportBuilder.new(report, gudex).build(sources["gu_system"])
+	var built: Dictionary = GuImportBuilder.new(report, sources["gu"]).build(sources["gu_system"])
 	built.merge(WorldImportBuilder.new(report).build(sources))
+	built["progression"] = ProgressionImportBuilder.new(report).build(sources["fortschritt"])
 	ImportValidator.new(report).validate(built, sources)
 	if report.has_errors():
 		return _finish(false)
@@ -90,6 +91,7 @@ func _write_all(built: Dictionary) -> void:
 			written[file_name] = true
 		_warn_stale_files(dir, written)
 	_save(built["gu_system"], GU_SYSTEM_PATH)
+	_save(built["progression"], PROGRESSION_PATH)
 
 
 func _file_name_for(type: String, resource: Resource) -> String:
@@ -146,7 +148,9 @@ func _print_counts(built: Dictionary) -> void:
 			line += "  (mit %d Gu)" % member_count
 		print(line)
 	var system: GuSystemData = built["gu_system"]
-	print("  %-13s %3d Tags, %d Start-Familien" % ["Gu-System:", system.tags.size(), system.start_families.size()])
+	print("  %-13s %3d Tags, %d Start-Familien, %d Pfade" % ["Gu-System:", system.tags.size(), system.start_families.size(), system.path_names.size()])
+	var progression: ProgressionData = built["progression"]
+	print("  %-13s %3d Ränge, %d Stufen, %d Talentgrade" % ["Fortschritt:", progression.rank_names.size() - 1, progression.stage_names.size(), progression.rank_cap.size()])
 
 
 func _finish(ok: bool) -> bool:

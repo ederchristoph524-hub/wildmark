@@ -6,5 +6,18 @@ extends Resource
 @export var tags: Dictionary[StringName, String] = {}
 ## Chancen für Merkmale (z. B. eines, glaenzend).
 @export var trait_chances: Dictionary[StringName, float] = {}
+## Pfad-ID → Anzeigename und Farbe (aus gu.json → PATHS, PATH_COLOR).
+@export var path_names: Dictionary[StringName, String] = {}
+@export var path_colors: Dictionary[StringName, Color] = {}
+## Pfad-ID → gegensätzliche Pfade (gu.json → PATH_CONFLICT).
+@export var path_conflicts: Dictionary[StringName, Array] = {}
 ## Familien, aus denen beim Erwachen gewählt werden kann.
 @export var start_families: Array[StringName] = []
+
+
+func path_color(path: StringName) -> Color:
+	return path_colors.get(path, Color.WHITE)
+
+
+func path_name(path: StringName) -> String:
+	return path_names.get(path, String(path))
