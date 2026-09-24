@@ -278,6 +278,13 @@ extends Resource
 @export var despawn_distance: float = 70.0
 @export var pickup_radius: float = 1.6
 
+@export_group("Slots im Kampf")
+## Im Kampf: Gegner näher als combat_radius oder Treffer/Gu-Einsatz vor weniger als combat_linger Sekunden.
+@export var combat_radius: float = 12.0
+@export var combat_linger: float = 5.0
+## Slot-Wechsel im Kampf braucht so lange Kanalisierung (KAMPFSYSTEM: 3 s).
+@export var slot_switch_channel: float = 3.0
+
 @export_group("Gu-Meister und Duell")
 ## Kultivierung des Dorf-Gu-Meisters (Rang 2, Stufe 1, durchschnittliches Talent).
 @export var master_rank: int = 2

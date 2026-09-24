@@ -8,6 +8,8 @@ const FOOD_HEAL: Dictionary[StringName, String] = {&"beeren": "berry_heal", &"fl
 static func gu_page(player: Player, refresh: Callable) -> Control:
 	var column := VBoxContainer.new()
 	column.add_child(UiTheme.label(Loc.t("Gu in deiner Apertur: %d / %d (mit Hilfs-Gu). Tippe eine Slot-Nummer, um den Gu dorthin zu legen.") % [GameState.held_count(), PassiveGu.capacity()], 17, UiTheme.MUTED))
+	if player.loadout.in_combat():
+		column.add_child(UiTheme.label(Loc.t("Im Kampf: Ein Slot-Wechsel wird nach dem Schließen %d s lang kanalisiert – ein Treffer bricht ihn ab.") % roundi(Balance.values.slot_switch_channel), 17, UiTheme.ACCENT))
 	for index: int in GameState.gu.size():
 		column.add_child(_gu_row(player, index, refresh))
 	if GameState.gu.is_empty():
@@ -43,11 +45,11 @@ static func _gu_row(player: Player, index: int, refresh: Callable) -> Control:
 	actions.add_child(UiTheme.button(Loc.t("Füttern: %d %s (hast %d)") % [holder.feed_cost(instance), Loc.t(item.display_name), GameState.item_count(item.id)], on_feed))
 	for slot: int in GameState.SLOT_COUNT:
 		var on_assign: Callable = func() -> void:
-			_assign(index, slot)
+			player.loadout.assign(index, slot)
 			refresh.call()
 		var button: Button = UiTheme.button(str(slot + 1), on_assign, 48.0)
 		button.toggle_mode = true
-		button.button_pressed = GameState.slots[slot] == index
+		button.button_pressed = player.loadout.shown_slots()[slot] == index
 		button.custom_minimum_size.x = 48.0
 		actions.add_child(button)
 	_add_upgrade_row(row, player, instance, refresh)
@@ -74,13 +76,6 @@ static func _add_upgrade_row(row: VBoxContainer, player: Player, instance: GuIns
 	var button: Button = UiTheme.button(Loc.t("Aufsteigen") if reason == "" else reason, on_upgrade, 44.0)
 	button.disabled = reason != ""
 	row.add_child(button)
-
-
-static func _assign(index: int, slot: int) -> void:
-	for other: int in GameState.SLOT_COUNT:
-		if GameState.slots[other] == index:
-			GameState.slots[other] = GameState.EMPTY_SLOT
-	GameState.slots[slot] = index
 
 
 static func combo_page() -> Control:

@@ -144,6 +144,8 @@ func _open_menu(menu: Control) -> void:
 
 func _on_menu_closed() -> void:
 	get_tree().paused = false
+	if player != null:
+		player.loadout.begin_pending()
 	if hud != null:
 		hud.visible = true
 		hud.touch.visible = DisplayServer.is_touchscreen_available()

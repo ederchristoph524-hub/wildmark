@@ -12,6 +12,7 @@ func _init(owner_steps: GameSmokeSteps) -> void:
 func run() -> void:
 	print("-- combat_smoke")
 	await _test_tap_target()
+	await _test_slot_switch()
 	await _test_duel()
 
 
@@ -41,6 +42,30 @@ func _test_tap_target() -> void:
 	steps.tree.root.content_scale_factor = 1.0
 	targeting.locked_target = null
 	await steps._clear_enemies()
+
+
+func _test_slot_switch() -> void:
+	GameState.gu.clear()
+	GameState.slots.fill(GameState.EMPTY_SLOT)
+	steps._give(&"mondlicht", 0)
+	steps._give(&"wirbel", 1)
+	var loadout: LoadoutComponent = steps.player.loadout
+	await steps._frames(int(Balance.values.combat_linger * 60.0) + 5)
+	steps._check(not loadout.in_combat() and loadout.assign(1, 2) and GameState.slots[2] == 1 and GameState.slots[1] == GameState.EMPTY_SLOT, "außerhalb des Kampfes wechselt der Slot sofort")
+	loadout.mark_combat()
+	steps._check(not loadout.assign(1, 3) and GameState.slots[2] == 1 and loadout.shown_slots()[3] == 1, "im Kampf wird der Wechsel vorgemerkt")
+	loadout.begin_pending()
+	await steps._frames(60)
+	steps._check(loadout.is_channeling() and GameState.slots[2] == 1, "Wechsel wird kanalisiert")
+	await steps._frames(roundi(Balance.values.slot_switch_channel * 60.0))
+	steps._check(GameState.slots[3] == 1 and GameState.slots[2] == GameState.EMPTY_SLOT and not loadout.is_channeling(), "nach der Kanalisierung gewechselt")
+	loadout.mark_combat()
+	loadout.assign(1, 0)
+	loadout.begin_pending()
+	await steps._frames(30)
+	steps.player.invulnerable_time = 0.0
+	steps.player.receive_hit(HitInfo.create(5.0, null, Combatant.TEAM_ENEMY))
+	steps._check(not loadout.is_channeling() and GameState.slots[3] == 1 and GameState.slots[0] == 0, "Treffer bricht den Wechsel ab")
 
 
 func _tap(at: Vector2) -> void:

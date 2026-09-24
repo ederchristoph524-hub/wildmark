@@ -14,6 +14,7 @@ const SLOT_ACTIONS: Array[StringName] = [&"gu_slot_1", &"gu_slot_2", &"gu_slot_3
 var aperture: ApertureComponent = null
 var holder: GuHolderComponent = null
 var killer: KillerMoveController = null
+var loadout: LoadoutComponent = null
 var camera_rig: PlayerCamera = null
 var model: PlayerModel = null
 var targeting: TargetingComponent = null
@@ -51,6 +52,9 @@ func _ready() -> void:
 	add_child(holder)
 	killer = KillerMoveController.new(self, holder, aperture)
 	add_child(killer)
+	loadout = LoadoutComponent.new(self)
+	add_child(loadout)
+	holder.gu_used.connect(func(_slot: int, _family: StringName) -> void: loadout.mark_combat())
 	camera_rig = PlayerCamera.new()
 	add_child(camera_rig)
 	targeting = TargetingComponent.new(self)
@@ -191,6 +195,7 @@ func use_slot(slot: int) -> void:
 	if not _can_act():
 		return
 	_cancel_idle_actions()
+	loadout.interrupt()
 	if holder.use_slot(slot, aim_direction(), targeting.soft_target):
 		_face(aim_direction())
 
@@ -198,6 +203,7 @@ func use_slot(slot: int) -> void:
 func start_killer_move() -> void:
 	if _can_act() and killer.start(aim_direction()):
 		_cancel_idle_actions()
+		loadout.interrupt()
 
 
 func fist() -> void:
@@ -213,6 +219,7 @@ func fist() -> void:
 	var targets: Array[Combatant] = Combat.in_cone(Combat.hostiles(get_tree(), team), global_position, forward, b.fist_range, FIST_ANGLE)
 	var target: Combatant = Combat.nearest(targets, global_position)
 	if target != null:
+		loadout.mark_combat()
 		hit.knockback = Vector3(forward.x, 0.0, forward.z).normalized() * b.fist_knockback
 		target.receive_hit(hit)
 	else:
@@ -337,9 +344,13 @@ func start_reactive_armor(kind: StringName, duration: float, reduction: float, v
 
 
 func _after_hit(hit: HitInfo, dealt: float) -> void:
-	if dealt <= 0.0 or hit.is_dot:
+	if dealt <= 0.0:
+		return
+	loadout.mark_combat()
+	if hit.is_dot:
 		return
 	killer.interrupt()
+	loadout.interrupt()
 	_cancel_idle_actions()
 	if eat_time_left > 0.0:
 		eat_time_left = 0.0

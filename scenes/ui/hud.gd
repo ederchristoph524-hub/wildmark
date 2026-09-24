@@ -167,9 +167,12 @@ func _update_bars() -> void:
 func _update_center() -> void:
 	var node: Node3D = player.nearest_interactable()
 	_prompt.text = ("E: " if not touch.visible else "") + String(node.call("interact_label")) if node != null else ""
-	_channel.visible = player.killer.is_channeling()
-	if _channel.visible:
+	_channel.visible = player.killer.is_channeling() or player.loadout.is_channeling()
+	if player.killer.is_channeling():
 		_channel.value = player.killer.channel_progress() * 100.0
 		_channel_text.text = tr("Kanalisiere %s …") % tr(player.killer.channel_move.display_name)
+	elif player.loadout.is_channeling():
+		_channel.value = player.loadout.channel_progress() * 100.0
+		_channel_text.text = tr("Ordne Gu neu …")
 	_center_info.text = HudText.center_info(player)
 	_breakthrough.visible = player.aperture.can_break_through() and not player.is_dead()
