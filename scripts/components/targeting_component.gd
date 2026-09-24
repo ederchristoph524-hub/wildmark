@@ -7,6 +7,8 @@ const LOCK_COLOR: Color = Color(1.0, 0.35, 0.25)
 const MARKER_HEIGHT: float = 0.7
 ## Hindernisse werden nur anvisiert, wenn keine Bestie näher liegt.
 const OBSTACLE_PENALTY: float = 12.0
+## Wie nah (Pixel) ein Tipp am Gegner liegen muss.
+const TAP_RADIUS: float = 70.0
 
 var host: Combatant = null
 ## Weiches Ziel; freigegebene oder tote Ziele werden beim Lesen verworfen (Web-Export stürzt sonst ab).
@@ -74,6 +76,30 @@ func find_soft_target() -> Combatant:
 
 func toggle_lock() -> void:
 	locked_target = null if locked_target != null else find_soft_target()
+
+
+## Tippen am Handy: Gegner unter dem Finger fixieren; derselbe erneut gelöst. Liefert das neue Ziel (oder null).
+func tap_select(camera: Camera3D, point: Vector2) -> Combatant:
+	var picked: Combatant = pick_at_screen(camera, point, TAP_RADIUS)
+	if picked != null:
+		locked_target = null if picked == locked_target else picked
+	return locked_target
+
+
+## Gegner, dessen Körpermitte auf dem Bildschirm am nächsten an point liegt (innerhalb max_pixels).
+func pick_at_screen(camera: Camera3D, point: Vector2, max_pixels: float) -> Combatant:
+	var best: Combatant = null
+	var best_distance: float = max_pixels
+	for candidate: Combatant in Combat.hostiles(host.get_tree(), host.team):
+		if candidate.global_position.distance_to(host.global_position) > Balance.values.target_range * 1.5:
+			continue
+		if camera.is_position_behind(candidate.aim_point()):
+			continue
+		var distance: float = camera.unproject_position(candidate.aim_point()).distance_to(point)
+		if distance < best_distance:
+			best_distance = distance
+			best = candidate
+	return best
 
 
 ## Wechselt zum nächsten Gegner im Umkreis (nach Entfernung).

@@ -10,6 +10,9 @@ const BORDER: Color = Color(0.86, 0.72, 0.36, 0.7)
 const MOVE_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_forward", &"move_back"]
 const KILLER_ACTION: StringName = &"killer_move"
 const SWIPE_DISTANCE: float = 40.0
+## Kurzes Tippen im Kamerabereich (kaum bewegt) fixiert den Gegner unter dem Finger.
+const TAP_DISTANCE: float = 18.0
+const TAP_TIME_MS: int = 300
 
 ## Button: Aktion, Mittelpunkt relativ zu einer Bildschirmecke, Radius, Beschriftung.
 var buttons: Array[Dictionary] = []
@@ -20,6 +23,10 @@ var _joystick_center: Vector2 = Vector2.ZERO
 var _joystick_knob: Vector2 = Vector2.ZERO
 var _camera_index: int = -1
 var _camera_last: Vector2 = Vector2.ZERO
+## Freie Berührungen (Joystick oder Kamera): Startpunkt, letzter Punkt, Startzeit – für Tippen.
+var _free_start: Dictionary[int, Vector2] = {}
+var _free_last: Dictionary[int, Vector2] = {}
+var _free_ms: Dictionary[int, int] = {}
 var _pressed: Dictionary[int, StringName] = {}
 ## Killer-Move-Button: Tippen startet, seitliches Wischen wechselt (KAMPFSYSTEM, Steuerung).
 var _killer_index: int = -1
@@ -72,6 +79,8 @@ func _input(event: InputEvent) -> void:
 			_touch_up(touch.index)
 	elif event is InputEventScreenDrag:
 		var drag: InputEventScreenDrag = event
+		if _free_last.has(drag.index):
+			_free_last[drag.index] = drag.position
 		if drag.index == _killer_index:
 			_killer_drag(drag.position)
 		elif drag.index == _joystick_index:
@@ -94,6 +103,9 @@ func _touch_down(index: int, at: Vector2) -> void:
 			_pressed[index] = button["action"]
 			_send(button["action"], true)
 			return
+	_free_start[index] = at
+	_free_last[index] = at
+	_free_ms[index] = Time.get_ticks_msec()
 	if at.x < size.x * JOYSTICK_AREA and _joystick_index < 0:
 		_joystick_index = index
 		_joystick_center = at
@@ -119,6 +131,19 @@ func _touch_up(index: int) -> void:
 			Input.action_release(action)
 	if index == _camera_index:
 		_camera_index = -1
+	if _free_start.has(index):
+		if _free_last[index].distance_to(_free_start[index]) < TAP_DISTANCE and Time.get_ticks_msec() - _free_ms[index] < TAP_TIME_MS:
+			_tap(_free_start[index])
+		_free_start.erase(index)
+		_free_last.erase(index)
+		_free_ms.erase(index)
+
+
+## Gegner antippen: fixieren, anderen antippen wechselt, denselben erneut antippen löst (KAMPFSYSTEM, Steuerung).
+func _tap(at: Vector2) -> void:
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	if player != null and is_instance_valid(player) and camera != null:
+		player.targeting.tap_select(camera, at)
 
 
 func _killer_drag(at: Vector2) -> void:
@@ -161,6 +186,9 @@ func _send(action: StringName, pressed: bool) -> void:
 
 ## Alle Berührungen loslassen (z. B. wenn ein Menü aufgeht).
 func release_all() -> void:
+	_free_start.clear()
+	_free_last.clear()
+	_free_ms.clear()
 	for index: int in _pressed.keys():
 		_touch_up(index)
 	_touch_up(_joystick_index)
