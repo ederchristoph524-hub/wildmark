@@ -27,7 +27,8 @@ func build(sources: Dictionary) -> Dictionary:
 		"npcs": _build_keyed(sources, "gegner", "NPCTYPE", _build_npc),
 		"builds": _build_keyed(sources, "materialien", "BUILD", _build_part),
 		"gu_masters": _build_keyed(sources, "gegner", "GUMASTER", _build_master),
-		"areas": _build_keyed(sources, "gebiete", "GEBIETE", _build_area),
+		"areas": _build_keyed(sources, "gebiete", "GEBIETE", AreaImportBuilder.new(_report).build_area),
+		"biomes": _build_keyed(sources, "gebiete", "BIOME", AreaImportBuilder.new(_report).build_biome),
 	}
 
 
@@ -163,21 +164,6 @@ func _build_region(d: Dictionary) -> Resource:
 	region.wall_color = ImportUtil.color(map.get("mauer_c", "#ffffff"), context, _report)
 	return region
 
-
-func _build_area(id: StringName, d: Dictionary) -> Resource:
-	var context: String = "Gebiet '%s'" % id
-	if not ImportUtil.require(d, ["n", "region", "karte", "rang"], context, _report):
-		return null
-	var area := AreaData.new()
-	area.id = id
-	area.display_name = ImportUtil.text(d["n"])
-	area.region = ImportUtil.to_int(d["region"])
-	area.map_position = Vector2(ImportUtil.to_float(d["karte"][0]), ImportUtil.to_float(d["karte"][1]))
-	area.rank_min = ImportUtil.to_int(d["rang"][0], 1)
-	area.rank_max = ImportUtil.to_int(d["rang"][1], area.rank_min)
-	area.open = bool(d.get("offen", false))
-	area.description = ImportUtil.text(d.get("d"))
-	return area
 
 
 func _build_sect(d: Dictionary) -> Resource:

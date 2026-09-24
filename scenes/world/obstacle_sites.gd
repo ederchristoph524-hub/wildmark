@@ -1,36 +1,26 @@
 class_name ObstacleSites
 extends RefCounted
-## Die sieben Hindernis-Orte im Startgebiet, hinter jedem ein versteckter wilder Rang-2-Gu (GDD, M2).
+## Hindernis-Orte eines Gebiets (gebiete.json → hindernisse), hinter jedem ein versteckter wilder Gu (GDD, M2).
 
 const RING_RADIUS: float = 3.4
 const POND_RADIUS: float = 6.0
 const LEDGE_HEIGHT: float = 2.1
 const SWITCH_OFFSET: float = 5.0
-const FLAT_SLOPE: float = 0.18
-## ID, Art, Belohnung (Gu-ID), Richtung vom Lager (Grad), Entfernung.
-const SITES: Array[Array] = [
-	[&"site_hecke", WorldObstacle.KIND_HEDGE, &"mondsichel", 20.0, 58.0],
-	[&"site_wasser", WorldObstacle.KIND_WATER, &"wasserbohrer", 75.0, 66.0],
-	[&"site_fels", WorldObstacle.KIND_BOULDER, &"blauplasma", 130.0, 60.0],
-	[&"site_schalter", WorldObstacle.KIND_SWITCH, &"flammenzunge", 185.0, 64.0],
-	[&"site_licht", WorldObstacle.KIND_LIGHT, &"eisvogel", 240.0, 58.0],
-	[&"site_blut", WorldObstacle.KIND_BLOOD, &"sogwirbel", 290.0, 70.0],
-	[&"site_vorsprung", &"vorsprung", &"giftskorpion", 335.0, 55.0],
-]
+## Mittelpunkte der Hindernis-Orte aus den Gebietsdaten (Richtung und Abstand von der Gebietsmitte).
+static func centers(area: AreaData) -> Array[Vector2]:
+	var result: Array[Vector2] = []
+	for site: Dictionary in area.obstacles:
+		var angle: float = deg_to_rad(float(site["angle"]))
+		result.append(Vector2(cos(angle), sin(angle)) * float(site["distance"]))
+	return result
 
 
-## Mittelpunkte aller Orte (vor der Vegetation berechnet, damit dort keine Bäume stehen).
-static func plan(world: World) -> Array[Vector3]:
-	var centers: Array[Vector3] = []
-	for site: Array in SITES:
-		centers.append(_flat_spot(world, deg_to_rad(float(site[3])), float(site[4])))
-	return centers
-
-
-static func build(world: World, centers: Array[Vector3]) -> void:
-	for index: int in SITES.size():
-		var site: Array = SITES[index]
-		var center: Vector3 = centers[index]
+static func build(world: World, area: AreaData) -> void:
+	var points: Array[Vector2] = centers(area)
+	for index: int in area.obstacles.size():
+		var entry: Dictionary = area.obstacles[index]
+		var site: Array = [entry["id"], entry["kind"], entry["reward"]]
+		var center: Vector3 = world.ground_point(points[index].x, points[index].y)
 		world.add_poi(center, MapData.KIND_SITE, Loc.t("Rätselort"))
 		var reward_height: float = 0.8
 		match site[1]:
@@ -92,21 +82,3 @@ static func _reward(world: World, site: Array, at: Vector3) -> void:
 	wild.setup(spot, DataRegistry.gu(site[2]))
 	world.add_child(wild)
 	wild.position = at
-
-
-## Möglichst ebener Platz in der Nähe der gewünschten Richtung und Entfernung.
-static func _flat_spot(world: World, angle: float, distance: float) -> Vector3:
-	var best: Vector3 = world.ground_point(cos(angle) * distance, sin(angle) * distance)
-	var best_slope: float = INF
-	for attempt: int in 24:
-		var a: float = angle + (attempt % 6 - 2.5) * 0.06
-		var d: float = distance + floorf(attempt / 6.0) * 4.0 - 6.0
-		var x: float = cos(a) * d
-		var z: float = sin(a) * d
-		var slope: float = world.terrain.slope_at(x, z) + world.terrain.slope_at(x + 3.0, z) + world.terrain.slope_at(x, z + 3.0)
-		if slope < best_slope:
-			best_slope = slope
-			best = world.ground_point(x, z)
-		if slope < FLAT_SLOPE:
-			break
-	return best

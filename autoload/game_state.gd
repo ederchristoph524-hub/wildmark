@@ -18,6 +18,8 @@ var apt: float = 50.0
 var physique: StringName = &""
 ## Gebiet, in dem sich der Spieler befindet (AreaData-ID).
 var area: StringName = &"qing_mao"
+## Geöffnete Erbschaften (Orts-IDs).
+var inheritances: Array[StringName] = []
 var first_family: StringName = &"mondlicht"
 
 # --- Spieler ---
@@ -76,6 +78,7 @@ func reset(options: Dictionary) -> void:
 	apt = options.get("apt", 50.0)
 	physique = options.get("physique", &"")
 	area = options.get("area", &"qing_mao")
+	inheritances = []
 	first_family = options.get("first_family", &"mondlicht")
 	rank = 1
 	stage = 0
@@ -180,7 +183,7 @@ func to_dict() -> Dictionary:
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
 			"collected_wild_gu": collected_wild_gu, "opened_obstacles": opened_obstacles, "loot_sack": _sack_to_dict(),
 			"quests": _names_to_strings(quests), "kills": kills, "built_count": built_count,
-			"duels_won": duels_won, "last_duel_day": last_duel_day, "childhood_step": childhood_step, "area": area,
+			"duels_won": duels_won, "last_duel_day": last_duel_day, "childhood_step": childhood_step, "area": area, "inheritances": inheritances,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
@@ -239,10 +242,11 @@ func _player_from_dict(p: Dictionary) -> void:
 	last_duel_day = int(p.get("last_duel_day", 0))
 	childhood_step = int(p.get("childhood_step", -1))
 	area = StringName(str(p.get("area", "qing_mao")))
+	inheritances = _strings_to_names(p.get("inheritances", []))
 	built_count = int(p.get("built_count", 0))
 	for entry: Variant in p.get("buildings", []):
 		if entry is Dictionary:
-			buildings.append({"id": StringName(str(entry.get("id", ""))), "position": _array_to_vec(entry.get("position", [])), "yaw": float(entry.get("yaw", 0.0))})
+			buildings.append({"id": StringName(str(entry.get("id", ""))), "position": _array_to_vec(entry.get("position", [])), "yaw": float(entry.get("yaw", 0.0)), "area": StringName(str(entry.get("area", "qing_mao")))})
 	for visited: Variant in p.get("visited_areas", []):
 		visited_areas.append(str(visited))
 	var sack: Dictionary = p.get("loot_sack", {})
@@ -250,19 +254,19 @@ func _player_from_dict(p: Dictionary) -> void:
 		var sack_items: Dictionary = {}
 		for key: Variant in sack.get("items", {}):
 			sack_items[StringName(str(key))] = int(sack["items"][key])
-		loot_sack = {"position": _array_to_vec(sack.get("position", [])), "items": sack_items}
+		loot_sack = {"position": _array_to_vec(sack.get("position", [])), "items": sack_items, "area": StringName(str(sack.get("area", area)))}
 
 
 func _sack_to_dict() -> Dictionary:
 	if loot_sack.is_empty():
 		return {}
-	return {"position": _vec_to_array(loot_sack["position"]), "items": _names_to_strings(loot_sack["items"])}
+	return {"position": _vec_to_array(loot_sack["position"]), "items": _names_to_strings(loot_sack["items"]), "area": String(loot_sack.get("area", area))}
 
 
 func _buildings_to_list() -> Array:
 	var result: Array = []
 	for entry: Dictionary in buildings:
-		result.append({"id": String(entry["id"]), "position": _vec_to_array(entry["position"]), "yaw": entry["yaw"]})
+		result.append({"id": String(entry["id"]), "position": _vec_to_array(entry["position"]), "yaw": entry["yaw"], "area": String(entry.get("area", "qing_mao"))})
 	return result
 
 

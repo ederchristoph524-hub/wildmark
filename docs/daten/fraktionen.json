@@ -21,6 +21,48 @@
    "gu": "mondlicht"
   },
   {
+   "id": "bai_clan",
+   "n": "Bai-Klan",
+   "f": "righteous",
+   "reg": 1,
+   "ic": "❄️",
+   "type": "klan",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "gu_yue",
+    "xiong_clan"
+   ],
+   "pol": "Nachbarklan am Qing-Mao-Berg, stolz auf seine Wasser- und Eis-Gu. Wartet auf eine Schwäche der Gu-Yue.",
+   "d": "Klan vom Qing-Mao-Berg mit weißen Roben.",
+   "gift": {
+    "kristall": 5,
+    "stein": 15
+   },
+   "gu": "wasserlicht"
+  },
+  {
+   "id": "xiong_clan",
+   "n": "Xiong-Klan",
+   "f": "righteous",
+   "reg": 1,
+   "ic": "🐻",
+   "type": "klan",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "gu_yue",
+    "bai_clan"
+   ],
+   "pol": "Der dritte Klan am Qing-Mao-Berg, bekannt für Kraft- und Bestien-Gu. Grob, aber ehrlich.",
+   "d": "Klan vom Qing-Mao-Berg, stark wie Bären.",
+   "gift": {
+    "kristall": 5,
+    "fleisch": 10
+   },
+   "gu": "wirbelwind"
+  },
+  {
    "id": "himmelshof",
    "n": "Himmlischer Hof",
    "f": "righteous",

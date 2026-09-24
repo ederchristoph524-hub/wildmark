@@ -141,17 +141,18 @@ func _shoot_duel(player: Player) -> void:
 			return
 
 
-## Ein Bild je Hindernis-Ort, aus Richtung des Lagers gesehen.
+## Ein Bild je Hindernis-Ort, aus Richtung der Gebietsmitte gesehen.
 func _shoot_sites(player: Player) -> void:
-	var centers: Array[Vector3] = ObstacleSites.plan(main.world)
+	var area: AreaData = main.world.area
+	var centers: Array[Vector2] = ObstacleSites.centers(area)
 	for index: int in centers.size():
-		var center: Vector3 = centers[index]
-		var toward_camp: Vector3 = (-center).normalized() * 10.0
-		var at: Vector3 = center + toward_camp
+		var center: Vector3 = main.world.ground_point(centers[index].x, centers[index].y)
+		var toward_center: Vector3 = (-center).normalized() * 10.0
+		var at: Vector3 = center + toward_center
 		player.global_position = Vector3(at.x, main.world.terrain.height_at(at.x, at.z) + 0.5, at.z)
-		player.camera_rig.yaw = atan2(toward_camp.x, toward_camp.z)
+		player.camera_rig.yaw = atan2(toward_center.x, toward_center.z)
 		await _frames(15)
-		await _shot("site_%d_%s" % [index, String(ObstacleSites.SITES[index][1])])
+		await _shot("site_%d_%s" % [index, String(area.obstacles[index]["kind"])])
 
 
 func _frames(count: int) -> void:

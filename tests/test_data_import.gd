@@ -14,7 +14,7 @@ const EXPECTED_COUNTS: Dictionary[String, int] = {
 	"res://data/enemies/": 25,
 	"res://data/items/": 41,
 	"res://data/regions/": 8,
-	"res://data/sects/": 15,
+	"res://data/sects/": 17,
 	"res://data/quests/": 18,
 }
 const EXPECTED_GU_MEMBERS: int = 36

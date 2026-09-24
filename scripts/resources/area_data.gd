@@ -1,6 +1,7 @@
 class_name AreaData
 extends Resource
-## Ein bereisbares Gebiet der Gu-Welt (aus gebiete.json): Region, Lage auf der Weltkarte, empfohlene Ränge.
+## Ein bereisbares Gebiet der Gu-Welt (aus gebiete.json): Lage auf der Weltkarte, Gelände, Siedlungen, Orte, Gegner und Funde.
+## Koordinaten im Gebiet in Metern (x nach Osten, z nach Süden, Mitte = 0,0).
 
 @export var id: StringName
 @export var display_name: String = ""
@@ -13,3 +14,40 @@ extends Resource
 ## Schon bereisbar (sonst nur als unerforschter Ort auf der Karte).
 @export var open: bool = false
 @export_multiline var description: String = ""
+
+@export_group("Gelände")
+## Kantenlänge in Metern.
+@export var size: float = 240.0
+@export var terrain_seed: int = 1
+@export var biome: StringName
+## hoehe, frequenz, detail, berge, rand, randhoehe.
+@export var relief: Dictionary[StringName, float] = {}
+## Ankunftspunkt (x, z) bei Reisen und neuem Spiel.
+@export var arrival: Vector2 = Vector2.ZERO
+## Wege als Listen von Punkten (Vector2).
+@export var paths: Array = []
+
+@export_group("Inhalte")
+## Je Siedlung: id, type, faction, position (Vector2), radius, houses, colors, residents.
+@export var settlements: Array[Dictionary] = []
+## Je Ort: type, name, position, radius und typabhängige Felder (item, count, offering, guards, reward, text).
+@export var places: Array[Dictionary] = []
+## Hindernis-Orte: id, kind, reward (Gu-ID), angle (Grad), distance.
+@export var obstacles: Array[Dictionary] = []
+## Gegenstand → [Anzahl, Ertrag].
+@export var resources: Dictionary[StringName, Vector2i] = {}
+## Zonengrenzen (Abstand von der Mitte) und je Zone die erlaubten Gegner-Zonen aus gegner.json.
+@export var enemy_radii: Array[float] = []
+@export var enemy_zones: Array = []
+@export var wild_gu_rank: int = 1
+@export var wild_gu_range: Vector2 = Vector2(60.0, 200.0)
+## Passive wilde Gu: [id, body|support, min, max, versteckt].
+@export var wild_passives: Array = []
+
+
+## Siedlung per ID (leer, wenn es sie nicht gibt).
+func settlement(settlement_id: StringName) -> Dictionary:
+	for entry: Dictionary in settlements:
+		if entry.get("id") == settlement_id:
+			return entry
+	return {}

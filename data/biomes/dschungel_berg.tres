@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://cgiukbgv85y0f"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_pqv3s"]
+
+[resource]
+script = ExtResource("1_pqv3s")
+id = &"dschungel_berg"
+display_name = "Bergdschungel der Südlichen Grenze"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.41960785, 0.3372549, 0.21960784, 1),
+&"fels": Color(0.3647059, 0.36078432, 0.33333334, 1),
+&"gipfel": Color(0.5411765, 0.5411765, 0.5019608, 1),
+&"gras_dunkel": Color(0.2, 0.36862746, 0.21960784, 1),
+&"gras_hell": Color(0.34117648, 0.56078434, 0.2784314, 1),
+&"moos": Color(0.4, 0.49803922, 0.2, 1),
+&"platz": Color(0.6039216, 0.5411765, 0.41568628, 1),
+&"weg": Color(0.5411765, 0.4509804, 0.3137255, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.4,
+&"laubbaum": 0.3,
+&"nadelbaum": 0.12,
+&"palme": 0.18
+})
+trees_per_1000 = 5.5
+bushes_per_1000 = 4.5
+rocks_per_1000 = 1.4
+sky = Color(0.62352943, 0.83137256, 0.6901961, 1)
+sky_top = Color(0.36078432, 0.6, 0.72156864, 1)
+fog = Color(0.61960787, 0.78039217, 0.65882355, 1)
+fog_density = 0.0032
+water = Color(0.17254902, 0.43529412, 0.41568628, 1)

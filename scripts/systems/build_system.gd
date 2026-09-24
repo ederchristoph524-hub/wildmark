@@ -39,7 +39,7 @@ static func build(part: BuildData, player: Player) -> bool:
 	var at: Vector3 = player.global_position + forward * PLACE_DISTANCE
 	var world: World = player.get_tree().get_first_node_in_group(World.GROUP_WORLD) as World
 	at.y = world.terrain.height_at(at.x, at.z)
-	var entry: Dictionary = {"id": part.id, "position": at, "yaw": atan2(-forward.x, -forward.z)}
+	var entry: Dictionary = {"id": part.id, "position": at, "yaw": atan2(-forward.x, -forward.z), "area": GameState.area}
 	GameState.buildings.append(entry)
 	GameState.built_count += 1
 	spawn(world, entry)
@@ -58,7 +58,7 @@ static func spawn(world: World, entry: Dictionary) -> BuildPiece:
 
 static func restore(world: World) -> void:
 	for entry: Dictionary in GameState.buildings:
-		if DataRegistry.has(&"builds", entry["id"]):
+		if DataRegistry.has(&"builds", entry["id"]) and entry.get("area", GameState.area) == GameState.area:
 			spawn(world, entry)
 
 

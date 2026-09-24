@@ -39,21 +39,26 @@ func _physics_process(delta: float) -> void:
 		_spawn_near(player, night)
 
 
+## Zone des Gebiets nach Abstand von der Mitte (gebiete.json → gegner.radien).
 func zone_at(point: Vector3) -> int:
 	var distance: float = Vector2(point.x, point.z).length()
-	var radii: Array[float] = Balance.values.zone_radii
+	var radii: Array[float] = terrain.area.enemy_radii
 	for i: int in radii.size():
 		if distance < radii[i]:
 			return i
 	return radii.size()
 
 
-## Bestien, die in dieser Zone und Tageszeit vorkommen (gegner.json: z, night, nospawn, boss).
+## Bestien, die in dieser Gebietszone und Tageszeit vorkommen (Gebiet: erlaubte Gegner-Zonen; gegner.json: z, night, nospawn, boss).
 func candidates(zone: int, night: bool) -> Array[EnemyData]:
 	var result: Array[EnemyData] = []
+	var zones: Array = terrain.area.enemy_zones
+	if zones.is_empty():
+		return result
+	var allowed: Array = zones[clampi(zone, 0, zones.size() - 1)]
 	for resource: Resource in DataRegistry.all(&"enemies"):
 		var data: EnemyData = resource as EnemyData
-		if data.zone == zone and not data.no_spawn and not data.boss and (night or not data.night_only):
+		if data.zone in allowed and not data.no_spawn and not data.boss and (night or not data.night_only):
 			result.append(data)
 	return result
 
@@ -65,7 +70,7 @@ func _spawn_near(player: Player, night: bool) -> void:
 		var distance: float = randf_range(b.spawn_min_distance, b.spawn_max_distance)
 		var x: float = player.global_position.x + cos(angle) * distance
 		var z: float = player.global_position.z + sin(angle) * distance
-		if not terrain.is_inside(x, z, 4.0) or Vector2(x, z).length() < Balance.values.village_safe_radius:
+		if not terrain.is_inside(x, z, 4.0) or _world().in_settlement(x, z) or terrain.in_water(x, z):
 			continue
 		var point := Vector3(x, terrain.height_at(x, z) + 0.3, z)
 		var options: Array[EnemyData] = candidates(zone_at(point), night)
@@ -108,5 +113,11 @@ func _despawn(player: Player, night: bool) -> void:
 	for node: Node in get_tree().get_nodes_in_group(Enemy.GROUP_ENEMIES):
 		var enemy: Enemy = node as Enemy
 		var too_far: bool = enemy.global_position.distance_to(player.global_position) > limit
+		if enemy.persistent:
+			continue
 		if too_far or (enemy.data.night_only and not night and enemy.state == Enemy.State.WANDER):
 			enemy.queue_free()
+
+
+func _world() -> World:
+	return get_parent() as World

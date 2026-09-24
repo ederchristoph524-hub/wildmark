@@ -7,6 +7,8 @@ var title: String = ""
 ## Aufgabe, die dieser NPC vergibt (leer = keine).
 var quest_id: StringName = &""
 var offers_trade: bool = false
+## Robenfarbe (Klanfarbe); ohne Angabe die Farbe der NPC-Art.
+var robe_color: Color = Color(0, 0, 0, 0)
 var _model: PlayerModel = null
 var _label: Label3D = null
 var _time: float = 0.0
@@ -22,8 +24,9 @@ func setup(npc_type: NpcTypeData, npc_title: String, quest: StringName, trade: b
 func _ready() -> void:
 	add_to_group(Player.GROUP_INTERACTABLES)
 	_model = PlayerModel.new()
-	_model.cloth_color = type.color.darkened(0.45)
-	_model.body_color = type.color
+	var robe: Color = robe_color if robe_color.a > 0.0 else type.color
+	_model.cloth_color = robe.darkened(0.45)
+	_model.body_color = robe
 	_model.show_aperture = false
 	PlayerModel.vary_looks(_model, display_title())
 	add_child(_model)

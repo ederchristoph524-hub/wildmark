@@ -33,6 +33,7 @@ func _ready() -> void:
 	EventBus.dialog_requested.connect(_on_dialog)
 	EventBus.awakening_requested.connect(_on_awakening)
 	EventBus.menu_toggled.connect(_on_menu_requested)
+	EventBus.travel_requested.connect(_on_travel)
 	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
 	show_start_menu()
 
@@ -170,14 +171,14 @@ func _process(delta: float) -> void:
 			EventBus.message.emit(tr("Automatisch gespeichert"), UiTheme.MUTED)
 
 
-## Merkt sich besuchte Gebiete (für Aufgaben wie „Eroberer").
+## Merkt sich besuchte Orte (für Aufgaben wie „Eroberer“).
 func _track_areas() -> void:
-	if player == null:
+	if player == null or world == null:
 		return
-	for area: Dictionary in WorldAreas.AREAS:
-		var center: Vector2 = area["center"]
-		var name_text: String = area["name"]
-		if name_text not in GameState.visited_areas and Vector2(player.global_position.x, player.global_position.z).distance_to(center) < float(area["radius"]):
+	for place: Dictionary in world.area.places:
+		var name_text: String = place["name"]
+		var center: Vector2 = place["position"]
+		if name_text not in GameState.visited_areas and Vector2(player.global_position.x, player.global_position.z).distance_to(center) < float(place["radius"]) + 4.0:
 			GameState.visited_areas.append(name_text)
 			EventBus.message.emit(tr("Entdeckt: %s") % tr(name_text), UiTheme.ACCENT)
 
@@ -191,6 +192,37 @@ func _unhandled_input(event: InputEvent) -> void:
 		_open_map(MapMenu.TAB_AREA)
 	elif event.is_action_pressed(&"pause_menu"):
 		_open_menu(PauseMenu.new())
+
+
+## Reise in ein anderes Gebiet: kostet Zeit (über eine Regionalmauer länger), neuer Ruheort am Ankunftspunkt.
+func _on_travel(area_id: StringName) -> void:
+	var target: AreaData = DataRegistry.area(area_id)
+	if target == null or not target.open or player == null or area_id == GameState.area:
+		return
+	if Childhood.is_child():
+		EventBus.message.emit(tr("Als Kind darfst du den Berg nicht verlassen."), UiTheme.MUTED)
+		return
+	if player.loadout.in_combat():
+		EventBus.message.emit(tr("Im Kampf kannst du nicht aufbrechen."), UiTheme.DANGER)
+		return
+	var b: BalanceData = Balance.values
+	var crossing: bool = target.region != world.area.region
+	var days: float = b.travel_days_wall if crossing else b.travel_days_region
+	if not await _show_loading():
+		return
+	GameState.area = area_id
+	GameState.position = Vector3.ZERO
+	GameState.time_of_day += days
+	while GameState.time_of_day >= 1.0:
+		GameState.time_of_day -= 1.0
+		GameState.day += 1
+	_start_session()
+	GameState.rest_point = GameState.position
+	if crossing:
+		var region: RegionData = DataRegistry.region(world.area.region)
+		EventBus.message.emit(tr("Du durchquerst die %s – deine Gu zittern unter dem fremden Qi.") % tr(region.wall_name), region.wall_color)
+	EventBus.message.emit(tr("Nach langer Reise erreichst du: %s") % tr(target.display_name), UiTheme.ACCENT)
+	SaveSystem.save_game()
 
 
 ## Menüs, die von Oberflächen-Elementen angefordert werden (z. B. Minikarte antippen).
@@ -264,6 +296,6 @@ func _respawn() -> void:
 		_overlay.queue_free()
 	_overlay = null
 	player.respawn(GameState.rest_point)
-	if not GameState.loot_sack.is_empty():
+	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", GameState.area) == GameState.area:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)
 	SaveSystem.save_game()

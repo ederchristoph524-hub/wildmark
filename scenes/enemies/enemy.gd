@@ -25,6 +25,8 @@ var state: State = State.WANDER
 var companion_owner: Combatant = null
 var companion_time: float = 0.0
 var is_minion: bool = false
+## Wächter (z. B. eines Erbes) werden nicht wegen Entfernung entfernt.
+var persistent: bool = false
 
 var _state_time: float = 0.0
 var _attack_cooldown: float = 0.0

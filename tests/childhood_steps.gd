@@ -63,7 +63,7 @@ func _test_gather() -> void:
 	var bushes: Array[ResourceNode] = []
 	for node: Node in tree.get_nodes_in_group(Player.GROUP_HARVESTABLE):
 		var bush: ResourceNode = node as ResourceNode
-		if bush != null and bush.item == &"beeren" and Vector2(bush.global_position.x, bush.global_position.z).length() < Village.FENCE_RADIUS:
+		if bush != null and bush.item == &"beeren" and Vector2(bush.global_position.x, bush.global_position.z).length() < float(main.world.area.settlements[0]["radius"]):
 			bushes.append(bush)
 	_check(bushes.size() >= 2, "Beerenbüsche im Dorf (%d)" % bushes.size())
 	for bush: ResourceNode in bushes:

@@ -13,6 +13,8 @@ func run() -> void:
 	print("-- world_smoke")
 	await _test_cultivation()
 	await _test_maps()
+	_test_area()
+	await _test_inheritance()
 
 
 func _test_cultivation() -> void:
@@ -60,3 +62,41 @@ func _test_maps() -> void:
 		menu.close()
 	await steps._frames(3)
 	steps._check(not steps.tree.paused and DataRegistry.area(GameState.area) != null, "Karte geschlossen, aktuelles Gebiet bekannt")
+
+
+func _test_area() -> void:
+	var world: World = steps.main.world
+	var villages: int = 0
+	for poi: Dictionary in world.pois:
+		villages += 1 if poi["kind"] == MapData.KIND_VILLAGE else 0
+	steps._check(world.area.id == &"qing_mao" and villages == 3, "Qing-Mao-Berg mit drei Klan-Dörfern (%d)" % villages)
+	var spring: SpiritSpring = steps.tree.get_first_node_in_group(SpiritSpring.GROUP) as SpiritSpring
+	steps._check(spring != null and is_equal_approx(SpiritSpring.bonus_at(steps.tree, spring.global_position), Balance.values.spirit_spring_mult), "Geisterquelle beschleunigt Kultivieren")
+	steps._check(not world.terrain.lakes.is_empty() and world.terrain.in_water(world.terrain.lakes[0].x, world.terrain.lakes[0].y), "Jadesee im Gelände")
+	var center: Vector3 = world.ground_point(0.0, 0.0)
+	steps._check(world.in_settlement(center.x, center.z) and not world.in_settlement(0.0, 150.0), "Siedlungen sind Schutzzonen")
+
+
+func _test_inheritance() -> void:
+	await steps._clear_enemies()
+	var inheritance: Inheritance = null
+	for node: Node in steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
+		if node is Inheritance:
+			inheritance = node
+	steps._check(inheritance != null and inheritance.state == Inheritance.State.SEALED, "Erbe des Blumenwein-Mönchs versiegelt")
+	if inheritance == null:
+		return
+	steps.player.global_position = inheritance.global_position + Vector3(0, 0.5, 6.0)
+	GameState.add_item(&"kristall", 5)
+	var stones: int = GameState.item_count(&"kristall")
+	inheritance.interact(steps.player)
+	await steps._frames(2)
+	steps._check(inheritance.state == Inheritance.State.GUARDED and GameState.item_count(&"kristall") == stones - 3, "Opfergabe erweckt die Wächter")
+	for node: Node in steps.tree.get_nodes_in_group(Enemy.GROUP_ENEMIES):
+		(node as Enemy).receive_hit(HitInfo.create(9999.0, steps.player, steps.player.team))
+	await steps._frames(10)
+	var wild: int = 0
+	for node: Node in steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
+		if node is WildGu and String((node as WildGu).spot_id).begins_with("erbe_"):
+			wild += 1
+	steps._check(inheritance.state == Inheritance.State.CLAIMED and &"blumenwein" in GameState.inheritances and wild == 1, "Erbe geöffnet: Schnaps-Wurm wartet (%d)" % wild)

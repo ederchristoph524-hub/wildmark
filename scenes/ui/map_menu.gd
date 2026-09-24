@@ -11,6 +11,8 @@ var player: Player = null
 var world: World = null
 var start_tab: int = TAB_AREA
 var _info: Label = null
+var _travel: Button = null
+var _selected: AreaData = null
 
 
 func _ready() -> void:
@@ -55,8 +57,15 @@ func _world_page() -> Control:
 	view.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	view.area_selected.connect(_on_area_selected)
 	page.add_child(view)
+	var row := HBoxContainer.new()
+	page.add_child(row)
 	_info = UiTheme.label(tr("Tippe auf einen Ort. Jede Region ist von ihrer Regionalmauer umgeben."), 16, UiTheme.MUTED)
-	page.add_child(_info)
+	_info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(_info)
+	_travel = UiTheme.button(tr("Reisen"), _on_travel)
+	_travel.custom_minimum_size.x = 160.0
+	_travel.visible = false
+	row.add_child(_travel)
 	return page
 
 
@@ -64,6 +73,16 @@ func _on_area_selected(area: AreaData) -> void:
 	var region: RegionData = DataRegistry.region(area.region)
 	var status: String = tr("Du bist hier.") if area.id == GameState.area else (tr("Bereisbar.") if area.open else tr("Noch unerforscht."))
 	_info.text = "%s (%s, Rang %d–%d) – %s\n%s" % [tr(area.display_name), tr(region.display_name), area.rank_min, area.rank_max, status, tr(area.description)]
+	_selected = area
+	_travel.visible = area.open and area.id != GameState.area
+
+
+func _on_travel() -> void:
+	if _selected == null:
+		return
+	var target: StringName = _selected.id
+	close()
+	EventBus.travel_requested.emit(target)
 
 
 func _unhandled_input(event: InputEvent) -> void:

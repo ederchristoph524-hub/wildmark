@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://cpyd47o2bwunm"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_q30cn"]
+
+[resource]
+script = ExtResource("1_q30cn")
+id = &"xiong_clan"
+display_name = "Xiong-Klan"
+icon = "🐻"
+faction = &"righteous"
+org_type = &"klan"
+region = 1
+power = 2
+rivals = Array[StringName]([&"gu_yue", &"bai_clan"])
+join_gift = Dictionary[StringName, int]({
+&"fleisch": 10,
+&"kristall": 5
+})
+signature_gu = &"wirbelwind"
+politics = "Der dritte Klan am Qing-Mao-Berg, bekannt für Kraft- und Bestien-Gu. Grob, aber ehrlich."
+description = "Klan vom Qing-Mao-Berg, stark wie Bären."

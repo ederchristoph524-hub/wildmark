@@ -1,44 +1,28 @@
 class_name World
 extends Node3D
-## Das Startgebiet (Südliche Grenze): Gelände, Vegetation, Sammelstellen, Lager, wilde Gu, Bestien und Tageszeit.
+## Das aktuelle Gebiet (GameState.area, Daten aus gebiete.json): Gelände mit Plätzen, Seen und Wegen, Vegetation des Bioms,
+## Siedlungen mit Bewohnern, besondere Orte, Hindernis-Orte, Sammelstellen, wilde Gu, Bestien und Tageszeit.
 
 const GROUP_WORLD: StringName = &"world"
 const SEED: int = 99
-const CAMP_CENTER: Vector3 = Vector3.ZERO
-const SPAWN_OFFSET: Vector3 = Vector3(3.0, 0.0, 4.0)
-## Sammelstellen: Gegenstand → [Anzahl, Ertrag, minimale und maximale Entfernung vom Lager].
-const RESOURCE_LAYOUT: Dictionary[StringName, Array] = {
-	&"beeren": [46, 3, 25.0, 100.0],
-	&"stein": [30, 2, 25.0, 105.0],
-	&"kristall": [18, 1, 28.0, 108.0],
-	&"holz": [26, 2, 24.0, 100.0],
-	&"gruenkraut": [34, 2, 24.0, 100.0],
-	&"eisenerz": [18, 1, 60.0, 108.0],
-	&"mondtau": [40, 1, 24.0, 95.0],
-}
-## Unsichtbare Grenze hinter dem Randgebirge.
-const BOUND_DISTANCE: float = 112.0
-const BOUND_HEIGHT: float = 120.0
-## Passive Gu in der Wildnis: ID, Art (body/support), Entfernung vom Lager von–bis, versteckt (nur mit Kleines-Licht-Gu sichtbar).
-const WILD_PASSIVES: Array[Array] = [
-	[&"rosaeber", &"body", 30.0, 60.0, false],
-	[&"zehnjin", &"body", 86.0, 95.0, false],
-	[&"liquor", &"support", 25.0, 55.0, false],
-	[&"hoffnung", &"support", 60.0, 90.0, false],
-	[&"kleineslicht", &"support", 30.0, 60.0, false],
-	[&"signal", &"support", 45.0, 80.0, false],
-	[&"stealthstein", &"support", 50.0, 90.0, true],
-]
-const WILD_GU_MIN_DISTANCE: float = 30.0
-const WILD_GU_MAX_DISTANCE: float = 92.0
+const BOUND_HEIGHT: float = 160.0
+## Übergang, mit dem Plätze ins Gelände eingeebnet werden.
+const SETTLEMENT_FALLOFF: float = 26.0
+const PLACE_FALLOFF: float = 10.0
+const SITE_RADIUS: float = 10.0
+const RESOURCE_MIN_DISTANCE: float = 20.0
 
+var area: AreaData = null
+var biome: BiomeData = null
 var terrain: Terrain = null
 var entities: Node3D = null
 var spawner: EnemySpawner = null
 var day_night: DayNight = null
 var camp: Campfire = null
-## Freiflächen ohne Bäume und Sammelstellen (Hindernis-Orte, besondere Gebiete): Mittelpunkt → Radius.
+## Freiflächen ohne Bäume und Sammelstellen (Siedlungen, Orte, Hindernis-Orte): (x, _, z, Radius).
 var clearings: Array[Vector4] = []
+## Siedlungen als Kreise (x, _, z, Radius) – dort keine Bestien.
+var settlement_areas: Array[Vector4] = []
 ## Feste Kartenpunkte des Gebiets: {position: Vector3, kind: StringName (MapData.KIND_*), label: String}.
 var pois: Array[Dictionary] = []
 var _rng := RandomNumberGenerator.new()
@@ -47,48 +31,89 @@ var _rng := RandomNumberGenerator.new()
 func _ready() -> void:
 	name = "World"
 	add_to_group(GROUP_WORLD)
-	_rng.seed = SEED
-	terrain = Terrain.new()
-	add_child(terrain)
-	var site_centers: Array[Vector3] = ObstacleSites.plan(self)
-	for center: Vector3 in site_centers:
-		clearings.append(Vector4(center.x, center.y, center.z, 9.0))
-	for area: Dictionary in WorldAreas.AREAS:
-		var area_center: Vector2 = area["center"]
-		clearings.append(Vector4(area_center.x, 0.0, area_center.y, float(area["radius"]) + 2.0))
-	add_child(Vegetation.new(terrain, clearings))
+	area = DataRegistry.area(GameState.area)
+	if area == null or not area.open:
+		area = DataRegistry.area(&"qing_mao")
+		GameState.area = area.id
+	biome = DataRegistry.biome(area.biome)
+	_rng.seed = SEED + area.terrain_seed
+	_build_terrain()
+	add_child(Vegetation.new(terrain, clearings, biome))
 	_build_bounds()
 	entities = Node3D.new()
 	entities.name = "Entities"
 	entities.add_to_group(Combat.GROUP_FX_ROOT)
 	add_child(entities)
 	day_night = DayNight.new()
+	day_night.biome = biome
 	add_child(day_night)
-	camp = Campfire.new()
-	add_child(camp)
-	camp.position = ground_point(CAMP_CENTER.x, CAMP_CENTER.z)
-	Village.build(self, camp.position)
+	_build_settlements()
+	for place: Dictionary in area.places:
+		WorldAreas.build(self, place)
+	ObstacleSites.build(self, area)
 	_place_resources()
-	WorldAreas.build(self)
-	ObstacleSites.build(self, site_centers)
 	_place_wild_gu()
 	spawner = EnemySpawner.new(terrain, entities)
 	add_child(spawner)
 	BuildSystem.restore(self)
-	if not GameState.loot_sack.is_empty():
+	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)
+
+
+## Gelände: Plätze für Siedlungen, Orte und Hindernisse einebnen, Seen ausheben, Wege färben.
+func _build_terrain() -> void:
+	terrain = Terrain.new(area, biome)
+	var roads: Array = area.paths.duplicate()
+	for settlement: Dictionary in area.settlements:
+		var at: Vector2 = settlement["position"]
+		var radius: float = settlement["radius"]
+		terrain.flats.append(Vector4(at.x, at.y, radius + 4.0, SETTLEMENT_FALLOFF))
+		terrain.plazas.append(Vector4(at.x, at.y, radius * 0.95, 0.0))
+		clearings.append(Vector4(at.x, 0.0, at.y, radius + 8.0))
+		settlement_areas.append(Vector4(at.x, 0.0, at.y, radius + 10.0))
+		# Hauptstraße vom Tor zur Halle.
+		roads.append([Vector2(at.x, at.y + radius + 6.0), Vector2(at.x, at.y - radius * 0.2)])
+	for place: Dictionary in area.places:
+		var at: Vector2 = place["position"]
+		var radius: float = place["radius"]
+		if place["type"] == &"see":
+			terrain.lakes.append(Vector4(at.x, at.y, radius, 0.0))
+		else:
+			terrain.flats.append(Vector4(at.x, at.y, radius + 2.0, PLACE_FALLOFF))
+		clearings.append(Vector4(at.x, 0.0, at.y, radius + 3.0))
+	for point: Vector2 in ObstacleSites.centers(area):
+		terrain.flats.append(Vector4(point.x, point.y, SITE_RADIUS, PLACE_FALLOFF))
+		clearings.append(Vector4(point.x, 0.0, point.y, SITE_RADIUS))
+	terrain.paths = roads
+	terrain.generate()
+	add_child(terrain)
+
+
+func _build_settlements() -> void:
+	for settlement: Dictionary in area.settlements:
+		var at: Vector2 = settlement["position"]
+		var center: Vector3 = ground_point(at.x, at.y)
+		var anchors: Dictionary = Settlement.build(self, settlement, center)
+		SettlementPeople.place(self, settlement, anchors)
+		var sect: SectData = DataRegistry.sect(settlement["faction"])
+		add_poi(center, MapData.KIND_VILLAGE, Loc.t("Dorf des %s") % Loc.t(sect.display_name))
+		if camp == null:
+			camp = Campfire.new()
+			add_child(camp)
+			camp.position = ground_point(at.x, at.y + settlement["radius"] * 0.12)
 
 
 func _build_bounds() -> void:
 	var bounds := StaticBody3D.new()
 	bounds.name = "Bounds"
 	add_child(bounds)
+	var limit: float = area.size * 0.5 - 6.0
 	for side: Vector3 in [Vector3.RIGHT, Vector3.LEFT, Vector3.FORWARD, Vector3.BACK]:
 		var shape := CollisionShape3D.new()
 		var box := BoxShape3D.new()
-		box.size = Vector3(2.0, BOUND_HEIGHT, BOUND_DISTANCE * 2.0) if side.x != 0.0 else Vector3(BOUND_DISTANCE * 2.0, BOUND_HEIGHT, 2.0)
+		box.size = Vector3(2.0, BOUND_HEIGHT, limit * 2.0) if side.x != 0.0 else Vector3(limit * 2.0, BOUND_HEIGHT, 2.0)
 		shape.shape = box
-		shape.position = side * BOUND_DISTANCE
+		shape.position = side * limit
 		bounds.add_child(shape)
 
 
@@ -100,23 +125,31 @@ func ground_point(x: float, z: float) -> Vector3:
 	return Vector3(x, terrain.height_at(x, z), z)
 
 
-## Startpunkt neben dem Lagerfeuer.
+## Ankunftspunkt des Gebiets (neues Spiel, Reisen, Wiederbeleben ohne Ruheort).
 func spawn_point() -> Vector3:
-	return ground_point(CAMP_CENTER.x + SPAWN_OFFSET.x, CAMP_CENTER.z + SPAWN_OFFSET.z) + Vector3.UP * 0.5
+	return ground_point(area.arrival.x, area.arrival.y) + Vector3.UP * 0.5
+
+
+## Liegt der Punkt in einer Siedlung (dort erscheinen keine Bestien)?
+func in_settlement(x: float, z: float) -> bool:
+	for zone: Vector4 in settlement_areas:
+		if Vector2(x - zone.x, z - zone.z).length() < zone.w:
+			return true
+	return false
 
 
 func _random_point(min_distance: float, max_distance: float) -> Vector3:
-	for attempt: int in 20:
+	for attempt: int in 30:
 		var angle: float = _rng.randf() * TAU
 		var distance: float = _rng.randf_range(min_distance, max_distance)
 		var x: float = cos(angle) * distance
 		var z: float = sin(angle) * distance
-		if terrain.is_inside(x, z, 3.0) and terrain.slope_at(x, z) < 0.45 and not in_clearing(x, z):
+		if terrain.is_inside(x, z, 3.0) and terrain.slope_at(x, z) < 0.45 and not in_clearing(x, z) and not terrain.in_water(x, z):
 			return ground_point(x, z)
 	return ground_point(min_distance, 0.0)
 
 
-## Sammelstelle an einem Punkt (auch für besondere Gebiete).
+## Sammelstelle an einem Punkt (auch für besondere Orte).
 func add_resource(item: StringName, yield_amount: int, at: Vector3) -> ResourceNode:
 	var node := ResourceNode.new(item, yield_amount)
 	add_child(node)
@@ -139,27 +172,25 @@ func in_clearing(x: float, z: float) -> bool:
 
 
 func _place_resources() -> void:
-	for item: StringName in RESOURCE_LAYOUT:
-		var layout: Array = RESOURCE_LAYOUT[item]
-		for i: int in int(layout[0]):
-			add_resource(item, int(layout[1]), _random_point(float(layout[2]), float(layout[3])))
+	var limit: float = area.size * 0.5 - area.relief.get(&"rand", 40.0)
+	for item: StringName in area.resources:
+		var layout: Vector2i = area.resources[item]
+		for i: int in layout.x:
+			add_resource(item, layout.y, _random_point(RESOURCE_MIN_DISTANCE, limit))
 
 
-## Je ein wilder Rang-1-Gu jeder Familie außer der gewählten; gefundene erscheinen nicht erneut.
+## Je ein wilder Gu jeder Familie (Rang des Gebiets) außer der gewählten; gefundene erscheinen nicht erneut.
 func _place_wild_gu() -> void:
-	var families: Array[Resource] = DataRegistry.all(&"families")
-	for i: int in families.size():
-		var family: GuFamilyData = families[i] as GuFamilyData
-		var point: Vector3 = _random_point(WILD_GU_MIN_DISTANCE, WILD_GU_MAX_DISTANCE)
-		var spot: StringName = StringName("wild_" + String(family.id))
-		if family.id == GameState.first_family or spot in GameState.collected_wild_gu:
+	for resource: Resource in DataRegistry.all(&"families"):
+		var family: GuFamilyData = resource as GuFamilyData
+		var point: Vector3 = _random_point(area.wild_gu_range.x, area.wild_gu_range.y)
+		var spot: StringName = StringName("wild_" + String(family.id)) if area.wild_gu_rank == 1 else StringName("wild_%s_r%d" % [family.id, area.wild_gu_rank])
+		if (family.id == GameState.first_family and area.wild_gu_rank == 1) or spot in GameState.collected_wild_gu:
 			continue
-		var member: GuData = family.member_for_rank(1)
-		if member == null:
-			continue
-		_add_wild(spot, member, point, false)
-	for entry: Array in WILD_PASSIVES:
-		var passive_point: Vector3 = _random_point(float(entry[2]), float(entry[3]))
+		var member: GuData = family.member_for_rank(area.wild_gu_rank)
+		if member != null:
+			_add_wild(spot, member, point, false)
+	for entry: Array in area.wild_passives:
 		var passive_spot: StringName = StringName("wild_" + String(entry[0]))
 		if passive_spot in GameState.collected_wild_gu:
 			continue
@@ -168,7 +199,7 @@ func _place_wild_gu() -> void:
 			data = DataRegistry.body_gu(entry[0])
 		else:
 			data = DataRegistry.support_gu(entry[0])
-		_add_wild(passive_spot, data, passive_point, bool(entry[4]))
+		_add_wild(passive_spot, data, _random_point(float(entry[2]), float(entry[3])), bool(entry[4]))
 
 
 func _add_wild(spot: StringName, data: Resource, point: Vector3, is_hidden: bool) -> void:

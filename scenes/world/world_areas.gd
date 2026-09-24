@@ -1,31 +1,44 @@
 class_name WorldAreas
 extends RefCounted
-## Besondere Gebiete mit Materialquellen: Aschefeld (Glutasche), Frostquelle (Frostsplitter), alter Friedhof (Knochenmehl).
+## Besondere Orte eines Gebiets (gebiete.json → orte): Aschefeld, Frostquelle, alter Friedhof (Materialquellen),
+## Seen, die Geisterquelle (Kultivieren doppelt so schnell) und Erbschaften mit Opfergabe, Wächtern und Belohnung.
 
-## Mittelpunkt, Radius, Gegenstand, Anzahl Sammelstellen, Bodenfarbe.
-const AREAS: Array[Dictionary] = [
-	{"name": "Aschefeld", "center": Vector2(72.0, -68.0), "radius": 11.0, "item": &"glutasche", "count": 8, "ground": Color(0.16, 0.15, 0.14)},
-	{"name": "Frostquelle", "center": Vector2(-86.0, 68.0), "radius": 7.0, "item": &"frostsplitter", "count": 5, "ground": Color(0.75, 0.88, 0.95)},
-	{"name": "Alter Friedhof", "center": Vector2(-62.0, -78.0), "radius": 9.0, "item": &"knochenmehl", "count": 6, "ground": Color(0.3, 0.3, 0.27)},
-]
+const GROUND_COLORS: Dictionary[StringName, Color] = {
+	&"aschefeld": Color(0.16, 0.15, 0.14), &"frostquelle": Color(0.75, 0.88, 0.95), &"friedhof": Color(0.3, 0.3, 0.27),
+}
 const GRAVE_COLOR: Color = Color(0.5, 0.5, 0.48)
 const ICE_COLOR: Color = Color(0.7, 0.92, 1.0)
 
 
-static func build(world: World) -> void:
-	for area: Dictionary in AREAS:
-		var center: Vector2 = area["center"]
-		var radius: float = area["radius"]
-		_ground_patch(world, center, radius, area["ground"])
-		for i: int in int(area["count"]):
-			world.add_resource(area["item"], 1, world.random_point_near(center, radius * 0.9))
-		match area["item"]:
-			&"knochenmehl":
+## Baut einen Ort; Seen müssen vorher im Gelände eingetragen sein (World).
+static func build(world: World, place: Dictionary) -> void:
+	var center: Vector2 = place["position"]
+	var radius: float = place["radius"]
+	var name_text: String = place["name"]
+	match place["type"]:
+		&"aschefeld", &"frostquelle", &"friedhof":
+			_ground_patch(world, center, radius, GROUND_COLORS[place["type"]])
+			for i: int in int(place["count"]):
+				world.add_resource(place["item"], 1, world.random_point_near(center, radius * 0.9))
+			if place["type"] == &"friedhof":
 				_graves(world, center, radius)
-			&"frostsplitter":
+			elif place["type"] == &"frostquelle":
 				_ice(world, center, radius)
-		_sign(world, center, area["name"])
-		world.add_poi(world.ground_point(center.x, center.y), MapData.KIND_PLACE, Loc.t(area["name"]))
+			_sign(world, center, name_text)
+		&"see":
+			WaterSurface.lake(world, world.terrain.lake_at(center), world.terrain.biome.water, 0.0)
+		&"geisterquelle":
+			var spring := SpiritSpring.new()
+			spring.radius = radius
+			world.add_child(spring)
+			spring.position = world.ground_point(center.x, center.y)
+			_sign(world, center, name_text)
+		&"erbe":
+			var inheritance := Inheritance.new()
+			inheritance.data = place
+			world.add_child(inheritance)
+			inheritance.position = world.ground_point(center.x, center.y)
+	world.add_poi(world.ground_point(center.x, center.y), MapData.KIND_PLACE, Loc.t(name_text))
 
 
 ## Flache, eingefärbte Scheibe, die dem Gelände grob folgt.

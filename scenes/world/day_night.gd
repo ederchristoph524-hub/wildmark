@@ -1,6 +1,6 @@
 class_name DayNight
 extends Node
-## Tag-Nacht-Zyklus (20 min, davon 7 min Nacht): Sonne, Himmel und Nebel nach den Farben der Südlichen Grenze.
+## Tag-Nacht-Zyklus (20 min, davon 7 min Nacht): Sonne, Himmel und Nebel in den Farben des Bioms.
 
 const SKY_DAY: Color = Color(0.62, 0.83, 0.69)
 const SKY_TOP_DAY: Color = Color(0.36, 0.6, 0.72)
@@ -13,6 +13,8 @@ const SUN_EVENING: Color = Color(1.0, 0.6, 0.35)
 const MOON: Color = Color(0.55, 0.65, 0.9)
 const TRANSITION: float = 0.04
 
+## Landschaft des Gebiets (Himmel- und Nebelfarben); ohne Angabe die Südliche Grenze.
+var biome: BiomeData = null
 var sun: DirectionalLight3D = null
 var environment: Environment = null
 var _sky_material: ProceduralSkyMaterial = null
@@ -74,12 +76,16 @@ func _apply(time: float) -> void:
 	sun.light_color = MOON.lerp(SUN_DAY.lerp(SUN_EVENING, evening), daylight)
 	sun.light_energy = lerpf(0.25, 0.85, daylight)
 	sun.shadow_enabled = daylight > 0.3
-	_sky_material.sky_horizon_color = SKY_NIGHT.lerp(SKY_DAY, daylight)
-	_sky_material.sky_top_color = SKY_TOP_NIGHT.lerp(SKY_TOP_DAY, daylight)
+	var sky_day: Color = biome.sky if biome != null else SKY_DAY
+	var sky_top_day: Color = biome.sky_top if biome != null else SKY_TOP_DAY
+	var fog_day: Color = biome.fog if biome != null else FOG_DAY
+	var fog_density: float = biome.fog_density if biome != null else 0.0065
+	_sky_material.sky_horizon_color = SKY_NIGHT.lerp(sky_day, daylight)
+	_sky_material.sky_top_color = SKY_TOP_NIGHT.lerp(sky_top_day, daylight)
 	_sky_material.ground_horizon_color = _sky_material.sky_horizon_color
 	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(Color(0.25, 0.32, 0.25), daylight)
-	environment.fog_light_color = FOG_NIGHT.lerp(FOG_DAY, daylight)
-	environment.fog_density = lerpf(0.028, 0.0065, daylight)
+	environment.fog_light_color = FOG_NIGHT.lerp(fog_day, daylight)
+	environment.fog_density = lerpf(0.022, fog_density, daylight)
 	environment.ambient_light_energy = lerpf(0.3, 0.4, daylight)
 
 

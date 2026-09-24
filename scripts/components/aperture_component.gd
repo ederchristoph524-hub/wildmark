@@ -125,10 +125,11 @@ func rank_cap() -> int:
 ## Leitet Essenz gegen die Aperturwand; ist sie verfeinert, steigt die Stufe.
 func _meditate(delta: float) -> void:
 	var b: BalanceData = Balance.values
+	var spring: float = SpiritSpring.bonus_at(host.get_tree(), host.global_position)
 	if GameState.stage >= b.max_stage:
-		gain(regeneration() * b.meditation_peak_regen_mult * delta)
+		gain(regeneration() * b.meditation_peak_regen_mult * spring * delta)
 		return
-	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * delta)
+	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * spring * delta)
 	GameState.essence -= burn
 	GameState.wall += burn / Formulas.wall_need(b, capacity(), GameState.stage)
 	if GameState.wall >= 1.0:

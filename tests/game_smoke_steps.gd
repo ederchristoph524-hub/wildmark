@@ -82,7 +82,7 @@ func _test_movement() -> void:
 
 ## Stellt den Spieler auf eine freie Fläche abseits von Lager und Bäumen.
 func _move_to_clearing() -> void:
-	var spot := Vector3(40.0, 0.0, 12.0)
+	var spot := Vector3(0.0, 0.0, 106.0)
 	player.global_position = Vector3(spot.x, main.world.terrain.height_at(spot.x, spot.z) + 0.5, spot.z)
 	player.camera_rig.yaw = 0.0
 	for node: Node in main.world.find_children("*", "StaticBody3D", true, false):
@@ -188,7 +188,7 @@ func _test_enemy_ai() -> void:
 
 func _test_village() -> void:
 	var npcs: Array[Node] = tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is Npc)
-	_check(npcs.size() == 6, "sechs Dorfbewohner (%d)" % npcs.size())
+	_check(npcs.size() >= 7, "Dorfbewohner in den Klan-Dörfern (%d)" % npcs.size())
 	Quests.start(&"holz")
 	var stones: int = GameState.item_count(&"kristall")
 	GameState.add_item(&"holz", 10)

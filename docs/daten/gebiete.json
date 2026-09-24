@@ -1,5 +1,5 @@
 {
- "_hinweis": "Spielbare Gebiete der Gu-Welt. region = ID aus welt.json REGIONS, karte = Position auf der Weltkarte (0–1, x nach Osten, y nach Süden), rang = empfohlener Rang von–bis, offen = schon bereisbar.",
+ "_hinweis": "Spielbare Gebiete der Gu-Welt und ihre Landschaften (Biome). Koordinaten im Gebiet in Metern (x Osten, z Süden, Mitte = 0,0). Felder siehe docs/daten/README.md.",
  "GEBIETE": {
   "qing_mao": {
    "n": "Qing-Mao-Berg",
@@ -13,7 +13,391 @@
     2
    ],
    "offen": true,
-   "d": "Heimat des Gu-Yue-Klans, dazu die Dörfer der Bai und Xiong. Irgendwo in den Felsen soll das Erbe des Blumenwein-Mönchs liegen."
+   "d": "Heimat des Gu-Yue-Klans, dazu die Dörfer der Bai und Xiong. Irgendwo in den Felsen soll das Erbe des Blumenwein-Mönchs liegen.",
+   "groesse": 520,
+   "seed": 4711,
+   "biom": "dschungel_berg",
+   "relief": {
+    "hoehe": 13,
+    "frequenz": 0.0045,
+    "detail": 0.9,
+    "berge": 20,
+    "rand": 55,
+    "randhoehe": 42
+   },
+   "ankunft": [
+    0,
+    86
+   ],
+   "siedlungen": [
+    {
+     "id": "gu_yue_dorf",
+     "typ": "klan_dorf",
+     "fraktion": "gu_yue",
+     "pos": [
+      0,
+      0
+     ],
+     "radius": 64,
+     "haeuser": 22,
+     "farben": {
+      "dach": "#3d4a44",
+      "wand": "#d8cdb4",
+      "holz": "#5a3a26",
+      "saeule": "#9a2e24",
+      "banner": "#3f8a4a",
+      "stein": "#8c877c"
+     },
+     "bewohner": "gu_yue"
+    },
+    {
+     "id": "bai_dorf",
+     "typ": "klan_dorf",
+     "fraktion": "bai_clan",
+     "pos": [
+      -165,
+      -150
+     ],
+     "radius": 44,
+     "haeuser": 12,
+     "farben": {
+      "dach": "#4a5a6e",
+      "wand": "#ece8de",
+      "holz": "#6e6254",
+      "saeule": "#c8c8d0",
+      "banner": "#dfe6f0",
+      "stein": "#9a9890"
+     },
+     "bewohner": "bai"
+    },
+    {
+     "id": "xiong_dorf",
+     "typ": "klan_dorf",
+     "fraktion": "xiong_clan",
+     "pos": [
+      170,
+      -135
+     ],
+     "radius": 44,
+     "haeuser": 12,
+     "farben": {
+      "dach": "#6a3a24",
+      "wand": "#b99a72",
+      "holz": "#4a2e1e",
+      "saeule": "#7a4a28",
+      "banner": "#b8642a",
+      "stein": "#80776a"
+     },
+     "bewohner": "xiong"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      64
+     ],
+     [
+      0,
+      110
+     ],
+     [
+      40,
+      150
+     ],
+     [
+      120,
+      160
+     ],
+     [
+      150,
+      150
+     ]
+    ],
+    [
+     [
+      -45,
+      -45
+     ],
+     [
+      -100,
+      -100
+     ],
+     [
+      -140,
+      -128
+     ]
+    ],
+    [
+     [
+      45,
+      -45
+     ],
+     [
+      110,
+      -95
+     ],
+     [
+      145,
+      -118
+     ]
+    ],
+    [
+     [
+      0,
+      -64
+     ],
+     [
+      25,
+      -90
+     ]
+    ],
+    [
+     [
+      -40,
+      40
+     ],
+     [
+      -110,
+      90
+     ],
+     [
+      -165,
+      115
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "geisterquelle",
+     "n": "Geisterquelle",
+     "pos": [
+      28,
+      -100
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "see",
+     "n": "Jadesee",
+     "pos": [
+      95,
+      65
+     ],
+     "radius": 22
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Aschefeld",
+     "pos": [
+      150,
+      150
+     ],
+     "radius": 12,
+     "item": "glutasche",
+     "anzahl": 9
+    },
+    {
+     "typ": "frostquelle",
+     "n": "Frostquelle",
+     "pos": [
+      -205,
+      25
+     ],
+     "radius": 8,
+     "item": "frostsplitter",
+     "anzahl": 6
+    },
+    {
+     "typ": "friedhof",
+     "n": "Alter Friedhof",
+     "pos": [
+      -80,
+      -205
+     ],
+     "radius": 11,
+     "item": "knochenmehl",
+     "anzahl": 7
+    },
+    {
+     "typ": "erbe",
+     "id": "blumenwein",
+     "n": "Erbe des Blumenwein-Mönchs",
+     "pos": [
+      -175,
+      120
+     ],
+     "radius": 9,
+     "opfer": {
+      "kristall": 3
+     },
+     "waechter": [
+      "wolf",
+      "wolf",
+      "eber"
+     ],
+     "belohnung": {
+      "hilfs_gu": [
+       "liquor"
+      ],
+      "items": {
+       "kristall": 15,
+       "gruenkraut": 6
+      }
+     },
+     "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter."
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "site_hecke",
+     "art": "hecke",
+     "belohnung": "mondsichel",
+     "richtung": 20,
+     "abstand": 112
+    },
+    {
+     "id": "site_wasser",
+     "art": "wasser",
+     "belohnung": "wasserbohrer",
+     "richtung": 62,
+     "abstand": 150
+    },
+    {
+     "id": "site_fels",
+     "art": "fels",
+     "belohnung": "blauplasma",
+     "richtung": 125,
+     "abstand": 118
+    },
+    {
+     "id": "site_schalter",
+     "art": "schalter",
+     "belohnung": "flammenzunge",
+     "richtung": 190,
+     "abstand": 128
+    },
+    {
+     "id": "site_licht",
+     "art": "lichtsiegel",
+     "belohnung": "eisvogel",
+     "richtung": 232,
+     "abstand": 108
+    },
+    {
+     "id": "site_blut",
+     "art": "blutsiegel",
+     "belohnung": "sogwirbel",
+     "richtung": 292,
+     "abstand": 140
+    },
+    {
+     "id": "site_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "giftskorpion",
+     "richtung": 335,
+     "abstand": 104
+    }
+   ],
+   "ressourcen": {
+    "beeren": [
+     80,
+     3
+    ],
+    "stein": [
+     55,
+     2
+    ],
+    "kristall": [
+     34,
+     1
+    ],
+    "holz": [
+     55,
+     2
+    ],
+    "gruenkraut": [
+     65,
+     2
+    ],
+    "eisenerz": [
+     30,
+     1
+    ],
+    "mondtau": [
+     60,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     175
+    ],
+    "zonen": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      1,
+      2
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 1,
+    "abstand": [
+     70,
+     230
+    ]
+   },
+   "wilde_passive": [
+    [
+     "rosaeber",
+     "body",
+     80,
+     150,
+     false
+    ],
+    [
+     "zehnjin",
+     "body",
+     190,
+     230,
+     false
+    ],
+    [
+     "hoffnung",
+     "support",
+     120,
+     200,
+     false
+    ],
+    [
+     "kleineslicht",
+     "support",
+     70,
+     140,
+     false
+    ],
+    [
+     "signal",
+     "support",
+     100,
+     180,
+     false
+    ],
+    [
+     "stealthstein",
+     "support",
+     120,
+     210,
+     true
+    ]
+   ]
   },
   "drei_koenige": {
    "n": "Drei-Könige-Erbe",
@@ -112,6 +496,36 @@
    ],
    "offen": false,
    "d": "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen."
+  }
+ },
+ "BIOME": {
+  "dschungel_berg": {
+   "n": "Bergdschungel der Südlichen Grenze",
+   "farben": {
+    "gras_dunkel": "#335e38",
+    "gras_hell": "#578f47",
+    "moos": "#667f33",
+    "erde": "#6b5638",
+    "fels": "#5d5c55",
+    "gipfel": "#8a8a80",
+    "weg": "#8a7350",
+    "platz": "#9a8a6a"
+   },
+   "vegetation": {
+    "laubbaum": 0.3,
+    "palme": 0.18,
+    "nadelbaum": 0.12,
+    "bambus": 0.4
+   },
+   "baeume_pro_1000m2": 5.5,
+   "buesche_pro_1000m2": 4.5,
+   "gras_pro_1000m2": 30,
+   "felsen_pro_1000m2": 1.4,
+   "himmel": "#9fd4b0",
+   "himmel_oben": "#5c99b8",
+   "nebel": "#9ec7a8",
+   "nebel_dichte": 0.0032,
+   "wasser": "#2c6f6a"
   }
  }
 }

@@ -18,7 +18,7 @@ static func apply(death_position: Vector3) -> bool:
 			EventBus.message.emit(Loc.t("Du hast die Hälfte deiner Materialien verloren."), UiTheme.DANGER)
 		_:
 			if not GameState.inventory.is_empty():
-				GameState.loot_sack = {"position": death_position + Vector3.UP * 0.5, "items": GameState.inventory.duplicate()}
+				GameState.loot_sack = {"position": death_position + Vector3.UP * 0.5, "items": GameState.inventory.duplicate(), "area": GameState.area}
 			for id: StringName in GameState.inventory.keys():
 				GameState.add_item(id, -GameState.item_count(id))
 			GameState.essence *= 1.0 - b.death_essence_loss

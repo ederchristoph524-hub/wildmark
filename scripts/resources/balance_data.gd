@@ -39,6 +39,8 @@ extends Resource
 @export var meditation_peak_regen_mult: float = 2.5
 ## So lange stürmt die Essenz beim Durchbruch gegen die Wand (sichtbar, durch Treffer unterbrechbar).
 @export var breakthrough_ritual_time: float = 3.0
+## An einer Geisterquelle verfeinert Kultivieren die Wand so viel schneller und sammelt mehr Uressenz.
+@export var spirit_spring_mult: float = 2.0
 @export var stage_max_hp: float = 12.0
 @export var stage_damage: float = 1.5
 @export var breakthrough_min_essence: float = 0.9
@@ -304,6 +306,11 @@ extends Resource
 	&"universe": {"families": [&"schritt"], "capacity_add": 4.0, "hunger_mult": 0.5},
 	&"metal": {"families": [&"haut"], "grundschaden": 6.0, "crit_chance": 0.3},
 }
+
+@export_group("Reisen")
+## Reisezeit in Spieltagen innerhalb einer Region und über eine Regionalmauer.
+@export var travel_days_region: float = 0.3
+@export var travel_days_wall: float = 1.0
 
 @export_group("Slots im Kampf")
 ## Im Kampf: Gegner näher als combat_radius oder Treffer/Gu-Einsatz vor weniger als combat_linger Sekunden.

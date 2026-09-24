@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://eosna7by52rf"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_h5reh"]
+
+[resource]
+script = ExtResource("1_h5reh")
+id = &"bai_clan"
+display_name = "Bai-Klan"
+icon = "❄️"
+faction = &"righteous"
+org_type = &"klan"
+region = 1
+power = 2
+rivals = Array[StringName]([&"gu_yue", &"xiong_clan"])
+join_gift = Dictionary[StringName, int]({
+&"kristall": 5,
+&"stein": 15
+})
+signature_gu = &"wasserlicht"
+politics = "Nachbarklan am Qing-Mao-Berg, stolz auf seine Wasser- und Eis-Gu. Wartet auf eine Schwäche der Gu-Yue."
+description = "Klan vom Qing-Mao-Berg mit weißen Roben."

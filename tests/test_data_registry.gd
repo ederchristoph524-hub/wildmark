@@ -23,7 +23,7 @@ func _init() -> void:
 func _check_counts(registry: Node) -> void:
 	var expected: Dictionary[StringName, int] = {
 		&"families": 12, &"body": 4, &"support": 7, &"traits": 10, &"statuses": 6, &"reactions": 8,
-		&"killer_moves": 8, &"enemies": 25, &"items": 41, &"regions": 8, &"sects": 15, &"quests": 18,
+		&"killer_moves": 8, &"enemies": 25, &"items": 41, &"regions": 8, &"sects": 17, &"quests": 18,
 	}
 	for category: StringName in expected:
 		var actual: int = registry.call("count", category)

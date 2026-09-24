@@ -20,6 +20,7 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"quests": "res://data/quests/",
 	"npcs": "res://data/npcs/",
 	"areas": "res://data/areas/",
+	"biomes": "res://data/biomes/",
 	"builds": "res://data/builds/",
 	"gu_masters": "res://data/gu_masters/",
 }
@@ -41,6 +42,7 @@ const COUNT_LABELS: Dictionary[String, String] = {
 	"quests": "Quests",
 	"npcs": "NPC-Arten",
 	"areas": "Gebiete",
+	"biomes": "Biome",
 	"builds": "Bauteile",
 	"gu_masters": "Gu-Meister",
 }
