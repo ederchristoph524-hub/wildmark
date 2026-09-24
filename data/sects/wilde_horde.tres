@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://bgkgxar0oth4y"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_rnk3w"]
+
+[resource]
+script = ExtResource("1_rnk3w")
+id = &"wilde_horde"
+display_name = "Wilde Horde"
+icon = "🐺"
+faction = &"demonic"
+org_type = &"stamm"
+power = 2
+rivals = Array[StringName]([&"yi_tian", &"huang_jin"])
+join_gift = Dictionary[StringName, int]({
+&"fell": 10,
+&"fleisch": 20
+})
+signature_gu = &"wirbelwind"
+politics = "Kein Unsterblicher, dafür Zehntausende Krieger. Überlebt durch Zahl und Brutalität, nicht durch Schutz."
+description = "Stämme der Nordebene, die nur Stärke anerkennen."

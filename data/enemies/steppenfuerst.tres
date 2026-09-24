@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cywc3m1tybyo3"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_gbw0b"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_mudiq"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_gbw0b")
+item = &"fell"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_gbw0b")
+item = &"kern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_gbw0b")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_gbw0b")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_mudiq")
+id = &"steppenfuerst"
+display_name = "Steppenfürst"
+max_hp = 1600
+damage = 32
+speed = 3.4
+xp = 1300
+radius = 1.0
+color = Color(0.6039216, 0.72156864, 0.41568628, 1)
+zone = 9
+drops = Array[ExtResource("1_gbw0b")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+shape = &"boss"
+behavior = &"boss"
+minion = &"spinnling"
+boss = true

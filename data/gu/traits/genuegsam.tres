@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://bip0mj4n20koh"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_c823q"]
+
+[resource]
+script = ExtResource("1_c823q")
+id = &"genuegsam"
+display_name = "Genügsam"
+effect_text = "Hunger −50 %"
+weight = 10

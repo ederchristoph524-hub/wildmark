@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b40nvwa5pp8dj"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_p5ipm"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_fc8fm"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_p5ipm")
+item = &"fleisch"
+chance = 0.4
+
+[resource]
+script = ExtResource("2_fc8fm")
+id = &"ratte"
+display_name = "Ratte"
+max_hp = 8
+damage = 3
+speed = 4.5
+xp = 6
+radius = 0.25
+color = Color(0.5411765, 0.41568628, 0.2901961, 1)
+drops = Array[ExtResource("1_p5ipm")]([SubResource("drop_0")])
+shape = &"quad"

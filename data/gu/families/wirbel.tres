@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://b8fo14n37p14a"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_yqkeb"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_3ocb7"]
+
+[sub_resource type="Resource" id="gu_wirbelwind"]
+script = ExtResource("1_yqkeb")
+id = &"wirbelwind"
+display_name = "Wirbelwind-Gu"
+family = &"wirbel"
+description = "Ein Rundumschlag mit Windstoß."
+lore = "Ein Sturm aus Klingen um den Träger herum."
+
+[sub_resource type="Resource" id="gu_sogwirbel"]
+script = ExtResource("1_yqkeb")
+id = &"sogwirbel"
+display_name = "Sogwirbel-Gu"
+family = &"wirbel"
+rank = 2
+rank_gift = "Zieht Gegner vorher zu dir."
+description = "Ein Wirbel, der Gegner einsaugt und dann schlägt."
+
+[sub_resource type="Resource" id="gu_bergschlag"]
+script = ExtResource("1_yqkeb")
+id = &"bergschlag"
+display_name = "Bergschlag-Gu"
+family = &"wirbel"
+rank = 3
+rank_gift = "Bodenschlag, betäubt 1 s."
+description = "Ein Schlag, der den Boden bersten lässt."
+
+[resource]
+script = ExtResource("2_3ocb7")
+id = &"wirbel"
+display_name = "Wirbel"
+path = &"kraft"
+role = "Nahkampf und Positionierung"
+form = &"kreis"
+tags = Array[StringName]([&"wucht", &"wind"])
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 4.0,
+&"ess": 8.0,
+&"radius": 2.5,
+&"schaden": 18.0
+})
+members = Array[ExtResource("1_yqkeb")]([SubResource("gu_wirbelwind"), SubResource("gu_sogwirbel"), SubResource("gu_bergschlag")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"wildfell": 3
+},
+3: {
+&"knochenmehl": 2,
+&"wildfell": 5
+}
+})
+world_effect = "Zertrümmert Felsbrocken und morsche Wände; Wind verweht Nebel und Giftwolken."

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dtr0xxleiwgup"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_w5w5p"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_3p0q2"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_w5w5p")
+item = &"kristall"
+chance = 0.25
+
+[resource]
+script = ExtResource("2_3p0q2")
+id = &"bat"
+display_name = "Fledermaus"
+max_hp = 12
+damage = 6
+speed = 4.4
+xp = 12
+radius = 0.3
+color = Color(0.3529412, 0.2901961, 0.5411765, 1)
+zone = 1
+drops = Array[ExtResource("1_w5w5p")]([SubResource("drop_0")])
+shape = &"bat"
+flying = true
+night_only = true

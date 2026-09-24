@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dsg4821kq7hbf"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_3rqk4"]
+
+[resource]
+script = ExtResource("1_3rqk4")
+id = &"j50"
+display_name = "Schlächter"
+description = "Besiege 50 Monster."
+reward_points = 2

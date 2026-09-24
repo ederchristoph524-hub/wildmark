@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://0sr3a1w7hqc8"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_3kgb2"]
+
+[resource]
+script = ExtResource("1_3kgb2")
+id = &"j200"
+display_name = "Legende"
+description = "Besiege 200 Monster."
+reward_points = 3

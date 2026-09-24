@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://cjtxuvyasrrs7"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_5wnqa"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_3xvlm"]
+
+[sub_resource type="Resource" id="gu_funkenwurm"]
+script = ExtResource("1_5wnqa")
+id = &"funkenwurm"
+display_name = "Funkenwurm-Gu"
+family = &"blitz"
+description = "Ein schneller Funke, der das Ziel auflädt."
+
+[sub_resource type="Resource" id="gu_blauplasma"]
+script = ExtResource("1_5wnqa")
+id = &"blauplasma"
+display_name = "Blauplasma-Gu"
+family = &"blitz"
+rank = 2
+rank_gift = "Ignoriert Rüstung."
+description = "Ein Plasmastoß, der Panzer durchschlägt."
+lore = "Blaues Plasma, das selbst Stahlpanzer durchschlägt."
+
+[sub_resource type="Resource" id="gu_kettenblitz"]
+script = ExtResource("1_5wnqa")
+id = &"kettenblitz"
+display_name = "Kettenblitz-Gu"
+family = &"blitz"
+rank = 3
+rank_gift = "Springt auf bis zu 3 weitere Ziele."
+description = "Ein Blitz, der von Gegner zu Gegner springt."
+lore = "Ein Blitz, der von Feind zu Feind springt."
+
+[resource]
+script = ExtResource("2_3xvlm")
+id = &"blitz"
+display_name = "Blitz"
+path = &"blitz"
+role = "schneller Einzelschaden"
+form = &"geschoss_schnell"
+tags = Array[StringName]([&"blitz"])
+status = &"ladung"
+feed_item = &"kristall"
+feed_amount = 1
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 1.2,
+&"ess": 4.0,
+&"reichweite": 12.0,
+&"schaden": 12.0,
+&"stapel": 1.0
+})
+members = Array[ExtResource("1_5wnqa")]([SubResource("gu_funkenwurm"), SubResource("gu_blauplasma"), SubResource("gu_kettenblitz")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 3
+},
+3: {
+&"donnerholz": 2
+}
+})
+world_effect = "Lädt alte Ruinenmechanismen auf (Tore, Aufzüge); Blitz in Wasser elektrisiert die ganze Fläche."

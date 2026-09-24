@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b61ki7bmsdm8x"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_v5txl"]
+
+[resource]
+script = ExtResource("1_v5txl")
+id = &"eisenerz"
+display_name = "Grobeisenerz"
+icon = "⛏️"
+category = &"material"
+rank = 1
+path = &"metall"
+source = "Fels in allen Regionen"
+description = "Rohes Erz, Grundstoff jeder Metall-Verfeinerung."

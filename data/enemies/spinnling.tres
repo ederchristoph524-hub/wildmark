@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://3jfyaqm0hhyf"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_wa0jx"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_mm4as"]
+
+[resource]
+script = ExtResource("2_mm4as")
+id = &"spinnling"
+display_name = "Spinnling"
+max_hp = 6
+damage = 3
+speed = 4.0
+xp = 3
+radius = 0.2
+color = Color(0.3529412, 0.2901961, 0.3529412, 1)
+zone = 9
+shape = &"spider"
+no_spawn = true

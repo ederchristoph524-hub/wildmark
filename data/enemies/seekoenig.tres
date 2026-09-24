@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://pjrg35cl6h3u"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_hlrp8"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_scr2t"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_hlrp8")
+item = &"kern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_hlrp8")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_hlrp8")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_hlrp8")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_scr2t")
+id = &"seekoenig"
+display_name = "Seekönig"
+max_hp = 1900
+damage = 38
+speed = 2.6
+xp = 1500
+radius = 1.1
+color = Color(0.16470589, 0.5411765, 0.7882353, 1)
+zone = 9
+drops = Array[ExtResource("1_hlrp8")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+shape = &"boss"
+behavior = &"boss"
+minion = &"bat"
+boss = true

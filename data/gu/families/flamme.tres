@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://dkha5y3d7iqh6"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_0nwh8"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_5a4iy"]
+
+[sub_resource type="Resource" id="gu_glutfunke"]
+script = ExtResource("1_0nwh8")
+id = &"glutfunke"
+display_name = "Glutfunken-Gu"
+family = &"flamme"
+description = "Ein Funke, der beim Aufprall zerplatzt und entzündet."
+
+[sub_resource type="Resource" id="gu_flammenzunge"]
+script = ExtResource("1_0nwh8")
+id = &"flammenzunge"
+display_name = "Flammenzungen-Gu"
+family = &"flamme"
+rank = 2
+rank_gift = "Explosionsradius +1 m."
+description = "Ein Feuerball mit größerer Explosion."
+lore = "Speit eine Zunge aus Flammen."
+
+[sub_resource type="Resource" id="gu_feuerlotus"]
+script = ExtResource("1_0nwh8")
+id = &"feuerlotus"
+display_name = "Feuerlotus-Gu"
+family = &"flamme"
+rank = 3
+rank_gift = "Hinterlässt 4 s brennenden Boden."
+description = "Eine Feuerblüte, die den Boden in Brand setzt."
+
+[resource]
+script = ExtResource("2_5a4iy")
+id = &"flamme"
+display_name = "Flamme"
+path = &"feuer"
+role = "Flächenschaden"
+form = &"geschoss_explodierend"
+tags = Array[StringName]([&"feuer"])
+status = &"brand"
+feed_item = &"holz"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 3.0,
+&"ess": 8.0,
+&"radius": 1.5,
+&"schaden": 14.0,
+&"stapel": 1.0
+})
+members = Array[ExtResource("1_0nwh8")]([SubResource("gu_glutfunke"), SubResource("gu_flammenzunge"), SubResource("gu_feuerlotus")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"glutasche": 3
+},
+3: {
+&"donnerholz": 1,
+&"glutasche": 6
+}
+})
+world_effect = "Brennt Ranken, Dornenhecken und trockenes Gras ab; entzündet Fackeln und Signalfeuer."

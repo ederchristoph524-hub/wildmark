@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://cbw1qmeiq8b0"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_iv02l"]
+
+[resource]
+script = ExtResource("1_iv02l")
+id = 4
+display_name = "Zentralkontinent"
+color = Color(0.47843137, 0.72156864, 0.41568628, 1)
+description = "Das reiche Herz der Welt. Sitz des Himmlischen Hofes und der großen Sekten."

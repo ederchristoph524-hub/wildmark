@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dk6v58ipjrgex"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_gclv6"]
+
+[resource]
+script = ExtResource("1_gclv6")
+id = &"donnerpanzer"
+display_name = "Donnerpanzer"
+family_a = &"haut"
+family_b = &"blitz"
+channel_time = 0.6
+damage_mult = 2.5
+description = "Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel"
+hint = "Wer den Donner berührt …"

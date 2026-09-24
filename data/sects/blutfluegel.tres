@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://deynsp8kd2m5n"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_1cfte"]
+
+[resource]
+script = ExtResource("1_1cfte")
+id = &"blutfluegel"
+display_name = "Blutflügel-Dämonensekte"
+icon = "🩸"
+faction = &"demonic"
+org_type = &"sekte"
+region = 1
+immortals = 1
+power = 2
+rivals = Array[StringName]([&"gu_yue", &"wu_clan"])
+join_gift = Dictionary[StringName, int]({
+&"fleisch": 15,
+&"kristall": 8
+})
+signature_gu = &"blutrausch"
+politics = "Ein einziger Unsterblicher, sonst nur Sterbliche. Wird von allen rechtschaffenen Klans der Südgrenze gejagt."
+description = "Von Fang Yuan gegründet. Nur Sterbliche, ein einziger Unsterblicher."

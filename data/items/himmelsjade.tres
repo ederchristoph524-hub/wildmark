@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://44w3dvu5cngt"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_6u3n0"]
+
+[resource]
+script = ExtResource("1_6u3n0")
+id = &"himmelsjade"
+display_name = "Himmelsjade"
+icon = "🟩"
+category = &"material"
+rank = 6
+path = &"metall"
+immortal = true
+source = "Gesegnete Länder"
+description = "Jade, die nur in Aperturen wächst."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dg1a7ee6tgh73"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_81d3j"]
+
+[resource]
+script = ExtResource("1_81d3j")
+id = &"giftdrüse"
+display_name = "Giftdrüse"
+icon = "🧪"
+category = &"material"
+rank = 2
+path = &"gift"
+source = "Giftige Bestien"
+description = "Aus dem Leib giftiger Kreaturen geschnitten."

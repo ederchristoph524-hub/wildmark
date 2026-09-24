@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://itg1218v7q0m"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_fk2ah"]
+
+[resource]
+script = ExtResource("1_fk2ah")
+id = &"mondtau"
+display_name = "Mondtau"
+icon = "💧"
+category = &"material"
+rank = 1
+path = &"wasser"
+source = "Nachts auf Gras"
+description = "Tau, der bei Mondlicht gesammelt wird."

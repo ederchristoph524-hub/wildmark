@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://k37dbivxpjxt"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qonr5"]
+
+[resource]
+script = ExtResource("1_qonr5")
+id = &"knochenfestung"
+display_name = "Knochenfestung"
+family_a = &"knochen"
+family_b = &"haut"
+channel_time = 0.8
+damage_mult = 2.5
+description = "Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP)"
+hint = "Die Haut aus Knochen beißt zurück."

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ybiwofkhfq3u"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_l0lbo"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_63vgb"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_l0lbo")
+item = &"schuppe"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_l0lbo")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_l0lbo")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_l0lbo")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_l0lbo")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_l0lbo")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_63vgb")
+id = &"drache"
+display_name = "Lavadrache"
+max_hp = 2600
+damage = 45
+speed = 3.0
+xp = 2500
+radius = 1.2
+color = Color(1, 0.22745098, 0.101960786, 1)
+zone = 9
+drops = Array[ExtResource("1_l0lbo")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"boss"
+behavior = &"boss"
+burn = true
+flying = true
+boss = true

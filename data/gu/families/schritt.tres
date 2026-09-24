@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://c5hx52sn88hyp"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_ldsg0"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_kao4c"]
+
+[sub_resource type="Resource" id="gu_sprungwurm"]
+script = ExtResource("1_ldsg0")
+id = &"sprungwurm"
+display_name = "Sprungwurm-Gu"
+family = &"schritt"
+description = "Doppelsprung."
+
+[sub_resource type="Resource" id="gu_wolkenschritt"]
+script = ExtResource("1_ldsg0")
+id = &"wolkenschritt"
+display_name = "Wolkenschritt-Gu"
+family = &"schritt"
+rank = 2
+rank_gift = "Gleiten und ein Luft-Dash."
+description = "Du gleitest über Schluchten."
+
+[sub_resource type="Resource" id="gu_schattenbild"]
+script = ExtResource("1_ldsg0")
+id = &"schattenbild"
+display_name = "Schattenbild-Gu"
+family = &"schritt"
+rank = 3
+rank_gift = "Teleport 8 m, auch durch Gitter."
+description = "Teleportiert dich ein Stück nach vorn."
+lore = "Der Träger zerfällt zu Schatten und formt sich anderswo neu."
+
+[resource]
+script = ExtResource("2_kao4c")
+id = &"schritt"
+display_name = "Schritt"
+path = &"raum"
+role = "Bewegung und Erkundung"
+form = &"bewegung"
+tags = Array[StringName]([&"raum"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 1.5,
+&"ess": 2.0
+})
+members = Array[ExtResource("1_ldsg0")]([SubResource("gu_sprungwurm"), SubResource("gu_wolkenschritt"), SubResource("gu_schattenbild")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"windfeder": 2
+},
+3: {
+&"windfeder": 5
+}
+})
+world_effect = "Der wichtigste Erkundungs-Gu: erreicht Vorsprünge, Schluchten, Inseln und Käfige."

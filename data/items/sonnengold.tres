@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cwvrph4u1de1"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_6dmnl"]
+
+[resource]
+script = ExtResource("1_6dmnl")
+id = &"sonnengold"
+display_name = "Riesensonnen-Gold"
+icon = "🟡"
+category = &"material"
+rank = 8
+path = &"licht"
+immortal = true
+source = "Kaiserhof, 88-Yang-Gebäude"
+description = "Gold aus der Zeit des Riesensonnen-Ehrwürdigen."

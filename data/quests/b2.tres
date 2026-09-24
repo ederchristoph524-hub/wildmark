@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://vltrq27n2shp"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_0ufx7"]
+
+[resource]
+script = ExtResource("1_0ufx7")
+id = &"b2"
+display_name = "Steinkönig"
+description = "Besiege den Steinkönig im Osten (72, 6)."
+reward_points = 3

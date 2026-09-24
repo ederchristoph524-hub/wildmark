@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://vfen7wl0t4sf"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_nft1v"]
+
+[resource]
+script = ExtResource("1_nft1v")
+id = &"gift"
+display_name = "Gift"
+effect_text = "2 Schaden/s pro Stapel, 8 s, halbiert Heilung"
+max_stacks = 5

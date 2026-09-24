@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://dd7pcrfaqm17b"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_7fgj6"]
+
+[resource]
+script = ExtResource("1_7fgj6")
+id = 5
+display_name = "Weißer Himmel"
+color = Color(1, 0.9529412, 0.8156863, 1)
+description = "Ein Meer aus Licht und Wolken. Die Ordnung des Himmlischen Hofes."

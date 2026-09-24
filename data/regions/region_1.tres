@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://4db01pnmys08"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_5eqs8"]
+
+[resource]
+script = ExtResource("1_5eqs8")
+id = 1
+display_name = "Südliche Grenze"
+color = Color(0.24705882, 0.5411765, 0.2901961, 1)
+description = "Dschungel voller Miasma und Gift. Herrschaft der Klans — Fang Yuans Heimat."

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://cxkqcpxpk2cux"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_yg72x"]
+
+[resource]
+script = ExtResource("1_yg72x")
+id = &"blutgift"
+display_name = "Blutgift"
+trigger_tag = &"gift"
+target_status = &"wunde"
+effect_text = "Gift-Stapel werden verdoppelt"
+removes = Array[StringName]([&"wunde"])

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://dxysro5nafu36"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_wfal5"]
+
+[resource]
+script = ExtResource("1_wfal5")
+id = &"wunde"
+display_name = "Wunde"
+effect_text = "nächster Treffer +30 %; Blut-Gu heilen an verwundeten Zielen"

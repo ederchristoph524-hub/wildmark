@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://boeaau0q1e28w"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_4klvg"]
+
+[resource]
+script = ExtResource("1_4klvg")
+id = &"perle"
+display_name = "Essenzperle"
+icon = "💠"
+category = &"basis"
+description = "Verdichtete unsterbliche Essenz, entsteht nur im Gesegneten Land."

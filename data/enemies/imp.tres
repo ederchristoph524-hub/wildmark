@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c7ahmxkwqojne"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_fdvni"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_4y64y"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_fdvni")
+item = &"kristall"
+chance = 0.8
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_fdvni")
+item = &"fleisch"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_4y64y")
+id = &"imp"
+display_name = "Feuerteufel"
+max_hp = 48
+damage = 14
+speed = 3.4
+xp = 50
+radius = 0.4
+color = Color(1, 0.47843137, 0.22745098, 1)
+zone = 3
+drops = Array[ExtResource("1_fdvni")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"imp"
+burn = true

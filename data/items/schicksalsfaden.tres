@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ctbvpaf7kd7ew"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_r51ww"]
+
+[resource]
+script = ExtResource("1_r51ww")
+id = &"schicksalsfaden"
+display_name = "Schicksalsfaden"
+icon = "🧵"
+category = &"material"
+rank = 9
+path = &"glueck"
+immortal = true
+source = "Chaos-Katastrophen"
+description = "Ein Faden aus dem Gewebe des Schicksals."

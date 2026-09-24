@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://clr3gfpxjixwm"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_ef17q"]
+
+[resource]
+script = ExtResource("1_ef17q")
+id = &"seelenglas"
+display_name = "Seelenglas"
+icon = "🔮"
+category = &"material"
+rank = 3
+path = &"seele"
+source = "Ruinen"
+description = "Glas, in dem sich Seelen spiegeln."

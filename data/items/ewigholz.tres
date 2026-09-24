@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c3pctafans1bi"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_k6h7t"]
+
+[resource]
+script = ExtResource("1_k6h7t")
+id = &"ewigholz"
+display_name = "Ewigholz"
+icon = "🌲"
+category = &"material"
+rank = 7
+path = &"holz"
+immortal = true
+source = "Weltenbaum"
+description = "Holz, das nicht altert."

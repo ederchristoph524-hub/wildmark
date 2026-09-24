@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://ca1l3ioqg38a5"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_57ucv"]
+
+[resource]
+script = ExtResource("1_57ucv")
+id = &"j10"
+display_name = "Jäger"
+description = "Besiege 10 Monster."
+reward_points = 1

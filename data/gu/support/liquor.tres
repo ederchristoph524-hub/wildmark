@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://fhe8pmxif4p8"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_bhe0x"]
+
+[resource]
+script = ExtResource("1_bhe0x")
+id = &"liquor"
+display_name = "Schnaps-Wurm"
+path = &"weisheit"
+effect_text = "Essenz-Regeneration +35 %"
+feed_item = &"beeren"
+feed_amount = 3

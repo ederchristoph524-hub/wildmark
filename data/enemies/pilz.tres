@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c4y7telat6t6w"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_8fwuh"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_us786"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_8fwuh")
+item = &"beeren"
+chance = 0.7
+
+[resource]
+script = ExtResource("2_us786")
+id = &"pilz"
+display_name = "Knallpilz"
+max_hp = 10
+damage = 22
+speed = 1.2
+xp = 16
+radius = 0.35
+color = Color(0.8784314, 0.3529412, 0.47843137, 1)
+drops = Array[ExtResource("1_8fwuh")]([SubResource("drop_0")])
+shape = &"pilz"
+behavior = &"explode"

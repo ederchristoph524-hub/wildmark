@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://bxlmv0nh4kkvg"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_vehnm"]
+
+[resource]
+script = ExtResource("1_vehnm")
+id = &"meereszombies"
+display_name = "Meeres-Zombie-Bund"
+icon = "🧟"
+faction = &"demonic"
+org_type = &"stamm"
+region = 2
+immortals = 2
+power = 4
+rivals = Array[StringName]([&"ostmeer_allianz", &"himmelshof"])
+min_rank = 4
+join_gift = Dictionary[StringName, int]({
+&"fleisch": 25
+})
+signature_gu = &"zombie"
+politics = "Untote Unsterbliche, die keine Lebensspanne mehr verlieren. Zeit arbeitet für sie."
+description = "Die untoten Herren der östlichen Tiefsee."

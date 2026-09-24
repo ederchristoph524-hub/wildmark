@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c135bmtxlp3wt"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_w324j"]
+
+[resource]
+script = ExtResource("1_w324j")
+id = &"frostsplitter"
+display_name = "Frostsplitter"
+icon = "❄️"
+category = &"material"
+rank = 2
+path = &"eis"
+source = "Hoher Norden"
+description = "Ein Splitter, der niemals schmilzt."

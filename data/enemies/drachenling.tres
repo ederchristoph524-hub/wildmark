@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cuojnwvw31spt"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_f6ttf"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_4ai1t"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_f6ttf")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_4ai1t")
+id = &"drachenling"
+display_name = "Drachenling"
+max_hp = 60
+damage = 16
+speed = 3.6
+xp = 80
+radius = 0.45
+color = Color(0.7882353, 0.16470589, 0.16470589, 1)
+zone = 3
+drops = Array[ExtResource("1_f6ttf")]([SubResource("drop_0")])
+shape = &"bat"
+behavior = &"ranged"
+attack_range = 5.0
+burn = true
+flying = true

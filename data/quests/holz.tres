@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dtnd1o4bhfqmq"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_g1m1p"]
+
+[resource]
+script = ExtResource("1_g1m1p")
+id = &"holz"
+display_name = "Erste Schritte"
+description = "Sammle 10 Holz."
+reward_points = 1

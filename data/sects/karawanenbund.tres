@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://dpbvxgd22ve6i"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_s8ioo"]
+
+[resource]
+script = ExtResource("1_s8ioo")
+id = &"karawanenbund"
+display_name = "Karawanenbund"
+icon = "🐪"
+faction = &"demonic"
+org_type = &"stamm"
+region = 3
+power = 1
+rivals = Array[StringName]([&"wuestentempel"])
+join_gift = Dictionary[StringName, int]({
+&"fell": 10,
+&"kristall": 14
+})
+signature_gu = &"sklaverei"
+politics = "Kein Unsterblicher, keine Festung, keine Freunde. Überlebt nur, weil niemand die Mühe wert findet."
+description = "Schmuggler und Sklavenhändler der Westwüste."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://3qpvg04rbht"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_13tjt"]
+
+[resource]
+script = ExtResource("1_13tjt")
+id = &"pestfeuer"
+display_name = "Pestfeuer"
+family_a = &"gift"
+family_b = &"flamme"
+channel_time = 1.1
+damage_mult = 3.0
+description = "Giftwolke, die sich entzündet: große Giftexplosion und brennender Boden"
+hint = "Fäulnis brennt am hellsten."

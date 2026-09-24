@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://ddfr65hidf1xk"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_5p50r"]
+
+[resource]
+script = ExtResource("1_5p50r")
+id = &"ladung"
+display_name = "Ladung"
+effect_text = "bei 3 Stapeln Entladung: 25 Schaden im Umkreis 2 und 0,5 s Betäubung"
+max_stacks = 3

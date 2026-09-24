@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://b4xmcyqay8lkg"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_sguay"]
+
+[resource]
+script = ExtResource("1_sguay")
+id = 7
+display_name = "Gesegnetes Land"
+color = Color(0.36862746, 0.88235295, 0.75686276, 1)
+description = "Eine eigene Welt innerhalb einer Apertur."

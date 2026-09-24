@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://myh2vudduauj"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_a78tk"]
+
+[resource]
+script = ExtResource("1_a78tk")
+id = &"mondschritt"
+display_name = "Mondschritt"
+family_a = &"mondlicht"
+family_b = &"schritt"
+channel_time = 0.6
+damage_mult = 2.5
+description = "Du jagst durch eine Gegnerreihe und hinterlässt Mondklingen auf deinem Weg"
+hint = "Ein Schritt im Mondlicht schneidet."

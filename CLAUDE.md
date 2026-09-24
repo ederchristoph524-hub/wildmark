@@ -41,7 +41,9 @@ Widersprechen sich Dokumente, gilt: `GU_SYSTEM.md` > `KAMPFSYSTEM.md` > `GDD.md`
 res://
   autoload/        EventBus, GameState, DataRegistry, SaveSystem, Balance
   data/            generierte Resources (.tres) – nie von Hand bearbeiten
-    gu/  killer_moves/  items/  enemies/  regions/  sects/  quests/
+    gu/            families/ (Mitglieder eingebettet), body/, support/, traits/, gu_system.tres
+    combat/        statuses/, reactions/
+    killer_moves/  items/  enemies/  regions/  sects/  quests/
   scripts/
     resources/     Resource-Klassen (GuData, KillerMoveData, …)
     components/    wiederverwendbare Node-Komponenten
@@ -71,14 +73,26 @@ docs/
 **Kern-Resources:**
 - `GuFamilyData`: `id`, `display_name`, `path`, `role`, `form`, `tags`, `status`, `feed_item`, `feed_amount`, `base_r1` (Dictionary), `members` (Array von `GuData`), `upgrade_materials`, `world_effect`
 - `GuData`: `id`, `display_name`, `family`, `rank`, `rank_gift`, `description`, `lore`
-- `GuInstance` (Laufzeit, gespeichert): `gu_id`, `trait`, `satiety`, `cooldown_left`
+- `GuInstance` (Laufzeit, gespeichert): `gu_id`, `trait_id`, `satiety`, `cooldown_left` (`trait` ist ab Godot 4.7 ein reserviertes Wort)
 - `StatusData`, `ReactionData`, `TraitData`, `BodyGuData`, `SupportGuData`
+- `ReactionData`: `target_status` ist eine Zustands-ID oder eine abgeleitete Bedingung aus `ReactionData.DERIVED_CONDITIONS` (derzeit `eingefroren`); `min_stacks` > 0 verlangt Mindeststapel (aus `gift_ab_3` wird `gift` mit 3)
+- `GuSystemData`: Tags, Merkmal-Chancen, Start-Familien (`data/gu/gu_system.tres`)
 - `KillerMoveData`: `id`, `display_name`, `family_a`, `family_b`, `channel_time`, `damage_mult`, `description`, `hint`
-- `EnemyData`, `ItemData`, `RegionData`, `SectData`, `QuestData`
+- `EnemyData` (Beute als `Array[DropEntry]`: jeder Eintrag wird einzeln gewürfelt, gleiche Items dürfen mehrfach vorkommen), `ItemData` (Grundressourcen und Materialien, ein ID-Raum), `RegionData` (ID ist int), `SectData`, `QuestData`
 
 ## Datenimport
 
-`tools/import_data.gd` (EditorScript) liest `docs/daten/*.json` und erzeugt bzw. aktualisiert die `.tres`-Dateien in `data/`. Es validiert dabei alle Verweise (Futter, Drops, Killer-Move-Gu, Sekten-Gu) und bricht bei Fehlern mit klarer Meldung ab. IDs aus dem JSON bleiben als `StringName` erhalten. Werte mit `[fn]` sind JavaScript-Referenzlogik und werden nicht importiert, sondern beim Umsetzen des Effekts gelesen. Nach Datenänderungen das Skript erneut ausführen.
+`tools/import_data.gd` (EditorScript) liest `docs/daten/*.json` und erzeugt bzw. aktualisiert die `.tres`-Dateien in `data/`. Es validiert dabei alle Verweise (Futter, Drops, Killer-Move-Gu, Sekten-Gu) und bricht bei Fehlern mit klarer Meldung ab.
+
+- **Editor:** `tools/import_data.gd` öffnen, „Datei → Ausführen“ (Strg+Umschalt+X).
+- **Headless:** `godot --headless --path . --script res://tools/import_data_cli.gd` (Exit-Code 1 bei Fehlern). Danach `godot --headless --path . --script res://tests/test_data_import.gd`.
+- Die Logik liegt in `tools/data_importer.gd` (Ablauf, Schreiben), `gu_import_builder.gd`, `world_import_builder.gd` und `import_validator.gd`.
+- Erst wird alles gebaut und geprüft, dann geschrieben: Bei einem Fehler bleibt `data/` unverändert. Vorhandene UIDs bleiben erhalten; ein zweiter Lauf ohne Datenänderung ändert keine Datei.
+- `.tres`-Dateien, deren ID nicht mehr in den Daten steht, werden nur als Warnung gemeldet, nicht gelöscht.
+- Warnung statt Fehler: Sekten-Signatur-Gu, die nur im Ideenpool `gu.json` stehen (kommen in späteren Meilensteinen), und Material-Pfade, die in `gu.json → PATHS` fehlen.
+- Nicht importiert: `fortschritt.json`, `unsterblich.json`, `KILLERS` aus `killer_moves.json`, `GEAR`, `BUILD`, `GUMASTER`, `VARIANTS`, `NPCTYPE`, `SECTRANKS`, `FACTIONS`, `STANDING`, `ZONE_NAMES` – dafür gibt es noch keine Resource-Klasse.
+
+IDs aus dem JSON bleiben als `StringName` erhalten. Werte mit `[fn]` sind JavaScript-Referenzlogik und werden nicht importiert, sondern beim Umsetzen des Effekts gelesen. Nach Datenänderungen das Skript erneut ausführen.
 
 `docs/` enthält eine `.gdignore`, damit Godot die Dokumente nicht als Ressourcen scannt. JSON-Dateien dort deshalb mit `FileAccess` lesen, nicht mit `load()`.
 

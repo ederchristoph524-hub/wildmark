@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://beblmsjk2f2b7"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_vsa0w"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_0jly2"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_vsa0w")
+item = &"kristall"
+chance = 0.9
+
+[resource]
+script = ExtResource("2_0jly2")
+id = &"schatten"
+display_name = "Schatten"
+max_hp = 50
+damage = 18
+speed = 3.0
+xp = 65
+radius = 0.4
+color = Color(0.101960786, 0.0627451, 0.1882353, 1)
+zone = 2
+drops = Array[ExtResource("1_vsa0w")]([SubResource("drop_0")])
+shape = &"ghost"
+behavior = &"teleport"
+night_only = true

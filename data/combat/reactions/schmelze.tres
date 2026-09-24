@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://dmr5er4x7d4b8"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_0lw33"]
+
+[resource]
+script = ExtResource("1_0lw33")
+id = &"schmelze"
+display_name = "Schmelze"
+trigger_tag = &"feuer"
+target_status = &"frost"
+effect_text = "×1,5 Schaden, Ziel wird nass"
+removes = Array[StringName]([&"frost"])

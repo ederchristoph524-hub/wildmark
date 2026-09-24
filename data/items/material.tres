@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c76rejosayww5"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_cqwbo"]
+
+[resource]
+script = ExtResource("1_cqwbo")
+id = &"material"
+display_name = "Seltenes Material"
+icon = "🔮"
+category = &"basis"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://w31fusr0h05c"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_5vfcb"]
+
+[resource]
+script = ExtResource("1_5vfcb")
+id = &"l10"
+display_name = "Level 10"
+description = "Erreiche Level 10."
+reward_points = 2

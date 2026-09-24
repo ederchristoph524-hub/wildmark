@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://860qeapftpbr"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_6qdct"]
+
+[resource]
+script = ExtResource("1_6qdct")
+id = &"schattensekte"
+display_name = "Schattensekte"
+icon = "🌑"
+faction = &"demonic"
+org_type = &"sekte"
+region = 4
+immortals = 2
+power = 4
+rivals = Array[StringName]([&"himmelshof"])
+min_rank = 4
+join_gift = Dictionary[StringName, int]({
+&"kristall": 12
+})
+signature_gu = &"schattenbild"
+politics = "Zwei Unsterbliche, die niemand kennt. Wirkt im Verborgenen und unterwandert den Himmlischen Hof."
+description = "Verborgene Macht hinter den Kulissen des Zentralkontinents."

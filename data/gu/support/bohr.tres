@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://b55d6h8u4gwlm"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_h0yek"]
+
+[resource]
+script = ExtResource("1_h0yek")
+id = &"bohr"
+display_name = "Bohr-Gu"
+rank = 2
+path = &"metall"
+effect_text = "Rohstoffe brauchen einen Schlag weniger, seltenere Funde"
+feed_item = &"stein"
+feed_amount = 2

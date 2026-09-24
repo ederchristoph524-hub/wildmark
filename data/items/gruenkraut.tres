@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://m5bfrfjjapgt"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_vl7q4"]
+
+[resource]
+script = ExtResource("1_vl7q4")
+id = &"gruenkraut"
+display_name = "Grünkraut"
+icon = "🌿"
+category = &"material"
+rank = 1
+path = &"holz"
+source = "Wiesen und Wälder"
+description = "Ein einfaches Kraut voller Lebenskraft."

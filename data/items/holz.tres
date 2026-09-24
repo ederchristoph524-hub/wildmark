@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dvdo3moyebsed"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_8axkv"]
+
+[resource]
+script = ExtResource("1_8axkv")
+id = &"holz"
+display_name = "Holz"
+icon = "🪵"
+category = &"basis"

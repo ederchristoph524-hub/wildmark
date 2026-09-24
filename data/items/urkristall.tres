@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bs8o6q54eyok4"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_aq110"]
+
+[resource]
+script = ExtResource("1_aq110")
+id = &"urkristall"
+display_name = "Urkristall"
+icon = "💎"
+category = &"material"
+rank = 5
+path = &"qi"
+source = "Kristalladern, Ruinen"
+description = "Verdichtete Ur-Essenz in fester Form."

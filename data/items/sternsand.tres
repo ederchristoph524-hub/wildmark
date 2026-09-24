@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dv4r5tw3iisjx"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_46wbh"]
+
+[resource]
+script = ExtResource("1_46wbh")
+id = &"sternsand"
+display_name = "Sternensand"
+icon = "✨"
+category = &"material"
+rank = 4
+path = &"licht"
+source = "Westliche Wüste bei Nacht"
+description = "Sand, der Sternenlicht gespeichert hat."

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c17p6g4jktfes"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_rgm1u"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_c2i3q"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_rgm1u")
+item = &"fleisch"
+chance = 0.9
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_rgm1u")
+item = &"fell"
+chance = 0.6
+
+[resource]
+script = ExtResource("2_c2i3q")
+id = &"wolf"
+display_name = "Wolf"
+max_hp = 32
+damage = 9
+speed = 3.6
+xp = 20
+radius = 0.4
+color = Color(0.54509807, 0.56078434, 0.6039216, 1)
+zone = 1
+drops = Array[ExtResource("1_rgm1u")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"

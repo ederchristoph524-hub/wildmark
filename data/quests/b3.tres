@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dhmv07t087ioa"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_1wsgp"]
+
+[resource]
+script = ExtResource("1_1wsgp")
+id = &"b3"
+display_name = "Lavadrache"
+description = "Besiege den Lavadrachen im Westen (−115, −10)."
+reward_points = 4

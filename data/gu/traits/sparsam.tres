@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://bh6nnifdoaxsb"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_nf4m7"]
+
+[resource]
+script = ExtResource("1_nf4m7")
+id = &"sparsam"
+display_name = "Sparsam"
+effect_text = "Essenzkosten −20 %"
+weight = 8

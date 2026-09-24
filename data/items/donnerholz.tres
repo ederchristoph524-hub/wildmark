@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://blrge3pll75we"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_plv5b"]
+
+[resource]
+script = ExtResource("1_plv5b")
+id = &"donnerholz"
+display_name = "Donnerholz"
+icon = "⚡"
+category = &"material"
+rank = 3
+path = &"blitz"
+source = "Vom Blitz getroffene Bäume"
+description = "Holz, in dem der Blitz noch nachhallt."

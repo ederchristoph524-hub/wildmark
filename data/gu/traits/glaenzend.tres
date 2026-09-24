@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://dxgl6n8lk3tbw"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_nyuav"]
+
+[resource]
+script = ExtResource("1_nyuav")
+id = &"glaenzend"
+display_name = "Glänzend (selten)"
+effect_text = "Wirkung +30 %, leuchtet sichtbar"

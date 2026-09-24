@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://d1neey4i1n4gh"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_xmh0l"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_15wln"]
+
+[sub_resource type="Resource" id="gu_stachelwurm"]
+script = ExtResource("1_xmh0l")
+id = &"stachelwurm"
+display_name = "Stachelwurm-Gu"
+family = &"gift"
+description = "Ein Giftstich auf kurze Distanz."
+
+[sub_resource type="Resource" id="gu_giftskorpion"]
+script = ExtResource("1_xmh0l")
+id = &"giftskorpion"
+display_name = "Giftskorpion-Gu"
+family = &"gift"
+rank = 2
+rank_gift = "Gift springt beim Tod des Ziels über."
+description = "Ein Skorpionstich, dessen Gift sich ausbreitet."
+lore = "Ein schwarzer Skorpion, dessen Gift von Feind zu Feind springt."
+
+[sub_resource type="Resource" id="gu_giftnebel"]
+script = ExtResource("1_xmh0l")
+id = &"giftnebel"
+display_name = "Giftnebel-Gu"
+family = &"gift"
+rank = 3
+rank_gift = "Wird zur Giftwolke (Zone, Radius 3)."
+description = "Eine Giftwolke, die Stapel aufbaut."
+lore = "Ein Schwaden, der Fleisch und Willen gleichermaßen zersetzt."
+
+[resource]
+script = ExtResource("2_15wln")
+id = &"gift"
+display_name = "Gift"
+path = &"gift"
+role = "Schaden über Zeit"
+form = &"stich"
+tags = Array[StringName]([&"gift"])
+status = &"gift"
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 1.5,
+&"ess": 4.0,
+&"reichweite": 3.0,
+&"schaden": 8.0,
+&"stapel": 2.0
+})
+members = Array[ExtResource("1_xmh0l")]([SubResource("gu_stachelwurm"), SubResource("gu_giftskorpion"), SubResource("gu_giftnebel")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"gruenkraut": 3
+},
+3: {
+&"giftdrüse": 3
+}
+})
+world_effect = "Zersetzt Pilzbarrieren und morsche Wurzeln; Gift in Wasser macht Beutetiere schwach."

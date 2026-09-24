@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://cf6fosux2s1g7"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_8r7dg"]
+
+[resource]
+script = ExtResource("1_8r7dg")
+id = &"woche"
+display_name = "Siedler"
+description = "Erreiche Tag 7."
+reward_points = 2

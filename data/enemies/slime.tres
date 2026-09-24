@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://byala3eam21s2"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_f5jfp"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_s20qs"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_f5jfp")
+item = &"kristall"
+chance = 0.12
+
+[resource]
+script = ExtResource("2_s20qs")
+id = &"slime"
+display_name = "Schleim"
+max_hp = 14
+damage = 5
+speed = 1.6
+xp = 9
+radius = 0.38
+color = Color(0.49019608, 0.827451, 0.3529412, 1)
+drops = Array[ExtResource("1_f5jfp")]([SubResource("drop_0")])
+shape = &"slime"

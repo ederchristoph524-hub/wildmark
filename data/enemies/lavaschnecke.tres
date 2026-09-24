@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://5c5q860uhjda"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_0qhan"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_jfdws"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_0qhan")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_0qhan")
+item = &"stein"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_jfdws")
+id = &"lavaschnecke"
+display_name = "Lavaschnecke"
+max_hp = 120
+damage = 20
+xp = 70
+color = Color(1, 0.2901961, 0.101960786, 1)
+zone = 3
+drops = Array[ExtResource("1_0qhan")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"slime"
+behavior = &"armor"
+burn = true

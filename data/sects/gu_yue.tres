@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://b7c4sgfb6uphi"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_ypt1a"]
+
+[resource]
+script = ExtResource("1_ypt1a")
+id = &"gu_yue"
+display_name = "Gu-Yue-Klan"
+icon = "🌙"
+faction = &"righteous"
+org_type = &"klan"
+region = 1
+power = 2
+rivals = Array[StringName]([&"blutfluegel"])
+join_gift = Dictionary[StringName, int]({
+&"holz": 20,
+&"kristall": 6
+})
+signature_gu = &"mondlicht"
+politics = "Ein mittlerer Klan ohne eigenen Unsterblichen — nur ein Rang-4-Ältester schützt ihn. Die Nachbarklans warten auf einen Fehler."
+description = "Der Klan aus der Südlichen Grenze. Bekannt für das Mondlicht-Gu."

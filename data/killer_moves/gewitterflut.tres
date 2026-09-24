@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://xsnlfuc2kxfg"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_r2ouw"]
+
+[resource]
+script = ExtResource("1_r2ouw")
+id = &"gewitterflut"
+display_name = "Gewitterflut"
+family_a = &"stroemung"
+family_b = &"blitz"
+channel_time = 1.2
+damage_mult = 3.2
+description = "Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle"
+hint = "Wasser ruft den Donner."

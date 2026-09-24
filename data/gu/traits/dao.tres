@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://k7r71y66odhn"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_s2h1o"]
+
+[resource]
+script = ExtResource("1_s2h1o")
+id = &"dao"
+display_name = "Dao-geprägt"
+effect_text = "doppelte Dao-Markierungen bei Nutzung"
+weight = 4

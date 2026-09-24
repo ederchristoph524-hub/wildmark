@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://4vc0scm3qecb"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_crj6r"]
+
+[resource]
+script = ExtResource("1_crj6r")
+id = &"trübsalsstahl"
+display_name = "Trübsalsstahl"
+icon = "⛈️"
+category = &"material"
+rank = 7
+path = &"blitz"
+immortal = true
+source = "Überstandene Trübsale"
+description = "Stahl, geschmiedet im Himmelsblitz."

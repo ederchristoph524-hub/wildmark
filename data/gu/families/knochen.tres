@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://7unneilptq2h"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_3ptt5"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_avux5"]
+
+[sub_resource type="Resource" id="gu_blutdorn"]
+script = ExtResource("1_3ptt5")
+id = &"blutdorn"
+display_name = "Blutdorn-Gu"
+family = &"knochen"
+description = "Ein Dorn aus eigenem Blut. Kostet HP statt Essenz."
+
+[sub_resource type="Resource" id="gu_knochenspeer"]
+script = ExtResource("1_3ptt5")
+id = &"knochenspeer"
+display_name = "Spiral-Knochenspeer-Gu"
+family = &"knochen"
+rank = 2
+rank_gift = "Durchbohrt Rüstung vollständig."
+description = "Ein Speer aus eigenem Knochen."
+lore = "Lässt scharfe Knochenspeere aus dem Körper wachsen."
+
+[sub_resource type="Resource" id="gu_blutschaedel"]
+script = ExtResource("1_3ptt5")
+id = &"blutschaedel"
+display_name = "Blutschädel-Gu"
+family = &"knochen"
+rank = 3
+rank_gift = "Heilt dich um die Hälfte des Schadens."
+description = "Ein Schädelgeschoss, das Lebenskraft zurückholt."
+lore = "Ein grinsender Blutschädel, gefürchtet unter Dämonen-Kultivierenden."
+
+[resource]
+script = ExtResource("2_avux5")
+id = &"knochen"
+display_name = "Knochen"
+path = &"blut"
+role = "Hohes Risiko, hoher Schaden"
+form = &"geschoss"
+tags = Array[StringName]([&"durchbohren", &"schnitt"])
+status = &"wunde"
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.5,
+&"ess": 0.0,
+&"hp_kosten": 4.0,
+&"reichweite": 12.0,
+&"schaden": 26.0
+})
+members = Array[ExtResource("1_3ptt5")]([SubResource("gu_blutdorn"), SubResource("gu_knochenspeer"), SubResource("gu_blutschaedel")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"knochenmehl": 2
+},
+3: {
+&"blutkoralle": 2
+}
+})
+world_effect = "Blutsiegel an alten Klan-Toren öffnen sich nur mit Blut-Pfad."

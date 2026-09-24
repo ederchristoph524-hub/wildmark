@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://csoyx5fkrcey3"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_malps"]
+
+[resource]
+script = ExtResource("1_malps")
+id = &"nass"
+display_name = "Nass"
+effect_text = "keine direkte Wirkung, 6 s; Vorbereitung für Blitz und Frost"
+removed_by = Array[StringName]([&"brand"])

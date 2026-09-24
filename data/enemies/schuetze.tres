@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://csnkdq5ih0165"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_6owpf"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_7djs5"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_6owpf")
+item = &"stein"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_6owpf")
+item = &"kristall"
+chance = 0.2
+
+[resource]
+script = ExtResource("2_7djs5")
+id = &"schuetze"
+display_name = "Skelettschütze"
+max_hp = 26
+damage = 11
+speed = 2.4
+xp = 28
+radius = 0.38
+color = Color(0.84705883, 0.8156863, 0.7529412, 1)
+zone = 1
+drops = Array[ExtResource("1_6owpf")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"skel"
+behavior = &"ranged"
+attack_range = 6.0

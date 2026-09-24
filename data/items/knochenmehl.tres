@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cvjr68nj7aklf"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_pltby"]
+
+[resource]
+script = ExtResource("1_pltby")
+id = &"knochenmehl"
+display_name = "Knochenmehl"
+icon = "🦴"
+category = &"material"
+rank = 2
+path = &"blut"
+source = "Skelette und Gräber"
+description = "Zermahlener Knochen. Trägt noch Erinnerung."

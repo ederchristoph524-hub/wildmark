@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dyjfgulb7q1m1"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_mtylo"]
+
+[resource]
+script = ExtResource("1_mtylo")
+id = &"arten"
+display_name = "Forscher"
+description = "Besiege 10 verschiedene Monsterarten."
+reward_points = 2

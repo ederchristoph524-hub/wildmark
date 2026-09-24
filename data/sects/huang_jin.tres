@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://ei0idjau3j02"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_r3fpw"]
+
+[resource]
+script = ExtResource("1_r3fpw")
+id = &"huang_jin"
+display_name = "Huang-Jin-Familie"
+icon = "🥇"
+faction = &"righteous"
+org_type = &"klan"
+immortals = 3
+power = 5
+rivals = Array[StringName]([&"wilde_horde"])
+min_rank = 5
+join_gift = Dictionary[StringName, int]({
+&"kristall": 18
+})
+signature_gu = &"dogshit"
+politics = "Die Blutlinie eines Ehrwürdigen. Drei Unsterbliche, unantastbar in der Nordebene — aber erdrückende Erwartungen an jedes Kind."
+description = "Blutlinie des Riesensonnen-Ehrwürdigen. Herrscht über die Nordebene."

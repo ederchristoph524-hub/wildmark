@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bq40d7l5uuqk4"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_pn6cb"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_5i6vx"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_pn6cb")
+item = &"herz"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_pn6cb")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_pn6cb")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_pn6cb")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_5i6vx")
+id = &"waldgeist"
+display_name = "Waldgeist"
+max_hp = 600
+damage = 22
+speed = 2.6
+xp = 400
+radius = 0.9
+color = Color(0.22745098, 0.627451, 0.3529412, 1)
+zone = 9
+drops = Array[ExtResource("1_pn6cb")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+shape = &"boss"
+behavior = &"boss"
+minion = &"spinnling"
+boss = true

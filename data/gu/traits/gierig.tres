@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://ch2yyusfxi6hd"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_pegea"]
+
+[resource]
+script = ExtResource("1_pegea")
+id = &"gierig"
+display_name = "Gierig"
+effect_text = "Hunger +50 %, Wirkung +15 %"
+weight = 8

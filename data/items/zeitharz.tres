@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dx7y7mrqjvlfh"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_xm56b"]
+
+[resource]
+script = ExtResource("1_xm56b")
+id = &"zeitharz"
+display_name = "Zeitharz"
+icon = "⏳"
+category = &"material"
+rank = 4
+path = &"zeit"
+source = "Uralte Bäume"
+description = "Harz, in dem die Zeit zäh geworden ist."

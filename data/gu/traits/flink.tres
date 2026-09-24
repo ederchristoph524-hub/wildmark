@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://bd4dg3jhnev7q"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_5txf3"]
+
+[resource]
+script = ExtResource("1_5txf3")
+id = &"flink"
+display_name = "Flink"
+effect_text = "Cooldown −20 %"
+weight = 8

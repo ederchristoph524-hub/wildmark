@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://5s4647pintad"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_ltc16"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_wwwpw"]
+
+[sub_resource type="Resource" id="gu_frostnadel"]
+script = ExtResource("1_ltc16")
+id = &"frostnadel"
+display_name = "Frostnadel-Gu"
+family = &"frost"
+description = "Eine Eisnadel, die das Ziel unterkühlt."
+
+[sub_resource type="Resource" id="gu_eisvogel"]
+script = ExtResource("1_ltc16")
+id = &"eisvogel"
+display_name = "Eisvogel-Gu"
+family = &"frost"
+rank = 2
+rank_gift = "Trifft mit 2 Frost-Stapeln."
+description = "Ein Eisvogel, der am Ziel zerspringt."
+lore = "Ein eisblauer Vogel, der beim Aufprall zerbirst und alles in Eis schließt."
+
+[sub_resource type="Resource" id="gu_frostnova"]
+script = ExtResource("1_ltc16")
+id = &"frostnova"
+display_name = "Frostnova-Gu"
+family = &"frost"
+rank = 3
+rank_gift = "Wird zum Kreis um dich (Radius 3)."
+description = "Eine Kältewelle um dich herum."
+lore = "Eine Explosion aus Kälte, die selbst Blut gefrieren lässt."
+
+[resource]
+script = ExtResource("2_wwwpw")
+id = &"frost"
+display_name = "Frost"
+path = &"eis"
+role = "Kontrolle"
+form = &"geschoss"
+tags = Array[StringName]([&"eis"])
+status = &"frost"
+feed_item = &"fell"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.0,
+&"ess": 6.0,
+&"reichweite": 12.0,
+&"schaden": 12.0,
+&"stapel": 1.0
+})
+members = Array[ExtResource("1_ltc16")]([SubResource("gu_frostnadel"), SubResource("gu_eisvogel"), SubResource("gu_frostnova")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"frostsplitter": 2
+},
+3: {
+&"frostsplitter": 5,
+&"jadeader": 1
+}
+})
+world_effect = "Friert Wasserflächen zu begehbarem Eis, stoppt Wasserfälle kurz, löscht Feuer."

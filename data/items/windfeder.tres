@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ndancird3hht"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_gj5w4"]
+
+[resource]
+script = ExtResource("1_gj5w4")
+id = &"windfeder"
+display_name = "Windfeder"
+icon = "🪶"
+category = &"material"
+rank = 2
+path = &"raum"
+source = "Fliegende Bestien"
+description = "Federleicht und immer in Bewegung."

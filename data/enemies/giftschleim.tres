@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cqafmanw4cnfp"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_ppok2"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_yh7py"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_ppok2")
+item = &"kristall"
+chance = 0.2
+
+[resource]
+script = ExtResource("2_yh7py")
+id = &"giftschleim"
+display_name = "Giftschleim"
+max_hp = 18
+damage = 4
+speed = 1.8
+xp = 14
+radius = 0.4
+color = Color(0.60784316, 0.23137255, 1, 1)
+drops = Array[ExtResource("1_ppok2")]([SubResource("drop_0")])
+shape = &"slime"
+poison = true

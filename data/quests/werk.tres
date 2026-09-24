@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://cmvp6amt7lsck"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_2b21v"]
+
+[resource]
+script = ExtResource("1_2b21v")
+id = &"werk"
+display_name = "Schmied"
+description = "Baue eine Werkbank und ein Schwert."
+reward_points = 1

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b3g8klx31mrnh"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_y1tw5"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_ogf6m"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_y1tw5")
+item = &"stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_y1tw5")
+item = &"stein"
+chance = 0.8
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_y1tw5")
+item = &"kristall"
+chance = 0.7
+
+[resource]
+script = ExtResource("2_ogf6m")
+id = &"golem"
+display_name = "Golem"
+max_hp = 95
+damage = 16
+speed = 1.4
+xp = 60
+radius = 0.55
+color = Color(0.47843137, 0.41568628, 0.3529412, 1)
+zone = 2
+drops = Array[ExtResource("1_y1tw5")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"golem"

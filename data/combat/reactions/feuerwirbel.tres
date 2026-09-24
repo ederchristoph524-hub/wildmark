@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://gcwq2w4tr1e1"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_k0mff"]
+
+[resource]
+script = ExtResource("1_k0mff")
+id = &"feuerwirbel"
+display_name = "Feuerwirbel"
+trigger_tag = &"wind"
+target_status = &"brand"
+effect_text = "Brand springt auf alle Ziele im Umkreis 4"

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://b1xxok0wmt00l"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_0i4jo"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_ijhfa"]
+
+[sub_resource type="Resource" id="gu_mondlicht"]
+script = ExtResource("1_0i4jo")
+id = &"mondlicht"
+display_name = "Mondlicht-Gu"
+family = &"mondlicht"
+description = "Schleudert eine Mondklinge."
+lore = "Das Wahrzeichen des Gu-Yue-Klans. Ein Gu des Licht-Pfades, geschaffen vom Ersten Gu Yue."
+
+[sub_resource type="Resource" id="gu_mondsichel"]
+script = ExtResource("1_0i4jo")
+id = &"mondsichel"
+display_name = "Mondsichel-Gu"
+family = &"mondlicht"
+rank = 2
+rank_gift = "Klinge durchdringt ein weiteres Ziel."
+description = "Eine breitere Klinge, die durch den ersten Gegner hindurchschneidet."
+
+[sub_resource type="Resource" id="gu_regenbogen"]
+script = ExtResource("1_0i4jo")
+id = &"regenbogen"
+display_name = "Regenbogenlicht-Gu"
+family = &"mondlicht"
+rank = 3
+rank_gift = "Fächert in sieben Klingen auf."
+description = "Sieben Lichtklingen in einem Fächer."
+lore = "Bricht Licht in sieben schneidende Farben."
+
+[resource]
+script = ExtResource("2_ijhfa")
+id = &"mondlicht"
+display_name = "Mondlicht"
+path = &"licht"
+role = "Fernkampf-Allrounder"
+form = &"geschoss"
+tags = Array[StringName]([&"schnitt", &"licht"])
+feed_item = &"kristall"
+feed_amount = 1
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.0,
+&"ess": 6.0,
+&"reichweite": 14.0,
+&"schaden": 20.0
+})
+members = Array[ExtResource("1_0i4jo")]([SubResource("gu_mondlicht"), SubResource("gu_mondsichel"), SubResource("gu_regenbogen")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 3
+},
+3: {
+&"jadeader": 1,
+&"mondtau": 6
+}
+})
+world_effect = "Licht blendet Nacht- und Schattenwesen und lässt versteckte Lichtsiegel aufleuchten."

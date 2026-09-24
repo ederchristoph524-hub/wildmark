@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cpvb002f1y5at"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_ml43o"]
+
+[resource]
+script = ExtResource("1_ml43o")
+id = &"daokern"
+display_name = "Dao-Kern"
+icon = "🟣"
+category = &"material"
+rank = 6
+path = &"weisheit"
+immortal = true
+source = "Unsterbliche Gegner"
+description = "Verdichtete Dao-Markierungen."

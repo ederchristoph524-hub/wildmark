@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://upscvh805fkt"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_0x1jg"]
+
+[resource]
+script = ExtResource("1_0x1jg")
+id = &"wu_clan"
+display_name = "Wu-Klan"
+icon = "🏛️"
+faction = &"righteous"
+org_type = &"klan"
+region = 1
+immortals = 2
+power = 4
+rivals = Array[StringName]([&"blutfluegel"])
+min_rank = 3
+join_gift = Dictionary[StringName, int]({
+&"beeren": 20,
+&"kristall": 10
+})
+signature_gu = &"lebensbrunnen"
+politics = "Zwei Unsterbliche und ein tiefer Erbschatz. Der beste Ort, um als Hauptlinie geboren zu werden — und der schlimmste als Diener."
+description = "Die größte rechtschaffene Macht der Südlichen Grenze."

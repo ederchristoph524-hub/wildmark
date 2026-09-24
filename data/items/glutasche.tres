@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cqgo1qhpsq10r"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_uh2nr"]
+
+[resource]
+script = ExtResource("1_uh2nr")
+id = &"glutasche"
+display_name = "Glutasche"
+icon = "🔥"
+category = &"material"
+rank = 1
+path = &"feuer"
+source = "Aschefelder"
+description = "Asche, die noch immer glimmt."

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://71sxq33s4tbt"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_5433o"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_it4mh"]
+
+[sub_resource type="Resource" id="gu_rattensklave"]
+script = ExtResource("1_5433o")
+id = &"rattensklave"
+display_name = "Ratten-Sklaverei-Gu"
+family = &"sklaverei"
+description = "Unterwirft ein geschwächtes kleines Tier (unter 30 % HP)."
+
+[sub_resource type="Resource" id="gu_wolfssklave"]
+script = ExtResource("1_5433o")
+id = &"wolfssklave"
+display_name = "Wolfs-Sklaverei-Gu"
+family = &"sklaverei"
+rank = 2
+rank_gift = "Auch mittelgroße Bestien; 2 Gefährten."
+description = "Unterwirft Wölfe und Wildschweine."
+lore = "Unterwirft den Willen eines Wolfes. Standard der Nordebenen-Stämme."
+
+[sub_resource type="Resource" id="gu_bestiensklave"]
+script = ExtResource("1_5433o")
+id = &"bestiensklave"
+display_name = "Bestien-Sklaverei-Gu"
+family = &"sklaverei"
+rank = 3
+rank_gift = "Ein Gefährte bleibt dauerhaft, bis er stirbt."
+description = "Unterwirft auch starke Bestien."
+lore = "Der Sklaverei-Pfad in seiner ausgereiften Form."
+
+[resource]
+script = ExtResource("2_it4mh")
+id = &"sklaverei"
+display_name = "Sklaverei"
+path = &"seele"
+role = "Beschwörung"
+form = &"zaehmen"
+tags = Array[StringName]([&"seele"])
+feed_item = &"fleisch"
+feed_amount = 3
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 30.0,
+&"dauer": 25.0,
+&"ess": 12.0,
+&"hp_schwelle": 0.3,
+&"max_gefaehrten": 1.0
+})
+members = Array[ExtResource("1_5433o")]([SubResource("gu_rattensklave"), SubResource("gu_wolfssklave"), SubResource("gu_bestiensklave")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"wildfell": 3
+},
+3: {
+&"seelenglas": 2
+}
+})
+world_effect = "Gezähmte Tiere graben, tragen Beute oder lenken Gegner ab; Ratten erreichen enge Gänge."

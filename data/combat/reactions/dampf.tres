@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://eqq1cfgyetai"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_kix6c"]
+
+[resource]
+script = ExtResource("1_kix6c")
+id = &"dampf"
+display_name = "Dampf"
+trigger_tag = &"feuer"
+target_status = &"nass"
+effect_text = "Dampfwolke 4 s: Gegner darin verlieren ihr Ziel"
+removes = Array[StringName]([&"nass", &"brand"])

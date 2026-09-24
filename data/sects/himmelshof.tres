@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://dmpefrb8u1ftd"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_hkqov"]
+
+[resource]
+script = ExtResource("1_hkqov")
+id = &"himmelshof"
+display_name = "Himmlischer Hof"
+icon = "⛩️"
+faction = &"righteous"
+org_type = &"sekte"
+region = 4
+immortals = 3
+power = 5
+rivals = Array[StringName]([&"schattensekte", &"meereszombies"])
+min_rank = 5
+join_gift = Dictionary[StringName, int]({
+&"kristall": 15,
+&"stein": 30
+})
+signature_gu = &"goldlicht"
+politics = "Die stärkste Macht der Welt. Mehrere Rang-8-Unsterbliche. Wer hier aufwächst, ist von Anfang an geschützt — und beobachtet."
+description = "Die höchste Ordnungsmacht der Welt. Nimmt nur Fortgeschrittene auf."

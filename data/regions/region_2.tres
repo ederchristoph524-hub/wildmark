@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://r1d2mks2r556"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_ypwac"]
+
+[resource]
+script = ExtResource("1_ypwac")
+id = 2
+display_name = "Östliches Meer"
+color = Color(0.22745098, 0.5411765, 0.7882353, 1)
+description = "Zehntausend Inseln und endloses Wasser. Reich an Ressourcen, voller Seeungeheuer."

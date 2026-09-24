@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cpmiu585rhj2"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_ut0mo"]
+
+[resource]
+script = ExtResource("1_ut0mo")
+id = &"jadeader"
+display_name = "Jadeader"
+icon = "💚"
+category = &"material"
+rank = 3
+path = &"metall"
+source = "Tiefe Felsadern"
+description = "Grüne Ader im Gestein, zäh wie Sehne."

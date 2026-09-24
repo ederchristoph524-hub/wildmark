@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cyewdiylxb2pe"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_s33gs"]
+
+[resource]
+script = ExtResource("1_s33gs")
+id = &"wolkenerz"
+display_name = "Wolkenerz"
+icon = "☁️"
+category = &"material"
+rank = 6
+path = &"raum"
+immortal = true
+source = "Himmelsreiche"
+description = "Erz, das von selbst schwebt."

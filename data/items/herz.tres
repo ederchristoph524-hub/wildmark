@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dcuquuk5ao7a0"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_qbapy"]
+
+[resource]
+script = ExtResource("1_qbapy")
+id = &"herz"
+display_name = "Herz"
+icon = "💚"
+category = &"basis"

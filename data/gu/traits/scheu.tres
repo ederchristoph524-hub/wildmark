@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://61rdjlri58do"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_74dwb"]
+
+[resource]
+script = ExtResource("1_74dwb")
+id = &"scheu"
+display_name = "Scheu"
+effect_text = "Einfangen schwerer, Aufstiegsverfeinerung +15 % Chance"
+weight = 6

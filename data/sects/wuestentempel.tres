@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://bejv2bftrmp62"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_86gta"]
+
+[resource]
+script = ExtResource("1_86gta")
+id = &"wuestentempel"
+display_name = "Wüstentempel-Orden"
+icon = "🕌"
+faction = &"righteous"
+org_type = &"sekte"
+region = 3
+immortals = 1
+power = 3
+rivals = Array[StringName]([&"karawanenbund"])
+join_gift = Dictionary[StringName, int]({
+&"kristall": 6,
+&"stein": 35
+})
+signature_gu = &"himmelsdach"
+politics = "Ein alter Unsterblicher, der selten erwacht. Der Orden lebt von seinem Ruf mehr als von seiner Kraft."
+description = "Uralte Tempel zwischen den Dünen der Westwüste."

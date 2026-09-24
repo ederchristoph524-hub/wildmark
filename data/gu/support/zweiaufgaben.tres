@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://c6pconn0xjnkx"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_klwqi"]
+
+[resource]
+script = ExtResource("1_klwqi")
+id = &"zweiaufgaben"
+display_name = "Zwei-Aufgaben-Gu"
+rank = 2
+path = &"weisheit"
+effect_text = "Cooldowns −20 %"
+feed_item = &"kristall"
+feed_amount = 2

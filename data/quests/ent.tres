@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bj42ln623i73f"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_y8cea"]
+
+[resource]
+script = ExtResource("1_y8cea")
+id = &"ent"
+display_name = "Entdecker"
+description = "Entferne dich 50 Felder von der Mitte."
+reward_points = 1

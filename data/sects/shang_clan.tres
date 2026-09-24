@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://bgsa1e4au1lkg"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_rlw1u"]
+
+[resource]
+script = ExtResource("1_rlw1u")
+id = &"shang_clan"
+display_name = "Shang-Klan"
+icon = "💰"
+faction = &"righteous"
+org_type = &"klan"
+region = 1
+immortals = 1
+power = 3
+join_gift = Dictionary[StringName, int]({
+&"kristall": 12
+})
+signature_gu = &"schatzlicht"
+politics = "Reich statt stark. Kauft sich Schutz und Frieden — solange das Gold reicht."
+description = "Händlerklan der Südlichen Grenze, reich und weitverzweigt."

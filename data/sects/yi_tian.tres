@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://bsx7kbyqnpair"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_ifw28"]
+
+[resource]
+script = ExtResource("1_ifw28")
+id = &"yi_tian"
+display_name = "Yi-Tian-Sekte"
+icon = "🏔️"
+faction = &"righteous"
+org_type = &"sekte"
+immortals = 1
+power = 3
+rivals = Array[StringName]([&"wilde_horde"])
+join_gift = Dictionary[StringName, int]({
+&"fell": 8,
+&"stein": 40
+})
+signature_gu = &"eisenhaut"
+politics = "Ein Rang-6-Unsterblicher hält die Sekte am Leben. Genug, um nicht überrannt zu werden — zu wenig, um zu expandieren."
+description = "Strenge Bergsekte der Nördlichen Ebene."

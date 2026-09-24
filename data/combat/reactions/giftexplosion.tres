@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://2l14l4bxuv6h"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_mchta"]
+
+[resource]
+script = ExtResource("1_mchta")
+id = &"giftexplosion"
+display_name = "Giftexplosion"
+trigger_tag = &"feuer"
+target_status = &"gift"
+min_stacks = 3
+effect_text = "Explosion: Stapel × 8 Schaden im Umkreis 3"
+removes = Array[StringName]([&"gift"])

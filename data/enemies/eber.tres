@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://fsb2lw3b5j5y"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_tqjwe"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_vdsaw"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_tqjwe")
+item = &"fleisch"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_tqjwe")
+item = &"fell"
+chance = 0.4
+
+[resource]
+script = ExtResource("2_vdsaw")
+id = &"eber"
+display_name = "Wildschwein"
+max_hp = 45
+damage = 14
+speed = 2.4
+xp = 26
+radius = 0.45
+color = Color(0.3529412, 0.22745098, 0.16470589, 1)
+zone = 1
+drops = Array[ExtResource("1_tqjwe")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"
+behavior = &"charge"

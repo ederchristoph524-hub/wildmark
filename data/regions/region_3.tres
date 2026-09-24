@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://xp0bl5emjroi"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_gg0qa"]
+
+[resource]
+script = ExtResource("1_gg0qa")
+id = 3
+display_name = "Westliche Wüste"
+color = Color(0.8509804, 0.7058824, 0.41568628, 1)
+description = "Dünen und roter Fels. Karawanen, Oasen und uralte Tempel."

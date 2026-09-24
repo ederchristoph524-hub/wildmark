@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://dfnidn7uwb4j5"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_o0evu"]
+
+[resource]
+script = ExtResource("1_o0evu")
+id = &"reizbar"
+display_name = "Reizbar"
+effect_text = "Status-Stapel +1, Essenzkosten +15 %"
+weight = 6

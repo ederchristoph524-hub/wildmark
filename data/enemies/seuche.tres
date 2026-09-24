@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dn1w8k7dqgryq"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_abead"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_c0cl7"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_abead")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_c0cl7")
+id = &"seuche"
+display_name = "Seuchenschamane"
+max_hp = 70
+damage = 12
+speed = 2.8
+xp = 95
+radius = 0.4
+color = Color(0.47843137, 0.22745098, 0.6666667, 1)
+zone = 3
+drops = Array[ExtResource("1_abead")]([SubResource("drop_0")])
+shape = &"skel"
+behavior = &"heal"
+attack_range = 5.0
+poison = true

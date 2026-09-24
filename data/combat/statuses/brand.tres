@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://hwvod5dpnn41"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_qd6qs"]
+
+[resource]
+script = ExtResource("1_qd6qs")
+id = &"brand"
+display_name = "Brand"
+effect_text = "4 Schaden/s (× Rangfaktor), 4 s"
+removed_by = Array[StringName]([&"nass"])

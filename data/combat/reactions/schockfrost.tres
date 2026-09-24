@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://brujn04tvpfig"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_72ht2"]
+
+[resource]
+script = ExtResource("1_72ht2")
+id = &"schockfrost"
+display_name = "Schockfrost"
+trigger_tag = &"eis"
+target_status = &"nass"
+effect_text = "sofort eingefroren (2 s)"
+removes = Array[StringName]([&"nass"])

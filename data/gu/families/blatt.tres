@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://d2ssp3cvh7dno"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_nj820"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_gtwqo"]
+
+[sub_resource type="Resource" id="gu_lebensblatt"]
+script = ExtResource("1_nj820")
+id = &"lebensblatt"
+display_name = "Lebenskraft-Blatt-Gu"
+family = &"blatt"
+description = "Heilt 25 % der max. HP über 5 s."
+lore = "Ein einfaches grünes Blatt, das Nahrung besser verwerten lässt."
+
+[sub_resource type="Resource" id="gu_frischesblatt"]
+script = ExtResource("1_nj820")
+id = &"frischesblatt"
+display_name = "Frisches-Blatt-Gu"
+family = &"blatt"
+rank = 2
+rank_gift = "Entfernt dabei Gift, Brand und Frost."
+description = "Ein Blatt, das auch reinigt."
+lore = "Ein grünes Blatt-Gu, das die Lebenskraft stetig erneuert."
+
+[sub_resource type="Resource" id="gu_lebensbrunnen"]
+script = ExtResource("1_nj820")
+id = &"lebensbrunnen"
+display_name = "Lebensbrunnen-Gu"
+family = &"blatt"
+rank = 3
+rank_gift = "Wird zur Heilzone für dich und Gefährten."
+description = "Eine Quelle des Lebens am Boden."
+lore = "Ein Quell reiner Lebenskraft."
+
+[resource]
+script = ExtResource("2_gtwqo")
+id = &"blatt"
+display_name = "Blatt"
+path = &"holz"
+role = "Heilung"
+form = &"selbst_heilung"
+tags = Array[StringName]([&"holz"])
+feed_item = &"beeren"
+feed_amount = 3
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 18.0,
+&"dauer": 5.0,
+&"ess": 10.0,
+&"heilung_anteil": 0.25
+})
+members = Array[ExtResource("1_nj820")]([SubResource("gu_lebensblatt"), SubResource("gu_frischesblatt"), SubResource("gu_lebensbrunnen")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"gruenkraut": 3
+},
+3: {
+&"gruenkraut": 6,
+&"mondtau": 2
+}
+})
+world_effect = "Lässt Kletterranken wachsen und verdorrte Heilpflanzen wieder sprießen."

@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://bmtq54h3n7gj2"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_7phw6"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_nbc0c"]
+
+[sub_resource type="Resource" id="gu_steinhaut"]
+script = ExtResource("1_7phw6")
+id = &"steinhaut"
+display_name = "Steinhaut-Gu"
+family = &"haut"
+description = "Aktiv: 4 s lang halber Schaden, Nahangreifer werden zurückgestoßen."
+lore = "Verdichtet die Haut zu Stein. Jeder Anfänger-Krieger kennt es."
+
+[sub_resource type="Resource" id="gu_eisenhaut"]
+script = ExtResource("1_7phw6")
+id = &"eisenhaut"
+display_name = "Eisenhaut-Gu"
+family = &"haut"
+rank = 2
+rank_gift = "Wirft Geschosse zurück."
+description = "Eisenpanzer, der Geschosse reflektiert."
+lore = "Die Weiterentwicklung der Steinhaut. Standard jedes Rang-2-Kriegers."
+
+[sub_resource type="Resource" id="gu_bronzhaut"]
+script = ExtResource("1_7phw6")
+id = &"bronzhaut"
+display_name = "Uralte-Bronzehaut-Gu"
+family = &"haut"
+rank = 3
+rank_gift = "Unbeweglich: kein Rückstoß, keine Betäubung."
+description = "Uralter Bronzepanzer."
+lore = "Haut wie uralte Bronze. Schwer, aber fast undurchdringlich."
+
+[resource]
+script = ExtResource("2_nbc0c")
+id = &"haut"
+display_name = "Haut"
+path = &"metall"
+role = "Verteidigung"
+form = &"selbstschild"
+tags = Array[StringName]([&"wucht"])
+feed_item = &"stein"
+feed_amount = 3
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 12.0,
+&"dauer": 4.0,
+&"ess": 8.0,
+&"reduktion": 0.5,
+&"rueckstoss": true
+})
+members = Array[ExtResource("1_7phw6")]([SubResource("gu_steinhaut"), SubResource("gu_eisenhaut"), SubResource("gu_bronzhaut")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 3
+},
+3: {
+&"jadeader": 2
+}
+})
+world_effect = "Ermöglicht das Durchqueren von Dornen- und Giftfeldern ohne Schaden, solange aktiv."

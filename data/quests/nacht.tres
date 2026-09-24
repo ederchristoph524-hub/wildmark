@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bf1scro7d0hyi"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_tltxk"]
+
+[resource]
+script = ExtResource("1_tltxk")
+id = &"nacht"
+display_name = "Nachtwächter"
+description = "Überlebe bis Tag 2."
+reward_points = 1

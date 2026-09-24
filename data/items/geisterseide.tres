@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d3mmqdnjfsje"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_tqb02"]
+
+[resource]
+script = ExtResource("1_tqb02")
+id = &"geisterseide"
+display_name = "Geisterseide"
+icon = "🕸️"
+category = &"material"
+rank = 4
+path = &"verwandlung"
+source = "Riesenspinnen"
+description = "Seide, die Gestalt annimmt."

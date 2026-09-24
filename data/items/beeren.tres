@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://78m4imye1t7x"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_tf6n4"]
+
+[resource]
+script = ExtResource("1_tf6n4")
+id = &"beeren"
+display_name = "Beeren"
+icon = "🫐"
+category = &"basis"

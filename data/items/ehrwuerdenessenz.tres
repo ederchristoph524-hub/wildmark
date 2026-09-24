@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dky2qffm62vqs"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_ok7xy"]
+
+[resource]
+script = ExtResource("1_ok7xy")
+id = &"ehrwuerdenessenz"
+display_name = "Ehrwürden-Essenz"
+icon = "👑"
+category = &"material"
+rank = 9
+path = &"himmel"
+immortal = true
+source = "Wahre Erben"
+description = "Ein Tropfen dessen, was einen Ehrwürdigen ausmacht."

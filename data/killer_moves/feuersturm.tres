@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://djirs4lnemkjp"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_im56h"]
+
+[resource]
+script = ExtResource("1_im56h")
+id = &"feuersturm"
+display_name = "Feuersturm"
+family_a = &"flamme"
+family_b = &"wirbel"
+channel_time = 0.9
+damage_mult = 2.8
+description = "Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter"
+hint = "Wo Flamme auf Wirbel trifft …"

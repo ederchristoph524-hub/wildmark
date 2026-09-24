@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cr8yurtnj041l"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_nij35"]
+
+[resource]
+script = ExtResource("1_nij35")
+id = &"fleisch"
+display_name = "Fleisch"
+icon = "🍖"
+category = &"basis"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bj3euh4n1oc81"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_ug7r6"]
+
+[resource]
+script = ExtResource("1_ug7r6")
+id = &"wildfell"
+display_name = "Wildfell"
+icon = "🟫"
+category = &"material"
+rank = 1
+path = &"kraft"
+source = "Bestien"
+description = "Zähes Fell erlegter Bestien."

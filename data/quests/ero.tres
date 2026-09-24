@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dtbt0tust1s2h"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_gf45x"]
+
+[resource]
+script = ExtResource("1_gf45x")
+id = &"ero"
+display_name = "Eroberer"
+description = "Erreiche das Aschefeld (100 Felder)."
+reward_points = 2

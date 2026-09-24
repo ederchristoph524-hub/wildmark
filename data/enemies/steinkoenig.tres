@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://be6i6w0pde651"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_5aqm1"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_mj0yg"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_5aqm1")
+item = &"kern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_5aqm1")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_5aqm1")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_5aqm1")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_5aqm1")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_mj0yg")
+id = &"steinkoenig"
+display_name = "Steinkönig"
+max_hp = 1400
+damage = 34
+speed = 1.8
+xp = 1000
+radius = 1.1
+color = Color(0.5411765, 0.5411765, 0.6039216, 1)
+zone = 9
+drops = Array[ExtResource("1_5aqm1")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+shape = &"boss"
+behavior = &"boss"
+armored = true
+boss = true

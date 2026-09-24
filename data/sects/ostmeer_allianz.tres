@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://db8wwgkrauq63"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_fyggs"]
+
+[resource]
+script = ExtResource("1_fyggs")
+id = &"ostmeer_allianz"
+display_name = "Ostmeer-Klanallianz"
+icon = "⚓"
+faction = &"righteous"
+org_type = &"klan"
+region = 2
+immortals = 1
+power = 3
+rivals = Array[StringName]([&"meereszombies"])
+join_gift = Dictionary[StringName, int]({
+&"fleisch": 20,
+&"kristall": 8
+})
+signature_gu = &"wasserschild"
+politics = "Ein Bündnis vieler kleiner Klans mit einem geteilten Unsterblichen. Zusammen stark, einzeln schwach."
+description = "Bündnis der maritimen Klans der zehntausend Inseln."

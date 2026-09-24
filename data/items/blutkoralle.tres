@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://lft4c5yd243w"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_8gnsj"]
+
+[resource]
+script = ExtResource("1_8gnsj")
+id = &"blutkoralle"
+display_name = "Blutkoralle"
+icon = "🪸"
+category = &"material"
+rank = 3
+path = &"blut"
+source = "Östliches Meer"
+description = "Koralle, die sich von Blut nährt."

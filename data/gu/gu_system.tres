@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="GuSystemData" format=3 uid="uid://cpsrhu777db22"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_system_data.gd" id="1_nwaol"]
+
+[resource]
+script = ExtResource("1_nwaol")
+tags = Dictionary[StringName, String]({
+&"blitz": "löst Blitz-Reaktionen aus",
+&"durchbohren": "ignoriert Rüstung",
+&"eis": "löst Frost-Reaktionen aus",
+&"feuer": "löst Feuer-Reaktionen aus",
+&"gift": "löst Gift-Reaktionen aus",
+&"holz": "Heilung und Wachstum",
+&"licht": "blendet Nacht- und Schattenwesen (−50 % Treffgenauigkeit), enthüllt Verborgenes",
+&"raum": "Bewegung",
+&"schnitt": "20 % Chance auf Wunde",
+&"seele": "wirkt auf Geist statt Körper",
+&"wasser": "macht nass",
+&"wind": "verteilt Brand und Gift auf Nachbarn, verweht Wolken",
+&"wucht": "stößt zurück, zerschmettert Eingefrorene, bricht Felsen"
+})
+trait_chances = Dictionary[StringName, float]({
+&"eines": 0.39,
+&"glaenzend": 0.01
+})
+start_families = Array[StringName]([&"mondlicht", &"flamme", &"stroemung", &"wirbel"])

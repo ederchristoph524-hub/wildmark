@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dm7aeifacdl61"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_wli8e"]
+
+[resource]
+script = ExtResource("1_wli8e")
+id = &"grottenstein"
+display_name = "Grottenstein"
+icon = "🪨"
+category = &"material"
+rank = 8
+path = &"raum"
+immortal = true
+source = "Grotten-Himmel"
+description = "Baustein einer eigenen Welt."

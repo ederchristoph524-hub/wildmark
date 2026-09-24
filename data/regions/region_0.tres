@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RegionData" format=3 uid="uid://bd4vo2b6my2oh"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_data.gd" id="1_rqe1f"]
+
+[resource]
+script = ExtResource("1_rqe1f")
+display_name = "Nördliche Ebene"
+color = Color(0.6039216, 0.72156864, 0.41568628, 1)
+description = "Endlose Steppe. Keine Klans, nur Stämme — Heimat des Riesensonnen-Ehrwürdigen."

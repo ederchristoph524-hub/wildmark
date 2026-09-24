@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://6eupu1opmdeb"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_uh36h"]
+
+[resource]
+script = ExtResource("1_uh36h")
+id = &"kern"
+display_name = "Kern"
+icon = "🟤"
+category = &"basis"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://clavd8dbt7bv"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_1svue"]
+
+[resource]
+script = ExtResource("1_1svue")
+id = &"stein_ue"
+display_name = "Unsterblichen-Urstein"
+icon = "🟣"
+category = &"basis"

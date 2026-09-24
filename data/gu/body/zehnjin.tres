@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://ca7lfxhmvbh7w"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_f8rl6"]
+
+[resource]
+script = ExtResource("1_f8rl6")
+id = &"zehnjin"
+display_name = "Zehn-Jin-Kraft-Gu"
+rank = 2
+effects = Dictionary[StringName, float]({
+&"grundschaden": 12.0
+})

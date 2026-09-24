@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bp1tuy42g8oui"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_k3oav"]
+
+[resource]
+script = ExtResource("1_k3oav")
+id = &"bau"
+display_name = "Baumeister"
+description = "Errichte 5 Bauteile."
+reward_points = 1

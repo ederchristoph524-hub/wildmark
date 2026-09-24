@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://kt2umgpc8mnk"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_f75ow"]
+
+[resource]
+script = ExtResource("1_f75ow")
+id = &"gletscherbruch"
+display_name = "Gletscherbruch"
+family_a = &"frost"
+family_b = &"wirbel"
+channel_time = 1.0
+damage_mult = 3.0
+description = "Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag"
+hint = "Was gefriert, zerbricht."

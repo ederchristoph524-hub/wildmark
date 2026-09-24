@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://b0r5yigdd6s06"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_fwukr"]
+
+[resource]
+script = ExtResource("1_fwukr")
+id = &"zaeh"
+display_name = "Zäh"
+effect_text = "verhungert nicht, fällt nur aus"
+weight = 6

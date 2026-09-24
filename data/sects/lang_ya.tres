@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://cyoxci8aw747r"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_ujrqa"]
+
+[resource]
+script = ExtResource("1_ujrqa")
+id = &"lang_ya"
+display_name = "Lang-Ya-Sekte"
+icon = "📚"
+faction = &"righteous"
+org_type = &"sekte"
+immortals = 1
+power = 4
+min_rank = 4
+join_gift = Dictionary[StringName, int]({
+&"kristall": 14,
+&"stein": 20
+})
+signature_gu = &"sterngedanke"
+politics = "Ein Unsterblicher, aber ein ganzes Gesegnetes Land voller Wissen. Niemand greift sie an — alle wollen ihre Bibliothek."
+description = "Sekte am großen See der Nordebene. Hütet gewaltiges Wissen."

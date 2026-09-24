@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://clgkqk5fagiv6"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_60ipb"]
+
+[resource]
+script = ExtResource("1_60ipb")
+id = &"kleineslicht"
+display_name = "Kleines-Licht-Gu"
+path = &"licht"
+effect_text = "Lichtkreis bei Nacht; macht Lichtsiegel und versteckte wilde Gu sichtbar"
+feed_item = &"kristall"
+feed_amount = 1

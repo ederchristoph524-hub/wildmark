@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://bg2cjdmms0b41"]
+
+[ext_resource type="Script" path="res://scripts/resources/trait_data.gd" id="1_pouoj"]
+
+[resource]
+script = ExtResource("1_pouoj")
+id = &"wild"
+display_name = "Wild"
+effect_text = "Wirkung +25 %, 10 % Chance zu versagen"
+weight = 6

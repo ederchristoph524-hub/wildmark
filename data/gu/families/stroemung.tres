@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://rny0vqeg2yfk"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_yn7xj"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_hj4p4"]
+
+[sub_resource type="Resource" id="gu_wasserlicht"]
+script = ExtResource("1_yn7xj")
+id = &"wasserlicht"
+display_name = "Wasserlicht-Gu"
+family = &"stroemung"
+description = "Ein Wasserstrahl, der durchnässt und verlangsamt."
+lore = "Ein dünner, kalter Strahl. Mehr Werkzeug als Waffe."
+
+[sub_resource type="Resource" id="gu_wasserbohrer"]
+script = ExtResource("1_yn7xj")
+id = &"wasserbohrer"
+display_name = "Wasserbohrer-Gu"
+family = &"stroemung"
+rank = 2
+rank_gift = "Durchbohrt alle Ziele auf der Linie."
+description = "Ein gebündelter Strahl, der durch Reihen von Gegnern geht."
+lore = "Verdichtetes Wasser schneidet durch Rüstung wie durch Papier."
+
+[sub_resource type="Resource" id="gu_flutdrache"]
+script = ExtResource("1_yn7xj")
+id = &"flutdrache"
+display_name = "Flutdrachen-Gu"
+family = &"stroemung"
+rank = 3
+rank_gift = "Breiter Strahl mit Rückstoß, hinterlässt Wasserfläche."
+description = "Ein Wasserdrache, der Gegner zurückspült."
+
+[resource]
+script = ExtResource("2_hj4p4")
+id = &"stroemung"
+display_name = "Strömung"
+path = &"wasser"
+role = "Kontrolle und Vorbereitung"
+form = &"strahl"
+tags = Array[StringName]([&"wasser"])
+status = &"nass"
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.0,
+&"ess": 5.0,
+&"reichweite": 10.0,
+&"schaden": 14.0,
+&"verlangsamung": 0.3
+})
+members = Array[ExtResource("1_yn7xj")]([SubResource("gu_wasserlicht"), SubResource("gu_wasserbohrer"), SubResource("gu_flutdrache")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 3
+},
+3: {
+&"jadeader": 1,
+&"mondtau": 5
+}
+})
+world_effect = "Löscht Feuerbarrieren, füllt Becken, macht Flächen nass (Vorbereitung für Blitz und Frost)."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://mh5f2e57t7oc"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qln03"]
+
+[resource]
+script = ExtResource("1_qln03")
+id = &"rudelsegen"
+display_name = "Rudelsegen"
+family_a = &"sklaverei"
+family_b = &"blatt"
+channel_time = 1.5
+damage_mult = 2.5
+description = "Heilt und stärkt alle Gefährten, ein weiterer Gefährte erscheint für 20 s"
+hint = "Das Rudel lebt vom Grün."

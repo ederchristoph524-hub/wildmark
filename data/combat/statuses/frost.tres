@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://c2ajewblow2gx"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_fjj5x"]
+
+[resource]
+script = ExtResource("1_fjj5x")
+id = &"frost"
+display_name = "Frost"
+effect_text = "je Stapel −20 % Tempo, 5 s; bei 3 Stapeln 2 s eingefroren"
+max_stacks = 3
+removed_by = Array[StringName]([&"brand"])

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://dc78fv5tngm88"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_n376q"]
+
+[resource]
+script = ExtResource("1_n376q")
+id = &"zehn_extreme"
+display_name = "Sekte der Zehn Extreme"
+icon = "🔟"
+faction = &"righteous"
+org_type = &"sekte"
+region = 4
+immortals = 2
+power = 4
+rivals = Array[StringName]([&"schattensekte"])
+min_rank = 6
+join_gift = Dictionary[StringName, int]({
+&"kristall": 25,
+&"material": 2
+})
+signature_gu = &"verstaerkung"
+politics = "Sammelt Extreme Physiques wie andere Schätze. Wer hier geboren wird, wird von klein auf vermessen."
+description = "Sammelt Träger Extremer Physiques des Zentralkontinents."
