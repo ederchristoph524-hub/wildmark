@@ -21,7 +21,8 @@ static func finish_eating(player: Player) -> void:
 
 static func can_meditate(player: Player) -> bool:
 	var danger: float = Balance.values.meditation_danger_radius
-	if not Combat.in_radius(Combat.hostiles(player.get_tree(), player.team), player.global_position, danger).is_empty():
+	var beasts: Array[Combatant] = Combat.hostiles(player.get_tree(), player.team).filter(func(c: Combatant) -> bool: return c.team != Combatant.TEAM_WORLD)
+	if not Combat.in_radius(beasts, player.global_position, danger).is_empty():
 		EventBus.message.emit(Loc.t("Zu gefährlich zum Meditieren – Bestien in der Nähe"), Color(1.0, 0.36, 0.45))
 		return false
 	if GameState.stage >= Balance.values.max_stage:

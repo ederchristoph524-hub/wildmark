@@ -11,6 +11,8 @@ var main: Main = null
 func run(scene_tree: SceneTree) -> void:
 	tree = scene_tree
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT_DIR))
+	# build/ darf Godot nicht importieren (sonst landen Bilder und Web-Build im Projekt).
+	FileAccess.open("res://build/.gdignore", FileAccess.WRITE)
 	SaveSystem.save_path = "user://test_save.json"
 	SaveSystem.delete_save()
 	main = (load("res://scenes/main.tscn") as PackedScene).instantiate() as Main
@@ -45,10 +47,24 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(30)
 	await _shot("06_nacht")
 	GameState.time_of_day = 0.3
+	await _shoot_sites(player)
 	main._open_menu(GuMenu.new())
 	await _frames(10)
 	await _shot("07_gu_menue")
 	tree.quit()
+
+
+## Ein Bild je Hindernis-Ort, aus Richtung des Lagers gesehen.
+func _shoot_sites(player: Player) -> void:
+	var centers: Array[Vector3] = ObstacleSites.plan(main.world)
+	for index: int in centers.size():
+		var center: Vector3 = centers[index]
+		var toward_camp: Vector3 = (-center).normalized() * 10.0
+		var at: Vector3 = center + toward_camp
+		player.global_position = Vector3(at.x, main.world.terrain.height_at(at.x, at.z) + 0.5, at.z)
+		player.camera_rig.yaw = atan2(toward_camp.x, toward_camp.z)
+		await _frames(15)
+		await _shot("site_%d_%s" % [index, String(ObstacleSites.SITES[index][1])])
 
 
 func _frames(count: int) -> void:

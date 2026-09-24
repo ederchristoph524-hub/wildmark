@@ -18,6 +18,8 @@ var pierce_armor: bool = false
 var is_dot: bool = false
 var can_react: bool = true
 var is_fist: bool = false
+## Pfad des auslösenden Gu (für Welt-Hindernisse wie das Blutsiegel).
+var path: StringName = &""
 ## Ranggabe Giftskorpion: Gift springt beim Tod des Ziels über.
 var spread_on_death: bool = false
 

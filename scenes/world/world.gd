@@ -37,6 +37,8 @@ var entities: Node3D = null
 var spawner: EnemySpawner = null
 var day_night: DayNight = null
 var camp: Campfire = null
+## Freiflächen ohne Bäume und Sammelstellen (Hindernis-Orte, besondere Gebiete): Mittelpunkt → Radius.
+var clearings: Array[Vector4] = []
 var _rng := RandomNumberGenerator.new()
 
 
@@ -46,7 +48,13 @@ func _ready() -> void:
 	_rng.seed = SEED
 	terrain = Terrain.new()
 	add_child(terrain)
-	add_child(Vegetation.new(terrain))
+	var site_centers: Array[Vector3] = ObstacleSites.plan(self)
+	for center: Vector3 in site_centers:
+		clearings.append(Vector4(center.x, center.y, center.z, 9.0))
+	for area: Dictionary in WorldAreas.AREAS:
+		var area_center: Vector2 = area["center"]
+		clearings.append(Vector4(area_center.x, 0.0, area_center.y, float(area["radius"]) + 2.0))
+	add_child(Vegetation.new(terrain, clearings))
 	_build_bounds()
 	entities = Node3D.new()
 	entities.name = "Entities"
@@ -59,6 +67,7 @@ func _ready() -> void:
 	camp.position = ground_point(CAMP_CENTER.x, CAMP_CENTER.z)
 	_place_resources()
 	WorldAreas.build(self)
+	ObstacleSites.build(self, site_centers)
 	_place_wild_gu()
 	spawner = EnemySpawner.new(terrain, entities)
 	add_child(spawner)
@@ -94,7 +103,7 @@ func _random_point(min_distance: float, max_distance: float) -> Vector3:
 		var distance: float = _rng.randf_range(min_distance, max_distance)
 		var x: float = cos(angle) * distance
 		var z: float = sin(angle) * distance
-		if terrain.is_inside(x, z, 3.0) and terrain.slope_at(x, z) < 0.45:
+		if terrain.is_inside(x, z, 3.0) and terrain.slope_at(x, z) < 0.45 and not in_clearing(x, z):
 			return ground_point(x, z)
 	return ground_point(min_distance, 0.0)
 
@@ -112,6 +121,13 @@ func random_point_near(center: Vector2, radius: float) -> Vector3:
 	var angle: float = _rng.randf() * TAU
 	var distance: float = sqrt(_rng.randf()) * radius
 	return ground_point(center.x + cos(angle) * distance, center.y + sin(angle) * distance)
+
+
+func in_clearing(x: float, z: float) -> bool:
+	for clearing: Vector4 in clearings:
+		if Vector2(x - clearing.x, z - clearing.z).length() < clearing.w:
+			return true
+	return false
 
 
 func _place_resources() -> void:

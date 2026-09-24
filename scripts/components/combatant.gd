@@ -6,6 +6,8 @@ signal died_signal(combatant: Combatant)
 
 const TEAM_PLAYER: int = 0
 const TEAM_ENEMY: int = 1
+## Welt-Objekte (Hindernisse): werden getroffen, greifen aber nie an und werden von Bestien ignoriert.
+const TEAM_WORLD: int = 2
 const LAYER_WORLD: int = 1
 const LAYER_PLAYER_SIDE: int = 2
 const LAYER_ENEMY_SIDE: int = 4
@@ -51,6 +53,10 @@ func _init_combatant(new_team: int, max_hp: float, current_hp: float = -1.0) -> 
 ## Wechselt das Team (z. B. gezähmte Bestie) samt Kollisionsebene.
 func set_team(new_team: int) -> void:
 	team = new_team
+	if team == TEAM_WORLD:
+		collision_layer = LAYER_WORLD
+		collision_mask = 0
+		return
 	collision_layer = LAYER_PLAYER_SIDE if team == TEAM_PLAYER else LAYER_ENEMY_SIDE
 	collision_mask = LAYER_WORLD | LAYER_PLAYER_SIDE | LAYER_ENEMY_SIDE
 

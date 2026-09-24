@@ -30,6 +30,7 @@ func _ready() -> void:
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_energy = 0.7
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	environment.tonemap_exposure = 0.9
 	environment.fog_enabled = true
 	environment.fog_density = 0.012
 	environment.fog_sky_affect = 0.6
@@ -71,15 +72,15 @@ func _apply(time: float) -> void:
 	sun.rotation = Vector3(-elevation, lerpf(-1.3, 1.3, arc), 0.0)
 	var evening: float = 1.0 - clampf(sin(arc * PI) * 3.0, 0.0, 1.0)
 	sun.light_color = MOON.lerp(SUN_DAY.lerp(SUN_EVENING, evening), daylight)
-	sun.light_energy = lerpf(0.25, 1.15, daylight)
+	sun.light_energy = lerpf(0.25, 0.85, daylight)
 	sun.shadow_enabled = daylight > 0.3
 	_sky_material.sky_horizon_color = SKY_NIGHT.lerp(SKY_DAY, daylight)
 	_sky_material.sky_top_color = SKY_TOP_NIGHT.lerp(SKY_TOP_DAY, daylight)
 	_sky_material.ground_horizon_color = _sky_material.sky_horizon_color
 	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(Color(0.25, 0.32, 0.25), daylight)
 	environment.fog_light_color = FOG_NIGHT.lerp(FOG_DAY, daylight)
-	environment.fog_density = lerpf(0.03, 0.011, daylight)
-	environment.ambient_light_energy = lerpf(0.35, 0.75, daylight)
+	environment.fog_density = lerpf(0.028, 0.0065, daylight)
+	environment.ambient_light_energy = lerpf(0.3, 0.4, daylight)
 
 
 func _daylight(time: float, day_part: float) -> float:

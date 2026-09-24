@@ -25,6 +25,7 @@ func run(scene_tree: SceneTree) -> void:
 	await _test_gu_and_reactions()
 	await _test_killer_moves()
 	await _test_enemy_ai()
+	await _test_obstacles()
 	await _test_progress()
 	await _test_death_and_save()
 	for failure: String in _failures:
@@ -40,7 +41,7 @@ func _frames(count: int) -> void:
 
 func _clear_enemies() -> void:
 	for node: Node in tree.get_nodes_in_group(Combat.GROUP_COMBATANTS):
-		if node != player:
+		if node is Enemy:
 			node.queue_free()
 	await _frames(2)
 
@@ -180,6 +181,28 @@ func _test_enemy_ai() -> void:
 	spider._special_cooldown = 0.0
 	await _frames(120)
 	_check(not is_instance_valid(spider) or spider.minions.size() > 0, "Spinne beschwört Spinnlinge")
+
+
+func _test_obstacles() -> void:
+	var obstacles: Dictionary = {}
+	for node: Node in tree.get_nodes_in_group(&"obstacles"):
+		obstacles[(node as WorldObstacle).kind] = node
+	_check(obstacles.size() == 6, "sechs Hindernisse mit Auslöser (%d)" % obstacles.size())
+	var fist := HitInfo.create(10.0, player, Combatant.TEAM_PLAYER)
+	var hedge: WorldObstacle = obstacles[WorldObstacle.KIND_HEDGE]
+	hedge.receive_hit(fist)
+	_check(not hedge.is_open, "Faust öffnet die Hecke nicht")
+	var fire := HitInfo.create(10.0, player, Combatant.TEAM_PLAYER).with_tags([&"feuer"])
+	hedge.receive_hit(fire)
+	await _frames(2)
+	_check(hedge.is_open and hedge.blockers[0].disabled, "Feuer verbrennt die Hecke")
+	var blood := HitInfo.create(10.0, player, Combatant.TEAM_PLAYER)
+	blood.path = &"blut"
+	(obstacles[WorldObstacle.KIND_BLOOD] as WorldObstacle).receive_hit(blood)
+	_check((obstacles[WorldObstacle.KIND_BLOOD] as WorldObstacle).is_open, "Blut öffnet das Blutsiegel")
+	(obstacles[WorldObstacle.KIND_BOULDER] as WorldObstacle).receive_hit(HitInfo.create(10.0, player, 0).with_tags([&"wucht"]))
+	_check((obstacles[WorldObstacle.KIND_BOULDER] as WorldObstacle).is_open, "Wucht bewegt den Felsbrocken")
+	_check(&"site_hecke" in GameState.opened_obstacles, "geöffnete Hindernisse werden gemerkt")
 
 
 func _test_progress() -> void:

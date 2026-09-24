@@ -71,6 +71,7 @@ func make_hit(damage_mult: float = 1.0) -> HitInfo:
 	if family.status != &"":
 		hit.with_status(family.status, int(base(&"stapel", 1.0)) + extra_stacks)
 	hit.rank_factor = power
+	hit.path = family.path
 	hit.pierce_armor = hit.pierce_armor or GuGifts.has(gu, "pierce_armor")
 	hit.status_stacks += int(GuGifts.number(gu, "stacks_add")) if family.status != &"" else 0
 	hit.spread_on_death = GuGifts.has(gu, "spread_on_death")

@@ -18,12 +18,15 @@ const LEAF_LIGHT: Color = Color(0.32, 0.52, 0.2)
 const ROCK_COLOR: Color = Color(0.45, 0.45, 0.42)
 
 var terrain: Terrain = null
+## Kreise (x, _, z, Radius) ohne Bewuchs.
+var clearings: Array[Vector4] = []
 var _rng := RandomNumberGenerator.new()
 var _colliders: StaticBody3D = null
 
 
-func _init(world_terrain: Terrain) -> void:
+func _init(world_terrain: Terrain, free_areas: Array[Vector4]) -> void:
 	terrain = world_terrain
+	clearings = free_areas
 	name = "Vegetation"
 
 
@@ -56,12 +59,19 @@ func _scatter(count: int, clear_radius: float, max_slope: float, scale_range: Ve
 		attempts += 1
 		var x: float = _rng.randf_range(-half, half)
 		var z: float = _rng.randf_range(-half, half)
-		if Vector2(x, z).length() < clear_radius or terrain.slope_at(x, z) > max_slope:
+		if Vector2(x, z).length() < clear_radius or terrain.slope_at(x, z) > max_slope or _in_clearing(x, z):
 			continue
 		var size: float = _rng.randf_range(scale_range.x, scale_range.y)
 		var orientation := Basis(Vector3.UP, _rng.randf() * TAU).scaled(Vector3.ONE * size)
 		result.append(Transform3D(orientation, Vector3(x, terrain.height_at(x, z) - 0.1, z)))
 	return result
+
+
+func _in_clearing(x: float, z: float) -> bool:
+	for clearing: Vector4 in clearings:
+		if Vector2(x - clearing.x, z - clearing.z).length() < clearing.w:
+			return true
+	return false
 
 
 ## Verteilt Instanzen auf Kacheln, damit ferne Kacheln nicht gezeichnet werden.

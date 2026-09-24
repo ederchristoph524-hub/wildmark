@@ -5,6 +5,8 @@ extends Node
 const MARKER_COLOR: Color = Color(1.0, 0.85, 0.3)
 const LOCK_COLOR: Color = Color(1.0, 0.35, 0.25)
 const MARKER_HEIGHT: float = 0.7
+## Hindernisse werden nur anvisiert, wenn keine Bestie näher liegt.
+const OBSTACLE_PENALTY: float = 12.0
 
 var host: Combatant = null
 ## Weiches Ziel; freigegebene oder tote Ziele werden beim Lesen verworfen (Web-Export stürzt sonst ab).
@@ -63,7 +65,7 @@ func find_soft_target() -> Combatant:
 		var angle: float = rad_to_deg(view_forward.angle_to(offset.normalized())) if distance > 0.1 else 0.0
 		if angle > b.target_angle and distance > b.fist_range * 1.5:
 			continue
-		var score: float = distance + angle * 0.08
+		var score: float = distance + angle * 0.08 + (OBSTACLE_PENALTY if candidate.team == Combatant.TEAM_WORLD else 0.0)
 		if score < best_score:
 			best_score = score
 			best = candidate

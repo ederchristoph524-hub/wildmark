@@ -42,6 +42,8 @@ var known_killer_moves: Array[StringName] = []
 var seen_reactions: Array[StringName] = []
 ## Bereits gefundene wilde Gu (Fundort-IDs).
 var collected_wild_gu: Array[StringName] = []
+## Geöffnete Welt-Hindernisse (IDs).
+var opened_obstacles: Array[StringName] = []
 ## Beutesack nach dem Tod (Standard-Modus): {"position": Vector3, "items": Dictionary} oder leer.
 var loot_sack: Dictionary = {}
 
@@ -76,6 +78,7 @@ func reset(options: Dictionary) -> void:
 	known_killer_moves = []
 	seen_reactions = []
 	collected_wild_gu = []
+	opened_obstacles = []
 	loot_sack = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
@@ -148,7 +151,7 @@ func to_dict() -> Dictionary:
 			"inventory": _names_to_strings(inventory), "gu": gu_list, "slots": slots,
 			"support": _instances_to_list(support), "body_gu": body_gu,
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
-			"collected_wild_gu": collected_wild_gu, "loot_sack": _sack_to_dict(),
+			"collected_wild_gu": collected_wild_gu, "opened_obstacles": opened_obstacles, "loot_sack": _sack_to_dict(),
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -196,6 +199,7 @@ func _player_from_dict(p: Dictionary) -> void:
 	known_killer_moves = _strings_to_names(p.get("known_killer_moves", []))
 	seen_reactions = _strings_to_names(p.get("seen_reactions", []))
 	collected_wild_gu = _strings_to_names(p.get("collected_wild_gu", []))
+	opened_obstacles = _strings_to_names(p.get("opened_obstacles", []))
 	var sack: Dictionary = p.get("loot_sack", {})
 	if not sack.is_empty():
 		var sack_items: Dictionary = {}

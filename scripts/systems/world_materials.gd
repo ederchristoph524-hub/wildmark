@@ -23,6 +23,8 @@ static func vertex_colored() -> StandardMaterial3D:
 	if _vertex == null:
 		_vertex = StandardMaterial3D.new()
 		_vertex.vertex_color_use_as_albedo = true
+		# Farben sind im sRGB-Raum angegeben (wie albedo_color), sonst wirkt alles ausgewaschen.
+		_vertex.vertex_color_is_srgb = true
 		_vertex.roughness = 1.0
 		_vertex.metallic_specular = 0.1
 	return _vertex
