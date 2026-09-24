@@ -1,0 +1,104 @@
+# Exportiert Wildmark für das Web und veröffentlicht es auf GitHub Pages.
+# GODOT_VERSION muss exakt mit der Version in CLAUDE.md übereinstimmen,
+# sonst passen die Export-Templates nicht.
+name: Web-Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: "4.7.2"
+  GODOT_STATUS: "stable"
+  # Budget laut docs/ART_STYLE.md (komprimierte Downloadgröße)
+  DOWNLOAD_BUDGET_MB: "50"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v7
+
+      - name: Godot und Web-Templates aus dem Cache holen
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/godot
+            ~/.local/share/godot/export_templates
+          key: godot-${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}-web-nothreads
+
+      - name: Godot und Web-Templates herunterladen
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          TAG="${GODOT_VERSION}-${GODOT_STATUS}"
+          BASE="https://github.com/godotengine/godot/releases/download/${TAG}"
+          mkdir -p ~/godot
+          curl -fsSL -o /tmp/godot.zip "${BASE}/Godot_v${TAG}_linux.x86_64.zip"
+          unzip -q /tmp/godot.zip -d ~/godot
+          mv ~/godot/Godot_v${TAG}_linux.x86_64 ~/godot/godot
+          chmod +x ~/godot/godot
+          curl -fsSL -o /tmp/templates.tpz "${BASE}/Godot_v${TAG}_export_templates.tpz"
+          TDIR=~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_STATUS}
+          mkdir -p "$TDIR"
+          # Nur die benötigten Web-Templates (ohne Threads) entpacken
+          unzip -q -j /tmp/templates.tpz \
+            templates/version.txt \
+            templates/web_nothreads_release.zip \
+            templates/web_nothreads_debug.zip \
+            -d "$TDIR"
+          rm /tmp/godot.zip /tmp/templates.tpz
+          ls -la "$TDIR"
+
+      - name: Projekt importieren
+        run: ~/godot/godot --headless --import --path .
+
+      - name: Web-Export
+        run: |
+          set -euo pipefail
+          mkdir -p build/web
+          ~/godot/godot --headless --path . --export-release "Web" build/web/index.html
+          test -f build/web/index.html
+          test -f build/web/index.wasm
+          test -f build/web/index.pck
+
+      - name: Downloadgröße prüfen
+        run: |
+          RAW=$(du -sb build/web | cut -f1)
+          GZ=0
+          for f in build/web/*; do GZ=$((GZ + $(gzip -c "$f" | wc -c))); done
+          RAW_MB=$(awk "BEGIN {printf \"%.1f\", $RAW/1000000}")
+          GZ_MB=$(awk "BEGIN {printf \"%.1f\", $GZ/1000000}")
+          echo "### Web-Build" >> "$GITHUB_STEP_SUMMARY"
+          echo "Unkomprimiert: ${RAW_MB} MB, komprimierter Download: ca. ${GZ_MB} MB (Budget ${DOWNLOAD_BUDGET_MB} MB)" >> "$GITHUB_STEP_SUMMARY"
+          if awk "BEGIN {exit !($GZ/1000000 > $DOWNLOAD_BUDGET_MB)}"; then
+            echo "::warning::Download ${GZ_MB} MB liegt über dem Budget von ${DOWNLOAD_BUDGET_MB} MB"
+          fi
+
+      - name: Pages-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Auf GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v5
