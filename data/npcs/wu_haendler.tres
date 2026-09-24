@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://c8ckujrjgdldl"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_h7dve"]
+
+[resource]
+script = ExtResource("1_h7dve")
+id = &"wu_haendler"
+display_name = "Wu-Quartiermeister"
+color = Color(0.6901961, 0.1254902, 0.1254902, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["Der Wu-Klan zahlt in Drachenschuppen. Du nicht.", "Die Festung hat nie einen Belagerer gesehen, der zweimal kam."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 18
+})
+trade_get = Dictionary[StringName, int]({
+&"drachenschuppe": 1
+})
+trade_text = "18 Ursteine gegen eine Drachenschuppe"

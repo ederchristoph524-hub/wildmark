@@ -9,4 +9,193 @@ display_name = "Shang-Klan-Stadt"
 map_position = Vector2(0.55, 0.84)
 rank_min = 3
 rank_max = 3
+open = true
 description = "Die reichste Handelsstadt der Südlichen Grenze: Märkte, Arenen und Intrigen."
+size = 560.0
+terrain_seed = 6203
+biome = &"flussdschungel"
+relief = Dictionary[StringName, float]({
+&"berge": 14.0,
+&"detail": 0.8,
+&"frequenz": 0.004,
+&"hoehe": 9.0,
+&"horizont": 150.0,
+&"rand": 60.0,
+&"randhoehe": 45.0
+})
+arrival = Vector2(0, 200)
+paths = [[Vector2(0, 200), Vector2(0, 85)], [Vector2(-105, -10), Vector2(-150, -80), Vector2(-170, -140)], [Vector2(105, -10), Vector2(150, -100), Vector2(170, -145)], [Vector2(-105, -10), Vector2(-180, 20)], [Vector2(105, -10), Vector2(160, 120)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.84705883, 0.65882355, 0.1882353, 1),
+&"dach": Color(0.3529412, 0.16470589, 0.13333334, 1),
+&"holz": Color(0.2901961, 0.18039216, 0.11764706, 1),
+&"platz": Color(0.72156864, 0.65882355, 0.53333336, 1),
+&"saeule": Color(0.6901961, 0.22745098, 0.16470589, 1),
+&"stein": Color(0.5568628, 0.5294118, 0.47843137, 1),
+&"wand": Color(0.8862745, 0.8392157, 0.7372549, 1)
+},
+"faction": &"shang_clan",
+"houses": 44,
+"id": &"shang_stadt",
+"pond": 0.0,
+"position": Vector2(0, -10),
+"radius": 95.0,
+"residents": &"shang",
+"type": &"stadt"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Bucht des Shang-Flusses",
+"offering": {},
+"position": Vector2(-170, 120),
+"radius": 26.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Goldquelle",
+"offering": {},
+"position": Vector2(170, -150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"riesenkrokodil", &"riesenskorpion", &"sturmadler"]),
+"id": &"klingengrab",
+"item": &"",
+"name": "Grab des Klingenmeisters",
+"offering": {
+&"eisenerz": 6,
+&"kristall": 15
+},
+"position": Vector2(-170, -150),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"schwertschatten", &"blutguillotine"]),
+"items": {
+&"klingenstahl": 3,
+&"kristall": 40
+},
+"support": Array[StringName]([&"sofortigererfolg"])
+},
+"text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"riesenkrokodil", &"riesenkrokodil", &"riesenkrokodil"]),
+"id": &"krokodilhort",
+"item": &"",
+"name": "Hort des Krokodilkönigs",
+"offering": {
+&"fleisch": 12,
+&"kristall": 10
+},
+"position": Vector2(-195, 20),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([&"bitterkraft", &"jadeknochen"]),
+"gu": Array[StringName]([&"gluehwuermchen"]),
+"items": {
+&"blutkoralle": 2,
+&"kristall": 30
+},
+"support": Array[StringName]([])
+},
+"text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu.",
+"type": &"erbe"
+}, {
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"glutasche",
+"name": "Schlackenfeld",
+"offering": {},
+"position": Vector2(175, 150),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"aschefeld"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 20.0,
+"distance": 170.0,
+"id": &"sh_hecke",
+"kind": &"hecke",
+"reward": &"verletzungswind"
+}, {
+"angle": 70.0,
+"distance": 180.0,
+"id": &"sh_wasser",
+"kind": &"wasser",
+"reward": &"gluehwuermchen"
+}, {
+"angle": 110.0,
+"distance": 175.0,
+"id": &"sh_fels",
+"kind": &"fels",
+"reward": &"angstballung"
+}, {
+"angle": 160.0,
+"distance": 175.0,
+"id": &"sh_schalter",
+"kind": &"schalter",
+"reward": &"nebelschleier"
+}, {
+"angle": 215.0,
+"distance": 175.0,
+"id": &"sh_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"kettenknolle"
+}, {
+"angle": 265.0,
+"distance": 175.0,
+"id": &"sh_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"wasserbild"
+}, {
+"angle": 320.0,
+"distance": 180.0,
+"id": &"sh_vorsprung",
+"kind": &"vorsprung",
+"reward": &"selbstentzuendung"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(50, 3),
+&"eisenerz": Vector2i(35, 1),
+&"holz": Vector2i(50, 2),
+&"jadeader": Vector2i(10, 1),
+&"kristall": Vector2i(40, 2),
+&"mondtau": Vector2i(30, 1),
+&"stein": Vector2i(40, 2)
+})
+enemy_radii = Array[float]([140.0, 200.0])
+enemy_zones = [[&"wolf", &"blitzwolf", &"bambusnatter", &"jadeaffe"], [&"elektrowolf", &"riesenskorpion", &"sturmadler", &"bergbaer", &"blitzwolf"], [&"riesenkrokodil", &"elektrowolf", &"riesenskorpion", &"sturmadler", &"schatten", &"troll"]]
+wild_gu_rank = 3
+wild_gu_range = Vector2(110, 220)
+wild_passives = [[&"tapferkampf", &"body", 120.0, 200.0, false], [&"junkraft", &"body", 140.0, 210.0, false], [&"eisenknochen", &"body", 150.0, 215.0, true], [&"siebenduefte", &"support", 110.0, 190.0, false], [&"verstaerker", &"support", 130.0, 210.0, true], [&"schatzlicht", &"support", 120.0, 200.0, true], [&"seelensuche", &"support", 110.0, 200.0, false], [&"steinapertur", &"support", 120.0, 210.0, false], [&"luftsack", &"support", 140.0, 215.0, true], [&"selbsthilfe", &"support", 110.0, 190.0, false]]

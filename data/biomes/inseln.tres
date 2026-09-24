@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://c8kcixfsn6m3n"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_voklm"]
+
+[resource]
+script = ExtResource("1_voklm")
+id = &"inseln"
+display_name = "Zehntausend Inseln"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.5411765, 0.47843137, 0.34509805, 1),
+&"fels": Color(0.47843137, 0.45490196, 0.41568628, 1),
+&"gipfel": Color(0.6039216, 0.59607846, 0.5647059, 1),
+&"gras_dunkel": Color(0.22745098, 0.41568628, 0.20392157, 1),
+&"gras_hell": Color(0.41568628, 0.627451, 0.29803923, 1),
+&"moos": Color(0.3529412, 0.5411765, 0.23529412, 1),
+&"platz": Color(0.78431374, 0.72156864, 0.5647059, 1),
+&"strand": Color(0.8862745, 0.8235294, 0.627451, 1),
+&"weg": Color(0.78431374, 0.72156864, 0.5647059, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"laubbaum": 0.3,
+&"palme": 0.7
+})
+trees_per_1000 = 3.0
+bushes_per_1000 = 3.0
+grass_per_1000 = 26.0
+rocks_per_1000 = 1.0
+sky = Color(0.8039216, 0.89411765, 0.9254902, 1)
+sky_top = Color(0.22745098, 0.53333336, 0.8156863, 1)
+fog = Color(0.76862746, 0.8627451, 0.9019608, 1)
+fog_density = 0.0016
+water = Color(0.16470589, 0.47843137, 0.6039216, 1)
+sea_level = 0.0

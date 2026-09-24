@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://bprosogctmkgl"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_nwuv2"]
+
+[resource]
+script = ExtResource("1_nwuv2")
+id = &"steppe"
+display_name = "Graslande der Nördlichen Ebene"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.5411765, 0.44705883, 0.28235295, 1),
+&"fels": Color(0.47843137, 0.45490196, 0.4, 1),
+&"gipfel": Color(0.65882355, 0.6431373, 0.59607846, 1),
+&"gras_dunkel": Color(0.41568628, 0.47843137, 0.23529412, 1),
+&"gras_hell": Color(0.65882355, 0.6431373, 0.34509805, 1),
+&"moos": Color(0.5411765, 0.5411765, 0.28235295, 1),
+&"platz": Color(0.65882355, 0.6039216, 0.45490196, 1),
+&"weg": Color(0.627451, 0.5411765, 0.3764706, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"laubbaum": 0.8,
+&"nadelbaum": 0.2,
+&"steppengras": 1.0
+})
+trees_per_1000 = 0.35
+bushes_per_1000 = 1.5
+grass_per_1000 = 70.0
+rocks_per_1000 = 0.8
+sky = Color(0.8117647, 0.8784314, 0.9098039, 1)
+sky_top = Color(0.24705882, 0.49803922, 0.8117647, 1)
+fog = Color(0.78431374, 0.84705883, 0.8784314, 1)
+fog_density = 0.0014
+water = Color(0.22745098, 0.47843137, 0.6039216, 1)
+plant_tint = Color(0.9490196, 0.9098039, 0.76862746, 1)

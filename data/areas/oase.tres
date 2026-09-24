@@ -10,4 +10,187 @@ region = 3
 map_position = Vector2(0.12, 0.47)
 rank_min = 4
 rank_max = 4
+open = true
 description = "Karawanen, Federmenschen und uralte Tempel unter den Dünen."
+size = 520.0
+terrain_seed = 8401
+biome = &"wueste"
+relief = Dictionary[StringName, float]({
+&"berge": 8.0,
+&"detail": 0.4,
+&"frequenz": 0.006,
+&"hoehe": 9.0,
+&"horizont": 140.0,
+&"rand": 50.0,
+&"randhoehe": 38.0
+})
+arrival = Vector2(0, 180)
+paths = [[Vector2(0, 180), Vector2(0, 62)], [Vector2(40, 40), Vector2(110, 100), Vector2(140, 120)], [Vector2(-40, -40), Vector2(-100, -90), Vector2(-145, -115)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.22745098, 0.41568628, 0.6901961, 1),
+&"dach": Color(0.72156864, 0.5254902, 0.30588236, 1),
+&"holz": Color(0.41568628, 0.2901961, 0.18039216, 1),
+&"saeule": Color(0.78431374, 0.627451, 0.3764706, 1),
+&"stein": Color(0.6901961, 0.6039216, 0.47058824, 1),
+&"wand": Color(0.8509804, 0.7254902, 0.5411765, 1)
+},
+"faction": &"wuestentempel",
+"houses": 20,
+"id": &"oasenstadt",
+"pond": 9.0,
+"position": Vector2(0, 0),
+"radius": 58.0,
+"residents": &"wueste",
+"type": &"oasenstadt"
+}, {
+"colors": {
+&"banner": Color(0.5411765, 0.22745098, 0.41568628, 1),
+&"dach": Color(0.5411765, 0.3529412, 0.22745098, 1),
+&"holz": Color(0.3529412, 0.24313726, 0.15686275, 1),
+&"saeule": Color(0.41568628, 0.22745098, 0.16470589, 1),
+&"stein": Color(0.627451, 0.5647059, 0.47843137, 1),
+&"wand": Color(0.84705883, 0.78431374, 0.65882355, 1)
+},
+"faction": &"karawanenbund",
+"houses": 5,
+"id": &"karawanenlager",
+"pond": 0.0,
+"position": Vector2(150, 130),
+"radius": 26.0,
+"residents": &"karawane",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([&"sandwurm", &"wuestenskorpion", &"wuestenskorpion", &"obsidian"]),
+"id": &"duenentempel",
+"item": &"",
+"name": "Tempel unter den Dünen",
+"offering": {
+&"kristall": 20,
+&"stein": 20
+},
+"position": Vector2(-150, -120),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([&"knochenfleisch"]),
+"gu": Array[StringName]([&"bergwiezuvor", &"kampfknochenrad"]),
+"items": {
+&"kristall": 60,
+&"sternsand": 2,
+&"wuestenrose": 3
+},
+"support": Array[StringName]([])
+},
+"text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter.",
+"type": &"erbe"
+}, {
+"count": 12,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"glutasche",
+"name": "Lavafeld",
+"offering": {},
+"position": Vector2(150, -130),
+"radius": 14.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"aschefeld"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Sternquelle",
+"offering": {},
+"position": Vector2(-160, 100),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Karawanenfriedhof",
+"offering": {},
+"position": Vector2(80, -180),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 20.0,
+"distance": 150.0,
+"id": &"oa_hecke",
+"kind": &"hecke",
+"reward": &"sternschnuppe"
+}, {
+"angle": 70.0,
+"distance": 170.0,
+"id": &"oa_wasser",
+"kind": &"wasser",
+"reward": &"einzelklinge"
+}, {
+"angle": 115.0,
+"distance": 160.0,
+"id": &"oa_fels",
+"kind": &"fels",
+"reward": &"bebenknolle"
+}, {
+"angle": 170.0,
+"distance": 170.0,
+"id": &"oa_schalter",
+"kind": &"schalter",
+"reward": &"gezeitenwaechter"
+}, {
+"angle": 215.0,
+"distance": 150.0,
+"id": &"oa_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"glutpanzer"
+}, {
+"angle": 270.0,
+"distance": 160.0,
+"id": &"oa_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"flugbaer"
+}, {
+"angle": 320.0,
+"distance": 160.0,
+"id": &"oa_vorsprung",
+"kind": &"vorsprung",
+"reward": &"schwarzpfeil"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(20, 2),
+&"eisenerz": Vector2i(30, 1),
+&"glutasche": Vector2i(15, 1),
+&"holz": Vector2i(15, 2),
+&"kristall": Vector2i(45, 2),
+&"stein": Vector2i(60, 2),
+&"sternsand": Vector2i(10, 1)
+})
+enemy_radii = Array[float]([110.0, 180.0])
+enemy_zones = [[&"feuerfuchs", &"riesenskorpion", &"sturmadler"], [&"wuestenskorpion", &"feuerfuchs", &"imp", &"drachenling", &"sandwurm"], [&"sandwurm", &"wuestenskorpion", &"lavaschnecke", &"obsidian", &"drachenling", &"seuche"]]
+wild_gu_rank = 4
+wild_gu_range = Vector2(90, 200)
+wild_passives = [[&"tausendjun", &"body", 120.0, 200.0, false], [&"wildwut", &"body", 150.0, 205.0, true], [&"neunaugen", &"support", 150.0, 205.0, true], [&"sterngedanke", &"support", 110.0, 190.0, false], [&"himmelsessenz", &"support", 120.0, 200.0, false], [&"schneewaesche", &"support", 100.0, 190.0, false]]

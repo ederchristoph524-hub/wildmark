@@ -11,6 +11,13 @@ const SETTLEMENT_FALLOFF: float = 26.0
 const PLACE_FALLOFF: float = 10.0
 const SITE_RADIUS: float = 10.0
 const RESOURCE_MIN_DISTANCE: float = 20.0
+## Kartenname je Siedlungsart (%s = Fraktion).
+const SETTLEMENT_TITLES: Dictionary[StringName, String] = {
+	&"klan_dorf": "Dorf des %s", &"stadt": "Stadt des %s", &"zeltlager": "Lager: %s", &"oasenstadt": "Oase: %s",
+	&"inseldorf": "Insel: %s", &"festung": "Festung des %s", &"sekte": "Sitz: %s",
+}
+## Übergang ins Gelände für Inseldörfer (sonst würde das Plateau ins Meer wachsen).
+const ISLAND_FALLOFF: float = 6.0
 
 var area: AreaData = null
 var biome: BiomeData = null
@@ -69,12 +76,13 @@ func _build_terrain() -> void:
 	for settlement: Dictionary in area.settlements:
 		var at: Vector2 = settlement["position"]
 		var radius: float = settlement["radius"]
-		terrain.flats.append(Vector4(at.x, at.y, radius + 4.0, SETTLEMENT_FALLOFF))
+		terrain.flats.append(Vector4(at.x, at.y, radius + 4.0, ISLAND_FALLOFF if settlement["type"] == &"inseldorf" else SETTLEMENT_FALLOFF))
 		terrain.plazas.append(Vector4(at.x, at.y, radius * 0.95, 0.0))
 		clearings.append(Vector4(at.x, 0.0, at.y, radius + 8.0))
 		settlement_areas.append(Vector4(at.x, 0.0, at.y, radius + 10.0))
-		# Hauptstraße vom Tor zur Halle.
-		roads.append([Vector2(at.x, at.y + radius + 6.0), Vector2(at.x, at.y - radius * 0.2)])
+		roads.append_array(Settlement.roads(settlement))
+		if settlement.get("pond", 0.0) > 0.0:
+			terrain.lakes.append(Vector4(at.x, at.y, float(settlement["pond"]), 0.0))
 	for place: Dictionary in area.places:
 		var at: Vector2 = place["position"]
 		var radius: float = place["radius"]
@@ -95,14 +103,20 @@ func _build_settlements() -> void:
 	for settlement: Dictionary in area.settlements:
 		var at: Vector2 = settlement["position"]
 		var center: Vector3 = ground_point(at.x, at.y)
+		if float(settlement.get("pond", 0.0)) > 0.0:
+			# Die Mitte liegt im Teich – Bauhöhe vom Ufer nehmen.
+			center.y = terrain.height_at(at.x, at.y + float(settlement["pond"]) + 4.0)
 		var anchors: Dictionary = Settlement.build(self, settlement, center)
 		SettlementPeople.place(self, settlement, anchors)
+		if float(settlement.get("pond", 0.0)) > 0.0:
+			WaterSurface.lake(self, terrain.lake_at(at), biome.water, 0.0)
 		var sect: SectData = DataRegistry.sect(settlement["faction"])
-		add_poi(center, MapData.KIND_VILLAGE, Loc.t("Dorf des %s") % Loc.t(sect.display_name))
+		add_poi(center, MapData.KIND_VILLAGE, Loc.t(String(SETTLEMENT_TITLES.get(settlement["type"], "Dorf des %s"))) % Loc.t(sect.display_name))
 		if camp == null:
 			camp = Campfire.new()
 			add_child(camp)
-			camp.position = ground_point(at.x, at.y + settlement["radius"] * 0.12)
+			var fire: Vector3 = anchors.get("fire", Vector3(at.x, 0.0, at.y + settlement["radius"] * 0.12))
+			camp.position = ground_point(fire.x, fire.z)
 
 
 func _build_bounds() -> void:

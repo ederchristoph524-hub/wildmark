@@ -36,6 +36,16 @@ static func build(b: MeshBuilder, t: Transform3D, width: float, depth: float, pa
 	return boxes
 
 
+## Zweistöckiges Haus ohne Zufall (Sekten-Hallen).
+static func two_story(b: MeshBuilder, t: Transform3D, width: float, depth: float, palette: Dictionary) -> Array[Array]:
+	return _two_story(b, t, width, depth, palette)
+
+
+## Bambus-Pfahlhaus ohne Zufall (Inseldörfer).
+static func stilts(b: MeshBuilder, t: Transform3D, width: float, depth: float, palette: Dictionary) -> Array[Array]:
+	return _stilts(b, t, width, depth, palette)
+
+
 ## Bretterhaus: Wände aus dunklem Holz mit waagrechten Fugen.
 static func _planks(b: MeshBuilder, t: Transform3D, width: float, depth: float, p: Dictionary) -> Array[Array]:
 	var q: Dictionary = p.duplicate()

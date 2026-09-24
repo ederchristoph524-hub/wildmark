@@ -1337,7 +1337,8 @@
     "mondlicht",
     "steinhaut",
     "wirbelwind"
-   ]
+   ],
+   "rang": 2
   },
   "yi_tian": {
    "n": "Yi-Tian-Schüler",
@@ -1347,7 +1348,8 @@
     "eisenhaut",
     "sternpfeil",
     "weissjade"
-   ]
+   ],
+   "rang": 3
   },
   "himmelshof": {
    "n": "Hüter des Himmelshofs",
@@ -1357,7 +1359,8 @@
     "regenbogen",
     "lichtzaun",
     "goldlicht"
-   ]
+   ],
+   "rang": 5
   },
   "blutfluegel": {
    "n": "Blutflügel-Dämon",
@@ -1367,7 +1370,8 @@
     "blutrausch",
     "knochenspeer",
     "blutschaedel"
-   ]
+   ],
+   "rang": 3
   },
   "schattensekte": {
    "n": "Schattenschüler",
@@ -1377,7 +1381,8 @@
     "schattenbild",
     "mondgift",
     "giftskorpion"
-   ]
+   ],
+   "rang": 4
   },
   "wilde_horde": {
    "n": "Horden-Krieger",
@@ -1385,8 +1390,131 @@
    "f": "demonic",
    "gu": [
     "wolfssklave",
+    "eberstoss",
+    "wirbelwind",
     "zehnjin",
     "berserk"
+   ],
+   "rang": 4
+  },
+  "shang_arena": {
+   "n": "Arenameister der Shang",
+   "c": "#d8a830",
+   "f": "righteous",
+   "rang": 3,
+   "gu": [
+    "mondlicht",
+    "glutfunke",
+    "steinhaut",
+    "windklinge"
+   ]
+  },
+  "wuestentempel": {
+   "n": "Tempelwächter der Wüste",
+   "c": "#c8a060",
+   "f": "righteous",
+   "rang": 4,
+   "gu": [
+    "drehfels",
+    "sternpfeil_klein",
+    "steinhaut",
+    "glutatem"
+   ]
+  },
+  "karawane": {
+   "n": "Karawanenführer",
+   "c": "#8a3a6a",
+   "f": "demonic",
+   "rang": 4,
+   "gu": [
+    "stachelwurm",
+    "klingenfaden",
+    "aurahuelle",
+    "blutstropfen"
+   ]
+  },
+  "wu_general": {
+   "n": "Wu-General",
+   "c": "#b02020",
+   "f": "righteous",
+   "rang": 4,
+   "gu": [
+    "eberstoss",
+    "steinhaut",
+    "blutstropfen",
+    "glutfunke"
+   ]
+  },
+  "wu_aeltester": {
+   "n": "Wu-Ältester",
+   "c": "#802020",
+   "f": "righteous",
+   "rang": 5,
+   "gu": [
+    "mondlicht",
+    "frostnadel",
+    "knallsamen",
+    "lebensblatt",
+    "wasserlicht"
+   ]
+  },
+  "ostmeer": {
+   "n": "Inselwächter der Ostmeer-Allianz",
+   "c": "#3a9ac0",
+   "f": "righteous",
+   "rang": 5,
+   "gu": [
+    "wasserlicht",
+    "wasserspiegel",
+    "funkenwurm",
+    "frostnadel"
+   ]
+  },
+  "meereszombie": {
+   "n": "Untoter Seefahrer",
+   "c": "#5a8a5a",
+   "f": "demonic",
+   "rang": 5,
+   "gu": [
+    "blutstropfen",
+    "stachelwurm",
+    "stummermund",
+    "knochensplitter"
+   ]
+  },
+  "zehn_extreme": {
+   "n": "Sektenmeister der Zehn Extreme",
+   "c": "#e8c040",
+   "f": "righteous",
+   "rang": 5,
+   "gu": [
+    "klingenfaden",
+    "sternpfeil_klein",
+    "eberstoss",
+    "steinhaut",
+    "windklinge"
+   ]
+  },
+  "xiong_jaeger": {
+   "n": "Xiong-Jagdmeister",
+   "c": "#b8642a",
+   "f": "righteous",
+   "rang": 2,
+   "gu": [
+    "eberstoss",
+    "steinhaut",
+    "wirbelwind"
+   ]
+  },
+  "bai_waechter": {
+   "n": "Bai-Klanwächter",
+   "c": "#dfe6f0",
+   "f": "righteous",
+   "rang": 2,
+   "gu": [
+    "frostnadel",
+    "wasserlicht",
+    "knochensplitter"
    ]
   }
  },
@@ -1494,6 +1622,208 @@
     "get": {},
     "gu": 1,
     "d": "5 💎 gegen ein zufälliges Gu"
+   }
+  },
+  "shang_haendler": {
+   "n": "Shang-Händler",
+   "ic": "",
+   "c": "#d8a830",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "In der Shang-Stadt hat alles seinen Preis – auch Treue.",
+    "Jadeadern kommen aus den Minen im Westen. Teuer, aber ehrlich."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 10
+    },
+    "get": {
+     "jadeader": 1
+    },
+    "d": "10 Ursteine gegen eine Jadeader"
+   }
+  },
+  "shang_schmied": {
+   "n": "Klingenschmied",
+   "ic": "",
+   "c": "#b0b0b8",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "Klingenstahl schneidet von selbst. Man muss ihm nur zeigen, was.",
+    "Die Arena frisst mehr Stahl als jede Schlacht."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 12
+    },
+    "get": {
+     "klingenstahl": 1
+    },
+    "d": "12 Ursteine gegen Klingenstahl"
+   }
+  },
+  "auktionator": {
+   "n": "Auktionator der Shang",
+   "ic": "",
+   "c": "#e0c060",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "Heute im Angebot: ein Gu, dessen Herkunft niemand kennt. Bieten Sie!",
+    "Das Auktionshaus der Shang hat schon Rang-5-Gu versteigert."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 30
+    },
+    "get": {},
+    "d": "30 Ursteine gegen einen zufälligen Rang-3-Gu",
+    "gu": 1,
+    "gu_rang": 3
+   }
+  },
+  "steppen_haendler": {
+   "n": "Wolfsjäger der Steppe",
+   "ic": "",
+   "c": "#9ab86a",
+   "region": 0,
+   "side": "righteous",
+   "lines": [
+    "Die Seele eines Leitwolfs zerfällt nicht. Ich habe Splitter.",
+    "Wer die Wolfsflut überlebt, wird reich."
+   ],
+   "trade": {
+    "give": {
+     "fell": 10,
+     "kristall": 6
+    },
+    "get": {
+     "wolfsgeist": 1
+    },
+    "d": "10 Fell und 6 Ursteine gegen einen Wolfsgeist-Splitter"
+   }
+  },
+  "wuesten_haendler": {
+   "n": "Sandhändlerin",
+   "ic": "",
+   "c": "#d9b46a",
+   "region": 3,
+   "side": "righteous",
+   "lines": [
+    "Die Wüstenrose wächst nur, wo niemand überlebt.",
+    "Sternensand? Nachts in den Dünen – wenn dich die Skorpione lassen."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 15
+    },
+    "get": {
+     "wuestenrose": 1,
+     "sternsand": 1
+    },
+    "d": "15 Ursteine gegen Wüstenrose und Sternensand"
+   }
+  },
+  "wu_haendler": {
+   "n": "Wu-Quartiermeister",
+   "ic": "",
+   "c": "#b02020",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "Der Wu-Klan zahlt in Drachenschuppen. Du nicht.",
+    "Die Festung hat nie einen Belagerer gesehen, der zweimal kam."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 18
+    },
+    "get": {
+     "drachenschuppe": 1
+    },
+    "d": "18 Ursteine gegen eine Drachenschuppe"
+   }
+  },
+  "auktionator_hoch": {
+   "n": "Schatzmeister der Wu",
+   "ic": "",
+   "c": "#c03030",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "Rang-4-Gu verkaufe ich nicht an jeden. Zeig mir deine Ursteine.",
+    "Der Wu-Klan hat mehr Gu als Soldaten."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 60
+    },
+    "get": {},
+    "d": "60 Ursteine gegen einen zufälligen Rang-4-Gu",
+    "gu": 1,
+    "gu_rang": 4
+   }
+  },
+  "perlentaucher": {
+   "n": "Perlentaucherin",
+   "ic": "",
+   "c": "#3a9ac0",
+   "region": 2,
+   "side": "righteous",
+   "lines": [
+    "Tiefseeperlen atmen. Man hört sie nachts.",
+    "Unter der Hohen Flut liegen ganze Städte."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 20
+    },
+    "get": {
+     "tiefseeperle": 1
+    },
+    "d": "20 Ursteine gegen eine Tiefseeperle"
+   }
+  },
+  "sekten_haendler": {
+   "n": "Sektenverwalter",
+   "ic": "",
+   "c": "#e8c040",
+   "region": 4,
+   "side": "righteous",
+   "lines": [
+    "Urkristall ist Ur-Essenz in fester Form. Die Sekte gibt ihn nur gegen Beiträge.",
+    "Talent zählt hier, nicht Blut."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 25
+    },
+    "get": {
+     "urkristall": 1
+    },
+    "d": "25 Ursteine gegen einen Urkristall"
+   }
+  },
+  "sekten_schatzmeister": {
+   "n": "Schatzkammerwächter",
+   "ic": "",
+   "c": "#f0d060",
+   "region": 4,
+   "side": "righteous",
+   "lines": [
+    "Die Schatzkammer der Zehn Extreme öffnet sich nur für Würdige – und Zahlende.",
+    "Ein Rang-5-Gu ist mehr wert als ein Menschenleben. Hier jedenfalls."
+   ],
+   "trade": {
+    "give": {
+     "kristall": 120
+    },
+    "get": {},
+    "d": "120 Ursteine gegen einen zufälligen Rang-5-Gu",
+    "gu": 1,
+    "gu_rang": 5
    }
   }
  }

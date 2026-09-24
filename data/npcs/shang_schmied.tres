@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://cqpsnqukw2ecn"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_ci4bp"]
+
+[resource]
+script = ExtResource("1_ci4bp")
+id = &"shang_schmied"
+display_name = "Klingenschmied"
+color = Color(0.6901961, 0.6901961, 0.72156864, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["Klingenstahl schneidet von selbst. Man muss ihm nur zeigen, was.", "Die Arena frisst mehr Stahl als jede Schlacht."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 12
+})
+trade_get = Dictionary[StringName, int]({
+&"klingenstahl": 1
+})
+trade_text = "12 Ursteine gegen Klingenstahl"

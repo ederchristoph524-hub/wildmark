@@ -24,10 +24,67 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"klan", "Xiong-Jäger", &"", false, &"gate", Vector2(0.0, 0.0)],
 		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
+	&"shang": [
+		[&"klan", "Shang-Verwalter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Stadtwache", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"shang_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"shang_schmied", "", &"", true, &"market", Vector2(-4.0, 2.0)],
+		[&"auktionator", "", &"", true, &"well", Vector2(2.0, 2.0)],
+		[&"daemon", "", &"", true, &"gate_outside", Vector2(0.0, 0.0)],
+	],
+	&"steppe": [
+		[&"stamm", "Häuptling", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"stamm", "", &"", true, &"gate", Vector2(0.0, 0.0)],
+		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"lang_ya": [
+		[&"klan", "Lang-Ya-Hüter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"wueste": [
+		[&"klan", "Tempelhüter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Oasenwache", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"wuesten_haendler", "", &"", true, &"market", Vector2(-3.0, 3.0)],
+	],
+	&"karawane": [
+		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"wuesten_haendler", "", &"", true, &"gate", Vector2(0.0, 0.0)],
+	],
+	&"wu": [
+		[&"klan", "Festungswache", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"wu_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"auktionator_hoch", "", &"", true, &"market", Vector2(-4.0, 2.0)],
+	],
+	&"insel": [
+		[&"seemann", "", &"", true, &"gate", Vector2(0.0, 0.0)],
+		[&"perlentaucher", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"klan", "Inselältester", &"", false, &"hall", Vector2(0.0, 0.0)],
+	],
+	&"meereszombie": [
+		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"sekte": [
+		[&"klan", "Torwächter", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"klan", "Bibliothekar", &"", false, &"academy", Vector2(0.0, 0.0)],
+		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"sekten_schatzmeister", "", &"", true, &"hall", Vector2(-3.0, 1.0)],
+	],
 }
-## Klan-Gu-Meister: Daten-ID, Titel, Anker.
+## Gu-Meister je Bewohner-Gruppe: [Daten-ID, Titel, Anker] (Rang aus gegner.json → GUMASTER).
 const MASTERS: Dictionary[StringName, Array] = {
-	&"gu_yue": [&"gu_yue", "Klanlehrer", &"training"],
+	&"gu_yue": [[&"gu_yue", "Klanlehrer", &"training"]],
+	&"xiong": [[&"xiong_jaeger", "Xiong-Jagdmeister", &"gate"]],
+	&"bai": [[&"bai_waechter", "Bai-Klanwächter", &"gate"]],
+	&"shang": [[&"shang_arena", "Arenameister", &"arena"], [&"blutfluegel", "Fremder Dämon", &"gate_outside"]],
+	&"steppe": [[&"wilde_horde", "Hordenkrieger", &"training"]],
+	&"lang_ya": [[&"yi_tian", "Lang-Ya-Gelehrter", &"training"]],
+	&"wueste": [[&"wuestentempel", "Tempelwächter", &"training"]],
+	&"karawane": [[&"karawane", "Karawanenführer", &"hall"]],
+	&"wu": [[&"wu_general", "Wu-General", &"training"], [&"wu_aeltester", "Wu-Ältester", &"hall"]],
+	&"insel": [[&"ostmeer", "Inselwächter", &"training"]],
+	&"meereszombie": [[&"meereszombie", "Untoter Seefahrer", &"training"]],
+	&"sekte": [[&"zehn_extreme", "Sektenmeister", &"training"], [&"himmelshof", "Gast des Himmlischen Hofes", &"tower"]],
 }
 ## Beerenbüsche im Garten (Versatz zum Anker garden) – für die Kindheit.
 const BUSHES: Dictionary[StringName, Array] = {
@@ -47,10 +104,9 @@ static func place(world: World, data: Dictionary, anchors: Dictionary) -> void:
 			npc.robe_color = robe
 		world.add_child(npc)
 		npc.position = _at(world, anchors, entry[4], entry[5])
-	if MASTERS.has(group):
-		var master_entry: Array = MASTERS[group]
+	for master_entry: Array in MASTERS.get(group, []):
 		var master := GuMaster.new()
-		master.setup(DataRegistry.gu_master(master_entry[0]), String(master_entry[1]), _at(world, anchors, master_entry[2], Vector2.ZERO))
+		master.setup(DataRegistry.gu_master(master_entry[0]), String(master_entry[1]), _at(world, anchors, master_entry[2], Vector2(2.0, 0.0)))
 		world.add_child(master)
 	for offset: Vector2 in BUSHES.get(group, []):
 		var bush := ResourceNode.new(&"beeren", BUSH_YIELD)

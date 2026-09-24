@@ -9,3 +9,4 @@ display_name = "Gu-Yue-Gu-Meister"
 color = Color(0.47843137, 0.72156864, 0.41568628, 1)
 faction = &"righteous"
 gu = Array[StringName]([&"mondlicht", &"steinhaut", &"wirbelwind"])
+rank = 2

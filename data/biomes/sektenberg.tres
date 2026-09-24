@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://de2n2s1ru52x3"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_r5bry"]
+
+[resource]
+script = ExtResource("1_r5bry")
+id = &"sektenberg"
+display_name = "Sektenberge des Zentralkontinents"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.41568628, 0.3529412, 0.28235295, 1),
+&"fels": Color(0.43137255, 0.43137255, 0.41568628, 1),
+&"gipfel": Color(0.93333334, 0.9490196, 0.95686275, 1),
+&"gras_dunkel": Color(0.20784314, 0.33333334, 0.22745098, 1),
+&"gras_hell": Color(0.36862746, 0.5254902, 0.3372549, 1),
+&"moos": Color(0.3764706, 0.47058824, 0.28235295, 1),
+&"platz": Color(0.65882355, 0.63529414, 0.57254905, 1),
+&"weg": Color(0.6039216, 0.5803922, 0.53333336, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.15,
+&"laubbaum": 0.25,
+&"nadelbaum": 0.6
+})
+bushes_per_1000 = 3.0
+grass_per_1000 = 24.0
+rocks_per_1000 = 2.5
+sky = Color(0.83137256, 0.8784314, 0.9098039, 1)
+sky_top = Color(0.2901961, 0.4862745, 0.72156864, 1)
+fog = Color(0.78431374, 0.83137256, 0.8627451, 1)
+fog_density = 0.0024
+water = Color(0.22745098, 0.41568628, 0.5019608, 1)

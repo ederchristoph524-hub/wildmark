@@ -157,6 +157,23 @@ static func terrace(b: MeshBuilder, t: Transform3D, width: float, depth: float, 
 	return [[t, Vector3(width, height, depth)], [ramp.translated_local(Vector3(0, -0.1, 0)), Vector3(4.0, 0.2, ramp_len)]]
 
 
+## Hohe Festungsmauer mit Steinsockel, Wehrgang-Kante und Zinnen zwischen zwei Bodenpunkten.
+static func high_wall(b: MeshBuilder, a: Vector3, c: Vector3, height: float, p: Dictionary) -> Array[Array]:
+	var length: float = Vector2(c.x - a.x, c.z - a.z).length()
+	var basis := Basis(Vector3.UP, atan2(c.x - a.x, c.z - a.z) + PI * 0.5)
+	var bottom: float = minf(a.y, c.y) - 0.5
+	var t := Transform3D(basis, Vector3((a.x + c.x) * 0.5, bottom, (a.z + c.z) * 0.5))
+	var top: float = maxf(a.y, c.y) - bottom + height
+	_box(b, t, Vector3(0, 0.9, 0), Vector3(length + 0.4, 1.8, 2.2), p["stein"].darkened(0.1))
+	_box(b, t, Vector3(0, top * 0.5, 0), Vector3(length + 0.2, top, 1.6), p["stein"])
+	_box(b, t, Vector3(0, top + 0.1, 0), Vector3(length + 0.4, 0.2, 1.9), p["stein"].lightened(0.08))
+	var merlons: int = maxi(2, roundi(length / 1.6))
+	for i: int in merlons:
+		var x: float = lerpf(-length * 0.5 + 0.5, length * 0.5 - 0.5, i / float(merlons - 1))
+		_box(b, t, Vector3(x, top + 0.55, 0.65), Vector3(0.7, 0.7, 0.4), p["stein"].darkened(0.05))
+	return [[t, Vector3(length + 0.2, top + 1.0, 1.8)]]
+
+
 ## Palisade aus angespitzten Pfählen zwischen zwei Bodenpunkten.
 static func palisade(b: MeshBuilder, a: Vector3, c: Vector3, p: Dictionary) -> Array[Array]:
 	var length: float = Vector2(c.x - a.x, c.z - a.z).length()

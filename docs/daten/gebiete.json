@@ -430,8 +430,419 @@
     2,
     3
    ],
-   "offen": false,
-   "d": "Ein Berg, in dem drei Dämonen-Gu-Meister ihr Erbe versiegelt haben. Jede Prüfung kostet Blut."
+   "offen": true,
+   "d": "Ein Berg, in dem drei Dämonen-Gu-Meister ihr Erbe versiegelt haben. Jede Prüfung kostet Blut.",
+   "groesse": 460,
+   "seed": 5121,
+   "biom": "felsberg",
+   "relief": {
+    "hoehe": 16,
+    "frequenz": 0.005,
+    "detail": 1.0,
+    "berge": 34,
+    "rand": 55,
+    "randhoehe": 50,
+    "horizont": 190
+   },
+   "ankunft": [
+    0,
+    150
+   ],
+   "siedlungen": [
+    {
+     "id": "xiong_jaegerlager",
+     "typ": "zeltlager",
+     "fraktion": "xiong_clan",
+     "pos": [
+      0,
+      95
+     ],
+     "radius": 30,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#6a4a30",
+      "wand": "#d8c8a8",
+      "holz": "#4a2e1e",
+      "saeule": "#7a4a28",
+      "banner": "#b8642a",
+      "stein": "#80776a"
+     },
+     "bewohner": "xiong"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "blutkoenig",
+     "n": "Erbe des Blutkönigs",
+     "pos": [
+      -120,
+      -40
+     ],
+     "radius": 9,
+     "opfer": {
+      "kristall": 6,
+      "knochenmehl": 2
+     },
+     "waechter": [
+      "blitzwolf",
+      "blitzwolf",
+      "bergbaer"
+     ],
+     "belohnung": {
+      "gu": [
+       "blutmond",
+       "knochenring"
+      ],
+      "koerper_gu": [
+       "eisenblut"
+      ],
+      "items": {
+       "kristall": 25,
+       "blutkoralle": 1
+      }
+     },
+     "text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst."
+    },
+    {
+     "typ": "erbe",
+     "id": "steinkoenig_erbe",
+     "n": "Erbe des Steinkönigs",
+     "pos": [
+      110,
+      -90
+     ],
+     "radius": 10,
+     "opfer": {
+      "stein": 20,
+      "kristall": 5
+     },
+     "waechter": [
+      "jadeaffe",
+      "jadeaffe",
+      "jadeaffe",
+      "steinkoenig"
+     ],
+     "belohnung": {
+      "gu": [
+       "knochenschild",
+       "felssturz"
+      ],
+      "items": {
+       "jadeader": 2,
+       "kristall": 30,
+       "erdkern": 3
+      }
+     },
+     "text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute."
+    },
+    {
+     "typ": "erbe",
+     "id": "wolfskoenig",
+     "n": "Erbe des Wolfskönigs",
+     "pos": [
+      0,
+      -170
+     ],
+     "radius": 10,
+     "opfer": {
+      "fell": 10,
+      "kristall": 8
+     },
+     "waechter": [
+      "blitzwolf",
+      "blitzwolf",
+      "blitzwolf",
+      "elektrowolf"
+     ],
+     "belohnung": {
+      "gu": [
+       "allout",
+       "wolfsseele"
+      ],
+      "hilfs_gu": [
+       "vierwein"
+      ],
+      "items": {
+       "wolfsgeist": 2,
+       "kristall": 30
+      }
+     },
+     "text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Quelle der drei Könige",
+     "pos": [
+      60,
+      40
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "see",
+     "n": "Drachenschuppen-See",
+     "pos": [
+      -150,
+      90
+     ],
+     "radius": 20
+    },
+    {
+     "typ": "friedhof",
+     "n": "Knochental",
+     "pos": [
+      130,
+      95
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 9
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "dk_hecke",
+     "art": "hecke",
+     "belohnung": "steinfaust",
+     "richtung": 0,
+     "abstand": 150
+    },
+    {
+     "id": "dk_wasser",
+     "art": "wasser",
+     "belohnung": "windwand",
+     "richtung": 60,
+     "abstand": 150
+    },
+    {
+     "id": "dk_fels",
+     "art": "fels",
+     "belohnung": "sternpfeil",
+     "richtung": 115,
+     "abstand": 140
+    },
+    {
+     "id": "dk_schalter",
+     "art": "schalter",
+     "belohnung": "schwertfluegel",
+     "richtung": 175,
+     "abstand": 140
+    },
+    {
+     "id": "dk_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "tarnschuppe",
+     "richtung": 230,
+     "abstand": 150
+    },
+    {
+     "id": "dk_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "donnerknolle",
+     "richtung": 300,
+     "abstand": 130
+    },
+    {
+     "id": "dk_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "zwillingsspiegel",
+     "richtung": 340,
+     "abstand": 110
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      150
+     ],
+     [
+      0,
+      125
+     ]
+    ],
+    [
+     [
+      0,
+      65
+     ],
+     [
+      -60,
+      20
+     ],
+     [
+      -110,
+      -30
+     ]
+    ],
+    [
+     [
+      0,
+      65
+     ],
+     [
+      60,
+      -20
+     ],
+     [
+      100,
+      -80
+     ]
+    ],
+    [
+     [
+      0,
+      65
+     ],
+     [
+      0,
+      -60
+     ],
+     [
+      0,
+      -160
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "beeren": [
+     50,
+     3
+    ],
+    "stein": [
+     70,
+     2
+    ],
+    "kristall": [
+     40,
+     2
+    ],
+    "holz": [
+     40,
+     2
+    ],
+    "eisenerz": [
+     40,
+     1
+    ],
+    "erdkern": [
+     12,
+     1
+    ],
+    "gruenkraut": [
+     30,
+     2
+    ]
+   },
+   "gegner": {
+    "radien": [
+     90,
+     160
+    ],
+    "zonen": [
+     [
+      "wolf",
+      "steinaffe",
+      "bambusnatter",
+      "eber"
+     ],
+     [
+      "blitzwolf",
+      "jadeaffe",
+      "bergbaer",
+      "schwarzeber_bestie",
+      "steinaffe"
+     ],
+     [
+      "blitzwolf",
+      "jadeaffe",
+      "bergbaer",
+      "elektrowolf",
+      "sturmadler",
+      "golem"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 2,
+    "abstand": [
+     60,
+     170
+    ]
+   },
+   "wilde_passive": [
+    [
+     "weissjade",
+     "body",
+     80,
+     160,
+     false
+    ],
+    [
+     "eisenblut",
+     "body",
+     100,
+     170,
+     true
+    ],
+    [
+     "berserk",
+     "body",
+     120,
+     170,
+     false
+    ],
+    [
+     "vierwein",
+     "support",
+     60,
+     150,
+     false
+    ],
+    [
+     "hellperle",
+     "support",
+     80,
+     160,
+     false
+    ],
+    [
+     "holzkohle",
+     "support",
+     60,
+     140,
+     false
+    ],
+    [
+     "blitzauge",
+     "support",
+     100,
+     170,
+     true
+    ],
+    [
+     "erdschatz",
+     "support",
+     90,
+     160,
+     false
+    ],
+    [
+     "bohr",
+     "support",
+     100,
+     160,
+     false
+    ],
+    [
+     "zweiaufgaben",
+     "support",
+     120,
+     170,
+     true
+    ]
+   ]
   },
   "shang_stadt": {
    "n": "Shang-Klan-Stadt",
@@ -444,8 +855,393 @@
     3,
     3
    ],
-   "offen": false,
-   "d": "Die reichste Handelsstadt der Südlichen Grenze: Märkte, Arenen und Intrigen."
+   "offen": true,
+   "d": "Die reichste Handelsstadt der Südlichen Grenze: Märkte, Arenen und Intrigen.",
+   "groesse": 560,
+   "seed": 6203,
+   "biom": "flussdschungel",
+   "relief": {
+    "hoehe": 9,
+    "frequenz": 0.004,
+    "detail": 0.8,
+    "berge": 14,
+    "rand": 60,
+    "randhoehe": 45,
+    "horizont": 150
+   },
+   "ankunft": [
+    0,
+    200
+   ],
+   "siedlungen": [
+    {
+     "id": "shang_stadt",
+     "typ": "stadt",
+     "fraktion": "shang_clan",
+     "pos": [
+      0,
+      -10
+     ],
+     "radius": 95,
+     "haeuser": 44,
+     "farben": {
+      "dach": "#5a2a22",
+      "wand": "#e2d6bc",
+      "holz": "#4a2e1e",
+      "saeule": "#b03a2a",
+      "banner": "#d8a830",
+      "stein": "#8e877a",
+      "platz": "#b8a888"
+     },
+     "bewohner": "shang"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "see",
+     "n": "Bucht des Shang-Flusses",
+     "pos": [
+      -170,
+      120
+     ],
+     "radius": 26
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Goldquelle",
+     "pos": [
+      170,
+      -150
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "erbe",
+     "id": "klingengrab",
+     "n": "Grab des Klingenmeisters",
+     "pos": [
+      -170,
+      -150
+     ],
+     "radius": 9,
+     "opfer": {
+      "kristall": 15,
+      "eisenerz": 6
+     },
+     "waechter": [
+      "riesenkrokodil",
+      "riesenskorpion",
+      "sturmadler"
+     ],
+     "belohnung": {
+      "gu": [
+       "schwertschatten",
+       "blutguillotine"
+      ],
+      "hilfs_gu": [
+       "sofortigererfolg"
+      ],
+      "items": {
+       "klingenstahl": 3,
+       "kristall": 40
+      }
+     },
+     "text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter."
+    },
+    {
+     "typ": "erbe",
+     "id": "krokodilhort",
+     "n": "Hort des Krokodilkönigs",
+     "pos": [
+      -195,
+      20
+     ],
+     "radius": 10,
+     "opfer": {
+      "fleisch": 12,
+      "kristall": 10
+     },
+     "waechter": [
+      "riesenkrokodil",
+      "riesenkrokodil",
+      "riesenkrokodil"
+     ],
+     "belohnung": {
+      "gu": [
+       "gluehwuermchen"
+      ],
+      "koerper_gu": [
+       "bitterkraft",
+       "jadeknochen"
+      ],
+      "items": {
+       "blutkoralle": 2,
+       "kristall": 30
+      }
+     },
+     "text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu."
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Schlackenfeld",
+     "pos": [
+      175,
+      150
+     ],
+     "radius": 12,
+     "item": "glutasche",
+     "anzahl": 10
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "sh_hecke",
+     "art": "hecke",
+     "belohnung": "verletzungswind",
+     "richtung": 20,
+     "abstand": 170
+    },
+    {
+     "id": "sh_wasser",
+     "art": "wasser",
+     "belohnung": "gluehwuermchen",
+     "richtung": 70,
+     "abstand": 180
+    },
+    {
+     "id": "sh_fels",
+     "art": "fels",
+     "belohnung": "angstballung",
+     "richtung": 110,
+     "abstand": 175
+    },
+    {
+     "id": "sh_schalter",
+     "art": "schalter",
+     "belohnung": "nebelschleier",
+     "richtung": 160,
+     "abstand": 175
+    },
+    {
+     "id": "sh_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "kettenknolle",
+     "richtung": 215,
+     "abstand": 175
+    },
+    {
+     "id": "sh_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "wasserbild",
+     "richtung": 265,
+     "abstand": 175
+    },
+    {
+     "id": "sh_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "selbstentzuendung",
+     "richtung": 320,
+     "abstand": 180
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      200
+     ],
+     [
+      0,
+      85
+     ]
+    ],
+    [
+     [
+      -105,
+      -10
+     ],
+     [
+      -150,
+      -80
+     ],
+     [
+      -170,
+      -140
+     ]
+    ],
+    [
+     [
+      105,
+      -10
+     ],
+     [
+      150,
+      -100
+     ],
+     [
+      170,
+      -145
+     ]
+    ],
+    [
+     [
+      -105,
+      -10
+     ],
+     [
+      -180,
+      20
+     ]
+    ],
+    [
+     [
+      105,
+      -10
+     ],
+     [
+      160,
+      120
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "kristall": [
+     40,
+     2
+    ],
+    "holz": [
+     50,
+     2
+    ],
+    "beeren": [
+     50,
+     3
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "eisenerz": [
+     35,
+     1
+    ],
+    "jadeader": [
+     10,
+     1
+    ],
+    "mondtau": [
+     30,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     140,
+     200
+    ],
+    "zonen": [
+     [
+      "wolf",
+      "blitzwolf",
+      "bambusnatter",
+      "jadeaffe"
+     ],
+     [
+      "elektrowolf",
+      "riesenskorpion",
+      "sturmadler",
+      "bergbaer",
+      "blitzwolf"
+     ],
+     [
+      "riesenkrokodil",
+      "elektrowolf",
+      "riesenskorpion",
+      "sturmadler",
+      "schatten",
+      "troll"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 3,
+    "abstand": [
+     110,
+     220
+    ]
+   },
+   "wilde_passive": [
+    [
+     "tapferkampf",
+     "body",
+     120,
+     200,
+     false
+    ],
+    [
+     "junkraft",
+     "body",
+     140,
+     210,
+     false
+    ],
+    [
+     "eisenknochen",
+     "body",
+     150,
+     215,
+     true
+    ],
+    [
+     "siebenduefte",
+     "support",
+     110,
+     190,
+     false
+    ],
+    [
+     "verstaerker",
+     "support",
+     130,
+     210,
+     true
+    ],
+    [
+     "schatzlicht",
+     "support",
+     120,
+     200,
+     true
+    ],
+    [
+     "seelensuche",
+     "support",
+     110,
+     200,
+     false
+    ],
+    [
+     "steinapertur",
+     "support",
+     120,
+     210,
+     false
+    ],
+    [
+     "luftsack",
+     "support",
+     140,
+     215,
+     true
+    ],
+    [
+     "selbsthilfe",
+     "support",
+     110,
+     190,
+     false
+    ]
+   ]
   },
   "wu_klan": {
    "n": "Roter Drachenfluss",
@@ -458,8 +1254,320 @@
     4,
     5
    ],
-   "offen": false,
-   "d": "Stammland des Wu-Klans, Herr der Südlichen Grenze, am Zusammenfluss der Drachenflüsse."
+   "offen": true,
+   "d": "Stammland des Wu-Klans, Herr der Südlichen Grenze, am Zusammenfluss der Drachenflüsse.",
+   "groesse": 560,
+   "seed": 9103,
+   "biom": "roter_fluss",
+   "relief": {
+    "hoehe": 11,
+    "frequenz": 0.0045,
+    "detail": 0.9,
+    "berge": 22,
+    "rand": 60,
+    "randhoehe": 55,
+    "horizont": 200
+   },
+   "ankunft": [
+    0,
+    210
+   ],
+   "siedlungen": [
+    {
+     "id": "wu_festung",
+     "typ": "festung",
+     "fraktion": "wu_clan",
+     "pos": [
+      0,
+      -20
+     ],
+     "radius": 80,
+     "haeuser": 22,
+     "farben": {
+      "dach": "#2a2a30",
+      "wand": "#c8b8a0",
+      "holz": "#3a2418",
+      "saeule": "#a02020",
+      "banner": "#b02020",
+      "stein": "#6a6660"
+     },
+     "bewohner": "wu"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "see",
+     "n": "Roter Drachenfluss",
+     "pos": [
+      -170,
+      60
+     ],
+     "radius": 30
+    },
+    {
+     "typ": "see",
+     "n": "Drachenbecken",
+     "pos": [
+      150,
+      150
+     ],
+     "radius": 24
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Drachenquelle",
+     "pos": [
+      170,
+      -60
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "erbe",
+     "id": "drachenhort",
+     "n": "Hort des Lavadrachen",
+     "pos": [
+      -160,
+      -170
+     ],
+     "radius": 12,
+     "opfer": {
+      "kristall": 30,
+      "glutasche": 10
+     },
+     "waechter": [
+      "drache",
+      "drachenling",
+      "drachenling"
+     ],
+     "belohnung": {
+      "gu": [
+       "drachenatem",
+       "sonnenkoerper"
+      ],
+      "koerper_gu": [
+       "zehntausendjun"
+      ],
+      "items": {
+       "drachenschuppe": 3,
+       "heldenherz": 1,
+       "kristall": 80
+      }
+     },
+     "text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Grab der Wu-Ahnen",
+     "pos": [
+      150,
+      -180
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 10
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "wu_hecke",
+     "art": "hecke",
+     "belohnung": "goldglocke",
+     "richtung": 0,
+     "abstand": 180
+    },
+    {
+     "id": "wu_wasser",
+     "art": "wasser",
+     "belohnung": "holzzauber",
+     "richtung": 35,
+     "abstand": 175
+    },
+    {
+     "id": "wu_fels",
+     "art": "fels",
+     "belohnung": "baerensklave",
+     "richtung": 115,
+     "abstand": 180
+    },
+    {
+     "id": "wu_schalter",
+     "art": "schalter",
+     "belohnung": "blitzfluegel",
+     "richtung": 140,
+     "abstand": 185
+    },
+    {
+     "id": "wu_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "donnerwolf",
+     "richtung": 215,
+     "abstand": 180
+    },
+    {
+     "id": "wu_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "knochenweich",
+     "richtung": 265,
+     "abstand": 190
+    },
+    {
+     "id": "wu_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "gezeitenstrahl",
+     "richtung": 315,
+     "abstand": 185
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      210
+     ],
+     [
+      0,
+      95
+     ]
+    ],
+    [
+     [
+      -80,
+      -20
+     ],
+     [
+      -130,
+      -100
+     ],
+     [
+      -155,
+      -160
+     ]
+    ],
+    [
+     [
+      80,
+      -20
+     ],
+     [
+      140,
+      -50
+     ]
+    ],
+    [
+     [
+      60,
+      50
+     ],
+     [
+      140,
+      140
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "kristall": [
+     45,
+     2
+    ],
+    "holz": [
+     45,
+     2
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "jadeader": [
+     12,
+     1
+    ],
+    "glutasche": [
+     12,
+     1
+    ],
+    "drachenschuppe": [
+     3,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     130,
+     190
+    ],
+    "zonen": [
+     [
+      "feuerfuchs",
+      "blitzwolf",
+      "elektrowolf",
+      "riesenskorpion"
+     ],
+     [
+      "feuerfuchs",
+      "drachenling",
+      "imp",
+      "riesenkrokodil",
+      "sturmadler"
+     ],
+     [
+      "drachenling",
+      "lavaschnecke",
+      "obsidian",
+      "weisser_tiger",
+      "feuerfuchs",
+      "seuche"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 4,
+    "abstand": [
+     110,
+     210
+    ]
+   },
+   "wilde_passive": [
+    [
+     "tausendjun",
+     "body",
+     130,
+     210,
+     false
+    ],
+    [
+     "neunaugen",
+     "support",
+     150,
+     215,
+     true
+    ],
+    [
+     "himmelsessenz",
+     "support",
+     130,
+     210,
+     true
+    ],
+    [
+     "schneewaesche",
+     "support",
+     120,
+     200,
+     false
+    ],
+    [
+     "sterngedanke",
+     "support",
+     120,
+     210,
+     false
+    ]
+   ]
   },
   "steppe": {
    "n": "Graslande der Stämme",
@@ -472,8 +1580,339 @@
     3,
     4
    ],
-   "offen": false,
-   "d": "Endlose Steppe, Wolfsfluten und Stämme, die Stärke über alles stellen."
+   "offen": true,
+   "d": "Endlose Steppe, Wolfsfluten und Stämme, die Stärke über alles stellen.",
+   "groesse": 600,
+   "seed": 7301,
+   "biom": "steppe",
+   "relief": {
+    "hoehe": 6,
+    "frequenz": 0.003,
+    "detail": 0.5,
+    "berge": 5,
+    "rand": 60,
+    "randhoehe": 28,
+    "horizont": 90
+   },
+   "ankunft": [
+    0,
+    230
+   ],
+   "siedlungen": [
+    {
+     "id": "wolfsstamm",
+     "typ": "zeltlager",
+     "fraktion": "wilde_horde",
+     "pos": [
+      -80,
+      40
+     ],
+     "radius": 42,
+     "haeuser": 11,
+     "farben": {
+      "dach": "#7a5a3a",
+      "wand": "#e8e0cc",
+      "holz": "#5a3e28",
+      "saeule": "#8a2a22",
+      "banner": "#c8402a",
+      "stein": "#8a8474"
+     },
+     "bewohner": "steppe"
+    },
+    {
+     "id": "langya_lager",
+     "typ": "zeltlager",
+     "fraktion": "lang_ya",
+     "pos": [
+      150,
+      -60
+     ],
+     "radius": 32,
+     "haeuser": 7,
+     "farben": {
+      "dach": "#3a5a7a",
+      "wand": "#eef0ec",
+      "holz": "#4a3a2a",
+      "saeule": "#2a4a6a",
+      "banner": "#6a9ad0",
+      "stein": "#8a8a84"
+     },
+     "bewohner": "lang_ya"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "see",
+     "n": "Lang-Ya-See",
+     "pos": [
+      200,
+      80
+     ],
+     "radius": 34
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Quelle des Himmelswolfs",
+     "pos": [
+      0,
+      -150
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "erbe",
+     "id": "wolfsflut",
+     "n": "Hort der Wolfsflut",
+     "pos": [
+      -180,
+      -170
+     ],
+     "radius": 11,
+     "opfer": {
+      "fleisch": 15,
+      "kristall": 12
+     },
+     "waechter": [
+      "elektrowolf",
+      "elektrowolf",
+      "blitzwolf",
+      "blitzwolf",
+      "steppenfuerst"
+     ],
+     "belohnung": {
+      "gu": [
+       "seelenexplosion",
+       "sturmgeheul"
+      ],
+      "hilfs_gu": [
+       "sterngedanke"
+      ],
+      "items": {
+       "wolfsgeist": 4,
+       "kristall": 60
+      }
+     },
+     "text": "Wenn die Wolfsflut kommt, flieht die Steppe. Ihr Fürst wacht über die Beute ganzer Stämme."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Knochenfeld der Riesen",
+     "pos": [
+      60,
+      180
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 10
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "st_hecke",
+     "art": "hecke",
+     "belohnung": "kampfknochenrad",
+     "richtung": 350,
+     "abstand": 200
+    },
+    {
+     "id": "st_wasser",
+     "art": "wasser",
+     "belohnung": "sternschnuppe",
+     "richtung": 60,
+     "abstand": 200
+    },
+    {
+     "id": "st_fels",
+     "art": "fels",
+     "belohnung": "einzelklinge",
+     "richtung": 120,
+     "abstand": 200
+    },
+    {
+     "id": "st_schalter",
+     "art": "schalter",
+     "belohnung": "bebenknolle",
+     "richtung": 175,
+     "abstand": 200
+    },
+    {
+     "id": "st_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "gezeitenwaechter",
+     "richtung": 225,
+     "abstand": 180
+    },
+    {
+     "id": "st_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "glutpanzer",
+     "richtung": 285,
+     "abstand": 200
+    },
+    {
+     "id": "st_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "flugbaer",
+     "richtung": 310,
+     "abstand": 230
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      230
+     ],
+     [
+      -40,
+      120
+     ],
+     [
+      -80,
+      85
+     ]
+    ],
+    [
+     [
+      -80,
+      -2
+     ],
+     [
+      -130,
+      -120
+     ],
+     [
+      -175,
+      -160
+     ]
+    ],
+    [
+     [
+      -38,
+      40
+     ],
+     [
+      60,
+      0
+     ],
+     [
+      118,
+      -60
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "holz": [
+     25,
+     2
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "beeren": [
+     50,
+     3
+    ],
+    "kristall": [
+     40,
+     2
+    ],
+    "gruenkraut": [
+     40,
+     2
+    ],
+    "windfeder": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     150,
+     210
+    ],
+    "zonen": [
+     [
+      "wolf",
+      "blitzwolf",
+      "pfeilhase",
+      "eber"
+     ],
+     [
+      "blitzwolf",
+      "elektrowolf",
+      "sturmadler",
+      "schwarzeber_bestie",
+      "bergbaer"
+     ],
+     [
+      "elektrowolf",
+      "sturmadler",
+      "feuerfuchs",
+      "troll",
+      "schatten"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 3,
+    "abstand": [
+     110,
+     230
+    ]
+   },
+   "wilde_passive": [
+    [
+     "tapferkampf",
+     "body",
+     120,
+     220,
+     false
+    ],
+    [
+     "jadeknochen",
+     "body",
+     150,
+     230,
+     true
+    ],
+    [
+     "wildwut",
+     "body",
+     200,
+     235,
+     true
+    ],
+    [
+     "verstaerker",
+     "support",
+     140,
+     230,
+     true
+    ],
+    [
+     "seelensuche",
+     "support",
+     110,
+     210,
+     false
+    ],
+    [
+     "selbsthilfe",
+     "support",
+     120,
+     220,
+     false
+    ],
+    [
+     "sofortigererfolg",
+     "support",
+     140,
+     230,
+     false
+    ]
+   ]
   },
   "oase": {
    "n": "Oasenstadt im Sandmeer",
@@ -486,8 +1925,335 @@
     4,
     4
    ],
-   "offen": false,
-   "d": "Karawanen, Federmenschen und uralte Tempel unter den Dünen."
+   "offen": true,
+   "d": "Karawanen, Federmenschen und uralte Tempel unter den Dünen.",
+   "groesse": 520,
+   "seed": 8401,
+   "biom": "wueste",
+   "relief": {
+    "hoehe": 9,
+    "frequenz": 0.006,
+    "detail": 0.4,
+    "berge": 8,
+    "rand": 50,
+    "randhoehe": 38,
+    "horizont": 140
+   },
+   "ankunft": [
+    0,
+    180
+   ],
+   "siedlungen": [
+    {
+     "id": "oasenstadt",
+     "typ": "oasenstadt",
+     "fraktion": "wuestentempel",
+     "pos": [
+      0,
+      0
+     ],
+     "radius": 58,
+     "haeuser": 20,
+     "farben": {
+      "dach": "#b8864e",
+      "wand": "#d9b98a",
+      "holz": "#6a4a2e",
+      "saeule": "#c8a060",
+      "banner": "#3a6ab0",
+      "stein": "#b09a78"
+     },
+     "bewohner": "wueste",
+     "teich": 9
+    },
+    {
+     "id": "karawanenlager",
+     "typ": "zeltlager",
+     "fraktion": "karawanenbund",
+     "pos": [
+      150,
+      130
+     ],
+     "radius": 26,
+     "haeuser": 5,
+     "farben": {
+      "dach": "#8a5a3a",
+      "wand": "#d8c8a8",
+      "holz": "#5a3e28",
+      "saeule": "#6a3a2a",
+      "banner": "#8a3a6a",
+      "stein": "#a0907a"
+     },
+     "bewohner": "karawane"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "duenentempel",
+     "n": "Tempel unter den Dünen",
+     "pos": [
+      -150,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 20,
+      "stein": 20
+     },
+     "waechter": [
+      "sandwurm",
+      "wuestenskorpion",
+      "wuestenskorpion",
+      "obsidian"
+     ],
+     "belohnung": {
+      "gu": [
+       "bergwiezuvor",
+       "kampfknochenrad"
+      ],
+      "koerper_gu": [
+       "knochenfleisch"
+      ],
+      "items": {
+       "wuestenrose": 3,
+       "sternsand": 2,
+       "kristall": 60
+      }
+     },
+     "text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter."
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Lavafeld",
+     "pos": [
+      150,
+      -130
+     ],
+     "radius": 14,
+     "item": "glutasche",
+     "anzahl": 12
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Sternquelle",
+     "pos": [
+      -160,
+      100
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Karawanenfriedhof",
+     "pos": [
+      80,
+      -180
+     ],
+     "radius": 11,
+     "item": "knochenmehl",
+     "anzahl": 8
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "oa_hecke",
+     "art": "hecke",
+     "belohnung": "sternschnuppe",
+     "richtung": 20,
+     "abstand": 150
+    },
+    {
+     "id": "oa_wasser",
+     "art": "wasser",
+     "belohnung": "einzelklinge",
+     "richtung": 70,
+     "abstand": 170
+    },
+    {
+     "id": "oa_fels",
+     "art": "fels",
+     "belohnung": "bebenknolle",
+     "richtung": 115,
+     "abstand": 160
+    },
+    {
+     "id": "oa_schalter",
+     "art": "schalter",
+     "belohnung": "gezeitenwaechter",
+     "richtung": 170,
+     "abstand": 170
+    },
+    {
+     "id": "oa_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "glutpanzer",
+     "richtung": 215,
+     "abstand": 150
+    },
+    {
+     "id": "oa_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "flugbaer",
+     "richtung": 270,
+     "abstand": 160
+    },
+    {
+     "id": "oa_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "schwarzpfeil",
+     "richtung": 320,
+     "abstand": 160
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      180
+     ],
+     [
+      0,
+      62
+     ]
+    ],
+    [
+     [
+      40,
+      40
+     ],
+     [
+      110,
+      100
+     ],
+     [
+      140,
+      120
+     ]
+    ],
+    [
+     [
+      -40,
+      -40
+     ],
+     [
+      -100,
+      -90
+     ],
+     [
+      -145,
+      -115
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "stein": [
+     60,
+     2
+    ],
+    "kristall": [
+     45,
+     2
+    ],
+    "holz": [
+     15,
+     2
+    ],
+    "beeren": [
+     20,
+     2
+    ],
+    "sternsand": [
+     10,
+     1
+    ],
+    "glutasche": [
+     15,
+     1
+    ],
+    "eisenerz": [
+     30,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     110,
+     180
+    ],
+    "zonen": [
+     [
+      "feuerfuchs",
+      "riesenskorpion",
+      "sturmadler"
+     ],
+     [
+      "wuestenskorpion",
+      "feuerfuchs",
+      "imp",
+      "drachenling",
+      "sandwurm"
+     ],
+     [
+      "sandwurm",
+      "wuestenskorpion",
+      "lavaschnecke",
+      "obsidian",
+      "drachenling",
+      "seuche"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 4,
+    "abstand": [
+     90,
+     200
+    ]
+   },
+   "wilde_passive": [
+    [
+     "tausendjun",
+     "body",
+     120,
+     200,
+     false
+    ],
+    [
+     "wildwut",
+     "body",
+     150,
+     205,
+     true
+    ],
+    [
+     "neunaugen",
+     "support",
+     150,
+     205,
+     true
+    ],
+    [
+     "sterngedanke",
+     "support",
+     110,
+     190,
+     false
+    ],
+    [
+     "himmelsessenz",
+     "support",
+     120,
+     200,
+     false
+    ],
+    [
+     "schneewaesche",
+     "support",
+     100,
+     190,
+     false
+    ]
+   ]
   },
   "inseln": {
    "n": "Zehntausend Inseln",
@@ -500,8 +2266,307 @@
     4,
     5
    ],
-   "offen": false,
-   "d": "Reiche Inseln, Seeungeheuer und die Hohe Flut."
+   "offen": true,
+   "d": "Reiche Inseln, Seeungeheuer und die Hohe Flut.",
+   "groesse": 600,
+   "seed": 1207,
+   "biom": "inseln",
+   "relief": {
+    "hoehe": 3,
+    "frequenz": 0.006,
+    "detail": 0.4,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -8,
+    "horizont": 25,
+    "basis": -4
+   },
+   "ankunft": [
+    0,
+    68
+   ],
+   "erhebungen": [
+    [
+     0,
+     20,
+     150,
+     14
+    ],
+    [
+     -200,
+     -70,
+     80,
+     12
+    ],
+    [
+     190,
+     -110,
+     80,
+     12
+    ],
+    [
+     -40,
+     -210,
+     70,
+     14
+    ],
+    [
+     150,
+     170,
+     70,
+     11
+    ]
+   ],
+   "siedlungen": [
+    {
+     "id": "perleninsel",
+     "typ": "inseldorf",
+     "fraktion": "ostmeer_allianz",
+     "pos": [
+      0,
+      20
+     ],
+     "radius": 34,
+     "haeuser": 9,
+     "farben": {
+      "dach": "#3a5a6a",
+      "wand": "#e8e0cc",
+      "holz": "#6a4a30",
+      "saeule": "#2a6a8a",
+      "banner": "#3a9ac0",
+      "stein": "#8a8a84"
+     },
+     "bewohner": "insel"
+    },
+    {
+     "id": "zombieinsel",
+     "typ": "inseldorf",
+     "fraktion": "meereszombies",
+     "pos": [
+      190,
+      -110
+     ],
+     "radius": 24,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#2a2a2a",
+      "wand": "#8a9a8a",
+      "holz": "#3a3028",
+      "saeule": "#4a6a4a",
+      "banner": "#5a8a5a",
+      "stein": "#5a5a58"
+     },
+     "bewohner": "meereszombie"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "seekoenig_grotte",
+     "n": "Grotte des Seekönigs",
+     "pos": [
+      -40,
+      -210
+     ],
+     "radius": 10,
+     "opfer": {
+      "kristall": 40,
+      "fleisch": 20
+     },
+     "waechter": [
+      "seekoenig",
+      "seeschlange",
+      "riesenkrabbe"
+     ],
+     "belohnung": {
+      "gu": [
+       "meeresgeist",
+       "meeresdrache"
+      ],
+      "koerper_gu": [
+       "essenzeisenknochen"
+      ],
+      "items": {
+       "tiefseeperle": 3,
+       "heldenherz": 1,
+       "urkristall": 1,
+       "kristall": 100
+      }
+     },
+     "text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Gezeitenquelle",
+     "pos": [
+      -200,
+      -70
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Schiffsfriedhof",
+     "pos": [
+      150,
+      170
+     ],
+     "radius": 10,
+     "item": "blutkoralle",
+     "anzahl": 6
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "in_hecke",
+     "art": "hecke",
+     "belohnung": "kraftleihen",
+     "richtung": 15.5,
+     "abstand": 74.7
+    },
+    {
+     "id": "in_wasser",
+     "art": "wasser",
+     "belohnung": "taifun",
+     "richtung": 58.7,
+     "abstand": 86.6
+    },
+    {
+     "id": "in_fels",
+     "art": "fels",
+     "belohnung": "sternentor",
+     "richtung": 121.3,
+     "abstand": 86.6
+    },
+    {
+     "id": "in_schalter",
+     "art": "schalter",
+     "belohnung": "zehntausendschwert",
+     "richtung": 164.5,
+     "abstand": 74.7
+    },
+    {
+     "id": "in_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "goettlichersinn",
+     "richtung": 216.3,
+     "abstand": 55.8
+    },
+    {
+     "id": "in_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "auraverbergen",
+     "richtung": 323.7,
+     "abstand": 55.8
+    },
+    {
+     "id": "in_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "himmelsfeuerknolle",
+     "richtung": 270,
+     "abstand": 50
+    }
+   ],
+   "wege": [],
+   "ressourcen": {
+    "kristall": [
+     40,
+     3
+    ],
+    "holz": [
+     25,
+     2
+    ],
+    "stein": [
+     25,
+     2
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "mondtau": [
+     30,
+     1
+    ],
+    "tiefseeperle": [
+     6,
+     1
+    ],
+    "blutkoralle": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     80,
+     160
+    ],
+    "zonen": [
+     [
+      "riesenkrabbe",
+      "sturmadler",
+      "seeschlange"
+     ],
+     [
+      "seeschlange",
+      "riesenkrabbe",
+      "sturmadler",
+      "feuerfuchs"
+     ],
+     [
+      "seeschlange",
+      "riesenkrabbe",
+      "weisser_tiger",
+      "donnerkronenwolf"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     45,
+     85
+    ]
+   },
+   "wilde_passive": [
+    [
+     "zehntausendjun",
+     "body",
+     40,
+     85,
+     false
+    ],
+    [
+     "hundertschlachten",
+     "support",
+     50,
+     85,
+     true
+    ],
+    [
+     "glueckssicht",
+     "support",
+     40,
+     85,
+     false
+    ],
+    [
+     "fadenspur",
+     "support",
+     45,
+     85,
+     false
+    ],
+    [
+     "boeserGedanke",
+     "support",
+     50,
+     85,
+     true
+    ]
+   ]
   },
   "sektenberg": {
    "n": "Berg der großen Sekten",
@@ -514,8 +2579,299 @@
     5,
     5
    ],
-   "offen": false,
-   "d": "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen."
+   "offen": true,
+   "d": "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen.",
+   "groesse": 560,
+   "seed": 3319,
+   "biom": "sektenberg",
+   "relief": {
+    "hoehe": 14,
+    "frequenz": 0.0045,
+    "detail": 1.0,
+    "berge": 30,
+    "rand": 70,
+    "randhoehe": 70,
+    "horizont": 230
+   },
+   "ankunft": [
+    0,
+    200
+   ],
+   "erhebungen": [
+    [
+     0,
+     -60,
+     110,
+     16
+    ]
+   ],
+   "siedlungen": [
+    {
+     "id": "zehn_extreme_sekte",
+     "typ": "sekte",
+     "fraktion": "zehn_extreme",
+     "pos": [
+      0,
+      -60
+     ],
+     "radius": 70,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#3a5a4a",
+      "wand": "#efe8d8",
+      "holz": "#4a3424",
+      "saeule": "#b02a2a",
+      "banner": "#e8c040",
+      "stein": "#9a968c"
+     },
+     "bewohner": "sekte"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "geisterquelle",
+     "n": "Himmelsquelle",
+     "pos": [
+      140,
+      -120
+     ],
+     "radius": 12
+    },
+    {
+     "typ": "erbe",
+     "id": "zehn_extreme_pruefung",
+     "n": "Prüfung der Zehn Extreme",
+     "pos": [
+      -150,
+      -150
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 50,
+      "jadeader": 4
+     },
+     "waechter": [
+      "weisser_tiger",
+      "donnerkronenwolf",
+      "weisser_tiger"
+     ],
+     "belohnung": {
+      "gu": [
+       "zehntausendschwert",
+       "goettlichersinn"
+      ],
+      "hilfs_gu": [
+       "boeserGedanke"
+      ],
+      "items": {
+       "heldenherz": 2,
+       "urkristall": 2,
+       "kristall": 120
+      }
+     },
+     "text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen."
+    },
+    {
+     "typ": "see",
+     "n": "Spiegelsee",
+     "pos": [
+      -160,
+      110
+     ],
+     "radius": 26
+    },
+    {
+     "typ": "friedhof",
+     "n": "Stelenwald",
+     "pos": [
+      160,
+      120
+     ],
+     "radius": 12,
+     "item": "seelenglas",
+     "anzahl": 6
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "se_hecke",
+     "art": "hecke",
+     "belohnung": "erdloch",
+     "richtung": 10,
+     "abstand": 185
+    },
+    {
+     "id": "se_wasser",
+     "art": "wasser",
+     "belohnung": "blutrasend",
+     "richtung": 60,
+     "abstand": 190
+    },
+    {
+     "id": "se_fels",
+     "art": "fels",
+     "belohnung": "weissknochenrad",
+     "richtung": 120,
+     "abstand": 190
+    },
+    {
+     "id": "se_schalter",
+     "art": "schalter",
+     "belohnung": "sonnenkoerper",
+     "richtung": 170,
+     "abstand": 195
+    },
+    {
+     "id": "se_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "mondgift",
+     "richtung": 215,
+     "abstand": 190
+    },
+    {
+     "id": "se_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "jadehimmel",
+     "richtung": 300,
+     "abstand": 190
+    },
+    {
+     "id": "se_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "himmelsdonner",
+     "richtung": 345,
+     "abstand": 200
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      200
+     ],
+     [
+      0,
+      -5
+     ]
+    ],
+    [
+     [
+      -50,
+      -60
+     ],
+     [
+      -120,
+      -120
+     ],
+     [
+      -145,
+      -145
+     ]
+    ],
+    [
+     [
+      50,
+      -60
+     ],
+     [
+      130,
+      -110
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "kristall": [
+     45,
+     3
+    ],
+    "holz": [
+     40,
+     2
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "stein": [
+     45,
+     2
+    ],
+    "jadeader": [
+     12,
+     1
+    ],
+    "urkristall": [
+     3,
+     1
+    ],
+    "mondtau": [
+     30,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     130,
+     190
+    ],
+    "zonen": [
+     [
+      "sturmadler",
+      "feuerfuchs",
+      "elektrowolf"
+     ],
+     [
+      "weisser_tiger",
+      "donnerkronenwolf",
+      "sturmadler",
+      "schatten"
+     ],
+     [
+      "weisser_tiger",
+      "donnerkronenwolf",
+      "obsidian",
+      "troll",
+      "schatten"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     120,
+     205
+    ]
+   },
+   "wilde_passive": [
+    [
+     "zehntausendjun",
+     "body",
+     140,
+     205,
+     false
+    ],
+    [
+     "fadenspur",
+     "support",
+     130,
+     200,
+     false
+    ],
+    [
+     "glueckssicht",
+     "support",
+     120,
+     200,
+     false
+    ],
+    [
+     "hundertschlachten",
+     "support",
+     160,
+     205,
+     true
+    ]
+   ]
   }
  },
  "BIOME": {
@@ -546,6 +2902,201 @@
    "nebel": "#b0c7cf",
    "nebel_dichte": 0.0019,
    "wasser": "#2a6670"
+  },
+  "felsberg": {
+   "n": "Felsberge der Südlichen Grenze",
+   "farben": {
+    "gras_dunkel": "#3e5a34",
+    "gras_hell": "#6a8a4c",
+    "moos": "#6e7a3c",
+    "erde": "#6a5840",
+    "fels": "#6a6660",
+    "gipfel": "#9a9890",
+    "weg": "#8a7a60",
+    "platz": "#9a8c70"
+   },
+   "vegetation": {
+    "laubbaum": 0.3,
+    "nadelbaum": 0.35,
+    "bambus": 0.2,
+    "palme": 0.15
+   },
+   "baeume_pro_1000m2": 4.0,
+   "buesche_pro_1000m2": 3.5,
+   "gras_pro_1000m2": 24,
+   "felsen_pro_1000m2": 4.5,
+   "himmel": "#c4dadb",
+   "himmel_oben": "#4f8cc6",
+   "nebel": "#b9cfcf",
+   "nebel_dichte": 0.0022,
+   "wasser": "#2c6a70",
+   "pflanzenfarbe": "#eef4e8"
+  },
+  "flussdschungel": {
+   "n": "Flussdschungel der Südlichen Grenze",
+   "farben": {
+    "gras_dunkel": "#2f5a2e",
+    "gras_hell": "#5e9244",
+    "moos": "#5f7f33",
+    "erde": "#6e5234",
+    "fels": "#5a5a52",
+    "gipfel": "#8a8a80",
+    "weg": "#9a8260",
+    "platz": "#a89478"
+   },
+   "vegetation": {
+    "laubbaum": 0.45,
+    "palme": 0.3,
+    "bambus": 0.25
+   },
+   "baeume_pro_1000m2": 6.5,
+   "buesche_pro_1000m2": 6.0,
+   "gras_pro_1000m2": 34,
+   "felsen_pro_1000m2": 1.2,
+   "himmel": "#c8dcd6",
+   "himmel_oben": "#4a88c0",
+   "nebel": "#b4ccc8",
+   "nebel_dichte": 0.0026,
+   "wasser": "#3a6a5a"
+  },
+  "steppe": {
+   "n": "Graslande der Nördlichen Ebene",
+   "farben": {
+    "gras_dunkel": "#6a7a3c",
+    "gras_hell": "#a8a458",
+    "moos": "#8a8a48",
+    "erde": "#8a7248",
+    "fels": "#7a7466",
+    "gipfel": "#a8a498",
+    "weg": "#a08a60",
+    "platz": "#a89a74"
+   },
+   "vegetation": {
+    "laubbaum": 0.8,
+    "nadelbaum": 0.2,
+    "steppengras": 1.0
+   },
+   "baeume_pro_1000m2": 0.35,
+   "buesche_pro_1000m2": 1.5,
+   "gras_pro_1000m2": 70,
+   "felsen_pro_1000m2": 0.8,
+   "himmel": "#cfe0e8",
+   "himmel_oben": "#3f7fcf",
+   "nebel": "#c8d8e0",
+   "nebel_dichte": 0.0014,
+   "wasser": "#3a7a9a",
+   "pflanzenfarbe": "#f2e8c4"
+  },
+  "wueste": {
+   "n": "Sandmeer der Westlichen Wüste",
+   "farben": {
+    "gras_dunkel": "#c8a870",
+    "gras_hell": "#e2c690",
+    "moos": "#d0b078",
+    "erde": "#b08a58",
+    "fels": "#a07a58",
+    "gipfel": "#c8a888",
+    "weg": "#b89868",
+    "platz": "#cbb48a"
+   },
+   "vegetation": {
+    "kaktus": 0.55,
+    "totholz": 0.3,
+    "palme": 0.15
+   },
+   "baeume_pro_1000m2": 0.5,
+   "buesche_pro_1000m2": 0.8,
+   "gras_pro_1000m2": 6,
+   "felsen_pro_1000m2": 2.2,
+   "himmel": "#e8dcc8",
+   "himmel_oben": "#5a90c8",
+   "nebel": "#e0d4c0",
+   "nebel_dichte": 0.0016,
+   "wasser": "#3a8a8a",
+   "pflanzenfarbe": "#e8e0b0"
+  },
+  "roter_fluss": {
+   "n": "Täler am Roten Drachenfluss",
+   "farben": {
+    "gras_dunkel": "#3a5a2c",
+    "gras_hell": "#6a8a40",
+    "moos": "#6a7a30",
+    "erde": "#8a4a30",
+    "fels": "#7a4a3a",
+    "gipfel": "#9a8a80",
+    "weg": "#9a6a4a",
+    "platz": "#a8845e"
+   },
+   "vegetation": {
+    "laubbaum": 0.45,
+    "bambus": 0.3,
+    "palme": 0.25
+   },
+   "baeume_pro_1000m2": 6.0,
+   "buesche_pro_1000m2": 5.0,
+   "gras_pro_1000m2": 30,
+   "felsen_pro_1000m2": 1.5,
+   "himmel": "#d8d0c4",
+   "himmel_oben": "#4a80b8",
+   "nebel": "#cfc4b4",
+   "nebel_dichte": 0.0024,
+   "wasser": "#5a2e22",
+   "pflanzenfarbe": "#f6eee2"
+  },
+  "inseln": {
+   "n": "Zehntausend Inseln",
+   "farben": {
+    "gras_dunkel": "#3a6a34",
+    "gras_hell": "#6aa04c",
+    "moos": "#5a8a3c",
+    "erde": "#8a7a58",
+    "fels": "#7a746a",
+    "gipfel": "#9a9890",
+    "weg": "#c8b890",
+    "platz": "#c8b890",
+    "strand": "#e2d2a0"
+   },
+   "vegetation": {
+    "palme": 0.7,
+    "laubbaum": 0.3
+   },
+   "baeume_pro_1000m2": 3.0,
+   "buesche_pro_1000m2": 3.0,
+   "gras_pro_1000m2": 26,
+   "felsen_pro_1000m2": 1.0,
+   "himmel": "#cde4ec",
+   "himmel_oben": "#3a88d0",
+   "nebel": "#c4dce6",
+   "nebel_dichte": 0.0016,
+   "wasser": "#2a7a9a",
+   "meeresspiegel": 0.0
+  },
+  "sektenberg": {
+   "n": "Sektenberge des Zentralkontinents",
+   "farben": {
+    "gras_dunkel": "#35553a",
+    "gras_hell": "#5e8656",
+    "moos": "#607848",
+    "erde": "#6a5a48",
+    "fels": "#6e6e6a",
+    "gipfel": "#eef2f4",
+    "weg": "#9a9488",
+    "platz": "#a8a292"
+   },
+   "vegetation": {
+    "nadelbaum": 0.6,
+    "laubbaum": 0.25,
+    "bambus": 0.15
+   },
+   "baeume_pro_1000m2": 5.0,
+   "buesche_pro_1000m2": 3.0,
+   "gras_pro_1000m2": 24,
+   "felsen_pro_1000m2": 2.5,
+   "himmel": "#d4e0e8",
+   "himmel_oben": "#4a7cb8",
+   "nebel": "#c8d4dc",
+   "nebel_dichte": 0.0024,
+   "wasser": "#3a6a80"
   }
  }
 }

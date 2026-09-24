@@ -14,4 +14,6 @@ extends Resource
 @export var trade_get: Dictionary[StringName, int] = {}
 ## Anzahl zufälliger Gu, die der Tausch liefert (Dämonischer Kultivierender).
 @export var trade_gu: int = 0
+## Rang der getauschten Gu (Auktionshäuser höherer Gebiete verkaufen stärkere Gu).
+@export var trade_gu_rank: int = 1
 @export var trade_text: String = ""

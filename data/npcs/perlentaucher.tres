@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://dxdhj8mvh4nxp"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_jq6oe"]
+
+[resource]
+script = ExtResource("1_jq6oe")
+id = &"perlentaucher"
+display_name = "Perlentaucherin"
+color = Color(0.22745098, 0.6039216, 0.7529412, 1)
+region = 2
+side = &"righteous"
+lines = Array[String](["Tiefseeperlen atmen. Man hört sie nachts.", "Unter der Hohen Flut liegen ganze Städte."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 20
+})
+trade_get = Dictionary[StringName, int]({
+&"tiefseeperle": 1
+})
+trade_text = "20 Ursteine gegen eine Tiefseeperle"

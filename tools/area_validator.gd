@@ -4,7 +4,7 @@ extends RefCounted
 
 const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", &"frostquelle", &"friedhof", &"erbe"]
 const OBSTACLE_KINDS: Array[StringName] = [&"hecke", &"wasser", &"fels", &"schalter", &"lichtsiegel", &"blutsiegel", &"vorsprung"]
-const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf"]
+const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf", &"stadt", &"zeltlager", &"oasenstadt", &"inseldorf", &"festung", &"sekte"]
 
 var _report: ImportReport
 var _ids: Dictionary = {}

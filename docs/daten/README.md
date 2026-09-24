@@ -36,13 +36,13 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 
 ## gegner.json
 
-- `MON` – 25 Gegner. `hp`, `dmg`, `spd` (Tempo), `xp`, `r` (Radius), `z` (Zone), `drop` (Liste `[Material-ID, Chance]`), `shape` (Platzhalterform), `beh` (Verhalten), optional `poison`, `burn`, `fly`, `night` (nur nachts), `rng` (Fernkampf), `armor`, `boss`, `minion`.
-- `VARIANTS` – regionale Varianten. `GUMASTER` – NPC-Gu-Meister mit ihren Gu (`gu`) und Fraktion (`f`). `NPCTYPE` – Händler/NPC-Typen mit `trade`.
+- `MON` – Bestien. `hp`, `dmg`, `spd` (Tempo), `xp`, `r` (Radius), `z` (Gefahrenzone), `rang` (1–5), `drop` (Liste `[Material-ID, Chance]`), `shape` (`quad`, `bear`, `croc`, `snake`, `monkey`, `scorpion`, `bird`, `spider`, `bat`, `slime`, `pilz`, `skel`, `ghost`, `golem` …), `beh` (Verhalten), optional `faehigkeit` (Wirkungsschritte wie bei Killer Moves) mit `f_reichweite` und `f_cd`, `poison`, `burn`, `fly`, `night` (nur nachts), `rng` (Fernkampf), `armor`, `boss`, `minion`, `nospawn` (nur Beschwörung).
+- `VARIANTS` – regionale Varianten. `GUMASTER` – NPC-Gu-Meister mit ihren Gu (`gu`, der Meister nutzt das Familienmitglied seines Rangs), Fraktion (`f`), `rang` und optional `stufe`. `NPCTYPE` – Händler/NPC-Typen mit `trade` (`give`, `get`, optional `gu` und `gu_rang` für zufällige Gu eines Rangs).
 
 ## materialien.json
 
 - `BASIS_RES` – Grundressourcen des Inventars (Holz, Stein, Beeren, Fleisch, Fell, Urstein = `kristall` u. a.); dienen als Gu-Futter, Baumaterial und Währung. Anzeigenamen wurden ergänzt, der Prototyp zeigte nur Icons.
-- `MATS` – 29 Verfeinerungs-Materialien mit `src` (Fundort). `BASIS_RES` und `MATS` teilen sich einen ID-Raum. `MAT_KEYS` – Reihenfolge. `GEAR` – Ausrüstung aus dem Prototyp (wird laut GDD nicht übernommen). `BUILD` – Bauteile (`cost`, `light`).
+- `MATS` – Verfeinerungs-Materialien (Rang 1–9) mit `src` (Fundort). `BASIS_RES` und `MATS` teilen sich einen ID-Raum. `MAT_KEYS` – Reihenfolge. `GEAR` – Ausrüstung aus dem Prototyp (wird laut GDD nicht übernommen). `BUILD` – Bauteile (`cost`, `light`).
 
 ## welt.json
 
@@ -80,7 +80,8 @@ Häufigste Pfade: Weisheit und Kraft (je 13), Metall (12), Verwandlung und Seele
 
 ## gebiete.json
 
-- `GEBIETE` – spielbare Gebiete der Gu-Welt (ID → Eintrag): `n` Name, `region` (ID aus `welt.json → REGIONS`), `karte` Position auf der Weltkarte (0–1, x Osten, y Süden), `rang` empfohlener Rang `[von, bis]`, `offen` bereits bereisbar, `d` Beschreibung.
+- `GEBIETE` – spielbare Gebiete der Gu-Welt (ID → Eintrag): `n` Name, `region` (ID aus `welt.json → REGIONS`), `karte` Position auf der Weltkarte (0–1, x Osten, y Süden), `rang` empfohlener Rang `[von, bis]`, `offen` bereits bereisbar, `d` Beschreibung. Offene Gebiete: `groesse` (m), `seed`, `biom`, `relief` (`hoehe`, `frequenz`, `detail`, `berge`, `rand`, `randhoehe`, `horizont` = Gebirgskranz, `basis` = Grundhöhe), `erhebungen` (`[x, z, Radius, Höhe]`, z. B. Inseln), `ankunft`, `siedlungen` (`typ`: `klan_dorf`, `stadt`, `festung`, `sekte`, `zeltlager`, `oasenstadt`, `inseldorf`; `fraktion`, `pos`, `radius`, `haeuser`, `farben` (`dach`, `wand`, `holz`, `saeule`, `banner`, `stein`, optional `platz`), `bewohner` (Gruppe in `SettlementPeople`), optional `teich`), `orte` (`geisterquelle`, `see`, `aschefeld`, `frostquelle`, `friedhof`, `erbe` mit `opfer`, `waechter`, `belohnung` {`gu`, `hilfs_gu`, `koerper_gu`, `items`}, `text`), `hindernisse` (`art`, `belohnung`, `richtung`, `abstand`), `wege`, `ressourcen`, `gegner` (`radien`, `zonen`: Gefahrenzonen als Zahl oder Bestien-IDs), `wilde_gu` (`rang`, `abstand`), `wilde_passive`.
+- `BIOME` – Landschaften: `farben` (inkl. `strand`), `vegetation` (Anteile: `laubbaum`, `palme`, `nadelbaum`, `bambus`, `kaktus`, `totholz`; `steppengras` schaltet hohes Gras ein), Dichten je 1000 m², `himmel`, `himmel_oben`, `nebel`, `nebel_dichte`, `wasser`, optional `pflanzenfarbe` (Tönung) und `meeresspiegel`.
 
 ## welt.json → KARTE
 

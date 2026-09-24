@@ -10,4 +10,185 @@ region = 0
 map_position = Vector2(0.36, 0.13)
 rank_min = 3
 rank_max = 4
+open = true
 description = "Endlose Steppe, Wolfsfluten und Stämme, die Stärke über alles stellen."
+size = 600.0
+terrain_seed = 7301
+biome = &"steppe"
+relief = Dictionary[StringName, float]({
+&"berge": 5.0,
+&"detail": 0.5,
+&"frequenz": 0.003,
+&"hoehe": 6.0,
+&"horizont": 90.0,
+&"rand": 60.0,
+&"randhoehe": 28.0
+})
+arrival = Vector2(0, 230)
+paths = [[Vector2(0, 230), Vector2(-40, 120), Vector2(-80, 85)], [Vector2(-80, -2), Vector2(-130, -120), Vector2(-175, -160)], [Vector2(-38, 40), Vector2(60, 0), Vector2(118, -60)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.78431374, 0.2509804, 0.16470589, 1),
+&"dach": Color(0.47843137, 0.3529412, 0.22745098, 1),
+&"holz": Color(0.3529412, 0.24313726, 0.15686275, 1),
+&"saeule": Color(0.5411765, 0.16470589, 0.13333334, 1),
+&"stein": Color(0.5411765, 0.5176471, 0.45490196, 1),
+&"wand": Color(0.9098039, 0.8784314, 0.8, 1)
+},
+"faction": &"wilde_horde",
+"houses": 11,
+"id": &"wolfsstamm",
+"pond": 0.0,
+"position": Vector2(-80, 40),
+"radius": 42.0,
+"residents": &"steppe",
+"type": &"zeltlager"
+}, {
+"colors": {
+&"banner": Color(0.41568628, 0.6039216, 0.8156863, 1),
+&"dach": Color(0.22745098, 0.3529412, 0.47843137, 1),
+&"holz": Color(0.2901961, 0.22745098, 0.16470589, 1),
+&"saeule": Color(0.16470589, 0.2901961, 0.41568628, 1),
+&"stein": Color(0.5411765, 0.5411765, 0.5176471, 1),
+&"wand": Color(0.93333334, 0.9411765, 0.9254902, 1)
+},
+"faction": &"lang_ya",
+"houses": 7,
+"id": &"langya_lager",
+"pond": 0.0,
+"position": Vector2(150, -60),
+"radius": 32.0,
+"residents": &"lang_ya",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Lang-Ya-See",
+"offering": {},
+"position": Vector2(200, 80),
+"radius": 34.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Quelle des Himmelswolfs",
+"offering": {},
+"position": Vector2(0, -150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"elektrowolf", &"elektrowolf", &"blitzwolf", &"blitzwolf", &"steppenfuerst"]),
+"id": &"wolfsflut",
+"item": &"",
+"name": "Hort der Wolfsflut",
+"offering": {
+&"fleisch": 15,
+&"kristall": 12
+},
+"position": Vector2(-180, -170),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"seelenexplosion", &"sturmgeheul"]),
+"items": {
+&"kristall": 60,
+&"wolfsgeist": 4
+},
+"support": Array[StringName]([&"sterngedanke"])
+},
+"text": "Wenn die Wolfsflut kommt, flieht die Steppe. Ihr Fürst wacht über die Beute ganzer Stämme.",
+"type": &"erbe"
+}, {
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Knochenfeld der Riesen",
+"offering": {},
+"position": Vector2(60, 180),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 350.0,
+"distance": 200.0,
+"id": &"st_hecke",
+"kind": &"hecke",
+"reward": &"kampfknochenrad"
+}, {
+"angle": 60.0,
+"distance": 200.0,
+"id": &"st_wasser",
+"kind": &"wasser",
+"reward": &"sternschnuppe"
+}, {
+"angle": 120.0,
+"distance": 200.0,
+"id": &"st_fels",
+"kind": &"fels",
+"reward": &"einzelklinge"
+}, {
+"angle": 175.0,
+"distance": 200.0,
+"id": &"st_schalter",
+"kind": &"schalter",
+"reward": &"bebenknolle"
+}, {
+"angle": 225.0,
+"distance": 180.0,
+"id": &"st_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"gezeitenwaechter"
+}, {
+"angle": 285.0,
+"distance": 200.0,
+"id": &"st_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"glutpanzer"
+}, {
+"angle": 310.0,
+"distance": 230.0,
+"id": &"st_vorsprung",
+"kind": &"vorsprung",
+"reward": &"flugbaer"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(50, 3),
+&"gruenkraut": Vector2i(40, 2),
+&"holz": Vector2i(25, 2),
+&"kristall": Vector2i(40, 2),
+&"stein": Vector2i(40, 2),
+&"windfeder": Vector2i(10, 1)
+})
+enemy_radii = Array[float]([150.0, 210.0])
+enemy_zones = [[&"wolf", &"blitzwolf", &"pfeilhase", &"eber"], [&"blitzwolf", &"elektrowolf", &"sturmadler", &"schwarzeber_bestie", &"bergbaer"], [&"elektrowolf", &"sturmadler", &"feuerfuchs", &"troll", &"schatten"]]
+wild_gu_rank = 3
+wild_gu_range = Vector2(110, 230)
+wild_passives = [[&"tapferkampf", &"body", 120.0, 220.0, false], [&"jadeknochen", &"body", 150.0, 230.0, true], [&"wildwut", &"body", 200.0, 235.0, true], [&"verstaerker", &"support", 140.0, 230.0, true], [&"seelensuche", &"support", 110.0, 210.0, false], [&"selbsthilfe", &"support", 120.0, 220.0, false], [&"sofortigererfolg", &"support", 140.0, 230.0, false]]

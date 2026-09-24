@@ -213,6 +213,7 @@ func _build_npc(id: StringName, d: Dictionary) -> Resource:
 	for item: Variant in trade.get("get", {}):
 		npc.trade_get[StringName(str(item))] = ImportUtil.to_int(trade["get"][item])
 	npc.trade_gu = ImportUtil.to_int(trade.get("gu"))
+	npc.trade_gu_rank = ImportUtil.to_int(trade.get("gu_rang"), 1)
 	npc.trade_text = ImportUtil.text(trade.get("d"))
 	return npc
 
@@ -227,6 +228,8 @@ func _build_master(id: StringName, d: Dictionary) -> Resource:
 	master.color = ImportUtil.color(d.get("c"), context, _report)
 	master.faction = ImportUtil.sn(d.get("f"))
 	master.gu = ImportUtil.names(d["gu"])
+	master.rank = ImportUtil.to_int(d.get("rang"), 0)
+	master.stage = ImportUtil.to_int(d.get("stufe"), -1)
 	return master
 
 

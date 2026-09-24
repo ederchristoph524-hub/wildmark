@@ -107,6 +107,7 @@ func _settlement(entry: Dictionary, context: String) -> Dictionary:
 		"id": ImportUtil.sn(entry.get("id")), "type": ImportUtil.sn(entry.get("typ")), "faction": ImportUtil.sn(entry.get("fraktion")),
 		"position": _vec(entry.get("pos", [0, 0])), "radius": ImportUtil.to_float(entry.get("radius"), 40.0),
 		"houses": ImportUtil.to_int(entry.get("haeuser"), 10), "colors": colors, "residents": ImportUtil.sn(entry.get("bewohner")),
+		"pond": ImportUtil.to_float(entry.get("teich"), 0.0),
 	}
 
 

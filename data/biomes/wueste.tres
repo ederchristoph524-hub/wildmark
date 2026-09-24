@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://b8sf2huinwq6u"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_0yjsi"]
+
+[resource]
+script = ExtResource("1_0yjsi")
+id = &"wueste"
+display_name = "Sandmeer der Westlichen Wüste"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.6901961, 0.5411765, 0.34509805, 1),
+&"fels": Color(0.627451, 0.47843137, 0.34509805, 1),
+&"gipfel": Color(0.78431374, 0.65882355, 0.53333336, 1),
+&"gras_dunkel": Color(0.78431374, 0.65882355, 0.4392157, 1),
+&"gras_hell": Color(0.8862745, 0.7764706, 0.5647059, 1),
+&"moos": Color(0.8156863, 0.6901961, 0.47058824, 1),
+&"platz": Color(0.79607844, 0.7058824, 0.5411765, 1),
+&"weg": Color(0.72156864, 0.59607846, 0.40784314, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"kaktus": 0.55,
+&"palme": 0.15,
+&"totholz": 0.3
+})
+trees_per_1000 = 0.5
+bushes_per_1000 = 0.8
+grass_per_1000 = 6.0
+rocks_per_1000 = 2.2
+sky = Color(0.9098039, 0.8627451, 0.78431374, 1)
+sky_top = Color(0.3529412, 0.5647059, 0.78431374, 1)
+fog = Color(0.8784314, 0.83137256, 0.7529412, 1)
+fog_density = 0.0016
+water = Color(0.22745098, 0.5411765, 0.5411765, 1)
+plant_tint = Color(0.9098039, 0.8784314, 0.6901961, 1)

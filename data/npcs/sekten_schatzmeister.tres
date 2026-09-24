@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://sj5dw8qxxg3o"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_de7yg"]
+
+[resource]
+script = ExtResource("1_de7yg")
+id = &"sekten_schatzmeister"
+display_name = "Schatzkammerwächter"
+color = Color(0.9411765, 0.8156863, 0.3764706, 1)
+region = 4
+side = &"righteous"
+lines = Array[String](["Die Schatzkammer der Zehn Extreme öffnet sich nur für Würdige – und Zahlende.", "Ein Rang-5-Gu ist mehr wert als ein Menschenleben. Hier jedenfalls."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 120
+})
+trade_gu = 1
+trade_gu_rank = 5
+trade_text = "120 Ursteine gegen einen zufälligen Rang-5-Gu"

@@ -9,3 +9,4 @@ display_name = "Yi-Tian-Schüler"
 color = Color(0.6039216, 0.72156864, 0.41568628, 1)
 faction = &"righteous"
 gu = Array[StringName]([&"eisenhaut", &"sternpfeil", &"weissjade"])
+rank = 3

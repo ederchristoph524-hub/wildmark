@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://c818iexvrbmfq"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_s604l"]
+
+[resource]
+script = ExtResource("1_s604l")
+id = &"auktionator"
+display_name = "Auktionator der Shang"
+color = Color(0.8784314, 0.7529412, 0.3764706, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["Heute im Angebot: ein Gu, dessen Herkunft niemand kennt. Bieten Sie!", "Das Auktionshaus der Shang hat schon Rang-5-Gu versteigert."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 30
+})
+trade_gu = 1
+trade_gu_rank = 3
+trade_text = "30 Ursteine gegen einen zufälligen Rang-3-Gu"

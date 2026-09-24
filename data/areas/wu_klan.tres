@@ -9,4 +9,187 @@ display_name = "Roter Drachenfluss"
 map_position = Vector2(0.72, 0.88)
 rank_min = 4
 rank_max = 5
+open = true
 description = "Stammland des Wu-Klans, Herr der Südlichen Grenze, am Zusammenfluss der Drachenflüsse."
+size = 560.0
+terrain_seed = 9103
+biome = &"roter_fluss"
+relief = Dictionary[StringName, float]({
+&"berge": 22.0,
+&"detail": 0.9,
+&"frequenz": 0.0045,
+&"hoehe": 11.0,
+&"horizont": 200.0,
+&"rand": 60.0,
+&"randhoehe": 55.0
+})
+arrival = Vector2(0, 210)
+paths = [[Vector2(0, 210), Vector2(0, 95)], [Vector2(-80, -20), Vector2(-130, -100), Vector2(-155, -160)], [Vector2(80, -20), Vector2(140, -50)], [Vector2(60, 50), Vector2(140, 140)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.6901961, 0.1254902, 0.1254902, 1),
+&"dach": Color(0.16470589, 0.16470589, 0.1882353, 1),
+&"holz": Color(0.22745098, 0.14117648, 0.09411765, 1),
+&"saeule": Color(0.627451, 0.1254902, 0.1254902, 1),
+&"stein": Color(0.41568628, 0.4, 0.3764706, 1),
+&"wand": Color(0.78431374, 0.72156864, 0.627451, 1)
+},
+"faction": &"wu_clan",
+"houses": 22,
+"id": &"wu_festung",
+"pond": 0.0,
+"position": Vector2(0, -20),
+"radius": 80.0,
+"residents": &"wu",
+"type": &"festung"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Roter Drachenfluss",
+"offering": {},
+"position": Vector2(-170, 60),
+"radius": 30.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Drachenbecken",
+"offering": {},
+"position": Vector2(150, 150),
+"radius": 24.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Drachenquelle",
+"offering": {},
+"position": Vector2(170, -60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"drache", &"drachenling", &"drachenling"]),
+"id": &"drachenhort",
+"item": &"",
+"name": "Hort des Lavadrachen",
+"offering": {
+&"glutasche": 10,
+&"kristall": 30
+},
+"position": Vector2(-160, -170),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([&"zehntausendjun"]),
+"gu": Array[StringName]([&"drachenatem", &"sonnenkoerper"]),
+"items": {
+&"drachenschuppe": 3,
+&"heldenherz": 1,
+&"kristall": 80
+},
+"support": Array[StringName]([])
+},
+"text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt.",
+"type": &"erbe"
+}, {
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Grab der Wu-Ahnen",
+"offering": {},
+"position": Vector2(150, -180),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 0.0,
+"distance": 180.0,
+"id": &"wu_hecke",
+"kind": &"hecke",
+"reward": &"goldglocke"
+}, {
+"angle": 35.0,
+"distance": 175.0,
+"id": &"wu_wasser",
+"kind": &"wasser",
+"reward": &"holzzauber"
+}, {
+"angle": 115.0,
+"distance": 180.0,
+"id": &"wu_fels",
+"kind": &"fels",
+"reward": &"baerensklave"
+}, {
+"angle": 140.0,
+"distance": 185.0,
+"id": &"wu_schalter",
+"kind": &"schalter",
+"reward": &"blitzfluegel"
+}, {
+"angle": 215.0,
+"distance": 180.0,
+"id": &"wu_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"donnerwolf"
+}, {
+"angle": 265.0,
+"distance": 190.0,
+"id": &"wu_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"knochenweich"
+}, {
+"angle": 315.0,
+"distance": 185.0,
+"id": &"wu_vorsprung",
+"kind": &"vorsprung",
+"reward": &"gezeitenstrahl"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"drachenschuppe": Vector2i(3, 1),
+&"glutasche": Vector2i(12, 1),
+&"holz": Vector2i(45, 2),
+&"jadeader": Vector2i(12, 1),
+&"kristall": Vector2i(45, 2),
+&"stein": Vector2i(40, 2)
+})
+enemy_radii = Array[float]([130.0, 190.0])
+enemy_zones = [[&"feuerfuchs", &"blitzwolf", &"elektrowolf", &"riesenskorpion"], [&"feuerfuchs", &"drachenling", &"imp", &"riesenkrokodil", &"sturmadler"], [&"drachenling", &"lavaschnecke", &"obsidian", &"weisser_tiger", &"feuerfuchs", &"seuche"]]
+wild_gu_rank = 4
+wild_gu_range = Vector2(110, 210)
+wild_passives = [[&"tausendjun", &"body", 130.0, 210.0, false], [&"neunaugen", &"support", 150.0, 215.0, true], [&"himmelsessenz", &"support", 130.0, 210.0, true], [&"schneewaesche", &"support", 120.0, 200.0, false], [&"sterngedanke", &"support", 120.0, 210.0, false]]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://duo2mqh8wvyb2"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_wcyp6"]
+
+[resource]
+script = ExtResource("1_wcyp6")
+id = &"wuesten_haendler"
+display_name = "Sandhändlerin"
+color = Color(0.8509804, 0.7058824, 0.41568628, 1)
+region = 3
+side = &"righteous"
+lines = Array[String](["Die Wüstenrose wächst nur, wo niemand überlebt.", "Sternensand? Nachts in den Dünen – wenn dich die Skorpione lassen."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 15
+})
+trade_get = Dictionary[StringName, int]({
+&"sternsand": 1,
+&"wuestenrose": 1
+})
+trade_text = "15 Ursteine gegen Wüstenrose und Sternensand"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://k4h8477yk7rk"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_adv27"]
+
+[resource]
+script = ExtResource("1_adv27")
+id = &"shang_haendler"
+display_name = "Shang-Händler"
+color = Color(0.84705883, 0.65882355, 0.1882353, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["In der Shang-Stadt hat alles seinen Preis – auch Treue.", "Jadeadern kommen aus den Minen im Westen. Teuer, aber ehrlich."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 10
+})
+trade_get = Dictionary[StringName, int]({
+&"jadeader": 1
+})
+trade_text = "10 Ursteine gegen eine Jadeader"

@@ -9,3 +9,4 @@ display_name = "Hüter des Himmelshofs"
 color = Color(0.49803922, 0.78431374, 1, 1)
 faction = &"righteous"
 gu = Array[StringName]([&"regenbogen", &"lichtzaun", &"goldlicht"])
+rank = 5

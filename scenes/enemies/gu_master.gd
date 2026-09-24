@@ -42,8 +42,8 @@ func setup(master_data: GuMasterData, master_title: String, at: Vector3) -> void
 
 func _ready() -> void:
 	var b: BalanceData = Balance.values
-	rank = b.master_rank
-	stage = b.master_stage
+	rank = data.rank if data.rank > 0 else b.master_rank
+	stage = data.stage if data.stage >= 0 else b.master_stage
 	display_name = display_title()
 	_init_combatant(TEAM_PLAYER, Formulas.cultivated_hp(b, rank, stage))
 	# Gu-Meister sterben im Duell nicht; bei 1 Leben ist spätestens Schluss.

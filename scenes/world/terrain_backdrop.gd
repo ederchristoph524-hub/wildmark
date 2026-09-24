@@ -11,6 +11,8 @@ const REACH: float = 950.0
 const FIRST_STEP: float = 14.0
 const STEP_GROWTH: float = 1.2
 const MOUNTAIN_RISE: float = 260.0
+## Im Östlichen Meer sinkt der Grund nach außen ab; nur einzelne ferne Inseln ragen heraus.
+const SEA_DROP: float = 14.0
 ## Fels und Schnee ab diesen Anteilen der Kranzhöhe (über dem Randgebirge).
 const ROCK_SHARE: float = 0.5
 const SNOW_SHARE: float = 0.88
@@ -41,7 +43,11 @@ static func build(terrain: Terrain, material: Material) -> MeshInstance3D:
 				h = _lowest_near(terrain, x, z) - SINK
 			else:
 				var rise: float = smoothstep(0.0, MOUNTAIN_RISE, outside)
-				h = terrain.raw_height(x, z) - SINK + (ridges.get_noise_2d(x, z) * 0.5 + 0.5) * mountains * rise + outside * 0.04
+				h = terrain.raw_height(x, z) - SINK + (ridges.get_noise_2d(x, z) * 0.5 + 0.5) * mountains * rise
+				if terrain.has_sea():
+					h -= SEA_DROP * rise
+				else:
+					h += outside * 0.04
 			heights.append(h)
 			colors.append(_color(terrain, x, z, h, outside, tone.get_noise_2d(x, z) * 0.5 + 0.5, mountains))
 	return _mesh(coords, heights, colors, material)
@@ -84,6 +90,8 @@ static func _color(terrain: Terrain, x: float, z: float, h: float, outside: floa
 		if terrain.in_water(x, z) or terrain.near_path(x, z) or terrain.slope_at(x, z) > 0.55:
 			return ground
 		return ground.lerp(canopy, 0.35 + 0.3 * tone)
+	if terrain.has_sea() and h < biome.sea_level + Terrain.BEACH_HEIGHT:
+		return biome.color(&"strand", biome.color(&"erde")).darkened(clampf((biome.sea_level - h) * 0.05, 0.0, 0.5))
 	var color: Color = canopy
 	var above: float = h - terrain.area.relief.get(&"randhoehe", 30.0)
 	var rock_line: float = mountains * ROCK_SHARE

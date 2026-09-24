@@ -9,3 +9,4 @@ display_name = "Blutflügel-Dämon"
 color = Color(0.8156863, 0.1882353, 0.22745098, 1)
 faction = &"demonic"
 gu = Array[StringName]([&"blutrausch", &"knochenspeer", &"blutschaedel"])
+rank = 3

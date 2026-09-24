@@ -11,7 +11,10 @@ const VIEW_DISTANCE: float = 420.0
 
 
 ## Baut die Siedlung in die Welt. center = Bodenpunkt der Mitte (Plateau), Tor zeigt nach +Z.
+## Andere Siedlungsarten (Stadt, Zeltlager, Oase, Inseldorf, Festung, Sekte) baut SettlementLayouts.
 static func build(world: World, data: Dictionary, center: Vector3) -> Dictionary:
+	if data["type"] != &"klan_dorf":
+		return SettlementLayouts.build(world, data, center)
 	var palette: Dictionary = data["colors"]
 	var radius: float = data["radius"]
 	var b := MeshBuilder.new()
@@ -31,15 +34,15 @@ static func build(world: World, data: Dictionary, center: Vector3) -> Dictionary
 	for i: int in 4:
 		Architecture.training_dummy(b, base.translated_local(training_at + Vector3(-4.5 + i * 3.0, 0, -3.0)), palette)
 	anchors["training"] = center + training_at + Vector3(0, 0, 3.0)
-	_walls_and_gates(b, boxes, world, center, radius, palette, anchors)
+	walls_and_gates(b, boxes, world, center, radius, palette, anchors)
 	_plaza(b, boxes, base, radius, palette, anchors, center)
 	_houses(b, boxes, base, radius, int(data["houses"]), palette, rng, hall_size)
 	anchors["garden"] = center + Vector3(-radius * 0.55, 0, radius * 0.25)
-	_finish(world, b, boxes)
+	finish(world, b, boxes)
 	return anchors
 
 
-static func _walls_and_gates(b: MeshBuilder, boxes: Array[Array], world: World, center: Vector3, radius: float, palette: Dictionary, anchors: Dictionary) -> void:
+static func walls_and_gates(b: MeshBuilder, boxes: Array[Array], world: World, center: Vector3, radius: float, palette: Dictionary, anchors: Dictionary) -> void:
 	var ring: float = radius * 0.94
 	var step: float = TAU / WALL_SEGMENTS
 	# Segmente sind so versetzt, dass vorn (+Z) und hinten (−Z) je genau eines für das Tor ausfällt.
@@ -124,7 +127,20 @@ static func _slot_free(slot: Vector2, radius: float, hall_size: Vector2) -> bool
 	return true
 
 
-static func _finish(world: World, b: MeshBuilder, boxes: Array[Array]) -> void:
+## Straßen einer Siedlung für das Gelände (Weltkoordinaten, x/z): Hauptstraße vom Tor zur Mitte, in Städten ein Kreuz.
+static func roads(data: Dictionary) -> Array:
+	var at: Vector2 = data["position"]
+	var radius: float = data["radius"]
+	var result: Array = [[Vector2(at.x, at.y + radius + 6.0), Vector2(at.x, at.y - radius * 0.2)]]
+	if data["type"] in [&"stadt", &"festung"]:
+		result = [[Vector2(at.x, at.y + radius + 6.0), Vector2(at.x, at.y - radius - 6.0)], [Vector2(at.x - radius - 6.0, at.y), Vector2(at.x + radius + 6.0, at.y)]]
+	elif data["type"] == &"inseldorf":
+		result = []
+	return result
+
+
+## Schreibt das gesammelte Mesh (ein Draw Call) und die Kollisionsquader der Siedlung in die Welt.
+static func finish(world: World, b: MeshBuilder, boxes: Array[Array]) -> void:
 	var node := MeshInstance3D.new()
 	node.mesh = b.build()
 	node.material_override = WorldMaterials.vertex_colored()

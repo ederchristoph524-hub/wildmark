@@ -8,3 +8,6 @@ extends Resource
 @export var faction: StringName
 ## Gu-IDs; nur solche aus dem Gu-System (Familien- oder Körper-Gu) werden im Spiel genutzt.
 @export var gu: Array[StringName] = []
+## Rang und Stufe des Meisters (0 = Balance.master_rank bzw. master_stage).
+@export var rank: int = 0
+@export var stage: int = -1

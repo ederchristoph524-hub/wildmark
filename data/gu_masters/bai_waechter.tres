@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://6h4fdiervsxh"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_q0ln2"]
+
+[resource]
+script = ExtResource("1_q0ln2")
+id = &"bai_waechter"
+display_name = "Bai-Klanwächter"
+color = Color(0.8745098, 0.9019608, 0.9411765, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"frostnadel", &"wasserlicht", &"knochensplitter"])
+rank = 2

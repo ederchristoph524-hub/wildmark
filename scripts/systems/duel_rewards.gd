@@ -8,11 +8,17 @@ const STONE_ITEM: StringName = &"kristall"
 static func grant(master: GuMaster) -> void:
 	var b: BalanceData = Balance.values
 	GameState.duels_won += 1
-	if GameState.last_duel_day == GameState.day:
+	var key: String = String(master.data.id)
+	var last_day: int = GameState.last_duel_day if key == "gu_yue" else int(GameState.duel_days.get(key, 0))
+	if last_day == GameState.day:
 		EventBus.message.emit(Loc.t("Heute gibt es keinen Lohn mehr – komm morgen wieder."), UiTheme.MUTED)
 		return
-	GameState.last_duel_day = GameState.day
-	var stones: int = b.duel_first_win_stones if GameState.duels_won == 1 else b.duel_reward_stones
+	if key == "gu_yue":
+		GameState.last_duel_day = GameState.day
+	else:
+		GameState.duel_days[key] = GameState.day
+	# Höherrangige Meister zahlen mehr (Rang × Grundlohn).
+	var stones: int = (b.duel_first_win_stones if GameState.duels_won == 1 else b.duel_reward_stones) * maxi(1, master.rank - 1)
 	GameState.add_item(STONE_ITEM, stones)
 	EventBus.message.emit(Loc.t("Lohn des Siegers: %d %s") % [stones, Loc.t(DataRegistry.item(STONE_ITEM).display_name)], Color(0.6, 1.0, 0.6))
 	if randf() < b.duel_gu_drop_chance:

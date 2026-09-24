@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://be7nt8pb7mvxy"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_am8i7"]
+
+[resource]
+script = ExtResource("1_am8i7")
+id = &"auktionator_hoch"
+display_name = "Schatzmeister der Wu"
+color = Color(0.7529412, 0.1882353, 0.1882353, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["Rang-4-Gu verkaufe ich nicht an jeden. Zeig mir deine Ursteine.", "Der Wu-Klan hat mehr Gu als Soldaten."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 60
+})
+trade_gu = 1
+trade_gu_rank = 4
+trade_text = "60 Ursteine gegen einen zufälligen Rang-4-Gu"

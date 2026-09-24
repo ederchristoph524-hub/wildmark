@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://4i8r58a06tf8"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_1321o"]
+
+[resource]
+script = ExtResource("1_1321o")
+id = &"steppen_haendler"
+display_name = "Wolfsjäger der Steppe"
+color = Color(0.6039216, 0.72156864, 0.41568628, 1)
+side = &"righteous"
+lines = Array[String](["Die Seele eines Leitwolfs zerfällt nicht. Ich habe Splitter.", "Wer die Wolfsflut überlebt, wird reich."])
+trade_give = Dictionary[StringName, int]({
+&"fell": 10,
+&"kristall": 6
+})
+trade_get = Dictionary[StringName, int]({
+&"wolfsgeist": 1
+})
+trade_text = "10 Fell und 6 Ursteine gegen einen Wolfsgeist-Splitter"

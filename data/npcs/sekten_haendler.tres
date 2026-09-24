@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://bw1u3anq5vvkb"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_kkr4s"]
+
+[resource]
+script = ExtResource("1_kkr4s")
+id = &"sekten_haendler"
+display_name = "Sektenverwalter"
+color = Color(0.9098039, 0.7529412, 0.2509804, 1)
+region = 4
+side = &"righteous"
+lines = Array[String](["Urkristall ist Ur-Essenz in fester Form. Die Sekte gibt ihn nur gegen Beiträge.", "Talent zählt hier, nicht Blut."])
+trade_give = Dictionary[StringName, int]({
+&"kristall": 25
+})
+trade_get = Dictionary[StringName, int]({
+&"urkristall": 1
+})
+trade_text = "25 Ursteine gegen einen Urkristall"

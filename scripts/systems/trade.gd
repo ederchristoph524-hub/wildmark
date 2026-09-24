@@ -20,7 +20,7 @@ static func offer_text(npc: NpcTypeData) -> String:
 	for item: StringName in npc.trade_get:
 		get_parts.append("%d %s" % [npc.trade_get[item], Loc.t(DataRegistry.item(item).display_name)])
 	if npc.trade_gu > 0:
-		get_parts.append(Loc.t("einen zufälligen Gu"))
+		get_parts.append(Loc.t("einen zufälligen Gu") if npc.trade_gu_rank <= 1 else Loc.t("einen zufälligen Gu (Rang %d)") % npc.trade_gu_rank)
 	return Loc.t("%s gegen %s") % [", ".join(give), ", ".join(get_parts)]
 
 
@@ -32,23 +32,23 @@ static func trade(npc: NpcTypeData) -> bool:
 	for item: StringName in npc.trade_get:
 		GameState.add_item(item, npc.trade_get[item])
 	for i: int in npc.trade_gu:
-		_give_random_gu()
+		_give_random_gu(npc.trade_gu_rank)
 	EventBus.message.emit(Loc.t("Getauscht"), Color(0.85, 0.75, 0.5))
 	return true
 
 
-## Ein Rang-1-Gu einer Familie, die der Spieler noch nicht besitzt (sonst irgendeiner).
-static func _give_random_gu() -> void:
+## Ein Gu des Rangs einer Familie, die der Spieler noch nicht besitzt (sonst irgendeiner dieses Rangs).
+static func _give_random_gu(rank: int = 1) -> void:
 	var owned: Array[StringName] = []
 	for instance: GuInstance in GameState.gu:
 		owned.append(DataRegistry.gu(instance.gu_id).family)
 	var options: Array[GuData] = []
 	for resource: Resource in DataRegistry.all(&"families"):
 		var family: GuFamilyData = resource as GuFamilyData
-		if family.id not in owned:
-			options.append(family.member_for_rank(1))
+		if family.id not in owned and family.member_for_rank(rank) != null:
+			options.append(family.member_for_rank(rank))
 	if options.is_empty():
-		options = DataRegistry.all_gu().filter(func(g: GuData) -> bool: return g.rank == 1)
+		options.assign(DataRegistry.all_gu().filter(func(g: GuData) -> bool: return g.rank == rank))
 	var gu: GuData = options[randi() % options.size()]
 	GameState.add_gu(GuInstance.create(gu.id, GuRefining.roll_trait()))
 	EventBus.message.emit(Loc.t("Du erhältst: %s") % Loc.t(gu.display_name), Color(1.0, 0.85, 0.3))

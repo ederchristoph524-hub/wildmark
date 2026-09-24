@@ -10,4 +10,171 @@ region = 4
 map_position = Vector2(0.5, 0.48)
 rank_min = 5
 rank_max = 5
+open = true
 description = "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen."
+size = 560.0
+terrain_seed = 3319
+biome = &"sektenberg"
+relief = Dictionary[StringName, float]({
+&"berge": 30.0,
+&"detail": 1.0,
+&"frequenz": 0.0045,
+&"hoehe": 14.0,
+&"horizont": 230.0,
+&"rand": 70.0,
+&"randhoehe": 70.0
+})
+hills = Array[Vector4]([Vector4(0, -60, 110, 16)])
+arrival = Vector2(0, 200)
+paths = [[Vector2(0, 200), Vector2(0, -5)], [Vector2(-50, -60), Vector2(-120, -120), Vector2(-145, -145)], [Vector2(50, -60), Vector2(130, -110)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.9098039, 0.7529412, 0.2509804, 1),
+&"dach": Color(0.22745098, 0.3529412, 0.2901961, 1),
+&"holz": Color(0.2901961, 0.20392157, 0.14117648, 1),
+&"saeule": Color(0.6901961, 0.16470589, 0.16470589, 1),
+&"stein": Color(0.6039216, 0.5882353, 0.54901963, 1),
+&"wand": Color(0.9372549, 0.9098039, 0.84705883, 1)
+},
+"faction": &"zehn_extreme",
+"houses": 0,
+"id": &"zehn_extreme_sekte",
+"pond": 0.0,
+"position": Vector2(0, -60),
+"radius": 70.0,
+"residents": &"sekte",
+"type": &"sekte"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Himmelsquelle",
+"offering": {},
+"position": Vector2(140, -120),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"weisser_tiger", &"donnerkronenwolf", &"weisser_tiger"]),
+"id": &"zehn_extreme_pruefung",
+"item": &"",
+"name": "Prüfung der Zehn Extreme",
+"offering": {
+&"jadeader": 4,
+&"kristall": 50
+},
+"position": Vector2(-150, -150),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"zehntausendschwert", &"goettlichersinn"]),
+"items": {
+&"heldenherz": 2,
+&"kristall": 120,
+&"urkristall": 2
+},
+"support": Array[StringName]([&"boeserGedanke"])
+},
+"text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Spiegelsee",
+"offering": {},
+"position": Vector2(-160, 110),
+"radius": 26.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenglas",
+"name": "Stelenwald",
+"offering": {},
+"position": Vector2(160, 120),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 10.0,
+"distance": 185.0,
+"id": &"se_hecke",
+"kind": &"hecke",
+"reward": &"erdloch"
+}, {
+"angle": 60.0,
+"distance": 190.0,
+"id": &"se_wasser",
+"kind": &"wasser",
+"reward": &"blutrasend"
+}, {
+"angle": 120.0,
+"distance": 190.0,
+"id": &"se_fels",
+"kind": &"fels",
+"reward": &"weissknochenrad"
+}, {
+"angle": 170.0,
+"distance": 195.0,
+"id": &"se_schalter",
+"kind": &"schalter",
+"reward": &"sonnenkoerper"
+}, {
+"angle": 215.0,
+"distance": 190.0,
+"id": &"se_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"mondgift"
+}, {
+"angle": 300.0,
+"distance": 190.0,
+"id": &"se_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"jadehimmel"
+}, {
+"angle": 345.0,
+"distance": 200.0,
+"id": &"se_vorsprung",
+"kind": &"vorsprung",
+"reward": &"himmelsdonner"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"holz": Vector2i(40, 2),
+&"jadeader": Vector2i(12, 1),
+&"kristall": Vector2i(45, 3),
+&"mondtau": Vector2i(30, 1),
+&"stein": Vector2i(45, 2),
+&"urkristall": Vector2i(3, 1)
+})
+enemy_radii = Array[float]([130.0, 190.0])
+enemy_zones = [[&"sturmadler", &"feuerfuchs", &"elektrowolf"], [&"weisser_tiger", &"donnerkronenwolf", &"sturmadler", &"schatten"], [&"weisser_tiger", &"donnerkronenwolf", &"obsidian", &"troll", &"schatten"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(120, 205)
+wild_passives = [[&"zehntausendjun", &"body", 140.0, 205.0, false], [&"fadenspur", &"support", 130.0, 200.0, false], [&"glueckssicht", &"support", 120.0, 200.0, false], [&"hundertschlachten", &"support", 160.0, 205.0, true]]

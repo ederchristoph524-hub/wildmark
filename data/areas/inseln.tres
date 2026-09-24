@@ -10,4 +10,172 @@ region = 2
 map_position = Vector2(0.87, 0.47)
 rank_min = 4
 rank_max = 5
+open = true
 description = "Reiche Inseln, Seeungeheuer und die Hohe Flut."
+size = 600.0
+terrain_seed = 1207
+biome = &"inseln"
+relief = Dictionary[StringName, float]({
+&"basis": -4.0,
+&"berge": 0.0,
+&"detail": 0.4,
+&"frequenz": 0.006,
+&"hoehe": 3.0,
+&"horizont": 25.0,
+&"rand": 60.0,
+&"randhoehe": -8.0
+})
+hills = Array[Vector4]([Vector4(0, 20, 150, 14), Vector4(-200, -70, 80, 12), Vector4(190, -110, 80, 12), Vector4(-40, -210, 70, 14), Vector4(150, 170, 70, 11)])
+arrival = Vector2(0, 68)
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.22745098, 0.6039216, 0.7529412, 1),
+&"dach": Color(0.22745098, 0.3529412, 0.41568628, 1),
+&"holz": Color(0.41568628, 0.2901961, 0.1882353, 1),
+&"saeule": Color(0.16470589, 0.41568628, 0.5411765, 1),
+&"stein": Color(0.5411765, 0.5411765, 0.5176471, 1),
+&"wand": Color(0.9098039, 0.8784314, 0.8, 1)
+},
+"faction": &"ostmeer_allianz",
+"houses": 9,
+"id": &"perleninsel",
+"pond": 0.0,
+"position": Vector2(0, 20),
+"radius": 34.0,
+"residents": &"insel",
+"type": &"inseldorf"
+}, {
+"colors": {
+&"banner": Color(0.3529412, 0.5411765, 0.3529412, 1),
+&"dach": Color(0.16470589, 0.16470589, 0.16470589, 1),
+&"holz": Color(0.22745098, 0.1882353, 0.15686275, 1),
+&"saeule": Color(0.2901961, 0.41568628, 0.2901961, 1),
+&"stein": Color(0.3529412, 0.3529412, 0.34509805, 1),
+&"wand": Color(0.5411765, 0.6039216, 0.5411765, 1)
+},
+"faction": &"meereszombies",
+"houses": 6,
+"id": &"zombieinsel",
+"pond": 0.0,
+"position": Vector2(190, -110),
+"radius": 24.0,
+"residents": &"meereszombie",
+"type": &"inseldorf"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([&"seekoenig", &"seeschlange", &"riesenkrabbe"]),
+"id": &"seekoenig_grotte",
+"item": &"",
+"name": "Grotte des Seekönigs",
+"offering": {
+&"fleisch": 20,
+&"kristall": 40
+},
+"position": Vector2(-40, -210),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([&"essenzeisenknochen"]),
+"gu": Array[StringName]([&"meeresgeist", &"meeresdrache"]),
+"items": {
+&"heldenherz": 1,
+&"kristall": 100,
+&"tiefseeperle": 3,
+&"urkristall": 1
+},
+"support": Array[StringName]([])
+},
+"text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Gezeitenquelle",
+"offering": {},
+"position": Vector2(-200, -70),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"blutkoralle",
+"name": "Schiffsfriedhof",
+"offering": {},
+"position": Vector2(150, 170),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 15.5,
+"distance": 74.7,
+"id": &"in_hecke",
+"kind": &"hecke",
+"reward": &"kraftleihen"
+}, {
+"angle": 58.7,
+"distance": 86.6,
+"id": &"in_wasser",
+"kind": &"wasser",
+"reward": &"taifun"
+}, {
+"angle": 121.3,
+"distance": 86.6,
+"id": &"in_fels",
+"kind": &"fels",
+"reward": &"sternentor"
+}, {
+"angle": 164.5,
+"distance": 74.7,
+"id": &"in_schalter",
+"kind": &"schalter",
+"reward": &"zehntausendschwert"
+}, {
+"angle": 216.3,
+"distance": 55.8,
+"id": &"in_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"goettlichersinn"
+}, {
+"angle": 323.7,
+"distance": 55.8,
+"id": &"in_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"auraverbergen"
+}, {
+"angle": 270.0,
+"distance": 50.0,
+"id": &"in_vorsprung",
+"kind": &"vorsprung",
+"reward": &"himmelsfeuerknolle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"blutkoralle": Vector2i(10, 1),
+&"holz": Vector2i(25, 2),
+&"kristall": Vector2i(40, 3),
+&"mondtau": Vector2i(30, 1),
+&"stein": Vector2i(25, 2),
+&"tiefseeperle": Vector2i(6, 1)
+})
+enemy_radii = Array[float]([80.0, 160.0])
+enemy_zones = [[&"riesenkrabbe", &"sturmadler", &"seeschlange"], [&"seeschlange", &"riesenkrabbe", &"sturmadler", &"feuerfuchs"], [&"seeschlange", &"riesenkrabbe", &"weisser_tiger", &"donnerkronenwolf"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(45, 85)
+wild_passives = [[&"zehntausendjun", &"body", 40.0, 85.0, false], [&"hundertschlachten", &"support", 50.0, 85.0, true], [&"glueckssicht", &"support", 40.0, 85.0, false], [&"fadenspur", &"support", 45.0, 85.0, false], [&"boeserGedanke", &"support", 50.0, 85.0, true]]

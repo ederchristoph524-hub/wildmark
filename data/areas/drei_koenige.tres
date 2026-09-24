@@ -9,4 +9,216 @@ display_name = "Drei-Könige-Erbe"
 map_position = Vector2(0.4, 0.91)
 rank_min = 2
 rank_max = 3
+open = true
 description = "Ein Berg, in dem drei Dämonen-Gu-Meister ihr Erbe versiegelt haben. Jede Prüfung kostet Blut."
+size = 460.0
+terrain_seed = 5121
+biome = &"felsberg"
+relief = Dictionary[StringName, float]({
+&"berge": 34.0,
+&"detail": 1.0,
+&"frequenz": 0.005,
+&"hoehe": 16.0,
+&"horizont": 190.0,
+&"rand": 55.0,
+&"randhoehe": 50.0
+})
+arrival = Vector2(0, 150)
+paths = [[Vector2(0, 150), Vector2(0, 125)], [Vector2(0, 65), Vector2(-60, 20), Vector2(-110, -30)], [Vector2(0, 65), Vector2(60, -20), Vector2(100, -80)], [Vector2(0, 65), Vector2(0, -60), Vector2(0, -160)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.72156864, 0.39215687, 0.16470589, 1),
+&"dach": Color(0.41568628, 0.2901961, 0.1882353, 1),
+&"holz": Color(0.2901961, 0.18039216, 0.11764706, 1),
+&"saeule": Color(0.47843137, 0.2901961, 0.15686275, 1),
+&"stein": Color(0.5019608, 0.46666667, 0.41568628, 1),
+&"wand": Color(0.84705883, 0.78431374, 0.65882355, 1)
+},
+"faction": &"xiong_clan",
+"houses": 6,
+"id": &"xiong_jaegerlager",
+"pond": 0.0,
+"position": Vector2(0, 95),
+"radius": 30.0,
+"residents": &"xiong",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"count": 0,
+"guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"bergbaer"]),
+"id": &"blutkoenig",
+"item": &"",
+"name": "Erbe des Blutkönigs",
+"offering": {
+&"knochenmehl": 2,
+&"kristall": 6
+},
+"position": Vector2(-120, -40),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([&"eisenblut"]),
+"gu": Array[StringName]([&"blutmond", &"knochenring"]),
+"items": {
+&"blutkoralle": 1,
+&"kristall": 25
+},
+"support": Array[StringName]([])
+},
+"text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"jadeaffe", &"jadeaffe", &"jadeaffe", &"steinkoenig"]),
+"id": &"steinkoenig_erbe",
+"item": &"",
+"name": "Erbe des Steinkönigs",
+"offering": {
+&"kristall": 5,
+&"stein": 20
+},
+"position": Vector2(110, -90),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"knochenschild", &"felssturz"]),
+"items": {
+&"erdkern": 3,
+&"jadeader": 2,
+&"kristall": 30
+},
+"support": Array[StringName]([])
+},
+"text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"blitzwolf", &"elektrowolf"]),
+"id": &"wolfskoenig",
+"item": &"",
+"name": "Erbe des Wolfskönigs",
+"offering": {
+&"fell": 10,
+&"kristall": 8
+},
+"position": Vector2(0, -170),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"allout", &"wolfsseele"]),
+"items": {
+&"kristall": 30,
+&"wolfsgeist": 2
+},
+"support": Array[StringName]([&"vierwein"])
+},
+"text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben.",
+"type": &"erbe"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Quelle der drei Könige",
+"offering": {},
+"position": Vector2(60, 40),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"geisterquelle"
+}, {
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Drachenschuppen-See",
+"offering": {},
+"position": Vector2(-150, 90),
+"radius": 20.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"see"
+}, {
+"count": 9,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Knochental",
+"offering": {},
+"position": Vector2(130, 95),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 0.0,
+"distance": 150.0,
+"id": &"dk_hecke",
+"kind": &"hecke",
+"reward": &"steinfaust"
+}, {
+"angle": 60.0,
+"distance": 150.0,
+"id": &"dk_wasser",
+"kind": &"wasser",
+"reward": &"windwand"
+}, {
+"angle": 115.0,
+"distance": 140.0,
+"id": &"dk_fels",
+"kind": &"fels",
+"reward": &"sternpfeil"
+}, {
+"angle": 175.0,
+"distance": 140.0,
+"id": &"dk_schalter",
+"kind": &"schalter",
+"reward": &"schwertfluegel"
+}, {
+"angle": 230.0,
+"distance": 150.0,
+"id": &"dk_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"tarnschuppe"
+}, {
+"angle": 300.0,
+"distance": 130.0,
+"id": &"dk_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"donnerknolle"
+}, {
+"angle": 340.0,
+"distance": 110.0,
+"id": &"dk_vorsprung",
+"kind": &"vorsprung",
+"reward": &"zwillingsspiegel"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(50, 3),
+&"eisenerz": Vector2i(40, 1),
+&"erdkern": Vector2i(12, 1),
+&"gruenkraut": Vector2i(30, 2),
+&"holz": Vector2i(40, 2),
+&"kristall": Vector2i(40, 2),
+&"stein": Vector2i(70, 2)
+})
+enemy_radii = Array[float]([90.0, 160.0])
+enemy_zones = [[&"wolf", &"steinaffe", &"bambusnatter", &"eber"], [&"blitzwolf", &"jadeaffe", &"bergbaer", &"schwarzeber_bestie", &"steinaffe"], [&"blitzwolf", &"jadeaffe", &"bergbaer", &"elektrowolf", &"sturmadler", &"golem"]]
+wild_gu_rank = 2
+wild_gu_range = Vector2(60, 170)
+wild_passives = [[&"weissjade", &"body", 80.0, 160.0, false], [&"eisenblut", &"body", 100.0, 170.0, true], [&"berserk", &"body", 120.0, 170.0, false], [&"vierwein", &"support", 60.0, 150.0, false], [&"hellperle", &"support", 80.0, 160.0, false], [&"holzkohle", &"support", 60.0, 140.0, false], [&"blitzauge", &"support", 100.0, 170.0, true], [&"erdschatz", &"support", 90.0, 160.0, false], [&"bohr", &"support", 100.0, 160.0, false], [&"zweiaufgaben", &"support", 120.0, 170.0, true]]
