@@ -3,9 +3,13 @@ extends Node
 ## Apertur des Spielers: Uressenz, Regeneration, Meditation an der Aperturwand, Stufen und Durchbruch (FORMELN.md).
 
 signal meditation_changed(active: bool)
+## Durchbruch-Ritual beginnt (true) oder endet bzw. wird unterbrochen (false).
+signal ritual_changed(active: bool)
 
 var host: Combatant = null
 var meditating: bool = false
+## Restzeit des Durchbruch-Rituals (0 = keins).
+var ritual_left: float = 0.0
 
 
 func _init(owner_combatant: Combatant) -> void:
@@ -53,6 +57,13 @@ func max_hp() -> float:
 func _physics_process(delta: float) -> void:
 	if host.is_dead():
 		return
+	if ritual_left > 0.0:
+		ritual_left -= delta
+		if ritual_left <= 0.0:
+			ritual_left = 0.0
+			ritual_changed.emit(false)
+			break_through()
+		return
 	if meditating:
 		_meditate(delta)
 	else:
@@ -83,6 +94,25 @@ func set_meditating(active: bool) -> void:
 	meditation_changed.emit(active)
 
 
+## Startet das Durchbruch-Ritual (Kultivieren auf der Höchststufe mit fast voller Apertur).
+func start_breakthrough() -> bool:
+	if ritual_left > 0.0 or not can_break_through():
+		return false
+	ritual_left = Balance.values.breakthrough_ritual_time
+	ritual_changed.emit(true)
+	EventBus.message.emit(tr("Deine Uressenz stürmt gegen die Aperturwand …"), DataRegistry.progression().rank_color(GameState.rank + 1))
+	return true
+
+
+## Ein Treffer reißt dich aus dem Ritual (ohne Verlust).
+func cancel_breakthrough() -> void:
+	if ritual_left <= 0.0:
+		return
+	ritual_left = 0.0
+	ritual_changed.emit(false)
+	EventBus.message.emit(tr("Durchbruch gestört!"), Color(1.0, 0.36, 0.45))
+
+
 func can_break_through() -> bool:
 	var b: BalanceData = Balance.values
 	return GameState.stage >= b.max_stage and ratio() >= b.breakthrough_min_essence and GameState.rank < rank_cap()
@@ -96,7 +126,7 @@ func rank_cap() -> int:
 func _meditate(delta: float) -> void:
 	var b: BalanceData = Balance.values
 	if GameState.stage >= b.max_stage:
-		gain(regeneration() * delta)
+		gain(regeneration() * b.meditation_peak_regen_mult * delta)
 		return
 	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * delta)
 	GameState.essence -= burn

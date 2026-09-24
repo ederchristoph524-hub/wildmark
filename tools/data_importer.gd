@@ -4,7 +4,7 @@ extends RefCounted
 
 const SOURCE_DIR := "res://docs/daten/"
 ## Nur diese Dateien werden gelesen; gu.json liefert Pfade und Lore, nicht die Gu selbst.
-const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests", "fortschritt"]
+const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests", "fortschritt", "gebiete"]
 const TARGET_DIRS: Dictionary[String, String] = {
 	"families": "res://data/gu/families/",
 	"body": "res://data/gu/body/",
@@ -19,6 +19,7 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"sects": "res://data/sects/",
 	"quests": "res://data/quests/",
 	"npcs": "res://data/npcs/",
+	"areas": "res://data/areas/",
 	"builds": "res://data/builds/",
 	"gu_masters": "res://data/gu_masters/",
 }
@@ -39,6 +40,7 @@ const COUNT_LABELS: Dictionary[String, String] = {
 	"sects": "Sekten",
 	"quests": "Quests",
 	"npcs": "NPC-Arten",
+	"areas": "Gebiete",
 	"builds": "Bauteile",
 	"gu_masters": "Gu-Meister",
 }

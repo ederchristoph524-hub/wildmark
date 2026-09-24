@@ -4,8 +4,8 @@ extends CanvasLayer
 
 const MESSAGE_TIME: float = 4.5
 const MAX_MESSAGES: int = 5
-const KEY_HINT: String = "WASD laufen · Maus schauen · Linksklick Faust · 1–4 Gu · Q Killer Move · Mausrad wechseln · Shift Dash · Leertaste Sprung · Tab Ziel · E Aktion · M Meditieren · R Urstein · G Gu-Menü · Esc Menü"
-const TOUCH_HINT: String = "Links ziehen: laufen · Rechts wischen: Kamera · Buttons rechts: Faust, Gu 1–4, Killer Move, Sprung, Dash · Oben: Urstein, Meditation, Gu-Menü"
+const KEY_HINT: String = "WASD laufen · Maus schauen · Linksklick Faust · 1–4 Gu · Q Killer Move · Mausrad wechseln · Shift Dash · Leertaste Sprung · Tab Ziel · E Aktion · M Kultivieren · K Karte · R Urstein · G Gu-Menü · Esc Menü"
+const TOUCH_HINT: String = "Links ziehen: laufen · Rechts wischen: Kamera · Buttons rechts: Faust, Gu 1–4, Killer Move, Sprung, Dash · Oben: Kultivieren, Urstein, Gu-Menü · Minikarte antippen: Karte"
 
 var player: Player = null
 var touch: TouchControls = null
@@ -25,6 +25,7 @@ var _center_info: Label = null
 var _gu_bar: Label = null
 var _help: Label = null
 var _breakthrough: Button = null
+var minimap: Minimap = null
 var _help_time: float = 14.0
 
 
@@ -40,6 +41,7 @@ func _ready() -> void:
 	_build_center(root)
 	touch = TouchControls.new()
 	touch.player = player
+	touch.minimap = minimap
 	touch.visible = DisplayServer.is_touchscreen_available()
 	root.add_child(touch)
 	_gu_bar.visible = not touch.visible
@@ -48,8 +50,13 @@ func _ready() -> void:
 
 
 func _build_status(root: Control) -> void:
+	minimap = Minimap.new()
+	minimap.player = player
+	minimap.position = Vector2(12, 12)
+	minimap.opened.connect(func() -> void: EventBus.menu_toggled.emit(&"map"))
+	root.add_child(minimap)
 	var panel := PanelContainer.new()
-	panel.position = Vector2(12, 12)
+	panel.position = Vector2(12 + Minimap.MAP_SIZE + 10, 12)
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(panel)
 	var column := VBoxContainer.new()
@@ -102,7 +109,7 @@ func _build_center(root: Control) -> void:
 	_channel_text.position = Vector2(8, -1)
 	_gu_bar = _centered_label(root, -64.0, 17, UiTheme.TEXT)
 	_help = _centered_label(root, -130.0, 15, UiTheme.MUTED)
-	_breakthrough = UiTheme.button(tr("Durchbruch wagen"), func() -> void: player.aperture.break_through())
+	_breakthrough = UiTheme.button(tr("Durchbruch wagen"), func() -> void: player.toggle_meditation())
 	_breakthrough.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	_breakthrough.position = Vector2(-140, 200)
 	_breakthrough.custom_minimum_size = Vector2(280, 56)

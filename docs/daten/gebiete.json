@@ -1,0 +1,117 @@
+{
+ "_hinweis": "Spielbare Gebiete der Gu-Welt. region = ID aus welt.json REGIONS, karte = Position auf der Weltkarte (0–1, x nach Osten, y nach Süden), rang = empfohlener Rang von–bis, offen = schon bereisbar.",
+ "GEBIETE": {
+  "qing_mao": {
+   "n": "Qing-Mao-Berg",
+   "region": 1,
+   "karte": [
+    0.26,
+    0.86
+   ],
+   "rang": [
+    1,
+    2
+   ],
+   "offen": true,
+   "d": "Heimat des Gu-Yue-Klans, dazu die Dörfer der Bai und Xiong. Irgendwo in den Felsen soll das Erbe des Blumenwein-Mönchs liegen."
+  },
+  "drei_koenige": {
+   "n": "Drei-Könige-Erbe",
+   "region": 1,
+   "karte": [
+    0.4,
+    0.91
+   ],
+   "rang": [
+    2,
+    3
+   ],
+   "offen": false,
+   "d": "Ein Berg, in dem drei Dämonen-Gu-Meister ihr Erbe versiegelt haben. Jede Prüfung kostet Blut."
+  },
+  "shang_stadt": {
+   "n": "Shang-Klan-Stadt",
+   "region": 1,
+   "karte": [
+    0.55,
+    0.84
+   ],
+   "rang": [
+    3,
+    3
+   ],
+   "offen": false,
+   "d": "Die reichste Handelsstadt der Südlichen Grenze: Märkte, Arenen und Intrigen."
+  },
+  "wu_klan": {
+   "n": "Roter Drachenfluss",
+   "region": 1,
+   "karte": [
+    0.72,
+    0.88
+   ],
+   "rang": [
+    4,
+    5
+   ],
+   "offen": false,
+   "d": "Stammland des Wu-Klans, Herr der Südlichen Grenze, am Zusammenfluss der Drachenflüsse."
+  },
+  "steppe": {
+   "n": "Graslande der Stämme",
+   "region": 0,
+   "karte": [
+    0.36,
+    0.13
+   ],
+   "rang": [
+    3,
+    4
+   ],
+   "offen": false,
+   "d": "Endlose Steppe, Wolfsfluten und Stämme, die Stärke über alles stellen."
+  },
+  "oase": {
+   "n": "Oasenstadt im Sandmeer",
+   "region": 3,
+   "karte": [
+    0.12,
+    0.47
+   ],
+   "rang": [
+    4,
+    4
+   ],
+   "offen": false,
+   "d": "Karawanen, Federmenschen und uralte Tempel unter den Dünen."
+  },
+  "inseln": {
+   "n": "Zehntausend Inseln",
+   "region": 2,
+   "karte": [
+    0.87,
+    0.47
+   ],
+   "rang": [
+    4,
+    5
+   ],
+   "offen": false,
+   "d": "Reiche Inseln, Seeungeheuer und die Hohe Flut."
+  },
+  "sektenberg": {
+   "n": "Berg der großen Sekten",
+   "region": 4,
+   "karte": [
+    0.5,
+    0.48
+   ],
+   "rang": [
+    5,
+    5
+   ],
+   "offen": false,
+   "d": "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen."
+  }
+ }
+}

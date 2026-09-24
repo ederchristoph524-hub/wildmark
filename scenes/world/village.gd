@@ -27,6 +27,7 @@ const BUSH_YIELD: int = 3
 
 
 static func build(world: World, center: Vector3) -> void:
+	world.add_poi(center, MapData.KIND_VILLAGE, Loc.t("Dorf des %s") % Loc.t(DataRegistry.sect(&"gu_yue").display_name))
 	for angle: float in HUT_ANGLES:
 		_hut(world, world.ground_point(center.x + cos(angle) * HUT_RADIUS, center.z + sin(angle) * HUT_RADIUS), angle)
 	_fence(world, center)

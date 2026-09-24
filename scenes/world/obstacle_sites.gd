@@ -31,6 +31,7 @@ static func build(world: World, centers: Array[Vector3]) -> void:
 	for index: int in SITES.size():
 		var site: Array = SITES[index]
 		var center: Vector3 = centers[index]
+		world.add_poi(center, MapData.KIND_SITE, Loc.t("Rätselort"))
 		var reward_height: float = 0.8
 		match site[1]:
 			WorldObstacle.KIND_HEDGE:

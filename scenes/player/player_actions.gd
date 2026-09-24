@@ -45,8 +45,7 @@ static func can_meditate(player: Player) -> bool:
 		EventBus.message.emit(Loc.t("Zu gefährlich zum Meditieren – Bestien in der Nähe"), Color(1.0, 0.36, 0.45))
 		return false
 	if GameState.stage >= Balance.values.max_stage:
-		EventBus.message.emit(Loc.t("Höchststufe – jetzt hilft nur der Durchbruch"), Color(0.8, 0.9, 0.8))
-		return false
+		EventBus.message.emit(Loc.t("Höchststufe: Kultivieren sammelt Uressenz. Ist die Apertur fast voll, drücke erneut Kultivieren für den Durchbruch."), Color(0.8, 0.9, 0.8))
 	return true
 
 

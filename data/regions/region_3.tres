@@ -8,3 +8,6 @@ id = 3
 display_name = "Westliche Wüste"
 color = Color(0.8509804, 0.7058824, 0.41568628, 1)
 description = "Dünen und roter Fels. Karawanen, Oasen und uralte Tempel."
+map_polygon = Array[Vector2]([Vector2(0.02, 0.28), Vector2(0.22, 0.27), Vector2(0.25, 0.5), Vector2(0.22, 0.73), Vector2(0.04, 0.74), Vector2(0.01, 0.5)])
+wall_name = "Flammenwut-Regionalmauer"
+wall_color = Color(0.78431374, 0.19607843, 0.11764706, 1)

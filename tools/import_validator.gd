@@ -35,6 +35,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	_check_sects(built["sects"])
 	_check_trades(built["npcs"], built["builds"])
 	_check_masters(built["gu_masters"], built["body"])
+	_check_areas(built["areas"], built["regions"])
 
 
 func _collect_ids(resources: Array, type: String) -> Dictionary:
@@ -200,6 +201,22 @@ func _check_trades(npcs: Array, parts: Array) -> void:
 	for part: BuildData in parts:
 		for item: StringName in part.cost:
 			_expect("items", item, "Bauteil '%s' (Kosten)" % part.id)
+
+
+## Gebiete: Region muss existieren, Rangspanne 1–5, mindestens ein Gebiet bereisbar.
+func _check_areas(areas: Array, regions: Array) -> void:
+	var region_ids: Array[int] = []
+	for region: RegionData in regions:
+		region_ids.append(region.id)
+	var any_open: bool = false
+	for area: AreaData in areas:
+		if area.region not in region_ids:
+			_report.error("Gebiet '%s': unbekannte Region %d" % [area.id, area.region])
+		if area.rank_min < 1 or area.rank_max < area.rank_min:
+			_report.error("Gebiet '%s': ungültige Rangspanne %d–%d" % [area.id, area.rank_min, area.rank_max])
+		any_open = any_open or area.open
+	if not any_open:
+		_report.error("gebiete.json: kein Gebiet ist bereisbar")
 
 
 ## Gu der Meister: im Gu-System (Familie oder Körper-Gu) in Ordnung, nur im Ideenpool Warnung, sonst Fehler.

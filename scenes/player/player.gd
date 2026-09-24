@@ -15,6 +15,7 @@ var aperture: ApertureComponent = null
 var holder: GuHolderComponent = null
 var killer: KillerMoveController = null
 var loadout: LoadoutComponent = null
+var cultivation: PlayerCultivation = null
 var camera_rig: PlayerCamera = null
 var model: PlayerModel = null
 var targeting: TargetingComponent = null
@@ -59,6 +60,8 @@ func _ready() -> void:
 	add_child(camera_rig)
 	targeting = TargetingComponent.new(self)
 	add_child(targeting)
+	cultivation = PlayerCultivation.new(self)
+	add_child(cultivation)
 	floor_snap_length = 0.4
 	model.set_rank_color(DataRegistry.progression().rank_color(GameState.rank))
 	EventBus.breakthrough_attempted.connect(func(_ok: bool, rank: int) -> void: model.set_rank_color(DataRegistry.progression().rank_color(rank)))
@@ -101,7 +104,7 @@ func _update_timers(delta: float) -> void:
 
 func _move(delta: float, wish: Vector3) -> void:
 	var b: BalanceData = Balance.values
-	var busy: bool = killer.is_channeling() or eat_time_left > 0.0 or aperture.meditating
+	var busy: bool = killer.is_channeling() or eat_time_left > 0.0 or aperture.meditating or aperture.ritual_left > 0.0
 	var speed: float = b.walk_speed * status.speed_multiplier() * PassiveGu.mult("move_speed_mult") * (0.0 if busy else 1.0)
 	if _dash_time > 0.0:
 		_dash_time -= delta
@@ -181,11 +184,11 @@ func aim_direction() -> Vector3:
 
 
 func _can_act() -> bool:
-	return not is_dead() and not status.is_stunned() and not killer.is_channeling() and eat_time_left <= 0.0
+	return not is_dead() and not status.is_stunned() and not killer.is_channeling() and eat_time_left <= 0.0 and aperture.ritual_left <= 0.0
 
 
 func _cancel_idle_actions() -> void:
-	if aperture.meditating:
+	if aperture.meditating and aperture.ritual_left <= 0.0:
 		aperture.set_meditating(false)
 
 
@@ -301,12 +304,10 @@ func _finish_eating() -> void:
 	PlayerActions.finish_eating(self)
 
 
+## Kultivieren-Knopf (M): Meditation an/aus, auf der Höchststufe mit voller Apertur der Durchbruch.
 func toggle_meditation() -> void:
-	if aperture.meditating:
-		aperture.set_meditating(false)
-	elif is_on_floor() and _can_act() and PlayerActions.can_meditate(self):
-		aperture.set_meditating(true)
-		EventBus.message.emit(tr("Du meditierst und leitest Uressenz gegen die Aperturwand …"), Color(0.8, 0.9, 1.0))
+	if _can_act() or aperture.meditating:
+		cultivation.cultivate()
 
 
 func interact() -> void:
@@ -341,6 +342,7 @@ func _after_hit(hit: HitInfo, dealt: float) -> void:
 		return
 	killer.interrupt()
 	loadout.interrupt()
+	aperture.cancel_breakthrough()
 	_cancel_idle_actions()
 	if eat_time_left > 0.0:
 		eat_time_left = 0.0

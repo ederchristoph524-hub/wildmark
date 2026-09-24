@@ -32,6 +32,7 @@ func _ready() -> void:
 	EventBus.reaction_triggered.connect(_on_reaction)
 	EventBus.dialog_requested.connect(_on_dialog)
 	EventBus.awakening_requested.connect(_on_awakening)
+	EventBus.menu_toggled.connect(_on_menu_requested)
 	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
 	show_start_menu()
 
@@ -186,8 +187,26 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed(&"gu_menu"):
 		_open_menu(GuMenu.new())
+	elif event.is_action_pressed(&"world_map"):
+		_open_map(MapMenu.TAB_AREA)
 	elif event.is_action_pressed(&"pause_menu"):
 		_open_menu(PauseMenu.new())
+
+
+## Menüs, die von Oberflächen-Elementen angefordert werden (z. B. Minikarte antippen).
+func _on_menu_requested(menu_name: StringName) -> void:
+	if not GameState.active or player == null or player.is_dead() or get_tree().paused:
+		return
+	if menu_name == &"map":
+		_open_map(MapMenu.TAB_AREA)
+
+
+func _open_map(tab: int) -> void:
+	var menu := MapMenu.new()
+	menu.player = player
+	menu.world = world
+	menu.start_tab = tab
+	_open_menu(menu)
 
 
 ## Öffnet ein Menü und pausiert das Spiel, bis es geschlossen wird.

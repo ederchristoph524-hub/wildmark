@@ -28,6 +28,7 @@ func run(scene_tree: SceneTree) -> void:
 	await _test_obstacles()
 	_test_village()
 	await CombatSmokeSteps.new(self).run()
+	await WorldSmokeSteps.new(self).run()
 	await _test_progress()
 	await _test_death_and_save()
 	for failure: String in _failures:

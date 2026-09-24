@@ -35,6 +35,10 @@ extends Resource
 @export var meditation_burn: float = 0.09
 ## Gegner in diesem Umkreis verhindern Meditation.
 @export var meditation_danger_radius: float = 14.0
+## Auf der Höchststufe sammelt Kultivieren Uressenz schneller (für den Durchbruch).
+@export var meditation_peak_regen_mult: float = 2.5
+## So lange stürmt die Essenz beim Durchbruch gegen die Wand (sichtbar, durch Treffer unterbrechbar).
+@export var breakthrough_ritual_time: float = 3.0
 @export var stage_max_hp: float = 12.0
 @export var stage_damage: float = 1.5
 @export var breakthrough_min_essence: float = 0.9

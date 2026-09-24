@@ -30,6 +30,7 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(5)
 	await _shot("02b_touch")
 	main.hud.touch.visible = false
+	await _shoot_cultivation(main.player)
 	var player: Player = main.player
 	player.camera_rig.pitch = -0.2
 	player.camera_rig.yaw = -0.4
@@ -71,6 +72,22 @@ func run(scene_tree: SceneTree) -> void:
 	main._open_menu(GuMenu.new())
 	await _frames(10)
 	await _shot("07_gu_menue")
+	for child: Node in main._menu_layer.get_children():
+		child.queue_free()
+	await _frames(3)
+	main._on_menu_closed()
+	main._open_map(MapMenu.TAB_AREA)
+	await _frames(10)
+	await _shot("10_karte_gebiet")
+	for child: Node in main._menu_layer.get_children():
+		child.queue_free()
+	main._on_menu_closed()
+	main._open_map(MapMenu.TAB_WORLD)
+	await _frames(10)
+	await _shot("11_karte_welt")
+	for child: Node in main._menu_layer.get_children():
+		child.queue_free()
+	main._on_menu_closed()
 	await _shoot_childhood()
 	tree.quit()
 
@@ -92,6 +109,17 @@ func _shoot_childhood() -> void:
 	EventBus.awakening_requested.emit()
 	await _frames(10)
 	await _shot("09_erwachen")
+
+
+## Kultivieren mit Aura, von der Seite gesehen.
+func _shoot_cultivation(player: Player) -> void:
+	player.camera_rig.yaw = 0.6
+	player.camera_rig.pitch = -0.25
+	player.cultivation.cultivate()
+	await _frames(60)
+	await _shot("02g_kultivieren")
+	player.aperture.set_meditating(false)
+	await _frames(30)
 
 
 ## Duell mit dem Klanlehrer: Spieler vor dem Gu-Meister, kurz nach dem Countdown.

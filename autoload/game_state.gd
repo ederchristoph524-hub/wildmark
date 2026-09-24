@@ -16,6 +16,8 @@ var talent_grade: StringName = &"C"
 var apt: float = 50.0
 ## Eine der Zehn Extremen Physiques (nur bei Talentgrad „Durchbrochen“), sonst leer.
 var physique: StringName = &""
+## Gebiet, in dem sich der Spieler befindet (AreaData-ID).
+var area: StringName = &"qing_mao"
 var first_family: StringName = &"mondlicht"
 
 # --- Spieler ---
@@ -73,6 +75,7 @@ func reset(options: Dictionary) -> void:
 	talent_grade = options.get("talent_grade", &"C")
 	apt = options.get("apt", 50.0)
 	physique = options.get("physique", &"")
+	area = options.get("area", &"qing_mao")
 	first_family = options.get("first_family", &"mondlicht")
 	rank = 1
 	stage = 0
@@ -177,7 +180,7 @@ func to_dict() -> Dictionary:
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
 			"collected_wild_gu": collected_wild_gu, "opened_obstacles": opened_obstacles, "loot_sack": _sack_to_dict(),
 			"quests": _names_to_strings(quests), "kills": kills, "built_count": built_count,
-			"duels_won": duels_won, "last_duel_day": last_duel_day, "childhood_step": childhood_step,
+			"duels_won": duels_won, "last_duel_day": last_duel_day, "childhood_step": childhood_step, "area": area,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
@@ -235,12 +238,13 @@ func _player_from_dict(p: Dictionary) -> void:
 	duels_won = int(p.get("duels_won", 0))
 	last_duel_day = int(p.get("last_duel_day", 0))
 	childhood_step = int(p.get("childhood_step", -1))
+	area = StringName(str(p.get("area", "qing_mao")))
 	built_count = int(p.get("built_count", 0))
 	for entry: Variant in p.get("buildings", []):
 		if entry is Dictionary:
 			buildings.append({"id": StringName(str(entry.get("id", ""))), "position": _array_to_vec(entry.get("position", [])), "yaw": float(entry.get("yaw", 0.0))})
-	for area: Variant in p.get("visited_areas", []):
-		visited_areas.append(str(area))
+	for visited: Variant in p.get("visited_areas", []):
+		visited_areas.append(str(visited))
 	var sack: Dictionary = p.get("loot_sack", {})
 	if not sack.is_empty():
 		var sack_items: Dictionary = {}

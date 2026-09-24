@@ -141,3 +141,19 @@ func _color_for(center: Vector3, normal: Vector3) -> Color:
 	if steep > 0.35 or center.y > 12.0:
 		color = color.lerp(ROCK, clampf((steep - 0.3) * 3.0 + (center.y - 12.0) * 0.1, 0.0, 1.0))
 	return color
+
+
+## Farbe für die Karte: Bodenfarbe mit Hangschattierung (Licht von Nordwesten).
+func map_color(x: float, z: float) -> Color:
+	var h: float = height_at(x, z)
+	var dx: float = height_at(x + CELL, z) - height_at(x - CELL, z)
+	var dz: float = height_at(x, z + CELL) - height_at(x, z - CELL)
+	var normal: Vector3 = Vector3(-dx, CELL * 2.0, -dz).normalized()
+	var shade: float = clampf(0.75 + (-dx - dz) * 0.12, 0.45, 1.15)
+	var color: Color = _color_for(Vector3(x, h, z), normal)
+	return Color(color.r * shade, color.g * shade, color.b * shade)
+
+
+## Kantenlänge des bespielbaren Bereichs (für Karten).
+func map_size() -> float:
+	return SIZE

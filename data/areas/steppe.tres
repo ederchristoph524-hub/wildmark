@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dv7hcrie6mo70"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_l8xqu"]
+
+[resource]
+script = ExtResource("1_l8xqu")
+id = &"steppe"
+display_name = "Graslande der Stämme"
+region = 0
+map_position = Vector2(0.36, 0.13)
+rank_min = 3
+rank_max = 4
+description = "Endlose Steppe, Wolfsfluten und Stämme, die Stärke über alles stellen."

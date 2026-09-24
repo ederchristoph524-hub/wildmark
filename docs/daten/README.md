@@ -77,3 +77,11 @@ Stand der Extraktion: Alle Verweise sind gültig – jedes Gu-Futter, jeder Gegn
 
 Verteilung der Gu nach Rang: R1 16 · R2 17 · R3 29 · R4 26 · R5 12 · R6 7 · R7 7 · R8 5 · R9 7.
 Häufigste Pfade: Weisheit und Kraft (je 13), Metall (12), Verwandlung und Seele (je 10). Feuer, Wasser, Blitz und Eis haben nur 3–4 Gu – hier lohnt es sich, später Gu zu ergänzen, da diese Pfade im Kampf besonders sichtbar sind.
+
+## gebiete.json
+
+- `GEBIETE` – spielbare Gebiete der Gu-Welt (ID → Eintrag): `n` Name, `region` (ID aus `welt.json → REGIONS`), `karte` Position auf der Weltkarte (0–1, x Osten, y Süden), `rang` empfohlener Rang `[von, bis]`, `offen` bereits bereisbar, `d` Beschreibung.
+
+## welt.json → KARTE
+
+- Weltkarte je Region (Schlüssel = Regions-ID): `poly` Umriss (0–1), `mauer` Name der Regionalmauer, `mauer_c` ihre Farbe.

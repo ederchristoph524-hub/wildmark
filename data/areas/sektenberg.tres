@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://b2e7u0tlji4mj"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_m6e4o"]
+
+[resource]
+script = ExtResource("1_m6e4o")
+id = &"sektenberg"
+display_name = "Berg der großen Sekten"
+region = 4
+map_position = Vector2(0.5, 0.48)
+rank_min = 5
+rank_max = 5
+description = "Im Zentralkontinent zählt Talent statt Blut: Sekten, Ränge und Prüfungen."

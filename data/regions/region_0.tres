@@ -7,3 +7,6 @@ script = ExtResource("1_rqe1f")
 display_name = "Nördliche Ebene"
 color = Color(0.6039216, 0.72156864, 0.41568628, 1)
 description = "Endlose Steppe. Keine Klans, nur Stämme — Heimat des Riesensonnen-Ehrwürdigen."
+map_polygon = Array[Vector2]([Vector2(0.08, 0.05), Vector2(0.3, 0.02), Vector2(0.55, 0.03), Vector2(0.8, 0.02), Vector2(0.93, 0.07), Vector2(0.9, 0.22), Vector2(0.72, 0.27), Vector2(0.5, 0.25), Vector2(0.3, 0.27), Vector2(0.12, 0.22)])
+wall_name = "Süßholz-Regionalmauer"
+wall_color = Color(0.30980393, 0.65882355, 0.2901961, 1)

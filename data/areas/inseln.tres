@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dehws0nl7f3gd"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_6w7sd"]
+
+[resource]
+script = ExtResource("1_6w7sd")
+id = &"inseln"
+display_name = "Zehntausend Inseln"
+region = 2
+map_position = Vector2(0.87, 0.47)
+rank_min = 4
+rank_max = 5
+description = "Reiche Inseln, Seeungeheuer und die Hohe Flut."

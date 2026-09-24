@@ -22,8 +22,10 @@ func setup(npc_type: NpcTypeData, npc_title: String, quest: StringName, trade: b
 func _ready() -> void:
 	add_to_group(Player.GROUP_INTERACTABLES)
 	_model = PlayerModel.new()
-	_model.cloth_color = type.color.darkened(0.2)
+	_model.cloth_color = type.color.darkened(0.45)
 	_model.body_color = type.color
+	_model.show_aperture = false
+	PlayerModel.vary_looks(_model, display_title())
 	add_child(_model)
 	_label = Label3D.new()
 	_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -46,7 +48,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
-	_model.animate(delta, 0.4)
+	_model.animate(delta, 0.0)
 	var player: Node3D = get_tree().get_first_node_in_group(Player.GROUP_PLAYER) as Node3D
 	if player != null and player.global_position.distance_to(global_position) < 6.0:
 		var to_player: Vector3 = player.global_position - global_position

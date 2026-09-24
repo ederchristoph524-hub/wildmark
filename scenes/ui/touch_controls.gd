@@ -17,6 +17,8 @@ const TAP_TIME_MS: int = 300
 ## Button: Aktion, Mittelpunkt relativ zu einer Bildschirmecke, Radius, Beschriftung.
 var buttons: Array[Dictionary] = []
 var player: Player = null
+## Antippen der Minikarte öffnet die Karte (Touch-Ereignisse laufen sonst in Joystick oder Kamera).
+var minimap: Control = null
 
 var _joystick_index: int = -1
 var _joystick_center: Vector2 = Vector2.ZERO
@@ -49,9 +51,11 @@ func _define_buttons() -> void:
 	_add(&"killer_move", fist + Vector2(-215, -175), 40.0, tr("Killer"), true)
 	_add(&"jump", fist + Vector2(-255, 5), 42.0, tr("Sprung"), true)
 	_add(&"dash", fist + Vector2(-245, -88), 36.0, tr("Dash"), true)
-	var small: Array[Array] = [[&"pause_menu", "≡"], [&"gu_menu", tr("Gu")], [&"meditate", tr("Medit.")], [&"eat_primeval_stone", tr("Urstein")]]
+	var small: Array[Array] = [[&"pause_menu", "≡"], [&"gu_menu", tr("Gu")], [&"eat_primeval_stone", tr("Urstein")]]
 	for i: int in small.size():
 		_add(small[i][0], Vector2(-50.0 - i * 68.0, 50.0), 28.0, small[i][1], false)
+	# Großer Kultivieren-Knopf (Meditation, auf der Höchststufe Durchbruch).
+	_add(&"meditate", Vector2(-50.0 - small.size() * 68.0 - 22.0, 58.0), 40.0, tr("Kultivieren"), false)
 	_add(&"interact", Vector2(0.0, -150.0), 34.0, tr("Aktion"), true, true)
 
 
@@ -91,6 +95,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _touch_down(index: int, at: Vector2) -> void:
+	if minimap != null and minimap.is_visible_in_tree() and minimap.get_global_rect().has_point(at):
+		EventBus.menu_toggled.emit(&"map")
+		return
 	for button: Dictionary in buttons:
 		if not _button_visible(button):
 			continue

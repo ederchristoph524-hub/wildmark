@@ -18,6 +18,7 @@ const DATA_DIRS: Dictionary[StringName, String] = {
 	&"npcs": "res://data/npcs/",
 	&"builds": "res://data/builds/",
 	&"gu_masters": "res://data/gu_masters/",
+	&"areas": "res://data/areas/",
 }
 const GU_SYSTEM_PATH: String = "res://data/gu/gu_system.tres"
 const PROGRESSION_PATH: String = "res://data/progression.tres"
@@ -160,6 +161,10 @@ func build_part(id: StringName) -> BuildData:
 
 func gu_master(id: StringName) -> GuMasterData:
 	return _lookup(&"gu_masters", id) as GuMasterData
+
+
+func area(id: StringName) -> AreaData:
+	return _lookup(&"areas", id) as AreaData
 
 
 func gu_system() -> GuSystemData:

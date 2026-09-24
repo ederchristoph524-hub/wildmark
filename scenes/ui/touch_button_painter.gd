@@ -43,6 +43,9 @@ static func paint(canvas: CanvasItem, font: Font, button: Dictionary, center: Ve
 	canvas.draw_circle(center, radius, fill)
 	canvas.draw_arc(center, radius, 0.0, TAU, 32, border, 2.0)
 	var font_size: int = 18 if radius >= 40.0 else 15
+	# Lange Beschriftungen (z. B. „Kultivieren“) schrumpfen, bis sie in den Kreis passen.
+	while font_size > 11 and font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > radius * 1.85:
+		font_size -= 1
 	canvas.draw_string(font, center + Vector2(-radius, font_size * 0.35), label, HORIZONTAL_ALIGNMENT_CENTER, radius * 2.0, font_size, TEXT)
 
 

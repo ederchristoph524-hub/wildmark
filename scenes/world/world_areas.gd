@@ -25,6 +25,7 @@ static func build(world: World) -> void:
 			&"frostsplitter":
 				_ice(world, center, radius)
 		_sign(world, center, area["name"])
+		world.add_poi(world.ground_point(center.x, center.y), MapData.KIND_PLACE, Loc.t(area["name"]))
 
 
 ## Flache, eingefärbte Scheibe, die dem Gelände grob folgt.

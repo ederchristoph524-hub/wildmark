@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dc5fvmst2cgc0"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_8hdgp"]
+
+[resource]
+script = ExtResource("1_8hdgp")
+id = &"oase"
+display_name = "Oasenstadt im Sandmeer"
+region = 3
+map_position = Vector2(0.12, 0.47)
+rank_min = 4
+rank_max = 4
+description = "Karawanen, Federmenschen und uralte Tempel unter den Dünen."

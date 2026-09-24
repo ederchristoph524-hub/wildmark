@@ -39,6 +39,8 @@ var day_night: DayNight = null
 var camp: Campfire = null
 ## Freiflächen ohne Bäume und Sammelstellen (Hindernis-Orte, besondere Gebiete): Mittelpunkt → Radius.
 var clearings: Array[Vector4] = []
+## Feste Kartenpunkte des Gebiets: {position: Vector3, kind: StringName (MapData.KIND_*), label: String}.
+var pois: Array[Dictionary] = []
 var _rng := RandomNumberGenerator.new()
 
 
@@ -88,6 +90,10 @@ func _build_bounds() -> void:
 		shape.shape = box
 		shape.position = side * BOUND_DISTANCE
 		bounds.add_child(shape)
+
+
+func add_poi(at: Vector3, kind: StringName, label: String) -> void:
+	pois.append({"position": at, "kind": kind, "label": label})
 
 
 func ground_point(x: float, z: float) -> Vector3:

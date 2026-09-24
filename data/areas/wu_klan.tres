@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://b83cgb8kqrlud"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_pyjk7"]
+
+[resource]
+script = ExtResource("1_pyjk7")
+id = &"wu_klan"
+display_name = "Roter Drachenfluss"
+map_position = Vector2(0.72, 0.88)
+rank_min = 4
+rank_max = 5
+description = "Stammland des Wu-Klans, Herr der Südlichen Grenze, am Zusammenfluss der Drachenflüsse."
