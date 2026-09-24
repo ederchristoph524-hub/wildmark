@@ -1,6 +1,7 @@
 class_name PassiveGu
 extends RefCounted
-## Wirkungen der passiven Gu: Körper-Gu (dauerhaft eingeprägt) und Hilfs-Gu (satt, Rang passend, Apertur nicht leer).
+## Wirkungen der passiven Gu: Körper-Gu (dauerhaft eingeprägt) und Hilfs-Gu (satt, Rang passend, Apertur nicht leer),
+## dazu die Extreme Physique des Spielers (BalanceData.physique_rules) mit denselben Schlüsseln.
 
 
 ## Wirkt dieser Hilfs-Gu gerade?
@@ -13,7 +14,7 @@ static func is_active(instance: GuInstance) -> bool:
 
 ## Produkt eines Multiplikators über alle aktiven Hilfs-Gu (z. B. regen_mult).
 static func mult(key: String) -> float:
-	var result: float = 1.0
+	var result: float = float(PhysiqueEffects.rule().get(key, 1.0))
 	for instance: GuInstance in GameState.support:
 		if is_active(instance):
 			result *= float(_rule(instance).get(key, 1.0))
@@ -22,7 +23,7 @@ static func mult(key: String) -> float:
 
 ## Summe eines Zuschlags über alle aktiven Hilfs-Gu (z. B. capacity_add).
 static func add(key: String) -> float:
-	var result: float = 0.0
+	var result: float = float(PhysiqueEffects.rule().get(key, 0.0))
 	for instance: GuInstance in GameState.support:
 		if is_active(instance):
 			result += float(_rule(instance).get(key, 0.0))
@@ -49,7 +50,7 @@ static func upkeep() -> float:
 
 ## Summe einer Körper-Gu-Wirkung (grundschaden, max_hp, schaden_erlitten).
 static func body(key: StringName) -> float:
-	var total: float = 0.0
+	var total: float = float(PhysiqueEffects.rule().get(String(key), 0.0))
 	for id: StringName in GameState.body_gu:
 		var data: BodyGuData = DataRegistry.body_gu(id)
 		if data != null:

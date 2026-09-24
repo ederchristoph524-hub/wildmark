@@ -14,6 +14,8 @@ extends Resource
 @export var talent_flavor: Dictionary[StringName, String] = {}
 @export var talent_colors: Dictionary[StringName, Color] = {}
 @export var awaken_age: int = 13
+## Die Zehn Extremen Physiques (nur beim Talentgrad „Durchbrochen“).
+@export var physiques: Array[PhysiqueData] = []
 
 
 func rank_name(rank: int) -> String:
@@ -22,6 +24,14 @@ func rank_name(rank: int) -> String:
 
 func rank_color(rank: int) -> Color:
 	return rank_colors[rank] if rank >= 0 and rank < rank_colors.size() else Color.WHITE
+
+
+## Eine Physique per ID, sonst null.
+func physique(id: StringName) -> PhysiqueData:
+	for entry: PhysiqueData in physiques:
+		if entry.id == id:
+			return entry
+	return null
 
 
 func stage_name(stage: int) -> String:

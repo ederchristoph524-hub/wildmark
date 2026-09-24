@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 		_meditate(delta)
 	else:
 		gain(regeneration() * delta)
+		_auto_refine(delta)
 	_pay_upkeep(delta)
 
 
@@ -100,6 +101,17 @@ func _meditate(delta: float) -> void:
 	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * delta)
 	GameState.essence -= burn
 	GameState.wall += burn / Formulas.wall_need(b, capacity(), GameState.stage)
+	if GameState.wall >= 1.0:
+		GameState.wall = 0.0
+		_stage_up()
+
+
+## Extreme Physiques: Die Wand verfeinert sich von selbst (ohne Essenz), langsamer als beim Meditieren.
+func _auto_refine(delta: float) -> void:
+	var b: BalanceData = Balance.values
+	if GameState.physique == &"" or Childhood.is_child() or GameState.stage >= b.max_stage:
+		return
+	GameState.wall += capacity() * b.meditation_burn * b.physique_auto_wall * delta / Formulas.wall_need(b, capacity(), GameState.stage)
 	if GameState.wall >= 1.0:
 		GameState.wall = 0.0
 		_stage_up()

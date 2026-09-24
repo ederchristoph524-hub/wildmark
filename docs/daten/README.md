@@ -53,7 +53,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 - `RANKS` – pro Rang: `n` Name, `ess` Essenzfarbe/-art, `realm`. `STAGES` – die vier Stufen.
 - `SUCCESS` – Durchbruchschance pro Talentgrad. `RANKCAP` – maximal erreichbarer sterblicher Rang pro Talentgrad.
 - `APT_FLAVOR`, `APT_COLOR` – Texte und Farben der Talentgrade. `AWAKEN_AGE` – Alter beim Erwachen. `ASCEND_LVL` – Aufstiegsschwelle.
-- `PHYS` – besondere Körperkonstitutionen (z. B. Zehn-Extreme-Körper) mit `apply`-Referenz.
+- `PHYS` – die Zehn Extremen Physiques (Talentgrad `Durchbrochen`): `n` Name, `path` Pfad-Beschreibung, `d` und `apply` = Prototyp-Wirkung (nur Referenz), `hinweis` optionale Anmerkung zum Namen. Importiert werden ID, Name und Pfad nach `ProgressionData.physiques`; die Spielwirkung steht in `BalanceData.physique_rules`.
 - `CFG` – Standardwerte fürs Neue-Spiel-Menü (Talent, Konstitution, Vital-Gu, Startrang, Spawn, Sekte, Kindheit).
 
 ## fraktionen.json

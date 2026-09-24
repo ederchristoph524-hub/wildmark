@@ -178,7 +178,7 @@ func _try_insight(first: StringName, second: StringName, roll: float = -1.0) -> 
 	if _pair_attempts.has(key) and _clock - _pair_attempts[key] < b.insight_pair_cooldown:
 		return false
 	_pair_attempts[key] = _clock
-	if (randf() if roll < 0.0 else roll) >= minf(b.insight_base, b.insight_max):
+	if (randf() if roll < 0.0 else roll) >= minf(b.insight_base * PassiveGu.mult("insight_mult"), b.insight_max):
 		EventBus.message.emit(tr("Die beiden Gu regen sich seltsam … (%s)") % tr(move.hint), Color(0.8, 0.8, 1.0))
 		return false
 	learn(move.id)

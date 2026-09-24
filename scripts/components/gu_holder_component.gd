@@ -56,14 +56,14 @@ func power_of(instance: GuInstance) -> float:
 	var data: GuData = gu_data(instance)
 	var b: BalanceData = Balance.values
 	var hunger: float = 0.0 if is_starved(instance) else (b.hungry_effect if is_hungry(instance) else 1.0)
-	return Formulas.gu_power(b, data.rank, GameState.rank) * hunger * float(trait_rule(instance, "effect", 1.0))
+	return Formulas.gu_power(b, data.rank, GameState.rank) * hunger * float(trait_rule(instance, "effect", 1.0)) * PhysiqueEffects.path_power(data.family)
 
 
 func essence_cost(instance: GuInstance) -> float:
 	var family: GuFamilyData = family_of(instance)
 	var data: GuData = gu_data(instance)
 	var base_cost: float = float(family.base_r1.get(COST_KEY, 0.0))
-	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0))
+	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult")
 
 
 func hp_cost(instance: GuInstance) -> float:
@@ -169,7 +169,7 @@ func _update_hunger(delta: float) -> void:
 ## Senkt die Sättigung; liefert true, wenn der Gu verhungert ist.
 func _starve_tick(instance: GuInstance, rank: int, title: String, delta: float) -> bool:
 	var b: BalanceData = Balance.values
-	var loss: float = Formulas.hunger_per_second(b, rank) * float(trait_rule(instance, "hunger", 1.0)) * delta
+	var loss: float = Formulas.hunger_per_second(b, rank) * float(trait_rule(instance, "hunger", 1.0)) * PassiveGu.mult("hunger_mult") * delta
 	instance.satiety = maxf(0.0, instance.satiety - loss)
 	if instance.satiety > 0.0:
 		return false

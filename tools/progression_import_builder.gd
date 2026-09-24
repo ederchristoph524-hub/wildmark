@@ -27,6 +27,7 @@ func build(src: Dictionary) -> ProgressionData:
 	for grade: Variant in src["APT_COLOR"]:
 		data.talent_colors[StringName(str(grade))] = ImportUtil.color(src["APT_COLOR"][grade], "Talentfarbe " + str(grade), _report)
 	data.awaken_age = ImportUtil.to_int(src.get("AWAKEN_AGE"), data.awaken_age)
+	_fill_physiques(data, src.get("PHYS", {}))
 	_check(data)
 	return data
 
@@ -48,9 +49,25 @@ func _fill_ranks(data: ProgressionData, ranks: Variant) -> void:
 			data.rank_essence_names.append("")
 
 
+## PHYS: ID → Name und Pfad (apply ist Prototyp-Code und wird nicht importiert).
+func _fill_physiques(data: ProgressionData, phys: Variant) -> void:
+	if not phys is Dictionary:
+		_report.error("fortschritt.json: PHYS ist kein Objekt")
+		return
+	for key: Variant in phys:
+		var entry: Dictionary = phys[key]
+		var physique := PhysiqueData.new()
+		physique.id = StringName(str(key))
+		physique.display_name = ImportUtil.text(entry.get("n"))
+		physique.path_label = ImportUtil.text(entry.get("path"))
+		data.physiques.append(physique)
+
+
 func _check(data: ProgressionData) -> void:
 	for grade: StringName in data.breakthrough_chance:
 		if not data.rank_cap.has(grade):
 			_report.error("fortschritt.json: Talentgrad '%s' fehlt in RANKCAP" % grade)
 	if data.stage_names.is_empty():
 		_report.error("fortschritt.json: keine Stufen")
+	if not data.physiques.is_empty() and not data.rank_cap.has(&"Durchbrochen"):
+		_report.error("fortschritt.json: PHYS gesetzt, aber Talentgrad 'Durchbrochen' fehlt")

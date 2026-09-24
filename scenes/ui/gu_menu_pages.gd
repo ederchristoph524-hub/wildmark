@@ -131,6 +131,10 @@ static func cultivation_page(player: Player, refresh: Callable) -> Control:
 		aperture.essence(), aperture.capacity(), aperture.regeneration(), roundi(GameState.wall * 100.0)]
 	column.add_child(UiTheme.label(text, 19))
 	column.add_child(UiTheme.label(Loc.t(progression.talent_flavor.get(GameState.talent_grade, "")), 16, UiTheme.MUTED))
+	var physique: PhysiqueData = PhysiqueEffects.current()
+	if physique != null:
+		column.add_child(UiTheme.label("%s (%s)" % [Loc.t(physique.display_name), Loc.t(physique.path_label)], 20, progression.talent_colors.get(GameState.talent_grade, UiTheme.ACCENT)))
+		column.add_child(UiTheme.label(" · ".join(PhysiqueEffects.effect_lines(physique.id)), 16, UiTheme.MUTED))
 	column.add_child(UiTheme.label(Loc.t("Meditiere (M) an einem sicheren Ort: Deine Uressenz fließt gegen die Aperturwand. Ist sie verfeinert, steigst du eine Stufe auf. Auf der Höchststufe mit fast voller Apertur kannst du den Durchbruch wagen."), 16, UiTheme.MUTED))
 	if aperture.can_break_through():
 		var on_break: Callable = func() -> void:

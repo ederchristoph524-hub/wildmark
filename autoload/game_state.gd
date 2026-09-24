@@ -14,6 +14,8 @@ var active: bool = false
 var death_mode: StringName = DEATH_STANDARD
 var talent_grade: StringName = &"C"
 var apt: float = 50.0
+## Eine der Zehn Extremen Physiques (nur bei Talentgrad „Durchbrochen“), sonst leer.
+var physique: StringName = &""
 var first_family: StringName = &"mondlicht"
 
 # --- Spieler ---
@@ -70,6 +72,7 @@ func reset(options: Dictionary) -> void:
 	death_mode = options.get("death_mode", DEATH_STANDARD)
 	talent_grade = options.get("talent_grade", &"C")
 	apt = options.get("apt", 50.0)
+	physique = options.get("physique", &"")
 	first_family = options.get("first_family", &"mondlicht")
 	rank = 1
 	stage = 0
@@ -164,7 +167,7 @@ func to_dict() -> Dictionary:
 	for instance: GuInstance in gu:
 		gu_list.append(instance.to_dict())
 	return {
-		"options": {"death_mode": death_mode, "talent_grade": talent_grade, "apt": apt, "first_family": first_family},
+		"options": {"death_mode": death_mode, "talent_grade": talent_grade, "apt": apt, "first_family": first_family, "physique": physique},
 		"player": {
 			"rank": rank, "stage": stage, "wall": wall, "essence": essence, "hp": hp,
 			"bonus_hp": bonus_hp, "bonus_damage": bonus_damage,
@@ -187,6 +190,7 @@ func from_dict(d: Dictionary) -> void:
 		"death_mode": StringName(str(options.get("death_mode", DEATH_STANDARD))),
 		"talent_grade": StringName(str(options.get("talent_grade", "C"))),
 		"apt": float(options.get("apt", 50.0)),
+		"physique": StringName(str(options.get("physique", ""))),
 		"first_family": StringName(str(options.get("first_family", "mondlicht"))),
 	})
 	_player_from_dict(d.get("player", {}))

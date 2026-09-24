@@ -70,8 +70,9 @@ static func advance() -> void:
 
 
 ## Nach dem Erwachen: Kindheit vorbei, Talent und erster Gu stehen fest.
-static func finish(first_family: StringName, grade: StringName, apt: float) -> void:
+static func finish(first_family: StringName, grade: StringName, apt: float, physique: StringName) -> void:
 	GameState.childhood_step = -1
 	GameState.first_family = first_family
 	GameState.talent_grade = grade
 	GameState.apt = apt
+	GameState.physique = physique

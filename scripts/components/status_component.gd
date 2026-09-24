@@ -19,6 +19,8 @@ var blind_time: float = 0.0
 var slow_time: float = 0.0
 var slow_amount: float = 0.0
 
+## Zustände, die diese Figur nicht treffen (Extreme Physique Eisseele).
+var immune: Array[StringName] = []
 var _stacks: Dictionary[StringName, int] = {}
 var _time_left: Dictionary[StringName, float] = {}
 var _rank_factor: Dictionary[StringName, float] = {}
@@ -110,7 +112,7 @@ func slow(amount: float, duration: float) -> void:
 ## Fügt Stapel hinzu. Beendet dabei Zustände, die laut Daten durch diesen enden (Nass ↔ Brand).
 func apply_status(id: StringName, stacks: int, rank_factor: float = 1.0, allow_over_max: bool = false) -> void:
 	var data: StatusData = DataRegistry.status(id)
-	if data == null or stacks <= 0 or host.is_dead():
+	if data == null or stacks <= 0 or host.is_dead() or id in immune:
 		return
 	for active: StringName in _stacks.keys():
 		var active_data: StatusData = DataRegistry.status(active)

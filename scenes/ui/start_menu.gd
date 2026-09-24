@@ -1,6 +1,6 @@
 class_name StartMenu
 extends Control
-## Neues-Spiel-Menü: Kindheit (spielbar oder übersprungen), erster Gu und Talent (nur beim Überspringen), Todesmodus oder Weiterspielen.
+## Neues-Spiel-Menü: Kindheit (spielbar oder übersprungen), Todesmodus, Talent samt Extremer Physique, erster Gu (nur beim Überspringen) oder Weiterspielen.
 
 const TALENT_RANDOM: StringName = &"random"
 const DEATH_MODES: Array[StringName] = [&"standard", &"relaxed", &"hardcore"]
@@ -14,6 +14,11 @@ var _childhood_buttons: Array[Button] = []
 var _skip_section: VBoxContainer = null
 var _family_buttons: Dictionary[StringName, Button] = {}
 var _talent_buttons: Dictionary[StringName, Button] = {}
+## Extreme Physique (nur beim Talent „Extrem“); leer = zufällig.
+var _physique: StringName = &""
+var _physique_grid: GridContainer = null
+var _physique_buttons: Dictionary[StringName, Button] = {}
+var _physique_text: Label = null
 var _death_buttons: Dictionary[StringName, Button] = {}
 var _description: Label = null
 
@@ -66,6 +71,7 @@ func _build(column: VBoxContainer) -> void:
 	var start_text: String = tr("Neues Spiel") + (tr(" (überschreibt den Spielstand)") if SaveSystem.has_save() else "")
 	# Start-Knopf vor den Erklärungen, damit er am Handy quer ohne Scrollen sichtbar bleibt.
 	column.add_child(UiTheme.button(start_text, _start, 64.0))
+	_build_talent_section(column)
 	_skip_section = VBoxContainer.new()
 	_skip_section.add_theme_constant_override(&"separation", 12)
 	column.add_child(_skip_section)
@@ -86,15 +92,39 @@ func _build_skip_section(column: VBoxContainer) -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		families.add_child(button)
 		_family_buttons[family_id] = button
+
+
+## Talent: Zufall (Talenttest), D–A oder Extrem mit einer der Zehn Extremen Physiques.
+func _build_talent_section(column: VBoxContainer) -> void:
 	column.add_child(UiTheme.label(tr("Talent (Aptitude)"), 24, UiTheme.ACCENT))
 	var talents := HBoxContainer.new()
 	column.add_child(talents)
-	var grades: Array[StringName] = [TALENT_RANDOM, &"D", &"C", &"B", &"A"]
+	var grades: Array[StringName] = [TALENT_RANDOM, &"D", &"C", &"B", &"A", PhysiqueEffects.GRADE]
 	for grade: StringName in grades:
-		var button: Button = UiTheme.button(tr("Zufall") if grade == TALENT_RANDOM else String(grade), _choose_talent.bind(grade))
+		var text: String = tr("Zufall") if grade == TALENT_RANDOM else (tr("Extrem") if grade == PhysiqueEffects.GRADE else String(grade))
+		var button: Button = UiTheme.button(text, _choose_talent.bind(grade))
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		talents.add_child(button)
 		_talent_buttons[grade] = button
+	_physique_grid = GridContainer.new()
+	_physique_grid.columns = 2
+	column.add_child(_physique_grid)
+	var zufall: Button = UiTheme.button(tr("Zufällige Physique"), _choose_physique.bind(&""), 56.0)
+	zufall.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_physique_grid.add_child(zufall)
+	_physique_buttons[&""] = zufall
+	for physique: PhysiqueData in DataRegistry.progression().physiques:
+		var button: Button = UiTheme.button("%s\n%s" % [tr(physique.display_name), tr(physique.path_label)], _choose_physique.bind(physique.id), 56.0)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_physique_grid.add_child(button)
+		_physique_buttons[physique.id] = button
+	_physique_text = UiTheme.label("", 17, UiTheme.MUTED)
+	column.add_child(_physique_text)
+
+
+func _choose_physique(id: StringName) -> void:
+	_physique = id
+	_refresh()
 
 
 func _choose_childhood(playable: bool) -> void:
@@ -128,11 +158,17 @@ func _refresh() -> void:
 	for id: StringName in _talent_buttons:
 		_talent_buttons[id].toggle_mode = true
 		_talent_buttons[id].button_pressed = id == _talent
+	_physique_grid.visible = _talent == PhysiqueEffects.GRADE
+	_physique_text.visible = _physique_grid.visible
+	_physique_text.text = _physique_effects()
+	for id: StringName in _physique_buttons:
+		_physique_buttons[id].toggle_mode = true
+		_physique_buttons[id].button_pressed = id == _physique
 	for id: StringName in _death_buttons:
 		_death_buttons[id].toggle_mode = true
 		_death_buttons[id].button_pressed = id == _death
 	_description.text = _childhood_text() if _childhood else _family_text()
-	_description.text += "\n\n" + _death_text()
+	_description.text += "\n\n" + _talent_text() + "\n\n" + _death_text()
 
 
 func _childhood_text() -> String:
@@ -145,9 +181,20 @@ func _family_text() -> String:
 	var text: String = "%s – %s\n%s" % [tr(member.display_name), tr(DataRegistry.gu_system().path_name(family.path)), tr(member.description)]
 	if not member.lore.is_empty():
 		text += "\n" + tr(member.lore)
-	if _talent != TALENT_RANDOM:
-		text += "\n" + tr(DataRegistry.progression().talent_flavor.get(_talent, ""))
 	return text
+
+
+func _talent_text() -> String:
+	if _talent == TALENT_RANDOM:
+		return tr("Talent: Zufall – der Talenttest entscheidet (mit winziger Chance auf eine Extreme Physique).")
+	return tr(DataRegistry.progression().talent_flavor.get(_talent, ""))
+
+
+func _physique_effects() -> String:
+	if _physique == &"":
+		return tr("Eine der Zehn Extremen Physiques wird ausgewürfelt. Alle haben 100 % Apertur, und ihre Wand verfeinert sich von selbst.")
+	var physique: PhysiqueData = DataRegistry.progression().physique(_physique)
+	return "%s (%s)\n• %s" % [tr(physique.display_name), tr(physique.path_label), "\n• ".join(PhysiqueEffects.effect_lines(_physique))]
 
 
 func _death_text() -> String:
@@ -159,13 +206,14 @@ func _death_text() -> String:
 	return tr("Standard: Nach dem Tod liegen deine Materialien im Beutesack, 30 % Uressenz sind weg und deine Gu hungern.")
 
 
+## Mit Kindheit und Talent „Zufall“ würfelt erst der Talenttest beim Erwachen (talent_grade bleibt leer).
 func _start() -> void:
 	var b: BalanceData = Balance.values
-	var talent: Dictionary = Formulas.roll_talent(b, randf() * 100.0, randf()) if _talent == TALENT_RANDOM else Formulas.talent_for_grade(b, _talent, randf())
-	EventBus.new_game_requested.emit({
-		"childhood": _childhood,
-		"first_family": &"" if _childhood else _family,
-		"talent_grade": talent["grade"],
-		"apt": talent["apt"],
-		"death_mode": _death,
-	})
+	var options: Dictionary = {"childhood": _childhood, "first_family": &"" if _childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &""}
+	if not (_childhood and _talent == TALENT_RANDOM):
+		var talent: Dictionary = Formulas.roll_talent(b, randf() * 100.0, randf()) if _talent == TALENT_RANDOM else Formulas.talent_for_grade(b, _talent, randf())
+		options["talent_grade"] = talent["grade"]
+		options["apt"] = talent["apt"]
+		if talent["grade"] == PhysiqueEffects.GRADE:
+			options["physique"] = _physique if _physique != &"" and _talent == PhysiqueEffects.GRADE else PhysiqueEffects.roll()
+	EventBus.new_game_requested.emit(options)

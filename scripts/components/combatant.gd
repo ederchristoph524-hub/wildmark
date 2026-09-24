@@ -91,8 +91,8 @@ func receive_hit(hit: HitInfo) -> void:
 	if hit.knockback != Vector3.ZERO and not status.is_frozen():
 		_knockback += hit.knockback
 	if dealt >= 0.5:
-		var color: Color = PLAYER_DAMAGE_COLOR if team == TEAM_PLAYER else DAMAGE_COLOR
-		EventBus.floating_text.emit(str(roundi(dealt)), aim_point(), color)
+		var color: Color = PLAYER_DAMAGE_COLOR if team == TEAM_PLAYER else (PhysiqueEffects.CRIT_COLOR if hit.is_crit else DAMAGE_COLOR)
+		EventBus.floating_text.emit(str(roundi(dealt)) + ("!" if hit.is_crit else ""), aim_point(), color)
 	_after_hit(hit, dealt)
 
 

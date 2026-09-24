@@ -82,7 +82,8 @@ docs/
 - `StatusData`, `ReactionData`, `TraitData`, `BodyGuData`, `SupportGuData`
 - `ReactionData`: `target_status` ist eine Zustands-ID oder eine abgeleitete Bedingung aus `ReactionData.DERIVED_CONDITIONS` (derzeit `eingefroren`); `min_stacks` > 0 verlangt Mindeststapel (aus `gift_ab_3` wird `gift` mit 3)
 - `GuSystemData`: Tags, Merkmal-Chancen, Start-Familien, Pfadnamen/-farben/-konflikte (`data/gu/gu_system.tres`)
-- `ProgressionData`: Rangnamen und -farben, Stufen, Durchbruchschancen, Rang-Obergrenzen je Talentgrad (`data/progression.tres`)
+- `ProgressionData`: Rangnamen und -farben, Stufen, Durchbruchschancen, Rang-Obergrenzen je Talentgrad, die Zehn Extremen Physiques als `Array[PhysiqueData]` (`data/progression.tres`)
+- `PhysiqueData`: `id`, `display_name`, `path_label`; Wirkung in `BalanceData.physique_rules` (Schlüssel wie bei Körper-/Hilfs-Gu, fließen über `PassiveGu` ein; Sonderfälle in `PhysiqueEffects`). Nur beim Talentgrad `Durchbrochen`, gespeichert als `GameState.physique`
 - `KillerMoveData`: `id`, `display_name`, `family_a`, `family_b`, `channel_time`, `damage_mult`, `description`, `hint`
 - `GuMasterData`: `id`, `display_name`, `color`, `faction`, `gu` (IDs; der Meister nutzt das Familienmitglied seines Rangs); `NpcTypeData`, `BuildData`
 - `EnemyData` (Beute als `Array[DropEntry]`: jeder Eintrag wird einzeln gewürfelt, gleiche Items dürfen mehrfach vorkommen), `ItemData` (Grundressourcen und Materialien, ein ID-Raum), `RegionData` (ID ist int), `SectData`, `QuestData`
@@ -97,7 +98,7 @@ docs/
 - Erst wird alles gebaut und geprüft, dann geschrieben: Bei einem Fehler bleibt `data/` unverändert. Vorhandene UIDs bleiben erhalten; ein zweiter Lauf ohne Datenänderung ändert keine Datei.
 - `.tres`-Dateien, deren ID nicht mehr in den Daten steht, werden nur als Warnung gemeldet, nicht gelöscht.
 - Warnung statt Fehler: Sekten-Signatur-Gu, die nur im Ideenpool `gu.json` stehen (kommen in späteren Meilensteinen), und Material-Pfade, die in `gu.json → PATHS` fehlen.
-- Nicht importiert: `unsterblich.json`, aus `fortschritt.json` nur `PHYS` und `CFG`, `KILLERS` aus `killer_moves.json`, `GEAR`, `BUILD`, `GUMASTER`, `VARIANTS`, `NPCTYPE`, `SECTRANKS`, `FACTIONS`, `STANDING`, `ZONE_NAMES` – dafür gibt es noch keine Resource-Klasse.
+- Nicht importiert: `unsterblich.json`, aus `fortschritt.json` nur `CFG` (von `PHYS` nur ID, Name und Pfad), `KILLERS` aus `killer_moves.json`, `GEAR`, `BUILD`, `GUMASTER`, `VARIANTS`, `NPCTYPE`, `SECTRANKS`, `FACTIONS`, `STANDING`, `ZONE_NAMES` – dafür gibt es noch keine Resource-Klasse.
 
 IDs aus dem JSON bleiben als `StringName` erhalten. Werte mit `[fn]` sind JavaScript-Referenzlogik und werden nicht importiert, sondern beim Umsetzen des Effekts gelesen. Nach Datenänderungen das Skript erneut ausführen.
 

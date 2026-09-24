@@ -13,6 +13,7 @@ func run() -> void:
 	print("-- combat_smoke")
 	await _test_tap_target()
 	await _test_slot_switch()
+	await _test_physiques()
 	await _test_duel()
 
 
@@ -66,6 +67,58 @@ func _test_slot_switch() -> void:
 	steps.player.invulnerable_time = 0.0
 	steps.player.receive_hit(HitInfo.create(5.0, null, Combatant.TEAM_ENEMY))
 	steps._check(not loadout.is_channeling() and GameState.slots[3] == 1 and GameState.slots[0] == 0, "Treffer bricht den Wechsel ab")
+
+
+func _test_physiques() -> void:
+	var physiques: Array[PhysiqueData] = DataRegistry.progression().physiques
+	var complete: bool = physiques.size() == 10
+	for physique: PhysiqueData in physiques:
+		complete = complete and Balance.values.physique_rules.has(physique.id) and PhysiqueEffects.effect_lines(physique.id).size() >= 2
+	steps._check(complete, "zehn Extreme Physiques mit Regeln und Wirkungstext")
+	var player: Player = steps.player
+	var instance: GuInstance = GameState.slot_instance(0) if GameState.slot_instance(0) != null else steps._give(&"mondlicht", 0)
+	var cost: float = player.holder.essence_cost(instance)
+	var cooldown: float = player.holder.cooldown_of(instance)
+	var power: float = player.holder.power_of(instance)
+	var max_hp: float = player.health.max_hp
+	GameState.physique = &"dream"
+	steps._check(is_equal_approx(player.holder.essence_cost(instance), cost * 0.6), "Traum: Gu kosten 40 % weniger")
+	GameState.physique = &"moon"
+	steps._check(is_equal_approx(player.holder.cooldown_of(instance), cooldown * 0.5) and is_equal_approx(player.holder.power_of(instance), power * Balance.values.physique_path_power), "Mond: halbe Abklingzeit, Mondlicht stärker")
+	GameState.physique = &"strength"
+	await steps._frames(2)
+	steps._check(is_equal_approx(player.health.max_hp, max_hp + 50.0) and is_equal_approx(player.flat_damage, 5.0), "Kraft: mehr Leben und Grundschaden")
+	GameState.physique = &"ice"
+	await steps._frames(2)
+	player.status.apply_status(&"gift", 3)
+	steps._check(player.status.stacks_of(&"gift") == 0, "Eisseele: immun gegen Gift")
+	GameState.physique = &"lightning"
+	var hit := HitInfo.create(10.0, player, player.team)
+	PhysiqueEffects.decorate_hit(hit, player)
+	steps._check(hit.status == &"brand", "Blitzglanz: Treffer entzünden")
+	await _test_physique_wall()
+	GameState.physique = &"metal"
+	var saved: Dictionary = GameState.to_dict()
+	GameState.physique = &""
+	GameState.from_dict(saved)
+	steps._check(GameState.physique == &"metal", "Physique wird gespeichert und geladen")
+	GameState.physique = &""
+	await steps._frames(2)
+
+
+## Extreme Physiques verfeinern die Wand ohne Meditation und ohne Essenz.
+func _test_physique_wall() -> void:
+	var stage: int = GameState.stage
+	GameState.stage = 0
+	GameState.wall = 0.0
+	GameState.physique = &"forest"
+	await steps._frames(60)
+	steps._check(GameState.wall > 0.0 and not steps.player.aperture.meditating, "Wand verfeinert sich von selbst (%.3f)" % GameState.wall)
+	GameState.physique = &""
+	var wall: float = GameState.wall
+	await steps._frames(30)
+	steps._check(is_equal_approx(GameState.wall, wall), "ohne Physique kein Selbstverfeinern")
+	GameState.stage = stage
 
 
 func _tap(at: Vector2) -> void:

@@ -16,7 +16,8 @@ func run(scene_tree: SceneTree) -> void:
 	main = (load("res://scenes/main.tscn") as PackedScene).instantiate() as Main
 	tree.root.add_child(main)
 	await _frames(3)
-	EventBus.new_game_requested.emit({"childhood": true, "first_family": &"", "death_mode": &"standard"})
+	# Talent im Startmenü auf „Extrem“ gestellt, Physique zufällig: Der Talenttest beim Erwachen würfelt sie.
+	EventBus.new_game_requested.emit({"childhood": true, "first_family": &"", "death_mode": &"standard", "talent_grade": PhysiqueEffects.GRADE, "apt": 100.0, "physique": &""})
 	await _frames(20)
 	player = main.player
 	_check(Childhood.is_child() and GameState.gu.is_empty() and Childhood.tracker_text() != "", "Kindheit beginnt ohne Gu, mit Hinweis")
@@ -89,7 +90,7 @@ func _test_awakening() -> void:
 	menu.confirm()
 	await _frames(3)
 	_check(not Childhood.is_child() and GameState.first_family == chosen and GameState.gu.size() == 1, "erster Gu gewählt, Kindheit vorbei")
-	_check(GameState.talent_grade in Balance.values.talent_grades and GameState.apt > 0.0, "Talent ausgewürfelt (%s, %d)" % [GameState.talent_grade, roundi(GameState.apt)])
+	_check(GameState.talent_grade == PhysiqueEffects.GRADE and GameState.apt == 100.0 and PhysiqueEffects.current() != null, "Extremes Talent mit Physique erwacht (%s)" % GameState.physique)
 	_check(GameState.item_count(&"kristall") >= Main.START_STONES and not tree.paused, "Startausstattung erhalten, Spiel läuft")
 	var duplicate_wild: bool = false
 	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):

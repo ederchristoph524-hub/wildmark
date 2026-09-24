@@ -75,6 +75,7 @@ func make_hit(damage_mult: float = 1.0) -> HitInfo:
 	hit.pierce_armor = hit.pierce_armor or GuGifts.has(gu, "pierce_armor")
 	hit.status_stacks += int(GuGifts.number(gu, "stacks_add")) if family.status != &"" else 0
 	hit.spread_on_death = GuGifts.has(gu, "spread_on_death")
+	PhysiqueEffects.decorate_hit(hit, caster)
 	if TAG_FORCE in family.tags:
 		hit.knockback = aim_direction * Balance.values.knockback_force
 	return hit

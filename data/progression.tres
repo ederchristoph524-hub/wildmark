@@ -1,9 +1,70 @@
 [gd_resource type="Resource" script_class="ProgressionData" format=3 uid="uid://u54cwwb4qoq5"]
 
-[ext_resource type="Script" path="res://scripts/resources/progression_data.gd" id="1_fv6nl"]
+[ext_resource type="Script" path="res://scripts/resources/physique_data.gd" id="1_ns6ee"]
+[ext_resource type="Script" path="res://scripts/resources/progression_data.gd" id="2_dvvyv"]
+
+[sub_resource type="Resource" id="Resource_6w6yr"]
+script = ExtResource("1_ns6ee")
+id = &"strength"
+display_name = "Große-Kraft-Wahrhaft-Martial"
+path_label = "Kraft"
+
+[sub_resource type="Resource" id="Resource_bfata"]
+script = ExtResource("1_ns6ee")
+id = &"wisdom"
+display_name = "Sorgloses-Weisheitsherz"
+path_label = "Weisheit"
+
+[sub_resource type="Resource" id="Resource_yojyx"]
+script = ExtResource("1_ns6ee")
+id = &"dream"
+display_name = "Reine-Traum-Wahrheitssucher"
+path_label = "Traum"
+
+[sub_resource type="Resource" id="Resource_u1kgm"]
+script = ExtResource("1_ns6ee")
+id = &"moon"
+display_name = "Öde-Uralter-Mond"
+path_label = "Zeit"
+
+[sub_resource type="Resource" id="Resource_n3lmu"]
+script = ExtResource("1_ns6ee")
+id = &"ice"
+display_name = "Nördliche-Dunkle-Eisseele"
+path_label = "Eis & Seele"
+
+[sub_resource type="Resource" id="Resource_kjs1s"]
+script = ExtResource("1_ns6ee")
+id = &"forest"
+display_name = "Grenzenloser-Wald-Samsara"
+path_label = "Holz"
+
+[sub_resource type="Resource" id="Resource_hnmet"]
+script = ExtResource("1_ns6ee")
+id = &"lightning"
+display_name = "Lodernde-Glorie-Blitzglanz"
+path_label = "Feuer & Blitz"
+
+[sub_resource type="Resource" id="Resource_vldh7"]
+script = ExtResource("1_ns6ee")
+id = &"earth"
+display_name = "Zentrale-Erd-Essenz"
+path_label = "Erde"
+
+[sub_resource type="Resource" id="Resource_obhi5"]
+script = ExtResource("1_ns6ee")
+id = &"universe"
+display_name = "Universum-Große-Ableitung"
+path_label = "Regeln"
+
+[sub_resource type="Resource" id="Resource_kob8o"]
+script = ExtResource("1_ns6ee")
+id = &"metal"
+display_name = "Metall-Physique"
+path_label = "Metall"
 
 [resource]
-script = ExtResource("1_fv6nl")
+script = ExtResource("2_dvvyv")
 rank_names = Array[String](["", "Rang 1 · Grünkupfer", "Rang 2 · Rot-Eisen", "Rang 3 · Weißsilber", "Rang 4 · Hell-Gold", "Rang 5 · Lilakristall", "Rang 6 · Grüntraube", "Rang 7 · Rotdattel", "Rang 8 · Weißlitschi", "Rang 9 · Gelb-Aprikose"])
 rank_colors = Array[Color]([Color(1, 1, 1, 1), Color(0.47843137, 0.6039216, 0.2901961, 1), Color(0.6901961, 0.3137255, 0.22745098, 1), Color(0.7882353, 0.7882353, 0.83137256, 1), Color(0.8784314, 0.72156864, 0.22745098, 1), Color(0.627451, 0.2901961, 0.8156863, 1), Color(0.41568628, 0.8156863, 0.2901961, 1), Color(0.8156863, 0.3137255, 0.22745098, 1), Color(0.9411765, 0.93333334, 0.9607843, 1), Color(1, 0.8235294, 0.23921569, 1)])
 rank_essence_names = Array[String](["", "grünkupferne Urenergie", "rot-eiserne Urenergie", "weißsilberne Urenergie", "hell-goldene Urenergie", "lilakristallene Urenergie", "unsterbliche Grüntraubenenergie", "unsterbliche Rotdattelenergie", "unsterbliche Weißlitschienergie", "gelb-aprikosene Unsterblichkeitsessenz"])
@@ -36,3 +97,4 @@ talent_colors = Dictionary[StringName, Color]({
 &"D": Color(0.5764706, 0.6392157, 0.47843137, 1),
 &"Durchbrochen": Color(1, 0.41568628, 0.8156863, 1)
 })
+physiques = Array[ExtResource("1_ns6ee")]([SubResource("Resource_6w6yr"), SubResource("Resource_bfata"), SubResource("Resource_yojyx"), SubResource("Resource_u1kgm"), SubResource("Resource_n3lmu"), SubResource("Resource_kjs1s"), SubResource("Resource_hnmet"), SubResource("Resource_vldh7"), SubResource("Resource_obhi5"), SubResource("Resource_kob8o")])

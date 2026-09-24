@@ -1,12 +1,13 @@
 class_name AwakeningMenu
 extends Control
-## Ende der Kindheit: Der Klanlehrer weckt die Apertur – Talenttest (ausgewürfelt) und Wahl des ersten Gu.
+## Ende der Kindheit: Der Klanlehrer weckt die Apertur – Talenttest (ausgewürfelt oder im Startmenü festgelegt, ggf. mit Extremer Physique) und Wahl des ersten Gu.
 
 signal closed
-signal awakened(first_family: StringName, grade: StringName, apt: float)
+signal awakened(first_family: StringName, grade: StringName, apt: float, physique: StringName)
 
 var _grade: StringName = &"C"
 var _apt: float = 50.0
+var _physique: StringName = &""
 var _family: StringName = &""
 var _family_buttons: Dictionary[StringName, Button] = {}
 var _description: Label = null
@@ -31,12 +32,24 @@ func _ready() -> void:
 	column.custom_minimum_size = Vector2(640.0, 0.0)
 	column.add_theme_constant_override(&"separation", 12)
 	center.add_child(column)
-	var talent: Dictionary = Formulas.roll_talent(Balance.values, randf() * 100.0, randf())
-	_grade = talent["grade"]
-	_apt = talent["apt"]
+	_decide_talent()
 	_family = DataRegistry.gu_system().start_families[0]
 	_build(column)
 	_refresh()
+
+
+## Im Startmenü festgelegtes Talent gilt; sonst entscheidet der Wurf. „Durchbrochen“ bringt eine Extreme Physique.
+func _decide_talent() -> void:
+	if GameState.talent_grade != &"":
+		_grade = GameState.talent_grade
+		_apt = GameState.apt
+		_physique = GameState.physique
+	else:
+		var talent: Dictionary = Formulas.roll_talent(Balance.values, randf() * 100.0, randf())
+		_grade = talent["grade"]
+		_apt = talent["apt"]
+	if _grade == PhysiqueEffects.GRADE and _physique == &"":
+		_physique = PhysiqueEffects.roll()
 
 
 func _build(column: VBoxContainer) -> void:
@@ -45,6 +58,10 @@ func _build(column: VBoxContainer) -> void:
 	column.add_child(UiTheme.label(tr("Der Klanlehrer legt dir die Hand auf den Bauch. Ein Lichtstrahl sinkt in dich – deine Apertur öffnet sich."), 18, UiTheme.MUTED))
 	column.add_child(UiTheme.label(tr("Talenttest: Grad %s (%d %%)") % [_grade, roundi(_apt)], 28, progression.talent_colors.get(_grade, UiTheme.ACCENT)))
 	column.add_child(UiTheme.label(tr(progression.talent_flavor.get(_grade, "")), 17, UiTheme.MUTED))
+	if _physique != &"":
+		var physique: PhysiqueData = progression.physique(_physique)
+		column.add_child(UiTheme.label("%s (%s)" % [tr(physique.display_name), tr(physique.path_label)], 24, progression.talent_colors.get(_grade, UiTheme.ACCENT)))
+		column.add_child(UiTheme.label(" · ".join(PhysiqueEffects.effect_lines(_physique)), 16, UiTheme.MUTED))
 	column.add_child(UiTheme.label(tr("Wähle deinen ersten Gu"), 24, UiTheme.ACCENT))
 	var families := GridContainer.new()
 	families.columns = 2
@@ -77,7 +94,7 @@ func _refresh() -> void:
 
 ## Wahl bestätigen (auch für Tests): Kindheit endet mit gewähltem Gu und gewürfeltem Talent.
 func confirm() -> void:
-	awakened.emit(_family, _grade, _apt)
+	awakened.emit(_family, _grade, _apt, _physique)
 	closed.emit()
 	queue_free()
 

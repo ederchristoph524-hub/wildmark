@@ -19,6 +19,10 @@ func run(scene_tree: SceneTree) -> void:
 	tree.root.add_child(main)
 	await _frames(20)
 	await _shot("01_startmenue")
+	main._start_menu._choose_talent(PhysiqueEffects.GRADE)
+	main._start_menu._choose_physique(&"ice")
+	await _frames(5)
+	await _shot("01b_startmenue_extrem")
 	EventBus.new_game_requested.emit({"first_family": &"flamme", "talent_grade": &"B", "apt": 72.0, "death_mode": &"standard"})
 	await _frames(90)
 	await _shot("02_lager")
@@ -82,6 +86,9 @@ func _shoot_childhood() -> void:
 	await _frames(20)
 	await _shot("08_kindheit")
 	GameState.childhood_step = Childhood.STEPS.size() - 1
+	GameState.talent_grade = PhysiqueEffects.GRADE
+	GameState.apt = 100.0
+	GameState.physique = &"lightning"
 	EventBus.awakening_requested.emit()
 	await _frames(10)
 	await _shot("09_erwachen")

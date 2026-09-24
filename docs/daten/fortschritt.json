@@ -159,7 +159,8 @@
    "apply": "[fn] ()=>{P.spPerLvl=2}"
   },
   "metal": {
-   "n": "Metall-Physique (Name laut Fan-Konsens)",
+   "n": "Metall-Physique",
+   "hinweis": "Name laut Fan-Konsens",
    "path": "Metall",
    "d": "+12 Schaden, 30 % Krit.",
    "apply": "[fn] ()=>{P.cultDmg+=12;P.physCrit=.3}"

@@ -15,6 +15,21 @@ static func can_eat_stone(player: Player) -> bool:
 	return true
 
 
+## Körper-Gu, Hilfs-Gu und Extreme Physique auf die Figur übertragen (Schaden, Leben, Schutz, Tarnung, Licht, Heilung, Immunität).
+static func apply_passives(player: Player, delta: float) -> void:
+	player.flat_damage = PassiveGu.body(&"grundschaden")
+	player.aggro_mult = PassiveGu.mult("aggro_mult")
+	var body_reduction: float = -PassiveGu.body(&"schaden_erlitten")
+	if body_reduction > 0.0:
+		player.reductions[&"body"] = body_reduction
+	player.health.max_hp = player.max_hp_now()
+	player.status.immune = PhysiqueEffects.immune_statuses()
+	var regen: float = PassiveGu.add("hp_regen")
+	if regen > 0.0 and player.health.hp < player.health.max_hp:
+		player.heal(regen * delta)
+	PlayerLight.update(player, PassiveGu.flag("light") and Formulas.is_night(Balance.values, GameState.time_of_day))
+
+
 static func finish_eating(player: Player) -> void:
 	if GameState.take_item(Player.STONE_ITEM, 1):
 		player.aperture.gain(player.aperture.capacity() * Balance.values.stone_essence_fraction)

@@ -79,7 +79,7 @@ func harvest_hit(_player: Node3D) -> void:
 	if _hits < maxi(1, HITS_NEEDED + roundi(PassiveGu.add("harvest_hits"))):
 		return
 	_hits = 0
-	Pickup.spawn(get_tree(), global_position + Vector3(0, 1.2, 0), {item: amount})
+	Pickup.spawn(get_tree(), global_position + Vector3(0, 1.2, 0), {item: roundi(amount * PassiveGu.mult("harvest_mult"))})
 	_regrow = REGROW_TIME
 	_refresh()
 

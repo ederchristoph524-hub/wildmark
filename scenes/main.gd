@@ -15,6 +15,7 @@ var _menu_layer: CanvasLayer = null
 var _start_menu: StartMenu = null
 var _overlay: Control = null
 var _autosave: float = 0.0
+var _loading: bool = false
 
 
 func _ready() -> void:
@@ -42,6 +43,8 @@ func show_start_menu() -> void:
 
 
 func _on_new_game(options: Dictionary) -> void:
+	if not await _show_loading():
+		return
 	GameState.reset(options)
 	_start_session()
 	if Childhood.is_child():
@@ -61,6 +64,9 @@ func _give_start_kit() -> void:
 	GameState.add_item(family.feed_item, family.feed_amount * START_FEEDINGS)
 	var progression: ProgressionData = DataRegistry.progression()
 	EventBus.message.emit(tr("Deine Apertur ist erwacht: Talent %s (%d %%).") % [GameState.talent_grade, roundi(GameState.apt)], progression.talent_colors.get(GameState.talent_grade, UiTheme.ACCENT))
+	var physique: PhysiqueData = PhysiqueEffects.current()
+	if physique != null:
+		EventBus.message.emit(tr("Extreme Physique: %s – Himmel und Erde werden auf dich aufmerksam.") % tr(physique.display_name), progression.talent_colors.get(GameState.talent_grade, UiTheme.ACCENT))
 	EventBus.message.emit(tr("Dein erster Gu: %s. Wilde Gu leuchten irgendwo im Dschungel.") % tr(family.member_for_rank(1).display_name), UiTheme.ACCENT)
 
 
@@ -71,8 +77,8 @@ func _on_awakening() -> void:
 
 
 ## Ende der Kindheit: Talent und erster Gu stehen fest; dessen wilder Artgenosse verschwindet aus der Welt.
-func _on_awakened(first_family: StringName, grade: StringName, apt: float) -> void:
-	Childhood.finish(first_family, grade, apt)
+func _on_awakened(first_family: StringName, grade: StringName, apt: float, physique: StringName) -> void:
+	Childhood.finish(first_family, grade, apt, physique)
 	var spot: StringName = StringName("wild_" + String(first_family))
 	for node: Node in get_tree().get_nodes_in_group(Player.GROUP_INTERACTABLES):
 		if node is WildGu and (node as WildGu).spot_id == spot:
@@ -83,6 +89,8 @@ func _on_awakened(first_family: StringName, grade: StringName, apt: float) -> vo
 
 
 func _on_continue() -> void:
+	if not await _show_loading():
+		return
 	if not SaveSystem.load_game():
 		EventBus.message.emit(tr("Spielstand konnte nicht geladen werden"), UiTheme.DANGER)
 		return
@@ -90,7 +98,30 @@ func _on_continue() -> void:
 	EventBus.message.emit(tr("Willkommen zurück, Tag %d.") % GameState.day, UiTheme.ACCENT)
 
 
+## Ladebildschirm, bevor die Welt gebaut wird (am Handy dauert das einige Sekunden; ohne Hinweis wirkt das Spiel eingefroren).
+## Liefert false, wenn schon geladen wird (doppeltes Tippen).
+func _show_loading() -> bool:
+	if _loading:
+		return false
+	_loading = true
+	var overlay := ColorRect.new()
+	overlay.color = Color(0.03, 0.06, 0.05)
+	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var label: Label = UiTheme.label(tr("Die Welt entsteht …"), 28, UiTheme.ACCENT)
+	label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	overlay.add_child(label)
+	_menu_layer.add_child(overlay)
+	# Zwei Frames, damit der Hinweis wirklich gezeichnet ist, bevor der Aufbau den Hauptthread blockiert.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_loading = false
+	return true
+
+
 func _start_session() -> void:
+	var started_ms: int = Time.get_ticks_msec()
 	_end_session()
 	world = World.new()
 	add_child(world)
@@ -106,6 +137,7 @@ func _start_session() -> void:
 	GameState.active = true
 	_autosave = Balance.values.autosave_interval
 	get_tree().paused = false
+	print("Welt aufgebaut in %d ms" % (Time.get_ticks_msec() - started_ms))
 
 
 func _end_session() -> void:

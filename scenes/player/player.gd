@@ -35,7 +35,7 @@ var _reactive: Dictionary[StringName, Dictionary] = {}
 func _ready() -> void:
 	display_name = tr("Du")
 	body_radius = 0.4
-	_init_combatant(TEAM_PLAYER, _max_hp(), GameState.hp if GameState.hp > 0.0 else -1.0)
+	_init_combatant(TEAM_PLAYER, max_hp_now(), GameState.hp if GameState.hp > 0.0 else -1.0)
 	add_to_group(GROUP_PLAYER)
 	var shape := CollisionShape3D.new()
 	var capsule := CapsuleShape3D.new()
@@ -64,7 +64,7 @@ func _ready() -> void:
 	EventBus.breakthrough_attempted.connect(func(_ok: bool, rank: int) -> void: model.set_rank_color(DataRegistry.progression().rank_color(rank)))
 
 
-func _max_hp() -> float:
+func max_hp_now() -> float:
 	return Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
 
 
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if is_dead():
 		return
 	_update_timers(delta)
-	_apply_passives()
+	PlayerActions.apply_passives(self, delta)
 	targeting.view_forward = camera_rig.flat_forward()
 	var move_input: Vector2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back") if input_enabled else Vector2.ZERO
 	var wish: Vector3 = camera_rig.flat_right() * move_input.x - camera_rig.flat_forward() * move_input.y
@@ -102,7 +102,7 @@ func _update_timers(delta: float) -> void:
 func _move(delta: float, wish: Vector3) -> void:
 	var b: BalanceData = Balance.values
 	var busy: bool = killer.is_channeling() or eat_time_left > 0.0 or aperture.meditating
-	var speed: float = b.walk_speed * status.speed_multiplier() * (0.0 if busy else 1.0)
+	var speed: float = b.walk_speed * status.speed_multiplier() * PassiveGu.mult("move_speed_mult") * (0.0 if busy else 1.0)
 	if _dash_time > 0.0:
 		_dash_time -= delta
 		velocity.x = _dash_direction.x * b.dash_speed
@@ -214,6 +214,7 @@ func fist() -> void:
 	var forward: Vector3 = aim_direction() if targeting.soft_target != null else _facing
 	_face(forward)
 	var hit := HitInfo.create(b.player_base_damage + GameState.bonus_damage + flat_damage, self, team)
+	PhysiqueEffects.decorate_hit(hit, self)
 	hit.is_fist = true
 	hit.can_react = false
 	var targets: Array[Combatant] = Combat.in_cone(Combat.hostiles(get_tree(), team), global_position, forward, b.fist_range, FIST_ANGLE)
@@ -318,17 +319,6 @@ func nearest_interactable() -> Node3D:
 	return WorldInteraction.nearest(self, GROUP_INTERACTABLES, INTERACT_RANGE)
 
 
-## Körper- und Hilfs-Gu auf die Figur übertragen (Schaden, Leben, Schutz, Tarnung, Licht).
-func _apply_passives() -> void:
-	flat_damage = PassiveGu.body(&"grundschaden")
-	aggro_mult = PassiveGu.mult("aggro_mult")
-	var body_reduction: float = -PassiveGu.body(&"schaden_erlitten")
-	if body_reduction > 0.0:
-		reductions[&"body"] = body_reduction
-	health.max_hp = _max_hp()
-	PlayerLight.update(self, PassiveGu.flag("light") and Formulas.is_night(Balance.values, GameState.time_of_day))
-
-
 func _face(direction: Vector3) -> void:
 	var flat: Vector3 = Vector3(direction.x, 0.0, direction.z)
 	if flat.length() > 0.05:
@@ -361,6 +351,7 @@ func _after_hit(hit: HitInfo, dealt: float) -> void:
 	var attacker: Combatant = hit.source as Combatant
 	if attacker == null or attacker.is_dead():
 		return
+	PhysiqueEffects.thorns(self, attacker)
 	if _reactive.has(&"thorns"):
 		var thorn := HitInfo.create(float(_reactive[&"thorns"]["value"]), self, team).with_tags([&"durchbohren", &"schnitt"])
 		Projectile.launch(get_tree(), aim_point(), thorn, (attacker.aim_point() - aim_point()).normalized(), {"range": 16.0, "color": KillerMoveEffects.COLOR_BONE})
@@ -382,7 +373,7 @@ func _die() -> void:
 func respawn(at: Vector3) -> void:
 	_dead = false
 	status.clear_negative()
-	health.max_hp = _max_hp()
+	health.max_hp = max_hp_now()
 	health.hp = health.max_hp
 	global_position = at
 	velocity = Vector3.ZERO

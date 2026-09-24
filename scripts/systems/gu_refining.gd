@@ -39,7 +39,8 @@ static func essence_cost(gu: Resource) -> float:
 
 
 static func chance(gu: Resource) -> float:
-	return Formulas.refine_chance(Balance.values, rank_of(gu), GameState.rank, GameState.apt)
+	var b: BalanceData = Balance.values
+	return minf(Formulas.refine_chance(b, rank_of(gu), GameState.rank, GameState.apt) + PassiveGu.add("refine_bonus"), b.refine_max)
 
 
 ## Körper-Gu werden eingeprägt und belegen keinen Platz.

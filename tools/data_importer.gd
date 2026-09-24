@@ -156,7 +156,7 @@ func _print_counts(built: Dictionary) -> void:
 	var system: GuSystemData = built["gu_system"]
 	print("  %-13s %3d Tags, %d Start-Familien, %d Pfade" % ["Gu-System:", system.tags.size(), system.start_families.size(), system.path_names.size()])
 	var progression: ProgressionData = built["progression"]
-	print("  %-13s %3d Ränge, %d Stufen, %d Talentgrade" % ["Fortschritt:", progression.rank_names.size() - 1, progression.stage_names.size(), progression.rank_cap.size()])
+	print("  %-13s %3d Ränge, %d Stufen, %d Talentgrade, %d Extreme Physiques" % ["Fortschritt:", progression.rank_names.size() - 1, progression.stage_names.size(), progression.rank_cap.size(), progression.physiques.size()])
 
 
 func _finish(ok: bool) -> bool:

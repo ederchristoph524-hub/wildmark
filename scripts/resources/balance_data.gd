@@ -278,6 +278,29 @@ extends Resource
 @export var despawn_distance: float = 70.0
 @export var pickup_radius: float = 1.6
 
+@export_group("Zehn Extreme Physiques")
+## Extreme Physiques verfeinern ihre Aperturwand von selbst: Anteil der Meditationsgeschwindigkeit, ohne Essenz zu verbrauchen.
+@export var physique_auto_wall: float = 0.2
+## Gu der zugehörigen Familien wirken so viel stärker („massive Verstärkung ihres Pfades“).
+@export var physique_path_power: float = 1.3
+@export var physique_crit_mult: float = 1.75
+## Wirkung je Physique (ID aus fortschritt.json PHYS). Schlüssel wie bei Körper- und Hilfs-Gu:
+## grundschaden, max_hp, schaden_erlitten (negativ = weniger), cooldown_mult, essence_cost_mult, hunger_mult,
+## move_speed_mult, insight_mult (Faktoren); hp_regen (/s), capacity_add, refine_bonus, crit_chance, thorns (Zuschläge);
+## immune (Zustände), on_hit_status (Zustand bei jedem Treffer), families (Pfad-Verstärkung).
+@export var physique_rules: Dictionary[StringName, Dictionary] = {
+	&"strength": {"families": [&"wirbel"], "grundschaden": 5.0, "max_hp": 50.0},
+	&"wisdom": {"families": [], "insight_mult": 2.5, "refine_bonus": 0.15},
+	&"dream": {"families": [], "essence_cost_mult": 0.6},
+	&"moon": {"families": [&"mondlicht"], "cooldown_mult": 0.5},
+	&"ice": {"families": [&"frost", &"sklaverei"], "schaden_erlitten": -0.3, "immune": [&"gift", &"brand"]},
+	&"forest": {"families": [&"blatt"], "hp_regen": 2.5, "harvest_mult": 2.0},
+	&"lightning": {"families": [&"flamme", &"blitz"], "move_speed_mult": 1.3, "on_hit_status": &"brand"},
+	&"earth": {"families": [&"haut"], "max_hp": 120.0, "thorns": 6.0},
+	&"universe": {"families": [&"schritt"], "capacity_add": 4.0, "hunger_mult": 0.5},
+	&"metal": {"families": [&"haut"], "grundschaden": 6.0, "crit_chance": 0.3},
+}
+
 @export_group("Slots im Kampf")
 ## Im Kampf: Gegner näher als combat_radius oder Treffer/Gu-Einsatz vor weniger als combat_linger Sekunden.
 @export var combat_radius: float = 12.0
