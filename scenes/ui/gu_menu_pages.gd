@@ -85,10 +85,11 @@ static func combo_page() -> Control:
 	for resource: Resource in DataRegistry.all(&"killer_moves"):
 		var move: KillerMoveData = resource as KillerMoveData
 		var names: String = "%s + %s" % [Loc.t(DataRegistry.family(move.family_a).display_name), Loc.t(DataRegistry.family(move.family_b).display_name)]
+		var tier: String = "" if move.min_rank <= 1 else Loc.t(" · ab Rang %d") % move.min_rank
 		if GameState.knows_killer_move(move.id):
-			column.add_child(UiTheme.label("%s  (%s)\n%s" % [Loc.t(move.display_name), names, Loc.t(move.description)], 17))
+			column.add_child(UiTheme.label("%s  (%s%s)\n%s" % [Loc.t(move.display_name), names, tier, Loc.t(move.description)], 17))
 		else:
-			column.add_child(UiTheme.label("???  – %s" % Loc.t(move.hint), 17, UiTheme.MUTED))
+			column.add_child(UiTheme.label("???  – %s%s" % [Loc.t(move.hint), tier], 17, UiTheme.MUTED))
 	column.add_child(UiTheme.label(Loc.t("Reaktionen"), 22, UiTheme.ACCENT))
 	for resource: Resource in DataRegistry.all(&"reactions"):
 		var reaction: ReactionData = resource as ReactionData
@@ -112,6 +113,14 @@ static func inventory_page(player: Player, refresh: Callable) -> Control:
 		var text: Label = UiTheme.label("%s × %d  %s" % [Loc.t(item.display_name) if item != null else String(id), GameState.item_count(id), Loc.t(item.description) if item != null else ""], 18)
 		text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(text)
+		if Relics.is_relic(id):
+			var reason: String = Relics.blocked_reason(id)
+			var on_use: Callable = func() -> void:
+				Relics.use(id, player.aperture)
+				refresh.call()
+			var button: Button = UiTheme.button(Loc.t("Verfeinern (Stufe +1)") if reason == "" else reason, on_use)
+			button.disabled = reason != ""
+			row.add_child(button)
 		if FOOD_HEAL.has(id):
 			var on_eat: Callable = func() -> void:
 				if GameState.take_item(id, 1):

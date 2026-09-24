@@ -150,7 +150,8 @@ func use_gu(index: int, aim: Vector3, foe: Combatant) -> bool:
 	if not caster.cast():
 		return false
 	essence = maxf(0.0, essence - essence_cost(index))
-	gu_list[index].cooldown_left = float(family_of(index).base_r1.get(GuHolderComponent.COOLDOWN_KEY, 1.0))
+	var gift_mult: float = GuGifts.number(gu_data(index), "cd_mult")
+	gu_list[index].cooldown_left = float(family_of(index).base_r1.get(GuHolderComponent.COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0)
 	_update_label()
 	return true
 

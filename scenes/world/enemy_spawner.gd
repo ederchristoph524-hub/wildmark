@@ -107,8 +107,10 @@ func spawn_companion(enemy_id: StringName, at: Vector3, duration: float, owner_c
 		return
 	var companion: Enemy = spawn(data, Vector3(at.x, terrain.height_at(at.x, at.z) + 0.3, at.z))
 	companion.tame.call_deferred(owner_combatant, duration, 99)
-	if power > 1.0:
-		companion.scale_power.call_deferred(power)
+	# Rangstärke des Gu relativ zum eigenen Rang des Wesens (ein Rang-5-Meeresgeist wird nicht noch einmal verstärkt).
+	var relative: float = power / Formulas.gu_rank_pow(Balance.values, data.rank)
+	if relative > 1.0:
+		companion.scale_power.call_deferred(relative)
 
 
 func _despawn(player: Player, night: bool) -> void:

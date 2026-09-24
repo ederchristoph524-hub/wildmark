@@ -112,6 +112,7 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"seelenexplosion", &"sturmgeheul"]),
 "items": {
 &"kristall": 60,
+&"reliquie_weisssilber": 2,
 &"wolfsgeist": 4
 },
 "support": Array[StringName]([&"sterngedanke"])

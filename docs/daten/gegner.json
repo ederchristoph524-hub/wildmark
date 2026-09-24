@@ -454,6 +454,10 @@
     [
      "kristall",
      1
+    ],
+    [
+     "reliquie_rotstahl",
+     0.5
     ]
    ],
    "shape": "boss",
@@ -491,6 +495,10 @@
     [
      "kristall",
      1
+    ],
+    [
+     "reliquie_weisssilber",
+     0.5
     ]
    ],
    "shape": "boss",
@@ -524,6 +532,10 @@
     [
      "kristall",
      1
+    ],
+    [
+     "reliquie_lilakristall",
+     0.5
     ]
    ],
    "shape": "boss",
@@ -557,6 +569,10 @@
     [
      "kristall",
      1
+    ],
+    [
+     "reliquie_gelbgold",
+     0.5
     ]
    ],
    "shape": "boss",
@@ -598,6 +614,10 @@
     [
      "kristall",
      1
+    ],
+    [
+     "reliquie_lilakristall",
+     0.5
     ]
    ],
    "shape": "boss",
@@ -764,6 +784,10 @@
     [
      "fleisch",
      1
+    ],
+    [
+     "reliquie_gruenkupfer",
+     0.08
     ]
    ],
    "shape": "bear",
@@ -823,6 +847,10 @@
     [
      "fell",
      1
+    ],
+    [
+     "reliquie_rotstahl",
+     0.08
     ]
    ],
    "shape": "quad",
@@ -1145,6 +1173,10 @@
     ],
     [
      "heldenherz",
+     0.1
+    ],
+    [
+     "reliquie_lilakristall",
      0.1
     ]
    ],

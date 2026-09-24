@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dssybbk3nx0pi"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_r663l"]
+
+[resource]
+script = ExtResource("1_r663l")
+id = &"reliquie_rotstahl"
+display_name = "Rotstahl-Relikt-Gu"
+icon = "🪲"
+category = &"material"
+rank = 2
+path = &"raffinerie"
+source = "Erbschaften, Bestienkönige, Auktionen"
+description = "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."

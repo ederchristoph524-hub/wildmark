@@ -112,7 +112,8 @@ places = Array[Dictionary]([{
 "items": {
 &"drachenschuppe": 3,
 &"heldenherz": 1,
-&"kristall": 80
+&"kristall": 80,
+&"reliquie_gelbgold": 2
 },
 "support": Array[StringName]([])
 },

@@ -243,7 +243,8 @@
       ],
       "items": {
        "kristall": 15,
-       "gruenkraut": 6
+       "gruenkraut": 6,
+       "reliquie_gruenkupfer": 1
       }
      },
      "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter."
@@ -416,6 +417,55 @@
      120,
      210,
      true
+    ],
+    [
+     "schwarzeber",
+     "body",
+     90,
+     170,
+     false
+    ],
+    [
+     "weisseber",
+     "body",
+     110,
+     190,
+     false
+    ],
+    [
+     "jadehaut",
+     "body",
+     130,
+     210,
+     true
+    ],
+    [
+     "schlammkroete",
+     "body",
+     80,
+     150,
+     false
+    ],
+    [
+     "reisbeutel",
+     "support",
+     70,
+     150,
+     false
+    ],
+    [
+     "fussspur",
+     "support",
+     90,
+     170,
+     false
+    ],
+    [
+     "brise",
+     "support",
+     100,
+     200,
+     true
     ]
    ]
   },
@@ -499,7 +549,8 @@
       ],
       "items": {
        "kristall": 25,
-       "blutkoralle": 1
+       "blutkoralle": 1,
+       "reliquie_rotstahl": 1
       }
      },
      "text": "Der erste der drei Könige trank das Blut seiner Feinde. Sein Erbe prüft, ob du bluten kannst."
@@ -531,7 +582,8 @@
       "items": {
        "jadeader": 2,
        "kristall": 30,
-       "erdkern": 3
+       "erdkern": 3,
+       "reliquie_rotstahl": 1
       }
      },
      "text": "Der zweite König war aus Stein geboren. Seine Affen bewachen ihn noch heute."
@@ -565,7 +617,8 @@
       ],
       "items": {
        "wolfsgeist": 2,
-       "kristall": 30
+       "kristall": 30,
+       "reliquie_rotstahl": 1
       }
      },
      "text": "Der dritte König ritt auf einem Blitzwolf. Sein Rudel ist nie gestorben."
@@ -943,7 +996,8 @@
       ],
       "items": {
        "klingenstahl": 3,
-       "kristall": 40
+       "kristall": 40,
+       "reliquie_weisssilber": 1
       }
      },
      "text": "Ein Klingenmeister verkaufte der Shang-Stadt seine Seele und behielt seine Schwerter."
@@ -976,7 +1030,8 @@
       ],
       "items": {
        "blutkoralle": 2,
-       "kristall": 30
+       "kristall": 30,
+       "reliquie_weisssilber": 1
       }
      },
      "text": "Drei Krokodile teilen sich ein Nest aus Knochen – und aus Gu."
@@ -1351,7 +1406,8 @@
       "items": {
        "drachenschuppe": 3,
        "heldenherz": 1,
-       "kristall": 80
+       "kristall": 80,
+       "reliquie_gelbgold": 2
       }
      },
      "text": "Der Wu-Klan hat diesen Drachen nie besiegt – nur eingesperrt."
@@ -1689,7 +1745,8 @@
       ],
       "items": {
        "wolfsgeist": 4,
-       "kristall": 60
+       "kristall": 60,
+       "reliquie_weisssilber": 2
       }
      },
      "text": "Wenn die Wolfsflut kommt, flieht die Steppe. Ihr Fürst wacht über die Beute ganzer Stämme."
@@ -1956,11 +2013,11 @@
      "haeuser": 20,
      "farben": {
       "dach": "#b8864e",
-      "wand": "#d9b98a",
+      "wand": "#c8a276",
       "holz": "#6a4a2e",
       "saeule": "#c8a060",
       "banner": "#3a6ab0",
-      "stein": "#b09a78"
+      "stein": "#a08a68"
      },
      "bewohner": "wueste",
      "teich": 9
@@ -2017,7 +2074,8 @@
       "items": {
        "wuestenrose": 3,
        "sternsand": 2,
-       "kristall": 60
+       "kristall": 60,
+       "reliquie_gelbgold": 1
       }
      },
      "text": "Unter dem Sand schläft ein Tempel. Wer ihn weckt, weckt auch seine Wächter."
@@ -2390,7 +2448,8 @@
        "tiefseeperle": 3,
        "heldenherz": 1,
        "urkristall": 1,
-       "kristall": 100
+       "kristall": 100,
+       "reliquie_lilakristall": 1
       }
      },
      "text": "Die Hohe Flut kommt aus dieser Grotte. Der Seekönig lässt niemanden hinein – und niemanden hinaus."
@@ -2666,7 +2725,8 @@
       "items": {
        "heldenherz": 2,
        "urkristall": 2,
-       "kristall": 120
+       "kristall": 120,
+       "reliquie_lilakristall": 1
       }
      },
      "text": "Nur wer die Bestien der Prüfung bezwingt, darf sich unter die Schüler der Zehn Extreme stellen."

@@ -28,6 +28,11 @@ script = ExtResource("1_5aqm1")
 item = &"kristall"
 chance = 1.0
 
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_5aqm1")
+item = &"reliquie_weisssilber"
+chance = 0.5
+
 [resource]
 script = ExtResource("2_mj0yg")
 id = &"steinkoenig"
@@ -40,7 +45,7 @@ radius = 1.1
 color = Color(0.5411765, 0.5411765, 0.6039216, 1)
 zone = 9
 rank = 3
-drops = Array[ExtResource("1_5aqm1")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+drops = Array[ExtResource("1_5aqm1")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
 shape = &"boss"
 behavior = &"boss"
 armored = true

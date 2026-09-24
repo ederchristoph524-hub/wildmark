@@ -60,7 +60,8 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"blutmond", &"knochenring"]),
 "items": {
 &"blutkoralle": 1,
-&"kristall": 25
+&"kristall": 25,
+&"reliquie_rotstahl": 1
 },
 "support": Array[StringName]([])
 },
@@ -84,7 +85,8 @@ places = Array[Dictionary]([{
 "items": {
 &"erdkern": 3,
 &"jadeader": 2,
-&"kristall": 30
+&"kristall": 30,
+&"reliquie_rotstahl": 1
 },
 "support": Array[StringName]([])
 },
@@ -107,6 +109,7 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"allout", &"wolfsseele"]),
 "items": {
 &"kristall": 30,
+&"reliquie_rotstahl": 1,
 &"wolfsgeist": 2
 },
 "support": Array[StringName]([&"vierwein"])

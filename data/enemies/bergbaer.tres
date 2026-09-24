@@ -18,6 +18,11 @@ script = ExtResource("1_p4f7r")
 item = &"fleisch"
 chance = 1.0
 
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_p4f7r")
+item = &"reliquie_gruenkupfer"
+chance = 0.08
+
 [resource]
 script = ExtResource("2_7cfvb")
 id = &"bergbaer"
@@ -40,5 +45,5 @@ ability = [{
 }]
 ability_range = 3.0
 ability_cooldown = 7.0
-drops = Array[ExtResource("1_p4f7r")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+drops = Array[ExtResource("1_p4f7r")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
 shape = &"bear"

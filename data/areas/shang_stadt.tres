@@ -95,7 +95,8 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"schwertschatten", &"blutguillotine"]),
 "items": {
 &"klingenstahl": 3,
-&"kristall": 40
+&"kristall": 40,
+&"reliquie_weisssilber": 1
 },
 "support": Array[StringName]([&"sofortigererfolg"])
 },
@@ -118,7 +119,8 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"gluehwuermchen"]),
 "items": {
 &"blutkoralle": 2,
-&"kristall": 30
+&"kristall": 30,
+&"reliquie_weisssilber": 1
 },
 "support": Array[StringName]([])
 },

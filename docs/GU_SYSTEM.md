@@ -62,7 +62,7 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Ladung | bei 3 Stapeln Entladung: 25 Schaden im Umkreis 2 und 0,5 s Betäubung |
 | Gift | 2 Schaden/s pro Stapel, 8 s, halbiert Heilung |
 | Wunde | nächster Treffer +30 %; Blut-Gu heilen an verwundeten Zielen |
-| Blutung | 3 Schaden/s pro Stapel, 6 s; Blut-Gu heilen an blutenden Zielen |
+| Blutung | 2 Schaden/s pro Stapel (max. 3), 6 s; Blut-Gu heilen an blutenden Zielen |
 | Schwäche | +15 % erlittener Schaden pro Stapel, 6 s |
 | Verwurzelt | kann sich 2,5 s nicht bewegen (angreifen schon) |
 | Furcht | flieht 3 s vor dem Angreifer und greift nicht an |
@@ -80,7 +80,7 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Schlammgrube | Erde → Nass | Ziel versinkt im Schlamm: 2,5 s verwurzelt |
 | Giftsturm | Wind → Gift | Gift weht auf alle Ziele im Umkreis 4 |
 | Seelenbruch | Seele → Furcht | ×2 Schaden gegen verängstigte Ziele |
-| Aderlass | Blut → Blutung | ×1,4 Schaden, der Angreifer heilt 30 % davon |
+| Aderlass | Blut → Blutung | ×1,2 Schaden, der Angreifer heilt 20 % davon |
 | Sternenfall | Stern → Schwaeche | ×1,8 Schaden gegen geschwächte Ziele |
 | Donnerschlag | Klang → Ladung | Ladung entlädt sich sofort: 1,5 s betäubt |
 | Splitterbruch | Metall → Eingefroren | ×2 Schaden, Splitter verursachen Blutung |
@@ -105,8 +105,8 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Flamme | Feuer | Geschoss (explodierend) | Glutfunken-Gu | Flammenzungen-Gu (Explosionsradius +1 m) | Feuerlotus-Gu (Hinterlässt 4 s brennenden Boden) | Phönixfeder-Gu (Drei Feuerbälle im Fächer) | Drachenatem-Gu (Jeder Aufschlag entfacht einen Flächenbrand (Radius 5)) |
 | Strömung | Wasser | Strahl | Wasserlicht-Gu | Wasserbohrer-Gu (Durchbohrt alle Ziele auf der Linie) | Flutdrachen-Gu (Breiter Strahl mit Rückstoß, hinterlässt Wasserfläche) | Gezeitenstrahl-Gu (Sehr breiter Strahl, betäubt 0,6 s) | Meeresdrachen-Gu (Eine zweite, gewaltige Welle folgt) |
 | Blitz | Blitz | Geschoss (schnell) | Funkenwurm-Gu | Blauplasma-Gu (Ignoriert Rüstung) | Kettenblitz-Gu (Springt auf bis zu 3 weitere Ziele) | Donnerwolf-Gu (Springt auf 3 weitere Ziele, jeder Treffer betäubt 0,3 s) | Himmelsdonner-Gu (Einschlag ruft einen Donnerschlag (Radius 3,5, doppelte Ladung)) |
-| Frost | Eis | Geschoss | Frostnadel-Gu | Eisvogel-Gu (Trifft mit 2 Frost-Stapeln) | Frostnova-Gu (Wird zum Kreis um dich (Radius 3)) | Schneeball-Gu (Frostkreis Radius 5 und ein Eisfeld, das verlangsamt) | Frostdämon-Gu (Friert alles im Umkreis 7 sofort ein) |
-| Gift | Gift | Stich | Stachelwurm-Gu | Giftskorpion-Gu (Gift springt beim Tod des Ziels über) | Giftnebel-Gu (Wird zur Giftwolke (Zone, Radius 3)) | Schwarzpfeil-Gu (Acht zielsuchende Giftpfeile) | Jadehimmel-Gu (Riesige Giftzone (Radius 6, 8 s, doppelte Stapel)) |
+| Frost | Eis | Geschoss | Frostnadel-Gu | Eisvogel-Gu (Trifft mit 2 Frost-Stapeln) | Frostnova-Gu (Wird zum Kreis um dich (Radius 3)) | Schneeball-Gu (Frostkreis Radius 5 und ein Eisfeld, das verlangsamt; längere Abklingzeit) | Frostdämon-Gu (Frostkreis Radius 7 mit drei Frost-Stapeln (sofort eingefroren) und einem Eisfeld; lange Abklingzeit) |
+| Gift | Gift | Stich | Stachelwurm-Gu | Giftskorpion-Gu (Gift springt beim Tod des Ziels über) | Giftnebel-Gu (Wird zur Giftwolke (Zone, Radius 3); dreifache Abklingzeit) | Schwarzpfeil-Gu (Acht zielsuchende Giftpfeile) | Jadehimmel-Gu (Riesige Giftzone (Radius 6, 8 s, doppelte Stapel)) |
 | Wirbel | Kraft | Kreis | Wirbelwind-Gu | Sogwirbel-Gu (Zieht Gegner vorher zu dir) | Bergschlag-Gu (Bodenschlag, betäubt 1 s) | Erdbeben-Gu (Größerer Wirbel, der 3 s nachzieht) | Berge-Ziehen-Gu (Betäubt 2 s, Radius +1,5) |
 | Knochen | Blut | Geschoss | Blutdorn-Gu | Spiral-Knochenspeer-Gu (Durchbohrt Rüstung vollständig) | Blutschädel-Gu (Heilt dich um die Hälfte des Schadens) | Knochenerweichungs-Gu (Aufschlag schwächt alle im Umkreis 3 (2 Stapel)) | Blutschädel-Kaiser-Gu (Drei Speere, Hinrichtung (+60 % unter 30 % Leben)) |
 | Haut | Metall | Schild | Steinhaut-Gu | Eisenhaut-Gu (Wirft Geschosse zurück) | Uralte-Bronzehaut-Gu (Unbeweglich: kein Rückstoß, keine Betäubung) | Goldglocken-Gu (Dornen: Angreifer werden zurückgestochen) | Schildkrötenjade-Wolfshaut-Gu (Heilt beim Aktivieren 15 % Leben, Dornen bleiben) |
@@ -326,7 +326,13 @@ Beim Erwachen wählt der Spieler seinen ersten Gu aus vier Rang-1-Familien: Mond
 
 ## 11. Balancing-Grundlage
 
-Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kostet 4–8 Essenz; Kontroll-, Fallen- und Beschwörungs-Gu machen weniger Direktschaden, weil ihr Wert in Reaktionen, Kontrolle oder Gefährten liegt. Höhere Ränge skalieren über die Formel und die Ranggabe. Beschworene Wesen erhalten die Rangstärke des Gu als Faktor auf Leben und Schaden.
+Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kostet 4–8 Essenz; Kontroll-, Fallen- und Beschwörungs-Gu machen weniger Direktschaden, weil ihr Wert in Reaktionen, Kontrolle oder Gefährten liegt. Höhere Ränge skalieren über die Formel und die Ranggabe. Leitplanken gegen Ausreißer:
+- **Fächer** (`fan`): jede Klinge trifft mit `min(1, 2,2 / Anzahl)`; Aufschlag-Wirkungen (`impact`) nur an der mittleren Klinge.
+- **Schwarm**: alle Sterne zusammen höchstens 3-facher Grundschaden, **Fallen** zusammen höchstens 2,5-fach.
+- Ranggaben, die eine Wirkform in eine lange Zone oder großen Kreis verwandeln, verlängern die Abklingzeit (`cd_mult`).
+- Beschworene Wesen erhalten die Rangstärke des Gu relativ zu ihrem eigenen Rang (`EnemyData.rank`).
+
+Messen: `godot --headless --fixed-fps 60 --path . --script res://tools/balance_probe.gd` (Spieler je Rang gegen typische Bestien) und mit `-- --solo` (Schaden pro Sekunde jeder Familie je Rang gegen ein stehendes Ziel).
 
 ## 12. Prüfung
 

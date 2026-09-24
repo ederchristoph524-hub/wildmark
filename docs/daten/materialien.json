@@ -305,6 +305,46 @@
    "path": "blitz",
    "src": "Donnerkronen-Wölfe",
    "d": "Das Horn eines Donnerkronen-Wolfs, noch immer geladen."
+  },
+  "reliquie_gruenkupfer": {
+   "n": "Grünkupfer-Relikt-Gu",
+   "ic": "🪲",
+   "rank": 1,
+   "path": "raffinerie",
+   "src": "Erbschaften, Bestienkönige, Auktionen",
+   "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
+  },
+  "reliquie_rotstahl": {
+   "n": "Rotstahl-Relikt-Gu",
+   "ic": "🪲",
+   "rank": 2,
+   "path": "raffinerie",
+   "src": "Erbschaften, Bestienkönige, Auktionen",
+   "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
+  },
+  "reliquie_weisssilber": {
+   "n": "Weißsilber-Relikt-Gu",
+   "ic": "🪲",
+   "rank": 3,
+   "path": "raffinerie",
+   "src": "Erbschaften, Bestienkönige, Auktionen",
+   "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
+  },
+  "reliquie_gelbgold": {
+   "n": "Gelbgold-Relikt-Gu",
+   "ic": "🪲",
+   "rank": 4,
+   "path": "raffinerie",
+   "src": "Erbschaften, Bestienkönige, Auktionen",
+   "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
+  },
+  "reliquie_lilakristall": {
+   "n": "Lilakristall-Relikt-Gu",
+   "ic": "🪲",
+   "rank": 5,
+   "path": "raffinerie",
+   "src": "Erbschaften, Bestienkönige, Auktionen",
+   "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
   }
  },
  "MAT_KEYS": [
@@ -344,7 +384,12 @@
   "klingenstahl",
   "wuestenrose",
   "tiefseeperle",
-  "donnerkrone"
+  "donnerkrone",
+  "reliquie_gruenkupfer",
+  "reliquie_rotstahl",
+  "reliquie_weisssilber",
+  "reliquie_gelbgold",
+  "reliquie_lilakristall"
  ],
  "GEAR": {
   "w1": {

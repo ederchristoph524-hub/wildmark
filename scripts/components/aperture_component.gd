@@ -148,6 +148,15 @@ func _auto_refine(delta: float) -> void:
 		_stage_up()
 
 
+## Relikt-Gu: verfeinert die Aperturwand sofort um eine Stufe (nicht über die Höchststufe hinaus).
+func instant_stage() -> bool:
+	if GameState.stage >= Balance.values.max_stage:
+		return false
+	GameState.wall = 0.0
+	_stage_up()
+	return true
+
+
 func _stage_up() -> void:
 	var b: BalanceData = Balance.values
 	GameState.stage += 1

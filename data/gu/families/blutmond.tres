@@ -101,11 +101,11 @@ status = &"blutung"
 feed_item = &"fleisch"
 feed_amount = 2
 base_r1 = Dictionary[StringName, Variant]({
-&"cd": 1.8,
+&"cd": 2.2,
 &"ess": 0.0,
 &"hp_kosten": 2.0,
 &"reichweite": 13.0,
-&"schaden": 15.0,
+&"schaden": 12.0,
 &"stapel": 1.0
 })
 members = Array[ExtResource("1_hnfpr")]([SubResource("gu_blutstropfen"), SubResource("gu_blutmond"), SubResource("gu_blutguillotine"), SubResource("gu_blutrausch"), SubResource("gu_blutrasend")])

@@ -218,6 +218,8 @@ func _on_travel(area_id: StringName) -> void:
 		GameState.day += 1
 	_start_session()
 	GameState.rest_point = GameState.position
+	if target.display_name not in GameState.visited_areas:
+		GameState.visited_areas.append(target.display_name)
 	if crossing:
 		var region: RegionData = DataRegistry.region(world.area.region)
 		EventBus.message.emit(tr("Du durchquerst die %s – deine Gu zittern unter dem fremden Qi.") % tr(region.wall_name), region.wall_color)

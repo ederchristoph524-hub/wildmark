@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bnriu51jev11i"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_y0phd"]
+
+[resource]
+script = ExtResource("1_y0phd")
+id = &"dk_woelfe"
+display_name = "Die Rudel der drei Könige"
+description = "Erlege 25 Bestien rund um das Jägerlager."
+reward_points = 2
+rule = {
+"area": "",
+"count": 25,
+"item": &"",
+"reward": {
+&"kristall": 15,
+&"reliquie_rotstahl": 1,
+&"wolfsgeist": 1
+},
+"type": &"kills"
+}

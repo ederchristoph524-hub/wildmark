@@ -23,6 +23,11 @@ script = ExtResource("1_hlrp8")
 item = &"kristall"
 chance = 1.0
 
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_hlrp8")
+item = &"reliquie_lilakristall"
+chance = 0.5
+
 [resource]
 script = ExtResource("2_scr2t")
 id = &"seekoenig"
@@ -35,7 +40,7 @@ radius = 1.1
 color = Color(0.16470589, 0.5411765, 0.7882353, 1)
 zone = 9
 rank = 5
-drops = Array[ExtResource("1_hlrp8")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+drops = Array[ExtResource("1_hlrp8")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
 shape = &"boss"
 behavior = &"boss"
 minion = &"bat"

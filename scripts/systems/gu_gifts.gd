@@ -4,7 +4,7 @@ extends RefCounted
 ## seiner Familie bis zu seinem Rang. Listen und Objekte (Wirkungsschritte) ersetzt der höhere Rang.
 
 ## Zahlen, die ein höherer Rang ersetzt statt addiert (sonst summieren sich Zahlen über die Ränge).
-const OVERRIDE_KEYS: Array[String] = ["fan_angle", "as_circle", "teleport", "chain_radius", "width_mult", "orbit_speed"]
+const OVERRIDE_KEYS: Array[String] = ["fan_angle", "as_circle", "teleport", "chain_radius", "width_mult", "orbit_speed", "cd_mult"]
 
 static var _cache: Dictionary = {}
 

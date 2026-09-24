@@ -4,7 +4,6 @@ extends Node3D
 ## Opfergabe → Wächter erwachen → sind alle besiegt, gibt das Erbe seine Gu (als wilde Gu zum Verfeinern) und Schätze frei.
 
 const ROCK: Color = Color(0.42, 0.4, 0.37)
-const ROCK_DARK: Color = Color(0.3, 0.29, 0.27)
 const SEAL: Color = Color(0.85, 0.7, 0.35)
 const CAVE: Color = Color(0.05, 0.04, 0.04)
 const GUARD_DISTANCE: float = 7.0
@@ -40,11 +39,14 @@ func _build_rocks() -> void:
 	var b := MeshBuilder.new()
 	var rng := RandomNumberGenerator.new()
 	rng.seed = String(data["id"]).hash()
+	var world: World = get_parent() as World
+	var rock: Color = world.biome.color(&"fels", ROCK) if world != null else ROCK
+	var rock_dark: Color = rock.darkened(0.28)
 	for i: int in 9:
 		var angle: float = PI + (i - 4) * 0.33
 		var offset := Vector3(cos(angle) * 3.2, 0.0, sin(angle) * 2.4 - 1.2)
-		b.add(MeshBuilder.sphere(rng.randf_range(1.6, 2.4), 7, 4), MeshBuilder.at(offset + Vector3(0, 1.2, 0), Vector3(1.0, rng.randf_range(1.2, 1.8), 1.0)), ROCK if i % 2 == 0 else ROCK_DARK)
-	b.add(MeshBuilder.sphere(3.0, 8, 4), MeshBuilder.at(Vector3(0, 2.6, -2.6), Vector3(1.4, 1.2, 1.0)), ROCK)
+		b.add(MeshBuilder.sphere(rng.randf_range(1.6, 2.4), 7, 4), MeshBuilder.at(offset + Vector3(0, 1.2, 0), Vector3(1.0, rng.randf_range(1.2, 1.8), 1.0)), rock if i % 2 == 0 else rock_dark)
+	b.add(MeshBuilder.sphere(3.0, 8, 4), MeshBuilder.at(Vector3(0, 2.6, -2.6), Vector3(1.4, 1.2, 1.0)), rock)
 	b.add(MeshBuilder.box(Vector3(1.6, 2.6, 0.4)), MeshBuilder.at(Vector3(0, 1.3, 0.4)), CAVE)
 	var rocks := MeshInstance3D.new()
 	rocks.mesh = b.build()

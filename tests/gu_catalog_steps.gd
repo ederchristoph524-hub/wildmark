@@ -41,6 +41,7 @@ func run(scene_tree: SceneTree) -> void:
 		moves += 1
 	print("Killer Moves geprüft: %d" % moves)
 	await _test_abilities()
+	_test_relics()
 	for failure: String in _failures:
 		printerr("FEHLGESCHLAGEN: ", failure)
 	print("test_gu_catalog: %s" % ("OK" if _failures.is_empty() else "%d Fehler" % _failures.size()))
@@ -190,3 +191,13 @@ func _test_abilities() -> void:
 		player.health.max_hp = player.max_hp_now()
 		player.health.hp = player.health.max_hp
 		print("Fähigkeit geprüft: %s" % data.id)
+
+
+## Relikt-Gu verfeinern die Wand um eine Stufe, aber nur auf ihrem Rang.
+func _test_relics() -> void:
+	GameState.rank = 1
+	GameState.stage = 0
+	GameState.add_item(&"reliquie_gruenkupfer", 1)
+	GameState.add_item(&"reliquie_rotstahl", 1)
+	_check(Relics.blocked_reason(&"reliquie_rotstahl") != "", "Rotstahl-Relikt wirkt nicht auf Rang 1")
+	_check(Relics.use(&"reliquie_gruenkupfer", player.aperture) and GameState.stage == 1, "Grünkupfer-Relikt hebt die Stufe")

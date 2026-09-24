@@ -42,19 +42,19 @@ id = &"schneeball"
 display_name = "Schneeball-Gu"
 family = &"frost"
 rank = 4
-rank_gift = "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt."
+rank_gift = "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt; längere Abklingzeit."
 description = "Kälte rollt in einer Lawine um dich und hinterlässt ein Eisfeld."
 lore = "Rollt und wächst, bis sie alles vor sich niederwalzt."
 gifts = {
 "as_circle": 5.0,
+"cd_mult": 1.8,
 "extra": [{
 "at": "self",
 "color": "#bfeaff",
-"mult": 0.2,
+"mult": 0.15,
 "radius": 5.0,
 "slow": 0.4,
 "slow_time": 1.0,
-"status": "frost",
 "t": "zone",
 "tags": ["eis"],
 "time": 4.0
@@ -67,17 +67,23 @@ id = &"frostdaemon"
 display_name = "Frostdämon-Gu"
 family = &"frost"
 rank = 5
-rank_gift = "Friert alles im Umkreis 7 sofort ein."
+rank_gift = "Frostkreis Radius 7 mit drei Frost-Stapeln (sofort eingefroren) und einem Eisfeld; lange Abklingzeit."
 description = "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein."
 gifts = {
 "as_circle": 7.0,
+"cd_mult": 2.5,
 "extra": [{
+"at": "self",
 "color": "#dff6ff",
-"freeze": 2.5,
-"mult": 0.0,
-"radius": 7.0,
-"t": "circle"
-}]
+"mult": 0.2,
+"radius": 6.0,
+"slow": 0.5,
+"slow_time": 1.0,
+"t": "zone",
+"tags": ["eis"],
+"time": 4.0
+}],
+"stacks_add": 1.0
 }
 
 [resource]

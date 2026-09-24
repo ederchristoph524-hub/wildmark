@@ -23,6 +23,11 @@ script = ExtResource("1_pn6cb")
 item = &"kristall"
 chance = 1.0
 
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_pn6cb")
+item = &"reliquie_rotstahl"
+chance = 0.5
+
 [resource]
 script = ExtResource("2_5i6vx")
 id = &"waldgeist"
@@ -35,7 +40,7 @@ radius = 0.9
 color = Color(0.22745098, 0.627451, 0.3529412, 1)
 zone = 9
 rank = 2
-drops = Array[ExtResource("1_pn6cb")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+drops = Array[ExtResource("1_pn6cb")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
 shape = &"boss"
 behavior = &"boss"
 minion = &"spinnling"

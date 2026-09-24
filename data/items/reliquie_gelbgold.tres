@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bh3dfm4rdoiq6"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_5vec8"]
+
+[resource]
+script = ExtResource("1_5vec8")
+id = &"reliquie_gelbgold"
+display_name = "Gelbgold-Relikt-Gu"
+icon = "🪲"
+category = &"material"
+rank = 4
+path = &"raffinerie"
+source = "Erbschaften, Bestienkönige, Auktionen"
+description = "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."

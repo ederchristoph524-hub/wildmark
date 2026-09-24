@@ -85,6 +85,7 @@ rank = 5
 rank_gift = "Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele."
 description = "Sechs Knollen, deren Feuer liegen bleibt und deren Blitz weit springt."
 gifts = {
+"cd_mult": 1.6,
 "count_add": 5.0,
 "step": {
 "radius": 3.5,
@@ -95,7 +96,7 @@ gifts = {
 },
 "then": [{
 "color": "#ff7a3a",
-"mult": 0.3,
+"mult": 0.12,
 "radius": 3.0,
 "status": "brand",
 "t": "zone",
@@ -104,7 +105,7 @@ gifts = {
 }, {
 "color": "#8ad0ff",
 "jumps": 5.0,
-"mult": 0.7,
+"mult": 0.35,
 "radius": 7.0,
 "t": "chain",
 "tags": ["blitz"]

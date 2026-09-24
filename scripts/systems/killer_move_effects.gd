@@ -12,7 +12,7 @@ static func execute(move: KillerMoveData, caster: Combatant, damage: float, aim:
 	var family: GuFamilyData = DataRegistry.family(move.family_a)
 	var color: Color = DataRegistry.gu_system().path_color(family.path) if family != null else ANNOUNCE_COLOR
 	var ctx := EffectContext.create(caster, damage, aim, color)
-	ctx.target = target
+	ctx.target = target if is_instance_valid(target) else null
 	ctx.power = power
 	ctx.path = family.path if family != null else &""
 	EffectSteps.run(move.steps, ctx)

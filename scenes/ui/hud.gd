@@ -92,7 +92,8 @@ func _build_status(root: Control) -> void:
 func _build_center(root: Control) -> void:
 	_messages = VBoxContainer.new()
 	_messages.set_anchors_preset(Control.PRESET_CENTER_TOP)
-	_messages.position = Vector2(-330, 14)
+	# Unter Minikarte und Statusfeld, damit sich Meldungen auf schmalen Handys nicht überlagern.
+	_messages.position = Vector2(-330, 150)
 	_messages.custom_minimum_size = Vector2(660, 0)
 	_messages.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_messages)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ccc365sl3m4ki"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_55uj8"]
+
+[resource]
+script = ExtResource("1_55uj8")
+id = &"reliquie_lilakristall"
+display_name = "Lilakristall-Relikt-Gu"
+icon = "🪲"
+category = &"material"
+rank = 5
+path = &"raffinerie"
+source = "Erbschaften, Bestienkönige, Auktionen"
+description = "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."

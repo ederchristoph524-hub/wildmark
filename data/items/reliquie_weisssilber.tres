@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://do7jb5dofvy87"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_jabhu"]
+
+[resource]
+script = ExtResource("1_jabhu")
+id = &"reliquie_weisssilber"
+display_name = "Weißsilber-Relikt-Gu"
+icon = "🪲"
+category = &"material"
+rank = 3
+path = &"raffinerie"
+source = "Erbschaften, Bestienkönige, Auktionen"
+description = "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."

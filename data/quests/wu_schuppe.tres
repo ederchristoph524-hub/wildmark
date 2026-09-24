@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://cvu28oednivtm"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_m3pa7"]
+
+[resource]
+script = ExtResource("1_m3pa7")
+id = &"wu_schuppe"
+display_name = "Tribut für den Wu-Klan"
+description = "Liefere der Festungswache eine Drachenschuppe."
+reward_points = 2
+rule = {
+"area": "",
+"count": 1,
+"item": &"drachenschuppe",
+"reward": {
+&"kristall": 80,
+&"reliquie_gelbgold": 1
+},
+"type": &"item"
+}

@@ -80,6 +80,7 @@ places = Array[Dictionary]([{
 "items": {
 &"heldenherz": 1,
 &"kristall": 100,
+&"reliquie_lilakristall": 1,
 &"tiefseeperle": 3,
 &"urkristall": 1
 },

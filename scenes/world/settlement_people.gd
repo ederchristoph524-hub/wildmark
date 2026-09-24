@@ -21,11 +21,11 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 	],
 	&"xiong": [
 		[&"klan", "Xiong-Ältester", &"", false, &"hall", Vector2(0.0, 0.0)],
-		[&"klan", "Xiong-Jäger", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"klan", "Xiong-Jäger", &"dk_woelfe", false, &"gate", Vector2(0.0, 0.0)],
 		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"shang": [
-		[&"klan", "Shang-Verwalter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Shang-Verwalter", &"shang_jade", false, &"hall", Vector2(0.0, 0.0)],
 		[&"klan", "Stadtwache", &"", false, &"gate", Vector2(0.0, 0.0)],
 		[&"shang_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"shang_schmied", "", &"", true, &"market", Vector2(-4.0, 2.0)],
@@ -33,16 +33,16 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"daemon", "", &"", true, &"gate_outside", Vector2(0.0, 0.0)],
 	],
 	&"steppe": [
-		[&"stamm", "Häuptling", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"stamm", "Häuptling", &"steppe_fell", false, &"hall", Vector2(0.0, 0.0)],
 		[&"stamm", "", &"", true, &"gate", Vector2(0.0, 0.0)],
 		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"lang_ya": [
-		[&"klan", "Lang-Ya-Hüter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Lang-Ya-Hüter", &"reise_welt", false, &"hall", Vector2(0.0, 0.0)],
 		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"wueste": [
-		[&"klan", "Tempelhüter", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Tempelhüter", &"oase_rose", false, &"hall", Vector2(0.0, 0.0)],
 		[&"klan", "Oasenwache", &"", false, &"gate", Vector2(0.0, 0.0)],
 		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"wuesten_haendler", "", &"", true, &"market", Vector2(-3.0, 3.0)],
@@ -52,20 +52,20 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"wuesten_haendler", "", &"", true, &"gate", Vector2(0.0, 0.0)],
 	],
 	&"wu": [
-		[&"klan", "Festungswache", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"klan", "Festungswache", &"wu_schuppe", false, &"gate", Vector2(0.0, 0.0)],
 		[&"wu_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"auktionator_hoch", "", &"", true, &"market", Vector2(-4.0, 2.0)],
 	],
 	&"insel": [
 		[&"seemann", "", &"", true, &"gate", Vector2(0.0, 0.0)],
 		[&"perlentaucher", "", &"", true, &"market", Vector2(0.0, 0.0)],
-		[&"klan", "Inselältester", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Inselältester", &"insel_perle", false, &"hall", Vector2(0.0, 0.0)],
 	],
 	&"meereszombie": [
 		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"sekte": [
-		[&"klan", "Torwächter", &"", false, &"gate", Vector2(0.0, 0.0)],
+		[&"klan", "Torwächter", &"sekte_herz", false, &"gate", Vector2(0.0, 0.0)],
 		[&"klan", "Bibliothekar", &"", false, &"academy", Vector2(0.0, 0.0)],
 		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"sekten_schatzmeister", "", &"", true, &"hall", Vector2(-3.0, 1.0)],

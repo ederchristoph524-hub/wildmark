@@ -15,7 +15,7 @@ const ABILITY_RETRY: float = 0.5
 static func use(enemy: Enemy, distance: float) -> float:
 	var b: BalanceData = Balance.values
 	if not enemy.data.ability.is_empty():
-		if enemy.target == null or distance > enemy.data.ability_range:
+		if not is_instance_valid(enemy.target) or distance > enemy.data.ability_range:
 			return ABILITY_RETRY
 		var ctx := EffectContext.create(enemy, float(enemy.data.damage), enemy.target.global_position - enemy.global_position, enemy.data.color.lightened(0.35))
 		ctx.target = enemy.target

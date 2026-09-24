@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://clnd45cv7ahyc"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_rfnaf"]
+
+[resource]
+script = ExtResource("1_rfnaf")
+id = &"oase_rose"
+display_name = "Rosen aus Sand"
+description = "Bringe dem Tempelhüter 2 Wüstenrosen."
+reward_points = 2
+rule = {
+"area": "",
+"count": 2,
+"item": &"wuestenrose",
+"reward": {
+&"kristall": 40,
+&"reliquie_gelbgold": 1,
+&"sternsand": 3
+},
+"type": &"item"
+}

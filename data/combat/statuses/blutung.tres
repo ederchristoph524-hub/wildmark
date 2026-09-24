@@ -6,7 +6,7 @@
 script = ExtResource("1_vdt7p")
 id = &"blutung"
 display_name = "Blutung"
-effect_text = "3 Schaden/s pro Stapel, 6 s; Blut-Gu heilen an blutenden Zielen"
-max_stacks = 5
+effect_text = "2 Schaden/s pro Stapel (max. 3), 6 s; Blut-Gu heilen an blutenden Zielen"
+max_stacks = 3
 duration = 6.0
-dps = 3.0
+dps = 2.0

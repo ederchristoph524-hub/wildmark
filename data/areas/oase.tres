@@ -32,8 +32,8 @@ settlements = Array[Dictionary]([{
 &"dach": Color(0.72156864, 0.5254902, 0.30588236, 1),
 &"holz": Color(0.41568628, 0.2901961, 0.18039216, 1),
 &"saeule": Color(0.78431374, 0.627451, 0.3764706, 1),
-&"stein": Color(0.6901961, 0.6039216, 0.47058824, 1),
-&"wand": Color(0.8509804, 0.7254902, 0.5411765, 1)
+&"stein": Color(0.627451, 0.5411765, 0.40784314, 1),
+&"wand": Color(0.78431374, 0.63529414, 0.4627451, 1)
 },
 "faction": &"wuestentempel",
 "houses": 20,
@@ -78,6 +78,7 @@ places = Array[Dictionary]([{
 "gu": Array[StringName]([&"bergwiezuvor", &"kampfknochenrad"]),
 "items": {
 &"kristall": 60,
+&"reliquie_gelbgold": 1,
 &"sternsand": 2,
 &"wuestenrose": 3
 },

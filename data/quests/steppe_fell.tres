@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bee6s8gxdy21m"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_gr0g8"]
+
+[resource]
+script = ExtResource("1_gr0g8")
+id = &"steppe_fell"
+display_name = "Felle für den Winter"
+description = "Bringe dem Häuptling 15 Fell."
+reward_points = 2
+rule = {
+"area": "",
+"count": 15,
+"item": &"fell",
+"reward": {
+&"kristall": 25,
+&"wolfsgeist": 2
+},
+"type": &"item"
+}

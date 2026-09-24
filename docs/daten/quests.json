@@ -125,6 +125,127 @@
    "d": "Erreiche Level 20.",
    "sp": 3,
    "f": "[fn] ()=>P.lvl>=20"
+  },
+  {
+   "id": "dk_woelfe",
+   "n": "Die Rudel der drei Könige",
+   "d": "Erlege 25 Bestien rund um das Jägerlager.",
+   "sp": 2,
+   "regel": {
+    "type": "kills",
+    "count": 25,
+    "reward": {
+     "kristall": 15,
+     "wolfsgeist": 1,
+     "reliquie_rotstahl": 1
+    }
+   }
+  },
+  {
+   "id": "shang_jade",
+   "n": "Jade für die Shang",
+   "d": "Bringe dem Verwalter 2 Jadeadern.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "jadeader",
+    "count": 2,
+    "reward": {
+     "kristall": 40,
+     "klingenstahl": 1
+    }
+   }
+  },
+  {
+   "id": "steppe_fell",
+   "n": "Felle für den Winter",
+   "d": "Bringe dem Häuptling 15 Fell.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "fell",
+    "count": 15,
+    "reward": {
+     "wolfsgeist": 2,
+     "kristall": 25
+    }
+   }
+  },
+  {
+   "id": "oase_rose",
+   "n": "Rosen aus Sand",
+   "d": "Bringe dem Tempelhüter 2 Wüstenrosen.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "wuestenrose",
+    "count": 2,
+    "reward": {
+     "sternsand": 3,
+     "kristall": 40,
+     "reliquie_gelbgold": 1
+    }
+   }
+  },
+  {
+   "id": "wu_schuppe",
+   "n": "Tribut für den Wu-Klan",
+   "d": "Liefere der Festungswache eine Drachenschuppe.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "drachenschuppe",
+    "count": 1,
+    "reward": {
+     "kristall": 80,
+     "reliquie_gelbgold": 1
+    }
+   }
+  },
+  {
+   "id": "insel_perle",
+   "n": "Perlen für den Ältesten",
+   "d": "Bringe dem Inselältesten eine Tiefseeperle.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "tiefseeperle",
+    "count": 1,
+    "reward": {
+     "kristall": 90,
+     "blutkoralle": 3
+    }
+   }
+  },
+  {
+   "id": "sekte_herz",
+   "n": "Aufnahmeprüfung",
+   "d": "Lege dem Torwächter ein Heldenherz vor.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "item": "heldenherz",
+    "count": 1,
+    "reward": {
+     "urkristall": 2,
+     "reliquie_lilakristall": 1
+    }
+   }
+  },
+  {
+   "id": "reise_welt",
+   "n": "Die fünf Regionen",
+   "d": "Betritt den Berg der großen Sekten.",
+   "sp": 2,
+   "regel": {
+    "type": "area",
+    "area": "Berg der großen Sekten",
+    "count": 1,
+    "reward": {
+     "kristall": 100,
+     "urkristall": 1
+    }
+   }
   }
  ],
  "GOALS": "[fn] ()=>[\n  {n:'Apertur erwecken',d:'Deine Aptitude wurde am See bestimmt.',ok:!!P.aptitude},\n  {n:'Vital-Gu verfeinern',d:'Das erste Gu, lebenslang gebunden.',ok:!!P.vitalGu},\n  {n:'Gipfel der Sterblichen',d:'Rang 5 · Lila-Kristall erreichen.',ok:P.rank>=5},\n  {n:'Unsterblichenaufstieg',d:'Rang 6 · das Gesegnete Land entsteht.',ok:P.rank>=6},\n  {n:'Waldgeist bezwingen',d:'Erste Erdkalamität.',ok:!!P.bosses.waldgeist?.dead},\n  {n:'Steinkönig bezwingen',d:'Zweite Erdkalamität.',ok:!!P.bosses.steinkoenig?.dead},\n  {n:'Lavadrache bezwingen',d:'Himmlische Trübsal.',ok:!!P.bosses.drache?.dead},\n  {n:'Grotten-Himmel',d:'Rang 8 · deine Apertur wird ein Kosmos.',ok:P.rank>=8},\n  {n:'Ehrwürdiger werden',d:'Rang 9 · Gelb-Aprikose. Zehn in drei Millionen Jahren.',ok:P.rank>=9},\n  {n:'Alle Länder einverleiben',d:'Nimm Lang Ya, den Kaiserhof und den Langlebigkeits-Himmel in deine Apertur auf.',ok:['langya','hof','longevity'].every(k=>(P.annexed||{})[k])},\n  {n:'Alle Wahren Erben',d:'Sammle die Vermächtnisse der Ehrwürdigen.',ok:Object.keys(INHERIT).every(k=>P.inherit?.[k])},\n  {n:'Sektenherr werden',d:'Steige bis an die Spitze einer Sekte auf.',ok:!!P.sect&&sectRankIdx()>=5},\n  {n:'Ewigkeits-Gu erlangen',d:'Das Ziel, an dem alle Ehrwürdigen scheiterten.',ok:guOwned('ewigkeit')},\n  {n:'Schicksals-Gu erlangen',d:'Das mächtigste Gu der Geschichte.',ok:guOwned('schicksal')},\n]"

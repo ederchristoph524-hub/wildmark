@@ -8,8 +8,8 @@ id = &"aderlass"
 display_name = "Aderlass"
 trigger_tag = &"blut"
 target_status = &"blutung"
-effect_text = "×1,4 Schaden, der Angreifer heilt 30 % davon"
+effect_text = "×1,2 Schaden, der Angreifer heilt 20 % davon"
 rule = {
-"heal_attacker": 0.3,
-"mult": 1.4
+"heal_attacker": 0.2,
+"mult": 1.2
 }

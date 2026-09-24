@@ -26,7 +26,9 @@ static func yurt(b: MeshBuilder, t: Transform3D, radius: float, p: Dictionary) -
 
 ## Lehmhaus: dicke Wände, Flachdach mit Brüstung, vorstehende Balken, Tür und kleine Fenster.
 static func adobe_house(b: MeshBuilder, t: Transform3D, width: float, depth: float, height: float, p: Dictionary) -> Array[Array]:
-	var wall: Color = p["wand"]
+	# Jedes Lehmhaus etwas anders getönt (je nach Lage aus der Position abgeleitet).
+	var shade: float = fposmod(t.origin.x * 0.37 + t.origin.z * 0.61, 1.0)
+	var wall: Color = (p["wand"] as Color).darkened(shade * 0.14).lerp(Color(0.85, 0.62, 0.45), shade * 0.15)
 	_box(b, t, Vector3(0, height * 0.5, 0), Vector3(width, height, depth), wall)
 	_box(b, t, Vector3(0, height + 0.1, 0), Vector3(width + 0.3, 0.2, depth + 0.3), wall.darkened(0.08))
 	for side: float in [-1.0, 1.0]:

@@ -18,6 +18,11 @@ script = ExtResource("1_syjl0")
 item = &"heldenherz"
 chance = 0.1
 
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_syjl0")
+item = &"reliquie_lilakristall"
+chance = 0.1
+
 [resource]
 script = ExtResource("2_thm17")
 id = &"donnerkronenwolf"
@@ -46,5 +51,5 @@ ability = [{
 }]
 ability_range = 10.0
 ability_cooldown = 8.0
-drops = Array[ExtResource("1_syjl0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+drops = Array[ExtResource("1_syjl0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
 shape = &"quad"

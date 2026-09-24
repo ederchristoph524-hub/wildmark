@@ -1,6 +1,6 @@
 class_name Quests
 extends RefCounted
-## Quests aus quests.json mit Bedingungen und Belohnungen aus Balance.quest_rules.
+## Quests aus quests.json mit Bedingungen und Belohnungen (quests.json → regel, sonst Balance.quest_rules).
 
 const ACTIVE: String = "active"
 const DONE: String = "done"
@@ -11,6 +11,9 @@ static func state(id: StringName) -> String:
 
 
 static func rule(id: StringName) -> Dictionary:
+	var data: QuestData = DataRegistry.quest(id)
+	if data != null and not data.rule.is_empty():
+		return data.rule
 	return Balance.values.quest_rules.get(id, {})
 
 

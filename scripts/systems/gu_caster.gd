@@ -16,6 +16,8 @@ const TAG_FORCE: StringName = &"wucht"
 const DEFAULT_RANGE: float = 10.0
 const SHIELD_KEY: StringName = &"haut"
 const HEAL_COLOR: Color = Color(0.5, 1.0, 0.5)
+## Summe der Klingen eines Fächers auf ein Ziel (Regenbogenlicht, Phönixfeder, Mondgift).
+const FAN_TOTAL: float = 2.2
 
 ## Wer wirkt, mit welchem Gu, welcher Stärke und in welche Richtung.
 var caster: Combatant
@@ -57,7 +59,7 @@ func context() -> EffectContext:
 	var raw: float = base(&"schaden")
 	var ctx := EffectContext.create(caster, (raw + (caster.flat_damage if raw > 0.0 else 0.0)) * power, aim_direction, color())
 	ctx.power = power
-	ctx.target = target
+	ctx.target = target if is_instance_valid(target) else null
 	ctx.path = family.path
 	return ctx
 
@@ -135,16 +137,20 @@ func _cast_projectile() -> bool:
 		config["speed"] = b.fast_projectile_speed
 	if family.form == FORM_EXPLODING:
 		config["explode_radius"] = base(&"radius", 1.5) + GuGifts.number(gu, "radius_add")
+	var center_config: Dictionary = config.duplicate()
 	if gifts.get("impact") is Array:
-		config["impact"] = gifts["impact"]
-		config["impact_ctx"] = context()
+		# Aufschlag-Wirkungen nur für die mittlere Klinge, sonst vervielfacht der Fächer Zonen und Explosionen.
+		center_config["impact"] = gifts["impact"]
+		center_config["impact_ctx"] = context()
 	var start: Vector3 = caster.aim_point() + Vector3(aim_direction.x, 0.0, aim_direction.z).normalized() * 0.6
 	var direction: Vector3 = _aim_from(start)
 	var count: int = 1 + int(gifts.get("fan", 0))
 	var spread: float = deg_to_rad(float(gifts.get("fan_angle", 40.0)))
+	# Fächer: Jede Klinge trifft schwächer, zusammen höchstens FAN_TOTAL-fach auf ein einzelnes Ziel.
+	var blade_mult: float = minf(1.0, FAN_TOTAL / count)
 	for i: int in count:
 		var angle: float = 0.0 if count == 1 else lerpf(-spread * 0.5, spread * 0.5, i / float(count - 1))
-		Projectile.launch(caster.get_tree(), start, make_hit(), direction.rotated(Vector3.UP, angle), config)
+		Projectile.launch(caster.get_tree(), start, make_hit(blade_mult), direction.rotated(Vector3.UP, angle), center_config if i == floori(count / 2.0) else config)
 	return true
 
 

@@ -72,6 +72,8 @@ func _world_page() -> Control:
 func _on_area_selected(area: AreaData) -> void:
 	var region: RegionData = DataRegistry.region(area.region)
 	var status: String = tr("Du bist hier.") if area.id == GameState.area else (tr("Bereisbar.") if area.open else tr("Noch unerforscht."))
+	if area.open and area.id != GameState.area and GameState.rank < area.rank_min:
+		status += " " + tr("Gefährlich – empfohlen ab Rang %d.") % area.rank_min
 	_info.text = "%s (%s, Rang %d–%d) – %s\n%s" % [tr(area.display_name), tr(region.display_name), area.rank_min, area.rank_max, status, tr(area.description)]
 	_selected = area
 	_travel.visible = area.open and area.id != GameState.area

@@ -23,6 +23,11 @@ script = ExtResource("1_gbw0b")
 item = &"kristall"
 chance = 1.0
 
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_gbw0b")
+item = &"reliquie_gelbgold"
+chance = 0.5
+
 [resource]
 script = ExtResource("2_mudiq")
 id = &"steppenfuerst"
@@ -35,7 +40,7 @@ radius = 1.0
 color = Color(0.6039216, 0.72156864, 0.41568628, 1)
 zone = 9
 rank = 4
-drops = Array[ExtResource("1_gbw0b")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+drops = Array[ExtResource("1_gbw0b")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
 shape = &"boss"
 behavior = &"boss"
 minion = &"spinnling"

@@ -14,6 +14,9 @@ const FORM_TRAP: StringName = &"falle"
 const FORM_STEALTH: StringName = &"tarnung"
 const FORM_BUFF: StringName = &"staerkung"
 const FORM_SUMMON: StringName = &"beschwoerung"
+## Summe des Schadens aller Sterne eines Schwarms bzw. aller Fallen auf ein Ziel (× Grundschaden).
+const SWARM_TOTAL: float = 3.0
+const TRAP_TOTAL: float = 2.5
 const FORMS: Array[StringName] = [FORM_ZONE, FORM_CONE, FORM_CHARGE, FORM_AURA, FORM_SWARM, FORM_ORBIT, FORM_TRAP, FORM_STEALTH, FORM_BUFF, FORM_SUMMON]
 
 
@@ -35,6 +38,12 @@ static func build_step(family: GuFamilyData, gu: GuData) -> Dictionary:
 		step.merge(gifts["step"], true)
 	if gifts.get("then") is Array:
 		step["then"] = gifts["then"]
+	# Viele Sterne oder Fallen teilen sich den Schaden (sonst wächst er mit der Anzahl unbegrenzt).
+	var count: int = int(step.get("count", 1))
+	if family.form == FORM_SWARM:
+		step["mult"] = float(step.get("mult", 1.0)) * minf(1.0, SWARM_TOTAL / count)
+	elif family.form == FORM_TRAP:
+		step["mult"] = float(step.get("mult", 1.0)) * minf(1.0, TRAP_TOTAL / count)
 	return step
 
 

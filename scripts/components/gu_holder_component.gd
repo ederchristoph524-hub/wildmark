@@ -71,7 +71,8 @@ func hp_cost(instance: GuInstance) -> float:
 
 
 func cooldown_of(instance: GuInstance) -> float:
-	return float(family_of(instance).base_r1.get(COOLDOWN_KEY, 1.0)) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult")
+	var gift_mult: float = GuGifts.number(gu_data(instance), "cd_mult")
+	return float(family_of(instance).base_r1.get(COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult")
 
 
 ## Leer = einsatzbereit, sonst Grund für die Anzeige.

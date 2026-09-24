@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://de4dlcri55dd7"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_apx5u"]
+
+[resource]
+script = ExtResource("1_apx5u")
+id = &"reliquie_gruenkupfer"
+display_name = "Grünkupfer-Relikt-Gu"
+icon = "🪲"
+category = &"material"
+rank = 1
+path = &"raffinerie"
+source = "Erbschaften, Bestienkönige, Auktionen"
+description = "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."

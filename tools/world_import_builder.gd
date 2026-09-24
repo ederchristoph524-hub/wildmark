@@ -255,4 +255,11 @@ func _build_quest(d: Dictionary) -> Resource:
 	quest.display_name = ImportUtil.text(d["n"])
 	quest.description = ImportUtil.text(d.get("d"))
 	quest.reward_points = ImportUtil.to_int(d.get("sp"))
+	var rule: Dictionary = d.get("regel", {})
+	if not rule.is_empty():
+		var reward: Dictionary = {}
+		for item: Variant in rule.get("reward", {}):
+			reward[StringName(str(item))] = ImportUtil.to_int(rule["reward"][item])
+		quest.rule = {"type": ImportUtil.sn(rule.get("type")), "item": ImportUtil.sn(rule.get("item")), "count": ImportUtil.to_int(rule.get("count"), 1),
+			"area": ImportUtil.text(rule.get("area")), "reward": reward}
 	return quest

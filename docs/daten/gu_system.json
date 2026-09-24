@@ -540,21 +540,21 @@
      "id": "schneeball",
      "name": "Schneeball-Gu",
      "neu": false,
-     "ranggabe": "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt.",
+     "ranggabe": "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt; längere Abklingzeit.",
      "beschreibung": "Kälte rollt in einer Lawine um dich und hinterlässt ein Eisfeld.",
      "gaben": {
       "as_circle": 5.0,
+      "cd_mult": 1.8,
       "extra": [
        {
         "t": "zone",
         "at": "self",
         "radius": 5.0,
         "time": 4.0,
-        "mult": 0.2,
+        "mult": 0.15,
         "tags": [
          "eis"
         ],
-        "status": "frost",
         "slow": 0.4,
         "slow_time": 1.0,
         "color": "#bfeaff"
@@ -567,16 +567,24 @@
      "id": "frostdaemon",
      "name": "Frostdämon-Gu",
      "neu": true,
-     "ranggabe": "Friert alles im Umkreis 7 sofort ein.",
+     "ranggabe": "Frostkreis Radius 7 mit drei Frost-Stapeln (sofort eingefroren) und einem Eisfeld; lange Abklingzeit.",
      "beschreibung": "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein.",
      "gaben": {
       "as_circle": 7.0,
+      "cd_mult": 2.5,
+      "stacks_add": 1,
       "extra": [
        {
-        "t": "circle",
-        "radius": 7.0,
-        "mult": 0.0,
-        "freeze": 2.5,
+        "t": "zone",
+        "at": "self",
+        "radius": 6.0,
+        "time": 4.0,
+        "mult": 0.2,
+        "tags": [
+         "eis"
+        ],
+        "slow": 0.5,
+        "slow_time": 1.0,
         "color": "#dff6ff"
        }
       ]
@@ -647,7 +655,7 @@
      "id": "giftnebel",
      "name": "Giftnebel-Gu",
      "neu": false,
-     "ranggabe": "Wird zur Giftwolke (Zone, Radius 3).",
+     "ranggabe": "Wird zur Giftwolke (Zone, Radius 3); dreifache Abklingzeit.",
      "beschreibung": "Eine Giftwolke, die Stapel aufbaut.",
      "gaben": {
       "as_zone": {
@@ -663,7 +671,8 @@
        "color": "#8ce633",
        "at": "target",
        "distance": 4.0
-      }
+      },
+      "cd_mult": 3.0
      }
     },
     {
@@ -2535,8 +2544,8 @@
     "n": 2
    },
    "basis_r1": {
-    "schaden": 15,
-    "cd": 1.8,
+    "schaden": 12,
+    "cd": 2.2,
     "ess": 0,
     "hp_kosten": 2,
     "reichweite": 13.0,
@@ -3098,7 +3107,7 @@
         "t": "zone",
         "radius": 3.0,
         "time": 4.0,
-        "mult": 0.3,
+        "mult": 0.12,
         "tags": [
          "feuer"
         ],
@@ -3109,13 +3118,14 @@
         "t": "chain",
         "jumps": 5,
         "radius": 7.0,
-        "mult": 0.7,
+        "mult": 0.35,
         "tags": [
          "blitz"
         ],
         "color": "#8ad0ff"
        }
-      ]
+      ],
+      "cd_mult": 1.6
      }
     }
    ],
@@ -3913,11 +3923,11 @@
   },
   "blutung": {
    "name": "Blutung",
-   "wirkung": "3 Schaden/s pro Stapel, 6 s; Blut-Gu heilen an blutenden Zielen",
-   "stapel": 5,
+   "wirkung": "2 Schaden/s pro Stapel (max. 3), 6 s; Blut-Gu heilen an blutenden Zielen",
+   "stapel": 3,
    "regel": {
     "dauer": 6.0,
-    "dps": 3.0
+    "dps": 2.0
    }
   },
   "schwaeche": {
@@ -4106,11 +4116,11 @@
    "name": "Aderlass",
    "ausloeser": "blut",
    "auf": "blutung",
-   "wirkung": "×1,4 Schaden, der Angreifer heilt 30 % davon",
+   "wirkung": "×1,2 Schaden, der Angreifer heilt 20 % davon",
    "endet": [],
    "regel": {
-    "mult": 1.4,
-    "heal_attacker": 0.3
+    "mult": 1.2,
+    "heal_attacker": 0.2
    }
   },
   {
