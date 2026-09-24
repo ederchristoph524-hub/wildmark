@@ -19,6 +19,9 @@ rank = 2
 rank_gift = "Trifft mit 2 Frost-Stapeln."
 description = "Ein Eisvogel, der am Ziel zerspringt."
 lore = "Ein eisblauer Vogel, der beim Aufprall zerbirst und alles in Eis schließt."
+gifts = {
+"stacks_add": 1.0
+}
 
 [sub_resource type="Resource" id="gu_frostnova"]
 script = ExtResource("1_ltc16")
@@ -29,6 +32,53 @@ rank = 3
 rank_gift = "Wird zum Kreis um dich (Radius 3)."
 description = "Eine Kältewelle um dich herum."
 lore = "Eine Explosion aus Kälte, die selbst Blut gefrieren lässt."
+gifts = {
+"as_circle": 3.0
+}
+
+[sub_resource type="Resource" id="gu_schneeball"]
+script = ExtResource("1_ltc16")
+id = &"schneeball"
+display_name = "Schneeball-Gu"
+family = &"frost"
+rank = 4
+rank_gift = "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt."
+description = "Kälte rollt in einer Lawine um dich und hinterlässt ein Eisfeld."
+lore = "Rollt und wächst, bis sie alles vor sich niederwalzt."
+gifts = {
+"as_circle": 5.0,
+"extra": [{
+"at": "self",
+"color": "#bfeaff",
+"mult": 0.2,
+"radius": 5.0,
+"slow": 0.4,
+"slow_time": 1.0,
+"status": "frost",
+"t": "zone",
+"tags": ["eis"],
+"time": 4.0
+}]
+}
+
+[sub_resource type="Resource" id="gu_frostdaemon"]
+script = ExtResource("1_ltc16")
+id = &"frostdaemon"
+display_name = "Frostdämon-Gu"
+family = &"frost"
+rank = 5
+rank_gift = "Friert alles im Umkreis 7 sofort ein."
+description = "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein."
+gifts = {
+"as_circle": 7.0,
+"extra": [{
+"color": "#dff6ff",
+"freeze": 2.5,
+"mult": 0.0,
+"radius": 7.0,
+"t": "circle"
+}]
+}
 
 [resource]
 script = ExtResource("2_wwwpw")
@@ -48,7 +98,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"schaden": 12.0,
 &"stapel": 1.0
 })
-members = Array[ExtResource("1_ltc16")]([SubResource("gu_frostnadel"), SubResource("gu_eisvogel"), SubResource("gu_frostnova")])
+members = Array[ExtResource("1_ltc16")]([SubResource("gu_frostnadel"), SubResource("gu_eisvogel"), SubResource("gu_frostnova"), SubResource("gu_schneeball"), SubResource("gu_frostdaemon")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"frostsplitter": 2
@@ -56,6 +106,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"frostsplitter": 5,
 &"jadeader": 1
+},
+4: {
+&"frostsplitter": 8,
+&"geisterseide": 1
+},
+5: {
+&"frostsplitter": 12,
+&"urkristall": 1
 }
 })
 world_effect = "Friert Wasserflächen zu begehbarem Eis, stoppt Wasserfälle kurz, löscht Feuer."

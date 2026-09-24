@@ -19,6 +19,9 @@ rank = 2
 rank_gift = "Gift springt beim Tod des Ziels über."
 description = "Ein Skorpionstich, dessen Gift sich ausbreitet."
 lore = "Ein schwarzer Skorpion, dessen Gift von Feind zu Feind springt."
+gifts = {
+"spread_on_death": true
+}
 
 [sub_resource type="Resource" id="gu_giftnebel"]
 script = ExtResource("1_xmh0l")
@@ -29,6 +32,68 @@ rank = 3
 rank_gift = "Wird zur Giftwolke (Zone, Radius 3)."
 description = "Eine Giftwolke, die Stapel aufbaut."
 lore = "Ein Schwaden, der Fleisch und Willen gleichermaßen zersetzt."
+gifts = {
+"as_zone": {
+"at": "target",
+"color": "#8ce633",
+"distance": 4.0,
+"mult": 0.35,
+"radius": 3.0,
+"stacks": 1.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"time": 5.0
+}
+}
+
+[sub_resource type="Resource" id="gu_schwarzpfeil"]
+script = ExtResource("1_xmh0l")
+id = &"schwarzpfeil"
+display_name = "Schwarzpfeil-Gu"
+family = &"gift"
+rank = 4
+rank_gift = "Acht zielsuchende Giftpfeile."
+description = "Zusätzlich schwirren acht Giftpfeile aus, die sich Kopf und Herz suchen."
+lore = "Hei Chengs Angriffs-Gu. Die Pfeile suchen sich Kopf und Herz."
+gifts = {
+"extra": [{
+"color": "#9b3bff",
+"count": 8.0,
+"homing": true,
+"mult": 0.35,
+"range": 14.0,
+"speed": 11.0,
+"spread": 140.0,
+"stacks": 1.0,
+"status": "gift",
+"t": "projectiles",
+"tags": ["gift"]
+}]
+}
+
+[sub_resource type="Resource" id="gu_jadehimmel"]
+script = ExtResource("1_xmh0l")
+id = &"jadehimmel"
+display_name = "Jadehimmel-Gu"
+family = &"gift"
+rank = 5
+rank_gift = "Riesige Giftzone (Radius 6, 8 s, doppelte Stapel)."
+description = "Ein blassgrünes, uraltes Gift, das selbst gesegnetes Land zersetzt."
+gifts = {
+"as_zone": {
+"at": "target",
+"color": "#7fe0a0",
+"distance": 6.0,
+"mult": 0.5,
+"radius": 6.0,
+"stacks": 2.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"time": 8.0
+}
+}
 
 [resource]
 script = ExtResource("2_15wln")
@@ -48,13 +113,21 @@ base_r1 = Dictionary[StringName, Variant]({
 &"schaden": 8.0,
 &"stapel": 2.0
 })
-members = Array[ExtResource("1_xmh0l")]([SubResource("gu_stachelwurm"), SubResource("gu_giftskorpion"), SubResource("gu_giftnebel")])
+members = Array[ExtResource("1_xmh0l")]([SubResource("gu_stachelwurm"), SubResource("gu_giftskorpion"), SubResource("gu_giftnebel"), SubResource("gu_schwarzpfeil"), SubResource("gu_jadehimmel")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"gruenkraut": 3
 },
 3: {
 &"giftdrüse": 3
+},
+4: {
+&"geisterseide": 1,
+&"giftdrüse": 6
+},
+5: {
+&"giftdrüse": 10,
+&"urkristall": 1
 }
 })
 world_effect = "Zersetzt Pilzbarrieren und morsche Wurzeln; Gift in Wasser macht Beutetiere schwach."

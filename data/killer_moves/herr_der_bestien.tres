@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://30vmxu157upm"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_brqe0"]
+
+[resource]
+script = ExtResource("1_brqe0")
+id = &"herr_der_bestien"
+display_name = "Herr der Bestien"
+family_a = &"sklaverei"
+family_b = &"phantom"
+channel_time = 1.5
+damage_mult = 3.6
+description = "Drei Bestienphantome brechen hervor und zwei Blitzwölfe folgen dir."
+hint = "Wer die Bestien beherrscht …"
+min_rank = 5
+steps = [{
+"angle": 150.0,
+"color": "#e07a4a",
+"knockback": 2.4,
+"mult": 1.3,
+"reach": 10.0,
+"stun": 1.0,
+"t": "cone",
+"tags": ["wucht"]
+}, {
+"count": 2.0,
+"enemy": "blitzwolf",
+"t": "summon",
+"time": 30.0
+}, {
+"damage": 1.3,
+"key": "herr",
+"speed": 1.2,
+"t": "buff",
+"time": 10.0
+}]

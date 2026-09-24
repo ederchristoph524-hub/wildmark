@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://r47lmuf1t5v7"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_02g7l"]
+
+[resource]
+script = ExtResource("1_02g7l")
+id = &"reisbeutel"
+display_name = "Reisbeutel-Gras-Gu"
+path = &"holz"
+effect_text = "Gu werden 30 % langsamer hungrig"
+feed_item = &"gruenkraut"
+feed_amount = 1
+rules = {
+"hunger_mult": 0.7
+}

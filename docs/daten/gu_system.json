@@ -29,6 +29,14 @@
     "r3": {
      "mondtau": 6,
      "jadeader": 1
+    },
+    "r4": {
+     "sternsand": 2,
+     "mondtau": 8
+    },
+    "r5": {
+     "urkristall": 1,
+     "sternsand": 4
     }
    },
    "mitglieder": [
@@ -46,7 +54,10 @@
      "name": "Mondsichel-Gu",
      "neu": true,
      "ranggabe": "Klinge durchdringt ein weiteres Ziel.",
-     "beschreibung": "Eine breitere Klinge, die durch den ersten Gegner hindurchschneidet."
+     "beschreibung": "Eine breitere Klinge, die durch den ersten Gegner hindurchschneidet.",
+     "gaben": {
+      "pierce": 1
+     }
     },
     {
      "rang": 3,
@@ -54,7 +65,48 @@
      "name": "Regenbogenlicht-Gu",
      "neu": false,
      "ranggabe": "Fächert in sieben Klingen auf.",
-     "beschreibung": "Sieben Lichtklingen in einem Fächer."
+     "beschreibung": "Sieben Lichtklingen in einem Fächer.",
+     "gaben": {
+      "fan": 6,
+      "fan_angle": 50
+     }
+    },
+    {
+     "rang": 4,
+     "id": "goldlicht",
+     "name": "Allumfassender-Goldlicht-Wurm",
+     "neu": false,
+     "ranggabe": "Durchdringt bis zu fünf Ziele und jede Rüstung.",
+     "beschreibung": "Ein goldener Lichtstrahl, der alles auf seiner Bahn durchdringt.",
+     "gaben": {
+      "pierce": 3,
+      "pierce_armor": true
+     }
+    },
+    {
+     "rang": 5,
+     "id": "mondgift",
+     "name": "Mondgift-Gu",
+     "neu": false,
+     "ranggabe": "Elf zielsuchende Klingen, jede hinterlässt Gift.",
+     "beschreibung": "Die dunkle Vollendung des Mondlichts: elf suchende Klingen, jede mit Gift getränkt.",
+     "gaben": {
+      "fan": 4,
+      "homing": true,
+      "impact": [
+       {
+        "t": "circle",
+        "radius": 1.6,
+        "mult": 0.25,
+        "tags": [
+         "gift"
+        ],
+        "status": "gift",
+        "stacks": 2,
+        "color": "#9b3bff"
+       }
+      ]
+     }
     }
    ],
    "welt": "Licht blendet Nacht- und Schattenwesen und lässt versteckte Lichtsiegel aufleuchten."
@@ -87,6 +139,14 @@
     "r3": {
      "glutasche": 6,
      "donnerholz": 1
+    },
+    "r4": {
+     "drachenschuppe": 1,
+     "glutasche": 8
+    },
+    "r5": {
+     "drachenschuppe": 3,
+     "heldenherz": 1
     }
    },
    "mitglieder": [
@@ -104,7 +164,10 @@
      "name": "Flammenzungen-Gu",
      "neu": false,
      "ranggabe": "Explosionsradius +1 m.",
-     "beschreibung": "Ein Feuerball mit größerer Explosion."
+     "beschreibung": "Ein Feuerball mit größerer Explosion.",
+     "gaben": {
+      "radius_add": 1.0
+     }
     },
     {
      "rang": 3,
@@ -112,7 +175,58 @@
      "name": "Feuerlotus-Gu",
      "neu": true,
      "ranggabe": "Hinterlässt 4 s brennenden Boden.",
-     "beschreibung": "Eine Feuerblüte, die den Boden in Brand setzt."
+     "beschreibung": "Eine Feuerblüte, die den Boden in Brand setzt.",
+     "gaben": {
+      "impact": [
+       {
+        "t": "zone",
+        "radius": 2.5,
+        "time": 4.0,
+        "mult": 0.2,
+        "tags": [
+         "feuer"
+        ],
+        "status": "brand",
+        "color": "#ff7326"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "phoenixfeder",
+     "name": "Phönixfeder-Gu",
+     "neu": false,
+     "ranggabe": "Drei Feuerbälle im Fächer.",
+     "beschreibung": "Drei sichelförmige Flammenklingen fächern auf.",
+     "gaben": {
+      "fan": 2,
+      "fan_angle": 30
+     }
+    },
+    {
+     "rang": 5,
+     "id": "drachenatem",
+     "name": "Drachenatem-Gu",
+     "neu": false,
+     "ranggabe": "Jeder Aufschlag entfacht einen Flächenbrand (Radius 5).",
+     "beschreibung": "Der Atem eines uralten Drachen setzt ganze Hänge in Brand.",
+     "gaben": {
+      "radius_add": 1.5,
+      "impact": [
+       {
+        "t": "zone",
+        "radius": 5.0,
+        "time": 6.0,
+        "mult": 0.35,
+        "tags": [
+         "feuer"
+        ],
+        "status": "brand",
+        "color": "#ff5a1a"
+       }
+      ]
+     }
     }
    ],
    "welt": "Brennt Ranken, Dornenhecken und trockenes Gras ab; entzündet Fackeln und Signalfeuer."
@@ -145,6 +259,14 @@
     "r3": {
      "mondtau": 5,
      "jadeader": 1
+    },
+    "r4": {
+     "mondtau": 10,
+     "zeitharz": 1
+    },
+    "r5": {
+     "tiefseeperle": 2,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -162,7 +284,10 @@
      "name": "Wasserbohrer-Gu",
      "neu": false,
      "ranggabe": "Durchbohrt alle Ziele auf der Linie.",
-     "beschreibung": "Ein gebündelter Strahl, der durch Reihen von Gegnern geht."
+     "beschreibung": "Ein gebündelter Strahl, der durch Reihen von Gegnern geht.",
+     "gaben": {
+      "beam_all": true
+     }
     },
     {
      "rang": 3,
@@ -170,7 +295,66 @@
      "name": "Flutdrachen-Gu",
      "neu": true,
      "ranggabe": "Breiter Strahl mit Rückstoß, hinterlässt Wasserfläche.",
-     "beschreibung": "Ein Wasserdrache, der Gegner zurückspült."
+     "beschreibung": "Ein Wasserdrache, der Gegner zurückspült.",
+     "gaben": {
+      "width_mult": 2.5,
+      "knockback": 1.0,
+      "impact": [
+       {
+        "t": "zone",
+        "radius": 3.0,
+        "time": 5.0,
+        "mult": 0.0,
+        "status": "nass",
+        "slow": 0.3,
+        "slow_time": 1.0,
+        "color": "#4d99ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "gezeitenstrahl",
+     "name": "Gezeitenstrahl-Gu",
+     "neu": true,
+     "ranggabe": "Sehr breiter Strahl, betäubt 0,6 s.",
+     "beschreibung": "Ein Strahl so breit wie eine Flutwelle, der Gegner kurz betäubt.",
+     "gaben": {
+      "width_mult": 3.5,
+      "stun": 0.6
+     }
+    },
+    {
+     "rang": 5,
+     "id": "meeresdrache",
+     "name": "Meeresdrachen-Gu",
+     "neu": true,
+     "ranggabe": "Eine zweite, gewaltige Welle folgt.",
+     "beschreibung": "Nach dem Strahl bricht ein Wasserdrache hervor und rollt alles nieder.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.5,
+        "then": [
+         {
+          "t": "line",
+          "length": 16.0,
+          "width": 5.0,
+          "mult": 1.3,
+          "tags": [
+           "wasser",
+           "wucht"
+          ],
+          "status": "nass",
+          "knockback": 1.6,
+          "color": "#3a8ad0"
+         }
+        ]
+       }
+      ]
+     }
     }
    ],
    "welt": "Löscht Feuerbarrieren, füllt Becken, macht Flächen nass (Vorbereitung für Blitz und Frost)."
@@ -202,6 +386,14 @@
     },
     "r3": {
      "donnerholz": 2
+    },
+    "r4": {
+     "donnerholz": 4,
+     "wolfsgeist": 1
+    },
+    "r5": {
+     "donnerkrone": 1,
+     "donnerholz": 6
     }
    },
    "mitglieder": [
@@ -219,7 +411,10 @@
      "name": "Blauplasma-Gu",
      "neu": false,
      "ranggabe": "Ignoriert Rüstung.",
-     "beschreibung": "Ein Plasmastoß, der Panzer durchschlägt."
+     "beschreibung": "Ein Plasmastoß, der Panzer durchschlägt.",
+     "gaben": {
+      "pierce_armor": true
+     }
     },
     {
      "rang": 3,
@@ -227,7 +422,46 @@
      "name": "Kettenblitz-Gu",
      "neu": false,
      "ranggabe": "Springt auf bis zu 3 weitere Ziele.",
-     "beschreibung": "Ein Blitz, der von Gegner zu Gegner springt."
+     "beschreibung": "Ein Blitz, der von Gegner zu Gegner springt.",
+     "gaben": {
+      "chain": 3,
+      "chain_radius": 6.0
+     }
+    },
+    {
+     "rang": 4,
+     "id": "donnerwolf",
+     "name": "Donnerwolf-Gu",
+     "neu": true,
+     "ranggabe": "Springt auf 3 weitere Ziele, jeder Treffer betäubt 0,3 s.",
+     "beschreibung": "Blitze jagen wie ein Wolfsrudel von Ziel zu Ziel und lähmen kurz.",
+     "gaben": {
+      "chain": 3,
+      "stun": 0.3
+     }
+    },
+    {
+     "rang": 5,
+     "id": "himmelsdonner",
+     "name": "Himmelsdonner-Gu",
+     "neu": true,
+     "ranggabe": "Einschlag ruft einen Donnerschlag (Radius 3,5, doppelte Ladung).",
+     "beschreibung": "Wo der Blitz einschlägt, fährt ein Donnerschlag vom Himmel.",
+     "gaben": {
+      "impact": [
+       {
+        "t": "circle",
+        "radius": 3.5,
+        "mult": 1.0,
+        "tags": [
+         "blitz"
+        ],
+        "status": "ladung",
+        "stacks": 2,
+        "color": "#8ad0ff"
+       }
+      ]
+     }
     }
    ],
    "welt": "Lädt alte Ruinenmechanismen auf (Tore, Aufzüge); Blitz in Wasser elektrisiert die ganze Fläche."
@@ -260,6 +494,14 @@
     "r3": {
      "frostsplitter": 5,
      "jadeader": 1
+    },
+    "r4": {
+     "frostsplitter": 8,
+     "geisterseide": 1
+    },
+    "r5": {
+     "frostsplitter": 12,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -277,7 +519,10 @@
      "name": "Eisvogel-Gu",
      "neu": false,
      "ranggabe": "Trifft mit 2 Frost-Stapeln.",
-     "beschreibung": "Ein Eisvogel, der am Ziel zerspringt."
+     "beschreibung": "Ein Eisvogel, der am Ziel zerspringt.",
+     "gaben": {
+      "stacks_add": 1
+     }
     },
     {
      "rang": 3,
@@ -285,7 +530,57 @@
      "name": "Frostnova-Gu",
      "neu": false,
      "ranggabe": "Wird zum Kreis um dich (Radius 3).",
-     "beschreibung": "Eine Kältewelle um dich herum."
+     "beschreibung": "Eine Kältewelle um dich herum.",
+     "gaben": {
+      "as_circle": 3.0
+     }
+    },
+    {
+     "rang": 4,
+     "id": "schneeball",
+     "name": "Schneeball-Gu",
+     "neu": false,
+     "ranggabe": "Frostkreis Radius 5 und ein Eisfeld, das verlangsamt.",
+     "beschreibung": "Kälte rollt in einer Lawine um dich und hinterlässt ein Eisfeld.",
+     "gaben": {
+      "as_circle": 5.0,
+      "extra": [
+       {
+        "t": "zone",
+        "at": "self",
+        "radius": 5.0,
+        "time": 4.0,
+        "mult": 0.2,
+        "tags": [
+         "eis"
+        ],
+        "status": "frost",
+        "slow": 0.4,
+        "slow_time": 1.0,
+        "color": "#bfeaff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "frostdaemon",
+     "name": "Frostdämon-Gu",
+     "neu": true,
+     "ranggabe": "Friert alles im Umkreis 7 sofort ein.",
+     "beschreibung": "Ein Frostdämon entweicht und friert alles im weiten Umkreis ein.",
+     "gaben": {
+      "as_circle": 7.0,
+      "extra": [
+       {
+        "t": "circle",
+        "radius": 7.0,
+        "mult": 0.0,
+        "freeze": 2.5,
+        "color": "#dff6ff"
+       }
+      ]
+     }
     }
    ],
    "welt": "Friert Wasserflächen zu begehbarem Eis, stoppt Wasserfälle kurz, löscht Feuer."
@@ -317,6 +612,14 @@
     },
     "r3": {
      "giftdrüse": 3
+    },
+    "r4": {
+     "giftdrüse": 6,
+     "geisterseide": 1
+    },
+    "r5": {
+     "giftdrüse": 10,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -334,7 +637,10 @@
      "name": "Giftskorpion-Gu",
      "neu": false,
      "ranggabe": "Gift springt beim Tod des Ziels über.",
-     "beschreibung": "Ein Skorpionstich, dessen Gift sich ausbreitet."
+     "beschreibung": "Ein Skorpionstich, dessen Gift sich ausbreitet.",
+     "gaben": {
+      "spread_on_death": true
+     }
     },
     {
      "rang": 3,
@@ -342,7 +648,74 @@
      "name": "Giftnebel-Gu",
      "neu": false,
      "ranggabe": "Wird zur Giftwolke (Zone, Radius 3).",
-     "beschreibung": "Eine Giftwolke, die Stapel aufbaut."
+     "beschreibung": "Eine Giftwolke, die Stapel aufbaut.",
+     "gaben": {
+      "as_zone": {
+       "t": "zone",
+       "radius": 3.0,
+       "time": 5.0,
+       "mult": 0.35,
+       "tags": [
+        "gift"
+       ],
+       "status": "gift",
+       "stacks": 1,
+       "color": "#8ce633",
+       "at": "target",
+       "distance": 4.0
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "schwarzpfeil",
+     "name": "Schwarzpfeil-Gu",
+     "neu": false,
+     "ranggabe": "Acht zielsuchende Giftpfeile.",
+     "beschreibung": "Zusätzlich schwirren acht Giftpfeile aus, die sich Kopf und Herz suchen.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "projectiles",
+        "count": 8,
+        "spread": 140.0,
+        "homing": true,
+        "mult": 0.35,
+        "tags": [
+         "gift"
+        ],
+        "status": "gift",
+        "stacks": 1,
+        "range": 14.0,
+        "speed": 11.0,
+        "color": "#9b3bff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "jadehimmel",
+     "name": "Jadehimmel-Gu",
+     "neu": true,
+     "ranggabe": "Riesige Giftzone (Radius 6, 8 s, doppelte Stapel).",
+     "beschreibung": "Ein blassgrünes, uraltes Gift, das selbst gesegnetes Land zersetzt.",
+     "gaben": {
+      "as_zone": {
+       "t": "zone",
+       "radius": 6.0,
+       "time": 8.0,
+       "mult": 0.5,
+       "tags": [
+        "gift"
+       ],
+       "status": "gift",
+       "stacks": 2,
+       "at": "target",
+       "distance": 6.0,
+       "color": "#7fe0a0"
+      }
+     }
     }
    ],
    "welt": "Zersetzt Pilzbarrieren und morsche Wurzeln; Gift in Wasser macht Beutetiere schwach."
@@ -375,6 +748,14 @@
     "r3": {
      "wildfell": 5,
      "knochenmehl": 2
+    },
+    "r4": {
+     "baerengalle": 3,
+     "heldenherz": 1
+    },
+    "r5": {
+     "heldenherz": 2,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -392,7 +773,10 @@
      "name": "Sogwirbel-Gu",
      "neu": true,
      "ranggabe": "Zieht Gegner vorher zu dir.",
-     "beschreibung": "Ein Wirbel, der Gegner einsaugt und dann schlägt."
+     "beschreibung": "Ein Wirbel, der Gegner einsaugt und dann schlägt.",
+     "gaben": {
+      "pull": 3.0
+     }
     },
     {
      "rang": 3,
@@ -400,7 +784,47 @@
      "name": "Bergschlag-Gu",
      "neu": true,
      "ranggabe": "Bodenschlag, betäubt 1 s.",
-     "beschreibung": "Ein Schlag, der den Boden bersten lässt."
+     "beschreibung": "Ein Schlag, der den Boden bersten lässt.",
+     "gaben": {
+      "stun": 1.0
+     }
+    },
+    {
+     "rang": 4,
+     "id": "erdbeben",
+     "name": "Erdbeben-Gu",
+     "neu": false,
+     "ranggabe": "Größerer Wirbel, der 3 s nachzieht.",
+     "beschreibung": "Der Wirbel reißt die Erde mit: ein Sog hält die Gegner im Sturm.",
+     "gaben": {
+      "radius_add": 1.5,
+      "extra": [
+       {
+        "t": "zone",
+        "follow": true,
+        "radius": 4.0,
+        "time": 3.0,
+        "mult": 0.3,
+        "tags": [
+         "wind"
+        ],
+        "pull": 0.6,
+        "color": "#e0a070"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "bergziehen",
+     "name": "Berge-Ziehen-Gu",
+     "neu": false,
+     "ranggabe": "Betäubt 2 s, Radius +1,5.",
+     "beschreibung": "Die Kraft, Berge zu versetzen, in einem einzigen Wirbel.",
+     "gaben": {
+      "radius_add": 1.5,
+      "stun": 1.0
+     }
     }
    ],
    "welt": "Zertrümmert Felsbrocken und morsche Wände; Wind verweht Nebel und Giftwolken."
@@ -433,6 +857,14 @@
     },
     "r3": {
      "blutkoralle": 2
+    },
+    "r4": {
+     "blutkoralle": 3,
+     "knochenmehl": 6
+    },
+    "r5": {
+     "blutkoralle": 5,
+     "heldenherz": 1
     }
    },
    "mitglieder": [
@@ -450,7 +882,11 @@
      "name": "Spiral-Knochenspeer-Gu",
      "neu": false,
      "ranggabe": "Durchbohrt Rüstung vollständig.",
-     "beschreibung": "Ein Speer aus eigenem Knochen."
+     "beschreibung": "Ein Speer aus eigenem Knochen.",
+     "gaben": {
+      "pierce_armor": true,
+      "pierce": 1
+     }
     },
     {
      "rang": 3,
@@ -458,7 +894,43 @@
      "name": "Blutschädel-Gu",
      "neu": false,
      "ranggabe": "Heilt dich um die Hälfte des Schadens.",
-     "beschreibung": "Ein Schädelgeschoss, das Lebenskraft zurückholt."
+     "beschreibung": "Ein Schädelgeschoss, das Lebenskraft zurückholt.",
+     "gaben": {
+      "lifesteal": 0.5
+     }
+    },
+    {
+     "rang": 4,
+     "id": "knochenweich",
+     "name": "Knochenerweichungs-Gu",
+     "neu": false,
+     "ranggabe": "Aufschlag schwächt alle im Umkreis 3 (2 Stapel).",
+     "beschreibung": "Wo der Speer einschlägt, werden alle Knochen im Umkreis weich.",
+     "gaben": {
+      "impact": [
+       {
+        "t": "circle",
+        "radius": 3.0,
+        "mult": 0.3,
+        "status": "schwaeche",
+        "stacks": 2,
+        "color": "#e6d8c0"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "blutkaiser",
+     "name": "Blutschädel-Kaiser-Gu",
+     "neu": true,
+     "ranggabe": "Drei Speere, Hinrichtung (+60 % unter 30 % Leben).",
+     "beschreibung": "Drei Blutspeere, die Leben rauben und Sterbende hinrichten.",
+     "gaben": {
+      "fan": 2,
+      "fan_angle": 20,
+      "execute": 0.6
+     }
     }
    ],
    "welt": "Blutsiegel an alten Klan-Toren öffnen sich nur mit Blut-Pfad."
@@ -490,6 +962,14 @@
     },
     "r3": {
      "jadeader": 2
+    },
+    "r4": {
+     "jadeader": 4,
+     "klingenstahl": 2
+    },
+    "r5": {
+     "jadeader": 6,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -507,7 +987,10 @@
      "name": "Eisenhaut-Gu",
      "neu": false,
      "ranggabe": "Wirft Geschosse zurück.",
-     "beschreibung": "Eisenpanzer, der Geschosse reflektiert."
+     "beschreibung": "Eisenpanzer, der Geschosse reflektiert.",
+     "gaben": {
+      "reflect": true
+     }
     },
     {
      "rang": 3,
@@ -515,7 +998,54 @@
      "name": "Uralte-Bronzehaut-Gu",
      "neu": false,
      "ranggabe": "Unbeweglich: kein Rückstoß, keine Betäubung.",
-     "beschreibung": "Uralter Bronzepanzer."
+     "beschreibung": "Uralter Bronzepanzer.",
+     "gaben": {
+      "unstoppable": true
+     }
+    },
+    {
+     "rang": 4,
+     "id": "goldglocke",
+     "name": "Goldglocken-Gu",
+     "neu": true,
+     "ranggabe": "Dornen: Angreifer werden zurückgestochen.",
+     "beschreibung": "Eine goldene Glocke umhüllt dich; wer zuschlägt, wird von Splittern getroffen.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "armor",
+        "kind": "thorns",
+        "time": 4.0,
+        "reduction": 0.0,
+        "value_mult": 0.5,
+        "color": "#f0c860"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "schildkroetenjade",
+     "name": "Schildkrötenjade-Wolfshaut-Gu",
+     "neu": true,
+     "ranggabe": "Heilt beim Aktivieren 15 % Leben, Dornen bleiben.",
+     "beschreibung": "Die Haut eines Schildkrötenwolf-Herrschers: fast undurchdringlich und heilend.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "armor",
+        "kind": "thorns",
+        "time": 5.0,
+        "reduction": 0.0,
+        "value_mult": 0.6,
+        "color": "#a0d8a0"
+       },
+       {
+        "t": "heal",
+        "frac": 0.15
+       }
+      ]
+     }
     }
    ],
    "welt": "Ermöglicht das Durchqueren von Dornen- und Giftfeldern ohne Schaden, solange aktiv."
@@ -547,6 +1077,14 @@
     "r3": {
      "gruenkraut": 6,
      "mondtau": 2
+    },
+    "r4": {
+     "gruenkraut": 10,
+     "zeitharz": 1
+    },
+    "r5": {
+     "zeitharz": 2,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -564,7 +1102,10 @@
      "name": "Frisches-Blatt-Gu",
      "neu": false,
      "ranggabe": "Entfernt dabei Gift, Brand und Frost.",
-     "beschreibung": "Ein Blatt, das auch reinigt."
+     "beschreibung": "Ein Blatt, das auch reinigt.",
+     "gaben": {
+      "cleanse": true
+     }
     },
     {
      "rang": 3,
@@ -572,7 +1113,65 @@
      "name": "Lebensbrunnen-Gu",
      "neu": false,
      "ranggabe": "Wird zur Heilzone für dich und Gefährten.",
-     "beschreibung": "Eine Quelle des Lebens am Boden."
+     "beschreibung": "Eine Quelle des Lebens am Boden.",
+     "gaben": {
+      "heal_zone": {
+       "t": "zone",
+       "radius": 4.0,
+       "time": 6.0,
+       "mult": 0.0,
+       "heal": 0.02,
+       "tick": 0.5,
+       "color": "#80ff80"
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "holzzauber",
+     "name": "Holzzauber-Gu",
+     "neu": true,
+     "ranggabe": "Zusätzlich 25 % Schadensreduktion für 8 s.",
+     "beschreibung": "Du wirst zum Baumgeist: zäh wie altes Holz, während die Heilung wirkt.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "buff",
+        "key": "holzzauber",
+        "damage": 1.0,
+        "speed": 0.95,
+        "reduction": 0.25,
+        "time": 8.0,
+        "color": "#6fbf4a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "lebensbaum",
+     "name": "Lebensbaum-Gu",
+     "neu": true,
+     "ranggabe": "Heilzone Radius 6, sofortige Heilung für alle Verbündeten.",
+     "beschreibung": "Ein Lebensbaum wächst aus dir und heilt alle Verbündeten.",
+     "gaben": {
+      "heal_zone": {
+       "t": "zone",
+       "radius": 6.0,
+       "time": 8.0,
+       "mult": 0.0,
+       "heal": 0.035,
+       "color": "#80ff80"
+      },
+      "extra": [
+       {
+        "t": "heal",
+        "frac": 0.3,
+        "allies": true,
+        "radius": 10.0
+       }
+      ]
+     }
     }
    ],
    "welt": "Lässt Kletterranken wachsen und verdorrte Heilpflanzen wieder sprießen."
@@ -604,6 +1203,14 @@
     },
     "r3": {
      "seelenglas": 2
+    },
+    "r4": {
+     "seelenglas": 4,
+     "wolfsgeist": 2
+    },
+    "r5": {
+     "heldenherz": 1,
+     "seelenglas": 6
     }
    },
    "mitglieder": [
@@ -621,7 +1228,10 @@
      "name": "Wolfs-Sklaverei-Gu",
      "neu": false,
      "ranggabe": "Auch mittelgroße Bestien; 2 Gefährten.",
-     "beschreibung": "Unterwirft Wölfe und Wildschweine."
+     "beschreibung": "Unterwirft Wölfe und Wildschweine.",
+     "gaben": {
+      "companions_add": 1
+     }
     },
     {
      "rang": 3,
@@ -629,7 +1239,32 @@
      "name": "Bestien-Sklaverei-Gu",
      "neu": false,
      "ranggabe": "Ein Gefährte bleibt dauerhaft, bis er stirbt.",
-     "beschreibung": "Unterwirft auch starke Bestien."
+     "beschreibung": "Unterwirft auch starke Bestien.",
+     "gaben": {
+      "permanent": true
+     }
+    },
+    {
+     "rang": 4,
+     "id": "baerensklave",
+     "name": "Bären-Sklaverei-Gu",
+     "neu": true,
+     "ranggabe": "Drei Gefährten, auch große Bestien.",
+     "beschreibung": "Auch große Bestien und Bestienkönige beugen sich; drei Gefährten.",
+     "gaben": {
+      "companions_add": 1
+     }
+    },
+    {
+     "rang": 5,
+     "id": "sklaverei",
+     "name": "Sklaverei-Gu",
+     "neu": false,
+     "ranggabe": "Fünf Gefährten.",
+     "beschreibung": "Der vollendete Sklaverei-Pfad: ein ganzes Rudel folgt dir.",
+     "gaben": {
+      "companions_add": 2
+     }
     }
    ],
    "welt": "Gezähmte Tiere graben, tragen Beute oder lenken Gegner ab; Ratten erreichen enge Gänge."
@@ -658,6 +1293,14 @@
     },
     "r3": {
      "windfeder": 5
+    },
+    "r4": {
+     "windfeder": 8,
+     "geisterseide": 1
+    },
+    "r5": {
+     "windfeder": 12,
+     "urkristall": 1
     }
    },
    "mitglieder": [
@@ -675,7 +1318,11 @@
      "name": "Wolkenschritt-Gu",
      "neu": true,
      "ranggabe": "Gleiten und ein Luft-Dash.",
-     "beschreibung": "Du gleitest über Schluchten."
+     "beschreibung": "Du gleitest über Schluchten.",
+     "gaben": {
+      "glide": true,
+      "air_dash": true
+     }
     },
     {
      "rang": 3,
@@ -683,10 +1330,1910 @@
      "name": "Schattenbild-Gu",
      "neu": false,
      "ranggabe": "Teleport 8 m, auch durch Gitter.",
-     "beschreibung": "Teleportiert dich ein Stück nach vorn."
+     "beschreibung": "Teleportiert dich ein Stück nach vorn.",
+     "gaben": {
+      "teleport": 8.0
+     }
+    },
+    {
+     "rang": 4,
+     "id": "blitzfluegel",
+     "name": "Blitzflügel-Gu",
+     "neu": false,
+     "ranggabe": "Teleport 14 m.",
+     "beschreibung": "Flügel aus Blitz tragen dich in einem Wimpernschlag 14 m weit.",
+     "gaben": {
+      "teleport": 14.0
+     }
+    },
+    {
+     "rang": 5,
+     "id": "blauerhimmel",
+     "name": "Blauer-Himmel-Gu",
+     "neu": false,
+     "ranggabe": "Teleport 20 m, danach 5 s +50 % Tempo.",
+     "beschreibung": "Faltet den Raum wie ein Tuch: 20 m in einem Schritt, danach rasend schnell.",
+     "gaben": {
+      "teleport": 20.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "blauerhimmel",
+        "damage": 1.0,
+        "speed": 1.5,
+        "time": 5.0,
+        "color": "#6ad04a"
+       }
+      ]
+     }
     }
    ],
    "welt": "Der wichtigste Erkundungs-Gu: erreicht Vorsprünge, Schluchten, Inseln und Käfige."
+  },
+  {
+   "id": "phantom",
+   "name": "Bestienphantom",
+   "pfad": "kraft",
+   "rolle": "Nahkampf-Brecher",
+   "wirkform": "kegel",
+   "tags": [
+    "wucht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 24,
+    "cd": 3.0,
+    "ess": 7,
+    "reichweite": 4.0,
+    "winkel": 100.0,
+    "rueckstoss": 1.5
+   },
+   "aufstieg": {
+    "r2": {
+     "wildfell": 3,
+     "baerengalle": 1
+    },
+    "r3": {
+     "baerengalle": 3,
+     "knochenmehl": 2
+    },
+    "r4": {
+     "baerengalle": 5,
+     "heldenherz": 1
+    },
+    "r5": {
+     "heldenherz": 2,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "eberstoss",
+     "name": "Eberstoß-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Eber-Phantom bricht aus deinem Schlag hervor und stößt alles vor dir weg."
+    },
+    {
+     "rang": 2,
+     "id": "grossbaer",
+     "name": "Großbär-Gu",
+     "neu": true,
+     "ranggabe": "Größerer Kegel (5 m, 120°).",
+     "beschreibung": "Ein Bärenphantom mit weiter Pranke.",
+     "gaben": {
+      "step": {
+       "reach": 5.0,
+       "angle": 120.0
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "allout",
+     "name": "Alles-oder-nichts-Gu",
+     "neu": false,
+     "ranggabe": "Betäubt 0,6 s, danach 5 s +25 % Schaden.",
+     "beschreibung": "Jeder Schlag ruft ein Phantom – und stachelt dich weiter an.",
+     "gaben": {
+      "stun": 0.6,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "allout",
+        "damage": 1.25,
+        "speed": 1.0,
+        "time": 5.0,
+        "color": "#e07a4a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "flugbaer",
+     "name": "Flugbär-Kraft-Gu",
+     "neu": true,
+     "ranggabe": "Nachschlag: Landung Radius 4 mit Rückstoß.",
+     "beschreibung": "Ein fliegender Bär landet nach dem Schlag mitten unter den Feinden.",
+     "gaben": {
+      "stun": 0.6,
+      "step": {
+       "reach": 6.0,
+       "angle": 120.0
+      },
+      "extra": [
+       {
+        "t": "buff",
+        "key": "allout",
+        "damage": 1.25,
+        "speed": 1.0,
+        "time": 5.0,
+        "color": "#e07a4a"
+       },
+       {
+        "t": "delay",
+        "time": 0.35,
+        "then": [
+         {
+          "t": "circle",
+          "at": "aim",
+          "distance": 4.0,
+          "radius": 4.0,
+          "mult": 0.9,
+          "tags": [
+           "wucht"
+          ],
+          "knockback": 1.8,
+          "color": "#e07a4a"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "kraftleihen",
+     "name": "Kraft-leihen-Gu",
+     "neu": true,
+     "ranggabe": "Zweites Phantom (8 m, Wind), Hinrichtung.",
+     "beschreibung": "Du leihst dir die Kraft von Wind und Erde: ein zweites, gewaltiges Phantom folgt.",
+     "gaben": {
+      "execute": 0.6,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "allout",
+        "damage": 1.3,
+        "speed": 1.0,
+        "time": 6.0,
+        "color": "#e07a4a"
+       },
+       {
+        "t": "delay",
+        "time": 0.3,
+        "then": [
+         {
+          "t": "cone",
+          "reach": 8.0,
+          "angle": 90.0,
+          "mult": 1.3,
+          "tags": [
+           "wucht",
+           "wind"
+          ],
+          "knockback": 2.2,
+          "color": "#ffb080"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Phantome zertrümmern Felsbrocken und stoßen Bestien von Klippen."
+  },
+  {
+   "id": "erde",
+   "name": "Erdstachel",
+   "pfad": "erde",
+   "rolle": "Flächenkontrolle",
+   "wirkform": "zone",
+   "tags": [
+    "erde",
+    "wucht"
+   ],
+   "status": "verwurzelt",
+   "futter": {
+    "r": "stein",
+    "n": 3
+   },
+   "basis_r1": {
+    "schaden": 9,
+    "cd": 6.0,
+    "ess": 8,
+    "radius": 2.4,
+    "dauer": 1.6,
+    "takt": 0.5,
+    "reichweite": 10.0
+   },
+   "aufstieg": {
+    "r2": {
+     "eisenerz": 4,
+     "erdkern": 1
+    },
+    "r3": {
+     "erdkern": 3,
+     "jadeader": 1
+    },
+    "r4": {
+     "wuestenrose": 2,
+     "jadeader": 2
+    },
+    "r5": {
+     "wuestenrose": 4,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "drehfels",
+     "name": "Dreh-Fels-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Steinspitzen brechen am Zielort aus dem Boden und halten Gegner fest."
+    },
+    {
+     "rang": 2,
+     "id": "steinfaust",
+     "name": "Steinfaust-Gu",
+     "neu": true,
+     "ranggabe": "Radius 3, stößt weg.",
+     "beschreibung": "Ein größeres Stachelfeld, das Gegner zurückwirft.",
+     "gaben": {
+      "step": {
+       "radius": 3.0,
+       "knockback": 0.6
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "felssturz",
+     "name": "Felssturz-Gu",
+     "neu": true,
+     "ranggabe": "Felsbrocken (Radius 3,5, betäubt 0,8 s).",
+     "beschreibung": "Nach den Stacheln stürzt ein Felsbrocken herab.",
+     "gaben": {
+      "step": {
+       "radius": 3.0,
+       "knockback": 0.6
+      },
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.6,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 7.0,
+          "radius": 3.5,
+          "mult": 1.6,
+          "tags": [
+           "erde",
+           "wucht"
+          ],
+          "stun": 0.8,
+          "color": "#a08050"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "bergwiezuvor",
+     "name": "Berg-wie-zuvor-Gu",
+     "neu": true,
+     "ranggabe": "Stachelfeld Radius 4,5, Bergsturz Radius 5.",
+     "beschreibung": "Ein ganzer Steinberg stürzt auf das Stachelfeld.",
+     "gaben": {
+      "step": {
+       "radius": 4.5,
+       "time": 2.5,
+       "knockback": 0.6
+      },
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.7,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 7.0,
+          "radius": 5.0,
+          "mult": 2.0,
+          "tags": [
+           "erde",
+           "wucht"
+          ],
+          "stun": 1.0,
+          "color": "#a08050"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "erdloch",
+     "name": "Erdloch-Gu",
+     "neu": true,
+     "ranggabe": "Teleport 10 m und Beben (Radius 6, betäubt 1,2 s).",
+     "beschreibung": "Du tauchst durch die Erde und brichst am Ziel mit einem Beben hervor.",
+     "gaben": {
+      "step": {
+       "radius": 4.5,
+       "time": 2.5
+      },
+      "extra": [
+       {
+        "t": "teleport",
+        "distance": 10.0
+       },
+       {
+        "t": "circle",
+        "radius": 6.0,
+        "mult": 1.6,
+        "tags": [
+         "erde",
+         "wucht"
+        ],
+        "stun": 1.2,
+        "knockback": 1.0,
+        "color": "#a08050"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Erdstacheln brechen Felsbrocken und stützen einstürzende Gänge."
+  },
+  {
+   "id": "wind",
+   "name": "Windklinge",
+   "pfad": "wind",
+   "rolle": "Mittelstrecke, Rückstoß",
+   "wirkform": "kegel",
+   "tags": [
+    "wind",
+    "schnitt"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 13,
+    "cd": 2.2,
+    "ess": 5,
+    "reichweite": 8.0,
+    "winkel": 45.0,
+    "rueckstoss": 1.0
+   },
+   "aufstieg": {
+    "r2": {
+     "windfeder": 2
+    },
+    "r3": {
+     "windfeder": 4,
+     "seelenglas": 1
+    },
+    "r4": {
+     "windfeder": 8,
+     "sternsand": 1
+    },
+    "r5": {
+     "windfeder": 12,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "windklinge",
+     "name": "Windklingen-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein schneidender Windstoß in einem schmalen Kegel."
+    },
+    {
+     "rang": 2,
+     "id": "windwand",
+     "name": "Windwand-Gu",
+     "neu": true,
+     "ranggabe": "Breiter (80°), stärkerer Rückstoß.",
+     "beschreibung": "Eine Wand aus Wind, die Gegner weit zurückwirft.",
+     "gaben": {
+      "step": {
+       "angle": 80.0,
+       "knockback": 1.7
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "verletzungswind",
+     "name": "Verletzungswind-Gu",
+     "neu": true,
+     "ranggabe": "Hinterlässt 3 s einen Klingenwirbel (Blutung).",
+     "beschreibung": "Der Wind bleibt als schneidender Wirbel stehen und lässt Wunden bluten.",
+     "gaben": {
+      "step": {
+       "angle": 80.0,
+       "knockback": 1.7
+      },
+      "extra": [
+       {
+        "t": "zone",
+        "at": "aim",
+        "distance": 5.0,
+        "radius": 3.0,
+        "time": 3.0,
+        "mult": 0.3,
+        "tags": [
+         "wind",
+         "schnitt"
+        ],
+        "status": "blutung",
+        "color": "#c8f0ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "sturmgeheul",
+     "name": "Sturmgeheul-Gu",
+     "neu": true,
+     "ranggabe": "Reichweite 10, betäubt 0,5 s.",
+     "beschreibung": "Ein heulender Sturm reicht zehn Meter weit und betäubt kurz.",
+     "gaben": {
+      "stun": 0.5,
+      "step": {
+       "reach": 10.0,
+       "angle": 80.0,
+       "knockback": 1.7
+      },
+      "extra": [
+       {
+        "t": "zone",
+        "at": "aim",
+        "distance": 6.0,
+        "radius": 3.0,
+        "time": 3.0,
+        "mult": 0.3,
+        "tags": [
+         "wind",
+         "schnitt"
+        ],
+        "status": "blutung",
+        "color": "#c8f0ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "taifun",
+     "name": "Taifun-Gu",
+     "neu": true,
+     "ranggabe": "Taifun (Radius 5, 5 s) zieht Gegner hinein.",
+     "beschreibung": "Ein Taifun bleibt stehen und saugt alles in sein schneidendes Herz.",
+     "gaben": {
+      "stun": 0.5,
+      "step": {
+       "reach": 10.0,
+       "angle": 80.0,
+       "knockback": 1.7
+      },
+      "extra": [
+       {
+        "t": "zone",
+        "at": "aim",
+        "distance": 7.0,
+        "radius": 5.0,
+        "time": 5.0,
+        "mult": 0.4,
+        "tags": [
+         "wind",
+         "schnitt"
+        ],
+        "status": "blutung",
+        "pull": 1.5,
+        "color": "#c8f0ff"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Wind verweht Gift- und Dampfwolken und trägt Brand und Gift weiter."
+  },
+  {
+   "id": "stern",
+   "name": "Sternschwarm",
+   "pfad": "stern",
+   "rolle": "Zielsuchender Fernkampf",
+   "wirkform": "schwarm",
+   "tags": [
+    "stern",
+    "licht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "kristall",
+    "n": 1
+   },
+   "basis_r1": {
+    "schaden": 7,
+    "cd": 2.6,
+    "ess": 6,
+    "anzahl": 3,
+    "reichweite": 18.0,
+    "tempo": 16.0,
+    "winkel": 60.0
+   },
+   "aufstieg": {
+    "r2": {
+     "mondtau": 4
+    },
+    "r3": {
+     "mondtau": 6,
+     "seelenglas": 1
+    },
+    "r4": {
+     "sternsand": 3
+    },
+    "r5": {
+     "sternsand": 5,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "sternpfeil_klein",
+     "name": "Sternenpfeil-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Drei kleine Sternenpfeile, die ihr Ziel selbst finden."
+    },
+    {
+     "rang": 2,
+     "id": "sternpfeil",
+     "name": "Sternpfeil-Gu",
+     "neu": false,
+     "ranggabe": "Fünf Pfeile.",
+     "beschreibung": "Fünf Pfeile aus verdichtetem Sternenlicht.",
+     "gaben": {
+      "count_add": 2
+     }
+    },
+    {
+     "rang": 3,
+     "id": "gluehwuermchen",
+     "name": "Sternlicht-Glühwürmchen-Gu",
+     "neu": true,
+     "ranggabe": "Sieben Sterne, jeder schwächt (Schwäche).",
+     "beschreibung": "Sieben glühende Sterne, die das Ziel schwächen.",
+     "gaben": {
+      "count_add": 2,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "sternschnuppe",
+     "name": "Sternschnuppen-Gu",
+     "neu": true,
+     "ranggabe": "Sternschnuppe (Radius 3, doppelter Schaden).",
+     "beschreibung": "Dem Schwarm folgt eine Sternschnuppe, die am Ziel einschlägt.",
+     "gaben": {
+      "count_add": 2,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1
+      },
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.8,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 9.0,
+          "radius": 3.0,
+          "mult": 2.5,
+          "tags": [
+           "stern",
+           "wucht"
+          ],
+          "color": "#fff2b0"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "sternentor",
+     "name": "Sternentor-Gu",
+     "neu": true,
+     "ranggabe": "Zehn Sterne, Sternschnuppe, Teleport 6 m.",
+     "beschreibung": "Ein Sternentor öffnet sich: Zehn Sterne stürzen hindurch, du trittst auf die andere Seite.",
+     "gaben": {
+      "count_add": 5,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1
+      },
+      "extra": [
+       {
+        "t": "teleport",
+        "distance": 6.0
+       },
+       {
+        "t": "delay",
+        "time": 0.8,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 9.0,
+          "radius": 3.5,
+          "mult": 2.5,
+          "tags": [
+           "stern",
+           "wucht"
+          ],
+          "color": "#fff2b0"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Sternenlicht findet versteckte Ziele und leuchtet in dunklen Gängen."
+  },
+  {
+   "id": "schwert",
+   "name": "Schwertschatten",
+   "pfad": "schwert",
+   "rolle": "Kreisende Klingen",
+   "wirkform": "umkreisen",
+   "tags": [
+    "schnitt"
+   ],
+   "status": null,
+   "futter": {
+    "r": "stein",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 9,
+    "cd": 8.0,
+    "ess": 8,
+    "anzahl": 2,
+    "radius": 2.0,
+    "dauer": 4.0,
+    "tempo": 0.8,
+    "takt": 0.45
+   },
+   "aufstieg": {
+    "r2": {
+     "eisenerz": 5
+    },
+    "r3": {
+     "klingenstahl": 2
+    },
+    "r4": {
+     "klingenstahl": 4,
+     "sternsand": 1
+    },
+    "r5": {
+     "klingenstahl": 6,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "klingenfaden",
+     "name": "Klingenfaden-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Zwei Klingen kreisen um dich und schneiden alles, was sich nähert."
+    },
+    {
+     "rang": 2,
+     "id": "schwertfluegel",
+     "name": "Schwertflügel-Gu",
+     "neu": true,
+     "ranggabe": "Drei Klingen, +2 s.",
+     "beschreibung": "Drei Klingen, die länger kreisen.",
+     "gaben": {
+      "count_add": 1,
+      "time_add": 2.0
+     }
+    },
+    {
+     "rang": 3,
+     "id": "schwertschatten",
+     "name": "Schwertschatten-Gu",
+     "neu": true,
+     "ranggabe": "Vier Klingen, drei Schwertschatten als Geschosse.",
+     "beschreibung": "Vier Klingen – und drei Schwertschatten fliegen nach vorn.",
+     "gaben": {
+      "count_add": 2,
+      "time_add": 2.0,
+      "extra": [
+       {
+        "t": "projectiles",
+        "count": 3,
+        "spread": 30.0,
+        "mult": 0.9,
+        "tags": [
+         "schnitt"
+        ],
+        "range": 15.0,
+        "pierce": 1,
+        "color": "#e8f4ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "einzelklinge",
+     "name": "Einzelklinge-Gu",
+     "neu": true,
+     "ranggabe": "Ignoriert Rüstung, Hinrichtung.",
+     "beschreibung": "Die Klingen ignorieren jede Rüstung und richten Sterbende hin.",
+     "gaben": {
+      "count_add": 2,
+      "time_add": 2.0,
+      "pierce_armor": true,
+      "execute": 0.5,
+      "extra": [
+       {
+        "t": "projectiles",
+        "count": 3,
+        "spread": 30.0,
+        "mult": 0.9,
+        "tags": [
+         "schnitt"
+        ],
+        "range": 15.0,
+        "pierce": 2,
+        "pierce_armor": true,
+        "color": "#e8f4ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "zehntausendschwert",
+     "name": "Zehntausend-Schwerter-Gu",
+     "neu": true,
+     "ranggabe": "Sieben Klingen (Radius 3), sieben Schatten.",
+     "beschreibung": "Ein Sturm aus sieben Klingen im weiten Kreis, dazu sieben Schwertschatten.",
+     "gaben": {
+      "count_add": 5,
+      "time_add": 3.0,
+      "pierce_armor": true,
+      "execute": 0.5,
+      "step": {
+       "radius": 3.0,
+       "speed": 1.0
+      },
+      "extra": [
+       {
+        "t": "projectiles",
+        "count": 7,
+        "spread": 70.0,
+        "mult": 0.9,
+        "tags": [
+         "schnitt"
+        ],
+        "range": 16.0,
+        "pierce": 2,
+        "pierce_armor": true,
+        "color": "#e8f4ff"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Klingen zerschneiden Ranken und Dornenhecken."
+  },
+  {
+   "id": "seelenschrei",
+   "name": "Seelenschrei",
+   "pfad": "seele",
+   "rolle": "Kontrolle, Furcht",
+   "wirkform": "kegel",
+   "tags": [
+    "seele"
+   ],
+   "status": "furcht",
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 8,
+    "cd": 7.0,
+    "ess": 7,
+    "reichweite": 6.0,
+    "winkel": 70.0,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "wildfell": 3,
+     "knochenmehl": 1
+    },
+    "r3": {
+     "seelenglas": 2
+    },
+    "r4": {
+     "seelenglas": 3,
+     "wolfsgeist": 2
+    },
+    "r5": {
+     "seelenglas": 5,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "stummermund",
+     "name": "Stummer-Mund-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Ein lautloser Schrei, der Bestien in die Flucht schlägt."
+    },
+    {
+     "rang": 2,
+     "id": "wolfsseele",
+     "name": "Wolfsseelen-Gu",
+     "neu": true,
+     "ranggabe": "Ruft einen Geisterwolf (12 s).",
+     "beschreibung": "Mit dem Schrei springt ein Geisterwolf hervor und kämpft 12 s für dich.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "summon",
+        "enemy": "geisterwolf",
+        "time": 12.0
+       }
+      ]
+     }
+    },
+    {
+     "rang": 3,
+     "id": "angstballung",
+     "name": "Angstballung-Gu",
+     "neu": true,
+     "ranggabe": "Schwächt alle Getroffenen (2 Stapel).",
+     "beschreibung": "Die Angst ballt sich: Verängstigte werden geschwächt.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "summon",
+        "enemy": "geisterwolf",
+        "time": 12.0
+       },
+       {
+        "t": "cone",
+        "reach": 7.0,
+        "angle": 80.0,
+        "mult": 0.0,
+        "status": "schwaeche",
+        "stacks": 2,
+        "color": "#c9a0ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "seelenexplosion",
+     "name": "Seelenexplosion-Gu",
+     "neu": true,
+     "ranggabe": "Seelenexplosion am Ziel (Radius 4).",
+     "beschreibung": "Eine Sekunde später explodiert die Seele des Ziels.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "summon",
+        "enemy": "geisterwolf",
+        "time": 12.0
+       },
+       {
+        "t": "cone",
+        "reach": 7.0,
+        "angle": 80.0,
+        "mult": 0.0,
+        "status": "schwaeche",
+        "stacks": 2,
+        "color": "#c9a0ff"
+       },
+       {
+        "t": "delay",
+        "time": 1.0,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 5.0,
+          "radius": 4.0,
+          "mult": 2.4,
+          "tags": [
+           "seele"
+          ],
+          "color": "#c9a0ff"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "goettlichersinn",
+     "name": "Göttlicher-Sinn-Gu",
+     "neu": true,
+     "ranggabe": "Kegel 10 m / 120°, betäubt 0,8 s, zwei Wölfe.",
+     "beschreibung": "Dein Geist umfasst alles vor dir: weiter Kegel, Betäubung, zwei Geisterwölfe.",
+     "gaben": {
+      "stun": 0.8,
+      "step": {
+       "reach": 10.0,
+       "angle": 120.0
+      },
+      "extra": [
+       {
+        "t": "summon",
+        "enemy": "geisterwolf",
+        "time": 14.0,
+        "count": 2
+       },
+       {
+        "t": "cone",
+        "reach": 10.0,
+        "angle": 120.0,
+        "mult": 0.0,
+        "status": "schwaeche",
+        "stacks": 3,
+        "color": "#c9a0ff"
+       },
+       {
+        "t": "delay",
+        "time": 1.0,
+        "then": [
+         {
+          "t": "circle",
+          "at": "target",
+          "distance": 6.0,
+          "radius": 4.5,
+          "mult": 2.4,
+          "tags": [
+           "seele"
+          ],
+          "color": "#c9a0ff"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Seelen-Schreie vertreiben Geister, die Durchgänge bewachen."
+  },
+  {
+   "id": "tarnung",
+   "name": "Tarnung",
+   "pfad": "verbergen",
+   "rolle": "Tarnung, Hinterhalt",
+   "wirkform": "tarnung",
+   "tags": [],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "cd": 14.0,
+    "ess": 6,
+    "dauer": 4.0
+   },
+   "aufstieg": {
+    "r2": {
+     "schlangenhaut": 2
+    },
+    "r3": {
+     "schlangenhaut": 4,
+     "seelenglas": 1
+    },
+    "r4": {
+     "geisterseide": 2
+    },
+    "r5": {
+     "geisterseide": 3,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "aurahuelle",
+     "name": "Aura-Verschleierungs-Gu",
+     "neu": false,
+     "ranggabe": null,
+     "beschreibung": "Du verschwindest aus der Wahrnehmung der Bestien; dein erster Schlag trifft verstärkt."
+    },
+    {
+     "rang": 2,
+     "id": "tarnschuppe",
+     "name": "Tarnschuppen-Gu",
+     "neu": false,
+     "ranggabe": "+2 s, +30 % Tempo.",
+     "beschreibung": "Schuppen nehmen das Licht der Umgebung an – länger unsichtbar und schneller.",
+     "gaben": {
+      "time_add": 2.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "tarnung",
+        "damage": 1.0,
+        "speed": 1.3,
+        "time": 6.0,
+        "color": "#8090a0"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 3,
+     "id": "nebelschleier",
+     "name": "Nebelschleier-Gu",
+     "neu": true,
+     "ranggabe": "Blendet alle im Umkreis 5 für 3 s.",
+     "beschreibung": "Ein Nebel blendet alle Gegner um dich.",
+     "gaben": {
+      "time_add": 2.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "tarnung",
+        "damage": 1.0,
+        "speed": 1.3,
+        "time": 6.0,
+        "color": "#8090a0"
+       },
+       {
+        "t": "circle",
+        "radius": 5.0,
+        "mult": 0.0,
+        "blind": 3.0,
+        "color": "#aab4c8"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "sternennebel",
+     "name": "Sternnebel-Tarn-Gu",
+     "neu": true,
+     "ranggabe": "Nebelzone folgt dir 6 s.",
+     "beschreibung": "Sternennebel folgt dir, blendet und verlangsamt jeden, der dir nahe kommt.",
+     "gaben": {
+      "time_add": 4.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "tarnung",
+        "damage": 1.0,
+        "speed": 1.3,
+        "time": 8.0,
+        "color": "#8090a0"
+       },
+       {
+        "t": "zone",
+        "follow": true,
+        "radius": 4.5,
+        "time": 6.0,
+        "mult": 0.0,
+        "blind": 1.0,
+        "slow": 0.35,
+        "slow_time": 1.0,
+        "color": "#8090c0"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "auraverbergen",
+     "name": "Aura-Verbergungs-Gu",
+     "neu": false,
+     "ranggabe": "+6 s, 8 s +50 % Schaden und Tempo.",
+     "beschreibung": "Deine Aura erlischt völlig; aus dem Nichts schlägst du mit doppelter Wucht zu.",
+     "gaben": {
+      "time_add": 6.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "tarnung",
+        "damage": 1.5,
+        "speed": 1.3,
+        "time": 8.0,
+        "color": "#8090a0"
+       },
+       {
+        "t": "zone",
+        "follow": true,
+        "radius": 4.5,
+        "time": 6.0,
+        "mult": 0.0,
+        "blind": 1.0,
+        "slow": 0.35,
+        "slow_time": 1.0,
+        "color": "#8090c0"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Getarnt schleichst du an Wächtern vorbei."
+  },
+  {
+   "id": "blutmond",
+   "name": "Blutmond",
+   "pfad": "blut",
+   "rolle": "Blutklingen, Lebensraub",
+   "wirkform": "geschoss",
+   "tags": [
+    "blut",
+    "schnitt"
+   ],
+   "status": "blutung",
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 15,
+    "cd": 1.8,
+    "ess": 0,
+    "hp_kosten": 2,
+    "reichweite": 13.0,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "knochenmehl": 2
+    },
+    "r3": {
+     "blutkoralle": 1,
+     "knochenmehl": 3
+    },
+    "r4": {
+     "blutkoralle": 3
+    },
+    "r5": {
+     "blutkoralle": 5,
+     "heldenherz": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "blutstropfen",
+     "name": "Blutstropfen-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Eine Blutsichel, die bluten lässt. Kostet eigenes Blut statt Uressenz."
+    },
+    {
+     "rang": 2,
+     "id": "blutmond",
+     "name": "Blutmond-Gu",
+     "neu": true,
+     "ranggabe": "Drei Sicheln.",
+     "beschreibung": "Drei rote Mondsicheln im Fächer.",
+     "gaben": {
+      "fan": 2,
+      "fan_angle": 25
+     }
+    },
+    {
+     "rang": 3,
+     "id": "blutguillotine",
+     "name": "Blutguillotine-Gu",
+     "neu": true,
+     "ranggabe": "Hinrichtung, Blutspritzer am Aufschlag.",
+     "beschreibung": "Die Sicheln fallen wie ein Fallbeil: Sterbende werden hingerichtet.",
+     "gaben": {
+      "execute": 0.6,
+      "impact": [
+       {
+        "t": "circle",
+        "radius": 2.0,
+        "mult": 0.4,
+        "tags": [
+         "blut"
+        ],
+        "status": "blutung",
+        "color": "#d0303a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "blutrausch",
+     "name": "Blutrausch-Gu",
+     "neu": false,
+     "ranggabe": "20 % Lebensraub, 6 s +35 % Schaden.",
+     "beschreibung": "Fremdes Blut wird zu eigener Kraft: Lebensraub und Raserei.",
+     "gaben": {
+      "lifesteal": 0.2,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "blutrausch",
+        "damage": 1.35,
+        "speed": 1.15,
+        "time": 6.0,
+        "color": "#d0303a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "blutrasend",
+     "name": "Blutraserei-Gu",
+     "neu": false,
+     "ranggabe": "Sieben Sicheln, 3 s Rückprall.",
+     "beschreibung": "Sieben Blutsicheln und ein Blutvorhang, der Geschosse zurückwirft.",
+     "gaben": {
+      "fan": 4,
+      "fan_angle": 60,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "blutrausch",
+        "damage": 1.35,
+        "speed": 1.15,
+        "time": 6.0,
+        "color": "#d0303a"
+       },
+       {
+        "t": "reflect",
+        "time": 3.0
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Blut öffnet alte Blutsiegel."
+  },
+  {
+   "id": "knochenrad",
+   "name": "Knochenrad",
+   "pfad": "knochen",
+   "rolle": "Schutz und Nahkampf",
+   "wirkform": "umkreisen",
+   "tags": [
+    "durchbohren"
+   ],
+   "status": null,
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 7,
+    "cd": 10.0,
+    "ess": 6,
+    "anzahl": 2,
+    "radius": 1.7,
+    "dauer": 5.0,
+    "tempo": 0.9,
+    "takt": 0.5
+   },
+   "aufstieg": {
+    "r2": {
+     "knochenmehl": 3
+    },
+    "r3": {
+     "knochenmehl": 5,
+     "jadeader": 1
+    },
+    "r4": {
+     "blutkoralle": 2,
+     "klingenstahl": 2
+    },
+    "r5": {
+     "heldenherz": 1,
+     "blutkoralle": 4
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "knochensplitter",
+     "name": "Knochensplitter-Gu",
+     "neu": true,
+     "ranggabe": "",
+     "beschreibung": "Zwei Knochensplitter kreisen um dich und schützen etwas.",
+     "gaben": {
+      "step": {
+       "reduction": 0.12
+      }
+     }
+    },
+    {
+     "rang": 2,
+     "id": "knochenring",
+     "name": "Knochenring-Gu",
+     "neu": true,
+     "ranggabe": "Drei Knochen, 20 % Schutz.",
+     "beschreibung": "Ein Ring aus drei Knochen, 20 % Schutz.",
+     "gaben": {
+      "count_add": 1,
+      "step": {
+       "reduction": 0.2
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "knochenschild",
+     "name": "Knochenschild-Gu",
+     "neu": false,
+     "ranggabe": "30 % Schutz, +2 s.",
+     "beschreibung": "Drei fliegende Knochenschilde: 30 % Schutz, dicker und länger.",
+     "gaben": {
+      "count_add": 1,
+      "time_add": 2.0,
+      "step": {
+       "reduction": 0.3,
+       "size": 0.5
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "kampfknochenrad",
+     "name": "Kampfknochenrad-Gu",
+     "neu": true,
+     "ranggabe": "Größer, schneller, 1,6-facher Schaden.",
+     "beschreibung": "Rasende Knochenräder mit weitem Radius und hartem Schnitt.",
+     "gaben": {
+      "count_add": 1,
+      "time_add": 2.0,
+      "step": {
+       "reduction": 0.3,
+       "size": 0.6,
+       "radius": 2.6,
+       "speed": 1.3,
+       "mult": 1.6
+      }
+     }
+    },
+    {
+     "rang": 5,
+     "id": "weissknochenrad",
+     "name": "Weißes-Knochenrad-Gu",
+     "neu": true,
+     "ranggabe": "Fünf Räder, 35 % Schutz, sechs Knochengeschosse.",
+     "beschreibung": "Das große weiße Knochenrad: Schutz und Angriff zugleich, dazu ein Knochenhagel.",
+     "gaben": {
+      "count_add": 3,
+      "time_add": 3.0,
+      "step": {
+       "reduction": 0.35,
+       "size": 0.65,
+       "radius": 2.8,
+       "speed": 1.3,
+       "mult": 1.8
+      },
+      "extra": [
+       {
+        "t": "projectiles",
+        "count": 6,
+        "spread": 360.0,
+        "mult": 1.0,
+        "tags": [
+         "durchbohren",
+         "wucht"
+        ],
+        "range": 12.0,
+        "pierce": 2,
+        "color": "#f2ead8"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Knochenräder zerschlagen morsche Barrikaden."
+  },
+  {
+   "id": "fackel",
+   "name": "Menschenfackel",
+   "pfad": "feuer",
+   "rolle": "Aura, Nahkampf",
+   "wirkform": "aura",
+   "tags": [
+    "feuer"
+   ],
+   "status": "brand",
+   "futter": {
+    "r": "holz",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 5,
+    "cd": 11.0,
+    "ess": 8,
+    "radius": 2.3,
+    "dauer": 4.0,
+    "takt": 0.5,
+    "stapel": 1
+   },
+   "aufstieg": {
+    "r2": {
+     "glutasche": 4
+    },
+    "r3": {
+     "glutasche": 6,
+     "donnerholz": 1
+    },
+    "r4": {
+     "drachenschuppe": 1,
+     "glutasche": 8
+    },
+    "r5": {
+     "drachenschuppe": 3,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "glutatem",
+     "name": "Glutatem-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Glut umgibt dich und versengt alles in deiner Nähe."
+    },
+    {
+     "rang": 2,
+     "id": "feuerhaut",
+     "name": "Feuerhaut-Gu",
+     "neu": true,
+     "ranggabe": "+2 s.",
+     "beschreibung": "Die Glut hält länger an.",
+     "gaben": {
+      "time_add": 2.0
+     }
+    },
+    {
+     "rang": 3,
+     "id": "selbstentzuendung",
+     "name": "Selbstentzündungs-Gu",
+     "neu": false,
+     "ranggabe": "Radius +1, 6 s +20 % Schaden.",
+     "beschreibung": "Du wirst zur lebenden Fackel: größerer Feuerkreis und mehr Schaden.",
+     "gaben": {
+      "time_add": 2.0,
+      "radius_add": 1.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "fackel",
+        "damage": 1.2,
+        "speed": 1.0,
+        "time": 6.0,
+        "color": "#ff7a3a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "glutpanzer",
+     "name": "Glutpanzer-Gu",
+     "neu": true,
+     "ranggabe": "20 % Schutz, Dornen.",
+     "beschreibung": "Ein Panzer aus Glut: weniger Schaden, Angreifer verbrennen.",
+     "gaben": {
+      "time_add": 3.0,
+      "radius_add": 1.0,
+      "extra": [
+       {
+        "t": "buff",
+        "key": "fackel",
+        "damage": 1.2,
+        "speed": 1.0,
+        "reduction": 0.2,
+        "time": 8.0,
+        "color": "#ff7a3a"
+       },
+       {
+        "t": "armor",
+        "kind": "thorns",
+        "time": 6.0,
+        "reduction": 0.0,
+        "value_mult": 0.4,
+        "color": "#ff7a3a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "sonnenkoerper",
+     "name": "Sonnenkörper-Gu",
+     "neu": true,
+     "ranggabe": "Radius +3, 1,8-facher Schaden, 25 % Schutz.",
+     "beschreibung": "Du brennst wie eine kleine Sonne: riesiger Feuerkreis, doppelte Hitze.",
+     "gaben": {
+      "time_add": 4.0,
+      "radius_add": 3.0,
+      "step": {
+       "mult": 1.8
+      },
+      "extra": [
+       {
+        "t": "buff",
+        "key": "fackel",
+        "damage": 1.25,
+        "speed": 1.0,
+        "reduction": 0.25,
+        "time": 9.0,
+        "color": "#ffb030"
+       },
+       {
+        "t": "armor",
+        "kind": "thorns",
+        "time": 8.0,
+        "reduction": 0.0,
+        "value_mult": 0.5,
+        "color": "#ffb030"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Die lebende Fackel erhellt Höhlen und verbrennt Dornenhecken."
+  },
+  {
+   "id": "donnerknolle",
+   "name": "Donnerknolle",
+   "pfad": "blitz",
+   "rolle": "Fallen",
+   "wirkform": "falle",
+   "tags": [
+    "feuer",
+    "wucht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 26,
+    "cd": 5.0,
+    "ess": 5,
+    "anzahl": 1,
+    "radius": 2.6,
+    "dauer": 25.0,
+    "reichweite": 6.0,
+    "ausloeser": 1.7
+   },
+   "aufstieg": {
+    "r2": {
+     "glutasche": 3,
+     "eisenerz": 2
+    },
+    "r3": {
+     "donnerholz": 2
+    },
+    "r4": {
+     "donnerholz": 4,
+     "erdkern": 2
+    },
+    "r5": {
+     "donnerkrone": 1,
+     "donnerholz": 5
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "knallsamen",
+     "name": "Knallsamen-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Legt einen Knallsamen, der explodiert, sobald eine Bestie darauf tritt."
+    },
+    {
+     "rang": 2,
+     "id": "donnerknolle",
+     "name": "Verkohlte-Donnerknolle-Gu",
+     "neu": true,
+     "ranggabe": "Drei Fallen, Blitz und Ladung.",
+     "beschreibung": "Drei verkohlte Knollen im Kreis, geladen mit Blitz.",
+     "gaben": {
+      "count_add": 2,
+      "step": {
+       "tags": [
+        "feuer",
+        "blitz"
+       ],
+       "status": "ladung"
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "kettenknolle",
+     "name": "Kettenknollen-Gu",
+     "neu": true,
+     "ranggabe": "Kettenblitz nach der Explosion.",
+     "beschreibung": "Die Explosion springt als Blitz auf drei weitere Ziele.",
+     "gaben": {
+      "count_add": 2,
+      "step": {
+       "tags": [
+        "feuer",
+        "blitz"
+       ],
+       "status": "ladung"
+      },
+      "then": [
+       {
+        "t": "chain",
+        "jumps": 3,
+        "radius": 6.0,
+        "mult": 0.6,
+        "tags": [
+         "blitz"
+        ],
+        "color": "#8ad0ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "bebenknolle",
+     "name": "Bebenknollen-Gu",
+     "neu": true,
+     "ranggabe": "Vier Fallen, Radius 3,5, betäubt 1 s.",
+     "beschreibung": "Vier Knollen, deren Beben betäubt.",
+     "gaben": {
+      "count_add": 3,
+      "step": {
+       "tags": [
+        "feuer",
+        "blitz"
+       ],
+       "status": "ladung",
+       "radius": 3.5,
+       "stun": 1.0
+      },
+      "then": [
+       {
+        "t": "chain",
+        "jumps": 3,
+        "radius": 6.0,
+        "mult": 0.6,
+        "tags": [
+         "blitz"
+        ],
+        "color": "#8ad0ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "himmelsfeuerknolle",
+     "name": "Himmelsfeuer-Knollen-Gu",
+     "neu": true,
+     "ranggabe": "Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele.",
+     "beschreibung": "Sechs Knollen, deren Feuer liegen bleibt und deren Blitz weit springt.",
+     "gaben": {
+      "count_add": 5,
+      "step": {
+       "tags": [
+        "feuer",
+        "blitz"
+       ],
+       "status": "ladung",
+       "radius": 3.5,
+       "stun": 1.0,
+       "spacing": 3.2
+      },
+      "then": [
+       {
+        "t": "zone",
+        "radius": 3.0,
+        "time": 4.0,
+        "mult": 0.3,
+        "tags": [
+         "feuer"
+        ],
+        "status": "brand",
+        "color": "#ff7a3a"
+       },
+       {
+        "t": "chain",
+        "jumps": 5,
+        "radius": 7.0,
+        "mult": 0.7,
+        "tags": [
+         "blitz"
+        ],
+        "color": "#8ad0ff"
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Knollen sprengen Felsbrocken und schwere Tore."
+  },
+  {
+   "id": "wasserbild",
+   "name": "Wasserbild",
+   "pfad": "wasser",
+   "rolle": "Beschwörung, Ablenkung",
+   "wirkform": "beschwoerung",
+   "tags": [
+    "wasser"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "cd": 16.0,
+    "ess": 8,
+    "dauer": 8.0,
+    "anzahl": 1,
+    "wesen": "wasserbild"
+   },
+   "aufstieg": {
+    "r2": {
+     "mondtau": 4
+    },
+    "r3": {
+     "mondtau": 6,
+     "blutkoralle": 1
+    },
+    "r4": {
+     "tiefseeperle": 1,
+     "mondtau": 8
+    },
+    "r5": {
+     "tiefseeperle": 3,
+     "urkristall": 1
+    }
+   },
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "wasserspiegel",
+     "name": "Wasserspiegel-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Wasserbild von dir lenkt Bestien ab und kämpft ein wenig mit."
+    },
+    {
+     "rang": 2,
+     "id": "zwillingsspiegel",
+     "name": "Zwillingsspiegel-Gu",
+     "neu": true,
+     "ranggabe": "Zwei Bilder.",
+     "beschreibung": "Zwei Wasserbilder.",
+     "gaben": {
+      "count_add": 1
+     }
+    },
+    {
+     "rang": 3,
+     "id": "wasserbild",
+     "name": "Wasserbild-Gu",
+     "neu": true,
+     "ranggabe": "Zwei Wasserkrieger (12 s).",
+     "beschreibung": "Die Bilder werden zu Wasserkriegern, die wirklich zuschlagen.",
+     "gaben": {
+      "count_add": 1,
+      "step": {
+       "enemy": "wasserkrieger",
+       "time": 12.0
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "gezeitenwaechter",
+     "name": "Gezeitenwächter-Gu",
+     "neu": true,
+     "ranggabe": "Drei Krieger (15 s).",
+     "beschreibung": "Drei Wasserkrieger stehen dir 15 s zur Seite.",
+     "gaben": {
+      "count_add": 2,
+      "step": {
+       "enemy": "wasserkrieger",
+       "time": 15.0
+      }
+     }
+    },
+    {
+     "rang": 5,
+     "id": "meeresgeist",
+     "name": "Meeresgeist-Gu",
+     "neu": true,
+     "ranggabe": "Zwei Meeresgeister (20 s), Heilung für alle.",
+     "beschreibung": "Zwei Meeresgeister erheben sich; ihre Flut heilt deine Verbündeten.",
+     "gaben": {
+      "count_add": 1,
+      "step": {
+       "enemy": "meeresgeist",
+       "time": 20.0
+      },
+      "extra": [
+       {
+        "t": "heal",
+        "frac": 0.2,
+        "allies": true,
+        "radius": 10.0
+       }
+      ]
+     }
+    }
+   ],
+   "welt": "Wasserbilder lösen Druckplatten aus und locken Wächter fort."
   }
  ],
  "koerper_gu": [
@@ -722,6 +3269,133 @@
     "max_hp": 60,
     "schaden_erlitten": -0.1
    }
+  },
+  {
+   "id": "schwarzeber",
+   "name": "Schwarzeber-Gu",
+   "rang": 1,
+   "wirkung": {
+    "grundschaden": 3,
+    "max_hp": 10
+   }
+  },
+  {
+   "id": "weisseber",
+   "name": "Weißer-Eber-Gu",
+   "rang": 1,
+   "wirkung": {
+    "grundschaden": 3
+   }
+  },
+  {
+   "id": "jadehaut",
+   "name": "Jadehaut-Gu",
+   "rang": 1,
+   "wirkung": {
+    "schaden_erlitten": -0.05
+   }
+  },
+  {
+   "id": "schlammkroete",
+   "name": "Schlammhautkröten-Gu",
+   "rang": 1,
+   "wirkung": {
+    "max_hp": 25
+   }
+  },
+  {
+   "id": "weissjade",
+   "name": "Weißjade-Gu",
+   "rang": 2,
+   "wirkung": {
+    "grundschaden": 5,
+    "schaden_erlitten": -0.08
+   }
+  },
+  {
+   "id": "eisenblut",
+   "name": "Eisenblut-Gu",
+   "rang": 2,
+   "wirkung": {
+    "max_hp": 45
+   }
+  },
+  {
+   "id": "berserk",
+   "name": "Berserker-Gu",
+   "rang": 2,
+   "wirkung": {
+    "grundschaden": 14,
+    "schaden_erlitten": 0.1
+   }
+  },
+  {
+   "id": "bitterkraft",
+   "name": "Bitterkraft-Gu",
+   "rang": 3,
+   "wirkung": {
+    "grundschaden": 20
+   }
+  },
+  {
+   "id": "jadeknochen",
+   "name": "Jadeknochen-Gu",
+   "rang": 3,
+   "wirkung": {
+    "max_hp": 90
+   }
+  },
+  {
+   "id": "tapferkampf",
+   "name": "Tapferer-Kampf-Gu",
+   "rang": 3,
+   "wirkung": {
+    "grundschaden": 12,
+    "max_hp": 30
+   }
+  },
+  {
+   "id": "knochenfleisch",
+   "name": "Knochen-Fleisch-Einheit-Gu",
+   "rang": 4,
+   "wirkung": {
+    "max_hp": 180,
+    "schaden_erlitten": -0.1
+   }
+  },
+  {
+   "id": "tausendjun",
+   "name": "Tausend-Jun-Kraft-Gu",
+   "rang": 4,
+   "wirkung": {
+    "grundschaden": 55
+   }
+  },
+  {
+   "id": "wildwut",
+   "name": "Berserker-Wut-Gu",
+   "rang": 4,
+   "wirkung": {
+    "grundschaden": 40,
+    "schaden_erlitten": 0.15
+   }
+  },
+  {
+   "id": "essenzeisenknochen",
+   "name": "Essenz-Eisenknochen-Gu",
+   "rang": 5,
+   "wirkung": {
+    "max_hp": 320,
+    "schaden_erlitten": -0.15
+   }
+  },
+  {
+   "id": "zehntausendjun",
+   "name": "Zehntausend-Jun-Kraft-Gu",
+   "rang": 5,
+   "wirkung": {
+    "grundschaden": 110
+   }
   }
  ],
  "hilfs_gu": [
@@ -734,6 +3408,9 @@
    "futter": {
     "r": "beeren",
     "n": 3
+   },
+   "regeln": {
+    "regen_mult": 1.35
    }
   },
   {
@@ -745,6 +3422,10 @@
    "futter": {
     "r": "beeren",
     "n": 2
+   },
+   "regeln": {
+    "capacity_add": 1,
+    "cap_mult": 1.1
    }
   },
   {
@@ -756,6 +3437,10 @@
    "futter": {
     "r": "kristall",
     "n": 1
+   },
+   "regeln": {
+    "light": true,
+    "reveal": true
    }
   },
   {
@@ -767,6 +3452,9 @@
    "futter": {
     "r": "beeren",
     "n": 2
+   },
+   "regeln": {
+    "detection_mult": 2.0
    }
   },
   {
@@ -778,6 +3466,9 @@
    "futter": {
     "r": "stein",
     "n": 2
+   },
+   "regeln": {
+    "aggro_mult": 0.6
    }
   },
   {
@@ -789,6 +3480,9 @@
    "futter": {
     "r": "stein",
     "n": 2
+   },
+   "regeln": {
+    "harvest_hits": -1
    }
   },
   {
@@ -800,6 +3494,356 @@
    "futter": {
     "r": "kristall",
     "n": 2
+   },
+   "regeln": {
+    "cooldown_mult": 0.8
+   }
+  },
+  {
+   "id": "reisbeutel",
+   "name": "Reisbeutel-Gras-Gu",
+   "rang": 1,
+   "pfad": "holz",
+   "wirkung": "Gu werden 30 % langsamer hungrig",
+   "futter": {
+    "r": "gruenkraut",
+    "n": 1
+   },
+   "regeln": {
+    "hunger_mult": 0.7
+   }
+  },
+  {
+   "id": "fussspur",
+   "name": "Fußspur-Gu",
+   "rang": 1,
+   "pfad": "information",
+   "wirkung": "Namensschilder und wilde Gu 40 % weiter sichtbar",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "regeln": {
+    "detection_mult": 1.4
+   }
+  },
+  {
+   "id": "brise",
+   "name": "Brisen-Gu",
+   "rang": 1,
+   "pfad": "raum",
+   "wirkung": "Laufen 10 % schneller",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "regeln": {
+    "move_speed_mult": 1.1
+   }
+  },
+  {
+   "id": "vierwein",
+   "name": "Vier-Geschmäcker-Schnapswurm",
+   "rang": 2,
+   "pfad": "weisheit",
+   "wirkung": "Essenz-Regeneration +50 %",
+   "futter": {
+    "r": "beeren",
+    "n": 4
+   },
+   "regeln": {
+    "regen_mult": 1.5
+   }
+  },
+  {
+   "id": "hellperle",
+   "name": "Hellperlen-Gu",
+   "rang": 2,
+   "pfad": "licht",
+   "wirkung": "Lichtkreis, enthüllt Verborgenes, +30 % Sicht",
+   "futter": {
+    "r": "kristall",
+    "n": 2
+   },
+   "regeln": {
+    "light": true,
+    "reveal": true,
+    "detection_mult": 1.3
+   }
+  },
+  {
+   "id": "holzkohle",
+   "name": "Holzkohle-Gu",
+   "rang": 2,
+   "pfad": "raffinerie",
+   "wirkung": "Verfeinern +10 % Erfolg",
+   "futter": {
+    "r": "holz",
+    "n": 4
+   },
+   "regeln": {
+    "refine_bonus": 0.1
+   }
+  },
+  {
+   "id": "blitzauge",
+   "name": "Blitzauge-Gu",
+   "rang": 2,
+   "pfad": "blitz",
+   "wirkung": "Doppelte Sicht, 5 % schneller",
+   "futter": {
+    "r": "kristall",
+    "n": 2
+   },
+   "regeln": {
+    "detection_mult": 2.0,
+    "move_speed_mult": 1.05
+   }
+  },
+  {
+   "id": "erdschatz",
+   "name": "Erdschatz-Blüte-Gu",
+   "rang": 2,
+   "pfad": "erde",
+   "wirkung": "Sammeln bringt 40 % mehr",
+   "futter": {
+    "r": "stein",
+    "n": 3
+   },
+   "regeln": {
+    "harvest_mult": 1.4
+   }
+  },
+  {
+   "id": "siebenduefte",
+   "name": "Sieben-Düfte-Schnaps-Wurm",
+   "rang": 3,
+   "pfad": "weisheit",
+   "wirkung": "Essenz-Regeneration +70 %",
+   "futter": {
+    "r": "beeren",
+    "n": 6
+   },
+   "regeln": {
+    "regen_mult": 1.7
+   }
+  },
+  {
+   "id": "verstaerker",
+   "name": "Wirkungs-Verstärker-Gu",
+   "rang": 3,
+   "pfad": "weisheit",
+   "wirkung": "Killer Moves +20 % Schaden, Eingebung ×1,5",
+   "futter": {
+    "r": "kristall",
+    "n": 3
+   },
+   "regeln": {
+    "killer_mult": 1.2,
+    "insight_mult": 1.5
+   }
+  },
+  {
+   "id": "schatzlicht",
+   "name": "Schatzlicht-Gu",
+   "rang": 3,
+   "pfad": "glueck",
+   "wirkung": "Sammeln +60 %, enthüllt Verborgenes",
+   "futter": {
+    "r": "kristall",
+    "n": 3
+   },
+   "regeln": {
+    "harvest_mult": 1.6,
+    "reveal": true
+   }
+  },
+  {
+   "id": "seelensuche",
+   "name": "Seelensuch-Gu",
+   "rang": 3,
+   "pfad": "information",
+   "wirkung": "Dreifache Sicht auf Gegner und wilde Gu",
+   "futter": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "regeln": {
+    "detection_mult": 3.0
+   }
+  },
+  {
+   "id": "sofortigererfolg",
+   "name": "Sofortiger-Erfolg-Gu",
+   "rang": 3,
+   "pfad": "raffinerie",
+   "wirkung": "Verfeinern +20 % Erfolg",
+   "futter": {
+    "r": "kristall",
+    "n": 3
+   },
+   "regeln": {
+    "refine_bonus": 0.2
+   }
+  },
+  {
+   "id": "steinapertur",
+   "name": "Steinapertur-Gu",
+   "rang": 3,
+   "pfad": "erde",
+   "wirkung": "Aperturgröße +20 %",
+   "futter": {
+    "r": "stein",
+    "n": 5
+   },
+   "regeln": {
+    "cap_mult": 1.2
+   }
+  },
+  {
+   "id": "luftsack",
+   "name": "Luftsack-Gu",
+   "rang": 3,
+   "pfad": "raum",
+   "wirkung": "Gu-Kapazität +2",
+   "futter": {
+    "r": "beeren",
+    "n": 4
+   },
+   "regeln": {
+    "capacity_add": 2
+   }
+  },
+  {
+   "id": "selbsthilfe",
+   "name": "Selbstständigkeits-Gu",
+   "rang": 3,
+   "pfad": "holz",
+   "wirkung": "Regeneriert 1,5 Leben/s",
+   "futter": {
+    "r": "gruenkraut",
+    "n": 2
+   },
+   "regeln": {
+    "hp_regen": 1.5
+   }
+  },
+  {
+   "id": "neunaugen",
+   "name": "Neun-Augen-Schnaps-Wurm",
+   "rang": 4,
+   "pfad": "weisheit",
+   "wirkung": "Essenz-Regeneration ×2, Eingebung ×1,5",
+   "futter": {
+    "r": "beeren",
+    "n": 8
+   },
+   "regeln": {
+    "regen_mult": 2.0,
+    "insight_mult": 1.5
+   }
+  },
+  {
+   "id": "sterngedanke",
+   "name": "Sterngedanken-Gu",
+   "rang": 4,
+   "pfad": "weisheit",
+   "wirkung": "Eingebung ×2,5, Abklingzeiten −15 %",
+   "futter": {
+    "r": "kristall",
+    "n": 4
+   },
+   "regeln": {
+    "insight_mult": 2.5,
+    "cooldown_mult": 0.85
+   }
+  },
+  {
+   "id": "himmelsessenz",
+   "name": "Himmels-Essenz-Schatzlotus-Gu",
+   "rang": 4,
+   "pfad": "holz",
+   "wirkung": "Essenz-Regeneration ×1,8, Apertur +15 %",
+   "futter": {
+    "r": "gruenkraut",
+    "n": 4
+   },
+   "regeln": {
+    "regen_mult": 1.8,
+    "cap_mult": 1.15
+   }
+  },
+  {
+   "id": "schneewaesche",
+   "name": "Schneewäsche-Gu",
+   "rang": 4,
+   "pfad": "eis",
+   "wirkung": "Regeneriert 3 Leben/s",
+   "futter": {
+    "r": "kristall",
+    "n": 4
+   },
+   "regeln": {
+    "hp_regen": 3.0
+   }
+  },
+  {
+   "id": "boeserGedanke",
+   "name": "Bösartiger-Gedanken-Gu",
+   "rang": 5,
+   "pfad": "weisheit",
+   "wirkung": "Abklingzeiten −25 %, Essenzkosten −15 %",
+   "futter": {
+    "r": "kristall",
+    "n": 6
+   },
+   "regeln": {
+    "cooldown_mult": 0.75,
+    "essence_cost_mult": 0.85
+   }
+  },
+  {
+   "id": "hundertschlachten",
+   "name": "Hundert-Schlachten-unbesiegt-Gu",
+   "rang": 5,
+   "pfad": "raffinerie",
+   "wirkung": "Verfeinern +50 % Erfolg",
+   "futter": {
+    "r": "kristall",
+    "n": 6
+   },
+   "regeln": {
+    "refine_bonus": 0.5
+   }
+  },
+  {
+   "id": "glueckssicht",
+   "name": "Glücksschau-Gu",
+   "rang": 5,
+   "pfad": "glueck",
+   "wirkung": "Sammeln ×2, enthüllt Verborgenes",
+   "futter": {
+    "r": "kristall",
+    "n": 5
+   },
+   "regeln": {
+    "harvest_mult": 2.0,
+    "reveal": true
+   }
+  },
+  {
+   "id": "fadenspur",
+   "name": "Fadenspur-Gu",
+   "rang": 5,
+   "pfad": "information",
+   "wirkung": "Dreifache Sicht, Eingebung ×2",
+   "futter": {
+    "r": "kristall",
+    "n": 5
+   },
+   "regeln": {
+    "detection_mult": 3.0,
+    "insight_mult": 2.0
    }
   }
  ],
@@ -810,7 +3854,11 @@
    "stapel": 1,
    "endet_durch": [
     "nass"
-   ]
+   ],
+   "regel": {
+    "dauer": 4.0,
+    "dps": 4.0
+   }
   },
   "nass": {
    "name": "Nass",
@@ -818,7 +3866,10 @@
    "stapel": 1,
    "endet_durch": [
     "brand"
-   ]
+   ],
+   "regel": {
+    "dauer": 6.0
+   }
   },
   "frost": {
    "name": "Frost",
@@ -826,22 +3877,78 @@
    "stapel": 3,
    "endet_durch": [
     "brand"
-   ]
+   ],
+   "regel": {
+    "dauer": 5.0,
+    "tempo": -0.2,
+    "bei_max": "freeze"
+   }
   },
   "ladung": {
    "name": "Ladung",
    "wirkung": "bei 3 Stapeln Entladung: 25 Schaden im Umkreis 2 und 0,5 s Betäubung",
-   "stapel": 3
+   "stapel": 3,
+   "regel": {
+    "dauer": 6.0,
+    "bei_max": "discharge"
+   }
   },
   "gift": {
    "name": "Gift",
    "wirkung": "2 Schaden/s pro Stapel, 8 s, halbiert Heilung",
-   "stapel": 5
+   "stapel": 5,
+   "regel": {
+    "dauer": 8.0,
+    "dps": 2.0,
+    "heilung": 0.5
+   }
   },
   "wunde": {
    "name": "Wunde",
    "wirkung": "nächster Treffer +30 %; Blut-Gu heilen an verwundeten Zielen",
-   "stapel": 1
+   "stapel": 1,
+   "regel": {
+    "dauer": 8.0
+   }
+  },
+  "blutung": {
+   "name": "Blutung",
+   "wirkung": "3 Schaden/s pro Stapel, 6 s; Blut-Gu heilen an blutenden Zielen",
+   "stapel": 5,
+   "regel": {
+    "dauer": 6.0,
+    "dps": 3.0
+   }
+  },
+  "schwaeche": {
+   "name": "Schwäche",
+   "wirkung": "+15 % erlittener Schaden pro Stapel, 6 s",
+   "stapel": 3,
+   "regel": {
+    "dauer": 6.0,
+    "schaden_erlitten": 0.15
+   }
+  },
+  "verwurzelt": {
+   "name": "Verwurzelt",
+   "wirkung": "kann sich 2,5 s nicht bewegen (angreifen schon)",
+   "stapel": 1,
+   "endet_durch": [
+    "brand"
+   ],
+   "regel": {
+    "dauer": 2.5,
+    "tempo": -1.0
+   }
+  },
+  "furcht": {
+   "name": "Furcht",
+   "wirkung": "flieht 3 s vor dem Angreifer und greift nicht an",
+   "stapel": 1,
+   "regel": {
+    "dauer": 3.0,
+    "flucht": true
+   }
   }
  },
  "reaktionen": [
@@ -853,7 +3960,12 @@
    "wirkung": "×2 Schaden, springt auf alle nassen Ziele im Umkreis 6",
    "endet": [
     "nass"
-   ]
+   ],
+   "regel": {
+    "mult": 2.0,
+    "chain_status": "nass",
+    "chain_radius": 6.0
+   }
   },
   {
    "id": "schockfrost",
@@ -863,7 +3975,10 @@
    "wirkung": "sofort eingefroren (2 s)",
    "endet": [
     "nass"
-   ]
+   ],
+   "regel": {
+    "freeze": 2.0
+   }
   },
   {
    "id": "dampf",
@@ -874,7 +3989,11 @@
    "endet": [
     "nass",
     "brand"
-   ]
+   ],
+   "regel": {
+    "blind_radius": 3.0,
+    "blind_time": 4.0
+   }
   },
   {
    "id": "schmelze",
@@ -884,7 +4003,11 @@
    "wirkung": "×1,5 Schaden, Ziel wird nass",
    "endet": [
     "frost"
-   ]
+   ],
+   "regel": {
+    "mult": 1.5,
+    "apply": "nass"
+   }
   },
   {
    "id": "zerschmettern",
@@ -894,7 +4017,10 @@
    "wirkung": "×2,5 Schaden",
    "endet": [
     "frost"
-   ]
+   ],
+   "regel": {
+    "mult": 2.5
+   }
   },
   {
    "id": "feuerwirbel",
@@ -902,7 +4028,11 @@
    "ausloeser": "wind",
    "auf": "brand",
    "wirkung": "Brand springt auf alle Ziele im Umkreis 4",
-   "endet": []
+   "endet": [],
+   "regel": {
+    "spread_status": "brand",
+    "spread_radius": 4.0
+   }
   },
   {
    "id": "giftexplosion",
@@ -912,7 +4042,12 @@
    "wirkung": "Explosion: Stapel × 8 Schaden im Umkreis 3",
    "endet": [
     "gift"
-   ]
+   ],
+   "regel": {
+    "explode_per_stack": 8.0,
+    "explode_radius": 3.0,
+    "stack_status": "gift"
+   }
   },
   {
    "id": "blutgift",
@@ -922,7 +4057,118 @@
    "wirkung": "Gift-Stapel werden verdoppelt",
    "endet": [
     "wunde"
-   ]
+   ],
+   "regel": {
+    "stack_mult": 2.0,
+    "stack_status": "gift"
+   }
+  },
+  {
+   "id": "schlammgrube",
+   "name": "Schlammgrube",
+   "ausloeser": "erde",
+   "auf": "nass",
+   "wirkung": "Ziel versinkt im Schlamm: 2,5 s verwurzelt",
+   "endet": [
+    "nass"
+   ],
+   "regel": {
+    "apply": "verwurzelt"
+   }
+  },
+  {
+   "id": "giftsturm",
+   "name": "Giftsturm",
+   "ausloeser": "wind",
+   "auf": "gift",
+   "wirkung": "Gift weht auf alle Ziele im Umkreis 4",
+   "endet": [],
+   "regel": {
+    "spread_status": "gift",
+    "spread_radius": 4.0
+   }
+  },
+  {
+   "id": "seelenbruch",
+   "name": "Seelenbruch",
+   "ausloeser": "seele",
+   "auf": "furcht",
+   "wirkung": "×2 Schaden gegen verängstigte Ziele",
+   "endet": [
+    "furcht"
+   ],
+   "regel": {
+    "mult": 2.0
+   }
+  },
+  {
+   "id": "aderlass",
+   "name": "Aderlass",
+   "ausloeser": "blut",
+   "auf": "blutung",
+   "wirkung": "×1,4 Schaden, der Angreifer heilt 30 % davon",
+   "endet": [],
+   "regel": {
+    "mult": 1.4,
+    "heal_attacker": 0.3
+   }
+  },
+  {
+   "id": "sternenfall",
+   "name": "Sternenfall",
+   "ausloeser": "stern",
+   "auf": "schwaeche",
+   "wirkung": "×1,8 Schaden gegen geschwächte Ziele",
+   "endet": [
+    "schwaeche"
+   ],
+   "regel": {
+    "mult": 1.8
+   }
+  },
+  {
+   "id": "donnerschlag",
+   "name": "Donnerschlag",
+   "ausloeser": "klang",
+   "auf": "ladung",
+   "wirkung": "Ladung entlädt sich sofort: 1,5 s betäubt",
+   "endet": [
+    "ladung"
+   ],
+   "regel": {
+    "stun": 1.5,
+    "mult": 1.3
+   }
+  },
+  {
+   "id": "splitterbruch",
+   "name": "Splitterbruch",
+   "ausloeser": "metall",
+   "auf": "eingefroren",
+   "wirkung": "×2 Schaden, Splitter verursachen Blutung",
+   "endet": [
+    "frost"
+   ],
+   "regel": {
+    "mult": 2.0,
+    "apply": "blutung",
+    "apply_stacks": 2
+   }
+  },
+  {
+   "id": "waldbrand",
+   "name": "Waldbrand",
+   "ausloeser": "feuer",
+   "auf": "verwurzelt",
+   "wirkung": "Wurzeln fangen Feuer: ×1,6 Schaden, Brand springt über (Umkreis 3)",
+   "endet": [
+    "verwurzelt"
+   ],
+   "regel": {
+    "mult": 1.6,
+    "spread_status": "brand",
+    "spread_radius": 3.0
+   }
   }
  ],
  "tags": {
@@ -938,7 +4184,12 @@
   "gift": "löst Gift-Reaktionen aus",
   "seele": "wirkt auf Geist statt Körper",
   "holz": "Heilung und Wachstum",
-  "raum": "Bewegung"
+  "raum": "Bewegung",
+  "erde": "verwurzelt Nasse im Schlamm, bricht Deckung",
+  "stern": "trifft Geschwächte besonders hart, sucht Ziele",
+  "klang": "betäubt Geladene, dringt durch Deckung",
+  "metall": "zerspringt an Eingefrorenen zu Splittern",
+  "blut": "heilt an blutenden Zielen"
  },
  "merkmale": [
   {
@@ -1011,7 +4262,36 @@
    "kanal_s": 0.9,
    "mult": 2.8,
    "wirkung": "Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter",
-   "hinweis": "Wo Flamme auf Wirbel trifft …"
+   "hinweis": "Wo Flamme auf Wirbel trifft …",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 1.0,
+     "tags": [
+      "feuer",
+      "wind"
+     ],
+     "status": "brand",
+     "color": "#ff7326"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 6.0,
+       "mult": 0.25,
+       "tags": [
+        "wind"
+       ],
+       "color": "#ffb366"
+      }
+     ]
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "mondschritt",
@@ -1021,7 +4301,22 @@
    "kanal_s": 0.6,
    "mult": 2.5,
    "wirkung": "Du jagst durch eine Gegnerreihe und hinterlässt Mondklingen auf deinem Weg",
-   "hinweis": "Ein Schritt im Mondlicht schneidet."
+   "hinweis": "Ein Schritt im Mondlicht schneidet.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 10.0,
+     "width": 2.2,
+     "mult": 1.0,
+     "tags": [
+      "schnitt",
+      "licht"
+     ],
+     "dash": true,
+     "color": "#d9e6ff"
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "gewitterflut",
@@ -1031,7 +4326,35 @@
    "kanal_s": 1.2,
    "mult": 3.2,
    "wirkung": "Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle",
-   "hinweis": "Wasser ruft den Donner."
+   "hinweis": "Wasser ruft den Donner.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 13.0,
+     "width": 4.0,
+     "mult": 0.0,
+     "status": "nass",
+     "color": "#4d99ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "line",
+       "length": 13.0,
+       "width": 4.0,
+       "mult": 1.0,
+       "tags": [
+        "blitz"
+       ],
+       "status": "ladung",
+       "color": "#99bfff"
+      }
+     ]
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "gletscherbruch",
@@ -1041,7 +4364,33 @@
    "kanal_s": 1.0,
    "mult": 3.0,
    "wirkung": "Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag",
-   "hinweis": "Was gefriert, zerbricht."
+   "hinweis": "Was gefriert, zerbricht.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 0.0,
+     "freeze": 2.0,
+     "color": "#b3f2ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.5,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 5.0,
+       "mult": 1.0,
+       "tags": [
+        "wucht",
+        "eis"
+       ],
+       "color": "#b3f2ff"
+      }
+     ]
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "pestfeuer",
@@ -1051,7 +4400,46 @@
    "kanal_s": 1.1,
    "mult": 3.0,
    "wirkung": "Giftwolke, die sich entzündet: große Giftexplosion und brennender Boden",
-   "hinweis": "Fäulnis brennt am hellsten."
+   "hinweis": "Fäulnis brennt am hellsten.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 0.0,
+     "set_stacks": {
+      "gift": 5
+     },
+     "color": "#8ce633"
+    },
+    {
+     "t": "delay",
+     "time": 0.4,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 5.0,
+       "mult": 1.0,
+       "tags": [
+        "feuer"
+       ],
+       "status": "brand",
+       "color": "#ff7326"
+      },
+      {
+       "t": "zone",
+       "radius": 4.0,
+       "time": 4.0,
+       "mult": 0.15,
+       "tags": [
+        "feuer"
+       ],
+       "status": "brand",
+       "color": "#ff7326"
+      }
+     ]
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "knochenfestung",
@@ -1061,7 +4449,18 @@
    "kanal_s": 0.8,
    "mult": 2.5,
    "wirkung": "Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP)",
-   "hinweis": "Die Haut aus Knochen beißt zurück."
+   "hinweis": "Die Haut aus Knochen beißt zurück.",
+   "schritte": [
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 6.0,
+     "reduction": 0.3,
+     "value_mult": 0.6,
+     "color": "#f2e6cc"
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "donnerpanzer",
@@ -1071,7 +4470,18 @@
    "kanal_s": 0.6,
    "mult": 2.5,
    "wirkung": "Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel",
-   "hinweis": "Wer den Donner berührt …"
+   "hinweis": "Wer den Donner berührt …",
+   "schritte": [
+    {
+     "t": "armor",
+     "kind": "thunder",
+     "time": 6.0,
+     "reduction": 0.3,
+     "value": 3,
+     "color": "#99bfff"
+    }
+   ],
+   "rang": 1
   },
   {
    "id": "rudelsegen",
@@ -1081,7 +4491,1520 @@
    "kanal_s": 1.5,
    "mult": 2.5,
    "wirkung": "Heilt und stärkt alle Gefährten, ein weiterer Gefährte erscheint für 20 s",
-   "hinweis": "Das Rudel lebt vom Grün."
+   "hinweis": "Das Rudel lebt vom Grün.",
+   "schritte": [
+    {
+     "t": "heal",
+     "frac": 0.5,
+     "allies": true,
+     "radius": 12.0
+    },
+    {
+     "t": "summon",
+     "enemy": "wolf",
+     "time": 20.0
+    }
+   ],
+   "rang": 1
+  },
+  {
+   "id": "bestiensturm",
+   "name": "Bestiensturm",
+   "a": "phantom",
+   "b": "wirbel",
+   "kanal_s": 0.8,
+   "mult": 2.6,
+   "rang": 1,
+   "wirkung": "Ein Eberphantom stürmt im Wirbel: alles vor dir fliegt und bleibt betäubt liegen.",
+   "hinweis": "Das Phantom tanzt im Sturm.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 6.0,
+     "angle": 140.0,
+     "mult": 1.0,
+     "tags": [
+      "wucht"
+     ],
+     "knockback": 2.0,
+     "color": "#e07a4a"
+    },
+    {
+     "t": "circle",
+     "radius": 4.0,
+     "mult": 0.6,
+     "tags": [
+      "wucht",
+      "wind"
+     ],
+     "stun": 1.0,
+     "color": "#ffb080"
+    }
+   ]
+  },
+  {
+   "id": "schlammflut",
+   "name": "Schlammflut",
+   "a": "erde",
+   "b": "stroemung",
+   "kanal_s": 1.0,
+   "mult": 2.6,
+   "rang": 1,
+   "wirkung": "Eine Flut durchnässt alles, dann brechen Erdstacheln hervor: Schlamm hält alle fest.",
+   "hinweis": "Nasse Erde hält fest.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 12.0,
+     "width": 4.0,
+     "mult": 0.3,
+     "tags": [
+      "wasser"
+     ],
+     "status": "nass",
+     "color": "#4a9ad0"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "zone",
+       "at": "aim",
+       "distance": 7.0,
+       "radius": 4.0,
+       "time": 3.0,
+       "mult": 0.4,
+       "tags": [
+        "erde"
+       ],
+       "status": "verwurzelt",
+       "color": "#8a7050"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feuerwind",
+   "name": "Feuerwind",
+   "a": "wind",
+   "b": "flamme",
+   "kanal_s": 0.8,
+   "mult": 2.7,
+   "rang": 1,
+   "wirkung": "Ein Windstoß trägt Flammen weit nach vorn und facht sie immer wieder an.",
+   "hinweis": "Wind nährt das Feuer.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 10.0,
+     "angle": 70.0,
+     "mult": 1.0,
+     "tags": [
+      "feuer",
+      "wind"
+     ],
+     "status": "brand",
+     "knockback": 0.8,
+     "color": "#ff9a4a"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 10.0,
+       "angle": 70.0,
+       "mult": 0.35,
+       "tags": [
+        "wind"
+       ],
+       "color": "#ffd0a0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sternenmond",
+   "name": "Sternenmond",
+   "a": "stern",
+   "b": "mondlicht",
+   "kanal_s": 0.9,
+   "mult": 2.6,
+   "rang": 1,
+   "wirkung": "Neun Mond- und Sternenklingen suchen sich selbst ihr Ziel.",
+   "hinweis": "Mond und Sterne teilen sich den Himmel.",
+   "schritte": [
+    {
+     "t": "projectiles",
+     "count": 9,
+     "spread": 120.0,
+     "homing": true,
+     "mult": 0.6,
+     "tags": [
+      "licht",
+      "stern",
+      "schnitt"
+     ],
+     "range": 18.0,
+     "speed": 16.0,
+     "color": "#fff2d0"
+    }
+   ]
+  },
+  {
+   "id": "klingenschritt",
+   "name": "Klingenschritt",
+   "a": "schwert",
+   "b": "schritt",
+   "kanal_s": 0.6,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Du jagst durch die Reihen, Klingen kreisen um dich.",
+   "hinweis": "Die Klinge folgt dem Schritt.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 9.0,
+     "width": 2.4,
+     "mult": 1.0,
+     "tags": [
+      "schnitt"
+     ],
+     "dash": true,
+     "color": "#e8f4ff"
+    },
+    {
+     "t": "orbit",
+     "count": 3,
+     "radius": 2.0,
+     "time": 4.0,
+     "mult": 0.5,
+     "tags": [
+      "schnitt"
+     ],
+     "color": "#e8f4ff"
+    }
+   ]
+  },
+  {
+   "id": "seelenknechtschaft",
+   "name": "Seelenknechtschaft",
+   "a": "seelenschrei",
+   "b": "sklaverei",
+   "kanal_s": 1.2,
+   "mult": 2.2,
+   "rang": 1,
+   "wirkung": "Ein Schrei lässt alle erstarren, zwei Geisterwölfe fallen über sie her.",
+   "hinweis": "Angst macht gefügig.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 6.0,
+     "mult": 0.5,
+     "tags": [
+      "seele"
+     ],
+     "status": "furcht",
+     "color": "#c9a0ff"
+    },
+    {
+     "t": "summon",
+     "enemy": "geisterwolf",
+     "count": 2,
+     "time": 15.0
+    }
+   ]
+  },
+  {
+   "id": "schleichgift",
+   "name": "Schleichgift",
+   "a": "tarnung",
+   "b": "gift",
+   "kanal_s": 0.5,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Du verschwindest und hinterlässt eine Giftwolke; dein nächster Schlag trifft aus dem Nichts.",
+   "hinweis": "Unsichtbar tötet das Gift.",
+   "schritte": [
+    {
+     "t": "zone",
+     "radius": 4.0,
+     "time": 5.0,
+     "mult": 0.35,
+     "tags": [
+      "gift"
+     ],
+     "status": "gift",
+     "stacks": 2,
+     "color": "#9b3bff"
+    },
+    {
+     "t": "stealth",
+     "time": 5.0
+    }
+   ]
+  },
+  {
+   "id": "blutknochenregen",
+   "name": "Blutknochenregen",
+   "a": "blutmond",
+   "b": "knochen",
+   "kanal_s": 1.0,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Sieben Blut-Knochen-Speere im Fächer, die Leben rauben.",
+   "hinweis": "Blut und Knochen regnen.",
+   "schritte": [
+    {
+     "t": "projectiles",
+     "count": 7,
+     "spread": 70.0,
+     "mult": 0.8,
+     "tags": [
+      "blut",
+      "durchbohren"
+     ],
+     "status": "blutung",
+     "lifesteal": 0.3,
+     "pierce": 1,
+     "range": 15.0,
+     "color": "#d05050"
+    }
+   ]
+  },
+  {
+   "id": "knochenbollwerk",
+   "name": "Knochenbollwerk",
+   "a": "knochenrad",
+   "b": "haut",
+   "kanal_s": 0.8,
+   "mult": 2.2,
+   "rang": 1,
+   "wirkung": "Sechs Knochenschilde und eine Steinhaut: fast nichts dringt zu dir durch.",
+   "hinweis": "Knochen und Stein werden eins.",
+   "schritte": [
+    {
+     "t": "orbit",
+     "count": 6,
+     "radius": 2.2,
+     "time": 7.0,
+     "mult": 0.5,
+     "tags": [
+      "durchbohren"
+     ],
+     "reduction": 0.35,
+     "color": "#f2ead8"
+    },
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 7.0,
+     "reduction": 0.15,
+     "value_mult": 0.4,
+     "color": "#f2ead8"
+    }
+   ]
+  },
+  {
+   "id": "phoenixatem",
+   "name": "Phönixatem",
+   "a": "fackel",
+   "b": "blatt",
+   "kanal_s": 1.2,
+   "mult": 2.2,
+   "rang": 1,
+   "wirkung": "Glut heilt statt zu verzehren: du regenerierst, während ein Feuerkreis dich schützt.",
+   "hinweis": "Asche wird zu neuem Leben.",
+   "schritte": [
+    {
+     "t": "heal",
+     "frac": 0.35,
+     "time": 4.0
+    },
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 4.0,
+     "time": 5.0,
+     "mult": 0.35,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "color": "#ffb030"
+    }
+   ]
+  },
+  {
+   "id": "donnerfeld",
+   "name": "Donnerfeld",
+   "a": "donnerknolle",
+   "b": "blitz",
+   "kanal_s": 0.9,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Fünf Donnerknollen im Kreis um dich; jede Explosion springt als Blitz weiter.",
+   "hinweis": "Der Boden selbst donnert.",
+   "schritte": [
+    {
+     "t": "trap",
+     "count": 5,
+     "spacing": 4.0,
+     "at": "self",
+     "radius": 3.0,
+     "time": 20.0,
+     "mult": 0.9,
+     "tags": [
+      "feuer",
+      "blitz"
+     ],
+     "status": "ladung",
+     "then": [
+      {
+       "t": "chain",
+       "jumps": 2,
+       "radius": 6.0,
+       "mult": 0.5,
+       "tags": [
+        "blitz"
+       ],
+       "color": "#8ad0ff"
+      }
+     ],
+     "color": "#ffcc55"
+    }
+   ]
+  },
+  {
+   "id": "spiegelflut",
+   "name": "Spiegelflut",
+   "a": "wasserbild",
+   "b": "stroemung",
+   "kanal_s": 1.0,
+   "mult": 2.3,
+   "rang": 1,
+   "wirkung": "Zwei Wasserbilder springen aus einer Flutwelle, die alles zurückwirft.",
+   "hinweis": "Das Wasser zeigt dein Gesicht.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 12.0,
+     "width": 3.5,
+     "mult": 0.9,
+     "tags": [
+      "wasser",
+      "wucht"
+     ],
+     "status": "nass",
+     "knockback": 1.4,
+     "color": "#4a9ad0"
+    },
+    {
+     "t": "summon",
+     "enemy": "wasserbild",
+     "count": 2,
+     "time": 10.0
+    }
+   ]
+  },
+  {
+   "id": "sternenfall",
+   "name": "Sternenregen",
+   "a": "stern",
+   "b": "erde",
+   "kanal_s": 1.3,
+   "mult": 2.8,
+   "rang": 1,
+   "wirkung": "Sterne markieren die Feinde, dann stürzen drei Felsbrocken auf sie.",
+   "hinweis": "Was vom Himmel fällt, trifft die Erde.",
+   "schritte": [
+    {
+     "t": "projectiles",
+     "count": 5,
+     "spread": 80.0,
+     "homing": true,
+     "mult": 0.4,
+     "tags": [
+      "stern"
+     ],
+     "status": "schwaeche",
+     "range": 16.0,
+     "color": "#fff2b0"
+    },
+    {
+     "t": "delay",
+     "time": 0.7,
+     "then": [
+      {
+       "t": "circle",
+       "at": "target",
+       "distance": 8.0,
+       "radius": 3.5,
+       "mult": 1.4,
+       "tags": [
+        "stern",
+        "erde",
+        "wucht"
+       ],
+       "stun": 0.6,
+       "color": "#fff2b0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "windklingenwirbel",
+   "name": "Klingenwirbel",
+   "a": "wind",
+   "b": "schwert",
+   "kanal_s": 0.9,
+   "mult": 2.5,
+   "rang": 1,
+   "wirkung": "Kreisende Klingen im Sturm: der Wind trägt sie weit nach außen.",
+   "hinweis": "Klingen reiten den Wind.",
+   "schritte": [
+    {
+     "t": "orbit",
+     "count": 5,
+     "radius": 3.2,
+     "time": 5.0,
+     "speed": 1.2,
+     "mult": 0.6,
+     "tags": [
+      "schnitt",
+      "wind"
+     ],
+     "color": "#c8f0ff"
+    },
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 0.5,
+     "tags": [
+      "wind"
+     ],
+     "knockback": 1.5,
+     "color": "#c8f0ff"
+    }
+   ]
+  },
+  {
+   "id": "feuerlotus_sturm",
+   "name": "Feuerlotus-Sturm",
+   "a": "flamme",
+   "b": "wirbel",
+   "kanal_s": 1.0,
+   "mult": 3.6,
+   "rang": 3,
+   "wirkung": "Ein Lotus aus Flammen erblüht im Wirbel und brennt noch lange nach.",
+   "hinweis": "Der Lotus erblüht im Sturm.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 7.0,
+     "mult": 1.0,
+     "tags": [
+      "feuer",
+      "wind"
+     ],
+     "status": "brand",
+     "color": "#ff7326"
+    },
+    {
+     "t": "zone",
+     "radius": 6.0,
+     "time": 6.0,
+     "mult": 0.3,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "color": "#ff7326"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 8.0,
+       "mult": 0.3,
+       "tags": [
+        "wind"
+       ],
+       "color": "#ffb366"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mondschatten_tanz",
+   "name": "Mondschatten-Tanz",
+   "a": "mondlicht",
+   "b": "schritt",
+   "kanal_s": 0.7,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Du jagst durch die Reihe und entlässt am Ende einen Fächer aus Mondklingen.",
+   "hinweis": "Tanz im Mondschatten.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 12.0,
+     "width": 2.6,
+     "mult": 1.0,
+     "tags": [
+      "schnitt",
+      "licht"
+     ],
+     "dash": true,
+     "color": "#d9e6ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "projectiles",
+       "count": 7,
+       "spread": 70.0,
+       "mult": 0.7,
+       "tags": [
+        "schnitt",
+        "licht"
+       ],
+       "range": 16.0,
+       "color": "#d9e6ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "donnerdrachenflut",
+   "name": "Donnerdrachen-Flut",
+   "a": "stroemung",
+   "b": "blitz",
+   "kanal_s": 1.3,
+   "mult": 3.8,
+   "rang": 3,
+   "wirkung": "Eine breite Flut, dann ein Blitzdrache, der über alle Nassen springt.",
+   "hinweis": "Der Drache wohnt im Gewitter.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 16.0,
+     "width": 5.0,
+     "mult": 0.3,
+     "tags": [
+      "wasser"
+     ],
+     "status": "nass",
+     "color": "#4d99ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "line",
+       "length": 16.0,
+       "width": 5.0,
+       "mult": 1.0,
+       "tags": [
+        "blitz"
+       ],
+       "status": "ladung",
+       "color": "#99bfff"
+      },
+      {
+       "t": "chain",
+       "jumps": 5,
+       "radius": 8.0,
+       "mult": 0.6,
+       "tags": [
+        "blitz"
+       ],
+       "color": "#99bfff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eissarg",
+   "name": "Eissarg",
+   "a": "frost",
+   "b": "wirbel",
+   "kanal_s": 1.1,
+   "mult": 3.6,
+   "rang": 3,
+   "wirkung": "Ein Eissturm friert alle im Umkreis 7 ein und zerschmettert sie doppelt.",
+   "hinweis": "Der Sarg aus Eis bricht zweimal.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 7.0,
+     "mult": 0.0,
+     "freeze": 2.5,
+     "color": "#b3f2ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.5,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 7.0,
+       "mult": 1.0,
+       "tags": [
+        "wucht",
+        "eis"
+       ],
+       "color": "#b3f2ff"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 1.2,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 7.0,
+       "mult": 0.6,
+       "tags": [
+        "wucht"
+       ],
+       "color": "#dff6ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pestsonne",
+   "name": "Pestsonne",
+   "a": "gift",
+   "b": "flamme",
+   "kanal_s": 1.2,
+   "mult": 3.6,
+   "rang": 3,
+   "wirkung": "Eine Giftsonne geht über dem Feld auf und entzündet sich zu einer riesigen Explosion.",
+   "hinweis": "Die Sonne der Seuche.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 7.0,
+     "mult": 0.0,
+     "set_stacks": {
+      "gift": 5
+     },
+     "color": "#8ce633"
+    },
+    {
+     "t": "delay",
+     "time": 0.45,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 7.0,
+       "mult": 1.0,
+       "tags": [
+        "feuer"
+       ],
+       "status": "brand",
+       "color": "#ff7326"
+      },
+      {
+       "t": "zone",
+       "radius": 6.0,
+       "time": 6.0,
+       "mult": 0.2,
+       "tags": [
+        "feuer",
+        "gift"
+       ],
+       "status": "gift",
+       "color": "#b0e060"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "knochenzitadelle",
+   "name": "Knochenzitadelle",
+   "a": "knochen",
+   "b": "haut",
+   "kanal_s": 0.8,
+   "mult": 3.0,
+   "rang": 3,
+   "wirkung": "Ein Knochenpanzer, dazu vier kreisende Knochenspeere.",
+   "hinweis": "Die Festung wächst.",
+   "schritte": [
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 8.0,
+     "reduction": 0.4,
+     "value_mult": 0.7,
+     "color": "#f2e6cc"
+    },
+    {
+     "t": "orbit",
+     "count": 4,
+     "radius": 2.2,
+     "time": 8.0,
+     "mult": 0.5,
+     "tags": [
+      "durchbohren"
+     ],
+     "color": "#f2e6cc"
+    }
+   ]
+  },
+  {
+   "id": "donnerkoenig",
+   "name": "Donnerkönig",
+   "a": "haut",
+   "b": "blitz",
+   "kanal_s": 0.7,
+   "mult": 3.0,
+   "rang": 3,
+   "wirkung": "Ein Donnerpanzer, der Angreifer auflädt und alle drei Sekunden entlädt.",
+   "hinweis": "Der König trägt den Donner.",
+   "schritte": [
+    {
+     "t": "armor",
+     "kind": "thunder",
+     "time": 8.0,
+     "reduction": 0.4,
+     "value": 3,
+     "color": "#99bfff"
+    },
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 4.0,
+     "time": 8.0,
+     "tick": 3.0,
+     "mult": 0.8,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "color": "#99bfff"
+    }
+   ]
+  },
+  {
+   "id": "rudelkoenig",
+   "name": "Rudelkönig",
+   "a": "sklaverei",
+   "b": "blatt",
+   "kanal_s": 1.4,
+   "mult": 2.8,
+   "rang": 3,
+   "wirkung": "Heilt alle Gefährten voll und ruft zwei Blitzwölfe.",
+   "hinweis": "Das Rudel folgt dem König.",
+   "schritte": [
+    {
+     "t": "heal",
+     "frac": 1.0,
+     "allies": true,
+     "radius": 14.0
+    },
+    {
+     "t": "summon",
+     "enemy": "blitzwolf",
+     "count": 2,
+     "time": 25.0
+    }
+   ]
+  },
+  {
+   "id": "allesverschlingen",
+   "name": "Alles verschlingen",
+   "a": "phantom",
+   "b": "blutmond",
+   "kanal_s": 1.0,
+   "mult": 3.4,
+   "rang": 3,
+   "wirkung": "Ein Blutphantom verschlingt alles vor dir und gibt dir das Leben zurück.",
+   "hinweis": "Die Bestie trinkt Blut.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 8.0,
+     "angle": 120.0,
+     "mult": 1.2,
+     "tags": [
+      "wucht",
+      "blut"
+     ],
+     "status": "blutung",
+     "stacks": 2,
+     "lifesteal": 0.4,
+     "knockback": 1.6,
+     "color": "#d0303a"
+    }
+   ]
+  },
+  {
+   "id": "seelensturm",
+   "name": "Seelensturm",
+   "a": "seelenschrei",
+   "b": "wind",
+   "kanal_s": 1.1,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Ein heulender Sturm voller Seelenschreie: Furcht und Schwäche für alle.",
+   "hinweis": "Der Wind trägt die Schreie.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 12.0,
+     "angle": 90.0,
+     "mult": 0.8,
+     "tags": [
+      "seele",
+      "wind"
+     ],
+     "status": "furcht",
+     "knockback": 1.2,
+     "color": "#c9a0ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.4,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 12.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "seele"
+       ],
+       "status": "schwaeche",
+       "stacks": 3,
+       "color": "#c9a0ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sternennebel_hinterhalt",
+   "name": "Sternennebel-Hinterhalt",
+   "a": "tarnung",
+   "b": "stern",
+   "kanal_s": 0.8,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Aus dem Sternennebel stürzen zwölf Sterne auf alle Geblendeten.",
+   "hinweis": "Im Nebel leuchten Sterne.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 7.0,
+     "mult": 0.0,
+     "blind": 3.0,
+     "color": "#8090c0"
+    },
+    {
+     "t": "stealth",
+     "time": 4.0
+    },
+    {
+     "t": "projectiles",
+     "count": 12,
+     "spread": 360.0,
+     "homing": true,
+     "mult": 0.6,
+     "tags": [
+      "stern"
+     ],
+     "status": "schwaeche",
+     "range": 18.0,
+     "color": "#fff2b0"
+    }
+   ]
+  },
+  {
+   "id": "bergsturz",
+   "name": "Bergsturz",
+   "a": "erde",
+   "b": "phantom",
+   "kanal_s": 1.2,
+   "mult": 3.6,
+   "rang": 3,
+   "wirkung": "Ein Bärenphantom schlägt auf den Boden, ein Bergsturz begräbt die Getroffenen.",
+   "hinweis": "Die Bestie spaltet den Berg.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 7.0,
+     "angle": 100.0,
+     "mult": 0.8,
+     "tags": [
+      "wucht"
+     ],
+     "knockback": 1.5,
+     "color": "#e07a4a"
+    },
+    {
+     "t": "delay",
+     "time": 0.4,
+     "then": [
+      {
+       "t": "circle",
+       "at": "aim",
+       "distance": 6.0,
+       "radius": 5.0,
+       "mult": 1.4,
+       "tags": [
+        "erde",
+        "wucht"
+       ],
+       "stun": 1.2,
+       "status": "verwurzelt",
+       "color": "#a08050"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "himmelsbrand",
+   "name": "Himmelsbrand",
+   "a": "flamme",
+   "b": "wirbel",
+   "kanal_s": 1.2,
+   "mult": 4.6,
+   "rang": 5,
+   "wirkung": "Der Himmel brennt: ein Feuersturm im Umkreis 10, Feuerregen und ein Flammenmeer.",
+   "hinweis": "Wenn der Himmel Feuer fängt …",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 10.0,
+     "mult": 1.0,
+     "tags": [
+      "feuer",
+      "wind"
+     ],
+     "status": "brand",
+     "knockback": 1.0,
+     "color": "#ff5a1a"
+    },
+    {
+     "t": "zone",
+     "radius": 9.0,
+     "time": 8.0,
+     "mult": 0.35,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "color": "#ff5a1a"
+    },
+    {
+     "t": "projectiles",
+     "count": 12,
+     "spread": 360.0,
+     "mult": 0.5,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "range": 14.0,
+     "explode": 2.0,
+     "color": "#ff7326"
+    }
+   ]
+  },
+  {
+   "id": "mondfinsternis",
+   "name": "Mondfinsternis",
+   "a": "mondlicht",
+   "b": "schritt",
+   "kanal_s": 0.8,
+   "mult": 4.2,
+   "rang": 5,
+   "wirkung": "Drei Schritte durch die Dunkelheit, jeder hinterlässt einen Mondsturm.",
+   "hinweis": "Wenn der Mond verlischt …",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 12.0,
+     "width": 3.0,
+     "mult": 0.8,
+     "tags": [
+      "schnitt",
+      "licht"
+     ],
+     "dash": true,
+     "color": "#b0c0ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.4,
+     "then": [
+      {
+       "t": "projectiles",
+       "count": 11,
+       "spread": 360.0,
+       "homing": true,
+       "mult": 0.6,
+       "tags": [
+        "schnitt",
+        "licht"
+       ],
+       "range": 18.0,
+       "color": "#d9e6ff"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 0.8,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 6.0,
+       "mult": 1.0,
+       "tags": [
+        "licht"
+       ],
+       "blind": 2.0,
+       "color": "#fff9e0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tausend_donner",
+   "name": "Tausend Donner",
+   "a": "stroemung",
+   "b": "blitz",
+   "kanal_s": 1.4,
+   "mult": 4.8,
+   "rang": 5,
+   "wirkung": "Eine Sturmflut, dann tausend Donner: jeder Nasse wird mehrfach getroffen.",
+   "hinweis": "Tausend Donner in einer Welle.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 18.0,
+     "width": 7.0,
+     "mult": 0.4,
+     "tags": [
+      "wasser"
+     ],
+     "status": "nass",
+     "color": "#3a8ad0"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "chain",
+       "jumps": 8,
+       "radius": 9.0,
+       "mult": 0.9,
+       "tags": [
+        "blitz"
+       ],
+       "status": "ladung",
+       "color": "#dfe8ff"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 0.7,
+     "then": [
+      {
+       "t": "chain",
+       "jumps": 8,
+       "radius": 9.0,
+       "mult": 0.9,
+       "tags": [
+        "blitz"
+       ],
+       "status": "ladung",
+       "color": "#dfe8ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ewiges_eis",
+   "name": "Ewiges Eis",
+   "a": "frost",
+   "b": "wirbel",
+   "kanal_s": 1.2,
+   "mult": 4.6,
+   "rang": 5,
+   "wirkung": "Alles im Umkreis 10 erstarrt zu ewigem Eis und zerspringt.",
+   "hinweis": "Das Eis, das niemals schmilzt.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 10.0,
+     "mult": 0.0,
+     "freeze": 3.0,
+     "color": "#dff6ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.6,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 10.0,
+       "mult": 1.2,
+       "tags": [
+        "wucht",
+        "eis",
+        "metall"
+       ],
+       "color": "#b3f2ff"
+      }
+     ]
+    },
+    {
+     "t": "zone",
+     "radius": 8.0,
+     "time": 6.0,
+     "mult": 0.2,
+     "tags": [
+      "eis"
+     ],
+     "status": "frost",
+     "slow": 0.5,
+     "color": "#bfeaff"
+    }
+   ]
+  },
+  {
+   "id": "jadehimmel_brand",
+   "name": "Jadehimmel-Brand",
+   "a": "gift",
+   "b": "flamme",
+   "kanal_s": 1.3,
+   "mult": 4.6,
+   "rang": 5,
+   "wirkung": "Das uralte Jadegift senkt sich über das Land und entzündet sich.",
+   "hinweis": "Grüner Himmel, rotes Land.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 9.0,
+     "mult": 0.0,
+     "set_stacks": {
+      "gift": 5
+     },
+     "color": "#7fe0a0"
+    },
+    {
+     "t": "delay",
+     "time": 0.5,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 9.0,
+       "mult": 1.1,
+       "tags": [
+        "feuer"
+       ],
+       "status": "brand",
+       "color": "#ff7326"
+      },
+      {
+       "t": "zone",
+       "radius": 8.0,
+       "time": 8.0,
+       "mult": 0.35,
+       "tags": [
+        "gift"
+       ],
+       "status": "gift",
+       "stacks": 2,
+       "color": "#7fe0a0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "unsterblicher_knochen",
+   "name": "Unsterblicher Knochen",
+   "a": "knochen",
+   "b": "haut",
+   "kanal_s": 0.9,
+   "mult": 3.8,
+   "rang": 5,
+   "wirkung": "Ein unzerstörbarer Knochenleib: unaufhaltsam, Dornen, sechs Knochenräder.",
+   "hinweis": "Knochen, die nicht brechen.",
+   "schritte": [
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 10.0,
+     "reduction": 0.5,
+     "value_mult": 0.9,
+     "color": "#fff6e0"
+    },
+    {
+     "t": "unstoppable",
+     "time": 10.0
+    },
+    {
+     "t": "orbit",
+     "count": 6,
+     "radius": 2.6,
+     "time": 10.0,
+     "mult": 0.7,
+     "tags": [
+      "durchbohren",
+      "wucht"
+     ],
+     "color": "#fff6e0"
+    }
+   ]
+  },
+  {
+   "id": "zehntausend_klingen",
+   "name": "Zehntausend Klingen",
+   "a": "schwert",
+   "b": "schritt",
+   "kanal_s": 1.0,
+   "mult": 4.6,
+   "rang": 5,
+   "wirkung": "Du wirst zum Klingensturm: Sprung, zehn kreisende Klingen, ein Hagel aus Schwertschatten.",
+   "hinweis": "Zehntausend Schritte, zehntausend Klingen.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 12.0,
+     "width": 3.0,
+     "mult": 1.0,
+     "tags": [
+      "schnitt"
+     ],
+     "dash": true,
+     "pierce_armor": true,
+     "color": "#e8f4ff"
+    },
+    {
+     "t": "orbit",
+     "count": 10,
+     "radius": 3.2,
+     "time": 8.0,
+     "speed": 1.1,
+     "mult": 0.7,
+     "tags": [
+      "schnitt"
+     ],
+     "pierce_armor": true,
+     "color": "#e8f4ff"
+    },
+    {
+     "t": "projectiles",
+     "count": 14,
+     "spread": 360.0,
+     "homing": true,
+     "mult": 0.6,
+     "tags": [
+      "schnitt"
+     ],
+     "pierce_armor": true,
+     "range": 18.0,
+     "color": "#e8f4ff"
+    }
+   ]
+  },
+  {
+   "id": "sternenkaiser",
+   "name": "Sternenkaiser",
+   "a": "stern",
+   "b": "mondlicht",
+   "kanal_s": 1.2,
+   "mult": 4.6,
+   "rang": 5,
+   "wirkung": "Ein Sternenhimmel öffnet sich: sechzehn Sterne und drei Sternschnuppen.",
+   "hinweis": "Der Kaiser gebietet dem Himmel.",
+   "schritte": [
+    {
+     "t": "projectiles",
+     "count": 16,
+     "spread": 360.0,
+     "homing": true,
+     "mult": 0.6,
+     "tags": [
+      "stern",
+      "licht"
+     ],
+     "status": "schwaeche",
+     "range": 20.0,
+     "color": "#fff2b0"
+    },
+    {
+     "t": "delay",
+     "time": 0.8,
+     "then": [
+      {
+       "t": "circle",
+       "at": "target",
+       "distance": 10.0,
+       "radius": 5.0,
+       "mult": 2.0,
+       "tags": [
+        "stern",
+        "wucht"
+       ],
+       "stun": 1.0,
+       "color": "#fff2b0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "herr_der_bestien",
+   "name": "Herr der Bestien",
+   "a": "sklaverei",
+   "b": "phantom",
+   "kanal_s": 1.5,
+   "mult": 3.6,
+   "rang": 5,
+   "wirkung": "Drei Bestienphantome brechen hervor und zwei Blitzwölfe folgen dir.",
+   "hinweis": "Wer die Bestien beherrscht …",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 10.0,
+     "angle": 150.0,
+     "mult": 1.3,
+     "tags": [
+      "wucht"
+     ],
+     "knockback": 2.4,
+     "stun": 1.0,
+     "color": "#e07a4a"
+    },
+    {
+     "t": "summon",
+     "enemy": "blitzwolf",
+     "count": 2,
+     "time": 30.0
+    },
+    {
+     "t": "buff",
+     "key": "herr",
+     "damage": 1.3,
+     "speed": 1.2,
+     "time": 10.0
+    }
+   ]
+  },
+  {
+   "id": "taifun_der_seelen",
+   "name": "Taifun der Seelen",
+   "a": "seelenschrei",
+   "b": "wind",
+   "kanal_s": 1.3,
+   "mult": 4.4,
+   "rang": 5,
+   "wirkung": "Ein Taifun aus Seelen zieht alles in sein Zentrum, voller Furcht und Schwäche.",
+   "hinweis": "Der Wind, der Seelen frisst.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "aim",
+     "distance": 8.0,
+     "radius": 6.0,
+     "time": 6.0,
+     "mult": 0.6,
+     "tags": [
+      "seele",
+      "wind"
+     ],
+     "status": "schwaeche",
+     "pull": 1.8,
+     "color": "#b090e0"
+    },
+    {
+     "t": "circle",
+     "at": "aim",
+     "distance": 8.0,
+     "radius": 7.0,
+     "mult": 0.8,
+     "tags": [
+      "seele"
+     ],
+     "status": "furcht",
+     "color": "#c9a0ff"
+    }
+   ]
+  },
+  {
+   "id": "erdschlund",
+   "name": "Erdschlund",
+   "a": "erde",
+   "b": "phantom",
+   "kanal_s": 1.3,
+   "mult": 4.8,
+   "rang": 5,
+   "wirkung": "Die Erde öffnet sich unter den Feinden und schließt sich wieder.",
+   "hinweis": "Der Berg verschluckt.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "aim",
+     "distance": 8.0,
+     "radius": 7.0,
+     "time": 3.0,
+     "mult": 0.5,
+     "tags": [
+      "erde"
+     ],
+     "status": "verwurzelt",
+     "pull": 1.0,
+     "color": "#a08050"
+    },
+    {
+     "t": "delay",
+     "time": 1.0,
+     "then": [
+      {
+       "t": "circle",
+       "at": "aim",
+       "distance": 8.0,
+       "radius": 7.0,
+       "mult": 2.0,
+       "tags": [
+        "erde",
+        "wucht"
+       ],
+       "stun": 1.5,
+       "color": "#a08050"
+      }
+     ]
+    }
+   ]
   }
  ],
  "start_familien": [

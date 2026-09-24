@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bjkw3mlesa2te"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_amgh4"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_j3it8"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_amgh4")
+item = &"giftdrüse"
+chance = 0.7
+
+[resource]
+script = ExtResource("2_j3it8")
+id = &"riesenskorpion"
+display_name = "Riesenskorpion"
+max_hp = 190
+damage = 22
+speed = 3.0
+xp = 130
+radius = 0.55
+color = Color(0.22745098, 0.16470589, 0.101960786, 1)
+zone = 3
+rank = 3
+ability = [{
+"color": "#9b3bff",
+"count": 3.0,
+"mult": 0.6,
+"range": 10.0,
+"speed": 12.0,
+"spread": 30.0,
+"stacks": 2.0,
+"status": "gift",
+"t": "projectiles",
+"tags": ["gift"]
+}]
+ability_range = 9.0
+drops = Array[ExtResource("1_amgh4")]([SubResource("drop_0")])
+shape = &"scorpion"
+poison = true

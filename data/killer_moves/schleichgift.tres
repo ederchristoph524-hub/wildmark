@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c612u8d6wthh3"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_lsqyk"]
+
+[resource]
+script = ExtResource("1_lsqyk")
+id = &"schleichgift"
+display_name = "Schleichgift"
+family_a = &"tarnung"
+family_b = &"gift"
+channel_time = 0.5
+damage_mult = 2.4
+description = "Du verschwindest und hinterlässt eine Giftwolke; dein nächster Schlag trifft aus dem Nichts."
+hint = "Unsichtbar tötet das Gift."
+steps = [{
+"color": "#9b3bff",
+"mult": 0.35,
+"radius": 4.0,
+"stacks": 2.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"time": 5.0
+}, {
+"t": "stealth",
+"time": 5.0
+}]

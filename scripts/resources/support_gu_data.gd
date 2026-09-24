@@ -9,3 +9,5 @@ extends Resource
 @export_multiline var effect_text: String = ""
 @export var feed_item: StringName
 @export var feed_amount: int = 0
+## Wirkung als Schlüssel für PassiveGu (gu_system.json → hilfs_gu[].regeln), z. B. {"regen_mult": 1.35}.
+@export var rules: Dictionary = {}

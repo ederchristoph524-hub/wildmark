@@ -19,6 +19,7 @@ xp = 80
 radius = 0.45
 color = Color(0.7882353, 0.16470589, 0.16470589, 1)
 zone = 3
+rank = 4
 drops = Array[ExtResource("1_f6ttf")]([SubResource("drop_0")])
 shape = &"bat"
 behavior = &"ranged"

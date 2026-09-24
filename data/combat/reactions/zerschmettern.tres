@@ -10,3 +10,6 @@ trigger_tag = &"wucht"
 target_status = &"eingefroren"
 effect_text = "×2,5 Schaden"
 removes = Array[StringName]([&"frost"])
+rule = {
+"mult": 2.5
+}

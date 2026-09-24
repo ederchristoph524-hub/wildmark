@@ -29,5 +29,6 @@ xp = 90
 radius = 0.65
 color = Color(0.41568628, 0.5411765, 0.2901961, 1)
 zone = 2
+rank = 3
 drops = Array[ExtResource("1_0oga6")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
 shape = &"golem"

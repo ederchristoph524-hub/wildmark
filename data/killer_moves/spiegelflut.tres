@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dbia8u2wg3gfc"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_bu5j1"]
+
+[resource]
+script = ExtResource("1_bu5j1")
+id = &"spiegelflut"
+display_name = "Spiegelflut"
+family_a = &"wasserbild"
+family_b = &"stroemung"
+channel_time = 1.0
+damage_mult = 2.3
+description = "Zwei Wasserbilder springen aus einer Flutwelle, die alles zurückwirft."
+hint = "Das Wasser zeigt dein Gesicht."
+steps = [{
+"color": "#4a9ad0",
+"knockback": 1.4,
+"length": 12.0,
+"mult": 0.9,
+"status": "nass",
+"t": "line",
+"tags": ["wasser", "wucht"],
+"width": 3.5
+}, {
+"count": 2.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 10.0
+}]

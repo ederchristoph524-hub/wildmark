@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dss01nhataij4"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_mgdvx"]
+
+[resource]
+script = ExtResource("1_mgdvx")
+id = &"donnerkrone"
+display_name = "Donnerkrone"
+icon = "👑"
+category = &"material"
+rank = 5
+path = &"blitz"
+source = "Donnerkronen-Wölfe"
+description = "Das Horn eines Donnerkronen-Wolfs, noch immer geladen."

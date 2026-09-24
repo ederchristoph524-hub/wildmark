@@ -1,6 +1,10 @@
 class_name GuGifts
 extends RefCounted
-## Ranggaben als Schalter: Ein Gu erbt die Ranggaben aller Mitglieder seiner Familie bis zu seinem Rang.
+## Ranggaben als Schalter (gu_system.json → mitglieder[].gaben): Ein Gu erbt die Ranggaben aller Mitglieder
+## seiner Familie bis zu seinem Rang. Listen und Objekte (Wirkungsschritte) ersetzt der höhere Rang.
+
+## Zahlen, die ein höherer Rang ersetzt statt addiert (sonst summieren sich Zahlen über die Ränge).
+const OVERRIDE_KEYS: Array[String] = ["fan_angle", "as_circle", "teleport", "chain_radius", "width_mult", "orbit_speed"]
 
 static var _cache: Dictionary = {}
 
@@ -16,10 +20,10 @@ static func flags(gu: GuData) -> Dictionary:
 	for member: GuData in family.members:
 		if member.rank > gu.rank:
 			continue
-		var gift: Dictionary = Balance.values.rank_gifts.get(member.id, {})
+		var gift: Dictionary = member.gifts
 		for key: Variant in gift:
 			var value: Variant = gift[key]
-			if value is bool or not result.has(key):
+			if value is bool or value is Dictionary or value is Array or not result.has(key) or String(key) in OVERRIDE_KEYS:
 				result[key] = value
 			else:
 				result[key] = float(result[key]) + float(value)

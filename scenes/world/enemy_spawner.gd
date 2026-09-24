@@ -49,7 +49,8 @@ func zone_at(point: Vector3) -> int:
 	return radii.size()
 
 
-## Bestien, die in dieser Gebietszone und Tageszeit vorkommen (Gebiet: erlaubte Gegner-Zonen; gegner.json: z, night, nospawn, boss).
+## Bestien, die in dieser Gebietszone und Tageszeit vorkommen (Gebiet: erlaubte Gefahrenzonen oder Bestien-IDs;
+## gegner.json: z, night, nospawn, boss).
 func candidates(zone: int, night: bool) -> Array[EnemyData]:
 	var result: Array[EnemyData] = []
 	var zones: Array = terrain.area.enemy_zones
@@ -58,7 +59,7 @@ func candidates(zone: int, night: bool) -> Array[EnemyData]:
 	var allowed: Array = zones[clampi(zone, 0, zones.size() - 1)]
 	for resource: Resource in DataRegistry.all(&"enemies"):
 		var data: EnemyData = resource as EnemyData
-		if data.zone in allowed and not data.no_spawn and not data.boss and (night or not data.night_only):
+		if (data.zone in allowed or data.id in allowed) and not data.no_spawn and not data.boss and (night or not data.night_only):
 			result.append(data)
 	return result
 
@@ -99,13 +100,15 @@ func spawn_minion(enemy_id: StringName, at: Vector3, team: int) -> Enemy:
 	return minion
 
 
-## Für Rudelsegen: ein Gefährte auf Zeit.
-func spawn_companion(enemy_id: StringName, at: Vector3, duration: float, owner_combatant: Combatant) -> void:
+## Beschwörungen (Rudelsegen, Wasserbild, Geisterwolf): ein Gefährte auf Zeit; power skaliert Leben und Schaden.
+func spawn_companion(enemy_id: StringName, at: Vector3, duration: float, owner_combatant: Combatant, power: float = 1.0) -> void:
 	var data: EnemyData = DataRegistry.enemy(enemy_id)
 	if data == null:
 		return
 	var companion: Enemy = spawn(data, Vector3(at.x, terrain.height_at(at.x, at.z) + 0.3, at.z))
 	companion.tame.call_deferred(owner_combatant, duration, 99)
+	if power > 1.0:
+		companion.scale_power.call_deferred(power)
 
 
 func _despawn(player: Player, night: bool) -> void:

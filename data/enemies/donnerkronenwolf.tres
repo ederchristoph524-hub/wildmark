@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ccn0vm6fxwbmt"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_syjl0"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_thm17"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_syjl0")
+item = &"donnerkrone"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_syjl0")
+item = &"wolfsgeist"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_syjl0")
+item = &"heldenherz"
+chance = 0.1
+
+[resource]
+script = ExtResource("2_thm17")
+id = &"donnerkronenwolf"
+display_name = "Donnerkronen-Wolf"
+max_hp = 1400
+damage = 70
+speed = 5.2
+xp = 700
+radius = 0.8
+color = Color(0.7529412, 0.78431374, 0.8784314, 1)
+zone = 5
+rank = 5
+ability = [{
+"color": "#dfe8ff",
+"jumps": 4.0,
+"mult": 1.0,
+"radius": 8.0,
+"stacks": 2.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}, {
+"count": 2.0,
+"enemy": "blitzwolf",
+"t": "summon"
+}]
+ability_range = 10.0
+ability_cooldown = 8.0
+drops = Array[ExtResource("1_syjl0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"quad"

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://ctkwffyut7o0a"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_q5jbk"]
+
+[resource]
+script = ExtResource("1_q5jbk")
+id = &"himmelsbrand"
+display_name = "Himmelsbrand"
+family_a = &"flamme"
+family_b = &"wirbel"
+channel_time = 1.2
+damage_mult = 4.6
+description = "Der Himmel brennt: ein Feuersturm im Umkreis 10, Feuerregen und ein Flammenmeer."
+hint = "Wenn der Himmel Feuer fängt …"
+min_rank = 5
+steps = [{
+"color": "#ff5a1a",
+"knockback": 1.0,
+"mult": 1.0,
+"radius": 10.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer", "wind"]
+}, {
+"color": "#ff5a1a",
+"mult": 0.35,
+"radius": 9.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 8.0
+}, {
+"color": "#ff7326",
+"count": 12.0,
+"explode": 2.0,
+"mult": 0.5,
+"range": 14.0,
+"spread": 360.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer"]
+}]

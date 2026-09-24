@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dx3bc8rm17djg"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_8bmcq"]
+
+[resource]
+script = ExtResource("1_8bmcq")
+id = &"zehntausend_klingen"
+display_name = "Zehntausend Klingen"
+family_a = &"schwert"
+family_b = &"schritt"
+channel_time = 1.0
+damage_mult = 4.6
+description = "Du wirst zum Klingensturm: Sprung, zehn kreisende Klingen, ein Hagel aus Schwertschatten."
+hint = "Zehntausend Schritte, zehntausend Klingen."
+min_rank = 5
+steps = [{
+"color": "#e8f4ff",
+"dash": true,
+"length": 12.0,
+"mult": 1.0,
+"pierce_armor": true,
+"t": "line",
+"tags": ["schnitt"],
+"width": 3.0
+}, {
+"color": "#e8f4ff",
+"count": 10.0,
+"mult": 0.7,
+"pierce_armor": true,
+"radius": 3.2,
+"speed": 1.1,
+"t": "orbit",
+"tags": ["schnitt"],
+"time": 8.0
+}, {
+"color": "#e8f4ff",
+"count": 14.0,
+"homing": true,
+"mult": 0.6,
+"pierce_armor": true,
+"range": 18.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}]

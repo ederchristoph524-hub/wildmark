@@ -3,30 +3,32 @@ extends SceneTree
 ## Prüft headless, dass die importierten Resources in data/ vollständig und ladbar sind und ihre Verweise auflösen.
 ## Aufruf: godot --headless --path . --script res://tests/test_data_import.gd
 
-const EXPECTED_COUNTS: Dictionary[String, int] = {
-	"res://data/gu/families/": 12,
-	"res://data/gu/body/": 4,
-	"res://data/gu/support/": 7,
-	"res://data/gu/traits/": 10,
-	"res://data/combat/statuses/": 6,
-	"res://data/combat/reactions/": 8,
-	"res://data/killer_moves/": 8,
-	"res://data/enemies/": 25,
-	"res://data/items/": 41,
-	"res://data/regions/": 8,
-	"res://data/sects/": 17,
-	"res://data/quests/": 18,
+## Datenordner je DataRegistry-Kategorie; die Anzahlen kommen aus ExpectedCounts (Quelldateien).
+const DIRS: Dictionary[String, StringName] = {
+	"res://data/gu/families/": &"families",
+	"res://data/gu/body/": &"body",
+	"res://data/gu/support/": &"support",
+	"res://data/gu/traits/": &"traits",
+	"res://data/combat/statuses/": &"statuses",
+	"res://data/combat/reactions/": &"reactions",
+	"res://data/killer_moves/": &"killer_moves",
+	"res://data/enemies/": &"enemies",
+	"res://data/items/": &"items",
+	"res://data/regions/": &"regions",
+	"res://data/sects/": &"sects",
+	"res://data/quests/": &"quests",
 }
-const EXPECTED_GU_MEMBERS: int = 36
 
 var _failures: PackedStringArray = []
 
 
 func _init() -> void:
 	var loaded: Dictionary = {}
-	for dir: String in EXPECTED_COUNTS:
+	var expected: Dictionary[StringName, int] = ExpectedCounts.compute()
+	for dir: String in DIRS:
 		loaded[dir] = _load_dir(dir)
-		_check(loaded[dir].size() == EXPECTED_COUNTS[dir], "%s: %d statt %d" % [dir, loaded[dir].size(), EXPECTED_COUNTS[dir]])
+		var want: int = expected[DIRS[dir]]
+		_check(loaded[dir].size() == want, "%s: %d statt %d" % [dir, loaded[dir].size(), want])
 	_check_members(loaded["res://data/gu/families/"])
 	_check_killer_moves(loaded["res://data/killer_moves/"], loaded["res://data/gu/families/"])
 	_check_drops(loaded["res://data/enemies/"], loaded["res://data/items/"])
@@ -56,7 +58,7 @@ func _check_members(families: Dictionary) -> void:
 		count += family.members.size()
 		for member: GuData in family.members:
 			_check(member.family == family.id, "Gu %s zeigt auf falsche Familie" % member.id)
-	_check(count == EXPECTED_GU_MEMBERS, "%d Gu statt %d" % [count, EXPECTED_GU_MEMBERS])
+	_check(count == ExpectedCounts.members(), "%d Gu statt %d" % [count, ExpectedCounts.members()])
 
 
 func _check_killer_moves(moves: Dictionary, families: Dictionary) -> void:

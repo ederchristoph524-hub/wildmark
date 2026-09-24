@@ -2565,7 +2565,13 @@
   "verwandlung": "Verwandlung",
   "blut": "Blut",
   "ton": "Ton",
-  "information": "Information"
+  "information": "Information",
+  "erde": "Erde",
+  "wind": "Wind",
+  "stern": "Stern",
+  "schwert": "Schwert",
+  "verbergen": "Verbergen",
+  "knochen": "Knochen"
  },
  "PATH_COLOR": {
   "raffinerie": "#c9a070",
@@ -2587,7 +2593,13 @@
   "verwandlung": "#ff8ae2",
   "blut": "#d0303a",
   "ton": "#d9c27a",
-  "information": "#9ff"
+  "information": "#9ff",
+  "erde": "#a08050",
+  "wind": "#c8f0ff",
+  "stern": "#fff2b0",
+  "schwert": "#e8f4ff",
+  "verbergen": "#8090a0",
+  "knochen": "#f2ead8"
  },
  "PATH_CONFLICT": {
   "feuer": [
@@ -2623,6 +2635,18 @@
   ],
   "raum": [
    "zeit"
+  ],
+  "erde": [
+   "wind"
+  ],
+  "wind": [
+   "erde"
+  ],
+  "stern": [
+   "verbergen"
+  ],
+  "verbergen": [
+   "stern"
   ]
  },
  "ATTAIN": [

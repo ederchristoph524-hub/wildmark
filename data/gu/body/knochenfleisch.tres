@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://d1g6m2dpdr7s3"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_wnecq"]
+
+[resource]
+script = ExtResource("1_wnecq")
+id = &"knochenfleisch"
+display_name = "Knochen-Fleisch-Einheit-Gu"
+rank = 4
+effects = Dictionary[StringName, float]({
+&"max_hp": 180.0,
+&"schaden_erlitten": -0.1
+})

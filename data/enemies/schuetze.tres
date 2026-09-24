@@ -24,6 +24,7 @@ xp = 28
 radius = 0.38
 color = Color(0.84705883, 0.8156863, 0.7529412, 1)
 zone = 1
+rank = 2
 drops = Array[ExtResource("1_6owpf")]([SubResource("drop_0"), SubResource("drop_1")])
 shape = &"skel"
 behavior = &"ranged"

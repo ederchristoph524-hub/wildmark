@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b50wxvnpt82dr"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_4emff"]
+
+[resource]
+script = ExtResource("1_4emff")
+id = &"knochenbollwerk"
+display_name = "Knochenbollwerk"
+family_a = &"knochenrad"
+family_b = &"haut"
+channel_time = 0.8
+damage_mult = 2.2
+description = "Sechs Knochenschilde und eine Steinhaut: fast nichts dringt zu dir durch."
+hint = "Knochen und Stein werden eins."
+steps = [{
+"color": "#f2ead8",
+"count": 6.0,
+"mult": 0.5,
+"radius": 2.2,
+"reduction": 0.35,
+"t": "orbit",
+"tags": ["durchbohren"],
+"time": 7.0
+}, {
+"color": "#f2ead8",
+"kind": "thorns",
+"reduction": 0.15,
+"t": "armor",
+"time": 7.0,
+"value_mult": 0.4
+}]

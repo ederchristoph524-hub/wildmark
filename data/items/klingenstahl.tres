@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cel3hlbwp4dru"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_pa0o5"]
+
+[resource]
+script = ExtResource("1_pa0o5")
+id = &"klingenstahl"
+display_name = "Klingenstahl"
+icon = "🗡️"
+category = &"material"
+rank = 3
+path = &"metall"
+source = "Schmiede der Shang-Stadt, Klingenbestien"
+description = "Stahl, der von selbst schneidet."

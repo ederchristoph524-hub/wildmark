@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://djbj2m16xybtw"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_w825w"]
+
+[resource]
+script = ExtResource("1_w825w")
+id = &"seelensturm"
+display_name = "Seelensturm"
+family_a = &"seelenschrei"
+family_b = &"wind"
+channel_time = 1.1
+damage_mult = 3.2
+description = "Ein heulender Sturm voller Seelenschreie: Furcht und Schwäche für alle."
+hint = "Der Wind trägt die Schreie."
+min_rank = 3
+steps = [{
+"angle": 90.0,
+"color": "#c9a0ff",
+"knockback": 1.2,
+"mult": 0.8,
+"reach": 12.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele", "wind"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#c9a0ff",
+"mult": 0.9,
+"reach": 12.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["seele"]
+}],
+"time": 0.4
+}]

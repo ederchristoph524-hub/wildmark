@@ -19,6 +19,7 @@ xp = 65
 radius = 0.4
 color = Color(0.101960786, 0.0627451, 0.1882353, 1)
 zone = 2
+rank = 3
 drops = Array[ExtResource("1_vsa0w")]([SubResource("drop_0")])
 shape = &"ghost"
 behavior = &"teleport"

@@ -11,3 +11,6 @@ path = &"weisheit"
 effect_text = "Cooldowns −20 %"
 feed_item = &"kristall"
 feed_amount = 2
+rules = {
+"cooldown_mult": 0.8
+}

@@ -12,3 +12,11 @@ channel_time = 0.8
 damage_mult = 2.5
 description = "Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP)"
 hint = "Die Haut aus Knochen beißt zurück."
+steps = [{
+"color": "#f2e6cc",
+"kind": "thorns",
+"reduction": 0.3,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.6
+}]

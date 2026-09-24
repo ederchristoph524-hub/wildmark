@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://uk8frd8xcv2v"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_84lfe"]
+
+[resource]
+script = ExtResource("1_84lfe")
+id = &"fussspur"
+display_name = "Fußspur-Gu"
+path = &"information"
+effect_text = "Namensschilder und wilde Gu 40 % weiter sichtbar"
+feed_item = &"beeren"
+feed_amount = 2
+rules = {
+"detection_mult": 1.4
+}

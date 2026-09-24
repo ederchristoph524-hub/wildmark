@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cvrugovf1nr8m"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_0egy1"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_o1twj"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_0egy1")
+item = &"wuestenrose"
+chance = 0.3
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_0egy1")
+item = &"stein"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_o1twj")
+id = &"sandwurm"
+display_name = "Sandwurm"
+max_hp = 520
+damage = 40
+speed = 2.4
+xp = 260
+radius = 0.8
+color = Color(0.6901961, 0.5647059, 0.3764706, 1)
+zone = 4
+rank = 4
+ability = [{
+"color": "#c0a070",
+"mult": 1.0,
+"radius": 4.0,
+"status": "verwurzelt",
+"t": "circle",
+"tags": ["erde", "wucht"]
+}]
+ability_range = 4.0
+ability_cooldown = 8.0
+drops = Array[ExtResource("1_0egy1")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"snake"
+behavior = &"armor"

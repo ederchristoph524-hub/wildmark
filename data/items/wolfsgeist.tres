@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dkpchtvhrh1j8"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_dio3e"]
+
+[resource]
+script = ExtResource("1_dio3e")
+id = &"wolfsgeist"
+display_name = "Wolfsgeist-Splitter"
+icon = "🐺"
+category = &"material"
+rank = 3
+path = &"seele"
+source = "Blitz- und Donnerwölfe"
+description = "Ein Splitter der Seele eines Leitwolfs."

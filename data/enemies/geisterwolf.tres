@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cp4ko5doj5vua"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_qnca7"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_v6bt4"]
+
+[resource]
+script = ExtResource("2_v6bt4")
+id = &"geisterwolf"
+display_name = "Geisterwolf"
+max_hp = 55
+damage = 10
+speed = 4.4
+radius = 0.4
+color = Color(0.72156864, 0.6039216, 0.9098039, 1)
+zone = 9
+rank = 2
+shape = &"quad"
+no_spawn = true

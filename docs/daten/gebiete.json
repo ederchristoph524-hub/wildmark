@@ -337,14 +337,33 @@
     ],
     "zonen": [
      [
-      0
+      "ratte",
+      "pfeilhase",
+      "bambusnatter",
+      "slime",
+      "wolf"
      ],
      [
-      1
+      "wolf",
+      "eber",
+      "steinaffe",
+      "bambusnatter",
+      "spinne",
+      "bat",
+      "pilz",
+      "giftschleim",
+      "pfeilhase"
      ],
      [
-      1,
-      2
+      "wolf",
+      "eber",
+      "steinaffe",
+      "blitzwolf",
+      "jadeaffe",
+      "bergbaer",
+      "schwarzeber_bestie",
+      "spinne",
+      "bat"
      ]
     ]
    },

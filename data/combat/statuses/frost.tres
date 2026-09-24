@@ -9,3 +9,6 @@ display_name = "Frost"
 effect_text = "je Stapel −20 % Tempo, 5 s; bei 3 Stapeln 2 s eingefroren"
 max_stacks = 3
 removed_by = Array[StringName]([&"brand"])
+duration = 5.0
+speed_per_stack = -0.2
+on_max = &"freeze"

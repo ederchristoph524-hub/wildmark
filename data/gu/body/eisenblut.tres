@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://dodgpk57lslds"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_2hlrw"]
+
+[resource]
+script = ExtResource("1_2hlrw")
+id = &"eisenblut"
+display_name = "Eisenblut-Gu"
+rank = 2
+effects = Dictionary[StringName, float]({
+&"max_hp": 45.0
+})

@@ -68,3 +68,13 @@ static func color(value: Variant, context: String, report: ImportReport) -> Colo
 		report.error("%s: ungültige Farbe '%s'" % [context, hex])
 		return Color.WHITE
 	return Color.html(hex)
+
+
+## JSON-Objekt als Dictionary (Kopie); alles andere → leer.
+static func plain_dict(value: Variant) -> Dictionary:
+	return (value as Dictionary).duplicate(true) if value is Dictionary else {}
+
+
+## JSON-Liste als Array (Kopie); alles andere → leer.
+static func plain_list(value: Variant) -> Array:
+	return (value as Array).duplicate(true) if value is Array else []

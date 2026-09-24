@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://clh3qpkpeg5qy"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_etjw8"]
+
+[resource]
+script = ExtResource("1_etjw8")
+id = &"schlammkroete"
+display_name = "Schlammhautkröten-Gu"
+effects = Dictionary[StringName, float]({
+&"max_hp": 25.0
+})

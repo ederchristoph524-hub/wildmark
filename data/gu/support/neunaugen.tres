@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://cglt0duagi5m0"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_7locs"]
+
+[resource]
+script = ExtResource("1_7locs")
+id = &"neunaugen"
+display_name = "Neun-Augen-Schnaps-Wurm"
+rank = 4
+path = &"weisheit"
+effect_text = "Essenz-Regeneration ×2, Eingebung ×1,5"
+feed_item = &"beeren"
+feed_amount = 8
+rules = {
+"insight_mult": 1.5,
+"regen_mult": 2.0
+}

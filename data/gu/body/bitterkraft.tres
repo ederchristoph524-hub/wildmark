@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://b501p174fhqjv"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_4ew78"]
+
+[resource]
+script = ExtResource("1_4ew78")
+id = &"bitterkraft"
+display_name = "Bitterkraft-Gu"
+rank = 3
+effects = Dictionary[StringName, float]({
+&"grundschaden": 20.0
+})

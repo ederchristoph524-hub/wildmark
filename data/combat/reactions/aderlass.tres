@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://dtdap60cgp3ab"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_peg5s"]
+
+[resource]
+script = ExtResource("1_peg5s")
+id = &"aderlass"
+display_name = "Aderlass"
+trigger_tag = &"blut"
+target_status = &"blutung"
+effect_text = "×1,4 Schaden, der Angreifer heilt 30 % davon"
+rule = {
+"heal_attacker": 0.3,
+"mult": 1.4
+}

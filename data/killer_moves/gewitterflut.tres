@@ -12,3 +12,23 @@ channel_time = 1.2
 damage_mult = 3.2
 description = "Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle"
 hint = "Wasser ruft den Donner."
+steps = [{
+"color": "#4d99ff",
+"length": 13.0,
+"mult": 0.0,
+"status": "nass",
+"t": "line",
+"width": 4.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#99bfff",
+"length": 13.0,
+"mult": 1.0,
+"status": "ladung",
+"t": "line",
+"tags": ["blitz"],
+"width": 4.0
+}],
+"time": 0.35
+}]

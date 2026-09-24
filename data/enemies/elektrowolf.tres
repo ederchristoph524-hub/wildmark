@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b8bsu35l87lm4"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_6x87w"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_tsy1o"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_6x87w")
+item = &"wolfsgeist"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_6x87w")
+item = &"fell"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_tsy1o")
+id = &"elektrowolf"
+display_name = "Irrer Elektrowolf"
+max_hp = 230
+damage = 26
+speed = 5.0
+xp = 140
+color = Color(0.3529412, 0.47843137, 0.65882355, 1)
+zone = 3
+rank = 3
+ability = [{
+"color": "#8ad0ff",
+"jumps": 2.0,
+"mult": 0.9,
+"radius": 6.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}]
+ability_range = 9.0
+ability_cooldown = 5.0
+drops = Array[ExtResource("1_6x87w")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://cpd8nowfnhwyu"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_ft3el"]
+
+[resource]
+script = ExtResource("1_ft3el")
+id = &"holzkohle"
+display_name = "Holzkohle-Gu"
+rank = 2
+path = &"raffinerie"
+effect_text = "Verfeinern +10 % Erfolg"
+feed_item = &"holz"
+feed_amount = 4
+rules = {
+"refine_bonus": 0.1
+}

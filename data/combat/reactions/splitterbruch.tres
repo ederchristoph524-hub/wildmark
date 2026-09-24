@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://dv2o1pjdc2h8k"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_eq7pn"]
+
+[resource]
+script = ExtResource("1_eq7pn")
+id = &"splitterbruch"
+display_name = "Splitterbruch"
+trigger_tag = &"metall"
+target_status = &"eingefroren"
+effect_text = "×2 Schaden, Splitter verursachen Blutung"
+removes = Array[StringName]([&"frost"])
+rule = {
+"apply": "blutung",
+"apply_stacks": 2.0,
+"mult": 2.0
+}

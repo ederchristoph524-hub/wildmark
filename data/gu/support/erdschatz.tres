@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://cjvmmx7e777u6"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_mmpqi"]
+
+[resource]
+script = ExtResource("1_mmpqi")
+id = &"erdschatz"
+display_name = "Erdschatz-Blüte-Gu"
+rank = 2
+path = &"erde"
+effect_text = "Sammeln bringt 40 % mehr"
+feed_item = &"stein"
+feed_amount = 3
+rules = {
+"harvest_mult": 1.4
+}

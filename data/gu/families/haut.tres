@@ -20,6 +20,9 @@ rank = 2
 rank_gift = "Wirft Geschosse zurück."
 description = "Eisenpanzer, der Geschosse reflektiert."
 lore = "Die Weiterentwicklung der Steinhaut. Standard jedes Rang-2-Kriegers."
+gifts = {
+"reflect": true
+}
 
 [sub_resource type="Resource" id="gu_bronzhaut"]
 script = ExtResource("1_7phw6")
@@ -30,6 +33,50 @@ rank = 3
 rank_gift = "Unbeweglich: kein Rückstoß, keine Betäubung."
 description = "Uralter Bronzepanzer."
 lore = "Haut wie uralte Bronze. Schwer, aber fast undurchdringlich."
+gifts = {
+"unstoppable": true
+}
+
+[sub_resource type="Resource" id="gu_goldglocke"]
+script = ExtResource("1_7phw6")
+id = &"goldglocke"
+display_name = "Goldglocken-Gu"
+family = &"haut"
+rank = 4
+rank_gift = "Dornen: Angreifer werden zurückgestochen."
+description = "Eine goldene Glocke umhüllt dich; wer zuschlägt, wird von Splittern getroffen."
+gifts = {
+"extra": [{
+"color": "#f0c860",
+"kind": "thorns",
+"reduction": 0.0,
+"t": "armor",
+"time": 4.0,
+"value_mult": 0.5
+}]
+}
+
+[sub_resource type="Resource" id="gu_schildkroetenjade"]
+script = ExtResource("1_7phw6")
+id = &"schildkroetenjade"
+display_name = "Schildkrötenjade-Wolfshaut-Gu"
+family = &"haut"
+rank = 5
+rank_gift = "Heilt beim Aktivieren 15 % Leben, Dornen bleiben."
+description = "Die Haut eines Schildkrötenwolf-Herrschers: fast undurchdringlich und heilend."
+gifts = {
+"extra": [{
+"color": "#a0d8a0",
+"kind": "thorns",
+"reduction": 0.0,
+"t": "armor",
+"time": 5.0,
+"value_mult": 0.6
+}, {
+"frac": 0.15,
+"t": "heal"
+}]
+}
 
 [resource]
 script = ExtResource("2_nbc0c")
@@ -48,13 +95,21 @@ base_r1 = Dictionary[StringName, Variant]({
 &"reduktion": 0.5,
 &"rueckstoss": true
 })
-members = Array[ExtResource("1_7phw6")]([SubResource("gu_steinhaut"), SubResource("gu_eisenhaut"), SubResource("gu_bronzhaut")])
+members = Array[ExtResource("1_7phw6")]([SubResource("gu_steinhaut"), SubResource("gu_eisenhaut"), SubResource("gu_bronzhaut"), SubResource("gu_goldglocke"), SubResource("gu_schildkroetenjade")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"eisenerz": 3
 },
 3: {
 &"jadeader": 2
+},
+4: {
+&"jadeader": 4,
+&"klingenstahl": 2
+},
+5: {
+&"jadeader": 6,
+&"urkristall": 1
 }
 })
 world_effect = "Ermöglicht das Durchqueren von Dornen- und Giftfeldern ohne Schaden, solange aktiv."

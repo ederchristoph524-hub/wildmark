@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://d0edmo8he4v3q"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_3ny4w"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_lowt1"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_3ny4w")
+item = &"fell"
+chance = 0.7
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_3ny4w")
+item = &"fleisch"
+chance = 0.8
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_3ny4w")
+item = &"wolfsgeist"
+chance = 0.05
+
+[resource]
+script = ExtResource("2_lowt1")
+id = &"blitzwolf"
+display_name = "Blitzwolf"
+max_hp = 62
+damage = 12
+speed = 4.6
+xp = 40
+radius = 0.42
+color = Color(0.49803922, 0.5764706, 0.6901961, 1)
+zone = 2
+rank = 2
+ability = [{
+"color": "#8ad0ff",
+"dash": true,
+"length": 6.0,
+"mult": 1.0,
+"status": "ladung",
+"t": "line",
+"tags": ["blitz"],
+"width": 1.6
+}]
+ability_range = 7.0
+ability_cooldown = 5.0
+drops = Array[ExtResource("1_3ny4w")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"quad"

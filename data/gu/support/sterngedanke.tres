@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://f2thc2seb8yk"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_37tb8"]
+
+[resource]
+script = ExtResource("1_37tb8")
+id = &"sterngedanke"
+display_name = "Sterngedanken-Gu"
+rank = 4
+path = &"weisheit"
+effect_text = "Eingebung ×2,5, Abklingzeiten −15 %"
+feed_item = &"kristall"
+feed_amount = 4
+rules = {
+"cooldown_mult": 0.85,
+"insight_mult": 2.5
+}

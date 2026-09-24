@@ -9,3 +9,7 @@ display_name = "Feuerwirbel"
 trigger_tag = &"wind"
 target_status = &"brand"
 effect_text = "Brand springt auf alle Ziele im Umkreis 4"
+rule = {
+"spread_radius": 4.0,
+"spread_status": "brand"
+}

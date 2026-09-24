@@ -86,17 +86,44 @@ func speed_multiplier() -> float:
 		return 0.0
 	var mult: float = 1.0
 	for id: StringName in _stacks:
-		mult += Balance.values.status_speed_per_stack.get(id, 0.0) * _stacks[id]
+		var per_stack: float = DataRegistry.status(id).speed_per_stack
+		if per_stack <= -1.0:
+			return 0.0
+		mult += per_stack * _stacks[id]
 	if slow_time > 0.0:
 		mult -= slow_amount
-	return clampf(mult, 0.15, 1.0)
+	return clampf(mult, 0.15, 1.0) * host.speed_buff_mult()
 
 
 func heal_multiplier() -> float:
 	var mult: float = 1.0
 	for id: StringName in _stacks:
-		mult *= Balance.values.status_heal_mult.get(id, 1.0)
+		mult *= DataRegistry.status(id).heal_mult
 	return mult
+
+
+## Zusätzlich erlittener Schaden durch Zustände (Schwäche).
+func damage_taken_mult() -> float:
+	var mult: float = 1.0
+	for id: StringName in _stacks:
+		mult += DataRegistry.status(id).damage_taken_per_stack * _stacks[id]
+	return mult
+
+
+## Furcht: Die Figur flieht und greift nicht an.
+func is_feared() -> bool:
+	for id: StringName in _stacks:
+		if DataRegistry.status(id).flee:
+			return true
+	return false
+
+
+## Betäubung (wirkungslos, solange der Träger unaufhaltsam ist).
+func stun(duration: float) -> void:
+	if host.unstoppable_time > 0.0:
+		return
+	stun_time = maxf(stun_time, duration)
+	changed.emit()
 
 
 func freeze(duration: float) -> void:
@@ -120,7 +147,7 @@ func apply_status(id: StringName, stacks: int, rank_factor: float = 1.0, allow_o
 			remove_status(active)
 	var cap: int = data.max_stacks * (2 if allow_over_max else 1)
 	_stacks[id] = mini(stacks_of(id) + stacks, maxi(cap, stacks_of(id)))
-	_time_left[id] = Balance.values.status_durations.get(id, 4.0)
+	_time_left[id] = DataRegistry.status(id).duration
 	_rank_factor[id] = maxf(_rank_factor.get(id, 1.0), rank_factor)
 	if _stacks[id] >= data.max_stacks and not allow_over_max:
 		_on_max_stacks(id)
@@ -132,7 +159,7 @@ func set_stacks(id: StringName, stacks: int) -> void:
 		remove_status(id)
 		return
 	_stacks[id] = stacks
-	_time_left[id] = Balance.values.status_durations.get(id, 4.0)
+	_time_left[id] = DataRegistry.status(id).duration
 	changed.emit()
 
 
@@ -173,21 +200,23 @@ func process_hit(hit: HitInfo) -> float:
 
 func _on_max_stacks(id: StringName) -> void:
 	var b: BalanceData = Balance.values
-	match b.status_on_max.get(id, &""):
+	match DataRegistry.status(id).on_max:
 		FREEZE:
 			remove_status(id)
 			freeze(b.freeze_time)
 			EventBus.floating_text.emit(tr("Eingefroren!"), host.aim_point(), Color(0.7, 0.9, 1.0))
 		DISCHARGE:
 			remove_status(id)
-			stun_time = maxf(stun_time, b.discharge_stun)
+			stun(b.discharge_stun)
 			ReactionEffects.discharge(host, b.discharge_damage, b.discharge_radius)
 
 
 func _apply_damage_over_time(step: float) -> void:
 	for id: StringName in _stacks.keys():
-		var dps: float = Balance.values.status_dps.get(id, 0.0)
-		if dps <= 0.0 or not _stacks.has(id):
+		if not _stacks.has(id):
+			continue
+		var dps: float = DataRegistry.status(id).dps
+		if dps <= 0.0:
 			continue
 		var hit := HitInfo.create(dps * step * _stacks[id] * _rank_factor.get(id, 1.0), null, -1)
 		hit.is_dot = true

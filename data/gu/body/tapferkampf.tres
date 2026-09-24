@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://b0fl5ebhskxu5"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_tongx"]
+
+[resource]
+script = ExtResource("1_tongx")
+id = &"tapferkampf"
+display_name = "Tapferer-Kampf-Gu"
+rank = 3
+effects = Dictionary[StringName, float]({
+&"grundschaden": 12.0,
+&"max_hp": 30.0
+})

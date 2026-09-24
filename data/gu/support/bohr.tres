@@ -11,3 +11,6 @@ path = &"metall"
 effect_text = "Rohstoffe brauchen einen Schlag weniger, seltenere Funde"
 feed_item = &"stein"
 feed_amount = 2
+rules = {
+"harvest_hits": -1.0
+}

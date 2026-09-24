@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c4xdee012hnle"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_drgkb"]
+
+[resource]
+script = ExtResource("1_drgkb")
+id = &"unsterblicher_knochen"
+display_name = "Unsterblicher Knochen"
+family_a = &"knochen"
+family_b = &"haut"
+channel_time = 0.9
+damage_mult = 3.8
+description = "Ein unzerstörbarer Knochenleib: unaufhaltsam, Dornen, sechs Knochenräder."
+hint = "Knochen, die nicht brechen."
+min_rank = 5
+steps = [{
+"color": "#fff6e0",
+"kind": "thorns",
+"reduction": 0.5,
+"t": "armor",
+"time": 10.0,
+"value_mult": 0.9
+}, {
+"t": "unstoppable",
+"time": 10.0
+}, {
+"color": "#fff6e0",
+"count": 6.0,
+"mult": 0.7,
+"radius": 2.6,
+"t": "orbit",
+"tags": ["durchbohren", "wucht"],
+"time": 10.0
+}]

@@ -14,6 +14,8 @@ const BAMBOO_DARK: Color = Color(0.3, 0.4, 0.2)
 const ROCK: Color = Color(0.31, 0.3, 0.27)
 const ROCK_DARK: Color = Color(0.23, 0.22, 0.2)
 const MOSS: Color = Color(0.25, 0.33, 0.16)
+const CACTUS: Color = Color(0.3, 0.45, 0.25)
+const DEAD_WOOD: Color = Color(0.42, 0.36, 0.3)
 const FLOWER_COLORS: Array[Color] = [Color(0.85, 0.25, 0.3), Color(0.95, 0.8, 0.3), Color(0.7, 0.45, 0.85), Color(0.95, 0.95, 0.9)]
 
 
@@ -137,12 +139,49 @@ static func flowers() -> ArrayMesh:
 	return b.build()
 
 
-## Fels: zwei verschmolzene Blöcke mit Moos obenauf.
-static func rock() -> ArrayMesh:
+## Fels: zwei verschmolzene Blöcke, obenauf Moos (oder in trockenen Biomen derselbe Stein heller).
+static func rock(stone: Color = ROCK, top: Color = MOSS) -> ArrayMesh:
 	var b := MeshBuilder.new()
-	b.add(MeshBuilder.sphere(0.8, 6, 3), MeshBuilder.at(Vector3(0, 0.3, 0), Vector3(1.3, 0.75, 1.0), Vector3(0, 0.4, 0.1)), ROCK)
-	b.add(MeshBuilder.sphere(0.55, 5, 3), MeshBuilder.at(Vector3(0.6, 0.25, 0.35), Vector3(1.1, 0.8, 1.0)), ROCK_DARK)
-	b.add(MeshBuilder.sphere(0.5, 5, 2), MeshBuilder.at(Vector3(-0.1, 0.72, 0.0), Vector3(1.4, 0.25, 1.1)), MOSS)
+	b.add(MeshBuilder.sphere(0.8, 6, 3), MeshBuilder.at(Vector3(0, 0.3, 0), Vector3(1.3, 0.75, 1.0), Vector3(0, 0.4, 0.1)), stone)
+	b.add(MeshBuilder.sphere(0.55, 5, 3), MeshBuilder.at(Vector3(0.6, 0.25, 0.35), Vector3(1.1, 0.8, 1.0)), stone.darkened(0.25))
+	b.add(MeshBuilder.sphere(0.5, 5, 2), MeshBuilder.at(Vector3(-0.1, 0.72, 0.0), Vector3(1.4, 0.25, 1.1)), top)
+	return b.build()
+
+
+## Säulenkaktus mit zwei Armen.
+static func cactus() -> ArrayMesh:
+	var b := MeshBuilder.new()
+	b.add(MeshBuilder.cylinder(0.26, 0.3, 3.2, 7), MeshBuilder.at(Vector3(0, 1.6, 0)), CACTUS)
+	b.add(MeshBuilder.sphere(0.26, 7, 3), MeshBuilder.at(Vector3(0, 3.2, 0)), CACTUS)
+	for side: float in [-1.0, 1.0]:
+		var height: float = 1.4 if side < 0.0 else 1.9
+		b.add(MeshBuilder.cylinder(0.16, 0.16, 0.6, 6), MeshBuilder.at(Vector3(side * 0.42, height, 0), Vector3.ONE, Vector3(0, 0, PI * 0.5)), CACTUS.darkened(0.08))
+		b.add(MeshBuilder.cylinder(0.15, 0.17, 1.0, 6), MeshBuilder.at(Vector3(side * 0.7, height + 0.45, 0)), CACTUS.darkened(0.08))
+		b.add(MeshBuilder.sphere(0.15, 6, 3), MeshBuilder.at(Vector3(side * 0.7, height + 0.95, 0)), CACTUS.darkened(0.08))
+	b.add(MeshBuilder.sphere(0.12, 5, 3), MeshBuilder.at(Vector3(0, 3.42, 0)), Color(0.9, 0.5, 0.6))
+	return b.build()
+
+
+## Toter Baum: kahler, verdrehter Stamm mit gebrochenen Ästen.
+static func dead_tree() -> ArrayMesh:
+	var b := MeshBuilder.new()
+	var points: Array[Vector3] = [Vector3(0, 0, 0), Vector3(0.2, 2.0, 0.1), Vector3(-0.1, 3.6, 0.3), Vector3(0.3, 4.8, 0.1)]
+	for i: int in 3:
+		b.add(MeshBuilder.cylinder(0.16 - i * 0.04, 0.26 - i * 0.05, points[i].distance_to(points[i + 1]) + 0.1, 5), MeshBuilder.between(points[i], points[i + 1]), DEAD_WOOD)
+	var branches: Array[Array] = [[Vector3(0.2, 2.2, 0.1), Vector3(1.3, 3.1, 0.2)], [Vector3(-0.05, 3.2, 0.25), Vector3(-1.2, 4.0, -0.3)], [Vector3(0.2, 4.2, 0.2), Vector3(0.9, 5.0, 0.8)]]
+	for branch: Array in branches:
+		b.add(MeshBuilder.cylinder(0.05, 0.09, (branch[0] as Vector3).distance_to(branch[1]), 4), MeshBuilder.between(branch[0], branch[1]), DEAD_WOOD.darkened(0.1))
+	return b.build()
+
+
+## Hohes Steppengras: zehn schlanke, gebogene Halme.
+static func tall_grass() -> ArrayMesh:
+	var b := MeshBuilder.new()
+	for i: int in 10:
+		var angle: float = i * TAU / 10.0 + (i % 3) * 0.2
+		var dir := Vector3(cos(angle), 0.0, sin(angle))
+		var height: float = 0.8 + (i % 4) * 0.15
+		_leaf(b, dir * 0.05, (dir * 0.35 + Vector3.UP * height).normalized(), height, 0.07, 0.15, LEAF_OLIVE if i % 2 == 0 else LEAF_LIGHT)
 	return b.build()
 
 

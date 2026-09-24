@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d24ri3o6sdldq"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_vchwd"]
+
+[resource]
+script = ExtResource("1_vchwd")
+id = &"sternennebel_hinterhalt"
+display_name = "Sternennebel-Hinterhalt"
+family_a = &"tarnung"
+family_b = &"stern"
+channel_time = 0.8
+damage_mult = 3.2
+description = "Aus dem Sternennebel stürzen zwölf Sterne auf alle Geblendeten."
+hint = "Im Nebel leuchten Sterne."
+min_rank = 3
+steps = [{
+"blind": 3.0,
+"color": "#8090c0",
+"mult": 0.0,
+"radius": 7.0,
+"t": "circle"
+}, {
+"t": "stealth",
+"time": 4.0
+}, {
+"color": "#fff2b0",
+"count": 12.0,
+"homing": true,
+"mult": 0.6,
+"range": 18.0,
+"spread": 360.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern"]
+}]

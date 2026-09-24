@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://qekxtwb8xpkl"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_mgnm4"]
+
+[resource]
+script = ExtResource("1_mgnm4")
+id = &"sternenfall"
+display_name = "Sternenfall"
+trigger_tag = &"stern"
+target_status = &"schwaeche"
+effect_text = "×1,8 Schaden gegen geschwächte Ziele"
+removes = Array[StringName]([&"schwaeche"])
+rule = {
+"mult": 1.8
+}

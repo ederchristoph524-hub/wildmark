@@ -12,3 +12,11 @@ channel_time = 0.6
 damage_mult = 2.5
 description = "Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel"
 hint = "Wer den Donner berührt …"
+steps = [{
+"color": "#99bfff",
+"kind": "thunder",
+"reduction": 0.3,
+"t": "armor",
+"time": 6.0,
+"value": 3.0
+}]

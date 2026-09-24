@@ -10,3 +10,7 @@ trigger_tag = &"feuer"
 target_status = &"frost"
 effect_text = "×1,5 Schaden, Ziel wird nass"
 removes = Array[StringName]([&"frost"])
+rule = {
+"apply": "nass",
+"mult": 1.5
+}

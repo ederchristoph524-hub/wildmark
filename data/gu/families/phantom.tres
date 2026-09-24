@@ -1,0 +1,155 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://bvuaeifftbhuf"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_lm1os"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_iewof"]
+
+[sub_resource type="Resource" id="gu_eberstoss"]
+script = ExtResource("1_lm1os")
+id = &"eberstoss"
+display_name = "Eberstoß-Gu"
+family = &"phantom"
+description = "Ein Eber-Phantom bricht aus deinem Schlag hervor und stößt alles vor dir weg."
+
+[sub_resource type="Resource" id="gu_grossbaer"]
+script = ExtResource("1_lm1os")
+id = &"grossbaer"
+display_name = "Großbär-Gu"
+family = &"phantom"
+rank = 2
+rank_gift = "Größerer Kegel (5 m, 120°)."
+description = "Ein Bärenphantom mit weiter Pranke."
+gifts = {
+"step": {
+"angle": 120.0,
+"reach": 5.0
+}
+}
+
+[sub_resource type="Resource" id="gu_allout"]
+script = ExtResource("1_lm1os")
+id = &"allout"
+display_name = "Alles-oder-nichts-Gu"
+family = &"phantom"
+rank = 3
+rank_gift = "Betäubt 0,6 s, danach 5 s +25 % Schaden."
+description = "Jeder Schlag ruft ein Phantom – und stachelt dich weiter an."
+lore = "Fang Yuans zweites Vital-Gu. Kraft ohne Rückhalt, ohne Rückzug."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"damage": 1.25,
+"key": "allout",
+"speed": 1.0,
+"t": "buff",
+"time": 5.0
+}],
+"stun": 0.6
+}
+
+[sub_resource type="Resource" id="gu_flugbaer"]
+script = ExtResource("1_lm1os")
+id = &"flugbaer"
+display_name = "Flugbär-Kraft-Gu"
+family = &"phantom"
+rank = 4
+rank_gift = "Nachschlag: Landung Radius 4 mit Rückstoß."
+description = "Ein fliegender Bär landet nach dem Schlag mitten unter den Feinden."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"damage": 1.25,
+"key": "allout",
+"speed": 1.0,
+"t": "buff",
+"time": 5.0
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#e07a4a",
+"distance": 4.0,
+"knockback": 1.8,
+"mult": 0.9,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"time": 0.35
+}],
+"step": {
+"angle": 120.0,
+"reach": 6.0
+},
+"stun": 0.6
+}
+
+[sub_resource type="Resource" id="gu_kraftleihen"]
+script = ExtResource("1_lm1os")
+id = &"kraftleihen"
+display_name = "Kraft-leihen-Gu"
+family = &"phantom"
+rank = 5
+rank_gift = "Zweites Phantom (8 m, Wind), Hinrichtung."
+description = "Du leihst dir die Kraft von Wind und Erde: ein zweites, gewaltiges Phantom folgt."
+gifts = {
+"execute": 0.6,
+"extra": [{
+"color": "#e07a4a",
+"damage": 1.3,
+"key": "allout",
+"speed": 1.0,
+"t": "buff",
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#ffb080",
+"knockback": 2.2,
+"mult": 1.3,
+"reach": 8.0,
+"t": "cone",
+"tags": ["wucht", "wind"]
+}],
+"time": 0.3
+}]
+}
+
+[resource]
+script = ExtResource("2_iewof")
+id = &"phantom"
+display_name = "Bestienphantom"
+path = &"kraft"
+role = "Nahkampf-Brecher"
+form = &"kegel"
+tags = Array[StringName]([&"wucht"])
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 3.0,
+&"ess": 7.0,
+&"reichweite": 4.0,
+&"rueckstoss": 1.5,
+&"schaden": 24.0,
+&"winkel": 100.0
+})
+members = Array[ExtResource("1_lm1os")]([SubResource("gu_eberstoss"), SubResource("gu_grossbaer"), SubResource("gu_allout"), SubResource("gu_flugbaer"), SubResource("gu_kraftleihen")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"baerengalle": 1,
+&"wildfell": 3
+},
+3: {
+&"baerengalle": 3,
+&"knochenmehl": 2
+},
+4: {
+&"baerengalle": 5,
+&"heldenherz": 1
+},
+5: {
+&"heldenherz": 2,
+&"urkristall": 1
+}
+})
+world_effect = "Phantome zertrümmern Felsbrocken und stoßen Bestien von Klippen."

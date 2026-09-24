@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bvw2vu4xrrgun"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_lf5j5"]
+
+[resource]
+script = ExtResource("1_lf5j5")
+id = &"ewiges_eis"
+display_name = "Ewiges Eis"
+family_a = &"frost"
+family_b = &"wirbel"
+channel_time = 1.2
+damage_mult = 4.6
+description = "Alles im Umkreis 10 erstarrt zu ewigem Eis und zerspringt."
+hint = "Das Eis, das niemals schmilzt."
+min_rank = 5
+steps = [{
+"color": "#dff6ff",
+"freeze": 3.0,
+"mult": 0.0,
+"radius": 10.0,
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#b3f2ff",
+"mult": 1.2,
+"radius": 10.0,
+"t": "circle",
+"tags": ["wucht", "eis", "metall"]
+}],
+"time": 0.6
+}, {
+"color": "#bfeaff",
+"mult": 0.2,
+"radius": 8.0,
+"slow": 0.5,
+"status": "frost",
+"t": "zone",
+"tags": ["eis"],
+"time": 6.0
+}]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://l0vbb278pkd"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_ly83b"]
+
+[resource]
+script = ExtResource("1_ly83b")
+id = &"schneewaesche"
+display_name = "Schneewäsche-Gu"
+rank = 4
+path = &"eis"
+effect_text = "Regeneriert 3 Leben/s"
+feed_item = &"kristall"
+feed_amount = 4
+rules = {
+"hp_regen": 3.0
+}

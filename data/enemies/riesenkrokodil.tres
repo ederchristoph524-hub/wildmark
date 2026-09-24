@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://y8efxfk7ngns"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_g14i0"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_dxcae"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_g14i0")
+item = &"blutkoralle"
+chance = 0.2
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_g14i0")
+item = &"fell"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_g14i0")
+item = &"fleisch"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_dxcae")
+id = &"riesenkrokodil"
+display_name = "Riesenkrokodil"
+max_hp = 340
+damage = 30
+speed = 2.2
+xp = 170
+radius = 0.7
+color = Color(0.2901961, 0.3529412, 0.22745098, 1)
+zone = 3
+rank = 3
+drops = Array[ExtResource("1_g14i0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"croc"
+behavior = &"armor"

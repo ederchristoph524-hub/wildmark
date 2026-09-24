@@ -4,6 +4,8 @@ extends RefCounted
 
 const WATER_SHADER: Shader = preload("res://assets/shaders/water.gdshader")
 const SEGMENTS: int = 28
+## So tief watet man höchstens im Meer.
+const WADE_DEPTH: float = 0.9
 
 
 ## Scheibe auf Wasserhöhe über einem See (lake = x, z, Radius, Wasserhöhe). glow > 0 lässt sie leuchten.
@@ -21,6 +23,33 @@ static func lake(world: World, lake_data: Vector4, color: Color, glow: float) ->
 	world.add_child(node)
 	node.position = Vector3(lake_data.x, lake_data.w, lake_data.y)
 	return node
+
+
+## Meer bis zum Horizont (Östliches Meer) samt Watboden: tiefer als WADE_DEPTH sinkt niemand ein.
+static func sea(world: World, level: float, color: Color) -> void:
+	var mesh := PlaneMesh.new()
+	var extent: float = world.area.size + TerrainBackdrop.REACH * 2.0
+	mesh.size = Vector2(extent, extent)
+	mesh.subdivide_width = 0
+	mesh.subdivide_depth = 0
+	var node := MeshInstance3D.new()
+	node.name = "Sea"
+	node.mesh = mesh
+	node.material_override = material(color, 0.0)
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	world.add_child(node)
+	node.position = Vector3(0.0, level, 0.0)
+	var floor_body := StaticBody3D.new()
+	floor_body.name = "SeaFloor"
+	floor_body.collision_layer = 1
+	floor_body.collision_mask = 0
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(world.area.size, 1.0, world.area.size)
+	shape.shape = box
+	floor_body.add_child(shape)
+	world.add_child(floor_body)
+	floor_body.position = Vector3(0.0, level - WADE_DEPTH - 0.5, 0.0)
 
 
 static func material(color: Color, glow: float) -> ShaderMaterial:

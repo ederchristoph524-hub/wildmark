@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dv8fwtaam2hnw"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_ns7q5"]
+
+[resource]
+script = ExtResource("1_ns7q5")
+id = &"sternenmond"
+display_name = "Sternenmond"
+family_a = &"stern"
+family_b = &"mondlicht"
+channel_time = 0.9
+damage_mult = 2.6
+description = "Neun Mond- und Sternenklingen suchen sich selbst ihr Ziel."
+hint = "Mond und Sterne teilen sich den Himmel."
+steps = [{
+"color": "#fff2d0",
+"count": 9.0,
+"homing": true,
+"mult": 0.6,
+"range": 18.0,
+"speed": 16.0,
+"spread": 120.0,
+"t": "projectiles",
+"tags": ["licht", "stern", "schnitt"]
+}]

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dytsn1svta6f8"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_c7ot5"]
+
+[resource]
+script = ExtResource("1_c7ot5")
+id = &"eissarg"
+display_name = "Eissarg"
+family_a = &"frost"
+family_b = &"wirbel"
+channel_time = 1.1
+damage_mult = 3.6
+description = "Ein Eissturm friert alle im Umkreis 7 ein und zerschmettert sie doppelt."
+hint = "Der Sarg aus Eis bricht zweimal."
+min_rank = 3
+steps = [{
+"color": "#b3f2ff",
+"freeze": 2.5,
+"mult": 0.0,
+"radius": 7.0,
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#b3f2ff",
+"mult": 1.0,
+"radius": 7.0,
+"t": "circle",
+"tags": ["wucht", "eis"]
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#dff6ff",
+"mult": 0.6,
+"radius": 7.0,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"time": 1.2
+}]

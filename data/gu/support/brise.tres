@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://bp66p3i1rostp"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_xbkd3"]
+
+[resource]
+script = ExtResource("1_xbkd3")
+id = &"brise"
+display_name = "Brisen-Gu"
+path = &"raum"
+effect_text = "Laufen 10 % schneller"
+feed_item = &"beeren"
+feed_amount = 2
+rules = {
+"move_speed_mult": 1.1
+}

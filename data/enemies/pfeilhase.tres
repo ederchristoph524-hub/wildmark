@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bgh4ubykobldj"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_cmhqc"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_y878f"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_cmhqc")
+item = &"fleisch"
+chance = 0.7
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_cmhqc")
+item = &"fell"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_y878f")
+id = &"pfeilhase"
+display_name = "Pfeilhase"
+max_hp = 10
+damage = 4
+speed = 5.0
+xp = 6
+radius = 0.22
+color = Color(0.6901961, 0.59607846, 0.47058824, 1)
+drops = Array[ExtResource("1_cmhqc")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"

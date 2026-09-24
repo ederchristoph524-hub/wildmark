@@ -10,3 +10,8 @@ trigger_tag = &"blitz"
 target_status = &"nass"
 effect_text = "×2 Schaden, springt auf alle nassen Ziele im Umkreis 6"
 removes = Array[StringName]([&"nass"])
+rule = {
+"chain_radius": 6.0,
+"chain_status": "nass",
+"mult": 2.0
+}

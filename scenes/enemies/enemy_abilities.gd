@@ -7,11 +7,20 @@ const HEAL_RADIUS: float = 6.0
 const HEAL_INTERVAL: float = 3.0
 const TELEPORT_INTERVAL: float = 5.0
 const TELEPORT_MIN_DISTANCE: float = 3.0
+const ABILITY_RETRY: float = 0.5
 
 
 ## Führt die Fähigkeit aus und liefert die Abklingzeit bis zum nächsten Einsatz.
+## Bestien mit Feld faehigkeit (Wirkungsschritte) setzen diese in Reichweite ein.
 static func use(enemy: Enemy, distance: float) -> float:
 	var b: BalanceData = Balance.values
+	if not enemy.data.ability.is_empty():
+		if enemy.target == null or distance > enemy.data.ability_range:
+			return ABILITY_RETRY
+		var ctx := EffectContext.create(enemy, float(enemy.data.damage), enemy.target.global_position - enemy.global_position, enemy.data.color.lightened(0.35))
+		ctx.target = enemy.target
+		EffectSteps.run(enemy.data.ability, ctx)
+		return enemy.data.ability_cooldown
 	match enemy.data.behavior:
 		Enemy.BEH_SPAWN, Enemy.BEH_BOSS:
 			if enemy.data.minion != &"":

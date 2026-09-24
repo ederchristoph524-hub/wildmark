@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://eet8ss1ictu8"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_jj3p3"]
+
+[resource]
+script = ExtResource("1_jj3p3")
+id = &"jadehimmel_brand"
+display_name = "Jadehimmel-Brand"
+family_a = &"gift"
+family_b = &"flamme"
+channel_time = 1.3
+damage_mult = 4.6
+description = "Das uralte Jadegift senkt sich über das Land und entzündet sich."
+hint = "Grüner Himmel, rotes Land."
+min_rank = 5
+steps = [{
+"color": "#7fe0a0",
+"mult": 0.0,
+"radius": 9.0,
+"set_stacks": {
+"gift": 5.0
+},
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff7326",
+"mult": 1.1,
+"radius": 9.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"color": "#7fe0a0",
+"mult": 0.35,
+"radius": 8.0,
+"stacks": 2.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"time": 8.0
+}],
+"time": 0.5
+}]

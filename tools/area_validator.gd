@@ -57,6 +57,9 @@ func _check_open(area: AreaData, context: String) -> void:
 	for zone: Variant in area.enemy_zones:
 		if (zone as Array).is_empty():
 			_report.error("%s: leere Gegnerzone" % context)
+		for entry: Variant in zone:
+			if entry is StringName:
+				_require(entry, "enemies", context + " Gegnerzone")
 	if area.enemy_zones.size() != area.enemy_radii.size() + 1:
 		_report.error("%s: %d Zonen brauchen %d Radien" % [context, area.enemy_zones.size(), area.enemy_zones.size() - 1])
 	for entry: Variant in area.wild_passives:

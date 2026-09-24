@@ -28,6 +28,10 @@ func build_biome(id: StringName, d: Dictionary) -> Resource:
 		if d.has(field[0]):
 			biome.set(field[1], ImportUtil.color(d[field[0]], context, _report))
 	biome.fog_density = ImportUtil.to_float(d.get("nebel_dichte"), biome.fog_density)
+	if d.has("meeresspiegel"):
+		biome.sea_level = ImportUtil.to_float(d["meeresspiegel"])
+	if d.has("pflanzenfarbe"):
+		biome.plant_tint = ImportUtil.color(d["pflanzenfarbe"], context, _report)
 	return biome
 
 
@@ -54,6 +58,8 @@ func build_area(id: StringName, d: Dictionary) -> Resource:
 	for key: Variant in d["relief"]:
 		area.relief[StringName(str(key))] = ImportUtil.to_float(d["relief"][key])
 	area.arrival = _vec(d["ankunft"])
+	for hill: Variant in d.get("erhebungen", []):
+		area.hills.append(Vector4(ImportUtil.to_float(hill[0]), ImportUtil.to_float(hill[1]), ImportUtil.to_float(hill[2]), ImportUtil.to_float(hill[3])))
 	for path: Variant in d.get("wege", []):
 		var points: Array = []
 		for point: Variant in path:
@@ -76,10 +82,14 @@ func _fill_contents(area: AreaData, d: Dictionary) -> void:
 	var enemies: Dictionary = d.get("gegner", {})
 	for radius: Variant in enemies.get("radien", []):
 		area.enemy_radii.append(ImportUtil.to_float(radius))
+	# Einträge einer Zone: Gefahrenzone (Zahl, Feld z in gegner.json) oder Bestien-ID (Text).
 	for zone: Variant in enemies.get("zonen", []):
-		var ids: Array[int] = []
+		var ids: Array = []
 		for value: Variant in zone:
-			ids.append(ImportUtil.to_int(value))
+			if value is String:
+				ids.append(StringName(value))
+			else:
+				ids.append(ImportUtil.to_int(value))
 		area.enemy_zones.append(ids)
 	var wild: Dictionary = d.get("wilde_gu", {})
 	area.wild_gu_rank = ImportUtil.to_int(wild.get("rang"), 1)

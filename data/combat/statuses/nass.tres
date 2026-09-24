@@ -8,3 +8,4 @@ id = &"nass"
 display_name = "Nass"
 effect_text = "keine direkte Wirkung, 6 s; Vorbereitung für Blitz und Frost"
 removed_by = Array[StringName]([&"brand"])
+duration = 6.0

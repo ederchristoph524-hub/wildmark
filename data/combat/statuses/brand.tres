@@ -8,3 +8,4 @@ id = &"brand"
 display_name = "Brand"
 effect_text = "4 Schaden/s (× Rangfaktor), 4 s"
 removed_by = Array[StringName]([&"nass"])
+dps = 4.0

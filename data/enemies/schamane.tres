@@ -19,6 +19,7 @@ xp = 55
 radius = 0.4
 color = Color(0.2901961, 0.5411765, 0.2901961, 1)
 zone = 2
+rank = 2
 drops = Array[ExtResource("1_p6wir")]([SubResource("drop_0")])
 shape = &"skel"
 behavior = &"heal"

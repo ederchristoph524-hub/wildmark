@@ -1,0 +1,140 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://d0aoetsenqyae"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_5r2ml"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_3abuk"]
+
+[sub_resource type="Resource" id="gu_sternpfeil_klein"]
+script = ExtResource("1_5r2ml")
+id = &"sternpfeil_klein"
+display_name = "Sternenpfeil-Gu"
+family = &"stern"
+description = "Drei kleine Sternenpfeile, die ihr Ziel selbst finden."
+lore = "Das billigste Fernkampf-Gu der Gu-Welt. Jeder Anfänger hat eines."
+
+[sub_resource type="Resource" id="gu_sternpfeil"]
+script = ExtResource("1_5r2ml")
+id = &"sternpfeil"
+display_name = "Sternpfeil-Gu"
+family = &"stern"
+rank = 2
+rank_gift = "Fünf Pfeile."
+description = "Fünf Pfeile aus verdichtetem Sternenlicht."
+lore = "Verschießt Pfeile aus verdichtetem Sternenlicht."
+gifts = {
+"count_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_gluehwuermchen"]
+script = ExtResource("1_5r2ml")
+id = &"gluehwuermchen"
+display_name = "Sternlicht-Glühwürmchen-Gu"
+family = &"stern"
+rank = 3
+rank_gift = "Sieben Sterne, jeder schwächt (Schwäche)."
+description = "Sieben glühende Sterne, die das Ziel schwächen."
+gifts = {
+"count_add": 2.0,
+"step": {
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[sub_resource type="Resource" id="gu_sternschnuppe"]
+script = ExtResource("1_5r2ml")
+id = &"sternschnuppe"
+display_name = "Sternschnuppen-Gu"
+family = &"stern"
+rank = 4
+rank_gift = "Sternschnuppe (Radius 3, doppelter Schaden)."
+description = "Dem Schwarm folgt eine Sternschnuppe, die am Ziel einschlägt."
+gifts = {
+"count_add": 2.0,
+"extra": [{
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#fff2b0",
+"distance": 9.0,
+"mult": 2.5,
+"radius": 3.0,
+"t": "circle",
+"tags": ["stern", "wucht"]
+}],
+"time": 0.8
+}],
+"step": {
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[sub_resource type="Resource" id="gu_sternentor"]
+script = ExtResource("1_5r2ml")
+id = &"sternentor"
+display_name = "Sternentor-Gu"
+family = &"stern"
+rank = 5
+rank_gift = "Zehn Sterne, Sternschnuppe, Teleport 6 m."
+description = "Ein Sternentor öffnet sich: Zehn Sterne stürzen hindurch, du trittst auf die andere Seite."
+gifts = {
+"count_add": 5.0,
+"extra": [{
+"distance": 6.0,
+"t": "teleport"
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#fff2b0",
+"distance": 9.0,
+"mult": 2.5,
+"radius": 3.5,
+"t": "circle",
+"tags": ["stern", "wucht"]
+}],
+"time": 0.8
+}],
+"step": {
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[resource]
+script = ExtResource("2_3abuk")
+id = &"stern"
+display_name = "Sternschwarm"
+path = &"stern"
+role = "Zielsuchender Fernkampf"
+form = &"schwarm"
+tags = Array[StringName]([&"stern", &"licht"])
+feed_item = &"kristall"
+feed_amount = 1
+base_r1 = Dictionary[StringName, Variant]({
+&"anzahl": 3.0,
+&"cd": 2.6,
+&"ess": 6.0,
+&"reichweite": 18.0,
+&"schaden": 7.0,
+&"tempo": 16.0,
+&"winkel": 60.0
+})
+members = Array[ExtResource("1_5r2ml")]([SubResource("gu_sternpfeil_klein"), SubResource("gu_sternpfeil"), SubResource("gu_gluehwuermchen"), SubResource("gu_sternschnuppe"), SubResource("gu_sternentor")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 4
+},
+3: {
+&"mondtau": 6,
+&"seelenglas": 1
+},
+4: {
+&"sternsand": 3
+},
+5: {
+&"sternsand": 5,
+&"urkristall": 1
+}
+})
+world_effect = "Sternenlicht findet versteckte Ziele und leuchtet in dunklen Gängen."

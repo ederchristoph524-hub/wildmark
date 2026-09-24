@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dj16154nk8fj6"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_b5ckt"]
+
+[resource]
+script = ExtResource("1_b5ckt")
+id = &"schlangenhaut"
+display_name = "Schlangenhaut"
+icon = "🐍"
+category = &"material"
+rank = 2
+path = &"verwandlung"
+source = "Bambusnattern"
+description = "Abgestreifte Haut, die das Licht der Umgebung annimmt."

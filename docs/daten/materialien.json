@@ -241,6 +241,70 @@
    "path": "himmel",
    "src": "Wahre Erben",
    "d": "Ein Tropfen dessen, was einen Ehrwürdigen ausmacht."
+  },
+  "baerengalle": {
+   "n": "Bärengalle",
+   "ic": "🟢",
+   "rank": 2,
+   "path": "kraft",
+   "src": "Bären der Südlichen Grenze",
+   "d": "Bittere Galle eines Bergbären, voller roher Kraft."
+  },
+  "erdkern": {
+   "n": "Erdkern",
+   "ic": "🟤",
+   "rank": 2,
+   "path": "erde",
+   "src": "Erdschatz-Adern im Fels",
+   "d": "Ein dichter Kern aus der Tiefe des Berges."
+  },
+  "schlangenhaut": {
+   "n": "Schlangenhaut",
+   "ic": "🐍",
+   "rank": 2,
+   "path": "verwandlung",
+   "src": "Bambusnattern",
+   "d": "Abgestreifte Haut, die das Licht der Umgebung annimmt."
+  },
+  "wolfsgeist": {
+   "n": "Wolfsgeist-Splitter",
+   "ic": "🐺",
+   "rank": 3,
+   "path": "seele",
+   "src": "Blitz- und Donnerwölfe",
+   "d": "Ein Splitter der Seele eines Leitwolfs."
+  },
+  "klingenstahl": {
+   "n": "Klingenstahl",
+   "ic": "🗡️",
+   "rank": 3,
+   "path": "metall",
+   "src": "Schmiede der Shang-Stadt, Klingenbestien",
+   "d": "Stahl, der von selbst schneidet."
+  },
+  "wuestenrose": {
+   "n": "Wüstenrose",
+   "ic": "🌹",
+   "rank": 4,
+   "path": "erde",
+   "src": "Westliche Wüste",
+   "d": "Ein Kristall aus Sand und Hitze, hart wie der Himmel."
+  },
+  "tiefseeperle": {
+   "n": "Tiefseeperle",
+   "ic": "🫧",
+   "rank": 5,
+   "path": "wasser",
+   "src": "Östliches Meer",
+   "d": "Eine Perle aus der Tiefe, in der das Meer atmet."
+  },
+  "donnerkrone": {
+   "n": "Donnerkrone",
+   "ic": "👑",
+   "rank": 5,
+   "path": "blitz",
+   "src": "Donnerkronen-Wölfe",
+   "d": "Das Horn eines Donnerkronen-Wolfs, noch immer geladen."
   }
  },
  "MAT_KEYS": [
@@ -272,7 +336,15 @@
   "grottenstein",
   "sonnengold",
   "schicksalsfaden",
-  "ehrwuerdenessenz"
+  "ehrwuerdenessenz",
+  "baerengalle",
+  "erdkern",
+  "schlangenhaut",
+  "wolfsgeist",
+  "klingenstahl",
+  "wuestenrose",
+  "tiefseeperle",
+  "donnerkrone"
  ],
  "GEAR": {
   "w1": {

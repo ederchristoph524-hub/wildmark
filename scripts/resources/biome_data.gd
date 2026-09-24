@@ -2,9 +2,11 @@ class_name BiomeData
 extends Resource
 ## Landschaftstyp eines Gebiets (aus gebiete.json → BIOME): Bodenfarben, Bewuchs, Himmel, Nebel und Wasser.
 
+const NO_SEA: float = -1000.0
+
 @export var id: StringName
 @export var display_name: String = ""
-## Bodenfarben: gras_dunkel, gras_hell, moos, erde, fels, gipfel, weg, platz.
+## Bodenfarben: gras_dunkel, gras_hell, moos, erde, fels, gipfel, weg, platz, strand (Meer).
 @export var colors: Dictionary[StringName, Color] = {}
 ## Anteile der Baumarten (laubbaum, palme, nadelbaum, bambus, kaktus, totholz …).
 @export var vegetation: Dictionary[StringName, float] = {}
@@ -17,6 +19,10 @@ extends Resource
 @export var fog: Color = Color(0.62, 0.78, 0.66)
 @export var fog_density: float = 0.0065
 @export var water: Color = Color(0.17, 0.43, 0.42)
+## Meeresspiegel (Östliches Meer): darunter liegt alles unter Wasser; NO_SEA = kein Meer.
+@export var sea_level: float = NO_SEA
+## Tönung der Pflanzen (Steppe gelblich, Wüste staubig); jede Instanz variiert leicht.
+@export var plant_tint: Color = Color.WHITE
 
 
 func color(key: StringName, fallback: Color = Color.MAGENTA) -> Color:

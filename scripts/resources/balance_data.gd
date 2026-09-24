@@ -118,18 +118,6 @@ extends Resource
 @export var killer_radius: float = 6.0
 
 @export_group("Zustände")
-## Dauer je Zustand in Sekunden (GU_SYSTEM.md, Abschnitt 3).
-@export var status_durations: Dictionary[StringName, float] = {
-	&"brand": 4.0, &"nass": 6.0, &"frost": 5.0, &"ladung": 6.0, &"gift": 8.0, &"wunde": 8.0,
-}
-## Schaden pro Sekunde und Stapel (Brand × Rangfaktor, Gift pro Stapel).
-@export var status_dps: Dictionary[StringName, float] = {&"brand": 4.0, &"gift": 2.0}
-## Tempo-Änderung pro Stapel (Frost −20 %).
-@export var status_speed_per_stack: Dictionary[StringName, float] = {&"frost": -0.2}
-## Heilungsfaktor, solange der Zustand aktiv ist (Gift halbiert Heilung).
-@export var status_heal_mult: Dictionary[StringName, float] = {&"gift": 0.5}
-## Was bei vollen Stapeln passiert: freeze (einfrieren) oder discharge (Entladung).
-@export var status_on_max: Dictionary[StringName, StringName] = {&"frost": &"freeze", &"ladung": &"discharge"}
 @export var freeze_time: float = 2.0
 @export var discharge_damage: float = 25.0
 @export var discharge_radius: float = 2.0
@@ -140,17 +128,6 @@ extends Resource
 @export var light_blind_time: float = 2.0
 @export var knockback_force: float = 7.0
 @export var status_tick: float = 0.5
-## Parameter der acht Reaktionen (Texte in gu_system.json → reaktionen).
-@export var reaction_rules: Dictionary[StringName, Dictionary] = {
-	&"ueberschlag": {"mult": 2.0, "chain_status": &"nass", "chain_radius": 6.0},
-	&"schockfrost": {"freeze": 2.0},
-	&"dampf": {"blind_radius": 3.0, "blind_time": 4.0},
-	&"schmelze": {"mult": 1.5, "apply": &"nass"},
-	&"zerschmettern": {"mult": 2.5},
-	&"feuerwirbel": {"spread_status": &"brand", "spread_radius": 4.0},
-	&"giftexplosion": {"explode_per_stack": 8.0, "explode_radius": 3.0, "stack_status": &"gift"},
-	&"blutgift": {"stack_mult": 2.0, "stack_status": &"gift"},
-}
 ## Multiplikatoren der Merkmale (Texte in gu_system.json → merkmale).
 ## effect = Wirkung, cost = Essenzkosten, cooldown, hunger, fail = Versagenschance, stacks = zusätzliche Stapel.
 @export var trait_rules: Dictionary[StringName, Dictionary] = {
@@ -174,16 +151,6 @@ extends Resource
 @export var upkeep_free: Array[StringName] = [&"hoffnung", &"bohr"]
 ## Nach leerer Apertur wirken Hilfs-Gu erst wieder ab diesem Füllstand.
 @export var passive_restart_fraction: float = 0.08
-## Wirkungen der Hilfs-Gu (Texte in gu_system.json → hilfs_gu).
-@export var support_rules: Dictionary[StringName, Dictionary] = {
-	&"liquor": {"regen_mult": 1.35},
-	&"hoffnung": {"capacity_add": 1, "cap_mult": 1.1},
-	&"kleineslicht": {"light": true, "reveal": true},
-	&"signal": {"detection_mult": 2.0},
-	&"stealthstein": {"aggro_mult": 0.6},
-	&"bohr": {"harvest_hits": -1},
-	&"zweiaufgaben": {"cooldown_mult": 0.8},
-}
 ## Sichtweite von Namensschildern und wilden Gu (Signal-Gu verdoppelt sie).
 @export var detection_range: float = 26.0
 
@@ -202,26 +169,11 @@ extends Resource
 @export var bed_heal: float = 1.0
 
 @export_group("Ranggaben")
-## Schalter je Gu-ID (GU_SYSTEM.md, Familien-Tabelle). Höhere Ränge erben die Ranggaben der niedrigeren.
-## pierce = zusätzlich durchdrungene Ziele, radius_add = Explosionsradius, beam_all = Strahl trifft alle,
-## pierce_armor, stacks_add, spread_on_death (Gift springt beim Tod über), pull (Sog), reflect (Geschosse zurück),
-## cleanse (Heilung entfernt Gift, Brand, Frost), companions_add, glide und air_dash (Wolkenschritt).
-@export var rank_gifts: Dictionary[StringName, Dictionary] = {
-	&"mondsichel": {"pierce": 1},
-	&"flammenzunge": {"radius_add": 1.0},
-	&"wasserbohrer": {"beam_all": true},
-	&"blauplasma": {"pierce_armor": true},
-	&"eisvogel": {"stacks_add": 1},
-	&"giftskorpion": {"spread_on_death": true},
-	&"sogwirbel": {"pull": 3.0},
-	&"knochenspeer": {"pierce_armor": true, "pierce": 1},
-	&"eisenhaut": {"reflect": true},
-	&"frischesblatt": {"cleanse": true},
-	&"wolfssklave": {"companions_add": 1},
-	&"wolkenschritt": {"glide": true, "air_dash": true},
-}
 ## Gift springt beim Tod auf das nächste Ziel in diesem Umkreis über.
 @export var poison_spread_radius: float = 5.0
+## Tarnung: so lange verlieren Bestien, die dich jagten, die Spur; erster Treffer aus der Tarnung × stealth_strike_mult.
+@export var stealth_lose_time: float = 1.5
+@export var stealth_strike_mult: float = 1.6
 
 @export_group("Materialquellen")
 ## Zusätzliche Beute nach dem Fundort (src) der Materialien in materialien.json:
@@ -244,19 +196,6 @@ extends Resource
 ## Zähmen: Größenklasse der Ränge (Rang 1 nur kleine Bestien bis zu diesem Radius).
 @export var tame_max_radius_r1: float = 0.4
 @export var companion_follow_distance: float = 3.0
-
-@export_group("Killer-Move-Effekte")
-## Zusätzliche Parameter je Killer Move (Texte in gu_system.json → killer_moves).
-@export var killer_rules: Dictionary[StringName, Dictionary] = {
-	&"feuersturm": {"radius": 5.0, "status": &"brand", "stacks": 1, "spread_radius": 4.0},
-	&"mondschritt": {"distance": 10.0, "width": 2.2},
-	&"gewitterflut": {"length": 13.0, "width": 4.0, "delay": 0.35},
-	&"gletscherbruch": {"radius": 5.0, "delay": 0.5},
-	&"pestfeuer": {"radius": 5.0, "gift_stacks": 5, "ground_time": 4.0},
-	&"knochenfestung": {"time": 6.0, "thorn_mult": 0.6, "reduction": 0.3},
-	&"donnerpanzer": {"time": 6.0, "charge_stacks": 3, "reduction": 0.3},
-	&"rudelsegen": {"heal": 0.5, "summon_time": 20.0, "summon": &"wolf"},
-}
 
 @export_group("Gegner")
 @export var aggro_radius: float = 13.0

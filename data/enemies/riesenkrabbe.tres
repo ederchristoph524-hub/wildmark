@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dx2lqfni3ox1s"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_kb8ho"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_dp1ke"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_kb8ho")
+item = &"tiefseeperle"
+chance = 0.2
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_kb8ho")
+item = &"schuppe"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_kb8ho")
+item = &"kristall"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_dp1ke")
+id = &"riesenkrabbe"
+display_name = "Riesenkrabbe"
+max_hp = 1150
+damage = 55
+speed = 2.0
+xp = 520
+radius = 0.95
+color = Color(0.6901961, 0.2901961, 0.22745098, 1)
+zone = 5
+rank = 5
+drops = Array[ExtResource("1_kb8ho")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"spider"
+behavior = &"armor"

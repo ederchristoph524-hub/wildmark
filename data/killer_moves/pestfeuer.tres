@@ -12,3 +12,31 @@ channel_time = 1.1
 damage_mult = 3.0
 description = "Giftwolke, die sich entzündet: große Giftexplosion und brennender Boden"
 hint = "Fäulnis brennt am hellsten."
+steps = [{
+"color": "#8ce633",
+"mult": 0.0,
+"radius": 5.0,
+"set_stacks": {
+"gift": 5.0
+},
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff7326",
+"mult": 1.0,
+"radius": 5.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"color": "#ff7326",
+"mult": 0.15,
+"radius": 4.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 4.0
+}],
+"time": 0.4
+}]

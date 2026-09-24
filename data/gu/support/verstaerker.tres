@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://couyoyxinm5d7"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_d18qn"]
+
+[resource]
+script = ExtResource("1_d18qn")
+id = &"verstaerker"
+display_name = "Wirkungs-Verstärker-Gu"
+rank = 3
+path = &"weisheit"
+effect_text = "Killer Moves +20 % Schaden, Eingebung ×1,5"
+feed_item = &"kristall"
+feed_amount = 3
+rules = {
+"insight_mult": 1.5,
+"killer_mult": 1.2
+}

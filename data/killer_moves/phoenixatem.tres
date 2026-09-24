@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bvjc2r4tg1bt7"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_dotrt"]
+
+[resource]
+script = ExtResource("1_dotrt")
+id = &"phoenixatem"
+display_name = "Phönixatem"
+family_a = &"fackel"
+family_b = &"blatt"
+channel_time = 1.2
+damage_mult = 2.2
+description = "Glut heilt statt zu verzehren: du regenerierst, während ein Feuerkreis dich schützt."
+hint = "Asche wird zu neuem Leben."
+steps = [{
+"frac": 0.35,
+"t": "heal",
+"time": 4.0
+}, {
+"color": "#ffb030",
+"follow": true,
+"mult": 0.35,
+"radius": 4.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 5.0
+}]

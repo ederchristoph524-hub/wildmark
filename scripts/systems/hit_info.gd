@@ -24,6 +24,12 @@ var is_crit: bool = false
 var path: StringName = &""
 ## Ranggabe Giftskorpion: Gift springt beim Tod des Ziels über.
 var spread_on_death: bool = false
+## Betäubung in Sekunden (Bergschlag, Klang).
+var stun: float = 0.0
+## Anteil des Schadens, der den Angreifer heilt (Blutschädel).
+var lifesteal: float = 0.0
+## Zusatzschaden gegen Ziele unter 30 % Leben (Hinrichtung).
+var execute_bonus: float = 0.0
 
 
 static func create(amount: float, from: Node3D, from_team: int) -> HitInfo:

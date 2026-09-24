@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://dw1ebdap88c5e"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_atdgm"]
+
+[resource]
+script = ExtResource("1_atdgm")
+id = &"siebenduefte"
+display_name = "Sieben-Düfte-Schnaps-Wurm"
+rank = 3
+path = &"weisheit"
+effect_text = "Essenz-Regeneration +70 %"
+feed_item = &"beeren"
+feed_amount = 6
+rules = {
+"regen_mult": 1.7
+}

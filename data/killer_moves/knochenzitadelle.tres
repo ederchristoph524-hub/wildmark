@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dc52k2wqrw0vy"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_ta5ro"]
+
+[resource]
+script = ExtResource("1_ta5ro")
+id = &"knochenzitadelle"
+display_name = "Knochenzitadelle"
+family_a = &"knochen"
+family_b = &"haut"
+channel_time = 0.8
+damage_mult = 3.0
+description = "Ein Knochenpanzer, dazu vier kreisende Knochenspeere."
+hint = "Die Festung wächst."
+min_rank = 3
+steps = [{
+"color": "#f2e6cc",
+"kind": "thorns",
+"reduction": 0.4,
+"t": "armor",
+"time": 8.0,
+"value_mult": 0.7
+}, {
+"color": "#f2e6cc",
+"count": 4.0,
+"mult": 0.5,
+"radius": 2.2,
+"t": "orbit",
+"tags": ["durchbohren"],
+"time": 8.0
+}]

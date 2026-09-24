@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c7kr2olikh4if"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_o6klb"]
+
+[resource]
+script = ExtResource("1_o6klb")
+id = &"pestsonne"
+display_name = "Pestsonne"
+family_a = &"gift"
+family_b = &"flamme"
+channel_time = 1.2
+damage_mult = 3.6
+description = "Eine Giftsonne geht über dem Feld auf und entzündet sich zu einer riesigen Explosion."
+hint = "Die Sonne der Seuche."
+min_rank = 3
+steps = [{
+"color": "#8ce633",
+"mult": 0.0,
+"radius": 7.0,
+"set_stacks": {
+"gift": 5.0
+},
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff7326",
+"mult": 1.0,
+"radius": 7.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"color": "#b0e060",
+"mult": 0.2,
+"radius": 6.0,
+"status": "gift",
+"t": "zone",
+"tags": ["feuer", "gift"],
+"time": 6.0
+}],
+"time": 0.45
+}]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://gn5vtr3xsk7w"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_i7f20"]
+
+[resource]
+script = ExtResource("1_i7f20")
+id = &"schwarzeber"
+display_name = "Schwarzeber-Gu"
+effects = Dictionary[StringName, float]({
+&"grundschaden": 3.0,
+&"max_hp": 10.0
+})

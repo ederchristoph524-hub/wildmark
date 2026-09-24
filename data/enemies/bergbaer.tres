@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b38vsdy8xh784"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_p4f7r"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_7cfvb"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_p4f7r")
+item = &"baerengalle"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_p4f7r")
+item = &"fell"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_p4f7r")
+item = &"fleisch"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_7cfvb")
+id = &"bergbaer"
+display_name = "Bergbär"
+max_hp = 135
+damage = 20
+speed = 2.6
+xp = 70
+radius = 0.6
+color = Color(0.2901961, 0.22745098, 0.16470589, 1)
+zone = 2
+rank = 2
+ability = [{
+"color": "#c0a080",
+"knockback": 1.5,
+"mult": 1.2,
+"radius": 3.0,
+"t": "circle",
+"tags": ["wucht"]
+}]
+ability_range = 3.0
+ability_cooldown = 7.0
+drops = Array[ExtResource("1_p4f7r")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"bear"

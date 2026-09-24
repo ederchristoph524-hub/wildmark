@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://dqmm7shcyyidl"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_uq7mn"]
+
+[resource]
+script = ExtResource("1_uq7mn")
+id = &"seelenbruch"
+display_name = "Seelenbruch"
+trigger_tag = &"seele"
+target_status = &"furcht"
+effect_text = "×2 Schaden gegen verängstigte Ziele"
+removes = Array[StringName]([&"furcht"])
+rule = {
+"mult": 2.0
+}

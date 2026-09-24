@@ -8,3 +8,5 @@ id = &"ladung"
 display_name = "Ladung"
 effect_text = "bei 3 Stapeln Entladung: 25 Schaden im Umkreis 2 und 0,5 s Betäubung"
 max_stacks = 3
+duration = 6.0
+on_max = &"discharge"

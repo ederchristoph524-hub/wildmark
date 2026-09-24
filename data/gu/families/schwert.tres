@@ -1,0 +1,142 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://c8ghdwjxypnp5"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_hvmgp"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_5x3qh"]
+
+[sub_resource type="Resource" id="gu_klingenfaden"]
+script = ExtResource("1_hvmgp")
+id = &"klingenfaden"
+display_name = "Klingenfaden-Gu"
+family = &"schwert"
+description = "Zwei Klingen kreisen um dich und schneiden alles, was sich nähert."
+
+[sub_resource type="Resource" id="gu_schwertfluegel"]
+script = ExtResource("1_hvmgp")
+id = &"schwertfluegel"
+display_name = "Schwertflügel-Gu"
+family = &"schwert"
+rank = 2
+rank_gift = "Drei Klingen, +2 s."
+description = "Drei Klingen, die länger kreisen."
+gifts = {
+"count_add": 1.0,
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_schwertschatten"]
+script = ExtResource("1_hvmgp")
+id = &"schwertschatten"
+display_name = "Schwertschatten-Gu"
+family = &"schwert"
+rank = 3
+rank_gift = "Vier Klingen, drei Schwertschatten als Geschosse."
+description = "Vier Klingen – und drei Schwertschatten fliegen nach vorn."
+gifts = {
+"count_add": 2.0,
+"extra": [{
+"color": "#e8f4ff",
+"count": 3.0,
+"mult": 0.9,
+"pierce": 1.0,
+"range": 15.0,
+"spread": 30.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}],
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_einzelklinge"]
+script = ExtResource("1_hvmgp")
+id = &"einzelklinge"
+display_name = "Einzelklinge-Gu"
+family = &"schwert"
+rank = 4
+rank_gift = "Ignoriert Rüstung, Hinrichtung."
+description = "Die Klingen ignorieren jede Rüstung und richten Sterbende hin."
+gifts = {
+"count_add": 2.0,
+"execute": 0.5,
+"extra": [{
+"color": "#e8f4ff",
+"count": 3.0,
+"mult": 0.9,
+"pierce": 2.0,
+"pierce_armor": true,
+"range": 15.0,
+"spread": 30.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}],
+"pierce_armor": true,
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_zehntausendschwert"]
+script = ExtResource("1_hvmgp")
+id = &"zehntausendschwert"
+display_name = "Zehntausend-Schwerter-Gu"
+family = &"schwert"
+rank = 5
+rank_gift = "Sieben Klingen (Radius 3), sieben Schatten."
+description = "Ein Sturm aus sieben Klingen im weiten Kreis, dazu sieben Schwertschatten."
+gifts = {
+"count_add": 5.0,
+"execute": 0.5,
+"extra": [{
+"color": "#e8f4ff",
+"count": 7.0,
+"mult": 0.9,
+"pierce": 2.0,
+"pierce_armor": true,
+"range": 16.0,
+"spread": 70.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}],
+"pierce_armor": true,
+"step": {
+"radius": 3.0,
+"speed": 1.0
+},
+"time_add": 3.0
+}
+
+[resource]
+script = ExtResource("2_5x3qh")
+id = &"schwert"
+display_name = "Schwertschatten"
+path = &"schwert"
+role = "Kreisende Klingen"
+form = &"umkreisen"
+tags = Array[StringName]([&"schnitt"])
+feed_item = &"stein"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"anzahl": 2.0,
+&"cd": 8.0,
+&"dauer": 4.0,
+&"ess": 8.0,
+&"radius": 2.0,
+&"schaden": 9.0,
+&"takt": 0.45,
+&"tempo": 0.8
+})
+members = Array[ExtResource("1_hvmgp")]([SubResource("gu_klingenfaden"), SubResource("gu_schwertfluegel"), SubResource("gu_schwertschatten"), SubResource("gu_einzelklinge"), SubResource("gu_zehntausendschwert")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 5
+},
+3: {
+&"klingenstahl": 2
+},
+4: {
+&"klingenstahl": 4,
+&"sternsand": 1
+},
+5: {
+&"klingenstahl": 6,
+&"urkristall": 1
+}
+})
+world_effect = "Klingen zerschneiden Ranken und Dornenhecken."

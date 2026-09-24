@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bik0qcwgf350o"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_hwx4x"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_rqokb"]
+
+[resource]
+script = ExtResource("2_rqokb")
+id = &"wasserkrieger"
+display_name = "Wasserkrieger"
+max_hp = 160
+damage = 16
+speed = 3.6
+radius = 0.45
+color = Color(0.2901961, 0.6039216, 0.8156863, 1)
+zone = 9
+rank = 3
+shape = &"skel"
+no_spawn = true

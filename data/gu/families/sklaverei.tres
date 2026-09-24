@@ -19,6 +19,9 @@ rank = 2
 rank_gift = "Auch mittelgroße Bestien; 2 Gefährten."
 description = "Unterwirft Wölfe und Wildschweine."
 lore = "Unterwirft den Willen eines Wolfes. Standard der Nordebenen-Stämme."
+gifts = {
+"companions_add": 1.0
+}
 
 [sub_resource type="Resource" id="gu_bestiensklave"]
 script = ExtResource("1_5433o")
@@ -29,6 +32,34 @@ rank = 3
 rank_gift = "Ein Gefährte bleibt dauerhaft, bis er stirbt."
 description = "Unterwirft auch starke Bestien."
 lore = "Der Sklaverei-Pfad in seiner ausgereiften Form."
+gifts = {
+"permanent": true
+}
+
+[sub_resource type="Resource" id="gu_baerensklave"]
+script = ExtResource("1_5433o")
+id = &"baerensklave"
+display_name = "Bären-Sklaverei-Gu"
+family = &"sklaverei"
+rank = 4
+rank_gift = "Drei Gefährten, auch große Bestien."
+description = "Auch große Bestien und Bestienkönige beugen sich; drei Gefährten."
+gifts = {
+"companions_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_sklaverei"]
+script = ExtResource("1_5433o")
+id = &"sklaverei"
+display_name = "Sklaverei-Gu"
+family = &"sklaverei"
+rank = 5
+rank_gift = "Fünf Gefährten."
+description = "Der vollendete Sklaverei-Pfad: ein ganzes Rudel folgt dir."
+lore = "Bricht den Willen einer Bestie. Grundlage des gesamten Sklaverei-Pfades."
+gifts = {
+"companions_add": 2.0
+}
 
 [resource]
 script = ExtResource("2_it4mh")
@@ -47,13 +78,21 @@ base_r1 = Dictionary[StringName, Variant]({
 &"hp_schwelle": 0.3,
 &"max_gefaehrten": 1.0
 })
-members = Array[ExtResource("1_5433o")]([SubResource("gu_rattensklave"), SubResource("gu_wolfssklave"), SubResource("gu_bestiensklave")])
+members = Array[ExtResource("1_5433o")]([SubResource("gu_rattensklave"), SubResource("gu_wolfssklave"), SubResource("gu_bestiensklave"), SubResource("gu_baerensklave"), SubResource("gu_sklaverei")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"wildfell": 3
 },
 3: {
 &"seelenglas": 2
+},
+4: {
+&"seelenglas": 4,
+&"wolfsgeist": 2
+},
+5: {
+&"heldenherz": 1,
+&"seelenglas": 6
 }
 })
 world_effect = "Gezähmte Tiere graben, tragen Beute oder lenken Gegner ab; Ratten erreichen enge Gänge."

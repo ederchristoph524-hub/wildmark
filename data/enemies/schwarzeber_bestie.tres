@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ds2dfsutjjkd1"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_oadks"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_oasmg"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_oadks")
+item = &"fleisch"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_oadks")
+item = &"wildfell"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_oasmg")
+id = &"schwarzeber_bestie"
+display_name = "Schwarzborsten-Eber"
+max_hp = 95
+damage = 18
+speed = 2.8
+xp = 55
+color = Color(0.16470589, 0.14117648, 0.1254902, 1)
+zone = 2
+rank = 2
+drops = Array[ExtResource("1_oadks")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"
+behavior = &"charge"

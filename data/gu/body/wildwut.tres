@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://t3xcfm5w2agu"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_jnh1y"]
+
+[resource]
+script = ExtResource("1_jnh1y")
+id = &"wildwut"
+display_name = "Berserker-Wut-Gu"
+rank = 4
+effects = Dictionary[StringName, float]({
+&"grundschaden": 40.0,
+&"schaden_erlitten": 0.15
+})

@@ -11,6 +11,9 @@ const CHUNK_VIEW: float = 260.0
 const PATH_WIDTH: float = 2.6
 const LAKE_DEPTH: float = 1.4
 const PEAK_HEIGHT: float = 26.0
+## Uferstreifen über dem Meeresspiegel: Sand statt Gras; so nah am Wasser gilt der Boden schon als Wasser.
+const BEACH_HEIGHT: float = 1.4
+const SHORE_MARGIN: float = 0.15
 
 var area: AreaData = null
 var biome: BiomeData = null
@@ -91,6 +94,11 @@ func raw_height(x: float, z: float) -> float:
 	var edge: float = maxf(absf(x), absf(z))
 	var rim: float = area.relief.get(&"rand", 40.0)
 	h += smoothstep(size * 0.5 - rim, size * 0.5, edge) * area.relief.get(&"randhoehe", 30.0)
+	h += area.relief.get(&"basis", 0.0)
+	for hill: Vector4 in area.hills:
+		var d: float = Vector2(x - hill.x, z - hill.y).length() / hill.z
+		if d < 1.0:
+			h += hill.w * (0.5 + 0.5 * cos(d * PI))
 	return h
 
 
@@ -181,6 +189,11 @@ func _color_at(x: float, z: float, normal: Vector3, h: float, on_path: bool) -> 
 		var shore: float = Vector2(x - lake.x, z - lake.y).length() - lake.z
 		if shore < 3.0:
 			color = color.lerp(biome.color(&"erde"), clampf(1.0 - shore / 3.0, 0.0, 0.8))
+	if has_sea() and h < biome.sea_level + BEACH_HEIGHT:
+		var sand: Color = biome.color(&"strand", biome.color(&"erde"))
+		color = color.lerp(sand, clampf((biome.sea_level + BEACH_HEIGHT - h) / BEACH_HEIGHT * 1.5, 0.0, 1.0))
+		if h < biome.sea_level:
+			color = color.darkened(clampf((biome.sea_level - h) * 0.08, 0.0, 0.45))
 	if on_path:
 		color = color.lerp(biome.color(&"weg"), 0.8)
 	return color
@@ -283,8 +296,10 @@ func is_inside(x: float, z: float, margin: float = 0.0) -> bool:
 	return absf(x) < limit and absf(z) < limit
 
 
-## Liegt der Punkt in einem See?
+## Liegt der Punkt in einem See oder im Meer?
 func in_water(x: float, z: float) -> bool:
+	if has_sea() and height_at(x, z) < biome.sea_level + SHORE_MARGIN:
+		return true
 	for lake: Vector4 in lakes:
 		if Vector2(x - lake.x, z - lake.y).length() < lake.z + 0.5:
 			return true
@@ -311,6 +326,10 @@ func ground_color(x: float, z: float) -> Color:
 	var ix: int = clampi(roundi((x + half) / CELL), 0, resolution - 1)
 	var iz: int = clampi(roundi((z + half) / CELL), 0, resolution - 1)
 	return colors[iz * resolution + ix]
+
+
+func has_sea() -> bool:
+	return biome.sea_level > BiomeData.NO_SEA
 
 
 ## Kantenlänge des Gebiets (für Karten).

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b21wp5nx3j7u7"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_uaf3f"]
+
+[resource]
+script = ExtResource("1_uaf3f")
+id = &"blutknochenregen"
+display_name = "Blutknochenregen"
+family_a = &"blutmond"
+family_b = &"knochen"
+channel_time = 1.0
+damage_mult = 2.4
+description = "Sieben Blut-Knochen-Speere im Fächer, die Leben rauben."
+hint = "Blut und Knochen regnen."
+steps = [{
+"color": "#d05050",
+"count": 7.0,
+"lifesteal": 0.3,
+"mult": 0.8,
+"pierce": 1.0,
+"range": 15.0,
+"spread": 70.0,
+"status": "blutung",
+"t": "projectiles",
+"tags": ["blut", "durchbohren"]
+}]

@@ -44,6 +44,7 @@ xp = 2500
 radius = 1.2
 color = Color(1, 0.22745098, 0.101960786, 1)
 zone = 9
+rank = 5
 drops = Array[ExtResource("1_l0lbo")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
 shape = &"boss"
 behavior = &"boss"

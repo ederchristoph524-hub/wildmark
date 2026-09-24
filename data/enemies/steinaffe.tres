@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://gs4h6il3y51q"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_8r44r"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_871cn"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_8r44r")
+item = &"stein"
+chance = 0.6
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_8r44r")
+item = &"fell"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_871cn")
+id = &"steinaffe"
+display_name = "Steinaffe"
+max_hp = 26
+damage = 8
+speed = 3.2
+xp = 18
+radius = 0.35
+color = Color(0.5411765, 0.52156866, 0.47058824, 1)
+zone = 1
+drops = Array[ExtResource("1_8r44r")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"monkey"
+behavior = &"ranged"
+attack_range = 5.0

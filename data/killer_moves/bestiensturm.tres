@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bewhxila8favk"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_lhtc0"]
+
+[resource]
+script = ExtResource("1_lhtc0")
+id = &"bestiensturm"
+display_name = "Bestiensturm"
+family_a = &"phantom"
+family_b = &"wirbel"
+channel_time = 0.8
+damage_mult = 2.6
+description = "Ein Eberphantom stürmt im Wirbel: alles vor dir fliegt und bleibt betäubt liegen."
+hint = "Das Phantom tanzt im Sturm."
+steps = [{
+"angle": 140.0,
+"color": "#e07a4a",
+"knockback": 2.0,
+"mult": 1.0,
+"reach": 6.0,
+"t": "cone",
+"tags": ["wucht"]
+}, {
+"color": "#ffb080",
+"mult": 0.6,
+"radius": 4.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["wucht", "wind"]
+}]

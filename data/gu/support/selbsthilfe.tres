@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://k8fm04d8yqvl"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_pdb7o"]
+
+[resource]
+script = ExtResource("1_pdb7o")
+id = &"selbsthilfe"
+display_name = "Selbstständigkeits-Gu"
+rank = 3
+path = &"holz"
+effect_text = "Regeneriert 1,5 Leben/s"
+feed_item = &"gruenkraut"
+feed_amount = 2
+rules = {
+"hp_regen": 1.5
+}

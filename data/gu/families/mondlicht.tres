@@ -19,6 +19,9 @@ family = &"mondlicht"
 rank = 2
 rank_gift = "Klinge durchdringt ein weiteres Ziel."
 description = "Eine breitere Klinge, die durch den ersten Gegner hindurchschneidet."
+gifts = {
+"pierce": 1.0
+}
 
 [sub_resource type="Resource" id="gu_regenbogen"]
 script = ExtResource("1_0i4jo")
@@ -29,6 +32,47 @@ rank = 3
 rank_gift = "Fächert in sieben Klingen auf."
 description = "Sieben Lichtklingen in einem Fächer."
 lore = "Bricht Licht in sieben schneidende Farben."
+gifts = {
+"fan": 6.0,
+"fan_angle": 50.0
+}
+
+[sub_resource type="Resource" id="gu_goldlicht"]
+script = ExtResource("1_0i4jo")
+id = &"goldlicht"
+display_name = "Allumfassender-Goldlicht-Wurm"
+family = &"mondlicht"
+rank = 4
+rank_gift = "Durchdringt bis zu fünf Ziele und jede Rüstung."
+description = "Ein goldener Lichtstrahl, der alles auf seiner Bahn durchdringt."
+lore = "Eines der Gu, mit denen Fang Yuan berühmt wurde. Goldenes Licht, das alles durchdringt."
+gifts = {
+"pierce": 3.0,
+"pierce_armor": true
+}
+
+[sub_resource type="Resource" id="gu_mondgift"]
+script = ExtResource("1_0i4jo")
+id = &"mondgift"
+display_name = "Mondgift-Gu"
+family = &"mondlicht"
+rank = 5
+rank_gift = "Elf zielsuchende Klingen, jede hinterlässt Gift."
+description = "Die dunkle Vollendung des Mondlichts: elf suchende Klingen, jede mit Gift getränkt."
+lore = "Die dunkle Weiterentwicklung des Mondlicht-Gu."
+gifts = {
+"fan": 4.0,
+"homing": true,
+"impact": [{
+"color": "#9b3bff",
+"mult": 0.25,
+"radius": 1.6,
+"stacks": 2.0,
+"status": "gift",
+"t": "circle",
+"tags": ["gift"]
+}]
+}
 
 [resource]
 script = ExtResource("2_ijhfa")
@@ -46,7 +90,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"reichweite": 14.0,
 &"schaden": 20.0
 })
-members = Array[ExtResource("1_0i4jo")]([SubResource("gu_mondlicht"), SubResource("gu_mondsichel"), SubResource("gu_regenbogen")])
+members = Array[ExtResource("1_0i4jo")]([SubResource("gu_mondlicht"), SubResource("gu_mondsichel"), SubResource("gu_regenbogen"), SubResource("gu_goldlicht"), SubResource("gu_mondgift")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"mondtau": 3
@@ -54,6 +98,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"jadeader": 1,
 &"mondtau": 6
+},
+4: {
+&"mondtau": 8,
+&"sternsand": 2
+},
+5: {
+&"sternsand": 4,
+&"urkristall": 1
 }
 })
 world_effect = "Licht blendet Nacht- und Schattenwesen und lässt versteckte Lichtsiegel aufleuchten."

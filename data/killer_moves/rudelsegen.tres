@@ -12,3 +12,13 @@ channel_time = 1.5
 damage_mult = 2.5
 description = "Heilt und stärkt alle Gefährten, ein weiterer Gefährte erscheint für 20 s"
 hint = "Das Rudel lebt vom Grün."
+steps = [{
+"allies": true,
+"frac": 0.5,
+"radius": 12.0,
+"t": "heal"
+}, {
+"enemy": "wolf",
+"t": "summon",
+"time": 20.0
+}]

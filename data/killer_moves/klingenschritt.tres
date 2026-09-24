@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://drok2usxjr2wp"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_vy7pw"]
+
+[resource]
+script = ExtResource("1_vy7pw")
+id = &"klingenschritt"
+display_name = "Klingenschritt"
+family_a = &"schwert"
+family_b = &"schritt"
+channel_time = 0.6
+damage_mult = 2.4
+description = "Du jagst durch die Reihen, Klingen kreisen um dich."
+hint = "Die Klinge folgt dem Schritt."
+steps = [{
+"color": "#e8f4ff",
+"dash": true,
+"length": 9.0,
+"mult": 1.0,
+"t": "line",
+"tags": ["schnitt"],
+"width": 2.4
+}, {
+"color": "#e8f4ff",
+"count": 3.0,
+"mult": 0.5,
+"radius": 2.0,
+"t": "orbit",
+"tags": ["schnitt"],
+"time": 4.0
+}]

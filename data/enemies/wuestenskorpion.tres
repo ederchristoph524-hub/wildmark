@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c2gcbef5fyh0g"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_k1lhy"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_ofdas"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_k1lhy")
+item = &"giftdrüse"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_k1lhy")
+item = &"wuestenrose"
+chance = 0.1
+
+[resource]
+script = ExtResource("2_ofdas")
+id = &"wuestenskorpion"
+display_name = "Wüstenskorpion"
+max_hp = 380
+damage = 36
+speed = 3.2
+xp = 230
+radius = 0.6
+color = Color(0.627451, 0.4392157, 0.2509804, 1)
+zone = 4
+rank = 4
+ability = [{
+"at": "target",
+"color": "#9b3bff",
+"mult": 0.25,
+"radius": 3.0,
+"stacks": 2.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"time": 4.0
+}]
+ability_range = 9.0
+ability_cooldown = 7.0
+drops = Array[ExtResource("1_k1lhy")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"scorpion"
+poison = true

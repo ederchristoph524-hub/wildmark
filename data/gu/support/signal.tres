@@ -10,3 +10,6 @@ path = &"information"
 effect_text = "Zeigt Gegner und wilde Gu in doppelter Entfernung"
 feed_item = &"beeren"
 feed_amount = 2
+rules = {
+"detection_mult": 2.0
+}

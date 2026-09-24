@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bex38458iqu0g"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_0tucv"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_qvmet"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_0tucv")
+item = &"schlangenhaut"
+chance = 0.25
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_0tucv")
+item = &"giftdrüse"
+chance = 0.1
+
+[resource]
+script = ExtResource("2_qvmet")
+id = &"bambusnatter"
+display_name = "Bambusnatter"
+max_hp = 20
+damage = 7
+speed = 3.0
+xp = 14
+radius = 0.3
+color = Color(0.37254903, 0.5411765, 0.22745098, 1)
+drops = Array[ExtResource("1_0tucv")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"snake"
+poison = true

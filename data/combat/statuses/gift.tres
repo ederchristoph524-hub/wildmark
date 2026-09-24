@@ -8,3 +8,6 @@ id = &"gift"
 display_name = "Gift"
 effect_text = "2 Schaden/s pro Stapel, 8 s, halbiert Heilung"
 max_stacks = 5
+duration = 8.0
+dps = 2.0
+heal_mult = 0.5

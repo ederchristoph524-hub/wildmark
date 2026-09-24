@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://dq348e7rdggef"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_4bu8n"]
+
+[resource]
+script = ExtResource("1_4bu8n")
+id = &"luftsack"
+display_name = "Luftsack-Gu"
+rank = 3
+path = &"raum"
+effect_text = "Gu-Kapazität +2"
+feed_item = &"beeren"
+feed_amount = 4
+rules = {
+"capacity_add": 2.0
+}

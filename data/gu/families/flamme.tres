@@ -19,6 +19,9 @@ rank = 2
 rank_gift = "Explosionsradius +1 m."
 description = "Ein Feuerball mit größerer Explosion."
 lore = "Speit eine Zunge aus Flammen."
+gifts = {
+"radius_add": 1.0
+}
 
 [sub_resource type="Resource" id="gu_feuerlotus"]
 script = ExtResource("1_0nwh8")
@@ -28,6 +31,53 @@ family = &"flamme"
 rank = 3
 rank_gift = "Hinterlässt 4 s brennenden Boden."
 description = "Eine Feuerblüte, die den Boden in Brand setzt."
+gifts = {
+"impact": [{
+"color": "#ff7326",
+"mult": 0.2,
+"radius": 2.5,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 4.0
+}]
+}
+
+[sub_resource type="Resource" id="gu_phoenixfeder"]
+script = ExtResource("1_0nwh8")
+id = &"phoenixfeder"
+display_name = "Phönixfeder-Gu"
+family = &"flamme"
+rank = 4
+rank_gift = "Drei Feuerbälle im Fächer."
+description = "Drei sichelförmige Flammenklingen fächern auf."
+lore = "Drei sichelförmige Flammenklingen — Grundlage der Dreiflügel-Klinge."
+gifts = {
+"fan": 2.0,
+"fan_angle": 30.0
+}
+
+[sub_resource type="Resource" id="gu_drachenatem"]
+script = ExtResource("1_0nwh8")
+id = &"drachenatem"
+display_name = "Drachenatem-Gu"
+family = &"flamme"
+rank = 5
+rank_gift = "Jeder Aufschlag entfacht einen Flächenbrand (Radius 5)."
+description = "Der Atem eines uralten Drachen setzt ganze Hänge in Brand."
+lore = "Der Atem eines uralten Drachen, in einem Gu gebunden."
+gifts = {
+"impact": [{
+"color": "#ff5a1a",
+"mult": 0.35,
+"radius": 5.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 6.0
+}],
+"radius_add": 1.5
+}
 
 [resource]
 script = ExtResource("2_5a4iy")
@@ -47,7 +97,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"schaden": 14.0,
 &"stapel": 1.0
 })
-members = Array[ExtResource("1_0nwh8")]([SubResource("gu_glutfunke"), SubResource("gu_flammenzunge"), SubResource("gu_feuerlotus")])
+members = Array[ExtResource("1_0nwh8")]([SubResource("gu_glutfunke"), SubResource("gu_flammenzunge"), SubResource("gu_feuerlotus"), SubResource("gu_phoenixfeder"), SubResource("gu_drachenatem")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"glutasche": 3
@@ -55,6 +105,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"donnerholz": 1,
 &"glutasche": 6
+},
+4: {
+&"drachenschuppe": 1,
+&"glutasche": 8
+},
+5: {
+&"drachenschuppe": 3,
+&"heldenherz": 1
 }
 })
 world_effect = "Brennt Ranken, Dornenhecken und trockenes Gras ab; entzündet Fackeln und Signalfeuer."

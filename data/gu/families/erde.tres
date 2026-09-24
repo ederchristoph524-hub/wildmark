@@ -1,0 +1,154 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://cac4keo55vmql"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_3dreu"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_2uw8x"]
+
+[sub_resource type="Resource" id="gu_drehfels"]
+script = ExtResource("1_3dreu")
+id = &"drehfels"
+display_name = "Dreh-Fels-Gu"
+family = &"erde"
+description = "Steinspitzen brechen am Zielort aus dem Boden und halten Gegner fest."
+lore = "Reißt Gestein aus dem Boden und wirft es."
+
+[sub_resource type="Resource" id="gu_steinfaust"]
+script = ExtResource("1_3dreu")
+id = &"steinfaust"
+display_name = "Steinfaust-Gu"
+family = &"erde"
+rank = 2
+rank_gift = "Radius 3, stößt weg."
+description = "Ein größeres Stachelfeld, das Gegner zurückwirft."
+gifts = {
+"step": {
+"knockback": 0.6,
+"radius": 3.0
+}
+}
+
+[sub_resource type="Resource" id="gu_felssturz"]
+script = ExtResource("1_3dreu")
+id = &"felssturz"
+display_name = "Felssturz-Gu"
+family = &"erde"
+rank = 3
+rank_gift = "Felsbrocken (Radius 3,5, betäubt 0,8 s)."
+description = "Nach den Stacheln stürzt ein Felsbrocken herab."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a08050",
+"distance": 7.0,
+"mult": 1.6,
+"radius": 3.5,
+"stun": 0.8,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.6
+}],
+"step": {
+"knockback": 0.6,
+"radius": 3.0
+}
+}
+
+[sub_resource type="Resource" id="gu_bergwiezuvor"]
+script = ExtResource("1_3dreu")
+id = &"bergwiezuvor"
+display_name = "Berg-wie-zuvor-Gu"
+family = &"erde"
+rank = 4
+rank_gift = "Stachelfeld Radius 4,5, Bergsturz Radius 5."
+description = "Ein ganzer Steinberg stürzt auf das Stachelfeld."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a08050",
+"distance": 7.0,
+"mult": 2.0,
+"radius": 5.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.7
+}],
+"step": {
+"knockback": 0.6,
+"radius": 4.5,
+"time": 2.5
+}
+}
+
+[sub_resource type="Resource" id="gu_erdloch"]
+script = ExtResource("1_3dreu")
+id = &"erdloch"
+display_name = "Erdloch-Gu"
+family = &"erde"
+rank = 5
+rank_gift = "Teleport 10 m und Beben (Radius 6, betäubt 1,2 s)."
+description = "Du tauchst durch die Erde und brichst am Ziel mit einem Beben hervor."
+gifts = {
+"extra": [{
+"distance": 10.0,
+"t": "teleport"
+}, {
+"color": "#a08050",
+"knockback": 1.0,
+"mult": 1.6,
+"radius": 6.0,
+"stun": 1.2,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"step": {
+"radius": 4.5,
+"time": 2.5
+}
+}
+
+[resource]
+script = ExtResource("2_2uw8x")
+id = &"erde"
+display_name = "Erdstachel"
+path = &"erde"
+role = "Flächenkontrolle"
+form = &"zone"
+tags = Array[StringName]([&"erde", &"wucht"])
+status = &"verwurzelt"
+feed_item = &"stein"
+feed_amount = 3
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 6.0,
+&"dauer": 1.6,
+&"ess": 8.0,
+&"radius": 2.4,
+&"reichweite": 10.0,
+&"schaden": 9.0,
+&"takt": 0.5
+})
+members = Array[ExtResource("1_3dreu")]([SubResource("gu_drehfels"), SubResource("gu_steinfaust"), SubResource("gu_felssturz"), SubResource("gu_bergwiezuvor"), SubResource("gu_erdloch")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 4,
+&"erdkern": 1
+},
+3: {
+&"erdkern": 3,
+&"jadeader": 1
+},
+4: {
+&"jadeader": 2,
+&"wuestenrose": 2
+},
+5: {
+&"urkristall": 1,
+&"wuestenrose": 4
+}
+})
+world_effect = "Erdstacheln brechen Felsbrocken und stützen einstürzende Gänge."

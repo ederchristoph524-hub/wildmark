@@ -20,8 +20,10 @@ extends Resource
 @export var size: float = 240.0
 @export var terrain_seed: int = 1
 @export var biome: StringName
-## hoehe, frequenz, detail, berge, rand, randhoehe.
+## hoehe, frequenz, detail, berge, rand, randhoehe, horizont (Gebirgskranz), basis (Grundhöhe, negativ = Meer).
 @export var relief: Dictionary[StringName, float] = {}
+## Erhebungen (x, z, Radius, Höhe): Inseln, Sektenberg-Gipfel, Tafelberge; weich ins Gelände geblendet.
+@export var hills: Array[Vector4] = []
 ## Ankunftspunkt (x, z) bei Reisen und neuem Spiel.
 @export var arrival: Vector2 = Vector2.ZERO
 ## Wege als Listen von Punkten (Vector2).
@@ -36,7 +38,7 @@ extends Resource
 @export var obstacles: Array[Dictionary] = []
 ## Gegenstand → [Anzahl, Ertrag].
 @export var resources: Dictionary[StringName, Vector2i] = {}
-## Zonengrenzen (Abstand von der Mitte) und je Zone die erlaubten Gegner-Zonen aus gegner.json.
+## Zonengrenzen (Abstand von der Mitte) und je Zone die erlaubten Gefahrenzonen (int, Feld z in gegner.json) oder Bestien-IDs (StringName).
 @export var enemy_radii: Array[float] = []
 @export var enemy_zones: Array = []
 @export var wild_gu_rank: int = 1

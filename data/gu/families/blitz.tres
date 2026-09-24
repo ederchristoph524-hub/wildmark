@@ -19,6 +19,9 @@ rank = 2
 rank_gift = "Ignoriert Rüstung."
 description = "Ein Plasmastoß, der Panzer durchschlägt."
 lore = "Blaues Plasma, das selbst Stahlpanzer durchschlägt."
+gifts = {
+"pierce_armor": true
+}
 
 [sub_resource type="Resource" id="gu_kettenblitz"]
 script = ExtResource("1_5wnqa")
@@ -29,6 +32,43 @@ rank = 3
 rank_gift = "Springt auf bis zu 3 weitere Ziele."
 description = "Ein Blitz, der von Gegner zu Gegner springt."
 lore = "Ein Blitz, der von Feind zu Feind springt."
+gifts = {
+"chain": 3.0,
+"chain_radius": 6.0
+}
+
+[sub_resource type="Resource" id="gu_donnerwolf"]
+script = ExtResource("1_5wnqa")
+id = &"donnerwolf"
+display_name = "Donnerwolf-Gu"
+family = &"blitz"
+rank = 4
+rank_gift = "Springt auf 3 weitere Ziele, jeder Treffer betäubt 0,3 s."
+description = "Blitze jagen wie ein Wolfsrudel von Ziel zu Ziel und lähmen kurz."
+gifts = {
+"chain": 3.0,
+"stun": 0.3
+}
+
+[sub_resource type="Resource" id="gu_himmelsdonner"]
+script = ExtResource("1_5wnqa")
+id = &"himmelsdonner"
+display_name = "Himmelsdonner-Gu"
+family = &"blitz"
+rank = 5
+rank_gift = "Einschlag ruft einen Donnerschlag (Radius 3,5, doppelte Ladung)."
+description = "Wo der Blitz einschlägt, fährt ein Donnerschlag vom Himmel."
+gifts = {
+"impact": [{
+"color": "#8ad0ff",
+"mult": 1.0,
+"radius": 3.5,
+"stacks": 2.0,
+"status": "ladung",
+"t": "circle",
+"tags": ["blitz"]
+}]
+}
 
 [resource]
 script = ExtResource("2_3xvlm")
@@ -48,13 +88,21 @@ base_r1 = Dictionary[StringName, Variant]({
 &"schaden": 12.0,
 &"stapel": 1.0
 })
-members = Array[ExtResource("1_5wnqa")]([SubResource("gu_funkenwurm"), SubResource("gu_blauplasma"), SubResource("gu_kettenblitz")])
+members = Array[ExtResource("1_5wnqa")]([SubResource("gu_funkenwurm"), SubResource("gu_blauplasma"), SubResource("gu_kettenblitz"), SubResource("gu_donnerwolf"), SubResource("gu_himmelsdonner")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"eisenerz": 3
 },
 3: {
 &"donnerholz": 2
+},
+4: {
+&"donnerholz": 4,
+&"wolfsgeist": 1
+},
+5: {
+&"donnerholz": 6,
+&"donnerkrone": 1
 }
 })
 world_effect = "Lädt alte Ruinenmechanismen auf (Tore, Aufzüge); Blitz in Wasser elektrisiert die ganze Fläche."

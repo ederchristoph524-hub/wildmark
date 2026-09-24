@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://b5u0vv86c7gmy"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_sn4hd"]
+
+[resource]
+script = ExtResource("1_sn4hd")
+id = &"schatzlicht"
+display_name = "Schatzlicht-Gu"
+rank = 3
+path = &"glueck"
+effect_text = "Sammeln +60 %, enthüllt Verborgenes"
+feed_item = &"kristall"
+feed_amount = 3
+rules = {
+"harvest_mult": 1.6,
+"reveal": true
+}

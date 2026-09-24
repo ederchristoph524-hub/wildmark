@@ -42,7 +42,35 @@ func color() -> Color:
 
 
 ## Führt den Gu aus. Liefert false, wenn nichts passieren konnte (z. B. kein zähmbares Ziel).
+## Ranggaben können die Wirkform ersetzen (as_circle, as_zone) und Schritte anhängen (extra).
 func cast() -> bool:
+	var done: bool = _cast_form()
+	if done:
+		var extra: Variant = GuGifts.flags(gu).get("extra", [])
+		if extra is Array and not (extra as Array).is_empty():
+			EffectSteps.run(extra, context())
+	return done
+
+
+## Wirkungs-Kontext für Schritte: Grundschaden der Familie × Stärke, Farbe und Pfad.
+func context() -> EffectContext:
+	var raw: float = base(&"schaden")
+	var ctx := EffectContext.create(caster, (raw + (caster.flat_damage if raw > 0.0 else 0.0)) * power, aim_direction, color())
+	ctx.power = power
+	ctx.target = target
+	ctx.path = family.path
+	return ctx
+
+
+func _cast_form() -> bool:
+	var gifts: Dictionary = GuGifts.flags(gu)
+	if gifts.has("as_circle"):
+		return _cast_circle(float(gifts["as_circle"]))
+	if gifts.get("as_zone") is Dictionary:
+		EffectZone.spawn(_with_family_hit(gifts["as_zone"]), context())
+		return true
+	if family.form in GuForms.FORMS:
+		return GuForms.cast(self)
 	match family.form:
 		FORM_PROJECTILE, FORM_FAST, FORM_EXPLODING:
 			return _cast_projectile()
@@ -57,6 +85,9 @@ func cast() -> bool:
 		FORM_HEAL:
 			return _cast_heal()
 		FORM_MOVE:
+			if GuGifts.number(gu, "teleport") > 0.0:
+				EffectStepsSelf.blink(caster, GuGifts.number(gu, "teleport"), context().aim)
+				return true
 			return caster.has_method("gu_leap") and bool(caster.call("gu_leap"))
 		FORM_TAME:
 			return _cast_tame()
@@ -75,21 +106,45 @@ func make_hit(damage_mult: float = 1.0) -> HitInfo:
 	hit.pierce_armor = hit.pierce_armor or GuGifts.has(gu, "pierce_armor")
 	hit.status_stacks += int(GuGifts.number(gu, "stacks_add")) if family.status != &"" else 0
 	hit.spread_on_death = GuGifts.has(gu, "spread_on_death")
+	hit.stun = GuGifts.number(gu, "stun")
+	hit.lifesteal = GuGifts.number(gu, "lifesteal")
+	hit.execute_bonus = GuGifts.number(gu, "execute")
 	PhysiqueEffects.decorate_hit(hit, caster)
 	if TAG_FORCE in family.tags:
 		hit.knockback = aim_direction * Balance.values.knockback_force
 	return hit
 
 
+## Geschoss; Ranggaben: pierce, fan (+ fan_angle), homing, chain (+ chain_radius), impact (Schritte am Aufschlag).
+## Schritt mit Zustand und Tags der Familie, falls der Schritt keine eigenen hat.
+func _with_family_hit(step: Dictionary) -> Dictionary:
+	var result: Dictionary = step.duplicate(true)
+	if not result.has("tags"):
+		result["tags"] = Array(family.tags).map(func(tag: StringName) -> String: return String(tag))
+	if not result.has("status") and family.status != &"":
+		result["status"] = String(family.status)
+	return result
+
+
 func _cast_projectile() -> bool:
 	var b: BalanceData = Balance.values
-	var config: Dictionary = {"range": base(&"reichweite", DEFAULT_RANGE), "color": color(), "pierce": int(GuGifts.number(gu, "pierce"))}
+	var gifts: Dictionary = GuGifts.flags(gu)
+	var config: Dictionary = {"range": base(&"reichweite", DEFAULT_RANGE), "color": color(), "pierce": int(GuGifts.number(gu, "pierce")),
+		"homing": bool(gifts.get("homing", false)), "chain": int(gifts.get("chain", 0)), "chain_radius": float(gifts.get("chain_radius", 6.0))}
 	if family.form == FORM_FAST:
 		config["speed"] = b.fast_projectile_speed
 	if family.form == FORM_EXPLODING:
 		config["explode_radius"] = base(&"radius", 1.5) + GuGifts.number(gu, "radius_add")
+	if gifts.get("impact") is Array:
+		config["impact"] = gifts["impact"]
+		config["impact_ctx"] = context()
 	var start: Vector3 = caster.aim_point() + Vector3(aim_direction.x, 0.0, aim_direction.z).normalized() * 0.6
-	Projectile.launch(caster.get_tree(), start, make_hit(), _aim_from(start), config)
+	var direction: Vector3 = _aim_from(start)
+	var count: int = 1 + int(gifts.get("fan", 0))
+	var spread: float = deg_to_rad(float(gifts.get("fan_angle", 40.0)))
+	for i: int in count:
+		var angle: float = 0.0 if count == 1 else lerpf(-spread * 0.5, spread * 0.5, i / float(count - 1))
+		Projectile.launch(caster.get_tree(), start, make_hit(), direction.rotated(Vector3.UP, angle), config)
 	return true
 
 
@@ -100,21 +155,31 @@ func _aim_from(start: Vector3) -> Vector3:
 	return Vector3(aim_direction.x, 0.0, aim_direction.z).normalized()
 
 
+## Strahl; Ranggaben: beam_all, width_mult, knockback (Stoß entlang des Strahls), impact (Schritte am Ende).
 func _cast_beam() -> bool:
 	var start: Vector3 = caster.aim_point()
-	var end: Vector3 = start + _aim_from(start) * base(&"reichweite", DEFAULT_RANGE)
-	var targets: Array[Combatant] = Combat.on_line(Combat.hostiles(caster.get_tree(), caster.team), start, end, Balance.values.beam_width)
+	var direction: Vector3 = _aim_from(start)
+	var end: Vector3 = start + direction * base(&"reichweite", DEFAULT_RANGE)
+	var width: float = Balance.values.beam_width * maxf(1.0, GuGifts.number(gu, "width_mult"))
+	var targets: Array[Combatant] = Combat.on_line(Combat.hostiles(caster.get_tree(), caster.team), start, end, width)
+	var push: float = GuGifts.number(gu, "knockback")
 	if not targets.is_empty():
 		var hit_all: bool = GuGifts.has(gu, "beam_all")
 		var struck: Array[Combatant] = targets if hit_all else targets.slice(0, 1)
 		for target_hit: Combatant in struck:
-			target_hit.receive_hit(make_hit())
+			var hit: HitInfo = make_hit()
+			if push > 0.0:
+				hit.knockback = Vector3(direction.x, 0.0, direction.z).normalized() * Balance.values.knockback_force * push
+			target_hit.receive_hit(hit)
 			var slow_amount: float = base(&"verlangsamung")
 			if slow_amount > 0.0:
-				target_hit.status.slow(slow_amount, Balance.values.status_durations.get(family.status, 3.0))
+				target_hit.status.slow(slow_amount, DataRegistry.status(family.status).duration if family.status != &"" else 3.0)
 		if not hit_all:
 			end = targets[0].aim_point()
-	Fx.beam(caster.get_tree(), start, end, color(), 0.3, 0.35)
+	Fx.beam(caster.get_tree(), start, end, color(), 0.3, 0.35 * width / Balance.values.beam_width)
+	var impact: Variant = GuGifts.flags(gu).get("impact")
+	if impact is Array:
+		EffectSteps.run(impact, context().at_point(end - Vector3.UP * (start.y - caster.global_position.y)))
 	return true
 
 
@@ -130,9 +195,10 @@ func _cast_stab() -> bool:
 
 
 ## Kreis um den Wirker; mit Ranggabe „Sog" werden Gegner aus größerem Umkreis herangezogen.
-func _cast_circle() -> bool:
+## radius_override > 0: Ranggabe as_circle (z. B. Frostnova).
+func _cast_circle(radius_override: float = 0.0) -> bool:
 	var pull: float = GuGifts.number(gu, "pull")
-	var radius: float = base(&"radius", 2.5)
+	var radius: float = radius_override if radius_override > 0.0 else base(&"radius", 2.5) + GuGifts.number(gu, "radius_add")
 	var center: Vector3 = caster.global_position
 	for other: Combatant in Combat.in_radius(Combat.hostiles(caster.get_tree(), caster.team), center, radius + pull):
 		var hit: HitInfo = make_hit()
@@ -152,6 +218,8 @@ func _cast_shield() -> bool:
 	caster.add_timed_reduction(SHIELD_KEY, clampf(base(&"reduktion", 0.5) * minf(power, 1.5), 0.0, 0.9), duration)
 	if GuGifts.has(gu, "reflect"):
 		caster.reflect_time = duration
+	if GuGifts.has(gu, "unstoppable"):
+		caster.unstoppable_time = maxf(caster.unstoppable_time, duration)
 	if family.base_r1.get(&"rueckstoss", false):
 		for other: Combatant in Combat.in_radius(Combat.hostiles(caster.get_tree(), caster.team), caster.global_position, 2.5):
 			var push := HitInfo.create(0.0, caster, caster.team)
@@ -169,6 +237,9 @@ func _cast_heal() -> bool:
 	caster.start_regeneration(total, base(&"dauer", 5.0))
 	if GuGifts.has(gu, "cleanse"):
 		caster.status.clear_negative()
+	var zone: Variant = GuGifts.flags(gu).get("heal_zone")
+	if zone is Dictionary:
+		EffectZone.spawn(zone, context())
 	Fx.ring(caster.get_tree(), caster.global_position, 1.6, HEAL_COLOR, 0.6)
 	return true
 
@@ -183,6 +254,7 @@ func _cast_tame() -> bool:
 	if chosen == null:
 		EventBus.message.emit(tr("Keine geschwächte Bestie in der Nähe (unter %d %% Leben)") % roundi(threshold * 100.0), Color(1.0, 0.6, 0.4))
 		return false
-	chosen.call("tame", caster, base(&"dauer", 25.0), int(base(&"max_gefaehrten", 1.0)) + int(GuGifts.number(gu, "companions_add")))
+	var duration: float = INF if GuGifts.has(gu, "permanent") else base(&"dauer", 25.0)
+	chosen.call("tame", caster, duration, int(base(&"max_gefaehrten", 1.0)) + int(GuGifts.number(gu, "companions_add")))
 	Fx.beam(caster.get_tree(), caster.aim_point(), chosen.aim_point(), color(), 0.5)
 	return true

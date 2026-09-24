@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ot2futbb5nha"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_regdg"]
+
+[resource]
+script = ExtResource("1_regdg")
+id = &"wuestenrose"
+display_name = "Wüstenrose"
+icon = "🌹"
+category = &"material"
+rank = 4
+path = &"erde"
+source = "Westliche Wüste"
+description = "Ein Kristall aus Sand und Hitze, hart wie der Himmel."

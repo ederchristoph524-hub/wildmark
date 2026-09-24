@@ -20,6 +20,9 @@ rank = 2
 rank_gift = "Durchbohrt alle Ziele auf der Linie."
 description = "Ein gebündelter Strahl, der durch Reihen von Gegnern geht."
 lore = "Verdichtetes Wasser schneidet durch Rüstung wie durch Papier."
+gifts = {
+"beam_all": true
+}
 
 [sub_resource type="Resource" id="gu_flutdrache"]
 script = ExtResource("1_yn7xj")
@@ -29,6 +32,58 @@ family = &"stroemung"
 rank = 3
 rank_gift = "Breiter Strahl mit Rückstoß, hinterlässt Wasserfläche."
 description = "Ein Wasserdrache, der Gegner zurückspült."
+gifts = {
+"impact": [{
+"color": "#4d99ff",
+"mult": 0.0,
+"radius": 3.0,
+"slow": 0.3,
+"slow_time": 1.0,
+"status": "nass",
+"t": "zone",
+"time": 5.0
+}],
+"knockback": 1.0,
+"width_mult": 2.5
+}
+
+[sub_resource type="Resource" id="gu_gezeitenstrahl"]
+script = ExtResource("1_yn7xj")
+id = &"gezeitenstrahl"
+display_name = "Gezeitenstrahl-Gu"
+family = &"stroemung"
+rank = 4
+rank_gift = "Sehr breiter Strahl, betäubt 0,6 s."
+description = "Ein Strahl so breit wie eine Flutwelle, der Gegner kurz betäubt."
+gifts = {
+"stun": 0.6,
+"width_mult": 3.5
+}
+
+[sub_resource type="Resource" id="gu_meeresdrache"]
+script = ExtResource("1_yn7xj")
+id = &"meeresdrache"
+display_name = "Meeresdrachen-Gu"
+family = &"stroemung"
+rank = 5
+rank_gift = "Eine zweite, gewaltige Welle folgt."
+description = "Nach dem Strahl bricht ein Wasserdrache hervor und rollt alles nieder."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"color": "#3a8ad0",
+"knockback": 1.6,
+"length": 16.0,
+"mult": 1.3,
+"status": "nass",
+"t": "line",
+"tags": ["wasser", "wucht"],
+"width": 5.0
+}],
+"time": 0.5
+}]
+}
 
 [resource]
 script = ExtResource("2_hj4p4")
@@ -48,7 +103,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"schaden": 14.0,
 &"verlangsamung": 0.3
 })
-members = Array[ExtResource("1_yn7xj")]([SubResource("gu_wasserlicht"), SubResource("gu_wasserbohrer"), SubResource("gu_flutdrache")])
+members = Array[ExtResource("1_yn7xj")]([SubResource("gu_wasserlicht"), SubResource("gu_wasserbohrer"), SubResource("gu_flutdrache"), SubResource("gu_gezeitenstrahl"), SubResource("gu_meeresdrache")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"mondtau": 3
@@ -56,6 +111,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"jadeader": 1,
 &"mondtau": 5
+},
+4: {
+&"mondtau": 10,
+&"zeitharz": 1
+},
+5: {
+&"tiefseeperle": 2,
+&"urkristall": 1
 }
 })
 world_effect = "Löscht Feuerbarrieren, füllt Becken, macht Flächen nass (Vorbereitung für Blitz und Frost)."

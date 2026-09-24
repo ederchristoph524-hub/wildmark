@@ -18,6 +18,10 @@ family = &"schritt"
 rank = 2
 rank_gift = "Gleiten und ein Luft-Dash."
 description = "Du gleitest über Schluchten."
+gifts = {
+"air_dash": true,
+"glide": true
+}
 
 [sub_resource type="Resource" id="gu_schattenbild"]
 script = ExtResource("1_ldsg0")
@@ -28,6 +32,43 @@ rank = 3
 rank_gift = "Teleport 8 m, auch durch Gitter."
 description = "Teleportiert dich ein Stück nach vorn."
 lore = "Der Träger zerfällt zu Schatten und formt sich anderswo neu."
+gifts = {
+"teleport": 8.0
+}
+
+[sub_resource type="Resource" id="gu_blitzfluegel"]
+script = ExtResource("1_ldsg0")
+id = &"blitzfluegel"
+display_name = "Blitzflügel-Gu"
+family = &"schritt"
+rank = 4
+rank_gift = "Teleport 14 m."
+description = "Flügel aus Blitz tragen dich in einem Wimpernschlag 14 m weit."
+lore = "Flügel aus Blitz tragen den Träger über das Schlachtfeld."
+gifts = {
+"teleport": 14.0
+}
+
+[sub_resource type="Resource" id="gu_blauerhimmel"]
+script = ExtResource("1_ldsg0")
+id = &"blauerhimmel"
+display_name = "Blauer-Himmel-Gu"
+family = &"schritt"
+rank = 5
+rank_gift = "Teleport 20 m, danach 5 s +50 % Tempo."
+description = "Faltet den Raum wie ein Tuch: 20 m in einem Schritt, danach rasend schnell."
+lore = "Faltet den Raum zusammen wie ein Tuch."
+gifts = {
+"extra": [{
+"color": "#6ad04a",
+"damage": 1.0,
+"key": "blauerhimmel",
+"speed": 1.5,
+"t": "buff",
+"time": 5.0
+}],
+"teleport": 20.0
+}
 
 [resource]
 script = ExtResource("2_kao4c")
@@ -43,13 +84,21 @@ base_r1 = Dictionary[StringName, Variant]({
 &"cd": 1.5,
 &"ess": 2.0
 })
-members = Array[ExtResource("1_ldsg0")]([SubResource("gu_sprungwurm"), SubResource("gu_wolkenschritt"), SubResource("gu_schattenbild")])
+members = Array[ExtResource("1_ldsg0")]([SubResource("gu_sprungwurm"), SubResource("gu_wolkenschritt"), SubResource("gu_schattenbild"), SubResource("gu_blitzfluegel"), SubResource("gu_blauerhimmel")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"windfeder": 2
 },
 3: {
 &"windfeder": 5
+},
+4: {
+&"geisterseide": 1,
+&"windfeder": 8
+},
+5: {
+&"urkristall": 1,
+&"windfeder": 12
 }
 })
 world_effect = "Der wichtigste Erkundungs-Gu: erreicht Vorsprünge, Schluchten, Inseln und Käfige."

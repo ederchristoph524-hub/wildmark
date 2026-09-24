@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://xkaaarcxe0td"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_pl7l5"]
+
+[resource]
+script = ExtResource("1_pl7l5")
+id = &"boeserGedanke"
+display_name = "Bösartiger-Gedanken-Gu"
+rank = 5
+path = &"weisheit"
+effect_text = "Abklingzeiten −25 %, Essenzkosten −15 %"
+feed_item = &"kristall"
+feed_amount = 6
+rules = {
+"cooldown_mult": 0.75,
+"essence_cost_mult": 0.85
+}

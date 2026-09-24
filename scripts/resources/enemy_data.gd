@@ -12,6 +12,12 @@ extends Resource
 @export var color: Color = Color.WHITE
 ## Gefahrenzone innerhalb einer Region.
 @export var zone: int = 0
+## Rang der Bestie (1–5): Anzeige und Zähmbarkeit; Werte stehen direkt in gegner.json.
+@export var rank: int = 1
+## Eigene Fähigkeit als Wirkungsschritte (EffectSteps), z. B. Blitzwolf-Sprung; leer = keine.
+@export var ability: Array = []
+@export var ability_range: float = 8.0
+@export var ability_cooldown: float = 6.0
 ## Beute-Würfe; jeder Eintrag wird einzeln gewürfelt (wie im Prototyp).
 @export var drops: Array[DropEntry] = []
 ## Platzhalterform bis zum echten Modell.

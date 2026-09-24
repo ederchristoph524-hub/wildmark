@@ -117,6 +117,7 @@ func _build_member(d: Dictionary, family_id: StringName) -> GuData:
 	gu.rank = ImportUtil.to_int(d["rang"], 1)
 	gu.rank_gift = ImportUtil.text(d.get("ranggabe"))
 	gu.description = ImportUtil.text(d.get("beschreibung"))
+	gu.gifts = ImportUtil.plain_dict(d.get("gaben"))
 	if not bool(d.get("neu", false)):
 		gu.lore = _lore_for(gu.id, context)
 	return gu
@@ -161,6 +162,7 @@ func _build_support(d: Dictionary) -> Resource:
 	var feed: Dictionary = d["futter"] if d["futter"] is Dictionary else {}
 	support.feed_item = ImportUtil.sn(feed.get("r"))
 	support.feed_amount = ImportUtil.to_int(feed.get("n"))
+	support.rules = ImportUtil.plain_dict(d.get("regeln"))
 	return support
 
 
@@ -173,6 +175,14 @@ func _build_status(d: Dictionary) -> Resource:
 	status.effect_text = ImportUtil.text(d.get("wirkung"))
 	status.max_stacks = ImportUtil.to_int(d.get("stapel"), 1)
 	status.removed_by = ImportUtil.names(d.get("endet_durch"))
+	var rule: Dictionary = ImportUtil.plain_dict(d.get("regel"))
+	status.duration = ImportUtil.to_float(rule.get("dauer"), status.duration)
+	status.dps = ImportUtil.to_float(rule.get("dps"))
+	status.speed_per_stack = ImportUtil.to_float(rule.get("tempo"))
+	status.heal_mult = ImportUtil.to_float(rule.get("heilung"), 1.0)
+	status.damage_taken_per_stack = ImportUtil.to_float(rule.get("schaden_erlitten"))
+	status.on_max = ImportUtil.sn(rule.get("bei_max"))
+	status.flee = bool(rule.get("flucht", false))
 	return status
 
 
@@ -194,6 +204,7 @@ func _build_reaction(d: Dictionary) -> Resource:
 		reaction.target_status = StringName(condition)
 	reaction.effect_text = ImportUtil.text(d.get("wirkung"))
 	reaction.removes = ImportUtil.names(d.get("endet"))
+	reaction.rule = ImportUtil.plain_dict(d.get("regel"))
 	return reaction
 
 
@@ -221,6 +232,8 @@ func _build_killer_move(d: Dictionary) -> Resource:
 	move.damage_mult = ImportUtil.to_float(d["mult"], 1.0)
 	move.description = ImportUtil.text(d.get("wirkung"))
 	move.hint = ImportUtil.text(d.get("hinweis"))
+	move.min_rank = ImportUtil.to_int(d.get("rang"), 1)
+	move.steps = ImportUtil.plain_list(d.get("schritte"))
 	return move
 
 

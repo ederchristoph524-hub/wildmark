@@ -105,6 +105,14 @@ func tame(owner_combatant: Combatant, duration: float, max_companions: int) -> v
 	_update_label()
 
 
+## Beschworene Gefährten wachsen mit dem Rang des Gu, der sie ruft.
+func scale_power(power: float) -> void:
+	health.max_hp *= power
+	health.hp = health.max_hp
+	add_buff(&"power", power, 1.0, INF)
+	_update_label()
+
+
 func release() -> void:
 	companion_owner = null
 	remove_from_group(GROUP_COMPANIONS)
@@ -123,7 +131,9 @@ func _physics_process(delta: float) -> void:
 		if companion_time <= 0.0:
 			release()
 	var wish: Vector3 = Vector3.ZERO
-	if not status.is_stunned():
+	if status.is_feared() and target != null and is_instance_valid(target):
+		wish = (global_position - target.global_position).normalized()
+	elif not status.is_stunned():
 		wish = _think(delta)
 	_move(delta, wish)
 
@@ -181,7 +191,7 @@ func _find_target() -> Combatant:
 	for candidate: Combatant in Combat.in_radius(Combat.hostiles(get_tree(), team), center, b.aggro_radius):
 		if candidate.team == TEAM_WORLD:
 			continue
-		if candidate.global_position.distance_to(center) <= b.aggro_radius * candidate.aggro_mult + candidate.body_radius:
+		if candidate.global_position.distance_to(center) <= b.aggro_radius * candidate.aggro_factor() + candidate.body_radius:
 			candidates.append(candidate)
 	return Combat.nearest(candidates, global_position)
 

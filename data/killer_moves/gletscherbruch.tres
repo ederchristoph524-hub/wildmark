@@ -12,3 +12,20 @@ channel_time = 1.0
 damage_mult = 3.0
 description = "Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag"
 hint = "Was gefriert, zerbricht."
+steps = [{
+"color": "#b3f2ff",
+"freeze": 2.0,
+"mult": 0.0,
+"radius": 5.0,
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#b3f2ff",
+"mult": 1.0,
+"radius": 5.0,
+"t": "circle",
+"tags": ["wucht", "eis"]
+}],
+"time": 0.5
+}]

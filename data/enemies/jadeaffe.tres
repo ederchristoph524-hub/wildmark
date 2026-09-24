@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://2641yvlujbel"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_aqyb5"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_0408u"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_aqyb5")
+item = &"stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_aqyb5")
+item = &"erdkern"
+chance = 0.2
+
+[resource]
+script = ExtResource("2_0408u")
+id = &"jadeaffe"
+display_name = "Jadeaugen-Steinaffe"
+max_hp = 70
+damage = 13
+speed = 3.4
+xp = 45
+radius = 0.4
+color = Color(0.47843137, 0.5411765, 0.4392157, 1)
+zone = 2
+rank = 2
+drops = Array[ExtResource("1_aqyb5")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"monkey"
+behavior = &"ranged"
+attack_range = 6.0

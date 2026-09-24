@@ -60,8 +60,8 @@ func _freeze_in_place(enemy: Enemy) -> void:
 	enemy.data.speed = 0.0
 
 
-func _give(family_id: StringName, slot: int) -> GuInstance:
-	var instance: GuInstance = GuInstance.create(DataRegistry.family(family_id).member_for_rank(1).id)
+func _give(family_id: StringName, slot: int, rank: int = 1) -> GuInstance:
+	var instance: GuInstance = GuInstance.create(DataRegistry.family(family_id).member_for_rank(rank).id)
 	var index: int = GameState.gu.size()
 	GameState.gu.append(instance)
 	GameState.slots[slot] = index
@@ -126,16 +126,22 @@ func _test_gu_and_reactions() -> void:
 
 func _test_killer_moves() -> void:
 	print("-- _test_killer_moves")
+	# Ablauf über den Controller (Verfügbarkeit, Kanalisierung) für alle Moves der Grundstufe und je einen höheren;
+	# die Wirkung aller Moves prüft test_gu_catalog.
+	var tested: int = 0
 	for resource: Resource in DataRegistry.all(&"killer_moves"):
 		var move: KillerMoveData = resource as KillerMoveData
+		if move.min_rank > 1 and move.id not in [&"feuerlotus_sturm", &"himmelsbrand"]:
+			continue
+		tested += 1
 		await _clear_enemies()
 		for i: int in 3:
 			var enemy: Enemy = _spawn(&"ratte" if move.id != &"rudelsegen" else &"slime", player.camera_rig.flat_forward() * (3.0 + i) + Vector3(i - 1, 0, 0))
 			_freeze_in_place(enemy)
 		GameState.gu.clear()
 		GameState.slots.fill(GameState.EMPTY_SLOT)
-		_give(move.family_a, 0)
-		_give(move.family_b, 1)
+		_give(move.family_a, 0, move.min_rank)
+		_give(move.family_b, 1, move.min_rank)
 		KillerMoveController.learn(move.id)
 		GameState.essence = player.aperture.capacity()
 		player.health.hp = player.health.max_hp
@@ -147,7 +153,7 @@ func _test_killer_moves() -> void:
 		_check(started, "%s startet" % move.id)
 		await _frames(roundi(move.channel_time * 60.0) + 60)
 		_check(not player.killer.is_channeling(), "%s abgeschlossen" % move.id)
-	_check(GameState.known_killer_moves.size() == 8, "alle 8 Killer Moves erlernt")
+	_check(GameState.known_killer_moves.size() == tested, "alle %d geprüften Killer Moves erlernt" % tested)
 	GameState.known_killer_moves.clear()
 	GameState.gu.clear()
 	GameState.slots.fill(GameState.EMPTY_SLOT)

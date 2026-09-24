@@ -19,6 +19,9 @@ family = &"wirbel"
 rank = 2
 rank_gift = "Zieht Gegner vorher zu dir."
 description = "Ein Wirbel, der Gegner einsaugt und dann schlägt."
+gifts = {
+"pull": 3.0
+}
 
 [sub_resource type="Resource" id="gu_bergschlag"]
 script = ExtResource("1_yqkeb")
@@ -28,6 +31,46 @@ family = &"wirbel"
 rank = 3
 rank_gift = "Bodenschlag, betäubt 1 s."
 description = "Ein Schlag, der den Boden bersten lässt."
+gifts = {
+"stun": 1.0
+}
+
+[sub_resource type="Resource" id="gu_erdbeben"]
+script = ExtResource("1_yqkeb")
+id = &"erdbeben"
+display_name = "Erdbeben-Gu"
+family = &"wirbel"
+rank = 4
+rank_gift = "Größerer Wirbel, der 3 s nachzieht."
+description = "Der Wirbel reißt die Erde mit: ein Sog hält die Gegner im Sturm."
+lore = "Lässt die Erde selbst gegen die Feinde aufbegehren."
+gifts = {
+"extra": [{
+"color": "#e0a070",
+"follow": true,
+"mult": 0.3,
+"pull": 0.6,
+"radius": 4.0,
+"t": "zone",
+"tags": ["wind"],
+"time": 3.0
+}],
+"radius_add": 1.5
+}
+
+[sub_resource type="Resource" id="gu_bergziehen"]
+script = ExtResource("1_yqkeb")
+id = &"bergziehen"
+display_name = "Berge-Ziehen-Gu"
+family = &"wirbel"
+rank = 5
+rank_gift = "Betäubt 2 s, Radius +1,5."
+description = "Die Kraft, Berge zu versetzen, in einem einzigen Wirbel."
+lore = "Erlaubt es, Berge zu heben und zu versetzen, ohne sie zu beschädigen."
+gifts = {
+"radius_add": 1.5,
+"stun": 1.0
+}
 
 [resource]
 script = ExtResource("2_3ocb7")
@@ -45,7 +88,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"radius": 2.5,
 &"schaden": 18.0
 })
-members = Array[ExtResource("1_yqkeb")]([SubResource("gu_wirbelwind"), SubResource("gu_sogwirbel"), SubResource("gu_bergschlag")])
+members = Array[ExtResource("1_yqkeb")]([SubResource("gu_wirbelwind"), SubResource("gu_sogwirbel"), SubResource("gu_bergschlag"), SubResource("gu_erdbeben"), SubResource("gu_bergziehen")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"wildfell": 3
@@ -53,6 +96,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"knochenmehl": 2,
 &"wildfell": 5
+},
+4: {
+&"baerengalle": 3,
+&"heldenherz": 1
+},
+5: {
+&"heldenherz": 2,
+&"urkristall": 1
 }
 })
 world_effect = "Zertrümmert Felsbrocken und morsche Wände; Wind verweht Nebel und Giftwolken."

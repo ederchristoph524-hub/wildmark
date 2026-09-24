@@ -10,3 +10,6 @@ path = &"weisheit"
 effect_text = "Essenz-Regeneration +35 %"
 feed_item = &"beeren"
 feed_amount = 3
+rules = {
+"regen_mult": 1.35
+}

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ReactionData" format=3 uid="uid://dd0qs0w7ues02"]
+
+[ext_resource type="Script" path="res://scripts/resources/reaction_data.gd" id="1_awp2q"]
+
+[resource]
+script = ExtResource("1_awp2q")
+id = &"giftsturm"
+display_name = "Giftsturm"
+trigger_tag = &"wind"
+target_status = &"gift"
+effect_text = "Gift weht auf alle Ziele im Umkreis 4"
+rule = {
+"spread_radius": 4.0,
+"spread_status": "gift"
+}

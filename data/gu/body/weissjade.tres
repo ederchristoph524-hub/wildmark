@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://ba7huy747phuf"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_3gpgc"]
+
+[resource]
+script = ExtResource("1_3gpgc")
+id = &"weissjade"
+display_name = "Weißjade-Gu"
+rank = 2
+effects = Dictionary[StringName, float]({
+&"grundschaden": 5.0,
+&"schaden_erlitten": -0.08
+})

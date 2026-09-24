@@ -10,3 +10,7 @@ trigger_tag = &"feuer"
 target_status = &"nass"
 effect_text = "Dampfwolke 4 s: Gegner darin verlieren ihr Ziel"
 removes = Array[StringName]([&"nass", &"brand"])
+rule = {
+"blind_radius": 3.0,
+"blind_time": 4.0
+}

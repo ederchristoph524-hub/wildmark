@@ -12,3 +12,12 @@ channel_time = 0.6
 damage_mult = 2.5
 description = "Du jagst durch eine Gegnerreihe und hinterlässt Mondklingen auf deinem Weg"
 hint = "Ein Schritt im Mondlicht schneidet."
+steps = [{
+"color": "#d9e6ff",
+"dash": true,
+"length": 10.0,
+"mult": 1.0,
+"t": "line",
+"tags": ["schnitt", "licht"],
+"width": 2.2
+}]

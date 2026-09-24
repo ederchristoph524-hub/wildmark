@@ -10,3 +10,7 @@ path = &"licht"
 effect_text = "Lichtkreis bei Nacht; macht Lichtsiegel und versteckte wilde Gu sichtbar"
 feed_item = &"kristall"
 feed_amount = 1
+rules = {
+"light": true,
+"reveal": true
+}

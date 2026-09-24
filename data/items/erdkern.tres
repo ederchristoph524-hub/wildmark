@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c1frpkc7ff0hl"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_g27m4"]
+
+[resource]
+script = ExtResource("1_g27m4")
+id = &"erdkern"
+display_name = "Erdkern"
+icon = "🟤"
+category = &"material"
+rank = 2
+path = &"erde"
+source = "Erdschatz-Adern im Fels"
+description = "Ein dichter Kern aus der Tiefe des Berges."

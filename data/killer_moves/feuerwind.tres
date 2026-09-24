@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bl24m7gq6rot0"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_2fce5"]
+
+[resource]
+script = ExtResource("1_2fce5")
+id = &"feuerwind"
+display_name = "Feuerwind"
+family_a = &"wind"
+family_b = &"flamme"
+channel_time = 0.8
+damage_mult = 2.7
+description = "Ein Windstoß trägt Flammen weit nach vorn und facht sie immer wieder an."
+hint = "Wind nährt das Feuer."
+steps = [{
+"angle": 70.0,
+"color": "#ff9a4a",
+"knockback": 0.8,
+"mult": 1.0,
+"reach": 10.0,
+"status": "brand",
+"t": "cone",
+"tags": ["feuer", "wind"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 70.0,
+"color": "#ffd0a0",
+"mult": 0.35,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wind"]
+}],
+"time": 0.35
+}]

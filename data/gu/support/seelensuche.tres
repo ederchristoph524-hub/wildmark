@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://f2pt8b4yaag8"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_gh0l6"]
+
+[resource]
+script = ExtResource("1_gh0l6")
+id = &"seelensuche"
+display_name = "Seelensuch-Gu"
+rank = 3
+path = &"information"
+effect_text = "Dreifache Sicht auf Gegner und wilde Gu"
+feed_item = &"fleisch"
+feed_amount = 3
+rules = {
+"detection_mult": 3.0
+}

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://dy82fogb6pdgo"]
+
+[ext_resource type="Script" path="res://scripts/resources/status_data.gd" id="1_5i72t"]
+
+[resource]
+script = ExtResource("1_5i72t")
+id = &"furcht"
+display_name = "Furcht"
+effect_text = "flieht 3 s vor dem Angreifer und greift nicht an"
+duration = 3.0
+flee = true

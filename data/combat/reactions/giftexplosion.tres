@@ -11,3 +11,8 @@ target_status = &"gift"
 min_stacks = 3
 effect_text = "Explosion: Stapel × 8 Schaden im Umkreis 3"
 removes = Array[StringName]([&"gift"])
+rule = {
+"explode_per_stack": 8.0,
+"explode_radius": 3.0,
+"stack_status": "gift"
+}

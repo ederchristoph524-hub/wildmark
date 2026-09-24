@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b2u7nqxdgn0qv"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_52qgc"]
+
+[resource]
+script = ExtResource("1_52qgc")
+id = &"taifun_der_seelen"
+display_name = "Taifun der Seelen"
+family_a = &"seelenschrei"
+family_b = &"wind"
+channel_time = 1.3
+damage_mult = 4.4
+description = "Ein Taifun aus Seelen zieht alles in sein Zentrum, voller Furcht und Schwäche."
+hint = "Der Wind, der Seelen frisst."
+min_rank = 5
+steps = [{
+"at": "aim",
+"color": "#b090e0",
+"distance": 8.0,
+"mult": 0.6,
+"pull": 1.8,
+"radius": 6.0,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele", "wind"],
+"time": 6.0
+}, {
+"at": "aim",
+"color": "#c9a0ff",
+"distance": 8.0,
+"mult": 0.8,
+"radius": 7.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["seele"]
+}]

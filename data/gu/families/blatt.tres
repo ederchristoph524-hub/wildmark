@@ -20,6 +20,9 @@ rank = 2
 rank_gift = "Entfernt dabei Gift, Brand und Frost."
 description = "Ein Blatt, das auch reinigt."
 lore = "Ein grünes Blatt-Gu, das die Lebenskraft stetig erneuert."
+gifts = {
+"cleanse": true
+}
 
 [sub_resource type="Resource" id="gu_lebensbrunnen"]
 script = ExtResource("1_nj820")
@@ -30,6 +33,62 @@ rank = 3
 rank_gift = "Wird zur Heilzone für dich und Gefährten."
 description = "Eine Quelle des Lebens am Boden."
 lore = "Ein Quell reiner Lebenskraft."
+gifts = {
+"heal_zone": {
+"color": "#80ff80",
+"heal": 0.02,
+"mult": 0.0,
+"radius": 4.0,
+"t": "zone",
+"tick": 0.5,
+"time": 6.0
+}
+}
+
+[sub_resource type="Resource" id="gu_holzzauber"]
+script = ExtResource("1_nj820")
+id = &"holzzauber"
+display_name = "Holzzauber-Gu"
+family = &"blatt"
+rank = 4
+rank_gift = "Zusätzlich 25 % Schadensreduktion für 8 s."
+description = "Du wirst zum Baumgeist: zäh wie altes Holz, während die Heilung wirkt."
+gifts = {
+"extra": [{
+"color": "#6fbf4a",
+"damage": 1.0,
+"key": "holzzauber",
+"reduction": 0.25,
+"speed": 0.95,
+"t": "buff",
+"time": 8.0
+}]
+}
+
+[sub_resource type="Resource" id="gu_lebensbaum"]
+script = ExtResource("1_nj820")
+id = &"lebensbaum"
+display_name = "Lebensbaum-Gu"
+family = &"blatt"
+rank = 5
+rank_gift = "Heilzone Radius 6, sofortige Heilung für alle Verbündeten."
+description = "Ein Lebensbaum wächst aus dir und heilt alle Verbündeten."
+gifts = {
+"extra": [{
+"allies": true,
+"frac": 0.3,
+"radius": 10.0,
+"t": "heal"
+}],
+"heal_zone": {
+"color": "#80ff80",
+"heal": 0.035,
+"mult": 0.0,
+"radius": 6.0,
+"t": "zone",
+"time": 8.0
+}
+}
 
 [resource]
 script = ExtResource("2_gtwqo")
@@ -47,7 +106,7 @@ base_r1 = Dictionary[StringName, Variant]({
 &"ess": 10.0,
 &"heilung_anteil": 0.25
 })
-members = Array[ExtResource("1_nj820")]([SubResource("gu_lebensblatt"), SubResource("gu_frischesblatt"), SubResource("gu_lebensbrunnen")])
+members = Array[ExtResource("1_nj820")]([SubResource("gu_lebensblatt"), SubResource("gu_frischesblatt"), SubResource("gu_lebensbrunnen"), SubResource("gu_holzzauber"), SubResource("gu_lebensbaum")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"gruenkraut": 3
@@ -55,6 +114,14 @@ upgrade_materials = Dictionary[int, Dictionary]({
 3: {
 &"gruenkraut": 6,
 &"mondtau": 2
+},
+4: {
+&"gruenkraut": 10,
+&"zeitharz": 1
+},
+5: {
+&"urkristall": 1,
+&"zeitharz": 2
 }
 })
 world_effect = "Lässt Kletterranken wachsen und verdorrte Heilpflanzen wieder sprießen."

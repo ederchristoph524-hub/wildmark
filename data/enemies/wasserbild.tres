@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://conimotj3bxk"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_c2mxj"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_lbqu1"]
+
+[resource]
+script = ExtResource("2_lbqu1")
+id = &"wasserbild"
+display_name = "Wasserbild"
+max_hp = 70
+damage = 4
+speed = 3.4
+radius = 0.4
+color = Color(0.41568628, 0.6901961, 0.8784314, 1)
+zone = 9
+shape = &"skel"
+no_spawn = true

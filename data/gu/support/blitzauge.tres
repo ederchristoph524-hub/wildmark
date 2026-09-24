@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://cqd77wi6hmvqd"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_6k05k"]
+
+[resource]
+script = ExtResource("1_6k05k")
+id = &"blitzauge"
+display_name = "Blitzauge-Gu"
+rank = 2
+path = &"blitz"
+effect_text = "Doppelte Sicht, 5 % schneller"
+feed_item = &"kristall"
+feed_amount = 2
+rules = {
+"detection_mult": 2.0,
+"move_speed_mult": 1.05
+}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cbqc7rte7ek5e"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_elej6"]
+
+[resource]
+script = ExtResource("1_elej6")
+id = &"allesverschlingen"
+display_name = "Alles verschlingen"
+family_a = &"phantom"
+family_b = &"blutmond"
+channel_time = 1.0
+damage_mult = 3.4
+description = "Ein Blutphantom verschlingt alles vor dir und gibt dir das Leben zurück."
+hint = "Die Bestie trinkt Blut."
+min_rank = 3
+steps = [{
+"angle": 120.0,
+"color": "#d0303a",
+"knockback": 1.6,
+"lifesteal": 0.4,
+"mult": 1.2,
+"reach": 8.0,
+"stacks": 2.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["wucht", "blut"]
+}]

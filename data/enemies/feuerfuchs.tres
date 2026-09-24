@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://qebbe3wg4b3s"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_p6imr"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_4mjoc"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_p6imr")
+item = &"glutasche"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_p6imr")
+item = &"drachenschuppe"
+chance = 0.08
+
+[resource]
+script = ExtResource("2_4mjoc")
+id = &"feuerfuchs"
+display_name = "Feuerfuchs"
+max_hp = 300
+damage = 32
+speed = 4.8
+xp = 210
+radius = 0.45
+color = Color(0.8784314, 0.3764706, 0.16470589, 1)
+zone = 4
+rank = 4
+ability = [{
+"color": "#ff7a3a",
+"count": 3.0,
+"mult": 0.8,
+"range": 12.0,
+"spread": 40.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer"]
+}]
+ability_range = 10.0
+ability_cooldown = 5.0
+drops = Array[ExtResource("1_p6imr")]([SubResource("drop_0"), SubResource("drop_1")])
+shape = &"quad"
+burn = true

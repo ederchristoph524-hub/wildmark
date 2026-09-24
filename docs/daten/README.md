@@ -15,12 +15,12 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 | `imm` | Unsterblich (Rang 6+) bzw. Anzahl Unsterblicher bei Sekten |
 | `reg` / `region` | Regions-ID (siehe `welt.json` → `REGIONS`) |
 
-## gu_system.json (gültig für M2–M3)
+## gu_system.json (sterbliche Ebene, Rang 1–5)
 
-- `familien` – 12 Familien: `pfad`, `rolle`, `wirkform`, `tags`, `status` (ausgelöster Zustand), `futter`, `basis_r1` (Werte auf Rang 1), `aufstieg` (Materialien für Rang 2 und 3), `mitglieder` (je Rang: `id`, `name`, `neu` = neu entworfen, `ranggabe`), `welt` (Wirkung auf Objekte).
-- `koerper_gu` – dauerhaft eingeprägte Gu. `hilfs_gu` – passive Hilfs-Gu mit Futter.
-- `zustaende`, `reaktionen` (`ausloeser` = Tag des Treffers, `auf` = Zustand des Ziels), `tags`, `merkmale` (`gewicht` für Zufallsauswahl), `merkmal_chance`.
-- `killer_moves` – auf Familienebene (`a`, `b` = Familien-IDs), mit `kanal_s`, `mult`, `hinweis`.
+- `familien` – 24 Familien: `pfad`, `rolle`, `wirkform` (20 Formen, siehe `GU_SYSTEM.md`), `tags`, `status` (ausgelöster Zustand), `futter`, `basis_r1` (Werte auf Rang 1, je nach Wirkform z. B. `schaden`, `cd`, `ess`, `hp_kosten`, `reichweite`, `radius`, `dauer`, `takt`, `anzahl`, `winkel`, `rueckstoss`, `tempo`, `staerke`, `reduktion`, `wesen`), `aufstieg` (Materialien `r2`–`r5`), `mitglieder` (je Rang: `id`, `name`, `neu` = neu entworfen, sonst Lore aus `gu.json`, `ranggabe` als Text, `gaben` als Schalter), `welt` (Wirkung auf Objekte).
+- `koerper_gu` – dauerhaft eingeprägte Gu (`wirkung`: `grundschaden`, `max_hp`, `schaden_erlitten`). `hilfs_gu` – passive Hilfs-Gu mit Futter und `regeln` (Schlüssel für `PassiveGu`).
+- `zustaende` (mit `regel`: `dauer`, `dps`, `tempo`, `heilung`, `schaden_erlitten`, `bei_max`, `flucht`), `reaktionen` (`ausloeser` = Tag des Treffers, `auf` = Zustand des Ziels, `regel` = Parameter der Wirkung), `tags`, `merkmale` (`gewicht` für Zufallsauswahl), `merkmal_chance`.
+- `killer_moves` – auf Familienebene (`a`, `b` = Familien-IDs), mit `kanal_s`, `mult`, `rang` (Mindestrang beider Gu), `hinweis`, `schritte` (Wirkungsschritte, siehe `GU_SYSTEM.md`, Abschnitt 9).
 - `start_familien` – Auswahl beim Erwachen.
 
 ## gu.json (Ideenpool)

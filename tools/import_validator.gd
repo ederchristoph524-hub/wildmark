@@ -8,6 +8,7 @@ var _paths: Dictionary = {}
 var _gudex: Dictionary = {}
 var _factions: Dictionary = {}
 var _org_types: Dictionary = {}
+var _steps: StepValidator = null
 
 
 func _init(report: ImportReport) -> void:
@@ -24,6 +25,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 			_ids[type] = _collect_ids(built[type], type)
 	_ids["tags"] = (built["gu_system"] as GuSystemData).tags
 	_ids["gu"] = _collect_gu_ids(built)
+	_steps = StepValidator.new(_report, _ids)
 	_check_families(built["families"])
 	_check_support(built["support"])
 	_check_statuses(built["statuses"])
@@ -90,6 +92,8 @@ func _check_families(families: Array) -> void:
 		_expect_path(family.path, context)
 		if family.form.is_empty():
 			_report.error("%s: Wirkform fehlt" % context)
+		else:
+			_steps.check_form(family, context)
 		for tag: StringName in family.tags:
 			_expect("tags", tag, context)
 		_expect("statuses", family.status, context, true)
@@ -148,7 +152,10 @@ func _check_killer_moves(list: Array) -> void:
 			_report.error("%s: braucht zwei verschiedene Familien" % context)
 		var pair: Array[String] = [String(move.family_a), String(move.family_b)]
 		pair.sort()
-		var key: String = "+".join(pair)
+		var key: String = "+".join(pair) + " ab Rang %d" % move.min_rank
+		if move.steps.is_empty():
+			_report.error("%s: keine Wirkungsschritte (schritte)" % context)
+		_steps.check_steps(move.steps, context)
 		if pairs.has(key):
 			_report.error("%s: Familienpaar %s schon durch '%s' belegt" % [context, key, pairs[key]])
 		pairs[key] = move.id
@@ -170,6 +177,8 @@ func _check_enemies(list: Array) -> void:
 			if drop.chance < 0.0 or drop.chance > 1.0:
 				_report.error("%s: Drop-Chance für '%s' außerhalb 0–1" % [context, drop.item])
 		_expect("enemies", enemy.minion, context + " (Beschwörung)", true)
+		if not enemy.ability.is_empty():
+			_steps.check_steps(enemy.ability, context + " (Fähigkeit)")
 
 
 ## Material-Pfade sind kein Spielverweis, daher nur Warnung.

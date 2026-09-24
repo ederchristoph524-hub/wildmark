@@ -50,33 +50,42 @@ func channel_progress() -> float:
 	return 1.0 - channel_left / channel_total if channel_total > 0.0 else 0.0
 
 
-## Slots, in denen je ein Gu der beiden Familien liegt (bereit und nicht ausgehungert), sonst leer.
+## Slots, in denen je ein Gu der beiden Familien liegt (bereit, nicht ausgehungert, mindestens Rang des Moves), sonst leer.
 func slots_for(move: KillerMoveData) -> Array[int]:
-	var a: int = _ready_slot_of(move.family_a)
-	var b: int = _ready_slot_of(move.family_b)
+	var a: int = _ready_slot_of(move.family_a, move.min_rank)
+	var b: int = _ready_slot_of(move.family_b, move.min_rank)
 	if a < 0 or b < 0:
 		return []
 	return [a, b]
 
 
-func _ready_slot_of(family_id: StringName) -> int:
+func _ready_slot_of(family_id: StringName, min_rank: int = 1) -> int:
 	for slot: int in GameState.SLOT_COUNT:
 		var instance: GuInstance = GameState.slot_instance(slot)
-		if instance == null or holder.is_starved(instance) or instance.cooldown_left > 0.0:
+		if instance == null or holder.is_starved(instance) or instance.cooldown_left > 0.0 or holder.gu_data(instance).rank < min_rank:
 			continue
 		if holder.family_of(instance).id == family_id:
 			return slot
 	return -1
 
 
-## Bekannte Killer Moves, deren Gu gerade bereitliegen.
+## Bekannte Killer Moves, deren Gu gerade bereitliegen; von mehreren Stufen desselben Paars nur die höchste.
 func available() -> Array[KillerMoveData]:
-	var result: Array[KillerMoveData] = []
+	var best: Dictionary[String, KillerMoveData] = {}
 	for id: StringName in GameState.known_killer_moves:
 		var move: KillerMoveData = DataRegistry.killer_move(id)
-		if move != null and not slots_for(move).is_empty():
-			result.append(move)
+		if move == null or slots_for(move).is_empty():
+			continue
+		var pair: String = _pair_key(move.family_a, move.family_b)
+		if not best.has(pair) or best[pair].min_rank < move.min_rank:
+			best[pair] = move
+	var result: Array[KillerMoveData] = []
+	result.assign(best.values())
 	return result
+
+
+static func _pair_key(a: StringName, b: StringName) -> String:
+	return "%s+%s" % ([a, b] if String(a) < String(b) else [b, a])
 
 
 func current() -> KillerMoveData:
@@ -149,7 +158,8 @@ func _complete() -> void:
 		power = 1.0
 	_put_on_cooldown()
 	channel_move = null
-	KillerMoveEffects.execute(move, host, damage * power * move.damage_mult, _channel_aim)
+	var soft_target: Combatant = host.get(&"targeting").soft_target if host.get(&"targeting") != null else null
+	KillerMoveEffects.execute(move, host, damage * power * move.damage_mult * PassiveGu.mult("killer_mult"), _channel_aim, soft_target, power)
 	channel_ended.emit(true)
 
 
@@ -171,7 +181,7 @@ func _on_gu_used(_slot: int, family_id: StringName) -> void:
 
 func _try_insight(first: StringName, second: StringName, roll: float = -1.0) -> bool:
 	var b: BalanceData = Balance.values
-	var move: KillerMoveData = find_move(first, second)
+	var move: KillerMoveData = find_move(first, second, _slotted_rank(first, second))
 	if move == null or GameState.knows_killer_move(move.id):
 		return false
 	var key: String = String(move.id)
@@ -185,12 +195,31 @@ func _try_insight(first: StringName, second: StringName, roll: float = -1.0) -> 
 	return true
 
 
-static func find_move(first: StringName, second: StringName) -> KillerMoveData:
+## Unbekannter Killer Move des Paars mit dem niedrigsten Rang ≤ max_rank (erst die Grundstufe, dann die höheren).
+static func find_move(first: StringName, second: StringName, max_rank: int = 99) -> KillerMoveData:
+	var found: KillerMoveData = null
 	for resource: Resource in DataRegistry.all(&"killer_moves"):
 		var move: KillerMoveData = resource as KillerMoveData
-		if (move.family_a == first and move.family_b == second) or (move.family_a == second and move.family_b == first):
-			return move
-	return null
+		if not ((move.family_a == first and move.family_b == second) or (move.family_a == second and move.family_b == first)):
+			continue
+		if move.min_rank > max_rank or GameState.knows_killer_move(move.id):
+			continue
+		if found == null or move.min_rank < found.min_rank:
+			found = move
+	return found
+
+
+## Niedrigster Rang der beiden eingesetzten Gu dieser Familien (für höhere Killer-Move-Stufen).
+func _slotted_rank(first: StringName, second: StringName) -> int:
+	var ranks: Array[int] = []
+	for family_id: StringName in [first, second]:
+		var best: int = 0
+		for slot: int in GameState.SLOT_COUNT:
+			var instance: GuInstance = GameState.slot_instance(slot)
+			if instance != null and holder.family_of(instance).id == family_id:
+				best = maxi(best, holder.gu_data(instance).rank)
+		ranks.append(best)
+	return mini(ranks[0], ranks[1])
 
 
 static func learn(id: StringName) -> void:

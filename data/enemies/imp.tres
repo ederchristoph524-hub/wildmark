@@ -24,6 +24,7 @@ xp = 50
 radius = 0.4
 color = Color(1, 0.47843137, 0.22745098, 1)
 zone = 3
+rank = 4
 drops = Array[ExtResource("1_fdvni")]([SubResource("drop_0"), SubResource("drop_1")])
 shape = &"imp"
 burn = true

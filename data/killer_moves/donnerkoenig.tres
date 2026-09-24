@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b5n6ndvjfldv6"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_mf8r2"]
+
+[resource]
+script = ExtResource("1_mf8r2")
+id = &"donnerkoenig"
+display_name = "Donnerkönig"
+family_a = &"haut"
+family_b = &"blitz"
+channel_time = 0.7
+damage_mult = 3.0
+description = "Ein Donnerpanzer, der Angreifer auflädt und alle drei Sekunden entlädt."
+hint = "Der König trägt den Donner."
+min_rank = 3
+steps = [{
+"color": "#99bfff",
+"kind": "thunder",
+"reduction": 0.4,
+"t": "armor",
+"time": 8.0,
+"value": 3.0
+}, {
+"color": "#99bfff",
+"follow": true,
+"mult": 0.8,
+"radius": 4.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["blitz"],
+"tick": 3.0,
+"time": 8.0
+}]

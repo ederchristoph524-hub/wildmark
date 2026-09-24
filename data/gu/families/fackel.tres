@@ -1,0 +1,146 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://c45cgitq1i7ul"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_kqck1"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_ov66c"]
+
+[sub_resource type="Resource" id="gu_glutatem"]
+script = ExtResource("1_kqck1")
+id = &"glutatem"
+display_name = "Glutatem-Gu"
+family = &"fackel"
+description = "Glut umgibt dich und versengt alles in deiner Nähe."
+
+[sub_resource type="Resource" id="gu_feuerhaut"]
+script = ExtResource("1_kqck1")
+id = &"feuerhaut"
+display_name = "Feuerhaut-Gu"
+family = &"fackel"
+rank = 2
+rank_gift = "+2 s."
+description = "Die Glut hält länger an."
+gifts = {
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_selbstentzuendung"]
+script = ExtResource("1_kqck1")
+id = &"selbstentzuendung"
+display_name = "Selbstentzündungs-Gu"
+family = &"fackel"
+rank = 3
+rank_gift = "Radius +1, 6 s +20 % Schaden."
+description = "Du wirst zur lebenden Fackel: größerer Feuerkreis und mehr Schaden."
+lore = "Setzt den eigenen Körper in Brand, ohne ihn zu verzehren."
+gifts = {
+"extra": [{
+"color": "#ff7a3a",
+"damage": 1.2,
+"key": "fackel",
+"speed": 1.0,
+"t": "buff",
+"time": 6.0
+}],
+"radius_add": 1.0,
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_glutpanzer"]
+script = ExtResource("1_kqck1")
+id = &"glutpanzer"
+display_name = "Glutpanzer-Gu"
+family = &"fackel"
+rank = 4
+rank_gift = "20 % Schutz, Dornen."
+description = "Ein Panzer aus Glut: weniger Schaden, Angreifer verbrennen."
+gifts = {
+"extra": [{
+"color": "#ff7a3a",
+"damage": 1.2,
+"key": "fackel",
+"reduction": 0.2,
+"speed": 1.0,
+"t": "buff",
+"time": 8.0
+}, {
+"color": "#ff7a3a",
+"kind": "thorns",
+"reduction": 0.0,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.4
+}],
+"radius_add": 1.0,
+"time_add": 3.0
+}
+
+[sub_resource type="Resource" id="gu_sonnenkoerper"]
+script = ExtResource("1_kqck1")
+id = &"sonnenkoerper"
+display_name = "Sonnenkörper-Gu"
+family = &"fackel"
+rank = 5
+rank_gift = "Radius +3, 1,8-facher Schaden, 25 % Schutz."
+description = "Du brennst wie eine kleine Sonne: riesiger Feuerkreis, doppelte Hitze."
+gifts = {
+"extra": [{
+"color": "#ffb030",
+"damage": 1.25,
+"key": "fackel",
+"reduction": 0.25,
+"speed": 1.0,
+"t": "buff",
+"time": 9.0
+}, {
+"color": "#ffb030",
+"kind": "thorns",
+"reduction": 0.0,
+"t": "armor",
+"time": 8.0,
+"value_mult": 0.5
+}],
+"radius_add": 3.0,
+"step": {
+"mult": 1.8
+},
+"time_add": 4.0
+}
+
+[resource]
+script = ExtResource("2_ov66c")
+id = &"fackel"
+display_name = "Menschenfackel"
+path = &"feuer"
+role = "Aura, Nahkampf"
+form = &"aura"
+tags = Array[StringName]([&"feuer"])
+status = &"brand"
+feed_item = &"holz"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 11.0,
+&"dauer": 4.0,
+&"ess": 8.0,
+&"radius": 2.3,
+&"schaden": 5.0,
+&"stapel": 1.0,
+&"takt": 0.5
+})
+members = Array[ExtResource("1_kqck1")]([SubResource("gu_glutatem"), SubResource("gu_feuerhaut"), SubResource("gu_selbstentzuendung"), SubResource("gu_glutpanzer"), SubResource("gu_sonnenkoerper")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"glutasche": 4
+},
+3: {
+&"donnerholz": 1,
+&"glutasche": 6
+},
+4: {
+&"drachenschuppe": 1,
+&"glutasche": 8
+},
+5: {
+&"drachenschuppe": 3,
+&"urkristall": 1
+}
+})
+world_effect = "Die lebende Fackel erhellt Höhlen und verbrennt Dornenhecken."

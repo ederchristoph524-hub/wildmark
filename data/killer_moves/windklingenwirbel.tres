@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://huym8ncyu064"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_c0ms1"]
+
+[resource]
+script = ExtResource("1_c0ms1")
+id = &"windklingenwirbel"
+display_name = "Klingenwirbel"
+family_a = &"wind"
+family_b = &"schwert"
+channel_time = 0.9
+damage_mult = 2.5
+description = "Kreisende Klingen im Sturm: der Wind trägt sie weit nach außen."
+hint = "Klingen reiten den Wind."
+steps = [{
+"color": "#c8f0ff",
+"count": 5.0,
+"mult": 0.6,
+"radius": 3.2,
+"speed": 1.2,
+"t": "orbit",
+"tags": ["schnitt", "wind"],
+"time": 5.0
+}, {
+"color": "#c8f0ff",
+"knockback": 1.5,
+"mult": 0.5,
+"radius": 5.0,
+"t": "circle",
+"tags": ["wind"]
+}]

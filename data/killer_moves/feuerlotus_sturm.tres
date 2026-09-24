@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://016ee46n3t43"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_hj8da"]
+
+[resource]
+script = ExtResource("1_hj8da")
+id = &"feuerlotus_sturm"
+display_name = "Feuerlotus-Sturm"
+family_a = &"flamme"
+family_b = &"wirbel"
+channel_time = 1.0
+damage_mult = 3.6
+description = "Ein Lotus aus Flammen erblüht im Wirbel und brennt noch lange nach."
+hint = "Der Lotus erblüht im Sturm."
+min_rank = 3
+steps = [{
+"color": "#ff7326",
+"mult": 1.0,
+"radius": 7.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer", "wind"]
+}, {
+"color": "#ff7326",
+"mult": 0.3,
+"radius": 6.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#ffb366",
+"mult": 0.3,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wind"]
+}],
+"time": 0.3
+}]

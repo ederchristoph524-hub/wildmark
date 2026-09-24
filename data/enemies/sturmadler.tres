@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://duoi2xtuuw2mv"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_dot1t"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_gnvba"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_dot1t")
+item = &"windfeder"
+chance = 0.8
+
+[resource]
+script = ExtResource("2_gnvba")
+id = &"sturmadler"
+display_name = "Sturmadler"
+max_hp = 150
+damage = 20
+speed = 5.0
+xp = 120
+radius = 0.45
+color = Color(0.6039216, 0.5411765, 0.4392157, 1)
+zone = 3
+rank = 3
+ability = [{
+"angle": 50.0,
+"color": "#c8f0ff",
+"knockback": 1.2,
+"mult": 0.9,
+"reach": 7.0,
+"t": "cone",
+"tags": ["wind", "schnitt"]
+}]
+ability_range = 7.0
+drops = Array[ExtResource("1_dot1t")]([SubResource("drop_0")])
+shape = &"bird"
+flying = true

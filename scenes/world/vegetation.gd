@@ -12,6 +12,8 @@ const TREE_VIEW: float = 135.0
 const TREE_LINE: float = 18.0
 ## Mindestabstand zwischen Stämmen (keine Bäume ineinander).
 const TREE_SPACING: float = 3.2
+## Helligkeitsstreuung je Pflanze.
+const COLOR_JITTER: float = 0.09
 
 var terrain: Terrain = null
 var biome: BiomeData = null
@@ -40,16 +42,21 @@ func _ready() -> void:
 	var half: int = floori(bushes.size() / 2.0)
 	_place_chunked(VegetationMeshes.bush(), bushes.slice(0, half), 70.0, false, CHUNK_LARGE)
 	_place_chunked(VegetationMeshes.fern(), bushes.slice(half), 60.0, false, CHUNK_LARGE)
-	_place_chunked(VegetationMeshes.rock(), _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE)
+	var stone: Color = biome.color(&"fels", VegetationMeshes.ROCK)
+	var dry: bool = biome.vegetation.has(&"kaktus")
+	var rock_mesh: ArrayMesh = VegetationMeshes.rock(stone, stone.lightened(0.15) if dry else VegetationMeshes.MOSS)
+	_place_chunked(rock_mesh, _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE, false)
 	var grass: Array[Transform3D] = _scatter(roundi(biome.grass_per_1000 * area_k), 0.5, Vector2(0.7, 1.3))
 	var flowers: int = floori(grass.size() / 8.0)
-	_place_chunked(VegetationMeshes.grass(), grass.slice(flowers), 32.0, false, CHUNK_SMALL)
+	var tall: bool = biome.vegetation.has(&"steppengras")
+	_place_chunked(VegetationMeshes.tall_grass() if tall else VegetationMeshes.grass(), grass.slice(flowers), 32.0 if not tall else 45.0, false, CHUNK_SMALL)
 	_place_chunked(VegetationMeshes.flowers(), grass.slice(0, flowers), 32.0, false, CHUNK_SMALL)
 
 
 ## Baumarten nach Biom-Anteilen; über der Baumgrenze nur Nadelbäume.
 func _place_trees(count: int) -> void:
-	var meshes: Dictionary[StringName, Mesh] = {&"laubbaum": VegetationMeshes.broadleaf(), &"laubbaum_rund": VegetationMeshes.round_tree(), &"palme": VegetationMeshes.palm(), &"nadelbaum": VegetationMeshes.pine(), &"bambus": VegetationMeshes.bamboo()}
+	var meshes: Dictionary[StringName, Mesh] = {&"laubbaum": VegetationMeshes.broadleaf(), &"laubbaum_rund": VegetationMeshes.round_tree(), &"palme": VegetationMeshes.palm(),
+		&"nadelbaum": VegetationMeshes.pine(), &"bambus": VegetationMeshes.bamboo(), &"kaktus": VegetationMeshes.cactus(), &"totholz": VegetationMeshes.dead_tree()}
 	var kinds: Array[StringName] = []
 	var weights: Array[float] = []
 	for kind: StringName in biome.vegetation:
@@ -60,7 +67,8 @@ func _place_trees(count: int) -> void:
 		return
 	var per_type: Dictionary[StringName, Array] = {}
 	for placement: Transform3D in _spaced(_scatter(count, 0.55, Vector2(0.8, 1.35)), TREE_SPACING):
-		var kind: StringName = kinds[_rng.rand_weighted(PackedFloat32Array(weights))] if placement.origin.y < TREE_LINE else &"nadelbaum"
+		var above_line: bool = placement.origin.y >= TREE_LINE and biome.vegetation.has(&"nadelbaum")
+		var kind: StringName = &"nadelbaum" if above_line else kinds[_rng.rand_weighted(PackedFloat32Array(weights))]
 		if kind == &"laubbaum" and _rng.randf() < 0.45:
 			kind = &"laubbaum_rund"
 		if not per_type.has(kind):
@@ -116,8 +124,9 @@ func _in_clearing(x: float, z: float) -> bool:
 	return false
 
 
-## Verteilt Instanzen auf Kacheln, damit ferne Kacheln nicht gezeichnet werden.
-func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows: bool, chunk: float) -> void:
+## Verteilt Instanzen auf Kacheln, damit ferne Kacheln nicht gezeichnet werden. Pflanzen erhalten die Tönung des
+## Bioms und je Instanz eine leichte Farbabweichung (tinted = false für Felsen).
+func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows: bool, chunk: float, tinted: bool = true) -> void:
 	var chunks: Dictionary = {}
 	for placement: Transform3D in transforms:
 		var key := Vector2i(floori(placement.origin.x / chunk), floori(placement.origin.z / chunk))
@@ -128,6 +137,7 @@ func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows
 		var list: Array = chunks[key]
 		var multimesh := MultiMesh.new()
 		multimesh.transform_format = MultiMesh.TRANSFORM_3D
+		multimesh.use_colors = true
 		multimesh.mesh = mesh
 		multimesh.instance_count = list.size()
 		var center := Vector3((key.x + 0.5) * chunk, 0.0, (key.y + 0.5) * chunk)
@@ -135,6 +145,9 @@ func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows
 			var local: Transform3D = list[i]
 			local.origin -= center
 			multimesh.set_instance_transform(i, local)
+			var shade: float = _rng.randf_range(1.0 - COLOR_JITTER, 1.0 + COLOR_JITTER)
+			var tint: Color = biome.plant_tint if tinted else Color.WHITE
+			multimesh.set_instance_color(i, Color(tint.r * shade, tint.g * shade * _rng.randf_range(0.97, 1.03), tint.b * shade))
 		var instance := MultiMeshInstance3D.new()
 		instance.multimesh = multimesh
 		instance.material_override = WorldMaterials.vertex_colored()

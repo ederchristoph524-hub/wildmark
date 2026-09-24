@@ -10,3 +10,7 @@ path = &"weisheit"
 effect_text = "Gu-Kapazität +1, Apertur +10 %"
 feed_item = &"beeren"
 feed_amount = 2
+rules = {
+"cap_mult": 1.1,
+"capacity_add": 1.0
+}

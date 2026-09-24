@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://quavxje5s8ap"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_5fq3v"]
+
+[resource]
+script = ExtResource("1_5fq3v")
+id = &"rudelkoenig"
+display_name = "Rudelkönig"
+family_a = &"sklaverei"
+family_b = &"blatt"
+channel_time = 1.4
+damage_mult = 2.8
+description = "Heilt alle Gefährten voll und ruft zwei Blitzwölfe."
+hint = "Das Rudel folgt dem König."
+min_rank = 3
+steps = [{
+"allies": true,
+"frac": 1.0,
+"radius": 14.0,
+"t": "heal"
+}, {
+"count": 2.0,
+"enemy": "blitzwolf",
+"t": "summon",
+"time": 25.0
+}]

@@ -2,9 +2,10 @@ class_name GuMasterBrain
 extends RefCounted
 ## Kampf-KI eines Gu-Meisters: Schild oder Heilung bei Bedrängnis, Wirbel aus der Nähe, sonst Fernangriff auf Abstand; ohne Essenz nur die Faust.
 
-const RANGED_FORMS: Array[StringName] = [GuCaster.FORM_PROJECTILE, GuCaster.FORM_FAST, GuCaster.FORM_EXPLODING, GuCaster.FORM_BEAM]
-const CLOSE_FORMS: Array[StringName] = [GuCaster.FORM_CIRCLE, GuCaster.FORM_STAB]
-const DEFEND_FORMS: Array[StringName] = [GuCaster.FORM_SHIELD, GuCaster.FORM_HEAL]
+const RANGED_FORMS: Array[StringName] = [GuCaster.FORM_PROJECTILE, GuCaster.FORM_FAST, GuCaster.FORM_EXPLODING, GuCaster.FORM_BEAM,
+	GuForms.FORM_SWARM, GuForms.FORM_ZONE, GuForms.FORM_TRAP]
+const CLOSE_FORMS: Array[StringName] = [GuCaster.FORM_CIRCLE, GuCaster.FORM_STAB, GuForms.FORM_CONE, GuForms.FORM_AURA, GuForms.FORM_ORBIT, GuForms.FORM_CHARGE]
+const DEFEND_FORMS: Array[StringName] = [GuCaster.FORM_SHIELD, GuCaster.FORM_HEAL, GuForms.FORM_BUFF, GuForms.FORM_SUMMON, GuForms.FORM_STEALTH]
 const CLOSE_RANGE: float = 2.6
 const DEFEND_RANGE: float = 6.0
 const STRAFE_FLIP_CHANCE: float = 0.2

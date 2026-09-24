@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://00kl3tptuimy"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_3bfdi"]
+
+[resource]
+script = ExtResource("1_3bfdi")
+id = &"bergsturz"
+display_name = "Bergsturz"
+family_a = &"erde"
+family_b = &"phantom"
+channel_time = 1.2
+damage_mult = 3.6
+description = "Ein Bärenphantom schlägt auf den Boden, ein Bergsturz begräbt die Getroffenen."
+hint = "Die Bestie spaltet den Berg."
+min_rank = 3
+steps = [{
+"angle": 100.0,
+"color": "#e07a4a",
+"knockback": 1.5,
+"mult": 0.8,
+"reach": 7.0,
+"t": "cone",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#a08050",
+"distance": 6.0,
+"mult": 1.4,
+"radius": 5.0,
+"status": "verwurzelt",
+"stun": 1.2,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.4
+}]

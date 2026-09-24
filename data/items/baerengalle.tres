@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c6i4oe7bpevxy"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_k1bor"]
+
+[resource]
+script = ExtResource("1_k1bor")
+id = &"baerengalle"
+display_name = "Bärengalle"
+icon = "🟢"
+category = &"material"
+rank = 2
+path = &"kraft"
+source = "Bären der Südlichen Grenze"
+description = "Bittere Galle eines Bergbären, voller roher Kraft."

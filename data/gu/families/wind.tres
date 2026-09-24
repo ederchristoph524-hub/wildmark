@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://djlxjsjtr3jcw"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_2yilt"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_efdsl"]
+
+[sub_resource type="Resource" id="gu_windklinge"]
+script = ExtResource("1_2yilt")
+id = &"windklinge"
+display_name = "Windklingen-Gu"
+family = &"wind"
+description = "Ein schneidender Windstoß in einem schmalen Kegel."
+
+[sub_resource type="Resource" id="gu_windwand"]
+script = ExtResource("1_2yilt")
+id = &"windwand"
+display_name = "Windwand-Gu"
+family = &"wind"
+rank = 2
+rank_gift = "Breiter (80°), stärkerer Rückstoß."
+description = "Eine Wand aus Wind, die Gegner weit zurückwirft."
+gifts = {
+"step": {
+"angle": 80.0,
+"knockback": 1.7
+}
+}
+
+[sub_resource type="Resource" id="gu_verletzungswind"]
+script = ExtResource("1_2yilt")
+id = &"verletzungswind"
+display_name = "Verletzungswind-Gu"
+family = &"wind"
+rank = 3
+rank_gift = "Hinterlässt 3 s einen Klingenwirbel (Blutung)."
+description = "Der Wind bleibt als schneidender Wirbel stehen und lässt Wunden bluten."
+gifts = {
+"extra": [{
+"at": "aim",
+"color": "#c8f0ff",
+"distance": 5.0,
+"mult": 0.3,
+"radius": 3.0,
+"status": "blutung",
+"t": "zone",
+"tags": ["wind", "schnitt"],
+"time": 3.0
+}],
+"step": {
+"angle": 80.0,
+"knockback": 1.7
+}
+}
+
+[sub_resource type="Resource" id="gu_sturmgeheul"]
+script = ExtResource("1_2yilt")
+id = &"sturmgeheul"
+display_name = "Sturmgeheul-Gu"
+family = &"wind"
+rank = 4
+rank_gift = "Reichweite 10, betäubt 0,5 s."
+description = "Ein heulender Sturm reicht zehn Meter weit und betäubt kurz."
+gifts = {
+"extra": [{
+"at": "aim",
+"color": "#c8f0ff",
+"distance": 6.0,
+"mult": 0.3,
+"radius": 3.0,
+"status": "blutung",
+"t": "zone",
+"tags": ["wind", "schnitt"],
+"time": 3.0
+}],
+"step": {
+"angle": 80.0,
+"knockback": 1.7,
+"reach": 10.0
+},
+"stun": 0.5
+}
+
+[sub_resource type="Resource" id="gu_taifun"]
+script = ExtResource("1_2yilt")
+id = &"taifun"
+display_name = "Taifun-Gu"
+family = &"wind"
+rank = 5
+rank_gift = "Taifun (Radius 5, 5 s) zieht Gegner hinein."
+description = "Ein Taifun bleibt stehen und saugt alles in sein schneidendes Herz."
+gifts = {
+"extra": [{
+"at": "aim",
+"color": "#c8f0ff",
+"distance": 7.0,
+"mult": 0.4,
+"pull": 1.5,
+"radius": 5.0,
+"status": "blutung",
+"t": "zone",
+"tags": ["wind", "schnitt"],
+"time": 5.0
+}],
+"step": {
+"angle": 80.0,
+"knockback": 1.7,
+"reach": 10.0
+},
+"stun": 0.5
+}
+
+[resource]
+script = ExtResource("2_efdsl")
+id = &"wind"
+display_name = "Windklinge"
+path = &"wind"
+role = "Mittelstrecke, Rückstoß"
+form = &"kegel"
+tags = Array[StringName]([&"wind", &"schnitt"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.2,
+&"ess": 5.0,
+&"reichweite": 8.0,
+&"rueckstoss": 1.0,
+&"schaden": 13.0,
+&"winkel": 45.0
+})
+members = Array[ExtResource("1_2yilt")]([SubResource("gu_windklinge"), SubResource("gu_windwand"), SubResource("gu_verletzungswind"), SubResource("gu_sturmgeheul"), SubResource("gu_taifun")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"windfeder": 2
+},
+3: {
+&"seelenglas": 1,
+&"windfeder": 4
+},
+4: {
+&"sternsand": 1,
+&"windfeder": 8
+},
+5: {
+&"urkristall": 1,
+&"windfeder": 12
+}
+})
+world_effect = "Wind verweht Gift- und Dampfwolken und trägt Brand und Gift weiter."

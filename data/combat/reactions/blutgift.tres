@@ -10,3 +10,7 @@ trigger_tag = &"gift"
 target_status = &"wunde"
 effect_text = "Gift-Stapel werden verdoppelt"
 removes = Array[StringName]([&"wunde"])
+rule = {
+"stack_mult": 2.0,
+"stack_status": "gift"
+}

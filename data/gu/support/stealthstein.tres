@@ -10,3 +10,6 @@ path = &"metall"
 effect_text = "Wilde Gu fliehen seltener, Bestien bemerken dich später"
 feed_item = &"stein"
 feed_amount = 2
+rules = {
+"aggro_mult": 0.6
+}

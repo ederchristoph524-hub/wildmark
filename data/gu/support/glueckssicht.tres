@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://boheadc6a4q7"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_rhyld"]
+
+[resource]
+script = ExtResource("1_rhyld")
+id = &"glueckssicht"
+display_name = "Glücksschau-Gu"
+rank = 5
+path = &"glueck"
+effect_text = "Sammeln ×2, enthüllt Verborgenes"
+feed_item = &"kristall"
+feed_amount = 5
+rules = {
+"harvest_mult": 2.0,
+"reveal": true
+}

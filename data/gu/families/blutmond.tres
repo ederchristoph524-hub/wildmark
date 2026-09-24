@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://d23nyok2ch4vm"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_hnfpr"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_pagip"]
+
+[sub_resource type="Resource" id="gu_blutstropfen"]
+script = ExtResource("1_hnfpr")
+id = &"blutstropfen"
+display_name = "Blutstropfen-Gu"
+family = &"blutmond"
+description = "Eine Blutsichel, die bluten lässt. Kostet eigenes Blut statt Uressenz."
+
+[sub_resource type="Resource" id="gu_blutmond"]
+script = ExtResource("1_hnfpr")
+id = &"blutmond"
+display_name = "Blutmond-Gu"
+family = &"blutmond"
+rank = 2
+rank_gift = "Drei Sicheln."
+description = "Drei rote Mondsicheln im Fächer."
+gifts = {
+"fan": 2.0,
+"fan_angle": 25.0
+}
+
+[sub_resource type="Resource" id="gu_blutguillotine"]
+script = ExtResource("1_hnfpr")
+id = &"blutguillotine"
+display_name = "Blutguillotine-Gu"
+family = &"blutmond"
+rank = 3
+rank_gift = "Hinrichtung, Blutspritzer am Aufschlag."
+description = "Die Sicheln fallen wie ein Fallbeil: Sterbende werden hingerichtet."
+gifts = {
+"execute": 0.6,
+"impact": [{
+"color": "#d0303a",
+"mult": 0.4,
+"radius": 2.0,
+"status": "blutung",
+"t": "circle",
+"tags": ["blut"]
+}]
+}
+
+[sub_resource type="Resource" id="gu_blutrausch"]
+script = ExtResource("1_hnfpr")
+id = &"blutrausch"
+display_name = "Blutrausch-Gu"
+family = &"blutmond"
+rank = 4
+rank_gift = "20 % Lebensraub, 6 s +35 % Schaden."
+description = "Fremdes Blut wird zu eigener Kraft: Lebensraub und Raserei."
+lore = "Verwandelt fremdes Blut in eigene Lebenskraft."
+gifts = {
+"extra": [{
+"color": "#d0303a",
+"damage": 1.35,
+"key": "blutrausch",
+"speed": 1.15,
+"t": "buff",
+"time": 6.0
+}],
+"lifesteal": 0.2
+}
+
+[sub_resource type="Resource" id="gu_blutrasend"]
+script = ExtResource("1_hnfpr")
+id = &"blutrasend"
+display_name = "Blutraserei-Gu"
+family = &"blutmond"
+rank = 5
+rank_gift = "Sieben Sicheln, 3 s Rückprall."
+description = "Sieben Blutsicheln und ein Blutvorhang, der Geschosse zurückwirft."
+lore = "Wer sein eigenes Blut opfert, schlägt umso härter zu."
+gifts = {
+"extra": [{
+"color": "#d0303a",
+"damage": 1.35,
+"key": "blutrausch",
+"speed": 1.15,
+"t": "buff",
+"time": 6.0
+}, {
+"t": "reflect",
+"time": 3.0
+}],
+"fan": 4.0,
+"fan_angle": 60.0
+}
+
+[resource]
+script = ExtResource("2_pagip")
+id = &"blutmond"
+display_name = "Blutmond"
+path = &"blut"
+role = "Blutklingen, Lebensraub"
+form = &"geschoss"
+tags = Array[StringName]([&"blut", &"schnitt"])
+status = &"blutung"
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 1.8,
+&"ess": 0.0,
+&"hp_kosten": 2.0,
+&"reichweite": 13.0,
+&"schaden": 15.0,
+&"stapel": 1.0
+})
+members = Array[ExtResource("1_hnfpr")]([SubResource("gu_blutstropfen"), SubResource("gu_blutmond"), SubResource("gu_blutguillotine"), SubResource("gu_blutrausch"), SubResource("gu_blutrasend")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"knochenmehl": 2
+},
+3: {
+&"blutkoralle": 1,
+&"knochenmehl": 3
+},
+4: {
+&"blutkoralle": 3
+},
+5: {
+&"blutkoralle": 5,
+&"heldenherz": 1
+}
+})
+world_effect = "Blut öffnet alte Blutsiegel."

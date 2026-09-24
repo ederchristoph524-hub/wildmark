@@ -1,0 +1,153 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://cbsbac7m8bxgf"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_a6pnf"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_b4qdg"]
+
+[sub_resource type="Resource" id="gu_aurahuelle"]
+script = ExtResource("1_a6pnf")
+id = &"aurahuelle"
+display_name = "Aura-Verschleierungs-Gu"
+family = &"tarnung"
+description = "Du verschwindest aus der Wahrnehmung der Bestien; dein erster Schlag trifft verstärkt."
+lore = "Ein Gras-Gu, das Aura und Kultivierungsstufe verschleiert."
+
+[sub_resource type="Resource" id="gu_tarnschuppe"]
+script = ExtResource("1_a6pnf")
+id = &"tarnschuppe"
+display_name = "Tarnschuppen-Gu"
+family = &"tarnung"
+rank = 2
+rank_gift = "+2 s, +30 % Tempo."
+description = "Schuppen nehmen das Licht der Umgebung an – länger unsichtbar und schneller."
+lore = "Schuppen, die das Licht der Umgebung annehmen."
+gifts = {
+"extra": [{
+"color": "#8090a0",
+"damage": 1.0,
+"key": "tarnung",
+"speed": 1.3,
+"t": "buff",
+"time": 6.0
+}],
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_nebelschleier"]
+script = ExtResource("1_a6pnf")
+id = &"nebelschleier"
+display_name = "Nebelschleier-Gu"
+family = &"tarnung"
+rank = 3
+rank_gift = "Blendet alle im Umkreis 5 für 3 s."
+description = "Ein Nebel blendet alle Gegner um dich."
+gifts = {
+"extra": [{
+"color": "#8090a0",
+"damage": 1.0,
+"key": "tarnung",
+"speed": 1.3,
+"t": "buff",
+"time": 6.0
+}, {
+"blind": 3.0,
+"color": "#aab4c8",
+"mult": 0.0,
+"radius": 5.0,
+"t": "circle"
+}],
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_sternennebel"]
+script = ExtResource("1_a6pnf")
+id = &"sternennebel"
+display_name = "Sternnebel-Tarn-Gu"
+family = &"tarnung"
+rank = 4
+rank_gift = "Nebelzone folgt dir 6 s."
+description = "Sternennebel folgt dir, blendet und verlangsamt jeden, der dir nahe kommt."
+gifts = {
+"extra": [{
+"color": "#8090a0",
+"damage": 1.0,
+"key": "tarnung",
+"speed": 1.3,
+"t": "buff",
+"time": 8.0
+}, {
+"blind": 1.0,
+"color": "#8090c0",
+"follow": true,
+"mult": 0.0,
+"radius": 4.5,
+"slow": 0.35,
+"slow_time": 1.0,
+"t": "zone",
+"time": 6.0
+}],
+"time_add": 4.0
+}
+
+[sub_resource type="Resource" id="gu_auraverbergen"]
+script = ExtResource("1_a6pnf")
+id = &"auraverbergen"
+display_name = "Aura-Verbergungs-Gu"
+family = &"tarnung"
+rank = 5
+rank_gift = "+6 s, 8 s +50 % Schaden und Tempo."
+description = "Deine Aura erlischt völlig; aus dem Nichts schlägst du mit doppelter Wucht zu."
+lore = "Löscht die eigene Aura vollständig aus."
+gifts = {
+"extra": [{
+"color": "#8090a0",
+"damage": 1.5,
+"key": "tarnung",
+"speed": 1.3,
+"t": "buff",
+"time": 8.0
+}, {
+"blind": 1.0,
+"color": "#8090c0",
+"follow": true,
+"mult": 0.0,
+"radius": 4.5,
+"slow": 0.35,
+"slow_time": 1.0,
+"t": "zone",
+"time": 6.0
+}],
+"time_add": 6.0
+}
+
+[resource]
+script = ExtResource("2_b4qdg")
+id = &"tarnung"
+display_name = "Tarnung"
+path = &"verbergen"
+role = "Tarnung, Hinterhalt"
+form = &"tarnung"
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 14.0,
+&"dauer": 4.0,
+&"ess": 6.0
+})
+members = Array[ExtResource("1_a6pnf")]([SubResource("gu_aurahuelle"), SubResource("gu_tarnschuppe"), SubResource("gu_nebelschleier"), SubResource("gu_sternennebel"), SubResource("gu_auraverbergen")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"schlangenhaut": 2
+},
+3: {
+&"schlangenhaut": 4,
+&"seelenglas": 1
+},
+4: {
+&"geisterseide": 2
+},
+5: {
+&"geisterseide": 3,
+&"urkristall": 1
+}
+})
+world_effect = "Getarnt schleichst du an Wächtern vorbei."

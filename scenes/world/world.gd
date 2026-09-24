@@ -38,6 +38,8 @@ func _ready() -> void:
 	biome = DataRegistry.biome(area.biome)
 	_rng.seed = SEED + area.terrain_seed
 	_build_terrain()
+	if terrain.has_sea():
+		WaterSurface.sea(self, biome.sea_level, biome.water)
 	add_child(Vegetation.new(terrain, clearings, biome))
 	_build_bounds()
 	entities = Node3D.new()

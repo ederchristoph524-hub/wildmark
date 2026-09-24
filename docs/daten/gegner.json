@@ -15,7 +15,8 @@
      0.12
     ]
    ],
-   "shape": "slime"
+   "shape": "slime",
+   "rang": 1
   },
   "giftschleim": {
    "n": "Giftschleim",
@@ -33,7 +34,8 @@
     ]
    ],
    "shape": "slime",
-   "poison": 1
+   "poison": 1,
+   "rang": 1
   },
   "ratte": {
    "n": "Ratte",
@@ -50,7 +52,8 @@
      0.4
     ]
    ],
-   "shape": "quad"
+   "shape": "quad",
+   "rang": 1
   },
   "pilz": {
    "n": "Knallpilz",
@@ -68,7 +71,8 @@
     ]
    ],
    "shape": "pilz",
-   "beh": "explode"
+   "beh": "explode",
+   "rang": 1
   },
   "wolf": {
    "n": "Wolf",
@@ -89,7 +93,8 @@
      0.6
     ]
    ],
-   "shape": "quad"
+   "shape": "quad",
+   "rang": 1
   },
   "eber": {
    "n": "Wildschwein",
@@ -111,7 +116,8 @@
     ]
    ],
    "shape": "quad",
-   "beh": "charge"
+   "beh": "charge",
+   "rang": 1
   },
   "spinne": {
    "n": "Riesenspinne",
@@ -130,7 +136,8 @@
    ],
    "shape": "spider",
    "beh": "spawn",
-   "minion": "spinnling"
+   "minion": "spinnling",
+   "rang": 1
   },
   "spinnling": {
    "n": "Spinnling",
@@ -143,7 +150,8 @@
    "z": 9,
    "drop": [],
    "shape": "spider",
-   "nospawn": 1
+   "nospawn": 1,
+   "rang": 1
   },
   "schuetze": {
    "n": "Skelettschütze",
@@ -166,7 +174,8 @@
    ],
    "shape": "skel",
    "beh": "ranged",
-   "rng": 6
+   "rng": 6,
+   "rang": 2
   },
   "bat": {
    "n": "Fledermaus",
@@ -185,7 +194,8 @@
    ],
    "shape": "bat",
    "night": 1,
-   "fly": 1
+   "fly": 1,
+   "rang": 1
   },
   "golem": {
    "n": "Golem",
@@ -210,7 +220,8 @@
      0.7
     ]
    ],
-   "shape": "golem"
+   "shape": "golem",
+   "rang": 2
   },
   "kaefer": {
    "n": "Panzerkäfer",
@@ -232,7 +243,8 @@
     ]
    ],
    "shape": "beetle",
-   "beh": "armor"
+   "beh": "armor",
+   "rang": 2
   },
   "schamane": {
    "n": "Schamane",
@@ -251,7 +263,8 @@
    ],
    "shape": "skel",
    "beh": "heal",
-   "rng": 5
+   "rng": 5,
+   "rang": 2
   },
   "schatten": {
    "n": "Schatten",
@@ -270,7 +283,8 @@
    ],
    "shape": "ghost",
    "beh": "teleport",
-   "night": 1
+   "night": 1,
+   "rang": 3
   },
   "troll": {
    "n": "Troll",
@@ -295,7 +309,8 @@
      0.6
     ]
    ],
-   "shape": "golem"
+   "shape": "golem",
+   "rang": 3
   },
   "imp": {
    "n": "Feuerteufel",
@@ -317,7 +332,8 @@
     ]
    ],
    "shape": "imp",
-   "burn": 1
+   "burn": 1,
+   "rang": 4
   },
   "lavaschnecke": {
    "n": "Lavaschnecke",
@@ -340,7 +356,8 @@
    ],
    "shape": "slime",
    "burn": 1,
-   "beh": "armor"
+   "beh": "armor",
+   "rang": 4
   },
   "drachenling": {
    "n": "Drachenling",
@@ -361,7 +378,8 @@
    "beh": "ranged",
    "rng": 5,
    "fly": 1,
-   "burn": 1
+   "burn": 1,
+   "rang": 4
   },
   "obsidian": {
    "n": "Obsidiangolem",
@@ -387,7 +405,8 @@
     ]
    ],
    "shape": "golem",
-   "beh": "armor"
+   "beh": "armor",
+   "rang": 4
   },
   "seuche": {
    "n": "Seuchenschamane",
@@ -407,7 +426,8 @@
    "shape": "skel",
    "beh": "heal",
    "rng": 5,
-   "poison": 1
+   "poison": 1,
+   "rang": 4
   },
   "waldgeist": {
    "n": "Waldgeist",
@@ -439,7 +459,8 @@
    "shape": "boss",
    "boss": 1,
    "beh": "boss",
-   "minion": "spinnling"
+   "minion": "spinnling",
+   "rang": 2
   },
   "steinkoenig": {
    "n": "Steinkönig",
@@ -475,7 +496,8 @@
    "shape": "boss",
    "boss": 1,
    "beh": "boss",
-   "armor": 1
+   "armor": 1,
+   "rang": 3
   },
   "seekoenig": {
    "n": "Seekönig",
@@ -507,7 +529,8 @@
    "shape": "boss",
    "boss": 1,
    "beh": "boss",
-   "minion": "bat"
+   "minion": "bat",
+   "rang": 5
   },
   "steppenfuerst": {
    "n": "Steppenfürst",
@@ -539,7 +562,8 @@
    "shape": "boss",
    "boss": 1,
    "beh": "boss",
-   "minion": "spinnling"
+   "minion": "spinnling",
+   "rang": 4
   },
   "drache": {
    "n": "Lavadrache",
@@ -580,7 +604,655 @@
    "boss": 1,
    "beh": "boss",
    "burn": 1,
-   "fly": 1
+   "fly": 1,
+   "rang": 5
+  },
+  "steinaffe": {
+   "n": "Steinaffe",
+   "hp": 26,
+   "dmg": 8,
+   "spd": 3.2,
+   "xp": 18,
+   "r": 0.35,
+   "c": "#8a8578",
+   "z": 1,
+   "rang": 1,
+   "drop": [
+    [
+     "stein",
+     0.6
+    ],
+    [
+     "fell",
+     0.3
+    ]
+   ],
+   "shape": "monkey",
+   "beh": "ranged",
+   "rng": 5
+  },
+  "bambusnatter": {
+   "n": "Bambusnatter",
+   "hp": 20,
+   "dmg": 7,
+   "spd": 3.0,
+   "xp": 14,
+   "r": 0.3,
+   "c": "#5f8a3a",
+   "z": 0,
+   "rang": 1,
+   "drop": [
+    [
+     "schlangenhaut",
+     0.25
+    ],
+    [
+     "giftdrüse",
+     0.1
+    ]
+   ],
+   "shape": "snake",
+   "poison": 1
+  },
+  "pfeilhase": {
+   "n": "Pfeilhase",
+   "hp": 10,
+   "dmg": 4,
+   "spd": 5.0,
+   "xp": 6,
+   "r": 0.22,
+   "c": "#b09878",
+   "z": 0,
+   "rang": 1,
+   "drop": [
+    [
+     "fleisch",
+     0.7
+    ],
+    [
+     "fell",
+     0.3
+    ]
+   ],
+   "shape": "quad"
+  },
+  "blitzwolf": {
+   "n": "Blitzwolf",
+   "hp": 62,
+   "dmg": 12,
+   "spd": 4.6,
+   "xp": 40,
+   "r": 0.42,
+   "c": "#7f93b0",
+   "z": 2,
+   "rang": 2,
+   "drop": [
+    [
+     "fell",
+     0.7
+    ],
+    [
+     "fleisch",
+     0.8
+    ],
+    [
+     "wolfsgeist",
+     0.05
+    ]
+   ],
+   "shape": "quad",
+   "faehigkeit": [
+    {
+     "t": "line",
+     "length": 6.0,
+     "width": 1.6,
+     "mult": 1.0,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "dash": true,
+     "color": "#8ad0ff"
+    }
+   ],
+   "f_reichweite": 7,
+   "f_cd": 5
+  },
+  "jadeaffe": {
+   "n": "Jadeaugen-Steinaffe",
+   "hp": 70,
+   "dmg": 13,
+   "spd": 3.4,
+   "xp": 45,
+   "r": 0.4,
+   "c": "#7a8a70",
+   "z": 2,
+   "rang": 2,
+   "drop": [
+    [
+     "stein",
+     1
+    ],
+    [
+     "erdkern",
+     0.2
+    ]
+   ],
+   "shape": "monkey",
+   "beh": "ranged",
+   "rng": 6
+  },
+  "bergbaer": {
+   "n": "Bergbär",
+   "hp": 135,
+   "dmg": 20,
+   "spd": 2.6,
+   "xp": 70,
+   "r": 0.6,
+   "c": "#4a3a2a",
+   "z": 2,
+   "rang": 2,
+   "drop": [
+    [
+     "baerengalle",
+     0.4
+    ],
+    [
+     "fell",
+     1
+    ],
+    [
+     "fleisch",
+     1
+    ]
+   ],
+   "shape": "bear",
+   "faehigkeit": [
+    {
+     "t": "circle",
+     "radius": 3.0,
+     "mult": 1.2,
+     "tags": [
+      "wucht"
+     ],
+     "knockback": 1.5,
+     "color": "#c0a080"
+    }
+   ],
+   "f_reichweite": 3,
+   "f_cd": 7
+  },
+  "schwarzeber_bestie": {
+   "n": "Schwarzborsten-Eber",
+   "hp": 95,
+   "dmg": 18,
+   "spd": 2.8,
+   "xp": 55,
+   "r": 0.5,
+   "c": "#2a2420",
+   "z": 2,
+   "rang": 2,
+   "drop": [
+    [
+     "fleisch",
+     1
+    ],
+    [
+     "wildfell",
+     0.5
+    ]
+   ],
+   "shape": "quad",
+   "beh": "charge"
+  },
+  "elektrowolf": {
+   "n": "Irrer Elektrowolf",
+   "hp": 230,
+   "dmg": 26,
+   "spd": 5.0,
+   "xp": 140,
+   "r": 0.5,
+   "c": "#5a7aa8",
+   "z": 3,
+   "rang": 3,
+   "drop": [
+    [
+     "wolfsgeist",
+     0.5
+    ],
+    [
+     "fell",
+     1
+    ]
+   ],
+   "shape": "quad",
+   "faehigkeit": [
+    {
+     "t": "chain",
+     "jumps": 2,
+     "radius": 6.0,
+     "mult": 0.9,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "color": "#8ad0ff"
+    }
+   ],
+   "f_reichweite": 9,
+   "f_cd": 5
+  },
+  "riesenkrokodil": {
+   "n": "Riesenkrokodil",
+   "hp": 340,
+   "dmg": 30,
+   "spd": 2.2,
+   "xp": 170,
+   "r": 0.7,
+   "c": "#4a5a3a",
+   "z": 3,
+   "rang": 3,
+   "drop": [
+    [
+     "blutkoralle",
+     0.2
+    ],
+    [
+     "fell",
+     1
+    ],
+    [
+     "fleisch",
+     1
+    ]
+   ],
+   "shape": "croc",
+   "beh": "armor"
+  },
+  "riesenskorpion": {
+   "n": "Riesenskorpion",
+   "hp": 190,
+   "dmg": 22,
+   "spd": 3.0,
+   "xp": 130,
+   "r": 0.55,
+   "c": "#3a2a1a",
+   "z": 3,
+   "rang": 3,
+   "drop": [
+    [
+     "giftdrüse",
+     0.7
+    ]
+   ],
+   "shape": "scorpion",
+   "poison": 1,
+   "faehigkeit": [
+    {
+     "t": "projectiles",
+     "count": 3,
+     "spread": 30.0,
+     "mult": 0.6,
+     "tags": [
+      "gift"
+     ],
+     "status": "gift",
+     "stacks": 2,
+     "range": 10.0,
+     "speed": 12.0,
+     "color": "#9b3bff"
+    }
+   ],
+   "f_reichweite": 9,
+   "f_cd": 6
+  },
+  "sturmadler": {
+   "n": "Sturmadler",
+   "hp": 150,
+   "dmg": 20,
+   "spd": 5.0,
+   "xp": 120,
+   "r": 0.45,
+   "c": "#9a8a70",
+   "z": 3,
+   "rang": 3,
+   "drop": [
+    [
+     "windfeder",
+     0.8
+    ]
+   ],
+   "shape": "bird",
+   "fly": 1,
+   "faehigkeit": [
+    {
+     "t": "cone",
+     "reach": 7.0,
+     "angle": 50.0,
+     "mult": 0.9,
+     "tags": [
+      "wind",
+      "schnitt"
+     ],
+     "knockback": 1.2,
+     "color": "#c8f0ff"
+    }
+   ],
+   "f_reichweite": 7,
+   "f_cd": 6
+  },
+  "sandwurm": {
+   "n": "Sandwurm",
+   "hp": 520,
+   "dmg": 40,
+   "spd": 2.4,
+   "xp": 260,
+   "r": 0.8,
+   "c": "#b09060",
+   "z": 4,
+   "rang": 4,
+   "drop": [
+    [
+     "wuestenrose",
+     0.3
+    ],
+    [
+     "stein",
+     1
+    ]
+   ],
+   "shape": "snake",
+   "beh": "armor",
+   "faehigkeit": [
+    {
+     "t": "circle",
+     "radius": 4.0,
+     "mult": 1.0,
+     "tags": [
+      "erde",
+      "wucht"
+     ],
+     "status": "verwurzelt",
+     "color": "#c0a070"
+    }
+   ],
+   "f_reichweite": 4,
+   "f_cd": 8
+  },
+  "wuestenskorpion": {
+   "n": "Wüstenskorpion",
+   "hp": 380,
+   "dmg": 36,
+   "spd": 3.2,
+   "xp": 230,
+   "r": 0.6,
+   "c": "#a07040",
+   "z": 4,
+   "rang": 4,
+   "drop": [
+    [
+     "giftdrüse",
+     1
+    ],
+    [
+     "wuestenrose",
+     0.1
+    ]
+   ],
+   "shape": "scorpion",
+   "poison": 1,
+   "faehigkeit": [
+    {
+     "t": "zone",
+     "at": "target",
+     "radius": 3.0,
+     "time": 4.0,
+     "mult": 0.25,
+     "tags": [
+      "gift"
+     ],
+     "status": "gift",
+     "stacks": 2,
+     "color": "#9b3bff"
+    }
+   ],
+   "f_reichweite": 9,
+   "f_cd": 7
+  },
+  "feuerfuchs": {
+   "n": "Feuerfuchs",
+   "hp": 300,
+   "dmg": 32,
+   "spd": 4.8,
+   "xp": 210,
+   "r": 0.45,
+   "c": "#e0602a",
+   "z": 4,
+   "rang": 4,
+   "drop": [
+    [
+     "glutasche",
+     1
+    ],
+    [
+     "drachenschuppe",
+     0.08
+    ]
+   ],
+   "shape": "quad",
+   "burn": 1,
+   "faehigkeit": [
+    {
+     "t": "projectiles",
+     "count": 3,
+     "spread": 40.0,
+     "mult": 0.8,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "range": 12.0,
+     "color": "#ff7a3a"
+    }
+   ],
+   "f_reichweite": 10,
+   "f_cd": 5
+  },
+  "seeschlange": {
+   "n": "Seeschlange",
+   "hp": 950,
+   "dmg": 60,
+   "spd": 3.2,
+   "xp": 480,
+   "r": 0.9,
+   "c": "#2a6a8a",
+   "z": 5,
+   "rang": 5,
+   "drop": [
+    [
+     "tiefseeperle",
+     0.25
+    ],
+    [
+     "schuppe",
+     1
+    ]
+   ],
+   "shape": "snake",
+   "faehigkeit": [
+    {
+     "t": "line",
+     "length": 14.0,
+     "width": 3.0,
+     "mult": 1.1,
+     "tags": [
+      "wasser",
+      "wucht"
+     ],
+     "status": "nass",
+     "knockback": 1.4,
+     "color": "#4a9ad0"
+    }
+   ],
+   "f_reichweite": 12,
+   "f_cd": 6
+  },
+  "riesenkrabbe": {
+   "n": "Riesenkrabbe",
+   "hp": 1150,
+   "dmg": 55,
+   "spd": 2.0,
+   "xp": 520,
+   "r": 0.95,
+   "c": "#b04a3a",
+   "z": 5,
+   "rang": 5,
+   "drop": [
+    [
+     "tiefseeperle",
+     0.2
+    ],
+    [
+     "schuppe",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ]
+   ],
+   "shape": "spider",
+   "beh": "armor"
+  },
+  "donnerkronenwolf": {
+   "n": "Donnerkronen-Wolf",
+   "hp": 1400,
+   "dmg": 70,
+   "spd": 5.2,
+   "xp": 700,
+   "r": 0.8,
+   "c": "#c0c8e0",
+   "z": 5,
+   "rang": 5,
+   "drop": [
+    [
+     "donnerkrone",
+     0.5
+    ],
+    [
+     "wolfsgeist",
+     1
+    ],
+    [
+     "heldenherz",
+     0.1
+    ]
+   ],
+   "shape": "quad",
+   "faehigkeit": [
+    {
+     "t": "chain",
+     "jumps": 4,
+     "radius": 8.0,
+     "mult": 1.0,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "stacks": 2,
+     "color": "#dfe8ff"
+    },
+    {
+     "t": "summon",
+     "enemy": "blitzwolf",
+     "count": 2
+    }
+   ],
+   "f_reichweite": 10,
+   "f_cd": 8
+  },
+  "weisser_tiger": {
+   "n": "Weißer Tiger",
+   "hp": 1250,
+   "dmg": 75,
+   "spd": 5.0,
+   "xp": 650,
+   "r": 0.75,
+   "c": "#e8e4dc",
+   "z": 5,
+   "rang": 5,
+   "drop": [
+    [
+     "heldenherz",
+     0.15
+    ],
+    [
+     "fell",
+     1
+    ],
+    [
+     "urkristall",
+     0.1
+    ]
+   ],
+   "shape": "quad",
+   "beh": "charge"
+  },
+  "geisterwolf": {
+   "n": "Geisterwolf",
+   "hp": 55,
+   "dmg": 10,
+   "spd": 4.4,
+   "xp": 0,
+   "r": 0.4,
+   "c": "#b89ae8",
+   "z": 9,
+   "rang": 2,
+   "drop": [],
+   "shape": "quad",
+   "nospawn": 1
+  },
+  "wasserbild": {
+   "n": "Wasserbild",
+   "hp": 70,
+   "dmg": 4,
+   "spd": 3.4,
+   "xp": 0,
+   "r": 0.4,
+   "c": "#6ab0e0",
+   "z": 9,
+   "rang": 1,
+   "drop": [],
+   "shape": "skel",
+   "nospawn": 1
+  },
+  "wasserkrieger": {
+   "n": "Wasserkrieger",
+   "hp": 160,
+   "dmg": 16,
+   "spd": 3.6,
+   "xp": 0,
+   "r": 0.45,
+   "c": "#4a9ad0",
+   "z": 9,
+   "rang": 3,
+   "drop": [],
+   "shape": "skel",
+   "nospawn": 1
+  },
+  "meeresgeist": {
+   "n": "Meeresgeist",
+   "hp": 420,
+   "dmg": 38,
+   "spd": 3.4,
+   "xp": 0,
+   "r": 0.6,
+   "c": "#3a8ac0",
+   "z": 9,
+   "rang": 5,
+   "drop": [],
+   "shape": "ghost",
+   "nospawn": 1
   }
  },
  "VARIANTS": {

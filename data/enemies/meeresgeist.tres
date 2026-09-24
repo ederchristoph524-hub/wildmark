@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bc0g36tiaptma"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_3wmnl"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_8iurd"]
+
+[resource]
+script = ExtResource("2_8iurd")
+id = &"meeresgeist"
+display_name = "Meeresgeist"
+max_hp = 420
+damage = 38
+speed = 3.4
+radius = 0.6
+color = Color(0.22745098, 0.5411765, 0.7529412, 1)
+zone = 9
+rank = 5
+shape = &"ghost"
+no_spawn = true

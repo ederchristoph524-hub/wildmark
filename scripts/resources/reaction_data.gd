@@ -17,3 +17,5 @@ const DERIVED_CONDITIONS: Array[StringName] = [&"eingefroren"]
 @export_multiline var effect_text: String = ""
 ## Zustände, die durch die Reaktion enden.
 @export var removes: Array[StringName] = []
+## Parameter der Wirkung (gu_system.json → reaktionen[].regel): mult, freeze, apply, stun, spread_status …
+@export var rule: Dictionary = {}

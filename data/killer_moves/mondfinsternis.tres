@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c0wedweegt7gv"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_q11gk"]
+
+[resource]
+script = ExtResource("1_q11gk")
+id = &"mondfinsternis"
+display_name = "Mondfinsternis"
+family_a = &"mondlicht"
+family_b = &"schritt"
+channel_time = 0.8
+damage_mult = 4.2
+description = "Drei Schritte durch die Dunkelheit, jeder hinterlässt einen Mondsturm."
+hint = "Wenn der Mond verlischt …"
+min_rank = 5
+steps = [{
+"color": "#b0c0ff",
+"dash": true,
+"length": 12.0,
+"mult": 0.8,
+"t": "line",
+"tags": ["schnitt", "licht"],
+"width": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9e6ff",
+"count": 11.0,
+"homing": true,
+"mult": 0.6,
+"range": 18.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["schnitt", "licht"]
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"blind": 2.0,
+"color": "#fff9e0",
+"mult": 1.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["licht"]
+}],
+"time": 0.8
+}]

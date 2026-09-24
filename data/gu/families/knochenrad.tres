@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://do53v2hawf61j"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_il2c3"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_aeu0k"]
+
+[sub_resource type="Resource" id="gu_knochensplitter"]
+script = ExtResource("1_il2c3")
+id = &"knochensplitter"
+display_name = "Knochensplitter-Gu"
+family = &"knochenrad"
+description = "Zwei Knochensplitter kreisen um dich und schützen etwas."
+gifts = {
+"step": {
+"reduction": 0.12
+}
+}
+
+[sub_resource type="Resource" id="gu_knochenring"]
+script = ExtResource("1_il2c3")
+id = &"knochenring"
+display_name = "Knochenring-Gu"
+family = &"knochenrad"
+rank = 2
+rank_gift = "Drei Knochen, 20 % Schutz."
+description = "Ein Ring aus drei Knochen, 20 % Schutz."
+gifts = {
+"count_add": 1.0,
+"step": {
+"reduction": 0.2
+}
+}
+
+[sub_resource type="Resource" id="gu_knochenschild"]
+script = ExtResource("1_il2c3")
+id = &"knochenschild"
+display_name = "Knochenschild-Gu"
+family = &"knochenrad"
+rank = 3
+rank_gift = "30 % Schutz, +2 s."
+description = "Drei fliegende Knochenschilde: 30 % Schutz, dicker und länger."
+lore = "Drei fliegende Schilde aus Knochen. Fang Yuans Wahl im Bai-Gu-Erbe."
+gifts = {
+"count_add": 1.0,
+"step": {
+"reduction": 0.3,
+"size": 0.5
+},
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_kampfknochenrad"]
+script = ExtResource("1_il2c3")
+id = &"kampfknochenrad"
+display_name = "Kampfknochenrad-Gu"
+family = &"knochenrad"
+rank = 4
+rank_gift = "Größer, schneller, 1,6-facher Schaden."
+description = "Rasende Knochenräder mit weitem Radius und hartem Schnitt."
+gifts = {
+"count_add": 1.0,
+"step": {
+"mult": 1.6,
+"radius": 2.6,
+"reduction": 0.3,
+"size": 0.6,
+"speed": 1.3
+},
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_weissknochenrad"]
+script = ExtResource("1_il2c3")
+id = &"weissknochenrad"
+display_name = "Weißes-Knochenrad-Gu"
+family = &"knochenrad"
+rank = 5
+rank_gift = "Fünf Räder, 35 % Schutz, sechs Knochengeschosse."
+description = "Das große weiße Knochenrad: Schutz und Angriff zugleich, dazu ein Knochenhagel."
+gifts = {
+"count_add": 3.0,
+"extra": [{
+"color": "#f2ead8",
+"count": 6.0,
+"mult": 1.0,
+"pierce": 2.0,
+"range": 12.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["durchbohren", "wucht"]
+}],
+"step": {
+"mult": 1.8,
+"radius": 2.8,
+"reduction": 0.35,
+"size": 0.65,
+"speed": 1.3
+},
+"time_add": 3.0
+}
+
+[resource]
+script = ExtResource("2_aeu0k")
+id = &"knochenrad"
+display_name = "Knochenrad"
+path = &"knochen"
+role = "Schutz und Nahkampf"
+form = &"umkreisen"
+tags = Array[StringName]([&"durchbohren"])
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"anzahl": 2.0,
+&"cd": 10.0,
+&"dauer": 5.0,
+&"ess": 6.0,
+&"radius": 1.7,
+&"schaden": 7.0,
+&"takt": 0.5,
+&"tempo": 0.9
+})
+members = Array[ExtResource("1_il2c3")]([SubResource("gu_knochensplitter"), SubResource("gu_knochenring"), SubResource("gu_knochenschild"), SubResource("gu_kampfknochenrad"), SubResource("gu_weissknochenrad")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"knochenmehl": 3
+},
+3: {
+&"jadeader": 1,
+&"knochenmehl": 5
+},
+4: {
+&"blutkoralle": 2,
+&"klingenstahl": 2
+},
+5: {
+&"blutkoralle": 4,
+&"heldenherz": 1
+}
+})
+world_effect = "Knochenräder zerschlagen morsche Barrikaden."

@@ -1,0 +1,152 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://dsj8uso712t5g"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_l1ekw"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_87cl0"]
+
+[sub_resource type="Resource" id="gu_knallsamen"]
+script = ExtResource("1_l1ekw")
+id = &"knallsamen"
+display_name = "Knallsamen-Gu"
+family = &"donnerknolle"
+description = "Legt einen Knallsamen, der explodiert, sobald eine Bestie darauf tritt."
+
+[sub_resource type="Resource" id="gu_donnerknolle"]
+script = ExtResource("1_l1ekw")
+id = &"donnerknolle"
+display_name = "Verkohlte-Donnerknolle-Gu"
+family = &"donnerknolle"
+rank = 2
+rank_gift = "Drei Fallen, Blitz und Ladung."
+description = "Drei verkohlte Knollen im Kreis, geladen mit Blitz."
+gifts = {
+"count_add": 2.0,
+"step": {
+"status": "ladung",
+"tags": ["feuer", "blitz"]
+}
+}
+
+[sub_resource type="Resource" id="gu_kettenknolle"]
+script = ExtResource("1_l1ekw")
+id = &"kettenknolle"
+display_name = "Kettenknollen-Gu"
+family = &"donnerknolle"
+rank = 3
+rank_gift = "Kettenblitz nach der Explosion."
+description = "Die Explosion springt als Blitz auf drei weitere Ziele."
+gifts = {
+"count_add": 2.0,
+"step": {
+"status": "ladung",
+"tags": ["feuer", "blitz"]
+},
+"then": [{
+"color": "#8ad0ff",
+"jumps": 3.0,
+"mult": 0.6,
+"radius": 6.0,
+"t": "chain",
+"tags": ["blitz"]
+}]
+}
+
+[sub_resource type="Resource" id="gu_bebenknolle"]
+script = ExtResource("1_l1ekw")
+id = &"bebenknolle"
+display_name = "Bebenknollen-Gu"
+family = &"donnerknolle"
+rank = 4
+rank_gift = "Vier Fallen, Radius 3,5, betäubt 1 s."
+description = "Vier Knollen, deren Beben betäubt."
+gifts = {
+"count_add": 3.0,
+"step": {
+"radius": 3.5,
+"status": "ladung",
+"stun": 1.0,
+"tags": ["feuer", "blitz"]
+},
+"then": [{
+"color": "#8ad0ff",
+"jumps": 3.0,
+"mult": 0.6,
+"radius": 6.0,
+"t": "chain",
+"tags": ["blitz"]
+}]
+}
+
+[sub_resource type="Resource" id="gu_himmelsfeuerknolle"]
+script = ExtResource("1_l1ekw")
+id = &"himmelsfeuerknolle"
+display_name = "Himmelsfeuer-Knollen-Gu"
+family = &"donnerknolle"
+rank = 5
+rank_gift = "Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele."
+description = "Sechs Knollen, deren Feuer liegen bleibt und deren Blitz weit springt."
+gifts = {
+"count_add": 5.0,
+"step": {
+"radius": 3.5,
+"spacing": 3.2,
+"status": "ladung",
+"stun": 1.0,
+"tags": ["feuer", "blitz"]
+},
+"then": [{
+"color": "#ff7a3a",
+"mult": 0.3,
+"radius": 3.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 4.0
+}, {
+"color": "#8ad0ff",
+"jumps": 5.0,
+"mult": 0.7,
+"radius": 7.0,
+"t": "chain",
+"tags": ["blitz"]
+}]
+}
+
+[resource]
+script = ExtResource("2_87cl0")
+id = &"donnerknolle"
+display_name = "Donnerknolle"
+path = &"blitz"
+role = "Fallen"
+form = &"falle"
+tags = Array[StringName]([&"feuer", &"wucht"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"anzahl": 1.0,
+&"ausloeser": 1.7,
+&"cd": 5.0,
+&"dauer": 25.0,
+&"ess": 5.0,
+&"radius": 2.6,
+&"reichweite": 6.0,
+&"schaden": 26.0
+})
+members = Array[ExtResource("1_l1ekw")]([SubResource("gu_knallsamen"), SubResource("gu_donnerknolle"), SubResource("gu_kettenknolle"), SubResource("gu_bebenknolle"), SubResource("gu_himmelsfeuerknolle")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 2,
+&"glutasche": 3
+},
+3: {
+&"donnerholz": 2
+},
+4: {
+&"donnerholz": 4,
+&"erdkern": 2
+},
+5: {
+&"donnerholz": 5,
+&"donnerkrone": 1
+}
+})
+world_effect = "Knollen sprengen Felsbrocken und schwere Tore."

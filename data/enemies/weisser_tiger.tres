@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dtewgngwtvbfe"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_n5eh0"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_pukkn"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_n5eh0")
+item = &"heldenherz"
+chance = 0.15
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_n5eh0")
+item = &"fell"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_n5eh0")
+item = &"urkristall"
+chance = 0.1
+
+[resource]
+script = ExtResource("2_pukkn")
+id = &"weisser_tiger"
+display_name = "Weißer Tiger"
+max_hp = 1250
+damage = 75
+speed = 5.0
+xp = 650
+radius = 0.75
+color = Color(0.9098039, 0.89411765, 0.8627451, 1)
+zone = 5
+rank = 5
+drops = Array[ExtResource("1_n5eh0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+shape = &"quad"
+behavior = &"charge"

@@ -21,15 +21,12 @@ func _init() -> void:
 
 
 func _check_counts(registry: Node) -> void:
-	var expected: Dictionary[StringName, int] = {
-		&"families": 12, &"body": 4, &"support": 7, &"traits": 10, &"statuses": 6, &"reactions": 8,
-		&"killer_moves": 8, &"enemies": 25, &"items": 41, &"regions": 8, &"sects": 17, &"quests": 18,
-	}
+	var expected: Dictionary[StringName, int] = ExpectedCounts.compute()
 	for category: StringName in expected:
 		var actual: int = registry.call("count", category)
 		_check(actual == expected[category], "%s: %d statt %d" % [category, actual, expected[category]])
 	var all_gu: Array[GuData] = registry.call("all_gu")
-	_check(all_gu.size() == 36, "all_gu: %d statt 36" % all_gu.size())
+	_check(all_gu.size() == ExpectedCounts.members(), "all_gu: %d statt %d" % [all_gu.size(), ExpectedCounts.members()])
 
 
 func _check_lookups(registry: Node) -> void:

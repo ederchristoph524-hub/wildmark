@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://dwicrfd7ihdpb"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_jglr0"]
+
+[resource]
+script = ExtResource("1_jglr0")
+id = &"himmelsessenz"
+display_name = "Himmels-Essenz-Schatzlotus-Gu"
+rank = 4
+path = &"holz"
+effect_text = "Essenz-Regeneration ×1,8, Apertur +15 %"
+feed_item = &"gruenkraut"
+feed_amount = 4
+rules = {
+"cap_mult": 1.15,
+"regen_mult": 1.8
+}

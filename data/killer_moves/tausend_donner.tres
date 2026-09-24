@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d0cukjp7q80g7"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_sgj6e"]
+
+[resource]
+script = ExtResource("1_sgj6e")
+id = &"tausend_donner"
+display_name = "Tausend Donner"
+family_a = &"stroemung"
+family_b = &"blitz"
+channel_time = 1.4
+damage_mult = 4.8
+description = "Eine Sturmflut, dann tausend Donner: jeder Nasse wird mehrfach getroffen."
+hint = "Tausend Donner in einer Welle."
+min_rank = 5
+steps = [{
+"color": "#3a8ad0",
+"length": 18.0,
+"mult": 0.4,
+"status": "nass",
+"t": "line",
+"tags": ["wasser"],
+"width": 7.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#dfe8ff",
+"jumps": 8.0,
+"mult": 0.9,
+"radius": 9.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}],
+"time": 0.35
+}, {
+"t": "delay",
+"then": [{
+"color": "#dfe8ff",
+"jumps": 8.0,
+"mult": 0.9,
+"radius": 9.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}],
+"time": 0.7
+}]

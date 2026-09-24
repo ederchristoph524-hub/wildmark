@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://bb78gwdi03vmj"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_wveqk"]
+
+[resource]
+script = ExtResource("1_wveqk")
+id = &"essenzeisenknochen"
+display_name = "Essenz-Eisenknochen-Gu"
+rank = 5
+effects = Dictionary[StringName, float]({
+&"max_hp": 320.0,
+&"schaden_erlitten": -0.15
+})

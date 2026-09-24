@@ -42,6 +42,27 @@ func build(shape: StringName, body_color: Color, radius: float, flying: bool) ->
 		&"ghost":
 			_part(_cylinder(0.2, 0.7, 1.8), Vector3(0, 0.9, 0), Vector3.ONE, color)
 			_eyes(Vector3(0, 1.5, -0.35), 0.2)
+		&"snake":
+			_snake()
+		&"monkey":
+			_humanoid()
+			_part(_box(), Vector3(0, 0.75, 0.45), Vector3(0.08, 0.08, 0.8), color.darkened(0.2), Vector3(0.6, 0, 0))
+		&"bear":
+			_bear()
+		&"croc":
+			_croc()
+		&"scorpion":
+			_spider()
+			for i: int in 3:
+				_part(_sphere(0.2), Vector3(0, 0.75 + i * 0.25, 0.55 + i * 0.12), Vector3.ONE, color.darkened(0.1 * i))
+			_part(_cylinder(0.0, 0.1, 0.35), Vector3(0, 1.45, 0.45), Vector3.ONE, Color(0.9, 0.8, 0.3), Vector3(-1.0, 0, 0))
+		&"bird":
+			_part(_sphere(0.45), Vector3(0, 0.6, 0), Vector3(0.9, 0.8, 1.3), color)
+			_part(_cylinder(0.0, 0.1, 0.35), Vector3(0, 0.7, -0.7), Vector3.ONE, Color(0.9, 0.75, 0.3), Vector3(-PI * 0.5, 0, 0))
+			for side: float in [-1.0, 1.0]:
+				_part(_box(), Vector3(side * 0.85, 0.7, 0.05), Vector3(1.3, 0.05, 0.6), color.darkened(0.15), Vector3(0, 0, side * 0.25))
+			_part(_box(), Vector3(0, 0.62, 0.7), Vector3(0.5, 0.05, 0.5), color.darkened(0.25))
+			_eyes(Vector3(0, 0.78, -0.5), 0.22)
 		_:
 			_golem()
 	_finish_mesh(_body, WorldMaterials.vertex_colored())
@@ -71,6 +92,37 @@ func _quad() -> void:
 		for z: float in [-0.4, 0.45]:
 			_part(_box(), Vector3(x, 0.2, z), Vector3(0.14, 0.4, 0.14), color.darkened(0.25))
 	_eyes(Vector3(0, 0.82, -0.93), 0.2)
+
+
+## Schlange: Körper aus fünf Kugeln in einer Welle, erhobener Kopf.
+func _snake() -> void:
+	for i: int in 6:
+		var z: float = -0.5 + i * 0.32
+		_part(_sphere(0.22), Vector3(sin(i * 1.3) * 0.25, 0.2, z), Vector3(1.0, 0.8, 1.2), color if i % 2 == 0 else color.darkened(0.15))
+	_part(_sphere(0.26), Vector3(0, 0.45, -0.8), Vector3(1.1, 0.8, 1.3), color.lightened(0.1))
+	_eyes(Vector3(0, 0.55, -1.0), 0.18)
+
+
+## Bär: massiger Körper, großer Kopf, dicke Beine.
+func _bear() -> void:
+	_part(_box(), Vector3(0, 0.75, 0.05), Vector3(0.95, 0.8, 1.35), color)
+	_part(_sphere(0.36), Vector3(0, 1.0, -0.8), Vector3.ONE, color.lightened(0.06))
+	_part(_sphere(0.14), Vector3(0, 0.93, -1.1), Vector3.ONE, color.darkened(0.3))
+	for x: float in [-0.32, 0.32]:
+		for z: float in [-0.45, 0.5]:
+			_part(_box(), Vector3(x, 0.25, z), Vector3(0.26, 0.5, 0.26), color.darkened(0.25))
+	_eyes(Vector3(0, 1.08, -1.08), 0.24)
+
+
+## Krokodil: lang und flach, langer Kiefer, Schwanz.
+func _croc() -> void:
+	_part(_box(), Vector3(0, 0.3, 0.1), Vector3(0.75, 0.35, 1.7), color)
+	_part(_box(), Vector3(0, 0.3, -1.05), Vector3(0.45, 0.22, 0.7), color.lightened(0.05))
+	_part(_box(), Vector3(0, 0.25, 1.35), Vector3(0.3, 0.2, 1.0), color.darkened(0.1))
+	for x: float in [-0.42, 0.42]:
+		for z: float in [-0.5, 0.6]:
+			_part(_box(), Vector3(x, 0.1, z), Vector3(0.18, 0.22, 0.18), color.darkened(0.25))
+	_eyes(Vector3(0, 0.48, -0.75), 0.3)
 
 
 func _spider() -> void:

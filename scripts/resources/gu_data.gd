@@ -11,3 +11,5 @@ extends Resource
 @export var rank_gift: String = ""
 @export_multiline var description: String = ""
 @export_multiline var lore: String = ""
+## Ranggaben als Schalter (gu_system.json → mitglieder[].gaben), z. B. {"pierce": 1, "fan": 6}; siehe GuGifts.
+@export var gifts: Dictionary = {}

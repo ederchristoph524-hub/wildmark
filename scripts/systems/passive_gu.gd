@@ -67,4 +67,5 @@ static func detection_range() -> float:
 
 
 static func _rule(instance: GuInstance) -> Dictionary:
-	return Balance.values.support_rules.get(instance.gu_id, {})
+	var data: SupportGuData = DataRegistry.support_gu(instance.gu_id)
+	return data.rules if data != null else {}

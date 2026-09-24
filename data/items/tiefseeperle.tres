@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bw7lm2ppsvj66"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_m5tkw"]
+
+[resource]
+script = ExtResource("1_m5tkw")
+id = &"tiefseeperle"
+display_name = "Tiefseeperle"
+icon = "🫧"
+category = &"material"
+rank = 5
+path = &"wasser"
+source = "Östliches Meer"
+description = "Eine Perle aus der Tiefe, in der das Meer atmet."

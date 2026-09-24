@@ -7,3 +7,4 @@ script = ExtResource("1_wfal5")
 id = &"wunde"
 display_name = "Wunde"
 effect_text = "nächster Treffer +30 %; Blut-Gu heilen an verwundeten Zielen"
+duration = 8.0

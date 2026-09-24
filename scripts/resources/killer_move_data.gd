@@ -12,3 +12,7 @@ extends Resource
 @export_multiline var description: String = ""
 ## Rätselhafter Hinweis, wie man den Killer Move entdeckt.
 @export var hint: String = ""
+## Mindestrang beider Gu (höhere Stufen desselben Paars ersetzen niedrigere).
+@export var min_rank: int = 1
+## Wirkungsschritte für EffectSteps (gu_system.json → killer_moves[].schritte).
+@export var steps: Array = []

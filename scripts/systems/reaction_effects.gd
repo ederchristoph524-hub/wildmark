@@ -1,6 +1,6 @@
 class_name ReactionEffects
 extends RefCounted
-## Führt die Reaktionen aus gu_system.json aus; Parameter stehen in Balance.reaction_rules.
+## Führt die Reaktionen aus gu_system.json aus; Parameter stehen in ReactionData.rule (reaktionen[].regel).
 
 const REACTION_COLOR: Color = Color(1.0, 0.85, 0.3)
 ## Merkt sich am Ziel, welcher Zustand beim Tod überspringt (Ranggabe Giftskorpion).
@@ -24,25 +24,29 @@ static func resolve(status: StatusComponent, hit: HitInfo) -> float:
 
 
 static func _apply(reaction: ReactionData, status: StatusComponent, hit: HitInfo) -> float:
-	var rule: Dictionary = Balance.values.reaction_rules.get(reaction.id, {})
+	var rule: Dictionary = reaction.rule
 	var host: Combatant = status.host
 	if rule.has("freeze"):
 		status.freeze(float(rule["freeze"]))
 	if rule.has("apply"):
-		status.apply_status(rule["apply"], 1)
+		status.apply_status(StringName(str(rule["apply"])), int(rule.get("apply_stacks", 1)))
+	if rule.has("stun"):
+		status.stun(float(rule["stun"]))
+	if rule.has("heal_attacker") and hit.source is Combatant and is_instance_valid(hit.source):
+		(hit.source as Combatant).heal(hit.damage * float(rule["heal_attacker"]))
 	if rule.has("blind_radius"):
 		_blind_area(host, float(rule["blind_radius"]), float(rule["blind_time"]))
 	if rule.has("spread_status"):
-		_spread(host, rule["spread_status"], float(rule["spread_radius"]))
+		_spread(host, StringName(str(rule["spread_status"])), float(rule["spread_radius"]))
 	if rule.has("explode_per_stack"):
-		var damage: float = float(rule["explode_per_stack"]) * status.stacks_of(rule["stack_status"])
+		var damage: float = float(rule["explode_per_stack"]) * status.stacks_of(StringName(str(rule["stack_status"])))
 		explosion(host, hit, damage, float(rule["explode_radius"]))
 	if rule.has("stack_mult"):
-		var id: StringName = rule["stack_status"]
+		var id: StringName = StringName(str(rule["stack_status"]))
 		var doubled: int = roundi(status.stacks_of(id) * float(rule["stack_mult"]))
 		status.set_stacks(id, doubled)
 	if rule.has("chain_status"):
-		_chain(host, hit, rule["chain_status"], float(rule["chain_radius"]), float(rule.get("mult", 1.0)))
+		_chain(host, hit, StringName(str(rule["chain_status"])), float(rule["chain_radius"]), float(rule.get("mult", 1.0)))
 	return float(rule.get("mult", 1.0))
 
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://dg2cl4q45jnsk"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_1ugh5"]
+
+[resource]
+script = ExtResource("1_1ugh5")
+id = &"vierwein"
+display_name = "Vier-Geschmäcker-Schnapswurm"
+rank = 2
+path = &"weisheit"
+effect_text = "Essenz-Regeneration +50 %"
+feed_item = &"beeren"
+feed_amount = 4
+rules = {
+"regen_mult": 1.5
+}

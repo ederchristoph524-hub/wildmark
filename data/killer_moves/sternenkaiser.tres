@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dusd4xsbmo4be"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_kpdp6"]
+
+[resource]
+script = ExtResource("1_kpdp6")
+id = &"sternenkaiser"
+display_name = "Sternenkaiser"
+family_a = &"stern"
+family_b = &"mondlicht"
+channel_time = 1.2
+damage_mult = 4.6
+description = "Ein Sternenhimmel öffnet sich: sechzehn Sterne und drei Sternschnuppen."
+hint = "Der Kaiser gebietet dem Himmel."
+min_rank = 5
+steps = [{
+"color": "#fff2b0",
+"count": 16.0,
+"homing": true,
+"mult": 0.6,
+"range": 20.0,
+"spread": 360.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#fff2b0",
+"distance": 10.0,
+"mult": 2.0,
+"radius": 5.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["stern", "wucht"]
+}],
+"time": 0.8
+}]

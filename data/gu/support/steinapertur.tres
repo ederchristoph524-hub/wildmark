@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://dhf71jb53gfoy"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_m7asa"]
+
+[resource]
+script = ExtResource("1_m7asa")
+id = &"steinapertur"
+display_name = "Steinapertur-Gu"
+rank = 3
+path = &"erde"
+effect_text = "Aperturgröße +20 %"
+feed_item = &"stein"
+feed_amount = 5
+rules = {
+"cap_mult": 1.2
+}
