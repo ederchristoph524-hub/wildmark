@@ -29,6 +29,8 @@ static func statuses(player: Player) -> String:
 
 
 static func gu_bar(player: Player) -> String:
+	if Childhood.is_child():
+		return ""
 	var parts: PackedStringArray = []
 	for slot: int in GameState.SLOT_COUNT:
 		var instance: GuInstance = GameState.slot_instance(slot)

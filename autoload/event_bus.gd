@@ -38,6 +38,9 @@ signal camera_look(delta: Vector2)
 signal menu_toggled(menu_name: StringName)
 signal saved
 
+## Kindheit: der Klanlehrer weckt die Apertur (Talenttest und Wahl des ersten Gu).
+signal awakening_requested
+
 ## Duell mit einem Gu-Meister beginnt bzw. endet (master ist ein GuMaster).
 signal duel_started(master: Node3D)
 signal duel_ended(master: Node3D, player_won: bool)

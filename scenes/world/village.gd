@@ -21,6 +21,9 @@ const PEOPLE: Array[Array] = [
 ]
 ## Gu-Meister des Klans (Daten-ID, Titel, Winkel, Abstand): fordert man ihn heraus, gibt es ein Duell auf dem Dorfplatz.
 const MASTER: Array = [&"gu_yue", "Klanlehrer", 2.1, 6.5]
+## Beerenbüsche innerhalb der Palisade (Winkel, Abstand) – für die Kindheit und als kleine Vorratsquelle.
+const BUSHES: Array[Vector2] = [Vector2(3.15, 16.5), Vector2(3.4, 16.0), Vector2(4.25, 16.5)]
+const BUSH_YIELD: int = 3
 
 
 static func build(world: World, center: Vector3) -> void:
@@ -33,6 +36,11 @@ static func build(world: World, center: Vector3) -> void:
 		world.add_child(npc)
 		var angle: float = float(entry[4])
 		npc.position = world.ground_point(center.x + cos(angle) * float(entry[5]), center.z + sin(angle) * float(entry[5]))
+	for bush: Vector2 in BUSHES:
+		var node := ResourceNode.new(&"beeren", BUSH_YIELD)
+		world.add_child(node)
+		node.position = world.ground_point(center.x + cos(bush.x) * bush.y, center.z + sin(bush.x) * bush.y)
+		node.rotation.y = bush.x * 3.0
 	var master := GuMaster.new()
 	var master_angle: float = float(MASTER[2])
 	master.setup(DataRegistry.gu_master(MASTER[0]), String(MASTER[1]), world.ground_point(center.x + cos(master_angle) * float(MASTER[3]), center.z + sin(master_angle) * float(MASTER[3])))

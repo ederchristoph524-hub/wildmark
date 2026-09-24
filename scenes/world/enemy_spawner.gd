@@ -27,6 +27,9 @@ func _physics_process(delta: float) -> void:
 	var b: BalanceData = Balance.values
 	var night: bool = Formulas.is_night(b, GameState.time_of_day)
 	_despawn(player, night)
+	# Als Kind bleibt man im Dorf; Bestien kommen erst nach dem Erwachen.
+	if Childhood.is_child():
+		return
 	_timer -= delta
 	if _timer > 0.0:
 		return

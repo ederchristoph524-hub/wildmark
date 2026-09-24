@@ -30,6 +30,7 @@ func _ready() -> void:
 	EventBus.player_died.connect(_on_player_died)
 	EventBus.reaction_triggered.connect(_on_reaction)
 	EventBus.dialog_requested.connect(_on_dialog)
+	EventBus.awakening_requested.connect(_on_awakening)
 	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
 	show_start_menu()
 
@@ -43,6 +44,16 @@ func show_start_menu() -> void:
 func _on_new_game(options: Dictionary) -> void:
 	GameState.reset(options)
 	_start_session()
+	if Childhood.is_child():
+		EventBus.message.emit(tr("Du bist ein Kind des Klans. Heute wird deine Apertur geweckt – doch erst ruft der Dorfälteste."), UiTheme.ACCENT)
+		SaveSystem.save_game()
+		return
+	_give_start_kit()
+	SaveSystem.save_game()
+
+
+## Erster Gu, Urstein und Futter – direkt beim Start oder nach dem Erwachen in der Kindheit.
+func _give_start_kit() -> void:
 	var family: GuFamilyData = DataRegistry.family(GameState.first_family)
 	GameState.add_gu(GuInstance.create(family.member_for_rank(1).id))
 	GameState.essence = player.aperture.capacity()
@@ -51,6 +62,23 @@ func _on_new_game(options: Dictionary) -> void:
 	var progression: ProgressionData = DataRegistry.progression()
 	EventBus.message.emit(tr("Deine Apertur ist erwacht: Talent %s (%d %%).") % [GameState.talent_grade, roundi(GameState.apt)], progression.talent_colors.get(GameState.talent_grade, UiTheme.ACCENT))
 	EventBus.message.emit(tr("Dein erster Gu: %s. Wilde Gu leuchten irgendwo im Dschungel.") % tr(family.member_for_rank(1).display_name), UiTheme.ACCENT)
+
+
+func _on_awakening() -> void:
+	var menu := AwakeningMenu.new()
+	menu.awakened.connect(_on_awakened)
+	_open_menu(menu)
+
+
+## Ende der Kindheit: Talent und erster Gu stehen fest; dessen wilder Artgenosse verschwindet aus der Welt.
+func _on_awakened(first_family: StringName, grade: StringName, apt: float) -> void:
+	Childhood.finish(first_family, grade, apt)
+	var spot: StringName = StringName("wild_" + String(first_family))
+	for node: Node in get_tree().get_nodes_in_group(Player.GROUP_INTERACTABLES):
+		if node is WildGu and (node as WildGu).spot_id == spot:
+			node.queue_free()
+	GameState.collected_wild_gu.append(spot)
+	_give_start_kit()
 	SaveSystem.save_game()
 
 
@@ -100,6 +128,8 @@ func _process(delta: float) -> void:
 	if not GameState.active or get_tree().paused:
 		return
 	_track_areas()
+	if Childhood.is_child():
+		Childhood.update()
 	_autosave -= delta
 	if _autosave <= 0.0:
 		_autosave = Balance.values.autosave_interval
@@ -157,6 +187,7 @@ func _on_dialog(npc: Node3D) -> void:
 	var dialog := DialogMenu.new()
 	dialog.npc = npc as Npc
 	_open_menu(dialog)
+	Childhood.on_dialog(dialog.npc.quest_id)
 
 
 func _on_reaction(reaction_id: StringName, _where: Vector3) -> void:

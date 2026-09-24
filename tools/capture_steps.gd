@@ -67,7 +67,24 @@ func run(scene_tree: SceneTree) -> void:
 	main._open_menu(GuMenu.new())
 	await _frames(10)
 	await _shot("07_gu_menue")
+	await _shoot_childhood()
 	tree.quit()
+
+
+## Spielbare Kindheit: Dorf mit Hinweis, danach Talenttest und Gu-Wahl.
+func _shoot_childhood() -> void:
+	for child: Node in main._menu_layer.get_children():
+		child.queue_free()
+	EventBus.new_game_requested.emit({"childhood": true, "first_family": &"", "death_mode": &"standard"})
+	await _frames(90)
+	main.player.camera_rig.yaw = -0.4
+	main.player.camera_rig.pitch = -0.2
+	await _frames(20)
+	await _shot("08_kindheit")
+	GameState.childhood_step = Childhood.STEPS.size() - 1
+	EventBus.awakening_requested.emit()
+	await _frames(10)
+	await _shot("09_erwachen")
 
 
 ## Duell mit dem Klanlehrer: Spieler vor dem Gu-Meister, kurz nach dem Countdown.

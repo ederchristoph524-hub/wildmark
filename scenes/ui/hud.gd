@@ -158,8 +158,11 @@ func _update_bars() -> void:
 		_essence_text.text += tr("  (Unterhalt −%.2f/s)") % upkeep
 	_essence_bar.add_theme_stylebox_override(&"fill", UiTheme.box(progression.rank_color(GameState.rank).lightened(0.15), 6, Color(0, 0, 0, 0)))
 	_rank_text.text = "%s · %s · %s %d %%" % [tr(progression.rank_name(GameState.rank)), tr(progression.stage_name(GameState.stage)), tr("Wand"), roundi(GameState.wall * 100.0)]
+	_essence_bar.visible = not Childhood.is_child()
+	if Childhood.is_child():
+		_rank_text.text = tr("Kindheit · Apertur noch verschlossen")
 	_status_text.text = HudText.statuses(player)
-	_quest_text.text = Quests.tracker_text()
+	_quest_text.text = Childhood.tracker_text() if Childhood.is_child() else Quests.tracker_text()
 	_quest_text.visible = _quest_text.text != ""
 	_clock.text = HudText.clock()
 

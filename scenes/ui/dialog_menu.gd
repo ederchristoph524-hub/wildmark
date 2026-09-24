@@ -35,6 +35,10 @@ func refresh() -> void:
 	for child: Node in _column.get_children():
 		child.queue_free()
 	_column.add_child(UiTheme.label(npc.display_title(), 26, npc.type.color.lightened(0.3)))
+	if Childhood.is_child():
+		_column.add_child(UiTheme.label("„%s“" % tr(Childhood.line_for(npc.quest_id)), 18))
+		_column.add_child(UiTheme.button(tr("Auf Wiedersehen"), close))
+		return
 	_column.add_child(UiTheme.label("„%s“" % tr(_line), 18))
 	if npc.quest_id != &"":
 		_add_quest()

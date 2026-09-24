@@ -276,11 +276,19 @@ func _update_label() -> void:
 # --- Duell ---
 
 func interact_label() -> String:
+	if Childhood.is_child():
+		return tr("Sprechen mit %s") % display_title()
 	return tr("Duell fordern: %s") % display_title()
 
 
+## Als Kind: Erwachen (sobald das Tutorial so weit ist); danach Duell.
 func interact(player: Player) -> void:
-	start_duel(player)
+	if not Childhood.is_child():
+		start_duel(player)
+	elif Childhood.is_awakening_step():
+		EventBus.awakening_requested.emit()
+	else:
+		EventBus.message.emit(tr("%s: „Noch nicht, Kind. Hilf erst im Dorf.“") % display_title(), UiTheme.MUTED)
 
 
 func start_duel(foe: Combatant) -> void:

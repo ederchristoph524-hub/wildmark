@@ -50,6 +50,8 @@ var kills: int = 0
 ## Gewonnene Duelle gegen Gu-Meister und der Spieltag des letzten belohnten Siegs.
 var duels_won: int = 0
 var last_duel_day: int = 0
+## Spielbare Kindheit: aktueller Tutorial-Schritt, -1 = erwacht (siehe Childhood).
+var childhood_step: int = -1
 ## Gebaute Lagerteile: {"id", "position", "yaw"}.
 var buildings: Array[Dictionary] = []
 var built_count: int = 0
@@ -94,6 +96,7 @@ func reset(options: Dictionary) -> void:
 	kills = 0
 	duels_won = 0
 	last_duel_day = 0
+	childhood_step = 0 if options.get("childhood", false) else -1
 	buildings = []
 	built_count = 0
 	visited_areas = []
@@ -171,7 +174,7 @@ func to_dict() -> Dictionary:
 			"known_killer_moves": known_killer_moves, "seen_reactions": seen_reactions,
 			"collected_wild_gu": collected_wild_gu, "opened_obstacles": opened_obstacles, "loot_sack": _sack_to_dict(),
 			"quests": _names_to_strings(quests), "kills": kills, "built_count": built_count,
-			"duels_won": duels_won, "last_duel_day": last_duel_day,
+			"duels_won": duels_won, "last_duel_day": last_duel_day, "childhood_step": childhood_step,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
@@ -227,6 +230,7 @@ func _player_from_dict(p: Dictionary) -> void:
 	kills = int(p.get("kills", 0))
 	duels_won = int(p.get("duels_won", 0))
 	last_duel_day = int(p.get("last_duel_day", 0))
+	childhood_step = int(p.get("childhood_step", -1))
 	built_count = int(p.get("built_count", 0))
 	for entry: Variant in p.get("buildings", []):
 		if entry is Dictionary:
