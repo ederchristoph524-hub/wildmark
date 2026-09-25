@@ -65,7 +65,7 @@ static func strike(target: Combatant, step: Dictionary, ctx: EffectContext, push
 	if push != 0.0:
 		var away: Vector3 = target.global_position - push_from
 		away.y = 0.0
-		hit.knockback = away.normalized() * Balance.values.knockback_force * push
+		hit.knockback = away.normalized() * Formulas.knockback_speed(Balance.values, absf(push)) * signf(push)
 	if hit.damage > 0.0 or hit.status != &"" or hit.knockback != Vector3.ZERO or hit.stun > 0.0:
 		target.receive_hit(hit)
 	if target.is_dead():

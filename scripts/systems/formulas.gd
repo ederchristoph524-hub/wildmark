@@ -12,8 +12,16 @@ static func essence_regen(b: BalanceData, cap: float, apt: float) -> float:
 	return cap / (b.regen_divisor - apt * b.regen_apt_factor)
 
 
-static func wall_need(b: BalanceData, cap: float, stage: int) -> float:
-	return cap * (b.wall_base + stage * b.wall_per_stage)
+## Essenz, die eine Stufe der Aperturwand verlangt. Wächst je Rang stärker als die Kapazität (wall_rank_growth),
+## damit die höheren sterblichen Ränge nicht in Minuten fallen (Tempo siehe FORMELN.md, tools/pacing_probe.gd).
+static func wall_need(b: BalanceData, cap: float, stage: int, rank: int = 1) -> float:
+	return cap * (b.wall_base + stage * b.wall_per_stage) * pow(b.wall_rank_growth, rank - 1)
+
+
+## Stoßgeschwindigkeit für Rückstoß-Punkte: die Strecke wächst linear mit den Punkten (Rückstoß 1 ≈ 2 m, 2 ≈ 4 m),
+## weil die Flugweite quadratisch in der Geschwindigkeit ist.
+static func knockback_speed(b: BalanceData, push: float) -> float:
+	return b.knockback_force * sqrt(maxf(push, 0.0))
 
 
 static func gu_rank_pow(b: BalanceData, gu_rank: int) -> float:

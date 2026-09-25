@@ -26,9 +26,11 @@ Eine leere Apertur füllt sich bei durchschnittlichem Talent in rund 150 s reine
 
 Stufen steigen, indem Essenz gegen die Aperturwand geleitet wird (Meditation).
 ```
-wall_need = essence_cap × (1.6 + stage × 0.5)       // Rang 6+: × 2.2
+wall_need = essence_cap × (1.6 + stage × 0.5) × 2.0^(rank−1)       // Rang 6+: × 2.2
 ```
 Stufenaufstieg: +12 max HP, +1,5 Grundschaden. Auf der Höchststufe (stage 3) ist ein Durchbruch möglich.
+
+**Tempo (Abweichung vom Prototyp):** Der Faktor `2.0^(rank−1)` (`wall_rank_growth`) ist neu. Ohne ihn wächst der Wandbedarf nur mit der Kapazität, und weil die Regeneration ebenfalls mit der Kapazität wächst, dauert jeder Rang beim reinen Meditieren gleich lang – 6 bis 12 Minuten, Rang 5 also nach unter einer Stunde. Mit dem Faktor verdoppelt sich die Meditationszeit je Rang. Messen mit `godot --headless --path . --script res://tools/pacing_probe.gd` (Minuten reinen Meditierens je Talentgrad und Rang, samt erwarteter Fehlversuche beim Durchbruch); Richtwerte: Talent A erreicht Rang 5 nach etwa 60 Minuten reinen Meditierens, Talent B seine Obergrenze Rang 4 nach etwa 40, dazu kommen Kämpfe, Erkundung und die Essenz, die in Gu fließt. Meditation ist durch die Regeneration begrenzt (die Wand brennt 9 % der Kapazität pro Sekunde, nachfüllen tut sich weniger); Urstein (½ Kapazität je Stein) und Geisterquellen (×2) verkürzen die Zeit spürbar.
 
 ## Durchbruch (Rang 1–5)
 

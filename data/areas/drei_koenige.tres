@@ -265,12 +265,16 @@ obstacles = Array[Dictionary]([{
 }])
 resources = Dictionary[StringName, Vector2i]({
 &"beeren": Vector2i(50, 3),
+&"donnerholz": Vector2i(8, 1),
 &"eisenerz": Vector2i(40, 1),
 &"erdkern": Vector2i(12, 1),
 &"gruenkraut": Vector2i(30, 2),
 &"holz": Vector2i(40, 2),
+&"klingenstahl": Vector2i(6, 1),
 &"kristall": Vector2i(40, 2),
-&"stein": Vector2i(70, 2)
+&"seelenglas": Vector2i(8, 1),
+&"stein": Vector2i(70, 2),
+&"zeitharz": Vector2i(8, 1)
 })
 enemy_radii = Array[float]([90.0, 160.0])
 enemy_zones = [[&"wolf", &"steinaffe", &"bambusnatter", &"eber"], [&"blitzwolf", &"jadeaffe", &"bergbaer", &"schwarzeber_bestie", &"steinaffe"], [&"blitzwolf", &"jadeaffe", &"bergbaer", &"elektrowolf", &"sturmadler", &"golem"]]

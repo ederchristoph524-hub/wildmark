@@ -267,10 +267,12 @@ obstacles = Array[Dictionary]([{
 }])
 resources = Dictionary[StringName, Vector2i]({
 &"beeren": Vector2i(50, 3),
+&"donnerholz": Vector2i(10, 1),
 &"gruenkraut": Vector2i(40, 2),
 &"holz": Vector2i(25, 2),
 &"kristall": Vector2i(40, 2),
 &"stein": Vector2i(40, 2),
+&"sternsand": Vector2i(8, 1),
 &"windfeder": Vector2i(10, 1)
 })
 enemy_radii = Array[float]([150.0, 210.0])

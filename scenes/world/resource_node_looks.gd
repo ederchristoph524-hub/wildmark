@@ -7,11 +7,15 @@ static func build(node: ResourceNode, shape: StringName, base: Color, accent: Co
 	var b := MeshBuilder.new()
 	match shape:
 		&"bush":
-			b.add(MeshBuilder.sphere(0.75, 6, 3), MeshBuilder.at(Vector3(0, 0.55, 0), Vector3(1.1, 0.8, 1.0)), base)
-			node.add_mesh(b.build())
+			# Beerenstrauch: Laubkugel mit Blattkarten (Pflanzen-Shader schneidet sie aus), Beeren obenauf.
+			b.add(MeshBuilder.sphere(0.7, 6, 4), MeshBuilder.at(Vector3(0, 0.55, 0), Vector3(1.15, 0.8, 1.0)), base.darkened(0.15))
+			VegetationMeshes.crown_cards(b, Vector3(0, 0.6, 0), 0.9, base, 7, 41)
+			VegetationMeshes.crown_cards(b, Vector3(0.5, 0.7, 0.25), 0.55, base.lightened(0.12), 4, 42)
+			VegetationMeshes.crown_cards(b, Vector3(-0.45, 0.65, -0.3), 0.5, base.darkened(0.08), 4, 43)
+			node.add_mesh(b.build(), Color(0, 0, 0, 0), WorldMaterials.vegetation(&"leafy"))
 			var fruit := MeshBuilder.new()
-			for offset: Vector3 in [Vector3(0.4, 0.8, -0.4), Vector3(-0.35, 0.9, -0.3), Vector3(0.1, 1.05, 0.4)]:
-				fruit.add(MeshBuilder.sphere(0.12, 5, 3), MeshBuilder.at(offset), accent)
+			for offset: Vector3 in [Vector3(0.45, 0.85, -0.4), Vector3(-0.4, 0.95, -0.3), Vector3(0.1, 1.1, 0.45), Vector3(0.55, 0.7, 0.4), Vector3(-0.55, 0.75, 0.3)]:
+				fruit.add(MeshBuilder.sphere(0.1, 5, 3), MeshBuilder.at(offset), accent)
 			node.add_mesh(fruit.build())
 			return
 		&"rock":

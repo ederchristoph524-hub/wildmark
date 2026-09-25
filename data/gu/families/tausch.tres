@@ -171,7 +171,7 @@ base_r1 = Dictionary[StringName, Variant]({
 members = Array[ExtResource("1_43iyk")]([SubResource("gu_kleiner_tausch"), SubResource("gu_sprungtor"), SubResource("gu_positionstausch"), SubResource("gu_regenbogenlicht"), SubResource("gu_goettliche_reise")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
-&"geisterseide": 1,
+&"wildfell": 1,
 &"windfeder": 3
 },
 3: {

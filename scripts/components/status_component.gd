@@ -28,6 +28,11 @@ var _tick: float = 0.0
 ## Wie viele Kontrollen (Betäubung, Einfrieren) in Folge; läuft nach Balance.cc_reset_time ohne Kontrolle ab.
 var _cc_chain: int = 0
 var _cc_reset: float = 0.0
+## Rückstöße in Folge (abnehmend wie Kontrolle, damit niemand endlos weggeschoben wird); Treffer im selben Moment zählen einmal.
+const PUSH_WINDOW: float = 0.4
+var _push_chain: int = 0
+var _push_reset: float = 0.0
+var _push_window: float = 0.0
 
 
 func _init(owner_combatant: Combatant) -> void:
@@ -43,6 +48,10 @@ func _physics_process(delta: float) -> void:
 	_cc_reset = maxf(0.0, _cc_reset - delta)
 	if _cc_reset <= 0.0:
 		_cc_chain = 0
+	_push_window = maxf(0.0, _push_window - delta)
+	_push_reset = maxf(0.0, _push_reset - delta)
+	if _push_reset <= 0.0:
+		_push_chain = 0
 	for id: StringName in _time_left.keys():
 		_time_left[id] -= delta
 		if _time_left[id] <= 0.0:
@@ -147,6 +156,19 @@ func _controlled(duration: float) -> float:
 	var scaled: float = duration * pow(b.cc_diminish, _cc_chain)
 	_cc_chain += 1
 	_cc_reset = maxf(_cc_reset, scaled + b.cc_reset_time)
+	return scaled
+
+
+## Faktor für den nächsten Rückstoß nach abnehmender Wirkung: 100 %, 50 %, 25 % … (knockback_diminish) innerhalb
+## von knockback_reset_time; mehrere Treffer eines Gu im selben Moment (PUSH_WINDOW) zählen als einer.
+func push_scale() -> float:
+	var b: BalanceData = Balance.values
+	if _push_window > 0.0:
+		return pow(b.knockback_diminish, maxi(_push_chain - 1, 0))
+	var scaled: float = pow(b.knockback_diminish, _push_chain)
+	_push_chain += 1
+	_push_window = PUSH_WINDOW
+	_push_reset = b.knockback_reset_time
 	return scaled
 
 

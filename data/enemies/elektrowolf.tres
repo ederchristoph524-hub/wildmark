@@ -18,6 +18,11 @@ script = ExtResource("1_6x87w")
 item = &"reliquie_rotstahl"
 chance = 0.08
 
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_6x87w")
+item = &"donnerholz"
+chance = 0.35
+
 [resource]
 script = ExtResource("2_tsy1o")
 id = &"elektrowolf"
@@ -40,5 +45,5 @@ ability = [{
 }]
 ability_range = 9.0
 ability_cooldown = 5.0
-drops = Array[ExtResource("1_6x87w")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
+drops = Array[ExtResource("1_6x87w")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
 shape = &"wolf"

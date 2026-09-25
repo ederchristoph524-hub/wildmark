@@ -43,7 +43,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 ## materialien.json
 
 - `BASIS_RES` – Grundressourcen des Inventars (Holz, Stein, Beeren, Fleisch, Fell, Urstein = `kristall` u. a.); dienen als Gu-Futter, Baumaterial und Währung. Anzeigenamen wurden ergänzt, der Prototyp zeigte nur Icons.
-- `MATS` – Verfeinerungs-Materialien (Rang 1–9) mit `src` (Fundort). `BASIS_RES` und `MATS` teilen sich einen ID-Raum. `MAT_KEYS` – Reihenfolge. `GEAR` – Ausrüstung aus dem Prototyp (wird laut GDD nicht übernommen). `BUILD` – Bauteile (`cost`, `light`).
+- `MATS` – Verfeinerungs-Materialien (Rang 1–9) mit `src` (Fundort). Jedes Aufstiegsmaterial einer Familie (`aufstieg` in `gu_system.json`) muss im Spiel zu finden sein – als Ressource oder Ort eines Gebiets, als Beute einer Bestie, die dort erscheint, oder beim Händler einer Siedlung – und zwar in Gebieten bis zum Zielrang des Aufstiegs; der Import meldet Lücken (Fehler ohne Quelle, Warnung bei zu später Quelle). `BASIS_RES` und `MATS` teilen sich einen ID-Raum. `MAT_KEYS` – Reihenfolge. `GEAR` – Ausrüstung aus dem Prototyp (wird laut GDD nicht übernommen). `BUILD` – Bauteile (`cost`, `light`).
 
 ## welt.json
 

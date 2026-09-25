@@ -3688,7 +3688,7 @@
    "aufstieg": {
     "r2": {
      "windfeder": 3,
-     "geisterseide": 1
+     "wildfell": 1
     },
     "r3": {
      "geisterseide": 2,
@@ -4225,8 +4225,8 @@
    },
    "aufstieg": {
     "r2": {
-     "geisterseide": 1,
-     "sternsand": 1
+     "eisenerz": 3,
+     "seelenglas": 1
     },
     "r3": {
      "frostsplitter": 4,
@@ -4751,8 +4751,8 @@
    },
    "aufstieg": {
     "r2": {
-     "sternsand": 1,
-     "mondtau": 4
+     "mondtau": 4,
+     "windfeder": 1
     },
     "r3": {
      "sternsand": 2,

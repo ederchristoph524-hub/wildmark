@@ -129,7 +129,7 @@ members = Array[ExtResource("1_sh2ts")]([SubResource("gu_kleines_glueck"), SubRe
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
 &"mondtau": 4,
-&"sternsand": 1
+&"windfeder": 1
 },
 3: {
 &"sternsand": 2,

@@ -34,10 +34,14 @@ var luck_chance: float = 0.0
 var luck_time: float = 0.0
 ## Bronzehaut: kein Rückstoß, keine Betäubung, solange > 0.
 var unstoppable_time: float = 0.0
+## Anteil des Rückstoßes, den die Masse schluckt (0 = leicht, schwere Bestien bis knockback_mass_max).
+var push_resist: float = 0.0
 ## Tarnung: Bestien bemerken die Figur nicht; der erste Treffer daraus ist verstärkt.
 var stealth_time: float = 0.0
 ## Stärkungen (Quelle → {damage, speed, time}); multiplikativ.
 var buffs: Dictionary[StringName, Dictionary] = {}
+## Dauerhafter Faktor auf ausgeteilten Schaden (NPC-Gu-Meister je Rang, Balance.master_damage_rank_mult).
+var base_damage_mult: float = 1.0
 ## Frühester Zeitpunkt (ms) für die nächsten Treffer-Funken (GuVfx drosselt je Ziel).
 var vfx_ready_msec: int = 0
 
@@ -100,7 +104,7 @@ func damage_multiplier_taken() -> float:
 
 ## Faktor auf ausgeteilten Schaden (Stärkungen).
 func damage_dealt_mult() -> float:
-	var mult: float = 1.0
+	var mult: float = base_damage_mult
 	for key: StringName in buffs:
 		mult *= float(buffs[key]["damage"])
 	return mult
@@ -149,7 +153,7 @@ func receive_hit(hit: HitInfo) -> void:
 		mult *= 1.0 + hit.execute_bonus
 	var dealt: float = health.apply_damage(hit.damage * mult)
 	if hit.knockback != Vector3.ZERO and not status.is_frozen() and unstoppable_time <= 0.0:
-		_knockback += hit.knockback
+		_knockback += hit.knockback * status.push_scale() * (1.0 - push_resist)
 	if hit.stun > 0.0:
 		status.stun(hit.stun)
 	if hit.lifesteal > 0.0 and attacker != null and not attacker.is_dead() and dealt > 0.0:

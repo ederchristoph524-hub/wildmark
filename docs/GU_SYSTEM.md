@@ -450,10 +450,10 @@ Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kos
 - Ranggaben, die eine Wirkform in eine lange Zone oder großen Kreis verwandeln, verlängern die Abklingzeit (`cd_mult`).
 - **Fallen-Folgeschritte** (`then`, z. B. Feuerfeld und Kettenblitz) teilen sich den Schaden wie die Fallen selbst.
 - Beschworene Wesen erhalten die Rangstärke des Gu relativ zu ihrem eigenen Rang (`EnemyData.rank`); Verbündete (Spieler, Gefährten) gehen durcheinander hindurch, damit Gefährten nicht hinter dir hängen bleiben.
-- **Rückstoß** ist ein einmaliger Geschwindigkeitsstoß (`knockback_force` m/s je Punkt, mehrere Treffer zusammen höchstens `knockback_max_speed`); Rückstoß 1 schiebt etwa 2 m.
+- **Rückstoß** ist ein einmaliger Geschwindigkeitsstoß (`knockback_force` m/s bei Rückstoß 1, Punkte gehen mit der Wurzel ein, damit die Strecke linear wächst: 1 ≈ 2 m, 2 ≈ 4 m; mehrere Treffer im selben Moment zusammen höchstens `knockback_max_speed` ≈ 4 m). **Rückstoß nimmt ab** wie Kontrolle (100 %, 50 %, 25 % … je Stoß, `knockback_diminish`; erst nach `knockback_reset_time` = 6 s ohne Stoß wieder voll), und **schwere Bestien** schlucken einen Teil (`knockback_mass_*`: ab Datenradius 0,45 je 0,1 m 15 %, höchstens 70 %; Sandwurm ≈ 52 %). Ohne beides hielt ein Stoß-Gu mit 3 s Abklingzeit langsame Bestien endlos auf Abstand (Sandwurm und Feuerfuchs kamen nie zum Zug).
 - **Kontrolle nimmt ab:** Betäubung und Einfrieren wirken in Folge 100 %, 50 %, 25 % … (`cc_diminish`), bis `cc_reset_time` Sekunden keine Kontrolle mehr kam; eine laufende Kontrolle wird nicht verlängert. Kein Dauer-Festsetzen, weder von Bestien noch vom Spieler.
 - **Killer Moves** sind je Stufe gedeckelt (`killer_total_cap`: Stufe 1 ×7, Stufe 3 ×10, Stufe 5 ×15 Grundschaden auf ein Ziel, inklusive `mult`; Zonen mit allen Takten, zielsuchende Geschosse vollständig gezählt). Stärkere Einträge werden gleichmäßig gedämpft (`KillerMoveEffects.cap_scale`).
-- **NPC-Gu-Meister** wirken Killer Moves nach denselben Regeln (höchste Stufe ihrer Gu-Paare, Kosten ×2), kündigen sie mit mindestens 1,45 s Ausholzeit und Warnkreis an und höchstens alle 14 s (`master_killer_*`).
+- **NPC-Gu-Meister** teilen je Rang gedämpft aus (`master_damage_rank_mult`: Rang 2 ×0,85, Rang 3 ×0,8, Rang 4 ×0,7, Rang 5 ×0,5), weil Rang-4/5-Gu sonst in vier Sekunden töten; sie wirken Killer Moves nach denselben Regeln (höchste Stufe ihrer Gu-Paare, Kosten ×2), kündigen sie mit mindestens 1,45 s Ausholzeit und Warnkreis an und höchstens alle 14 s (`master_killer_*`).
 - **Blutpfad** (`hp_kosten`) kostet Prozent des Höchstlebens, damit der Preis mit dem Rang wächst; NPC-Meister zahlen ihn auch.
 - **Essenzraub** (`essence_steal`, Plünderhand): geraubte Essenz = Schaden × Faktor × (Essenzvorrat ÷ Höchstleben des Räubers), damit der Raub mit dem Rang mitwächst; Gu-Meister verlieren dieselbe Menge.
 - **Eingebung** (Gedankenblitz) verkürzt nur die anderen Gu; sich selbst beschleunigt sie nicht.
@@ -463,9 +463,9 @@ Ein Rang-1-Angriffs-Gu macht pro Sekunde Abklingzeit etwa 8–12 Schaden und kos
 Zielwerte (Spieler Stufe 2 mit vier Gu seines Rangs): gleichrangige Bestie in 3–15 s besiegt, gleichrangiger Gu-Meister im Duell in 6–17 s; Bestien brauchen ohne Ausweichen 15–60 s, um dich zu besiegen, starke Meister 5–10 s.
 
 Messen mit `godot --headless --fixed-fps 60 --path . --script res://tools/balance_probe.gd`:
-- ohne Zusatz: Spieler je Rang gegen typische Bestien,
+- ohne Zusatz: Spieler je Rang gegen typische Bestien (`--rank=4`, `--beasts=sandwurm`, `--loadout=fam1,fam2,fam3,fam4`, `--trace` zeigt alle 2 s Abstand und Zustände),
 - `-- --solo`: Schaden pro Sekunde jeder Familie je Rang gegen ein stehendes, nicht wegstoßbares Ziel in 2 m,
-- `-- --masters`: Duell gegen jeden NPC-Gu-Meister auf seinem Rang (Lebenskosten des Meisters zählen nicht als dein Schaden).
+- `-- --masters`: Duell gegen jeden NPC-Gu-Meister auf seinem Rang (`--only=id1,id2`; der Meister behält sein echtes Leben und wird jedes Bild aufgefüllt, damit Prozent-Heilungen realistisch bleiben; Lebenskosten des Meisters zählen nicht als dein Schaden).
 
 ## 12. Prüfung
 

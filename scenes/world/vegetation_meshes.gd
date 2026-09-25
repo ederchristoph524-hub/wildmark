@@ -209,6 +209,11 @@ static func tall_grass() -> ArrayMesh:
 
 ## Blattkarten um eine Krone: count Vierecke in zufälligen Richtungen um center, nach außen versetzt und gedreht;
 ## der Vegetations-Shader schneidet aus jeder Karte ein Blattbüschel aus.
+## Blattkarten-Büschel um center (für Kronen, Büsche und Sammelstellen).
+static func crown_cards(b: MeshBuilder, center: Vector3, radius: float, color: Color, count: int, salt: int) -> void:
+	_crown_cards(b, center, radius, color, count, salt)
+
+
 static func _crown_cards(b: MeshBuilder, center: Vector3, radius: float, color: Color, count: int, salt: int) -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = salt

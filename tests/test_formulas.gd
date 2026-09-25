@@ -25,6 +25,7 @@ func _test_essence() -> void:
 	# FORMELN: leere Apertur füllt sich bei durchschnittlichem Talent in rund 150 s … bei apt 50: 60,5 s
 	_near(Formulas.essence_cap(_b, 1, 0, 50.0) / Formulas.essence_regen(_b, 12.5, 50.0), 60.5, "Füllzeit apt50")
 	_near(Formulas.wall_need(_b, 10.0, 2), 26.0, "Wand Stufe 2")
+	_near(Formulas.wall_need(_b, 10.0, 2, 3), 26.0 * _b.wall_rank_growth * _b.wall_rank_growth, "Wand Stufe 2 auf Rang 3")
 	# NPC-Gu-Meister: Leben wie ein Spieler, der alle Stufen und Durchbrüche genommen hat.
 	_near(Formulas.cultivated_hp(_b, 1, 0), _b.player_base_hp, "Leben R1 Stufe 0")
 	_near(Formulas.cultivated_hp(_b, 2, 1), _b.player_base_hp + 4.0 * _b.stage_max_hp + 2.0 * _b.breakthrough_hp_per_rank, "Leben R2 Stufe 1")

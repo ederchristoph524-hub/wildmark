@@ -69,7 +69,7 @@
    "ic": "🪶",
    "rank": 2,
    "path": "raum",
-   "src": "Fliegende Bestien",
+   "src": "Fliegende Bestien (Fledermäuse), Graslande",
    "d": "Federleicht und immer in Bewegung."
   },
   "jadeader": {
@@ -77,7 +77,7 @@
    "ic": "💚",
    "rank": 3,
    "path": "metall",
-   "src": "Tiefe Felsadern",
+   "src": "Tiefe Felsadern (Jadesee am Qing-Mao-Berg, Kranichtal), Shang-Händler",
    "d": "Grüne Ader im Gestein, zäh wie Sehne."
   },
   "blutkoralle": {
@@ -93,7 +93,7 @@
    "ic": "⚡",
    "rank": 3,
    "path": "blitz",
-   "src": "Vom Blitz getroffene Bäume",
+   "src": "Vom Blitz getroffene Bäume (Drei-Könige-Erbe, Graslande), Blitzwölfe",
    "d": "Holz, in dem der Blitz noch nachhallt."
   },
   "seelenglas": {
@@ -101,7 +101,7 @@
    "ic": "🔮",
    "rank": 3,
    "path": "seele",
-   "src": "Ruinen",
+   "src": "Ruinen und Gräber (Drei-Könige-Erbe, Blutsümpfe), Schattenwesen",
    "d": "Glas, in dem sich Seelen spiegeln."
   },
   "sternsand": {
@@ -109,7 +109,7 @@
    "ic": "✨",
    "rank": 4,
    "path": "licht",
-   "src": "Westliche Wüste bei Nacht",
+   "src": "Graslande und Westliche Wüste bei Nacht, Wüstenhändler",
    "d": "Sand, der Sternenlicht gespeichert hat."
   },
   "drachenschuppe": {
@@ -125,7 +125,7 @@
    "ic": "⏳",
    "rank": 4,
    "path": "zeit",
-   "src": "Uralte Bäume",
+   "src": "Uralte Bäume (Drei-Könige-Erbe, Blutsümpfe, Kranichtal)",
    "d": "Harz, in dem die Zeit zäh geworden ist."
   },
   "geisterseide": {
@@ -133,7 +133,7 @@
    "ic": "🕸️",
    "rank": 4,
    "path": "verwandlung",
-   "src": "Riesenspinnen",
+   "src": "Spinnen, Meeresgeister, Gräberfeld der Blutsümpfe",
    "d": "Seide, die Gestalt annimmt."
   },
   "urkristall": {
@@ -221,7 +221,7 @@
    "rank": 8,
    "imm": 1,
    "path": "licht",
-   "src": "Kaiserhof, 88-Yang-Gebäude",
+   "src": "Schrein des Riesensonnen-Ehrwürdigen, Drachenhort",
    "d": "Gold aus der Zeit des Riesensonnen-Ehrwürdigen."
   },
   "schicksalsfaden": {
@@ -279,7 +279,7 @@
    "ic": "🗡️",
    "rank": 3,
    "path": "metall",
-   "src": "Schmiede der Shang-Stadt, Klingenbestien",
+   "src": "Schwerthügel, Wu-Festung, Schmiede der Shang-Stadt",
    "d": "Stahl, der von selbst schneidet."
   },
   "wuestenrose": {

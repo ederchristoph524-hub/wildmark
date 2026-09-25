@@ -6,12 +6,12 @@ extends RefCounted
 ## user:// abgelegt (VERSION erhöhen, wenn sich ein Rezept ändert).
 
 const SIZE: int = 256
-const VERSION: int = 6
+const VERSION: int = 7
 const CACHE_DIR: String = "user://textures/"
 const NORMAL_SUFFIX: String = "_normal"
 ## Stärke der Normal Maps je Grundtextur (Höhenunterschied in Pixeln).
 const BUMP: Dictionary[StringName, float] = {
-	&"grass": 6.0, &"soil": 8.0, &"rock": 14.0, &"plaster": 4.0, &"wood": 6.0, &"tiles": 16.0, &"bark": 12.0,
+	&"grass": 6.0, &"soil": 8.0, &"rock": 14.0, &"plaster": 2.5, &"wood": 6.0, &"tiles": 16.0, &"bark": 12.0,
 	&"fabric": 3.0, &"waves": 10.0, &"leaves": 5.0, &"stone": 12.0, &"fur": 5.0, &"scales": 10.0,
 }
 
@@ -94,7 +94,8 @@ static func _recipe(id: StringName) -> Image:
 		&"stone":
 			return _combine([_cellular(0.05, 10, FastNoiseLite.RETURN_CELL_VALUE), _noise(0.18, 3, 11)], [0.6, 0.4], 0.5, 0.8)
 		&"plaster":
-			return _combine([_noise(0.3, 3, 12), _noise(0.06, 2, 13), _ridged(0.02, 14)], [0.4, 0.35, 0.25], 0.55, 0.45)
+			# Feine Körnung, dazu sanfte großflächige Unebenheit – keine Flecken in Handgröße.
+			return _combine([_noise(0.6, 3, 12), _noise(0.018, 2, 15), _ridged(0.02, 14)], [0.5, 0.4, 0.1], 0.55, 0.25)
 		&"wood":
 			return ProceduralPatterns.wood(_combine([_stretched(0.06, 4, 30, 8, 1), _noise(0.2, 2, 31)], [0.7, 0.3], 0.55, 0.9))
 		&"tiles":

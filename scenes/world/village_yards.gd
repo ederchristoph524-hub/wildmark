@@ -3,7 +3,7 @@ extends RefCounted
 ## Hofleben der Klan-Dörfer: Zäune mit Törchen vor den Häusern, Gemüsebeete, Steinplattenwege von der Tür zur
 ## Straße, Schornsteine, Bänke am Brunnen und Schattenbäume auf dem Dorfplatz. Zäune, Beete, Wege und Bänke liegen im
 ## Siedlungs-Mesh (kein zusätzlicher Draw Call); die Bäume sind ein MultiMesh, der Herdrauch ein Partikelsystem
-## je Siedlung (Austrittspunkte = Schornsteine, gesammelt in chimney_points wie Architecture.lantern_points).
+## je Siedlung (`ChimneySmoke`; Austrittspunkte = Schornsteine, gesammelt in chimney_points wie Architecture.lantern_points).
 
 const FENCE_HEIGHT: float = 1.0
 const FENCE_STEP: float = 1.5
@@ -13,18 +13,14 @@ const FENCE_OFFSET: float = 2.6
 const FENCE_CHANCE: float = 0.6
 const GARDEN_CHANCE: float = 0.5
 const CHIMNEY_CHANCE: float = 0.7
-const SOIL: Color = Color(0.3, 0.19, 0.17)
+const SOIL: Color = Color(0.27, 0.255, 0.245)
 const SPROUTS: Array[Color] = [Color(0.3, 0.5, 0.2), Color(0.36, 0.55, 0.22), Color(0.26, 0.44, 0.19)]
 const CHIMNEY: Color = Color(0.45, 0.43, 0.4)
 const SLAB: Color = Color(0.52, 0.51, 0.48)
-const SMOKE: Color = Color(0.58, 0.58, 0.6)
-const SMOKE_PER_CHIMNEY: int = 14
-const SMOKE_LIFE: float = 8.0
 const TREE_TRUNK_RADIUS: float = 0.35
 
 ## Schornsteinköpfe (Weltpositionen) der Siedlung, die gerade gebaut wird.
 static var chimney_points: Array[Vector3] = []
-static var _smoke_texture: GradientTexture2D = null
 
 
 ## Hof eines Wohnhauses (Rahmen wie Architecture.house: Ursprung Bodenmitte, vorn = +Z). props_side = Seite, an der
@@ -36,7 +32,7 @@ static func yard(b: MeshBuilder, t: Transform3D, width: float, depth: float, p: 
 		boxes = fence_front(b, t, width + 2.4, depth * 0.5 + FENCE_OFFSET, wood)
 		slab_path(b, t, depth * 0.5 + 0.6, depth * 0.5 + FENCE_OFFSET - 0.3, rng)
 	if rng.randf() < GARDEN_CHANCE:
-		garden(b, t, Vector3(-props_side * (width * 0.5 + 1.6), 0.0, 0.0), Vector2(2.0, 3.4), rng)
+		garden(b, t, Vector3(-props_side * (width * 0.5 + 1.4), 0.0, 0.0), Vector2(2.0, 3.4), rng)
 	return boxes
 
 
@@ -138,64 +134,7 @@ static func trees(world: World, points: Array[Vector3], boxes: Array[Array]) -> 
 	world.add_child(instance)
 
 
-## Herdrauch aller gemeldeten Schornsteine: ein Partikelsystem, das aus allen Köpfen zugleich steigt.
+## Herdrauch aller gemeldeten Schornsteine (ein Partikelsystem je Siedlung, siehe ChimneySmoke).
 static func smoke(world: World, points: Array[Vector3]) -> void:
-	if points.is_empty():
-		return
-	var particles := CPUParticles3D.new()
-	particles.name = "ChimneySmoke"
-	particles.amount = points.size() * SMOKE_PER_CHIMNEY
-	particles.lifetime = SMOKE_LIFE
-	particles.preprocess = SMOKE_LIFE
-	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_POINTS
-	particles.emission_points = PackedVector3Array(points)
-	particles.direction = Vector3.UP
-	particles.spread = 10.0
-	# Leichter Wind: der Rauch zieht schräg ab und wird dabei langsamer.
-	particles.gravity = Vector3(0.3, 0.3, 0.12)
-	particles.initial_velocity_min = 0.3
-	particles.initial_velocity_max = 0.5
-	particles.damping_min = 0.08
-	particles.damping_max = 0.14
-	particles.scale_amount_min = 0.6
-	particles.scale_amount_max = 1.0
-	var grow := Curve.new()
-	grow.max_value = 3.0
-	grow.add_point(Vector2(0.0, 0.4))
-	grow.add_point(Vector2(1.0, 2.6))
-	particles.scale_amount_curve = grow
-	var fade := Gradient.new()
-	fade.set_color(0, Color(SMOKE, 0.0))
-	fade.set_color(1, Color(SMOKE, 0.0))
-	fade.add_point(0.1, Color(SMOKE, 0.6))
-	fade.add_point(0.5, Color(SMOKE, 0.35))
-	particles.color_ramp = fade
-	var quad := QuadMesh.new()
-	quad.size = Vector2.ONE * 1.4
-	particles.mesh = quad
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.vertex_color_use_as_albedo = true
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
-	material.albedo_texture = _puff()
-	particles.material_override = material
-	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	particles.visibility_range_end = Settlement.VIEW_DISTANCE * 0.5
-	world.add_child(particles)
-
-
-static func _puff() -> GradientTexture2D:
-	if _smoke_texture == null:
-		var gradient := Gradient.new()
-		gradient.set_color(0, Color(1.0, 1.0, 1.0, 1.0))
-		gradient.set_color(1, Color(1.0, 1.0, 1.0, 0.0))
-		gradient.add_point(0.45, Color(1.0, 1.0, 1.0, 0.55))
-		_smoke_texture = GradientTexture2D.new()
-		_smoke_texture.gradient = gradient
-		_smoke_texture.fill = GradientTexture2D.FILL_RADIAL
-		_smoke_texture.fill_from = Vector2(0.5, 0.5)
-		_smoke_texture.fill_to = Vector2(1.0, 0.5)
-		_smoke_texture.width = 64
-		_smoke_texture.height = 64
-	return _smoke_texture
+	if not points.is_empty():
+		world.add_child(ChimneySmoke.create(points))

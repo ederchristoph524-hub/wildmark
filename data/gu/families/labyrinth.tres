@@ -139,8 +139,8 @@ base_r1 = Dictionary[StringName, Variant]({
 members = Array[ExtResource("1_de1pc")]([SubResource("gu_irrweg"), SubResource("gu_drei_wege"), SubResource("gu_schneekristall"), SubResource("gu_sechs_richtungen"), SubResource("gu_neun_palaeste")])
 upgrade_materials = Dictionary[int, Dictionary]({
 2: {
-&"geisterseide": 1,
-&"sternsand": 1
+&"eisenerz": 3,
+&"seelenglas": 1
 },
 3: {
 &"frostsplitter": 4,

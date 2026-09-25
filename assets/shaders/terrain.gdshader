@@ -110,13 +110,13 @@ void fragment() {
 	vec3 albedo = base * lum;
 	if (v_paved > 0.01) {
 		// Steinplatten im Verband: jede zweite Reihe um eine halbe Platte versetzt, Fugen dunkel, jede Platte etwas anders.
-		vec2 cell = world_pos.xz / vec2(1.6, 1.1);
+		vec2 cell = world_pos.xz / vec2(0.9, 0.6);
 		float row = floor(cell.y);
 		vec2 slab = vec2(cell.x + mod(row, 2.0) * 0.5, cell.y);
 		vec2 f = fract(slab);
-		float edge = min(min(f.x, 1.0 - f.x) * 1.6, min(f.y, 1.0 - f.y) * 1.1);
+		float edge = min(min(f.x, 1.0 - f.x) * 0.9, min(f.y, 1.0 - f.y) * 0.6);
 		float far_fade = 1.0 - smoothstep(20.0, 65.0, dist);
-		float groove = (1.0 - smoothstep(0.035, 0.09, edge)) * (0.35 + 0.65 * far_fade);
+		float groove = (1.0 - smoothstep(0.02, 0.06, edge)) * (0.35 + 0.65 * far_fade);
 		float tone = hash(floor(slab));
 		float grain = mix(1.0, 0.86 + 0.28 * texture(stone_tex, world_pos.xz * 0.8).r, far_fade);
 		vec3 stone = vec3(0.3, 0.29, 0.27) * (0.82 + 0.36 * tone) * (0.9 + 0.2 * variation) * grain;

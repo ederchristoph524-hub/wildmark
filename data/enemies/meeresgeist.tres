@@ -3,12 +3,17 @@
 [ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_3wmnl"]
 [ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_8iurd"]
 
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_3wmnl")
+item = &"geisterseide"
+chance = 0.5
+
 [resource]
 script = ExtResource("2_8iurd")
 id = &"meeresgeist"
 display_name = "Meeresgeist"
 max_hp = 420
-damage = 48
+damage = 34
 speed = 3.4
 radius = 0.6
 color = Color(0.22745098, 0.5411765, 0.7529412, 1)
@@ -27,5 +32,6 @@ ability = [{
 }]
 ability_range = 9.0
 ability_cooldown = 4.0
+drops = Array[ExtResource("1_3wmnl")]([SubResource("drop_0")])
 shape = &"ghost"
 no_spawn = true

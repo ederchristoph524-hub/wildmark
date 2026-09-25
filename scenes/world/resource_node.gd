@@ -8,7 +8,7 @@ const REGROW_TIME: float = 240.0
 ## Sammelstellen werden erst aus der Nähe gezeichnet (spart Draw Calls am Handy).
 const VIEW_DISTANCE: float = 55.0
 const NIGHT_ONLY: Array[StringName] = [&"mondtau"]
-const HARD_ITEMS: Array[StringName] = [&"stein", &"kristall", &"eisenerz", &"frostsplitter"]
+const HARD_ITEMS: Array[StringName] = [&"stein", &"kristall", &"eisenerz", &"frostsplitter", &"jadeader", &"erdkern", &"blutkoralle", &"urkristall", &"seelenglas", &"sonnengold", &"klingenstahl", &"drachenschuppe"]
 const HARD_PITCH: float = 1.5
 const SOFT_PITCH: float = 0.7
 ## Aussehen je Gegenstand: Grundform und Farbe (glow = leuchtet).
@@ -23,6 +23,22 @@ const LOOKS: Dictionary[StringName, Dictionary] = {
 	&"glutasche": {"base": Color(0.2, 0.19, 0.18), "accent": Color(1.0, 0.45, 0.15), "shape": &"ash"},
 	&"frostsplitter": {"base": Color(0.75, 0.85, 0.9), "accent": Color(0.65, 0.95, 1.0), "shape": &"crystal"},
 	&"knochenmehl": {"base": Color(0.88, 0.85, 0.76), "accent": Color(0.8, 0.77, 0.68), "shape": &"bones"},
+	&"windfeder": {"base": Color(0.86, 0.88, 0.92), "accent": Color(0.4, 0.6, 0.9), "shape": &"herb"},
+	&"sternsand": {"base": Color(0.75, 0.7, 0.55), "accent": Color(1.0, 0.95, 0.6), "shape": &"ash"},
+	&"jadeader": {"base": Color(0.42, 0.42, 0.4), "accent": Color(0.25, 0.7, 0.4), "shape": &"ore"},
+	&"erdkern": {"base": Color(0.38, 0.3, 0.24), "accent": Color(0.9, 0.5, 0.2), "shape": &"ore"},
+	&"giftdrüse": {"base": Color(0.3, 0.4, 0.22), "accent": Color(0.7, 0.3, 0.9), "shape": &"herb"},
+	&"blutkoralle": {"base": Color(0.5, 0.15, 0.15), "accent": Color(0.95, 0.25, 0.3), "shape": &"crystal"},
+	&"urkristall": {"base": Color(0.35, 0.3, 0.45), "accent": Color(0.75, 0.5, 1.0), "shape": &"crystal"},
+	&"tiefseeperle": {"base": Color(0.55, 0.6, 0.62), "accent": Color(0.95, 0.9, 0.95), "shape": &"dew"},
+	&"donnerholz": {"base": Color(0.3, 0.26, 0.24), "accent": Color(0.5, 0.7, 1.0), "shape": &"log"},
+	&"geisterseide": {"base": Color(0.8, 0.82, 0.86), "accent": Color(0.7, 0.9, 1.0), "shape": &"bush"},
+	&"seelenglas": {"base": Color(0.45, 0.5, 0.6), "accent": Color(0.6, 0.85, 1.0), "shape": &"crystal"},
+	&"zeitharz": {"base": Color(0.42, 0.3, 0.18), "accent": Color(0.95, 0.7, 0.25), "shape": &"dew"},
+	&"sonnengold": {"base": Color(0.45, 0.4, 0.3), "accent": Color(1.0, 0.85, 0.3), "shape": &"ore"},
+	&"klingenstahl": {"base": Color(0.4, 0.4, 0.42), "accent": Color(0.8, 0.82, 0.88), "shape": &"ore"},
+	&"wuestenrose": {"base": Color(0.55, 0.45, 0.35), "accent": Color(0.9, 0.5, 0.6), "shape": &"herb"},
+	&"drachenschuppe": {"base": Color(0.3, 0.35, 0.3), "accent": Color(0.8, 0.3, 0.2), "shape": &"crystal"},
 }
 
 var item: StringName = &"beeren"
@@ -59,12 +75,14 @@ func _ready() -> void:
 
 
 ## Fügt ein Mesh hinzu (glow = leuchtendes Material statt Vertex-Farben).
-func add_mesh(mesh: ArrayMesh, glow: Color = Color(0, 0, 0, 0)) -> void:
+## material = eigenes Material (z. B. Pflanzen-Shader), sonst Requisiten-Material bzw. Leuchten bei glow.
+func add_mesh(mesh: ArrayMesh, glow: Color = Color(0, 0, 0, 0), material: Material = null) -> void:
 	var node := MeshInstance3D.new()
 	node.mesh = mesh
-	var material: Material = WorldMaterials.props()
-	if glow.a > 0.0:
+	if material == null and glow.a > 0.0:
 		material = WorldMaterials.glowing(glow)
+	elif material == null:
+		material = WorldMaterials.props()
 	node.material_override = material
 	node.visibility_range_end = VIEW_DISTANCE
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF

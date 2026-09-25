@@ -132,7 +132,7 @@ func _meditate(delta: float) -> void:
 		return
 	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * spring * delta)
 	GameState.essence -= burn
-	GameState.wall += burn / Formulas.wall_need(b, capacity(), GameState.stage)
+	GameState.wall += burn / Formulas.wall_need(b, capacity(), GameState.stage, GameState.rank)
 	if GameState.wall >= 1.0:
 		GameState.wall = 0.0
 		_stage_up()
@@ -143,7 +143,7 @@ func _auto_refine(delta: float) -> void:
 	var b: BalanceData = Balance.values
 	if GameState.physique == &"" or Childhood.is_child() or GameState.stage >= b.max_stage:
 		return
-	GameState.wall += capacity() * b.meditation_burn * b.physique_auto_wall * delta / Formulas.wall_need(b, capacity(), GameState.stage)
+	GameState.wall += capacity() * b.meditation_burn * b.physique_auto_wall * delta / Formulas.wall_need(b, capacity(), GameState.stage, GameState.rank)
 	if GameState.wall >= 1.0:
 		GameState.wall = 0.0
 		_stage_up()

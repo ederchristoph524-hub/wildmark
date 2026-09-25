@@ -8,6 +8,11 @@ script = ExtResource("1_w5w5p")
 item = &"kristall"
 chance = 0.25
 
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_w5w5p")
+item = &"windfeder"
+chance = 0.2
+
 [resource]
 script = ExtResource("2_3p0q2")
 id = &"bat"
@@ -19,7 +24,7 @@ xp = 12
 radius = 0.3
 color = Color(0.3529412, 0.2901961, 0.5411765, 1)
 zone = 1
-drops = Array[ExtResource("1_w5w5p")]([SubResource("drop_0")])
+drops = Array[ExtResource("1_w5w5p")]([SubResource("drop_0"), SubResource("drop_1")])
 shape = &"bat"
 flying = true
 night_only = true

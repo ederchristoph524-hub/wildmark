@@ -8,6 +8,11 @@ script = ExtResource("1_mu1fu")
 item = &"kristall"
 chance = 0.3
 
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_mu1fu")
+item = &"geisterseide"
+chance = 0.12
+
 [resource]
 script = ExtResource("2_884eg")
 id = &"spinne"
@@ -18,7 +23,7 @@ speed = 2.2
 xp = 30
 color = Color(0.22745098, 0.16470589, 0.22745098, 1)
 zone = 1
-drops = Array[ExtResource("1_mu1fu")]([SubResource("drop_0")])
+drops = Array[ExtResource("1_mu1fu")]([SubResource("drop_0"), SubResource("drop_1")])
 shape = &"spider"
 behavior = &"spawn"
 minion = &"spinnling"

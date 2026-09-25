@@ -8,6 +8,11 @@ script = ExtResource("1_vsa0w")
 item = &"kristall"
 chance = 0.9
 
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_vsa0w")
+item = &"seelenglas"
+chance = 0.3
+
 [resource]
 script = ExtResource("2_0jly2")
 id = &"schatten"
@@ -20,7 +25,7 @@ radius = 0.4
 color = Color(0.101960786, 0.0627451, 0.1882353, 1)
 zone = 2
 rank = 3
-drops = Array[ExtResource("1_vsa0w")]([SubResource("drop_0")])
+drops = Array[ExtResource("1_vsa0w")]([SubResource("drop_0"), SubResource("drop_1")])
 shape = &"ghost"
 behavior = &"teleport"
 night_only = true

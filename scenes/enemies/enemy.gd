@@ -53,6 +53,8 @@ func _ready() -> void:
 	display_name = tr(data.display_name)
 	body_radius = data.radius * b.enemy_size_scale
 	body_height = body_radius * 2.4
+	# Schwere Bestien fliegen nicht so weit: Widerstand wächst mit dem Körperradius der Daten.
+	push_resist = clampf((data.radius - b.knockback_mass_radius) * b.knockback_mass_slope, 0.0, b.knockback_mass_max)
 	_init_combatant(TEAM_ENEMY, data.max_hp)
 	add_to_group(GROUP_ENEMIES)
 	var shape := CollisionShape3D.new()

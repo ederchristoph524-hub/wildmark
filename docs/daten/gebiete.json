@@ -358,6 +358,10 @@
     "mondtau": [
      60,
      1
+    ],
+    "jadeader": [
+     6,
+     1
     ]
    },
    "gegner": {
@@ -913,6 +917,22 @@
     "gruenkraut": [
      30,
      2
+    ],
+    "seelenglas": [
+     8,
+     1
+    ],
+    "zeitharz": [
+     8,
+     1
+    ],
+    "klingenstahl": [
+     6,
+     1
+    ],
+    "donnerholz": [
+     8,
+     1
     ]
    },
    "gegner": {
@@ -1769,6 +1789,10 @@
     "drachenschuppe": [
      3,
      1
+    ],
+    "klingenstahl": [
+     8,
+     1
     ]
    },
    "gegner": {
@@ -2226,6 +2250,14 @@
      2
     ],
     "windfeder": [
+     10,
+     1
+    ],
+    "sternsand": [
+     8,
+     1
+    ],
+    "donnerholz": [
      10,
      1
     ]
@@ -3791,6 +3823,18 @@
     "gruenkraut": [
      40,
      2
+    ],
+    "geisterseide": [
+     8,
+     1
+    ],
+    "seelenglas": [
+     8,
+     1
+    ],
+    "zeitharz": [
+     6,
+     1
     ]
    },
    "gegner": {
@@ -4200,6 +4244,10 @@
     ],
     "urkristall": [
      2,
+     1
+    ],
+    "sonnengold": [
+     3,
      1
     ]
    },
@@ -5190,6 +5238,10 @@
     ],
     "urkristall": [
      3,
+     1
+    ],
+    "zeitharz": [
+     8,
      1
     ]
    },

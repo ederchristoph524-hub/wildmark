@@ -228,11 +228,14 @@ obstacles = Array[Dictionary]([{
 resources = Dictionary[StringName, Vector2i]({
 &"beeren": Vector2i(40, 3),
 &"blutkoralle": Vector2i(8, 1),
+&"geisterseide": Vector2i(8, 1),
 &"giftdrüse": Vector2i(15, 1),
 &"gruenkraut": Vector2i(40, 2),
 &"holz": Vector2i(45, 2),
 &"kristall": Vector2i(40, 2),
-&"stein": Vector2i(40, 2)
+&"seelenglas": Vector2i(8, 1),
+&"stein": Vector2i(40, 2),
+&"zeitharz": Vector2i(6, 1)
 })
 enemy_radii = Array[float]([100.0, 170.0])
 enemy_zones = [[&"riesenkrokodil", &"riesenskorpion", &"elektrowolf", &"sturmadler"], [&"riesenkrokodil", &"seuche", &"schatten", &"troll"], [&"seuche", &"schatten", &"troll", &"feuerfuchs", &"drachenling"]]

@@ -54,6 +54,7 @@ func _ready() -> void:
 	health.floor_hp = 1.0
 	_set_fighting(false)
 	_bonus_damage = Formulas.cultivated_damage(b, rank, stage)
+	base_damage_mult = b.master_damage_rank_mult[clampi(rank - 1, 0, b.master_damage_rank_mult.size() - 1)]
 	for id: StringName in data.gu:
 		var chosen: GuData = _member_for_rank(id)
 		if chosen != null:

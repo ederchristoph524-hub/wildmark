@@ -38,6 +38,11 @@ script = ExtResource("1_l0lbo")
 item = &"reliquie_lilakristall"
 chance = 0.5
 
+[sub_resource type="Resource" id="drop_7"]
+script = ExtResource("1_l0lbo")
+item = &"sonnengold"
+chance = 0.6
+
 [resource]
 script = ExtResource("2_63vgb")
 id = &"drache"
@@ -50,7 +55,7 @@ radius = 1.2
 color = Color(1, 0.22745098, 0.101960786, 1)
 zone = 9
 rank = 5
-drops = Array[ExtResource("1_l0lbo")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6")])
+drops = Array[ExtResource("1_l0lbo")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6"), SubResource("drop_7")])
 shape = &"boss"
 behavior = &"boss"
 burn = true

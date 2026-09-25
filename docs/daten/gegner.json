@@ -132,6 +132,10 @@
     [
      "kristall",
      0.3
+    ],
+    [
+     "geisterseide",
+     0.12
     ]
    ],
    "shape": "spider",
@@ -190,6 +194,10 @@
     [
      "kristall",
      0.25
+    ],
+    [
+     "windfeder",
+     0.2
     ]
    ],
    "shape": "bat",
@@ -279,6 +287,10 @@
     [
      "kristall",
      0.9
+    ],
+    [
+     "seelenglas",
+     0.3
     ]
    ],
    "shape": "ghost",
@@ -618,6 +630,10 @@
     [
      "reliquie_lilakristall",
      0.5
+    ],
+    [
+     "sonnengold",
+     0.6
     ]
    ],
    "shape": "boss",
@@ -718,6 +734,10 @@
     [
      "wolfsgeist",
      0.05
+    ],
+    [
+     "donnerholz",
+     0.12
     ]
    ],
    "shape": "wolf",
@@ -851,6 +871,10 @@
     [
      "reliquie_rotstahl",
      0.08
+    ],
+    [
+     "donnerholz",
+     0.35
     ]
    ],
    "shape": "wolf",
@@ -1089,7 +1113,7 @@
   "seeschlange": {
    "n": "Seeschlange",
    "hp": 3610,
-   "dmg": 60,
+   "dmg": 42,
    "spd": 3.2,
    "xp": 480,
    "r": 0.9,
@@ -1128,7 +1152,7 @@
   "riesenkrabbe": {
    "n": "Riesenkrabbe",
    "hp": 4370,
-   "dmg": 55,
+   "dmg": 40,
    "spd": 2.0,
    "xp": 520,
    "r": 0.95,
@@ -1155,7 +1179,7 @@
   "donnerkronenwolf": {
    "n": "Donnerkronen-Wolf",
    "hp": 5320,
-   "dmg": 70,
+   "dmg": 46,
    "spd": 5.2,
    "xp": 700,
    "r": 0.8,
@@ -1206,7 +1230,7 @@
   "weisser_tiger": {
    "n": "Weißer Tiger",
    "hp": 4750,
-   "dmg": 75,
+   "dmg": 48,
    "spd": 5.0,
    "xp": 650,
    "r": 0.75,
@@ -1275,14 +1299,19 @@
   "meeresgeist": {
    "n": "Meeresgeist",
    "hp": 420,
-   "dmg": 48,
+   "dmg": 34,
    "spd": 3.4,
    "xp": 0,
    "r": 0.6,
    "c": "#3a8ac0",
    "z": 9,
    "rang": 5,
-   "drop": [],
+   "drop": [
+    [
+     "geisterseide",
+     0.5
+    ]
+   ],
    "shape": "ghost",
    "nospawn": 1,
    "faehigkeit": [

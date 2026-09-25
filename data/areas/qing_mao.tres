@@ -311,6 +311,7 @@ resources = Dictionary[StringName, Vector2i]({
 &"eisenerz": Vector2i(30, 1),
 &"gruenkraut": Vector2i(65, 2),
 &"holz": Vector2i(55, 2),
+&"jadeader": Vector2i(6, 1),
 &"kristall": Vector2i(34, 1),
 &"mondtau": Vector2i(60, 1),
 &"stein": Vector2i(55, 2)

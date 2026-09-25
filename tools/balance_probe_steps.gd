@@ -47,10 +47,41 @@ func run(scene_tree: SceneTree) -> void:
 		tree.quit()
 		return
 	print("Rang | Bestie | Leben | dein Schaden/s | Sieg nach s | Schaden/s an dir | dein Leben | Tod nach s")
+	# --rank=4 misst nur diesen Rang, --beasts=id1,id2 nur diese Bestien, --loadout=fam1,fam2,fam3,fam4 andere Gu.
+	var only_rank: int = int(_arg("--rank=", "0"))
+	var only_beasts: PackedStringArray = _arg("--beasts=", "").split(",", false)
+	if not only_beasts.is_empty():
+		# Beliebige Bestien (auch Bosse) auf ihrem eigenen Rang bzw. dem von --rank.
+		for id: String in only_beasts:
+			var data: EnemyData = DataRegistry.enemy(StringName(id))
+			if data != null:
+				await _fight(only_rank if only_rank > 0 else clampi(data.rank, 1, 5), data.id)
+		tree.quit()
+		return
 	for rank: int in range(1, 6):
+		if only_rank > 0 and rank != only_rank:
+			continue
 		for beast: StringName in BEASTS[rank]:
 			await _fight(rank, beast)
 	tree.quit()
+
+
+func _arg(prefix: String, fallback: String) -> String:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with(prefix):
+			return arg.trim_prefix(prefix)
+	return fallback
+
+
+## Gu-Familien des Spielers: LOADOUT oder --loadout=fam1,fam2,…
+func _loadout() -> Array[StringName]:
+	var custom: PackedStringArray = _arg("--loadout=", "").split(",", false)
+	if custom.is_empty():
+		return LOADOUT
+	var result: Array[StringName] = []
+	for id: String in custom:
+		result.append(StringName(id))
+	return result
 
 
 ## Schaden pro Sekunde jedes Gu allein gegen ein stehendes Ziel in SOLO_DISTANCE (10 s), je Rang – nah genug für Nahkampf-Formen.
@@ -108,8 +139,9 @@ func _setup(rank: int) -> void:
 	GameState.stage = 2
 	GameState.gu.clear()
 	GameState.slots.fill(GameState.EMPTY_SLOT)
-	for i: int in LOADOUT.size():
-		var instance: GuInstance = GuInstance.create(DataRegistry.family(LOADOUT[i]).member_for_rank(rank).id)
+	var loadout: Array[StringName] = _loadout()
+	for i: int in loadout.size():
+		var instance: GuInstance = GuInstance.create(DataRegistry.family(loadout[i]).member_for_rank(rank).id)
 		GameState.gu.append(instance)
 		GameState.slots[i] = i
 	GameState.bonus_hp = Formulas.cultivated_hp(b, rank, 2) - b.player_base_hp
@@ -140,11 +172,13 @@ func _fight(rank: int, beast_id: StringName) -> void:
 		if not is_instance_valid(beast) or beast.is_dead():
 			break
 		player.targeting.soft_target = beast
-		for slot: int in LOADOUT.size():
+		for slot: int in _loadout().size():
 			if player.holder.is_ready(slot):
 				player.use_slot(slot)
 				break
 		await tree.physics_frame
+		if frame % 120 == 0 and OS.get_cmdline_user_args().has("--trace"):
+			print("    t=%ds Abstand %.1f m, Zustände %s, gefroren %.1f, betäubt %.1f" % [floori(frame / 60.0), beast.global_position.distance_to(player.global_position), str(beast.status.active_statuses()), beast.status.frozen_time, beast.status.stun_time])
 		if player.health.hp < last_hp:
 			taken += last_hp - player.health.hp
 		player.health.hp = player.health.max_hp
@@ -181,8 +215,6 @@ func _duel(data: GuMasterData) -> void:
 	main.world.add_child(master)
 	await _frames(2)
 	var real_hp: float = master.health.max_hp
-	master.health.max_hp = DUMMY_HP
-	master.health.hp = DUMMY_HP
 	var start_hp: float = player.health.max_hp
 	player.health.max_hp = DUMMY_HP
 	player.health.hp = DUMMY_HP
@@ -190,16 +222,26 @@ func _duel(data: GuMasterData) -> void:
 	player.health.floor_hp = 1.0
 	while master.duel_state != GuMaster.DuelState.FIGHT:
 		await tree.physics_frame
+	# Der Meister behält sein echtes Leben (Prozent-Heilungen bleiben realistisch) und wird jedes Bild aufgefüllt;
+	# gezählt wird der Schaden je Bild, Lebenskosten des Meisters (Blutpfad) zählen nicht als Schaden des Spielers.
+	var dealt: float = 0.0
+	var paid: float = master.paid_hp
 	for frame: int in MEASURE_FRAMES:
 		player.targeting.soft_target = master
-		for slot: int in LOADOUT.size():
+		for slot: int in _loadout().size():
 			if player.holder.is_ready(slot):
 				player.use_slot(slot)
 				break
 		await tree.physics_frame
+		if frame % 120 == 0 and OS.get_cmdline_user_args().has("--trace"):
+			print("    t=%ds Abstand %.1f m, Meister %s, Reflex %.1f · du %s, gefroren %.1f, betäubt %.1f" % [floori(frame / 60.0), master.global_position.distance_to(player.global_position),
+				str(master.status.active_statuses()), master.reflect_time, str(player.status.active_statuses()), player.status.frozen_time, player.status.stun_time])
+		if is_instance_valid(master) and not master.is_dead():
+			dealt += maxf(0.0, master.health.max_hp - master.health.hp - (master.paid_hp - paid))
+			paid = master.paid_hp
+			master.health.hp = master.health.max_hp
 	var seconds: float = MEASURE_FRAMES / 60.0
-	# Lebenskosten des Meisters (Blutpfad) zählen nicht als Schaden des Spielers.
-	var dps_out: float = (DUMMY_HP - master.health.hp - master.paid_hp) / seconds
+	var dps_out: float = dealt / seconds
 	var dps_in: float = (DUMMY_HP - player.health.hp) / seconds
 	print("%s | %d | %d | %.1f | %.1f | %.1f | %d | %.1f" % [data.id, rank, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
 	master.queue_free()

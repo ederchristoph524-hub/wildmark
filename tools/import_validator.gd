@@ -43,6 +43,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	_check_trades(built["npcs"], built["builds"])
 	_check_masters(built["gu_masters"], built["body"])
 	AreaValidator.new(_report, _ids).check(built["areas"], built["regions"])
+	MaterialSourceValidator.new(_report).check(built["families"], built["areas"], built["enemies"], built["npcs"])
 
 
 func _collect_ids(resources: Array, type: String) -> Dictionary:

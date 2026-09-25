@@ -191,7 +191,7 @@ func _cast_beam() -> bool:
 		for target_hit: Combatant in struck:
 			var hit: HitInfo = make_hit()
 			if push > 0.0:
-				hit.knockback = Vector3(direction.x, 0.0, direction.z).normalized() * Balance.values.knockback_force * push
+				hit.knockback = Vector3(direction.x, 0.0, direction.z).normalized() * Formulas.knockback_speed(Balance.values, push)
 			target_hit.receive_hit(hit)
 			var slow_amount: float = base(&"verlangsamung")
 			if slow_amount > 0.0:

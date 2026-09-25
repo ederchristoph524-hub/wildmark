@@ -31,6 +31,9 @@ extends Resource
 @export_group("Kultivierung")
 @export var wall_base: float = 1.6
 @export var wall_per_stage: float = 0.5
+## Die Wand verlangt je Rang so viel mehr Essenz (relativ zur Kapazität): Rang 2 ×2, Rang 3 ×4, Rang 4 ×8, Rang 5 ×16.
+## Ohne diesen Faktor dauert jeder Rang beim reinen Meditieren nur 6–12 Minuten (siehe tools/pacing_probe.gd).
+@export var wall_rank_growth: float = 2.0
 ## Anteil der Kapazität, der pro Sekunde Meditation in die Wand fließt.
 @export var meditation_burn: float = 0.09
 ## Gegner in diesem Umkreis verhindern Meditation.
@@ -127,6 +130,15 @@ extends Resource
 ## (0,5 → 100 %, 50 %, 25 % …); nach cc_reset_time ohne Kontrolle wieder voll. Verhindert Dauer-Festsetzen.
 @export var cc_diminish: float = 0.5
 @export var cc_reset_time: float = 3.0
+## Rückstöße in Folge nehmen genauso ab (sonst hält ein Stoß-Gu langsame Bestien endlos auf Abstand); die Folge
+## endet erst nach knockback_reset_time ohne Stoß – länger als eine Abklingzeit, damit Kiten nicht endlos geht.
+@export var knockback_diminish: float = 0.5
+@export var knockback_reset_time: float = 6.0
+## Masse: Bestien mit Datenradius über knockback_mass_radius schlucken je 0,1 m Radius knockback_mass_slope × 0,1
+## des Stoßes, höchstens knockback_mass_max (Sandwurm r 0,8 → 52 %, Wolf r 0,45 → 0 %).
+@export var knockback_mass_radius: float = 0.45
+@export var knockback_mass_slope: float = 1.5
+@export var knockback_mass_max: float = 0.7
 @export var discharge_damage: float = 25.0
 @export var discharge_radius: float = 2.0
 @export var discharge_stun: float = 0.5
@@ -134,10 +146,12 @@ extends Resource
 @export var cut_wound_chance: float = 0.2
 ## Licht blendet Nacht- und Schattenwesen so lange.
 @export var light_blind_time: float = 2.0
-## Rückstoß als einmaliger Geschwindigkeitsstoß (m/s je Rückstoß-Punkt); die normale Bremsung stoppt ihn
-## (bei 30 m/s² fliegt ein Ziel mit Rückstoß 1 etwa 2 m). Mehrere Treffer im selben Moment höchstens bis knockback_max_speed.
+## Rückstoß als einmaliger Geschwindigkeitsstoß (m/s bei Rückstoß 1; Punkte gehen mit der Wurzel ein, damit die
+## Strecke linear wächst – bei 30 m/s² Bremsung fliegt ein Ziel mit Rückstoß 1 etwa 2 m, mit 2 etwa 4 m).
+## Mehrere Treffer im selben Moment höchstens bis knockback_max_speed.
 @export var knockback_force: float = 11.0
-@export var knockback_max_speed: float = 18.0
+## Höchstens 4 m Flug je Moment (Strecke = v² ÷ 60).
+@export var knockback_max_speed: float = 15.5
 @export var status_tick: float = 0.5
 ## Multiplikatoren der Merkmale (Texte in gu_system.json → merkmale).
 ## effect = Wirkung, cost = Essenzkosten, cooldown, hunger, fail = Versagenschance, stacks = zusätzliche Stapel.
@@ -349,6 +363,8 @@ extends Resource
 ## Lebensfaktor erfahrener Gu-Meister je Rang (Index = Rang − 1; darüber gilt der letzte Wert): Schutz-Gu und
 ## Kampferfahrung. Ohne ihn endet ein Duell auf Rang 5 nach einer Sekunde (tools/balance_probe.gd -- --masters).
 @export var master_hp_rank_mult: Array[float] = [1.0, 1.5, 1.6, 2.2, 6.0]
+## Schaden der Meister je Rang: mit Rang-4/5-Gu töteten sie sonst in 4 s (Ziel: starke Meister 5–10 s, Rang 2 nicht unter 6 s).
+@export var master_damage_rank_mult: Array[float] = [1.0, 0.85, 0.8, 0.7, 0.5]
 ## Wie oft die KI neu entscheidet (Sekunden) – kürzer = schwerer.
 @export var master_think_interval: float = 0.35
 ## Ausholen vor Angriffs-Gu: Richtung steht fest, seitliches Ausweichen hilft (KAMPFSYSTEM: keine Treffer ohne Vorwarnung).
