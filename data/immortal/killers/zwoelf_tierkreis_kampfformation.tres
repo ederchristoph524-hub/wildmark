@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bmk1dt56m8p5o"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_bhpbb"]
+
+[resource]
+script = ExtResource("1_bhpbb")
+id = &"zwoelf_tierkreis_kampfformation"
+display_name = "Zwölf-Tierkreis-Kampfformation"
+name_en = "Twelve Zodiac Battle Formation"
+path = &"zeit"
+core = &"bestienversklavungs_gu"
+mortal_families = Array[StringName]([&"sklaverei", &"zeit", &"labyrinth", &"kampfgeist", &"phantom"])
+beads = 6.0
+cooldown = 120.0
+channel = 2.5
+steps = [{
+"count": 2.0,
+"enemy": "ratte",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "uralter_donnerbueffel",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "weisser_tiger",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 2.0,
+"enemy": "pfeilhase",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "drachenling",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "bambusnatter",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "jadeaffe",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "sturmadler",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "wolf",
+"t": "summon",
+"time": 30.0
+}, {
+"count": 1.0,
+"enemy": "schwarzeber_bestie",
+"t": "summon",
+"time": 30.0
+}, {
+"ally_reduction": 0.2,
+"color": "#a04ad0",
+"mult": 1.0,
+"radius": 12.0,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 3.0,
+"time": 30.0
+}]
+description = "Die Zwölf-Tierkreis-Formation: zwölf Tierkreiswesen – Ratten, Büffel, Tiger, Hasen, Drache, Schlange, Affe, Vogel, Hund und Eber – kämpfen 30 s, der Formationskreis trifft alle 3 s."
+lore = "Eine antike Kampfformation, die Fang Yuan speziell zur Synergie mit Versklavungstaktiken erschuf. Kern im Spiel: Bestienversklavungs-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

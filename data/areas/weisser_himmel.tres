@@ -1,0 +1,172 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://cbdp1cyav2lx7"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_iw15q"]
+
+[resource]
+script = ExtResource("1_iw15q")
+id = &"weisser_himmel"
+display_name = "Fragment des Weißen Himmels"
+region = 5
+map_position = Vector2(0.04, 0.12)
+rank_min = 8
+rank_max = 9
+open = true
+description = "Ein Stück des Weißen Himmels jenseits der Himmelswind-Qi-Wand: ein Meer aus Licht und Wolken, auf dem Inseln treiben. In der Ferne liegen die Trümmer der erloschenen Sonne, in der einst der Feuer-Gu und der Licht-Gu lebten."
+size = 560.0
+terrain_seed = 61111
+biome = &"weisser_himmel"
+relief = Dictionary[StringName, float]({
+&"basis": -5.0,
+&"berge": 0.0,
+&"detail": 0.5,
+&"frequenz": 0.005,
+&"hoehe": 4.0,
+&"horizont": 20.0,
+&"rand": 60.0,
+&"randhoehe": -10.0
+})
+hills = Array[Vector4]([Vector4(0, 0, 150, 20), Vector4(-190, -150, 70, 24), Vector4(180, -160, 60, 18), Vector4(-170, 160, 60, 14), Vector4(190, 150, 65, 16), Vector4(0, 115, 40, 16)])
+arrival = Vector2(0, 115)
+places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 4,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"sonnengold",
+"name": "Trümmer der erloschenen Sonne",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-190, -150),
+"radius": 14.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"aschefeld"
+}, {
+"accent": Color(1, 0.9529412, 0.8156863, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_wolkenkranich", &"uralter_donnerbueffel", &"wuester_sturmadler"]),
+"id": &"lichtaltar_weisser_himmel",
+"item": &"",
+"name": "Lichtaltar des Weißen Himmels",
+"offering": {
+&"himmelskristall": 4,
+&"unsterblichen_stein": 60
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(180, -160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"sichtlicht_gu", &"aufsteigende_azurwolke_gu"]),
+"items": {
+&"himmelskristall": 6,
+&"sonnengold": 2,
+&"wolkenerz": 8
+},
+"support": Array[StringName]([])
+},
+"style": &"altar",
+"text": "Ein Altar aus reinem Licht, der den Tag über die fünf Regionen trägt. Seine Wächter kreisen seit dem Fall der Sonne.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Lichtstrom über den Wolken",
+"offering": {},
+"owner": &"",
+"path": &"licht",
+"position": Vector2(0, -40),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Das Licht fließt hier wie Wasser. Wer darin sitzt, wird selbst ein wenig heller.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Himmelswind-Klippe",
+"offering": {},
+"owner": &"",
+"path": &"wind",
+"position": Vector2(-170, 160),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hier reißt die Himmelswind-Qi-Wand an der Insel. Wer standhält, versteht den Wind.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Wolkenquelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(190, 150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"himmelskristall": Vector2i(8, 1),
+&"himmelsqi": Vector2i(10, 1),
+&"kristall": Vector2i(30, 3),
+&"stein": Vector2i(20, 2),
+&"unsterblichen_stein": Vector2i(12, 1),
+&"wolkenerz": Vector2i(20, 1)
+})
+enemy_radii = Array[float]([120.0, 200.0])
+enemy_zones = [[&"wuester_sturmadler", &"uralter_wolkenkranich"], [&"uralter_wolkenkranich", &"wuester_sturmadler", &"uralter_donnerbueffel"], [&"uralter_wolkenkranich", &"uralter_donnerbueffel", &"urzeitlicher_drachenwal"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(120, 240)
+wild_passives = [[&"glueckssicht", &"support", 120.0, 240.0, true]]
+immortal = {
+"entrance": "Durch die Himmelswind-Qi-Wand: nur wer mit Rang-8-Kraft hindurchbricht oder einen Welthorizont-Gu trägt, steht auf dem Wolkenboden.",
+"entry_rank": 8,
+"kind": &"himmel",
+"rules": Array[StringName]([&"leichte_schwere", &"sterbliche_sterben"]),
+"time_flow": 1.0
+}

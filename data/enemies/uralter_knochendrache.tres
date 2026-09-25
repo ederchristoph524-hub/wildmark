@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dbj0txlwno2ch"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_u2b3k"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_45jv4"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_u2b3k")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_u2b3k")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_u2b3k")
+item = &"knochenmehl"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_u2b3k")
+item = &"drachenschuppe"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_u2b3k")
+item = &"seelenkern"
+chance = 0.3
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_u2b3k")
+item = &"himmelskristall"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_45jv4")
+id = &"uralter_knochendrache"
+display_name = "Uralter Knochendrache"
+max_hp = 24000
+damage = 450
+speed = 3.8
+xp = 6000
+radius = 1.5
+color = Color(0.9098039, 0.8784314, 0.78431374, 1)
+zone = 9
+rank = 7
+ability = [{
+"angle": 50.0,
+"color": "#f0e8d0",
+"mult": 1.2,
+"reach": 14.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["durchbohren", "seele"]
+}, {
+"color": "#fff8e0",
+"count": 12.0,
+"mult": 0.5,
+"range": 14.0,
+"set_stacks": {
+"wunde": 1.0
+},
+"speed": 22.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["durchbohren"]
+}, {
+"count": 3.0,
+"enemy": "schuetze",
+"t": "summon",
+"time": 20.0
+}]
+ability_range = 14.0
+ability_cooldown = 10.0
+drops = Array[ExtResource("1_u2b3k")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"croc"
+flying = true

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://chfttxcyssp6o"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_5bqmn"]
+
+[resource]
+script = ExtResource("1_5bqmn")
+id = &"fruehling_herbst_zikade"
+display_name = "Frühling-Herbst-Zikade"
+name_en = "Spring Autumn Cicada"
+rank = 9
+path = &"zeit"
+category = &"konzept"
+kind = &"passiv"
+description = "Stirbst du, dreht die Zikade die Zeit zurück: Du erwachst am Morgen desselben Tages statt zu sterben. Nebenbei heilst du 0,5 % Leben je Sekunde."
+lore = "Eines der zehn großen mystischen Gu, in der Urzeit vom Red Lotus Demon Venerable verfeinert. Ernährt sich vom Wasser des River of Time und manipuliert Zeit lokal: verlangsamen, beschleunigen, zurückspulen."
+owner = "Red Lotus Demon Venerable → Fang Yuan (zeitweise Ying Wu Xie)"
+passive = {
+"regen": 0.005
+}
+world = &"zeitruecksprung"

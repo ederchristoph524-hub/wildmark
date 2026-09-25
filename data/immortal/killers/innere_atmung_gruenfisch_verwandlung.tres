@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c2fshseiiuuw4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_sw0xl"]
+
+[resource]
+script = ExtResource("1_sw0xl")
+id = &"innere_atmung_gruenfisch_verwandlung"
+display_name = "Innere-Atmung-Grünfisch-Verwandlung"
+name_en = "Internal Breathing Green Fish Transformation"
+path = &"verwandlung"
+core = &"anpassungs_gu"
+mortal_families = Array[StringName]([&"gestalt", &"stroemung", &"blatt", &"wasserbild"])
+beads = 5.0
+cooldown = 100.0
+channel = 1.4
+steps = [{
+"color": "#ff8ae2",
+"grow": 1.2,
+"key": "gruenfisch",
+"reduction": 0.5,
+"t": "buff",
+"time": 20.0
+}, {
+"frac": 0.6,
+"t": "heal",
+"time": 20.0
+}, {
+"t": "cleanse",
+"time": 20.0
+}, {
+"color": "#ff8ae2",
+"follow": true,
+"mult": 0.8,
+"radius": 5.0,
+"status": "nass",
+"t": "zone",
+"tags": ["wasser"],
+"tick": 2.0,
+"time": 20.0
+}]
+description = "Verwandlung in den Grünfisch mit innerer Atmung (20 s): 50 % Schutz, immun gegen Zustände, heilt 60 %, und ein Wasserschleier um dich durchnässt Gegner."
+lore = "Teil der von den Legends of Ren Zu ('Pursuing Freedom') inspirierten Move-Trias des Reckless Savage Demon Venerable (Devouring Blue Leopard / Internal Breathing Green Fish / Thunder Rush Yellow Bird Transformation)."
+owner = "Reckless Savage Demon Venerable"

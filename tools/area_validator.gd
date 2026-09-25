@@ -5,7 +5,7 @@ extends RefCounted
 const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", &"frostquelle", &"friedhof", &"erbe", &"ursteinader", &"dao_ort"]
 const OBSTACLE_KINDS: Array[StringName] = [&"hecke", &"wasser", &"fels", &"schalter", &"lichtsiegel", &"blutsiegel", &"vorsprung"]
 ## Bauformen der Erben (wie InheritanceLooks.STYLES; hier als Text, weil das Importskript ohne Autoloads läuft).
-const INHERITANCE_STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte"]
+const INHERITANCE_STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte", &"turm"]
 const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf", &"stadt", &"zeltlager", &"oasenstadt", &"inseldorf", &"festung", &"sekte", &"versteck"]
 
 var _report: ImportReport

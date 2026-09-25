@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://7fjmuu84o60h"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_i2ukf"]
+
+[resource]
+script = ExtResource("1_i2ukf")
+id = &"zeitanker_gu"
+display_name = "Zeitanker-Gu"
+name_en = "Time Anchor Gu"
+path = &"zeit"
+category = &"zeit"
+description = "Setzt einen Zeitanker (20 s): Wer ihn berührt, erstarrt 2 s, dann holt die Zeit ihn ein (Umkreis 5)."
+lore = "'Verankert' Zeit an einem Ort."
+owner = "Su Bai Man, Fang Yuan"
+cooldown = 25.0
+steps = [{
+"color": "#a04ad0",
+"count": 1.0,
+"freeze": 2.0,
+"mult": 0.0,
+"radius": 5.0,
+"spacing": 1.0,
+"t": "trap",
+"tags": ["zeit"],
+"then": [{
+"color": "#a04ad0",
+"mult": 3.0,
+"radius": 5.0,
+"stun": 0.5,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}],
+"time": 20.0,
+"trigger": 2.0
+}]

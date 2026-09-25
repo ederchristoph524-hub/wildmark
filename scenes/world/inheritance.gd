@@ -118,6 +118,9 @@ func _claim() -> void:
 	var items: Dictionary = reward["items"]
 	for item: StringName in items:
 		GameState.add_item(item, int(items[item]))
+	# Unsterbliche Gu des Erbes gehen direkt in deine Apertur (nutzbar, sobald du Unsterblicher bist).
+	for id: StringName in reward.get("immortal", []):
+		ImmortalGu.grant(id)
 	EventBus.message.emit(tr("Das Erbe öffnet sich: %s") % tr(String(data["name"])), SEAL)
 	_refresh()
 

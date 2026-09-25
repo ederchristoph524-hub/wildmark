@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bdo56lpv8brra"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_bbho3"]
+
+[resource]
+script = ExtResource("1_bbho3")
+id = &"welterschuetternder_drachenhammer"
+display_name = "Welterschütternder-Drachenhammer"
+name_en = "World Shaking Dragon Hammer"
+path = &"verwandlung"
+core = &"tausend_jun_kraft_gu_unsterblich"
+mortal_families = Array[StringName]([&"gestalt", &"wirbel", &"erde", &"kampfgeist", &"phantom"])
+beads = 5.0
+cooldown = 100.0
+channel = 2.0
+base_damage = 70.0
+steps = [{
+"color": "#ff8ae2",
+"knockback": 3.0,
+"mult": 10.0,
+"radius": 10.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff8ae2",
+"knockback": 1.0,
+"mult": 4.0,
+"radius": 14.0,
+"t": "circle",
+"tags": ["erde"]
+}],
+"time": 0.5
+}]
+description = "Der Drachenhammer erschüttert die Welt: ein Schlag (Umkreis 10) betäubt und schleudert alles, die Erdwelle rollt bis 14 m."
+lore = "Teil der umfangreichen Drachen-Move-Reihe von Duke Long, einem der Three Dukes von Heavenly Court (vor allem Transformation/Qi Path). Kern im Spiel: Unsterblicher-Tausend-Jun-Kraft-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Duke Long (Heavenly Court)"

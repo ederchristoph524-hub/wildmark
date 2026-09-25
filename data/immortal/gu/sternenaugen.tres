@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d3v1e2wqqagkk"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_2alqr"]
+
+[resource]
+script = ExtResource("1_2alqr")
+id = &"sternenaugen"
+display_name = "Sternenaugen"
+name_en = "Star Eyes"
+rank = 7
+path = &"stern"
+category = &"information"
+kind = &"passiv"
+description = "Sternenaugen: Getarnte und Verborgene werden sichtbar, jede Schwäche ist dir klar (+20 % kritische Treffer)."
+lore = "Investigatives Star-Path-Gu."
+owner = "Fang Yuan, Star Constellation Immortal Venerable"
+passive = {
+"crit": 0.2,
+"sicht": true
+}

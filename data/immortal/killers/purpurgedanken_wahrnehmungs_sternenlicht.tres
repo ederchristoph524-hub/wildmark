@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://byvkujdp0jrex"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_wejai"]
+
+[resource]
+script = ExtResource("1_wejai")
+id = &"purpurgedanken_wahrnehmungs_sternenlicht"
+display_name = "Purpurgedanken-Wahrnehmungs-Sternenlicht"
+name_en = "Purple Thought Perception Starlight"
+path = &"weisheit"
+core = &"sternenaugen"
+mortal_families = Array[StringName]([&"weisheit", &"stern", &"mondlicht"])
+beads = 4.0
+steps = [{
+"color": "#7fc8ff",
+"damage": 1.3,
+"key": "purpurwahrnehmung",
+"t": "buff",
+"time": 12.0
+}, {
+"chance": 0.4,
+"t": "luck",
+"time": 12.0
+}, {
+"blind": 1.0,
+"color": "#c0a0ff",
+"count": 12.0,
+"homing": true,
+"mult": 0.7,
+"range": 20.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["stern", "licht"]
+}]
+description = "Purpurnes Wahrnehmungs-Sternenlicht: 12 s +30 % Schaden und 40 % kritisch; zwölf Sternenstrahlen suchen jeden Gegner, auch getarnte."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Sternenaugen – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

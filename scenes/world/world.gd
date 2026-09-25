@@ -45,6 +45,7 @@ var _rng := RandomNumberGenerator.new()
 func _ready() -> void:
 	name = "World"
 	add_to_group(GROUP_WORLD)
+	ImmortalAperture.register()
 	area = DataRegistry.area(GameState.area)
 	if area == null or not area.open:
 		area = DataRegistry.area(&"qing_mao")
@@ -84,6 +85,7 @@ func _ready() -> void:
 	add_child(Ambience.new(self))
 	add_child(Weather.new(self))
 	BuildSystem.restore(self)
+	ImmortalWorld.setup(self)
 	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)
 
@@ -228,6 +230,8 @@ func _place_resources() -> void:
 
 ## Je ein wilder Gu jeder Familie (Rang des Gebiets) außer der gewählten; gefundene erscheinen nicht erneut.
 func _place_wild_gu() -> void:
+	if area.wild_gu_rank <= 0:
+		return
 	for resource: Resource in DataRegistry.all(&"families"):
 		var family: GuFamilyData = resource as GuFamilyData
 		var point: Vector3 = _random_point(area.wild_gu_range.x, area.wild_gu_range.y)

@@ -60,6 +60,12 @@ func refresh() -> void:
 	_add_tab(tr("Bauen"), BuildPage.build(player, close))
 	_add_tab(tr("Aufgaben"), BuildPage.quests_page())
 	_add_tab(tr("Kultivierung"), GuMenuPages.cultivation_page(player, refresh))
+	if GameState.rank >= Immortal.MORTAL_PEAK:
+		_add_tab(tr("Unsterblich"), ImmortalPage.build(player, refresh))
+	if Immortal.is_immortal() or not GameState.immortal.gu.is_empty():
+		_add_tab(tr("Unsterbliche Gu"), ImmortalGuPage.build(player, refresh))
+	if TreasureHeaven.can_enter():
+		_add_tab(tr("Schatzhimmel"), TreasurePage.build(refresh))
 	_add_tab(tr("Lexikon"), CodexPage.build())
 	_tabs.current_tab = clampi(current, 0, _tabs.get_tab_count() - 1)
 

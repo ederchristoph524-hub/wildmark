@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://demut217dnhbj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_lgwok"]
+
+[resource]
+script = ExtResource("1_lgwok")
+id = &"dem_himmel_trotzendes_glueck_gu"
+display_name = "Dem-Himmel-trotzendes-Glück-Gu"
+name_en = "Fortune Rivalling Heaven Gu"
+rank = 8
+path = &"glueck"
+category = &"unterstuetzung"
+description = "Glück gegen den Willen des Himmels: 20 s lang ist jeder Treffer kritisch, du richtest 30 % mehr Schaden an und bist 3 s unaufhaltsam."
+lore = "Einmalig einsetzbares Luck-Gu, das massives Glück gegen den Willen des Himmels selbst mobilisiert."
+owner = "Ma Hong Yun, Giant Sun Immortal Venerable"
+beads = 4.0
+cooldown = 60.0
+base_damage = 20.0
+steps = [{
+"chance": 1.0,
+"t": "luck",
+"time": 20.0
+}, {
+"color": "#7dff9b",
+"damage": 1.3,
+"key": "himmelstrotz",
+"t": "buff",
+"time": 20.0
+}, {
+"t": "unstoppable",
+"time": 3.0
+}]

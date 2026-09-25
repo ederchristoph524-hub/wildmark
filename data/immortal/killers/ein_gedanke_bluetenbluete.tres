@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b788rakt2q2wo"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_4tmt3"]
+
+[resource]
+script = ExtResource("1_4tmt3")
+id = &"ein_gedanke_bluetenbluete"
+display_name = "Ein-Gedanke-Blütenblüte"
+name_en = "Single Thought Flower Blossom"
+path = &"weisheit"
+core = &"reifer_bambus_gu"
+mortal_families = Array[StringName]([&"weisheit", &"blatt", &"wind"])
+cooldown = 45.0
+steps = [{
+"color": "#7fc8ff",
+"mult": 4.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["holz", "seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"count": 12.0,
+"mult": 1.4,
+"range": 12.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["holz", "seele", "schnitt"]
+}],
+"time": 0.4
+}]
+description = "Ein Gedanke lässt eine Blüte aufgehen: sie öffnet sich mit Wucht (Umkreis 6) und schleudert zwölf Blütenblätter in alle Richtungen."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Reifer-Bambus-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

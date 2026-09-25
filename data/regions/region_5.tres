@@ -8,3 +8,6 @@ id = 5
 display_name = "Weißer Himmel"
 color = Color(1, 0.9529412, 0.8156863, 1)
 description = "Ein Meer aus Licht und Wolken. Die Ordnung des Himmlischen Hofes."
+map_polygon = Array[Vector2]([Vector2(0.005, 0.01), Vector2(0.07, 0.01), Vector2(0.075, 0.12), Vector2(0.065, 0.24), Vector2(0.005, 0.25)])
+wall_name = "Himmelswind-Qi-Wand"
+wall_color = Color(0.95686275, 0.9372549, 0.84705883, 1)

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://di4m6455sutw1"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_v2gl2"]
+
+[resource]
+script = ExtResource("1_v2gl2")
+id = &"grossfamilien_qi_gu"
+display_name = "Großfamilien-Qi-Unsterblichen-Gu"
+name_en = "Big Family Qi Immortal Gu"
+rank = 7
+path = &"qi"
+category = &"sonstiges"
+description = "Großfamilien-Qi: zwei Wasserkrieger stoßen als Familie dazu (12 s); alle um dich (Umkreis 8) sind 20 % geschützt, du kämpfst 25 % stärker."
+lore = "Verbindungs-Gu, das Qi Path mit einem weiteren (im Text nicht genannten) Pfad kombiniert. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"count": 2.0,
+"enemy": "wasserkrieger",
+"t": "summon",
+"time": 12.0
+}, {
+"ally_reduction": 0.2,
+"color": "#99ffff",
+"follow": true,
+"heal": 0.01,
+"mult": 0.0,
+"radius": 8.0,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"color": "#99ffff",
+"damage": 1.25,
+"key": "grossfamilie",
+"t": "buff",
+"time": 12.0
+}]

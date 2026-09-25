@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cabsy7ah1xgwm"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_lh0b3"]
+
+[resource]
+script = ExtResource("1_lh0b3")
+id = &"fuersorge_gu"
+display_name = "Fürsorge-Unsterblichen-Gu"
+name_en = "Care Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"unterstuetzung"
+description = "Regel „Fürsorge“ (Umkreis 8, 12 s): Verbündete heilen jeden Takt stark und sind 30 % geschützt, du selbst 20 %."
+lore = "Rule-Path-Gu; bei Pang Shan und Chu Du. Kein Rang im Text."
+owner = "Pang Shan, Chu Du"
+beads = 2.0
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"ally_reduction": 0.3,
+"color": "#e8e0ff",
+"follow": true,
+"heal": 0.03,
+"mult": 0.0,
+"radius": 8.0,
+"t": "zone",
+"tags": ["holz"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"color": "#e8e0ff",
+"reduction": 0.2,
+"t": "armor",
+"time": 12.0
+}]

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bj56abxgc46ca"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_wr4tk"]
+
+[resource]
+script = ExtResource("1_wr4tk")
+id = &"eisenkronen_adler_kraft_gu"
+display_name = "Eisenkronen-Adler-Kraft-Gu"
+name_en = "Iron Crown Eagle Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Eisenkronen-Adlerkraft: Sturzflug durch eine Linie (12 m, Metallkrallen), beim Aufschlag ein Krallenhieb; 12 s 20 % schneller."
+lore = "Teil der 'Beast Strength'-Serie des Strength Path (jeweils Rang 6–7), jedes Gu an ein bestimmtes Fabelwesen angelehnt – hier: Iron Crown Eagle. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+steps = [{
+"color": "#e07a4a",
+"key": "eisenkronen_adler",
+"speed": 1.2,
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#c9c9d4",
+"dash": true,
+"knockback": 1.0,
+"length": 12.0,
+"mult": 2.0,
+"t": "line",
+"tags": ["metall", "wucht"],
+"width": 2.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9c9d4",
+"mult": 1.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["metall", "schnitt"]
+}],
+"time": 0.3
+}]

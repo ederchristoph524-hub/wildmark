@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://ceo24uilg42yr"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_8irnn"]
+
+[resource]
+script = ExtResource("1_8irnn")
+id = &"traumhafter_lichtrauch"
+display_name = "Traumhafter-Lichtrauch"
+name_en = "Dreamy Light Smoke"
+path = &"traum"
+core = &"traummarken_gu"
+mortal_families = Array[StringName]([&"mondlicht", &"sklaverei", &"seelenschrei", &"tarnung"])
+beads = 5.0
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"at": "target",
+"color": "#d0a0ff",
+"distance": 12.0,
+"mult": 3.0,
+"radius": 8.0,
+"stun": 3.0,
+"t": "circle",
+"tags": ["seele"]
+}, {
+"at": "target",
+"blind": 1.0,
+"color": "#d0a0ff",
+"distance": 12.0,
+"mult": 0.5,
+"radius": 8.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["seele", "licht"],
+"time": 6.0
+}]
+description = "Traumhafter Lichtrauch um das Ziel (Umkreis 8): alle darin sind 3 s wie versklavt, danach 6 s in einem blendenden Traumrauch gefangen."
+lore = "Killer Move mit dem Dream Token Gu als Kern (das sogar Rang-8-Gu-Immortals versklaven kann)."
+owner = "Wu Shuai, Bai Ning Bing, Fang Yuan"

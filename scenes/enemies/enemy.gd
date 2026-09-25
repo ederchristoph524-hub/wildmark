@@ -55,7 +55,13 @@ func _ready() -> void:
 	body_height = body_radius * 2.4
 	# Schwere Bestien fliegen nicht so weit: Widerstand wächst mit dem Körperradius der Daten.
 	push_resist = clampf((data.radius - b.knockback_mass_radius) * b.knockback_mass_slope, 0.0, b.knockback_mass_max)
-	_init_combatant(TEAM_ENEMY, data.max_hp)
+	# Bestienkönige stehen wie Fels: kein Stoß, keine Betäubung, halbe Verlangsamung – sonst hält Frost + Stoß sie fern.
+	control_immune = data.boss
+	cultivation_rank = data.rank
+	var immortal_beast: bool = data.rank >= Immortal.FIRST_RANK
+	_init_combatant(TEAM_ENEMY, data.max_hp * (Balance.immortal.beast_hp_mult if immortal_beast else 1.0))
+	if immortal_beast:
+		base_damage_mult = Balance.immortal.beast_damage_mult
 	add_to_group(GROUP_ENEMIES)
 	var shape := CollisionShape3D.new()
 	var capsule := CapsuleShape3D.new()

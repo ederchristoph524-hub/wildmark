@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://6ubhphk3xn7j"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_8a5ab"]
+
+[resource]
+script = ExtResource("1_8a5ab")
+id = &"wintermantel"
+display_name = "Wintermantel"
+name_en = "Winter Coat"
+path = &"zeit"
+core = &"winter_gu"
+mortal_families = Array[StringName]([&"frost", &"zeit", &"haut", &"qischirm"])
+beads = 5.0
+cooldown = 100.0
+channel = 1.2
+steps = [{
+"color": "#a04ad0",
+"kind": "thorns",
+"reduction": 0.8,
+"t": "armor",
+"time": 12.0,
+"value_mult": 0.5
+}, {
+"t": "reflect",
+"time": 3.0
+}, {
+"color": "#a04ad0",
+"follow": true,
+"mult": 0.7,
+"radius": 7.0,
+"slow": 0.4,
+"status": "frost",
+"t": "zone",
+"tags": ["eis", "zeit"],
+"tick": 1.0,
+"time": 12.0
+}]
+description = "Ein Mantel aus Winter (12 s): 80 % Schutz, eisige Dornen, 3 s prallen Geschosse ab, und die Kälte um dich lässt Gegner erfrieren."
+lore = "Fang Yuans stärkste defensive Zeit-Path-Technik, aus einer Bo-Clan-Traumreich-Erbschaft."
+owner = "Fang Yuan (Bo-Clan-Erbschaft)"

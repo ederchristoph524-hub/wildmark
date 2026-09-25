@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bu6ok1t80uiv4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_mbc5t"]
+
+[resource]
+script = ExtResource("1_mbc5t")
+id = &"ein_gedanke_endlose_klone"
+display_name = "Ein-Gedanke-Endlose-Klone"
+name_en = "Single Thought Endless Clones"
+path = &"weisheit"
+core = &"schattenspaltung_gu"
+mortal_families = Array[StringName]([&"weisheit", &"wasserbild", &"tarnung", &"phantom"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"count": 8.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 8.0
+}, {
+"t": "stealth",
+"time": 1.0
+}, {
+"color": "#7fc8ff",
+"count": 8.0,
+"homing": true,
+"mult": 0.5,
+"range": 16.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 4.0,
+"radius": 10.0,
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 8.0
+}]
+description = "Ein Gedanke, endlose Klone: acht Gedankenklone erscheinen (8 s) und schießen je einen Gedankenpfeil; vergehen sie, zerplatzen sie gemeinsam (Umkreis 10)."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Schattenspaltung-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

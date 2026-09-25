@@ -1,0 +1,173 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://b4737fhgrvinv"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_vd5j7"]
+
+[resource]
+script = ExtResource("1_vd5j7")
+id = &"luo_po_tal"
+display_name = "Luo-Po-Tal"
+region = 0
+map_position = Vector2(0.8, 0.15)
+rank_min = 5
+rank_max = 7
+open = true
+description = "Ein graues Tal ohne Echo in der Nördlichen Ebene. In Abständen fegen Seelenwinde hindurch, die ungeschützte Seelen zerreißen. Wer hinter den Felsen ausharrt, begreift den Seelenpfad – das Tal soll das Luo-Po-Siegel inspiriert haben."
+size = 460.0
+terrain_seed = 60202
+biome = &"seelental"
+relief = Dictionary[StringName, float]({
+&"berge": 12.0,
+&"detail": 0.9,
+&"frequenz": 0.0055,
+&"hoehe": 8.0,
+&"horizont": 230.0,
+&"rand": 80.0,
+&"randhoehe": 72.0
+})
+arrival = Vector2(0, 170)
+paths = [[Vector2(0, 170), Vector2(0, 60), Vector2(-40, -20), Vector2(-100, -90)]]
+places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Echoloser Grund",
+"offering": {},
+"owner": &"",
+"path": &"seele",
+"position": Vector2(0, 0),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hier verschluckt das Tal jeden Laut. Zwischen zwei Windwellen hört man nur die eigene Seele.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.6039216, 0.7058824, 0.8156863, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wuester_seelenfresser", &"schatten", &"schatten", &"schatten"]),
+"id": &"luo_po_siegelstein",
+"item": &"",
+"name": "Luo-Po-Siegelstein",
+"offering": {
+&"kristall": 120,
+&"seelenstaub": 10
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-110, -100),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"goettlichersinn"]),
+"immortal": Array[StringName]([&"seelensog_gu"]),
+"items": {
+&"reliquie_lilakristall": 1,
+&"seelenkern": 1,
+&"seelenstaub": 15
+},
+"support": Array[StringName]([&"seelensuche"])
+},
+"style": &"grab",
+"text": "In den Stein sind Hunderte Seelen versiegelt. Ihr Wächter hält sie – und prüft jeden, der das Siegel lesen will.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenstaub",
+"name": "Hain der Verwehten",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(120, -60),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Windstille Quelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(100, 110),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Stiller Teich",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-120, 80),
+"radius": 18.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(20, 2),
+&"himmelsqi": Vector2i(5, 1),
+&"holz": Vector2i(15, 2),
+&"kristall": Vector2i(35, 3),
+&"seelenglas": Vector2i(10, 1),
+&"seelenstaub": Vector2i(16, 1),
+&"stein": Vector2i(70, 2),
+&"windfeder": Vector2i(15, 1)
+})
+enemy_radii = Array[float]([90.0, 160.0])
+enemy_zones = [[&"schatten", &"blitzwolf", &"sturmadler"], [&"schatten", &"donnerkronenwolf", &"troll", &"feuerfuchs"], [&"wuester_seelenfresser", &"wuester_nebelfuchs", &"schatten", &"weisser_tiger"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(70, 190)
+wild_passives = [[&"boeserGedanke", &"support", 80.0, 190.0, true], [&"fadenspur", &"support", 60.0, 180.0, false]]
+immortal = {
+"entrance": "Zwischen zwei Hügeln der Steppe hört das Gras plötzlich auf zu rauschen – dort beginnt das Tal.",
+"entry_rank": 5,
+"kind": &"dimension",
+"rules": Array[StringName]([&"seelensturm"]),
+"time_flow": 1.0
+}

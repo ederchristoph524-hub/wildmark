@@ -49,12 +49,15 @@ func _ready() -> void:
 	rank = data.rank if data.rank > 0 else b.master_rank
 	stage = data.stage if data.stage >= 0 else b.master_stage
 	display_name = display_title()
-	_init_combatant(TEAM_PLAYER, Formulas.master_hp(b, rank, stage))
+	_init_combatant(TEAM_PLAYER, Formulas.master_hp(b, rank, stage) + Immortal.base_hp(rank) * Balance.immortal.master_hp_mult)
 	# Gu-Meister sterben im Duell nicht; bei 1 Leben ist spätestens Schluss.
 	health.floor_hp = 1.0
 	_set_fighting(false)
-	_bonus_damage = Formulas.cultivated_damage(b, rank, stage)
+	_bonus_damage = Formulas.cultivated_damage(b, rank, stage) + Immortal.flat_damage(rank)
+	cultivation_rank = rank
 	base_damage_mult = b.master_damage_rank_mult[clampi(rank - 1, 0, b.master_damage_rank_mult.size() - 1)]
+	if rank >= Immortal.FIRST_RANK:
+		base_damage_mult = Balance.immortal.master_damage_mult
 	for id: StringName in data.gu:
 		var chosen: GuData = _member_for_rank(id)
 		if chosen != null:
@@ -308,6 +311,8 @@ func interact_label() -> String:
 
 ## Als Kind: Erwachen (sobald das Tutorial so weit ist); danach Duell.
 func interact(player: Player) -> void:
+	if ImmortalNpc.refuses(self):
+		return
 	if not Childhood.is_child() and data.faction == Renown.RIGHTEOUS and Renown.is_demon() and not Renown.disguised():
 		EventBus.message.emit(tr("%s: „Ein Dämon fordert mich heraus? Verschwinde, bevor ich die Wache rufe!“") % display_title(), Renown.INFAMY_COLOR)
 	elif not Childhood.is_child():

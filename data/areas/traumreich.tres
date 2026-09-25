@@ -1,0 +1,194 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://b817d5m51d3fy"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_10qid"]
+
+[resource]
+script = ExtResource("1_10qid")
+id = &"traumreich"
+display_name = "Traumreich"
+region = 4
+map_position = Vector2(0.64, 0.58)
+rank_min = 5
+rank_max = 8
+open = true
+description = "Ein pastellfarbener Traum, den ein Verstorbener zurückließ. Nichts hier ist ganz wirklich: Wer stirbt, erwacht am Eingang. Doch das Verständnis, das man im Traum gewinnt, bleibt – fünfmal so schnell wie in der wachen Welt."
+size = 460.0
+terrain_seed = 60909
+biome = &"traumreich"
+relief = Dictionary[StringName, float]({
+&"berge": 20.0,
+&"detail": 1.2,
+&"frequenz": 0.007,
+&"hoehe": 14.0,
+&"horizont": 150.0,
+&"rand": 40.0,
+&"randhoehe": 30.0
+})
+hills = Array[Vector4]([Vector4(-120, -30, 55, 22), Vector4(110, -80, 50, 26), Vector4(0, -150, 60, 18)])
+arrival = Vector2(0, 170)
+paths = [[Vector2(0, 170), Vector2(0, 0), Vector2(0, -130)]]
+places = Array[Dictionary]([{
+"accent": Color(0.95686275, 0.78431374, 1, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wuester_nebelfuchs", &"schatten", &"schatten"]),
+"id": &"kern_des_traums",
+"item": &"",
+"name": "Kern des Traums",
+"offering": {
+&"traumsplitter": 10
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, -150),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"sternennebel", &"nebelschleier"]),
+"immortal": Array[StringName]([&"traumschmetterlings_gu"]),
+"items": {
+&"seelenkern": 1,
+&"traumsplitter": 20
+},
+"support": Array[StringName]([])
+},
+"style": &"altar",
+"text": "Im Herzen jedes Traums liegt, was der Träumer am meisten liebte. Hier ist es ein Schmetterling aus Licht.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Bibliothek der vergessenen Träume",
+"offering": {},
+"owner": &"",
+"path": &"weisheit",
+"position": Vector2(-120, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Regale ohne Ende, die Bücher darin schreiben sich beim Lesen selbst.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Sternenschaukel",
+"offering": {},
+"owner": &"",
+"path": &"stern",
+"position": Vector2(110, -80),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Eine Schaukel hängt an einem Stern. Wer darauf schwingt, versteht, warum Sterne nicht fallen.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Spiegelsee der Erinnerung",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(80, 90),
+"radius": 22.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"traumsplitter",
+"name": "Feld der Träumer",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-130, 110),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Quelle des Erwachens",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, 20),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"himmelsqi": Vector2i(6, 1),
+&"holz": Vector2i(30, 2),
+&"kristall": Vector2i(30, 3),
+&"mondtau": Vector2i(30, 1),
+&"seelenstaub": Vector2i(10, 1),
+&"traumsplitter": Vector2i(20, 1)
+})
+enemy_radii = Array[float]([100.0, 160.0])
+enemy_zones = [[&"schatten", &"sturmadler", &"feuerfuchs"], [&"schatten", &"weisser_tiger", &"donnerkronenwolf", &"feuerfuchs"], [&"wuester_nebelfuchs", &"wuester_seelenfresser", &"schatten"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(80, 200)
+wild_passives = [[&"boeserGedanke", &"support", 80.0, 200.0, true], [&"glueckssicht", &"support", 60.0, 180.0, false]]
+immortal = {
+"entrance": "Ein flimmernder Riss in der Luft des Zentralkontinents; wer daneben einschläft, erwacht im Traum.",
+"entry_rank": 5,
+"kind": &"dimension",
+"rules": Array[StringName]([&"traum"]),
+"time_flow": 1.0
+}

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dqfw7vacb24f"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_y0mji"]
+
+[resource]
+script = ExtResource("1_y0mji")
+id = &"drachenschuppen_gu"
+display_name = "Drachenschuppen-Unsterblichen-Gu"
+name_en = "Dragon Scales Immortal Gu"
+rank = 7
+path = &"verwandlung"
+category = &"verteidigung"
+description = "Drachenschuppen für 10 s: 55 % Schutz, Angreifer verletzen sich an den Schuppen, und sechs lose Schuppen kreisen schneidend um dich."
+lore = "Transformations-Gu für drachenartige Schuppen-Panzerung. Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 1.5
+cooldown = 35.0
+steps = [{
+"color": "#c9c9d4",
+"kind": "thorns",
+"reduction": 0.55,
+"t": "armor",
+"time": 10.0,
+"value_mult": 0.5
+}, {
+"color": "#c9c9d4",
+"count": 6.0,
+"mult": 0.3,
+"radius": 2.2,
+"speed": 1.2,
+"t": "orbit",
+"tags": ["metall", "schnitt"],
+"time": 10.0
+}]

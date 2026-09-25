@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://brhd1tkubej5m"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_0iddb"]
+
+[resource]
+script = ExtResource("1_0iddb")
+id = &"qi_grossloewen_kraft_gu"
+display_name = "Qi-Großlöwen-Kraft-Gu"
+name_en = "Qi Grand Lion Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Qi-Großlöwenkraft: 12 s +40 % Schaden; dein Löwengebrüll (Umkreis 8) jagt allen Furcht ein und stößt sie zurück."
+lore = "Teil der 'Beast Strength'-Serie des Strength Path (jeweils Rang 6–7), jedes Gu an ein bestimmtes Fabelwesen angelehnt – hier: Qi Grand Lion. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"color": "#e07a4a",
+"damage": 1.4,
+"key": "qi_grossloewe",
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#ffd24a",
+"knockback": 1.0,
+"mult": 3.0,
+"radius": 8.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["klang", "wucht"]
+}]

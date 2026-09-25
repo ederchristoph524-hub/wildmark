@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://btitw77h2k3l4"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_w7uci"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_wd5nt"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_w7uci")
+item = &"unsterblichen_stein"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_w7uci")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_w7uci")
+item = &"erdkern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_w7uci")
+item = &"fell"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_w7uci")
+item = &"heldenherz"
+chance = 0.3
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_w7uci")
+item = &"erdqi"
+chance = 0.25
+
+[resource]
+script = ExtResource("2_wd5nt")
+id = &"wuestes_mammut"
+display_name = "Wüstes Mammut"
+max_hp = 8000
+damage = 110
+speed = 2.4
+xp = 2000
+radius = 1.4
+color = Color(0.5411765, 0.41568628, 0.2901961, 1)
+zone = 9
+rank = 6
+ability = [{
+"color": "#c0a070",
+"dash": true,
+"knockback": 2.0,
+"length": 14.0,
+"mult": 1.2,
+"stun": 0.8,
+"t": "line",
+"tags": ["wucht", "erde"],
+"width": 3.5
+}, {
+"color": "#a08050",
+"mult": 0.9,
+"radius": 7.0,
+"status": "verwurzelt",
+"t": "circle",
+"tags": ["erde", "wucht"]
+}]
+ability_range = 12.0
+ability_cooldown = 9.0
+drops = Array[ExtResource("1_w7uci")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"bear"
+behavior = &"armor"

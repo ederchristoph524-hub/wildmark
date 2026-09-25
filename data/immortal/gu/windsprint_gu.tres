@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dvxox4s7wux2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_0isv3"]
+
+[resource]
+script = ExtResource("1_0isv3")
+id = &"windsprint_gu"
+display_name = "Windsprint-Unsterblichen-Gu"
+name_en = "Wind Sprint Immortal Gu"
+path = &"wind"
+category = &"bewegung"
+description = "Windsprint: Sprung 8 m, 6 s 50 % schneller; der Wind in deinem Rücken (Umkreis 3) trägt Brand und Gift von Gegner zu Gegner."
+lore = "Bewegungsverstärker des Wind Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 14.0
+base_damage = 20.0
+steps = [{
+"color": "#c8f0ff",
+"distance": 8.0,
+"t": "dash"
+}, {
+"color": "#c8f0ff",
+"key": "windsprint",
+"speed": 1.5,
+"t": "buff",
+"time": 6.0
+}, {
+"color": "#c8f0ff",
+"follow": true,
+"mult": 0.0,
+"radius": 3.0,
+"t": "zone",
+"tags": ["wind"],
+"time": 6.0
+}]

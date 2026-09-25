@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dq82npjtn8vqr"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_g550o"]
+
+[resource]
+script = ExtResource("1_g550o")
+id = &"fluss_umstuerzen"
+display_name = "Fluss-Umstürzen"
+name_en = "Overturn River"
+rank = 7
+path = &"kraft"
+category = &"angriff"
+description = "Stürzt einen Fluss um: Du rollst als Flutwelle 14 m nach vorn (schleudert fort, nass), am Ende bleibt 3 s tosendes Wasser."
+lore = "Strength-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 25.0
+steps = [{
+"color": "#4a9ad0",
+"dash": true,
+"knockback": 3.0,
+"length": 14.0,
+"mult": 3.0,
+"status": "nass",
+"t": "line",
+"tags": ["wasser", "wucht"],
+"width": 5.0
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#4a9ad0",
+"distance": 14.0,
+"mult": 0.3,
+"radius": 5.0,
+"status": "nass",
+"t": "zone",
+"tags": ["wasser"],
+"time": 3.0
+}],
+"time": 0.5
+}]

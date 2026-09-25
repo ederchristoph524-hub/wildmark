@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://71umiissyo15"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_4gugq"]
+
+[resource]
+script = ExtResource("1_4gugq")
+id = &"angleichungswinde"
+display_name = "Sturmfeld der Angleichung"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.4627451, 0.44705883, 0.42352942, 1),
+&"fels": Color(0.5411765, 0.5411765, 0.5568628, 1),
+&"gipfel": Color(0.8627451, 0.8627451, 0.89411765, 1),
+&"gras_dunkel": Color(0.47843137, 0.4862745, 0.5019608, 1),
+&"gras_hell": Color(0.65882355, 0.6666667, 0.6901961, 1),
+&"moos": Color(0.5568628, 0.5647059, 0.5882353, 1),
+&"platz": Color(0.7058824, 0.6901961, 0.6509804, 1),
+&"weg": Color(0.65882355, 0.6431373, 0.6039216, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"nadelbaum": 0.3,
+&"steppengras": 1.0,
+&"totholz": 0.7
+})
+trees_per_1000 = 0.4
+bushes_per_1000 = 0.5
+grass_per_1000 = 90.0
+rocks_per_1000 = 5.0
+sky = Color(0.83137256, 0.8392157, 0.8627451, 1)
+sky_top = Color(0.5411765, 0.5568628, 0.627451, 1)
+fog = Color(0.78431374, 0.7921569, 0.8235294, 1)
+fog_density = 0.0034
+water = Color(0.41568628, 0.44705883, 0.5019608, 1)
+plant_tint = Color(0.84705883, 0.8627451, 0.89411765, 1)
+weather = &"sand"
+weather_chance = 0.7

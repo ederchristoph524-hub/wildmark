@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b3o01kh5w57td"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7uvon"]
+
+[resource]
+script = ExtResource("1_7uvon")
+id = &"durchgang_gu"
+display_name = "Durchgang-Unsterblichen-Gu"
+name_en = "Pass Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"bewegung"
+description = "Regel „Durchgang“: Du gehst 12 m durch alles hindurch – Gegner, Rüstung, Hindernisse – und triffst jeden auf dem Weg."
+lore = "Rule-Path-Gu (Durchgang), größtenteils von Fang Yuan genutzt (Reihe Fight/Pass/Precaution). Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 1.5
+cooldown = 16.0
+steps = [{
+"t": "unstoppable",
+"time": 1.0
+}, {
+"color": "#e8e0ff",
+"dash": true,
+"length": 12.0,
+"mult": 3.0,
+"pierce_armor": true,
+"t": "line",
+"tags": ["raum", "durchbohren"],
+"width": 2.0
+}]

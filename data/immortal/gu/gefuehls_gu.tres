@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://x1edyfn0ql1o"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_smeen"]
+
+[resource]
+script = ExtResource("1_smeen")
+id = &"gefuehls_gu"
+display_name = "Gefühls-Gu"
+name_en = "Emotion Gu"
+rank = 7
+path = &"gefuehl"
+category = &"kontrolle"
+description = "Gefühlssturm (Umkreis 7, 8 s): Gegner um dich erfasst Furcht, du selbst kämpfst 20 % stärker."
+lore = "Grundlegendes Gu des Emotion Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 35.0
+steps = [{
+"color": "#ff6fa8",
+"follow": true,
+"mult": 0.4,
+"radius": 7.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 8.0
+}, {
+"color": "#ff6fa8",
+"damage": 1.2,
+"key": "gefuehl",
+"t": "buff",
+"time": 8.0
+}]

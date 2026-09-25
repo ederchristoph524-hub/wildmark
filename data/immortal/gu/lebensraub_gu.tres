@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://usjssopaeyte"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_2ndnc"]
+
+[resource]
+script = ExtResource("1_2ndnc")
+id = &"lebensraub_gu"
+display_name = "Lebensraub-Unsterblichen-Gu"
+name_en = "Steal Life Immortal Gu"
+rank = 8
+path = &"diebstahl"
+category = &"angriff"
+description = "Raubt Leben: ein Strahl (16 m) heilt dich um 80 % des Schadens, raubt Uressenz und richtet Geschwächte hin; ein zweiter Zug folgt."
+lore = "Erstes Immortal Gu des Thieving Heaven Demon Venerable."
+owner = "Thieving Heaven Demon Venerable"
+beads = 3.0
+cooldown = 24.0
+steps = [{
+"color": "#d0303a",
+"essence_steal": 0.5,
+"execute": 1.0,
+"length": 16.0,
+"lifesteal": 0.8,
+"mult": 4.0,
+"t": "line",
+"tags": ["blut"],
+"width": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#d0303a",
+"length": 16.0,
+"lifesteal": 0.5,
+"mult": 3.0,
+"t": "line",
+"tags": ["blut"],
+"width": 3.0
+}],
+"time": 0.5
+}]

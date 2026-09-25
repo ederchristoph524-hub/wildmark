@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://i6agr1bwg786"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_qirty"]
+
+[resource]
+script = ExtResource("1_qirty")
+id = &"augenblicks_pause"
+display_name = "Augenblicks-Pause"
+name_en = "Instant Pause"
+path = &"zeit"
+category = &"kontrolle"
+description = "Friert die Zeit ein: Alle Gegner im Umkreis 8 erstarren 1,5 s – dann holt die Zeit sie mit voller Wucht ein."
+lore = "Friert die Zeit für einen kurzen Moment ein."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 30.0
+steps = [{
+"color": "#a04ad0",
+"freeze": 1.5,
+"mult": 0.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"knockback": 1.0,
+"mult": 3.5,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}],
+"time": 1.5
+}]

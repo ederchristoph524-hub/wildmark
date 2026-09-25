@@ -87,6 +87,8 @@ var rogues_defeated: int = 0
 var feuds_repelled: int = 0
 ## Gu-Lexikon (Codex): IDs aller Gu, die du kennst (besessen, wild gesehen, gegen dich eingesetzt).
 var codex: Array[String] = []
+## Unsterblichen-Reich (Rang 6–9): Qi, Apertur, Perlen, Kalamitäten, unsterbliche Gu (docs/UNSTERBLICH.md).
+var immortal: ImmortalState = ImmortalState.new()
 
 # --- Welt ---
 var time_of_day: float = 0.0
@@ -145,6 +147,7 @@ func reset(options: Dictionary) -> void:
 	feuds_repelled = 0
 	codex = []
 	dao = {}
+	immortal.reset()
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
 	play_time = 0.0
@@ -224,6 +227,7 @@ func to_dict() -> Dictionary:
 			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy, "rogues": rogues_defeated, "feuds": feuds_repelled}, "codex": codex,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
+		"immortal": immortal.to_dict(),
 	}
 
 
@@ -242,6 +246,7 @@ func from_dict(d: Dictionary) -> void:
 	time_of_day = float(world.get("time_of_day", time_of_day))
 	day = int(world.get("day", 1))
 	play_time = float(world.get("play_time", 0.0))
+	immortal.from_dict(d.get("immortal", {}))
 
 
 func _player_from_dict(p: Dictionary) -> void:

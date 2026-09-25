@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://dnkyi3qctug13"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_lm800"]
+
+[resource]
+script = ExtResource("1_lm800")
+id = &"blauer_himmel"
+display_name = "Trümmer des Blauen Himmels"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.22745098, 0.25882354, 0.3764706, 1),
+&"fels": Color(0.2901961, 0.3529412, 0.47843137, 1),
+&"gipfel": Color(0.72156864, 0.83137256, 1, 1),
+&"gras_dunkel": Color(0.16470589, 0.2901961, 0.47843137, 1),
+&"gras_hell": Color(0.2901961, 0.47843137, 0.72156864, 1),
+&"moos": Color(0.22745098, 0.36862746, 0.59607846, 1),
+&"platz": Color(0.5411765, 0.6039216, 0.72156864, 1),
+&"weg": Color(0.47843137, 0.5411765, 0.65882355, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"nadelbaum": 0.5,
+&"totholz": 0.5
+})
+trees_per_1000 = 1.0
+bushes_per_1000 = 1.0
+rocks_per_1000 = 4.0
+sky = Color(0.72156864, 0.8156863, 0.95686275, 1)
+sky_top = Color(0.101960786, 0.22745098, 0.5411765, 1)
+fog = Color(0.6431373, 0.7372549, 0.89411765, 1)
+fog_density = 0.0026
+water = Color(0.16470589, 0.3529412, 0.6901961, 1)
+plant_tint = Color(0.65882355, 0.78431374, 1, 1)
+weather = &"regen"
+weather_chance = 0.55

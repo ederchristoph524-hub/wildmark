@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b0qh6v5y4jlcq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_dwrfx"]
+
+[resource]
+script = ExtResource("1_dwrfx")
+id = &"blutheilungssee"
+display_name = "Blutheilungssee"
+name_en = "Blood Healing Lake"
+path = &"blut"
+core = &"blutvermoegen_gu"
+mortal_families = Array[StringName]([&"blutmond", &"blatt", &"stroemung", &"knochen"])
+cooldown = 80.0
+channel = 1.4
+base_damage = 40.0
+steps = [{
+"color": "#d0303a",
+"heal": 0.05,
+"mult": 0.8,
+"radius": 8.0,
+"status": "blutung",
+"t": "zone",
+"tags": ["blut"],
+"tick": 1.0,
+"time": 10.0
+}]
+description = "Ein Blutheilungssee (Umkreis 8, 10 s): Gegner darin bluten, Verbündete heilen jeden Takt 5 %."
+lore = "Teil von Fang Yuans zentraler Blood-Path-Kampftechnik-Familie (Blood Torrent / Blood Healing Lake / Blood Light Spirit Suppression / Life Staking Blood Print / Bloodstained Conqueror's Robe)."
+owner = "Fang Yuan"

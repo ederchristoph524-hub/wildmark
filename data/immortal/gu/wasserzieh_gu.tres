@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cqey7ba4620g4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_36u60"]
+
+[resource]
+script = ExtResource("1_36u60")
+id = &"wasserzieh_gu"
+display_name = "Wasserzieh-Unsterblichen-Gu"
+name_en = "Pulling Water Immortal Gu"
+rank = 7
+path = &"kraft"
+category = &"angriff"
+description = "Zieht Wasser heran: eine breite Flut (16 m) durchnässt alle und reißt sie zu dir, wo eine Welle sie trifft."
+lore = "Strength-Path-Gu bei Fang Yuan (Reihe Pulling Mountain / Pulling Water / Self Strength). Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 2.0
+cooldown = 22.0
+steps = [{
+"color": "#4a9ad0",
+"knockback": -2.0,
+"length": 16.0,
+"mult": 2.5,
+"status": "nass",
+"t": "line",
+"tags": ["wasser", "wucht"],
+"width": 5.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#4a9ad0",
+"mult": 1.5,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wasser", "wucht"]
+}],
+"time": 0.4
+}]

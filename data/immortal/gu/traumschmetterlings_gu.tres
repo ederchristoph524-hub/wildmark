@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://da7wmkmipwjxe"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_85crc"]
+
+[resource]
+script = ExtResource("1_85crc")
+id = &"traumschmetterlings_gu"
+display_name = "Traumschmetterlings-Gu"
+name_en = "Dream Butterfly Gu"
+path = &"traum"
+category = &"information"
+description = "Drei Traumschmetterlinge suchen Ziele, blenden sie und legen ihre Schwächen offen."
+lore = "Investigatives Traum-Gu, verfeinert von Meng Qiu Zhen."
+owner = "Meng Qiu Zhen"
+beads = 0.5
+cooldown = 12.0
+steps = [{
+"blind": 2.0,
+"color": "#d0a0ff",
+"count": 3.0,
+"homing": true,
+"mult": 1.0,
+"range": 20.0,
+"spread": 60.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["seele"]
+}]

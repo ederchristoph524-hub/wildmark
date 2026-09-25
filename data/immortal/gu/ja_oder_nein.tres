@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bkw6res6ft1pe"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_76ibb"]
+
+[resource]
+script = ExtResource("1_76ibb")
+id = &"ja_oder_nein"
+display_name = "Ja-oder-Nein"
+name_en = "Yes Or No"
+path = &"information"
+category = &"information"
+kind = &"passiv"
+description = "Ja oder Nein – das Orakel irrt nie: +12 % kritische Treffer, Kalamitäten treffen dich vorgewarnt (−5 % Schaden)."
+lore = "Information-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"crit": 0.12,
+"kalamitaet_schutz": 0.05
+}

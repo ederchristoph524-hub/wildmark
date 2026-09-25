@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bocxbmmyrmg0q"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_hj1y0"]
+
+[resource]
+script = ExtResource("1_hj1y0")
+id = &"gluecksbruch_gu"
+display_name = "Glücksbruch-Gu"
+name_en = "Break Luck Gu"
+path = &"glueck"
+category = &"kontrolle"
+description = "Zerbricht das Glück des Ziels: ein zielsuchender Glückssplitter setzt 3 Stapel Schwäche, dann zerspringt das Glück (Umkreis 4)."
+lore = "Zerstört oder bricht gezielt das Glück eines Ziels. Steigt bis Rang 8."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 15.0
+steps = [{
+"color": "#7dff9b",
+"count": 1.0,
+"homing": true,
+"mult": 2.0,
+"range": 20.0,
+"spread": 0.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#7dff9b",
+"distance": 12.0,
+"mult": 1.2,
+"radius": 4.0,
+"t": "circle",
+"tags": ["seele", "wucht"]
+}],
+"time": 0.5
+}]

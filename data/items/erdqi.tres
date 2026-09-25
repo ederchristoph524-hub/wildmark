@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cvj3mi3lv18tc"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_nk130"]
+
+[resource]
+script = ExtResource("1_nk130")
+id = &"erdqi"
+display_name = "Erd-Qi-Kristall"
+icon = "⛰️"
+category = &"material"
+rank = 5
+path = &"erde"
+source = "Urstein-Adern, tiefe Höhlen, Erdwürmer"
+description = "Gebundenes Erd-Qi. Für den Unsterblichen-Aufstieg: +40 Erd-Qi."

@@ -19,10 +19,15 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(3)
 	EventBus.new_game_requested.emit({"first_family": &"mondlicht", "talent_grade": &"A", "apt": 90.0, "death_mode": &"standard"})
 	await _frames(20)
-	for resource: Resource in DataRegistry.all(&"areas"):
+	var areas: Array[Resource] = DataRegistry.all(&"areas").duplicate()
+	areas.sort_custom(func(a: Resource, b: Resource) -> bool: return (a as AreaData).entry_rank() < (b as AreaData).entry_rank())
+	for resource: Resource in areas:
 		var area: AreaData = resource as AreaData
 		if area.open and area.id != GameState.area:
+			if area.entry_rank() > GameState.rank:
+				await _check_gated(area)
 			await _visit(area)
+	await _visit(DataRegistry.area(ImmortalAperture.AREA_ID))
 	for failure: String in _failures:
 		printerr("FEHLGESCHLAGEN: ", failure)
 	print("test_areas: %s" % ("OK" if _failures.is_empty() else "%d Fehler" % _failures.size()))
@@ -37,6 +42,22 @@ func _frames(count: int) -> void:
 func _check(condition: bool, text: String) -> void:
 	if not condition:
 		_failures.append(text)
+
+
+## Zu niedriger Rang: Die Reise wird verweigert; danach steigt der Test bis zum Zutrittsrang auf (Unsterbliche ab 6).
+func _check_gated(area: AreaData) -> void:
+	var before: StringName = GameState.area
+	EventBus.travel_requested.emit(area.id)
+	await _frames(10)
+	_check(GameState.area == before, String(area.id) + ": gesperrt unter Rang %d" % area.entry_rank())
+	if area.entry_rank() >= Immortal.FIRST_RANK and not Immortal.is_immortal():
+		GameState.rank = Immortal.MORTAL_PEAK
+		ImmortalAscension.ascend(1, true)
+	while GameState.rank < area.entry_rank():
+		if Immortal.is_immortal():
+			ImmortalProgress.advance(true)
+		else:
+			GameState.rank += 1
 
 
 func _visit(area: AreaData) -> void:
@@ -74,7 +95,9 @@ func _visit(area: AreaData) -> void:
 		elif node is WildGu:
 			wild += 1
 	_check(npcs >= area.settlements.size(), label + ": Bewohner vorhanden (%d)" % npcs)
-	_check(masters >= 1, label + ": mindestens ein Gu-Meister (%d)" % masters)
+	# Gesegnete Länder und Dimensionen: oft nur Landgeist und Bestien; dafür NPC-Unsterbliche laut Platzierung.
+	var placed: int = DataRegistry.immortal().placements.filter(func(p: Dictionary) -> bool: return p["area"] == area.id).size()
+	_check(masters >= (1 if area.immortal.is_empty() else placed), label + ": Gu-Meister (%d, erwartet %d)" % [masters, 1 if area.immortal.is_empty() else placed])
 	var expected_inheritances: int = 0
 	for place: Dictionary in area.places:
 		expected_inheritances += 1 if place["type"] == &"erbe" else 0
@@ -83,7 +106,7 @@ func _visit(area: AreaData) -> void:
 	for obstacle: Dictionary in area.obstacles:
 		gated += 0 if obstacle["kind"] == &"vorsprung" else 1
 	_check(tree.get_nodes_in_group(&"obstacles").size() >= gated, label + ": Hindernisse (%d/%d)" % [tree.get_nodes_in_group(&"obstacles").size(), gated])
-	_check(wild >= 10, label + ": wilde Gu (%d)" % wild)
+	_check(wild >= 10 or area.id == ImmortalAperture.AREA_ID, label + ": wilde Gu (%d)" % wild)
 	for zone: int in area.enemy_zones.size():
 		_check(not world.spawner.candidates(zone, false).is_empty(), label + ": Bestien in Zone %d" % zone)
 	for place: Dictionary in area.places:

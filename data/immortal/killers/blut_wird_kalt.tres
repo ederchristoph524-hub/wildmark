@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cyx1cakuujruf"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_58tam"]
+
+[resource]
+script = ExtResource("1_58tam")
+id = &"blut_wird_kalt"
+display_name = "Blut-wird-kalt"
+name_en = "Blood Turns Cold"
+path = &"blut"
+core = &"kaltblut_gu"
+mortal_families = Array[StringName]([&"frost", &"blutmond", &"knochen", &"wind"])
+cooldown = 50.0
+steps = [{
+"angle": 70.0,
+"color": "#bfeaff",
+"mult": 4.0,
+"reach": 10.0,
+"set_stacks": {
+"frost": 3.0
+},
+"t": "cone",
+"tags": ["blut", "eis"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 70.0,
+"color": "#d0303a",
+"mult": 4.0,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wucht", "blut"]
+}],
+"time": 0.5
+}]
+description = "Das Blut wird kalt: ein Kegel (10 m) lässt alles sofort erstarren (3 Stapel Frost), der zweite Schlag zerschmettert die Erstarrten."
+lore = "Killer Move Fang Zhengs mit dem Cold Blood Gu als Kern."
+owner = "Fang Zheng"

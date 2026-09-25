@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://csnesasxv25fp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_mnylo"]
+
+[resource]
+script = ExtResource("1_mnylo")
+id = &"illusorischer_treibsand_schatten_schlachtfeld"
+display_name = "Illusorischer-Treibsand-Schatten-Schlachtfeld"
+name_en = "Illusory Sand Shifting Shadow Battlefield"
+path = &"erde"
+core = &"breischlamm_gu"
+mortal_families = Array[StringName]([&"erde", &"tarnung", &"wasserbild", &"labyrinth"])
+beads = 5.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"color": "#a08050",
+"mult": 0.6,
+"radius": 14.0,
+"slow": 0.4,
+"status": "verwurzelt",
+"t": "zone",
+"tags": ["erde"],
+"tick": 1.0,
+"time": 15.0
+}, {
+"count": 6.0,
+"enemy": "schatten",
+"t": "summon",
+"time": 10.0
+}]
+description = "Treibsand und Schatten (Umkreis 14, 15 s): der Boden verschlingt die Füße der Gegner, sechs Schatten-Illusionen ziehen ihre Angriffe auf sich."
+lore = "Schlachtfeld-Erbschaft rund um den Paradise Earth Immortal Venerable und seine Erbin Lu Wei Yin (Reincarnation Battlefield / Paradise Creation / Illusory Sand Shifting Shadow Battlefield / Fetus Earth Maze / Three Lifetime Dreams Reform a Chosen One). Kern im Spiel: Breischlamm-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Paradise Earth Immortal Venerable → Lu Wei Yin (Three Lifetime Dreams auch Fang Yuan)"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://5wboqetqyj1g"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_st8hu"]
+
+[resource]
+script = ExtResource("1_st8hu")
+id = &"anpassungs_gu"
+display_name = "Anpassungs-Unsterblichen-Gu"
+name_en = "Adaptation Immortal Gu"
+rank = 8
+path = &"verwandlung"
+category = &"unterstuetzung"
+description = "Passt dich an alles an: entfernt alle Zustände und macht dich 6 s immun dagegen, 15 s 50 % Schutz, dazu heilst du 30 % über 6 s."
+lore = "Anpassungs-Transformations-Gu, Kern u. a. des Killer Moves Internal Breathing Green Fish Transformation."
+owner = "Reckless Savage Demon Venerable (Move-Reihe), Fang Yuan"
+beads = 3.0
+cooldown = 50.0
+base_damage = 20.0
+steps = [{
+"t": "cleanse",
+"time": 6.0
+}, {
+"color": "#ff8ae2",
+"key": "anpassung",
+"reduction": 0.5,
+"t": "buff",
+"time": 15.0
+}, {
+"frac": 0.3,
+"t": "heal",
+"time": 6.0
+}]

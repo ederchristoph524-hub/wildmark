@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://bo0yl1l443j73"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ij5rd"]
+
+[resource]
+script = ExtResource("1_ij5rd")
+id = &"dong_fang_yu_liang"
+display_name = "Dong Fang Yu Liang"
+color = Color(0.5411765, 0.6039216, 0.8784314, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"sternentor", &"himmelsweisheit", &"neun_palaeste", &"auraverbergen"])
+rank = 6
+hat = &"fell"
+immortal_gu = Array[StringName]([&"sternengedanken_gu"])
+title = "Sternenweiser des Dong-Fang-Stamms"
+path = &"weisheit"
+lore = "Weisheits- und Sternpfad-Unsterblicher des Dong-Fang-Stamms mit dem Sternengedanken-Gu. Mitentwickler von „Zehntausend Sternen-Glühwürmchen“."

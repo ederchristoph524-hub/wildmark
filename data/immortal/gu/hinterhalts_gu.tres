@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bwmkxskredlee"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6pvr5"]
+
+[resource]
+script = ExtResource("1_6pvr5")
+id = &"hinterhalts_gu"
+display_name = "Hinterhalts-Gu"
+name_en = "Sneak Attack Gu"
+path = &"diebstahl"
+category = &"angriff"
+description = "Hinterhalt: 5 s getarnt und 50 % mehr Schaden – der erste Schlag aus dem Schatten zählt dreifach."
+lore = "Weitverbreitetes Hinterhalts-Gu. Im Text Rang 1–7 (existiert also schon als sterbliches Gu); unsterblich bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+base_damage = 20.0
+steps = [{
+"t": "stealth",
+"time": 5.0
+}, {
+"color": "#8fd06a",
+"damage": 1.5,
+"key": "hinterhalt",
+"t": "buff",
+"time": 5.0
+}]

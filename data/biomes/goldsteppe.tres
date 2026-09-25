@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://ditu1ns1qqvx2"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_g8my7"]
+
+[resource]
+script = ExtResource("1_g8my7")
+id = &"goldsteppe"
+display_name = "Goldene Steppe des Kaiserhofs"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.5411765, 0.41568628, 0.22745098, 1),
+&"fels": Color(0.5411765, 0.47843137, 0.36862746, 1),
+&"gipfel": Color(0.84705883, 0.78431374, 0.6039216, 1),
+&"gras_dunkel": Color(0.5411765, 0.47843137, 0.16470589, 1),
+&"gras_hell": Color(0.83137256, 0.72156864, 0.2901961, 1),
+&"moos": Color(0.65882355, 0.57254905, 0.22745098, 1),
+&"platz": Color(0.8156863, 0.72156864, 0.5019608, 1),
+&"weg": Color(0.72156864, 0.627451, 0.4392157, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"laubbaum": 0.7,
+&"nadelbaum": 0.3,
+&"steppengras": 1.0
+})
+trees_per_1000 = 0.3
+bushes_per_1000 = 1.2
+grass_per_1000 = 150.0
+rocks_per_1000 = 0.6
+sky = Color(0.95686275, 0.89411765, 0.72156864, 1)
+sky_top = Color(0.22745098, 0.47843137, 0.8156863, 1)
+fog = Color(0.9254902, 0.8627451, 0.6901961, 1)
+fog_density = 0.0012
+water = Color(0.22745098, 0.47843137, 0.6039216, 1)
+plant_tint = Color(1, 0.8784314, 0.5411765, 1)
+weather = &"sand"
+weather_chance = 0.15

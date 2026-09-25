@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d0dej5n14xgoy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_1uq4p"]
+
+[resource]
+script = ExtResource("1_1uq4p")
+id = &"kein_verlust_gu"
+display_name = "Kein-Verlust-Gu"
+name_en = "No Loss Gu"
+path = &"raum"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Nichts geht verloren: Kalamitäten richten 15 % weniger Schaden an, +10 % Erträge."
+lore = "Teleportiert eingesetzte Gu-Würmer zum Nutzer zurück."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"ertrag_mult": 0.1,
+"kalamitaet_schutz": 0.15
+}

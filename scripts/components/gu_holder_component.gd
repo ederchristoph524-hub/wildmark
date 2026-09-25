@@ -60,14 +60,14 @@ func power_of(instance: GuInstance) -> float:
 	var data: GuData = gu_data(instance)
 	var b: BalanceData = Balance.values
 	var hunger: float = 0.0 if is_starved(instance) else (b.hungry_effect if is_hungry(instance) else 1.0)
-	return Formulas.gu_power(b, data.rank, GameState.rank) * hunger * float(trait_rule(instance, "effect", 1.0)) * PhysiqueEffects.path_power(data.family)
+	return Formulas.gu_power(b, data.rank, Immortal.mortal_rank(GameState.rank)) * hunger * float(trait_rule(instance, "effect", 1.0)) * PhysiqueEffects.path_power(data.family)
 
 
 func essence_cost(instance: GuInstance) -> float:
 	var family: GuFamilyData = family_of(instance)
 	var data: GuData = gu_data(instance)
 	var base_cost: float = float(family.base_r1.get(COST_KEY, 0.0))
-	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult") * Dao.cost_mult(family.path)
+	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, Immortal.mortal_rank(GameState.rank)) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult") * Dao.cost_mult(family.path)
 
 
 ## Lebenskosten (Blutpfad): hp_kosten ist ein Prozentsatz des Höchstlebens, damit der Preis mit dem Rang mitwächst.
@@ -99,8 +99,10 @@ func blocked_reason(instance: GuInstance) -> String:
 		return tr("%s ist ausgehungert – füttern!") % tr(gu_data(instance).display_name)
 	if instance.cooldown_left > 0.0:
 		return tr("Noch nicht bereit")
+	if DimensionRules.blocks_gu():
+		return tr("Hier schweigt jeder Gu")
 	if not aperture.has_essence(essence_cost(instance)):
-		return tr("Zu wenig Uressenz")
+		return tr("Keine Unsterblichen-Essenz mehr") if Immortal.is_immortal() else tr("Zu wenig Uressenz")
 	if hp_cost(instance) > 0.0 and host.health.hp <= hp_cost(instance):
 		return tr("Zu wenig Leben")
 	return ""

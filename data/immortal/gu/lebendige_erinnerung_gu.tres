@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cnf0of57xwsy3"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kr02q"]
+
+[resource]
+script = ExtResource("1_kr02q")
+id = &"lebendige_erinnerung_gu"
+display_name = "Lebendige-Erinnerung-Unsterblichen-Gu"
+name_en = "Vivid Recollection Immortal Gu"
+rank = 7
+path = &"zeit"
+category = &"information"
+kind = &"passiv"
+description = "Lebendige Erinnerungen an alles Gesehene: +25 % Dao-Markierungen und +8 % kritische Treffer."
+lore = "Investigatives Zeit-Gu zur Erforschung der Vergangenheit (Reihe Looking Back / Vivid Recollection / Extreme Past). Steigt bis Rang 8."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"crit": 0.08,
+"dao_mult": 0.25
+}

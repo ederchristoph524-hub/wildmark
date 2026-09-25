@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://b4g3vcgkk2m8o"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_rg6dr"]
+
+[resource]
+script = ExtResource("1_rg6dr")
+id = &"feng_jiu_ge"
+display_name = "Feng Jiu Ge"
+color = Color(0.5411765, 0.7529412, 0.8784314, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"himmelsglocke", &"goettliche_reise", &"qi_mauer", &"himmelsweisheit"])
+rank = 8
+hat = &"krone"
+immortal_gu = Array[StringName]([&"schicksalsruestung_gu", &"fester_unsterblichen_reise", &"himmelsgong_gu"])
+title = "Ältester des Hauses der Geistesverwandtschaft"
+path = &"ton"
+lore = "Vater von Feng Jin Huang und Träger des Schicksalsrüstungs-Gu, Kern seines Killer Moves „Schicksalslied“. Früher besaß er auch den Feste-Unsterblichen-Reise-Gu."

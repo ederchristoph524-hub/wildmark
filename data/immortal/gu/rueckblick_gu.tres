@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cn71o45u56d54"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_hqno8"]
+
+[resource]
+script = ExtResource("1_hqno8")
+id = &"rueckblick_gu"
+display_name = "Rückblick-Unsterblichen-Gu"
+name_en = "Looking Back Immortal Gu"
+rank = 7
+path = &"zeit"
+category = &"information"
+kind = &"passiv"
+description = "Blickt in die Vergangenheit jedes Ortes: Verborgenes wird sichtbar, und du kennst die Bewegungen deiner Gegner (+10 % kritische Treffer)."
+lore = "Investigatives Zeit-Gu zur Erforschung der Vergangenheit (Reihe Looking Back / Vivid Recollection / Extreme Past). Steigt bis Rang 8."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"crit": 0.1,
+"sicht": true
+}

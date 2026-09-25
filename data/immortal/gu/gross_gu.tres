@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d22jg41em6kbm"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ufvhf"]
+
+[resource]
+script = ExtResource("1_ufvhf")
+id = &"gross_gu"
+display_name = "Groß-Unsterblichen-Gu"
+name_en = "Big Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"sonstiges"
+description = "Regel „groß“: Du wirst 10 s riesig (20 % Schutz), dein Aufstampfen trifft alles im Umkreis 12."
+lore = "Teil einer Familie fundamentaler Rule-Path-Gu (Big/Small/Normal/One/Three/No), die Grundkonzepte wie 'groß', 'klein', 'normal', 'eins', 'drei' und 'Verneinung' verkörpern; Baustein zahlreicher Fang-Yuan-Killer-Moves (u. a. bei Ba Shi Ba entliehen). Kein Rang im Text."
+owner = "Fang Yuan (u. a. von Ba Shi Ba entliehen)"
+beads = 2.0
+cooldown = 35.0
+steps = [{
+"color": "#e8e0ff",
+"grow": 1.8,
+"key": "gross",
+"reduction": 0.2,
+"t": "buff",
+"time": 10.0
+}, {
+"color": "#e8e0ff",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 12.0,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}]

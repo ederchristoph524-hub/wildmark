@@ -31,8 +31,9 @@ static func build(world: World, place: Dictionary) -> void:
 			_sign(world, center, name_text)
 		&"ursteinader":
 			# Ursteinbrocken vor dem Stollen; gehört die Ader einem Klan, ist Abbau ohne Mitgliedschaft Diebstahl.
+			var stone: StringName = place.get("item", &"") if place.get("item", &"") != &"" else PRIMEVAL_STONE
 			for i: int in maxi(1, int(place["count"])):
-				var node: ResourceNode = world.add_resource(PRIMEVAL_STONE, maxi(1, int(place["amount"])), world.random_point_near(center + Vector2(0.0, radius * 0.1), radius * 0.6))
+				var node: ResourceNode = world.add_resource(stone, maxi(1, int(place["amount"])), world.random_point_near(center + Vector2(0.0, radius * 0.1), radius * 0.6))
 				node.owner_sect = place["owner"]
 			PlaceDecor.stone_vein(world, center, radius)
 			_sign(world, center, name_text)

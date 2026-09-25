@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dc6ycpjioqksq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_plybf"]
+
+[resource]
+script = ExtResource("1_plybf")
+id = &"kraft_essen_gu"
+display_name = "Kraft-essen-Unsterblichen-Gu"
+name_en = "Eat Strength Immortal Gu"
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Isst Kraft: +10 % Schaden, du heilst 0,3 % Leben je Sekunde."
+lore = "Kultivierungstyp-Gu des Food Path (mit Eat Fragrance Immortal Gu)."
+owner = "Fang Yuan"
+passive = {
+"regen": 0.003,
+"schaden": 0.1
+}

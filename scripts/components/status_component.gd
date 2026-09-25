@@ -102,11 +102,15 @@ func speed_multiplier() -> float:
 	var mult: float = 1.0
 	for id: StringName in _stacks:
 		var per_stack: float = DataRegistry.status(id).speed_per_stack
-		if per_stack <= -1.0:
-			return 0.0
-		mult += per_stack * _stacks[id]
+		# Wurzeln (≤ −1 je Stapel) halten fest.
+		mult += maxf(per_stack, -1.0) * _stacks[id] if per_stack > -1.0 else -1.0
 	if slow_time > 0.0:
 		mult -= slow_amount
+	if host.control_immune:
+		# Bestienkönige lassen sich nur halb so stark bremsen und nie festhalten.
+		return clampf(1.0 - (1.0 - maxf(mult, 0.0)) * Balance.values.boss_slow_mult, 0.15, 1.0) * host.speed_buff_mult()
+	if mult <= 0.0:
+		return 0.0
 	return clampf(mult, 0.15, 1.0) * host.speed_buff_mult()
 
 
@@ -135,13 +139,15 @@ func is_feared() -> bool:
 
 ## Betäubung (wirkungslos, solange der Träger unaufhaltsam ist).
 func stun(duration: float) -> void:
-	if host.unstoppable_time > 0.0:
+	if host.unstoppable_time > 0.0 or host.control_immune:
 		return
 	stun_time = maxf(stun_time, _controlled(duration))
 	changed.emit()
 
 
 func freeze(duration: float) -> void:
+	if host.control_immune:
+		return
 	frozen_time = maxf(frozen_time, _controlled(duration))
 	changed.emit()
 

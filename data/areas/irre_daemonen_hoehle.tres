@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dt4ftutg60268"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_1jj3t"]
+
+[resource]
+script = ExtResource("1_1jj3t")
+id = &"irre_daemonen_hoehle"
+display_name = "Höhle des irren Dämons"
+region = 4
+map_position = Vector2(0.66, 0.44)
+rank_min = 9
+rank_max = 9
+open = true
+description = "Eine schwarze Riesenhöhle, in deren Grund Chaos-Risse glühen. Hier trafen sich zuletzt der Himmlische Hof, der Riesensonnen-Ehrwürdige und Fang Yuan im Wettlauf um die Unsterblichkeit. Nur Ehrwürdige kehren von hier zurück."
+size = 480.0
+terrain_seed = 61313
+biome = &"daemonenhoehle"
+relief = Dictionary[StringName, float]({
+&"berge": 30.0,
+&"detail": 1.2,
+&"frequenz": 0.005,
+&"hoehe": 18.0,
+&"horizont": 260.0,
+&"rand": 70.0,
+&"randhoehe": 90.0
+})
+arrival = Vector2(0, 180)
+places = Array[Dictionary]([{
+"accent": Color(1, 0.2901961, 0.22745098, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"urzeitlicher_erdwurm", &"urzeitlicher_erdwurm", &"uralter_knochendrache"]),
+"id": &"irre_daemonen_grund",
+"item": &"",
+"name": "Grund der Höhle des irren Dämons",
+"offering": {
+&"schicksalsfaden": 1,
+&"unsterblichen_stein": 120
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, -150),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"anpassungs_gu"]),
+"items": {
+&"ehrwuerdenessenz": 1,
+&"grottenstein": 4,
+&"schicksalsfaden": 2
+},
+"support": Array[StringName]([])
+},
+"style": &"grotte",
+"text": "Am tiefsten Punkt der Höhle liegt, worum Ehrwürdige kämpften. Die Würmer, die hier graben, fressen Stein und Unsterbliche gleichermaßen.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 5,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"trübsalsstahl",
+"name": "Chaos-Riss",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-120, -40),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"aschefeld"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Wütender Fels",
+"offering": {},
+"owner": &"",
+"path": &"kraft",
+"position": Vector2(115, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Fels bebt, als wäre er zornig. Wer darauf sitzt, spürt eine Kraft, die keine Regeln kennt.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 3,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenkern",
+"name": "Knochenfeld der Venerable-Kriege",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(120, 100),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Blutquelle im Fels",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-110, 110),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"grottenstein": Vector2i(6, 1),
+&"kristall": Vector2i(30, 3),
+&"stein": Vector2i(60, 2),
+&"trübsalsstahl": Vector2i(8, 1),
+&"unsterblichen_stein": Vector2i(15, 1),
+&"wuestes_mark": Vector2i(10, 1)
+})
+enemy_radii = Array[float]([100.0, 170.0])
+enemy_zones = [[&"urzeitlicher_erdwurm", &"uralter_knochendrache"], [&"urzeitlicher_erdwurm", &"uralter_knochendrache", &"wuester_seelenfresser"], [&"uralter_donnerbueffel", &"uralter_knochendrache", &"wuester_feuerwolf"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(100, 200)
+wild_passives = [[&"zehntausendjun", &"body", 100.0, 200.0, true]]
+immortal = {
+"entrance": "Ein schwarzer Schlund öffnet sich im Zentralkontinent, wenn die Chaos-Katastrophe naht; nur ein Rang-9-Körper übersteht den Abstieg.",
+"entry_rank": 9,
+"kind": &"dimension",
+"rules": Array[StringName]([&"sterbliche_sterben"]),
+"time_flow": 1.0
+}

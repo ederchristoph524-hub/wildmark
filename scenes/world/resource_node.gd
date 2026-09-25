@@ -8,7 +8,7 @@ const REGROW_TIME: float = 240.0
 ## Sammelstellen werden erst aus der Nähe gezeichnet (spart Draw Calls am Handy).
 const VIEW_DISTANCE: float = 55.0
 const NIGHT_ONLY: Array[StringName] = [&"mondtau"]
-const HARD_ITEMS: Array[StringName] = [&"stein", &"kristall", &"eisenerz", &"frostsplitter", &"jadeader", &"erdkern", &"blutkoralle", &"urkristall", &"seelenglas", &"sonnengold", &"klingenstahl", &"drachenschuppe"]
+const HARD_ITEMS: Array[StringName] = [&"unsterblichen_stein", &"himmelskristall", &"erdqi", &"stein", &"kristall", &"eisenerz", &"frostsplitter", &"jadeader", &"erdkern", &"blutkoralle", &"urkristall", &"seelenglas", &"sonnengold", &"klingenstahl", &"drachenschuppe"]
 const HARD_PITCH: float = 1.5
 const SOFT_PITCH: float = 0.7
 ## Aussehen je Gegenstand: Grundform und Farbe (glow = leuchtet).
@@ -39,6 +39,13 @@ const LOOKS: Dictionary[StringName, Dictionary] = {
 	&"klingenstahl": {"base": Color(0.4, 0.4, 0.42), "accent": Color(0.8, 0.82, 0.88), "shape": &"ore"},
 	&"wuestenrose": {"base": Color(0.55, 0.45, 0.35), "accent": Color(0.9, 0.5, 0.6), "shape": &"herb"},
 	&"drachenschuppe": {"base": Color(0.3, 0.35, 0.3), "accent": Color(0.8, 0.3, 0.2), "shape": &"crystal"},
+	&"unsterblichen_stein": {"base": Color(0.32, 0.4, 0.34), "accent": Color(0.5, 1.0, 0.6), "shape": &"crystal"},
+	&"himmelskristall": {"base": Color(0.55, 0.6, 0.7), "accent": Color(0.6, 0.85, 1.0), "shape": &"crystal"},
+	&"himmelsqi": {"base": Color(0.75, 0.8, 0.85), "accent": Color(0.9, 0.97, 1.0), "shape": &"dew"},
+	&"erdqi": {"base": Color(0.4, 0.33, 0.25), "accent": Color(0.9, 0.7, 0.35), "shape": &"ore"},
+	&"seelenstaub": {"base": Color(0.3, 0.28, 0.35), "accent": Color(0.75, 0.6, 1.0), "shape": &"ash"},
+	&"traumsplitter": {"base": Color(0.55, 0.5, 0.65), "accent": Color(0.95, 0.75, 1.0), "shape": &"crystal"},
+	&"wuestes_mark": {"base": Color(0.85, 0.8, 0.7), "accent": Color(0.75, 0.7, 0.6), "shape": &"bones"},
 }
 
 var item: StringName = &"beeren"

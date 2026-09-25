@@ -1,0 +1,281 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://clkggcajn80at"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_gf6r7"]
+
+[resource]
+script = ExtResource("1_gf6r7")
+id = &"kaiserhof_land"
+display_name = "Kaiserhof-Gesegnetes-Land"
+region = 0
+map_position = Vector2(0.22, 0.14)
+rank_min = 6
+rank_max = 8
+open = true
+description = "Das umkämpfte Gesegnete Land der Nördlichen Ebene: goldene Steppe, ein halb verfallener Palast und das Achtundachtzig-Wahres-Yang-Gebäude. Der Wille des Riesensonnen-Ehrwürdigen liegt noch immer über dem Land, und die Stämme ringen alle paar Jahrzehnte um den Thron."
+size = 560.0
+terrain_seed = 60606
+biome = &"goldsteppe"
+relief = Dictionary[StringName, float]({
+&"berge": 4.0,
+&"detail": 0.6,
+&"frequenz": 0.004,
+&"hoehe": 6.0,
+&"horizont": 120.0,
+&"rand": 60.0,
+&"randhoehe": 30.0
+})
+arrival = Vector2(0, 220)
+paths = [[Vector2(0, 220), Vector2(0, 30)], [Vector2(0, -110), Vector2(0, -130)], [Vector2(50, -80), Vector2(110, -140)], [Vector2(-50, -80), Vector2(-130, -140)], [Vector2(-50, 20), Vector2(-140, 100)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(1, 0.8235294, 0.23921569, 1),
+&"dach": Color(0.5411765, 0.41568628, 0.101960786, 1),
+&"holz": Color(0.3529412, 0.22745098, 0.101960786, 1),
+&"platz": Color(0.84705883, 0.76862746, 0.5411765, 1),
+&"saeule": Color(0.78431374, 0.5882353, 0.16470589, 1),
+&"stein": Color(0.65882355, 0.6039216, 0.47058824, 1),
+&"wand": Color(0.9098039, 0.84705883, 0.65882355, 1)
+},
+"faction": &"huang_jin",
+"houses": 10,
+"id": &"kaiserhof_palast",
+"pond": 0.0,
+"position": Vector2(0, -40),
+"radius": 70.0,
+"residents": &"kaiserhof_wache",
+"type": &"festung"
+}, {
+"colors": {
+&"banner": Color(0.5411765, 0.5411765, 0.5411765, 1),
+&"dach": Color(0.41568628, 0.3529412, 0.22745098, 1),
+&"holz": Color(0.2901961, 0.20392157, 0.13333334, 1),
+&"saeule": Color(0.47843137, 0.3529412, 0.22745098, 1),
+&"stein": Color(0.5411765, 0.5019608, 0.41568628, 1),
+&"wand": Color(0.78431374, 0.7058824, 0.5411765, 1)
+},
+"faction": &"wilde_horde",
+"houses": 7,
+"id": &"wolfsreiter_lager",
+"pond": 0.0,
+"position": Vector2(-170, 120),
+"radius": 30.0,
+"residents": &"wolfsreiter",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"accent": Color(1, 0.8235294, 0.23921569, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_donnerbueffel", &"wuester_feuerwolf", &"wuester_feuerwolf"]),
+"id": &"wahres_yang_gebaeude",
+"item": &"",
+"name": "Achtundachtzig-Wahres-Yang-Gebäude",
+"offering": {
+&"heldenherz": 2,
+&"unsterblichen_stein": 20
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(125, -160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"flugbaer", &"kraftleihen"]),
+"immortal": Array[StringName]([&"flugbaer_kraft_gu", &"hundedreck_glueck_gu"]),
+"items": {
+&"seelenkern": 1,
+&"sonnengold": 2
+},
+"support": Array[StringName]([])
+},
+"style": &"turm",
+"text": "Achtundachtzig Ecken, Stockwerk über Stockwerk. Jede Ebene prüft Kraft oder Glück – in der Schatzkammer ganz oben wartet ein Bär aus Licht.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8784314, 0.47843137, 0.2901961, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wuester_feuerwolf", &"wuester_feuerwolf", &"wuestes_mammut"]),
+"id": &"kaiserhof_kriegserbe",
+"item": &"",
+"name": "Kaiserhof-Kriegs-Erbe",
+"offering": {
+&"trübsalsstahl": 1,
+&"unsterblichen_stein": 15
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-140, -160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([&"zehntausendjun"]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"alles_oder_nichts_gu_unsterblich"]),
+"items": {
+&"heldenherz": 2,
+&"reliquie_lilakristall": 1,
+&"trübsalsstahl": 2
+},
+"support": Array[StringName]([])
+},
+"style": &"altar",
+"text": "Die Wachen des Kaiserhofs kämpften, bis nur noch ihre Waffen standen. Ihr Altar erinnert sich an jeden Schlag.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Thronhof des Riesensonnen-Willens",
+"offering": {},
+"owner": &"",
+"path": &"glueck",
+"position": Vector2(0, -135),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Vor dem leeren Thron liegt noch das Glück eines Ehrwürdigen in der Luft. Wer hier sitzt, fühlt, wie das Schicksal sich zu ihm neigt.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Arena der Wolfsreiter",
+"offering": {},
+"owner": &"",
+"path": &"kraft",
+"position": Vector2(170, 80),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein Ring aus zertrampelter Erde. Die Stämme messen hier ihre Kraft – und wer zusieht, versteht sie.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Goldsee",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-80, 95),
+"radius": 25.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Palastquelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(200, -20),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenglas",
+"name": "Schlachtfeld der Stämme",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(60, 160),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"holz": Vector2i(15, 2),
+&"kristall": Vector2i(40, 3),
+&"sonnengold": Vector2i(3, 1),
+&"stein": Vector2i(30, 2),
+&"unsterblichen_stein": Vector2i(10, 1),
+&"windfeder": Vector2i(20, 1)
+})
+enemy_radii = Array[float]([140.0, 210.0])
+enemy_zones = [[&"donnerkronenwolf", &"weisser_tiger", &"sturmadler"], [&"wuester_feuerwolf", &"donnerkronenwolf", &"wuester_sturmadler"], [&"wuester_feuerwolf", &"wuestes_mammut", &"uralter_donnerbueffel"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(140, 245)
+wild_passives = [[&"zehntausendjun", &"body", 150.0, 245.0, false], [&"glueckssicht", &"support", 140.0, 240.0, true]]
+tide = {
+"beasts": Array[StringName]([&"wuester_feuerwolf", &"donnerkronenwolf"]),
+"count": 10,
+"every": 5,
+"leader": &"uralter_donnerbueffel",
+"name": "Wüste Wolfsflut",
+"reward": {
+&"fell": 10,
+&"unsterblichen_stein": 8
+},
+"target": &"kaiserhof_palast"
+}
+immortal = {
+"annex": {
+"gift": {
+&"seelenkern": 2,
+&"sonnengold": 3,
+&"unsterblichen_stein": 80
+},
+"growth": 100.0,
+"path": &"glueck"
+},
+"entrance": "Das Palasttor steht mitten in der Steppe der Nördlichen Ebene; beim Kaiserhof-Kampf öffnet es sich für alle Stämme, für Unsterbliche jederzeit.",
+"entry_rank": 6,
+"kind": &"gesegnetes_land",
+"rules": Array[StringName]([]),
+"time_flow": 1.0
+}

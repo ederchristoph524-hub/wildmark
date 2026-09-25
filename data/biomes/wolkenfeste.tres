@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://bvwx53s8tnyen"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_hacsl"]
+
+[resource]
+script = ExtResource("1_hacsl")
+id = &"wolkenfeste"
+display_name = "Wolkenfeste des Himmlischen Hofes"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.6039216, 0.5568628, 0.47058824, 1),
+&"fels": Color(0.72156864, 0.7058824, 0.6745098, 1),
+&"gipfel": Color(1, 1, 1, 1),
+&"gras_dunkel": Color(0.41568628, 0.5411765, 0.41568628, 1),
+&"gras_hell": Color(0.65882355, 0.78431374, 0.627451, 1),
+&"moos": Color(0.53333336, 0.65882355, 0.5176471, 1),
+&"platz": Color(0.9411765, 0.9098039, 0.8156863, 1),
+&"strand": Color(0.95686275, 0.9490196, 0.9254902, 1),
+&"weg": Color(0.9098039, 0.8784314, 0.78431374, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.15,
+&"bluetenbaum": 0.4,
+&"nadelbaum": 0.45
+})
+trees_per_1000 = 2.5
+bushes_per_1000 = 2.0
+grass_per_1000 = 40.0
+rocks_per_1000 = 1.2
+sky = Color(0.9843137, 0.9647059, 0.9019608, 1)
+sky_top = Color(0.5411765, 0.6901961, 0.9098039, 1)
+fog = Color(0.95686275, 0.9411765, 0.8862745, 1)
+fog_density = 0.0026
+water = Color(0.93333334, 0.9411765, 0.95686275, 1)
+sea_level = 0.0
+plant_tint = Color(0.95686275, 0.972549, 0.9098039, 1)

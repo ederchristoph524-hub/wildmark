@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ds2g1g3x2xl03"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_fc88q"]
+
+[resource]
+script = ExtResource("1_fc88q")
+id = &"kesselkraft_gu"
+display_name = "Kesselkraft-Unsterblichen-Gu"
+name_en = "Cauldron Strength Immortal Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Kesselkraft: standfest wie ein Kessel – 10 s +40 % Schaden, 30 % Schutz und unaufhaltsam."
+lore = "Strength-Path-Gu, selten auch defensiv einsetzbar."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"color": "#e07a4a",
+"damage": 1.4,
+"key": "kesselkraft",
+"reduction": 0.3,
+"t": "buff",
+"time": 10.0
+}, {
+"t": "unstoppable",
+"time": 10.0
+}]

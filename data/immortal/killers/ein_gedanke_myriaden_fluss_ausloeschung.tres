@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bu177na1h7y0c"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_2wx7j"]
+
+[resource]
+script = ExtResource("1_2wx7j")
+id = &"ein_gedanke_myriaden_fluss_ausloeschung"
+display_name = "Ein-Gedanke-Myriaden-Fluss-Auslöschung"
+name_en = "Single Thought Myriad Flow Elimination"
+path = &"weisheit"
+core = &"normal_gu"
+mortal_families = Array[StringName]([&"weisheit", &"stroemung", &"glocke", &"qischirm"])
+beads = 4.0
+cooldown = 70.0
+channel = 1.2
+steps = [{
+"t": "cleanse"
+}, {
+"refund": 5.0,
+"t": "haste"
+}, {
+"color": "#7fc8ff",
+"knockback": 3.0,
+"mult": 5.0,
+"radius": 12.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["seele", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 3.0,
+"radius": 14.0,
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 0.5
+}]
+description = "Ein Gedanke löscht zehntausend Ströme aus: alles im Umkreis 12 wird zurückgeworfen und 1 s betäubt, eine zweite Welle folgt; du bist gereinigt und deine Gu 5 s weiter."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Normal-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

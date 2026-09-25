@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dox5la3aacxpb"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_ldr5v"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_pk417"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_ldr5v")
+item = &"unsterblichen_stein"
+chance = 0.35
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_ldr5v")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_ldr5v")
+item = &"seelenstaub"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_ldr5v")
+item = &"seelenglas"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_ldr5v")
+item = &"seelenkern"
+chance = 0.1
+
+[resource]
+script = ExtResource("2_pk417")
+id = &"wuester_seelenfresser"
+display_name = "Wüster Seelenfresser"
+max_hp = 5000
+damage = 130
+speed = 3.6
+xp = 2000
+radius = 1.0
+color = Color(0.41568628, 0.2901961, 0.6039216, 1)
+zone = 9
+rank = 6
+ability = [{
+"at": "target",
+"color": "#9a6aff",
+"lifesteal": 0.3,
+"mult": 0.35,
+"pull": 1.5,
+"radius": 5.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 5.0
+}, {
+"angle": 70.0,
+"color": "#b08aff",
+"essence_steal": 1.0,
+"mult": 0.9,
+"reach": 12.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele"]
+}]
+ability_range = 12.0
+ability_cooldown = 9.0
+drops = Array[ExtResource("1_ldr5v")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+shape = &"ghost"
+night_only = true

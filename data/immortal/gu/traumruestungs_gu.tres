@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bxox5uhj1ic3a"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7wo60"]
+
+[resource]
+script = ExtResource("1_7wo60")
+id = &"traumruestungs_gu"
+display_name = "Traumrüstungs-Gu"
+name_en = "Dream Armor Gu"
+rank = 7
+path = &"traum"
+category = &"verteidigung"
+description = "Rüstung aus Träumen: 8 s 60 % Schutz; wer dir nahe kommt (Umkreis 4), bewegt sich wie im Traum (50 % langsamer)."
+lore = "Defensives Dream-Path-Gu aus Paradise Earth Immortal Venerables Southern-Border-Erbschaft."
+owner = "Paradise Earth Immortal Venerable (Erbschaft) → Fang Yuan"
+beads = 2.0
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"color": "#d0a0ff",
+"reduction": 0.6,
+"t": "armor",
+"time": 8.0
+}, {
+"color": "#d0a0ff",
+"follow": true,
+"mult": 0.0,
+"radius": 4.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["seele"],
+"time": 8.0
+}]

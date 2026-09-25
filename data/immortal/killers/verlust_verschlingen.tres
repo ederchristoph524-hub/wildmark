@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://ykyo8c6pddqx"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_j7yif"]
+
+[resource]
+script = ExtResource("1_j7yif")
+id = &"verlust_verschlingen"
+display_name = "Verlust-verschlingen"
+name_en = "Swallow Loss"
+path = &"nahrung"
+core = &"grosser_imbiss_gu"
+mortal_families = Array[StringName]([&"pluenderung", &"blatt", &"qischirm", &"seelenschrei"])
+beads = 4.0
+cooldown = 90.0
+steps = [{
+"t": "reflect",
+"time": 5.0
+}, {
+"color": "#f0b060",
+"reduction": 0.5,
+"t": "armor",
+"time": 5.0
+}, {
+"frac": 0.5,
+"t": "heal",
+"time": 5.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#f0b060",
+"knockback": 2.0,
+"mult": 8.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["seele", "wucht"]
+}],
+"time": 5.0
+}]
+description = "Verschlingt jeden Verlust: 5 s lang prallen Angriffe ab, du bist 50 % geschützt und heilst 50 %; dann speist du das Verschlungene aus (Umkreis 8)."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Großer-Imbiss-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

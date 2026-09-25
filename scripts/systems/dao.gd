@@ -13,6 +13,7 @@ static func marks(path: StringName) -> float:
 static func add(path: StringName, amount: float) -> void:
 	if path == &"" or amount <= 0.0:
 		return
+	amount *= (1.0 + Immortal.passive(&"dao_mult")) * DimensionRules.dao_mult()
 	var before: int = attain(path)
 	GameState.dao[path] = marks(path) + amount
 	var after: int = attain(path)
@@ -58,3 +59,13 @@ static func next_need(path: StringName) -> float:
 	var needs: Array[float] = DataRegistry.gu_system().attain_needs
 	var level: int = attain(path)
 	return needs[level + 1] if level + 1 < needs.size() else -1.0
+
+
+## Verstärkung unsterblicher Gu und Killer Moves durch Dao-Markierungen ihres Pfads (Lore: 1.000 Markierungen
+## verdoppeln die Wirkung; im Spiel dao_power_marks, gedeckelt). Der Ehrwürdige ist Dao-Herr seines Pfads (× 2).
+static func power_mult(path: StringName) -> float:
+	var b: ImmortalBalanceData = Balance.immortal
+	var mult: float = minf(1.0 + marks(path) / b.dao_power_marks, b.dao_power_max)
+	if path != &"" and path == GameState.immortal.dao_lord_path:
+		mult *= b.dao_lord_mult
+	return mult

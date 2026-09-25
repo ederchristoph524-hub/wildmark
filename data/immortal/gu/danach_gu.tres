@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://75kollw6apag"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_m3jgf"]
+
+[resource]
+script = ExtResource("1_m3jgf")
+id = &"danach_gu"
+display_name = "Danach-Unsterblichen-Gu"
+name_en = "After Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"zeit"
+description = "Regel „danach“: Markiert das Ziel (Schwäche) – 2,5 s danach trifft es die eigentliche Wirkung (Umkreis 6, 1 s betäubt)."
+lore = "Fundamentales Rule/Time-Grenz-Gu ('danach'), verwandt mit der Big/Small/Normal/One/Three-Rule-Path-Serie. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 25.0
+steps = [{
+"at": "target",
+"color": "#e8e0ff",
+"distance": 12.0,
+"mult": 0.5,
+"radius": 5.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["zeit"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#e8e0ff",
+"distance": 12.0,
+"mult": 4.5,
+"radius": 6.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}],
+"time": 2.5
+}]

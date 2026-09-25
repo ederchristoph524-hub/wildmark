@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://54mlxk167gu4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_vwe0r"]
+
+[resource]
+script = ExtResource("1_vwe0r")
+id = &"ameisennest_gu"
+display_name = "Ameisennest-Gu"
+name_en = "Ant Nest Gu"
+rank = 8
+path = &"sklaverei"
+category = &"sonstiges"
+description = "Öffnet ein Ameisennest: acht Panzerkäfer schwärmen 15 s für dich aus."
+lore = "Rang-8-Gu bei Green Ant Ascetic, Wu Shuai und Fang Yuan; Effekt im Lexikon nicht beschrieben."
+owner = "Green Ant Ascetic, Wu Shuai, Fang Yuan"
+beads = 3.0
+cooldown = 50.0
+base_damage = 20.0
+steps = [{
+"count": 8.0,
+"enemy": "kaefer",
+"t": "summon",
+"time": 15.0
+}]

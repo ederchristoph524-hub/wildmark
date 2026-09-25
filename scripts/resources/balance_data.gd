@@ -139,6 +139,8 @@ extends Resource
 @export var knockback_mass_radius: float = 0.45
 @export var knockback_mass_slope: float = 1.5
 @export var knockback_mass_max: float = 0.7
+## Bestienkönige (boss): immun gegen Stoß, Betäubung und Einfrieren; Verlangsamung wirkt mit diesem Anteil.
+@export var boss_slow_mult: float = 0.5
 @export var discharge_damage: float = 25.0
 @export var discharge_radius: float = 2.0
 @export var discharge_stun: float = 0.5

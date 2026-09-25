@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bxyvir2svx5iw"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_sdooi"]
+
+[resource]
+script = ExtResource("1_sdooi")
+id = &"klingen_qi_gu"
+display_name = "Klingen-Qi-Gu"
+name_en = "Blade Qi Gu"
+path = &"qi"
+category = &"sonstiges"
+description = "Klingen-Qi: drei Klingen aus Qi durchschneiden je zwei Gegner und reißen Wunden."
+lore = "Verbindungs-Gu, das Qi Path mit Blade Path kombiniert. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 12.0
+steps = [{
+"color": "#e8f4ff",
+"count": 3.0,
+"mult": 1.0,
+"pierce": 2.0,
+"range": 14.0,
+"speed": 24.0,
+"spread": 30.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["schnitt"]
+}]

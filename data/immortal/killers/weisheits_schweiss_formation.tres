@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dqb6pwnme13cf"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_waiey"]
+
+[resource]
+script = ExtResource("1_waiey")
+id = &"weisheits_schweiss_formation"
+display_name = "Weisheits-Schweiß-Formation"
+name_en = "Wisdom Sweat Formation"
+path = &"wasser"
+core = &"schweiss"
+mortal_families = Array[StringName]([&"stroemung", &"weisheit", &"labyrinth"])
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"color": "#4a9ad0",
+"mult": 0.6,
+"radius": 10.0,
+"status": "nass",
+"t": "zone",
+"tags": ["wasser"],
+"tick": 1.0,
+"time": 15.0
+}, {
+"cd_mult": 0.8,
+"t": "haste",
+"time": 15.0
+}]
+description = "Die Weisheits-Schweiß-Formation (Umkreis 10, 15 s) durchnässt jeden Gegner darin – bereit für Blitz und Frost – und lässt deine Gu schneller laden."
+lore = "Formation mit dem Gu Sweat als Kern."
+owner = "Chi Shang"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://o36mvimthm81"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_yxomu"]
+
+[resource]
+script = ExtResource("1_yxomu")
+id = &"sternenoed_hund_kraft_gu"
+display_name = "Sternenöd-Hund-Kraft-Gu"
+name_en = "Star Desolate Hound Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Sternenöd-Hundekraft: 12 s 40 % schneller; vier Sternenhunde aus Licht jagen die nächsten Gegner und schwächen sie."
+lore = "Teil der 'Beast Strength'-Serie des Strength Path (jeweils Rang 6–7), jedes Gu an ein bestimmtes Fabelwesen angelehnt – hier: Star Desolate Hound. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+steps = [{
+"color": "#e07a4a",
+"key": "sternenoed_hund",
+"speed": 1.4,
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#fff2b0",
+"count": 4.0,
+"homing": true,
+"mult": 0.8,
+"range": 18.0,
+"spread": 90.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern", "wucht"]
+}]

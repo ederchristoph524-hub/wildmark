@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dyeno87dkyg5g"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_1bjw0"]
+
+[resource]
+script = ExtResource("1_1bjw0")
+id = &"karma_goettlicher_baum"
+display_name = "Karma-Göttlicher-Baum"
+name_en = "Karma Divine Tree"
+path = &"holz"
+core = &"wirkungs_gu"
+mortal_families = Array[StringName]([&"blatt", &"erde", &"weisheit", &"glueck"])
+beads = 6.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"count": 1.0,
+"enemy": "waldgeist",
+"t": "summon",
+"time": 20.0
+}, {
+"color": "#6fbf4a",
+"kind": "thorns",
+"reduction": 0.3,
+"t": "armor",
+"time": 20.0,
+"value_mult": 0.8
+}, {
+"ally_reduction": 0.3,
+"color": "#6fbf4a",
+"mult": 2.0,
+"radius": 10.0,
+"status": "verwurzelt",
+"t": "zone",
+"tags": ["holz", "seele"],
+"tick": 5.0,
+"time": 20.0
+}]
+description = "Der Karma-Baum wächst (20 s): Wer dir schadet, erntet es als Dornen; alle 5 s schlägt das Karma auf alle Gegner im Umkreis 10 zurück (verwurzelt), Verbündete sind 30 % geschützt."
+lore = "Signatur-Erbschaft (Karma Divine Tree / Karma Relocation), ursprünglich von Chen Yi und Qing Chou genutzt, später auch von Fang Yuan."
+owner = "Chen Yi, Qing Chou → Fang Yuan"

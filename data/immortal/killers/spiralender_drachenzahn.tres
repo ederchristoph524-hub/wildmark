@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://chw032ukxcq3i"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_scgu0"]
+
+[resource]
+script = ExtResource("1_scgu0")
+id = &"spiralender_drachenzahn"
+display_name = "Spiralender-Drachenzahn"
+name_en = "Spiraling Dragon Fang"
+path = &"verwandlung"
+core = &"kraft_qi_gu"
+mortal_families = Array[StringName]([&"gestalt", &"tausendfuessler", &"wind", &"qischirm"])
+beads = 4.0
+base_damage = 60.0
+steps = [{
+"color": "#ff8ae2",
+"dash": true,
+"length": 15.0,
+"mult": 8.0,
+"pierce_armor": true,
+"stacks": 2.0,
+"status": "blutung",
+"t": "line",
+"tags": ["durchbohren", "wucht"],
+"width": 2.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff8ae2",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wind"]
+}],
+"time": 0.2
+}]
+description = "Ein spiralender Drachenzahn: Du bohrst dich 15 m durch alles hindurch (durchdringt Rüstung, Blutung), am Ende reißt ein Wirbel auf."
+lore = "Teil der umfangreichen Drachen-Move-Reihe von Duke Long, einem der Three Dukes von Heavenly Court (vor allem Transformation/Qi Path). Kern im Spiel: Kraft-Qi-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Duke Long (Heavenly Court)"

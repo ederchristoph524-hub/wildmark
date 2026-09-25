@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bmsjoa8rrpkxi"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_r5siy"]
+
+[resource]
+script = ExtResource("1_r5siy")
+id = &"jahresbestien_beschwoerung"
+display_name = "Jahresbestien-Beschwörung"
+name_en = "Year Beast Summoning"
+path = &"zeit"
+core = &"jahr_gu"
+mortal_families = Array[StringName]([&"zeit", &"sklaverei", &"knochenrad", &"gestalt"])
+beads = 5.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"count": 1.0,
+"enemy": "uralter_knochendrache",
+"t": "summon",
+"time": 25.0
+}, {
+"color": "#a04ad0",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#a04ad0",
+"mult": 4.0,
+"reach": 12.0,
+"status": "brand",
+"t": "cone",
+"tags": ["zeit", "feuer"]
+}],
+"time": 0.6
+}]
+description = "Ruft eine Bestie aus vergangenen Jahren: ein uralter Knochendrache bricht hervor (25 s), sein Erscheinen und sein Atem treffen alles vor dir."
+lore = "Teil der Serie von Zeitraffer- und Zeitlupe-Techniken (Myriad Year Hunting / Year Beast Summoning / Years Grant Strength / Years Pass Like Days/Months), Time + Enslavement/Strength Path, Kern Year Gu bzw. Years Flow Like Water Gu; teils von Hei Fan genutzt."
+owner = "Fang Yuan, Hei Fan"

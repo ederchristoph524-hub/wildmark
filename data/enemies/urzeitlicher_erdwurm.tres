@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dat4il2g1q6rs"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_g0pxj"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_lf1hp"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_g0pxj")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_g0pxj")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_g0pxj")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_g0pxj")
+item = &"erdkern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_g0pxj")
+item = &"erdkern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_g0pxj")
+item = &"wuestenrose"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_6"]
+script = ExtResource("1_g0pxj")
+item = &"grottenstein"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_7"]
+script = ExtResource("1_g0pxj")
+item = &"himmelskristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_8"]
+script = ExtResource("1_g0pxj")
+item = &"erdqi"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_lf1hp")
+id = &"urzeitlicher_erdwurm"
+display_name = "Urzeitlicher Erdwurm"
+max_hp = 75000
+damage = 1200
+speed = 2.4
+xp = 20000
+radius = 1.6
+color = Color(0.5411765, 0.41568628, 0.22745098, 1)
+zone = 9
+rank = 8
+ability = [{
+"color": "#c0a070",
+"mult": 1.2,
+"radius": 12.0,
+"status": "verwurzelt",
+"stun": 1.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}, {
+"color": "#a08050",
+"count": 5.0,
+"mult": 0.9,
+"radius": 4.0,
+"spacing": 3.0,
+"status": "verwurzelt",
+"t": "trap",
+"tags": ["erde"],
+"time": 15.0,
+"trigger": 1.6
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#8a9a3a",
+"mult": 0.35,
+"radius": 8.0,
+"slow": 0.5,
+"status": "gift",
+"t": "zone",
+"tags": ["erde", "gift"],
+"tick": 1.0,
+"time": 6.0
+}],
+"time": 1.2
+}]
+ability_range = 12.0
+ability_cooldown = 11.0
+drops = Array[ExtResource("1_g0pxj")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6"), SubResource("drop_7"), SubResource("drop_8")])
+shape = &"snake"
+behavior = &"armor"
+boss = true

@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bnf6a6f00c2j4"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_xghda"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_u661m"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_xghda")
+item = &"unsterblichen_stein"
+chance = 0.35
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_xghda")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_xghda")
+item = &"geisterseide"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_xghda")
+item = &"traumsplitter"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_xghda")
+item = &"fell"
+chance = 1.0
+
+[resource]
+script = ExtResource("2_u661m")
+id = &"wuester_nebelfuchs"
+display_name = "Wüster Nebelfuchs"
+max_hp = 5400
+damage = 95
+speed = 5.6
+xp = 2000
+radius = 0.8
+color = Color(0.78431374, 0.72156864, 0.84705883, 1)
+zone = 9
+rank = 6
+ability = [{
+"at": "self",
+"blind": 1.5,
+"color": "#d8d0e8",
+"mult": 0.3,
+"radius": 8.0,
+"slow": 0.4,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 6.0
+}, {
+"t": "stealth",
+"time": 2.0
+}, {
+"t": "delay",
+"then": [{
+"distance": 10.0,
+"t": "teleport",
+"to": "target"
+}, {
+"color": "#e8d8ff",
+"mult": 1.4,
+"radius": 3.5,
+"status": "wunde",
+"stun": 0.5,
+"t": "circle",
+"tags": ["schnitt"]
+}],
+"time": 1.8
+}]
+ability_range = 10.0
+ability_cooldown = 10.0
+drops = Array[ExtResource("1_xghda")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+shape = &"wolf"

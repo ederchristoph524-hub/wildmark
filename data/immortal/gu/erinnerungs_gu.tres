@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://boksu3m4fh35i"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_bt7ms"]
+
+[resource]
+script = ExtResource("1_bt7ms")
+id = &"erinnerungs_gu"
+display_name = "Erinnerungs-Unsterblichen-Gu"
+name_en = "Remembrance Immortal Gu"
+path = &"weisheit"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Nichts geht vergessen: +20 % Dao-Markierungen und +5 % kritische Treffer."
+lore = "Erstmals während Zhao Lian Yuns Aufstieg zum Immortal verfeinert."
+owner = "Zhao Lian Yun"
+passive = {
+"crit": 0.05,
+"dao_mult": 0.2
+}

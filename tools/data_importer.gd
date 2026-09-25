@@ -4,7 +4,8 @@ extends RefCounted
 
 const SOURCE_DIR := "res://docs/daten/"
 ## Nur diese Dateien werden gelesen; gu.json liefert Pfade und Lore, nicht die Gu selbst.
-const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests", "fortschritt", "gebiete"]
+const SOURCE_FILES: Array[String] = ["gu_system", "gu", "gegner", "materialien", "welt", "fraktionen", "quests", "fortschritt", "gebiete",
+	"unsterblich", "unsterbliche_gu"]
 const TARGET_DIRS: Dictionary[String, String] = {
 	"families": "res://data/gu/families/",
 	"body": "res://data/gu/body/",
@@ -24,7 +25,10 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"builds": "res://data/builds/",
 	"gu_masters": "res://data/gu_masters/",
 	"standings": "res://data/standings/",
+	"immortal_gu": "res://data/immortal/gu/",
+	"immortal_killers": "res://data/immortal/killers/",
 }
+const IMMORTAL_SYSTEM_PATH := "res://data/immortal/immortal_system.tres"
 const GU_SYSTEM_PATH := "res://data/gu/gu_system.tres"
 const PROGRESSION_PATH := "res://data/progression.tres"
 const REGION_FILE_PREFIX := "region_"
@@ -47,6 +51,8 @@ const COUNT_LABELS: Dictionary[String, String] = {
 	"biomes": "Biome",
 	"builds": "Bauteile",
 	"gu_masters": "Gu-Meister",
+	"immortal_gu": "Unsterbl. Gu",
+	"immortal_killers": "Unst. Killer",
 }
 
 var report := ImportReport.new()
@@ -61,6 +67,7 @@ func run() -> bool:
 		return _finish(false)
 	var built: Dictionary = GuImportBuilder.new(report, sources["gu"]).build(sources["gu_system"])
 	built.merge(WorldImportBuilder.new(report).build(sources))
+	built.merge(ImmortalImportBuilder.new(report).build(sources))
 	var progression_builder := ProgressionImportBuilder.new(report)
 	built["progression"] = progression_builder.build(sources["fortschritt"])
 	progression_builder.add_sect_ranks(built["progression"], sources["fraktionen"])
@@ -106,6 +113,7 @@ func _write_all(built: Dictionary) -> void:
 		_warn_stale_files(dir, written)
 	_save(built["gu_system"], GU_SYSTEM_PATH)
 	_save(built["progression"], PROGRESSION_PATH)
+	_save(built["immortal_system"], IMMORTAL_SYSTEM_PATH)
 
 
 func _file_name_for(type: String, resource: Resource) -> String:

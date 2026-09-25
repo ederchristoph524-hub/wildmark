@@ -253,6 +253,10 @@ func _build_master(id: StringName, d: Dictionary) -> Resource:
 	master.rank = ImportUtil.to_int(d.get("rang"), 0)
 	master.stage = ImportUtil.to_int(d.get("stufe"), -1)
 	master.hat = ImportUtil.sn(d.get("hut"))
+	master.immortal_gu = ImportUtil.names(d.get("unsterbliche_gu", []))
+	master.title = ImportUtil.text(d.get("titel"))
+	master.path = ImportUtil.sn(d.get("pfad"))
+	master.lore = ImportUtil.text(d.get("lore"))
 	return master
 
 

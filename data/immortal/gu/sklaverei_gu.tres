@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://fuw4p78tbt0l"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6u0bq"]
+
+[resource]
+script = ExtResource("1_6u0bq")
+id = &"sklaverei_gu"
+display_name = "Sklaverei-Gu"
+name_en = "Slavery Gu"
+rank = 7
+path = &"sklaverei"
+category = &"kontrolle"
+description = "Zwingt einen Willen nieder: Gegner um das Ziel (Umkreis 5) sind 2,5 s gelähmt und verängstigt, ein versklavter weißer Tiger dient dir 20 s."
+lore = "Enslavement-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"at": "target",
+"color": "#b080e0",
+"distance": 10.0,
+"mult": 0.0,
+"radius": 5.0,
+"status": "furcht",
+"stun": 2.5,
+"t": "circle",
+"tags": ["seele"]
+}, {
+"count": 1.0,
+"enemy": "weisser_tiger",
+"t": "summon",
+"time": 20.0
+}]

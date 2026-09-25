@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b6w76f0o53v7x"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_fs0hq"]
+
+[resource]
+script = ExtResource("1_fs0hq")
+id = &"goettliche_reise_gu"
+display_name = "Göttliche-Reise-Gu"
+name_en = "Divine Travel Gu"
+path = &"raum"
+category = &"bewegung"
+description = "Eines der vier großen Bewegungs-Gu: zwei schnelle Sprünge von je 12 m kurz nacheinander, unaufhaltsam, danach 6 s 50 % schneller."
+lore = "Eines der vier großen Bewegungs-Gu des Space Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 10.0
+base_damage = 20.0
+steps = [{
+"color": "#6ad04a",
+"distance": 12.0,
+"t": "dash"
+}, {
+"t": "unstoppable",
+"time": 1.2
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"distance": 12.0,
+"t": "dash"
+}],
+"time": 0.6
+}, {
+"color": "#6ad04a",
+"key": "goettliche_reise",
+"speed": 1.5,
+"t": "buff",
+"time": 6.0
+}]

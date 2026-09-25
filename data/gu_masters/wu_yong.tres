@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://b5u7y4332fqw"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_cupqo"]
+
+[resource]
+script = ExtResource("1_cupqo")
+id = &"wu_yong"
+display_name = "Wu Yong"
+color = Color(0.7529412, 0.1882353, 0.1882353, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"taifun", &"blauerhimmel", &"frostdaemon", &"qi_mauer", &"kriegsgott"])
+rank = 8
+hat = &"krone"
+immortal_gu = Array[StringName]([&"achtseitiger_prestigewind_gu", &"sanfter_wind_gu", &"windsprint_gu"])
+title = "Oberster Ältester des Wu-Klans"
+path = &"wind"
+lore = "Oberster Ältester des Wu-Klans und Anführer der Südlichen Allianz gegen den Himmlischen Hof. Gefürchtet für „Lebwohl-Freund-Wind“ und „Schneewind ohne Wiederkehr“."

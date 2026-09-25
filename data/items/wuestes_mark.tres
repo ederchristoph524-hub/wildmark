@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cms8xyjncyyfp"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_5dv86"]
+
+[resource]
+script = ExtResource("1_5dv86")
+id = &"wuestes_mark"
+display_name = "Mark einer wüsten Bestie"
+icon = "🦴"
+category = &"material"
+rank = 6
+path = &"kraft"
+source = "Wüste Bestien (Rang 6–8)"
+description = "Das Knochenmark wüster Bestien – Futter für unsterbliche Gu und begehrte Handelsware."

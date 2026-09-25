@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ct0x20xj0mcdb"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_jbes8"]
+
+[resource]
+script = ExtResource("1_jbes8")
+id = &"schwert_qi_gu"
+display_name = "Schwert-Qi-Unsterblichen-Gu"
+name_en = "Sword Qi Immortal Gu"
+rank = 8
+path = &"schwert"
+category = &"angriff"
+description = "Schwert-Qi: fünf Klingenstrahlen fächern sich auf und durchbohren je vier Gegner, dann spaltet ein langes Schwert-Qi (20 m) jede Rüstung."
+lore = "Sword-Path-Gu bei Lin Jian Xing."
+owner = "Lin Jian Xing"
+beads = 3.0
+cooldown = 22.0
+steps = [{
+"color": "#e8f4ff",
+"count": 5.0,
+"mult": 2.0,
+"pierce": 4.0,
+"range": 20.0,
+"speed": 28.0,
+"spread": 40.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["schnitt", "durchbohren"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8f4ff",
+"length": 20.0,
+"mult": 3.0,
+"pierce_armor": true,
+"set_stacks": {
+"blutung": 2.0
+},
+"t": "line",
+"tags": ["schnitt", "durchbohren"],
+"width": 2.0
+}],
+"time": 0.4
+}]

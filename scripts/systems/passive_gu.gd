@@ -59,6 +59,8 @@ static func body(key: StringName) -> float:
 
 
 static func capacity() -> int:
+	if Immortal.is_immortal():
+		return Balance.immortal.mortal_gu_capacity + roundi(add("capacity_add"))
 	return Formulas.gu_capacity(Balance.values, GameState.rank, GameState.apt) + roundi(add("capacity_add"))
 
 

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b88vfkt125akc"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_a7u52"]
+
+[resource]
+script = ExtResource("1_a7u52")
+id = &"myriaden_jahres_jagd"
+display_name = "Myriaden-Jahres-Jagd"
+name_en = "Myriad Year Hunting"
+path = &"zeit"
+core = &"jahr_gu"
+mortal_families = Array[StringName]([&"zeit", &"sklaverei", &"phantom", &"wind"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.4
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 12.0,
+"end": [{
+"color": "#a04ad0",
+"mult": 3.0,
+"radius": 10.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"mult": 0.7,
+"radius": 10.0,
+"slow": 0.5,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["zeit"],
+"tick": 1.0,
+"time": 12.0
+}]
+description = "Eine Jagd über zehntausend Jahre (Umkreis 10, 12 s): Gegner altern mit jedem Takt, werden langsam und schwach; am Ende steht die Zeit für sie still (1 s betäubt)."
+lore = "Teil der Serie von Zeitraffer- und Zeitlupe-Techniken (Myriad Year Hunting / Year Beast Summoning / Years Grant Strength / Years Pass Like Days/Months), Time + Enslavement/Strength Path, Kern Year Gu bzw. Years Flow Like Water Gu; teils von Hei Fan genutzt."
+owner = "Fang Yuan, Hei Fan"

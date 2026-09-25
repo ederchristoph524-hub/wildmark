@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dbuasd2p1fl1h"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_3cuva"]
+
+[resource]
+script = ExtResource("1_3cuva")
+id = &"yama_schlachtfeld"
+display_name = "Yama-Schlachtfeld"
+name_en = "Yama Battlefield"
+path = &"seele"
+core = &"seelenheul_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"sklaverei", &"pluenderung", &"zeit", &"knochenrad"])
+beads = 5.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"ally_reduction": 0.3,
+"color": "#c9a0ff",
+"mult": 1.0,
+"radius": 16.0,
+"slow": 0.3,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 2.0,
+"time": 20.0
+}, {
+"count": 3.0,
+"enemy": "geisterwolf",
+"t": "summon",
+"time": 20.0
+}]
+description = "Ein Yama-Schlachtfeld (Umkreis 16, 20 s): Gegner sind gebremst und verängstigt, Verbündete 30 % geschützt; drei Geisterwölfe jagen die Seelen."
+lore = "Schlachtfeld-Variante der Yama-Serie (Soul Path, teils + Enslavement/Theft/Time Path) aus dem Erbe des Spectral Soul Demon Venerable. Kern im Spiel: Seelenheul-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan (Erbe des Spectral Soul Demon Venerable)"

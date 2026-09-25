@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://d13x3s2rlxasp"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_7m6bc"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_0xrkn"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_7m6bc")
+item = &"unsterblichen_stein"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_7m6bc")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_7m6bc")
+item = &"frostsplitter"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_7m6bc")
+item = &"frostsplitter"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_7m6bc")
+item = &"schlangenhaut"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_7m6bc")
+item = &"himmelsjade"
+chance = 0.15
+
+[resource]
+script = ExtResource("2_0xrkn")
+id = &"wueste_frostschlange"
+display_name = "Wüste Frostschlange"
+max_hp = 6800
+damage = 100
+speed = 3.4
+xp = 2000
+radius = 1.2
+color = Color(0.5411765, 0.78431374, 0.9098039, 1)
+zone = 9
+rank = 6
+ability = [{
+"angle": 60.0,
+"color": "#bfe8ff",
+"mult": 1.0,
+"reach": 12.0,
+"stacks": 3.0,
+"status": "frost",
+"t": "cone",
+"tags": ["eis"]
+}, {
+"at": "self",
+"color": "#dff4ff",
+"mult": 0.25,
+"radius": 6.0,
+"slow": 0.5,
+"status": "frost",
+"t": "zone",
+"tags": ["eis"],
+"tick": 1.0,
+"time": 6.0
+}]
+ability_range = 11.0
+ability_cooldown = 8.0
+drops = Array[ExtResource("1_7m6bc")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"snake"

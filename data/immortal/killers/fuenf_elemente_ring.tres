@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://lktvmweswsk8"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_6flfs"]
+
+[resource]
+script = ExtResource("1_6flfs")
+id = &"fuenf_elemente_ring"
+display_name = "Fünf-Elemente-Ring"
+name_en = "Five Elements Ring"
+path = &"formation"
+core = &"formationsplatten_gu"
+mortal_families = Array[StringName]([&"haut", &"blatt", &"stroemung", &"flamme", &"erde"])
+beads = 4.0
+cooldown = 100.0
+channel = 1.6
+steps = [{
+"color": "#c9c9d4",
+"count": 1.0,
+"mult": 0.15,
+"radius": 3.0,
+"reduction": 0.6,
+"size": 0.6,
+"speed": 1.0,
+"t": "orbit",
+"tags": ["metall"],
+"time": 20.0
+}, {
+"color": "#6fbf4a",
+"count": 1.0,
+"mult": 0.15,
+"radius": 3.5,
+"size": 0.6,
+"speed": 0.9,
+"t": "orbit",
+"tags": ["holz"],
+"time": 20.0
+}, {
+"color": "#4a9ad0",
+"count": 1.0,
+"mult": 0.15,
+"radius": 4.0,
+"size": 0.6,
+"speed": 0.8,
+"t": "orbit",
+"tags": ["wasser"],
+"time": 20.0
+}, {
+"color": "#ff7a3a",
+"count": 1.0,
+"mult": 0.15,
+"radius": 4.5,
+"size": 0.6,
+"speed": 0.7,
+"t": "orbit",
+"tags": ["feuer"],
+"time": 20.0
+}, {
+"color": "#a08050",
+"count": 1.0,
+"mult": 0.15,
+"radius": 5.0,
+"size": 0.6,
+"speed": 0.6,
+"t": "orbit",
+"tags": ["erde"],
+"time": 20.0
+}]
+description = "Fünf Ringe der Elemente – Metall, Holz, Wasser, Feuer, Erde – umkreisen dich 20 s: 60 % Schutz, und jeder Ring löst an Gegnern seine eigenen Reaktionen aus."
+lore = "Stärkste Verteidigungstechnik des Five Elements Grandmaster. Kern im Spiel: Formationsplatten-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Five Elements Grandmaster"

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://ds084pdriu10q"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_c7drw"]
+
+[resource]
+script = ExtResource("1_c7drw")
+id = &"ein_schritt_zurueck"
+display_name = "Ein-Schritt-zurück"
+name_en = "One Step Back"
+path = &"raum"
+core = &"exquisiter_sprung_gu"
+mortal_families = Array[StringName]([&"schritt", &"haut", &"tarnung"])
+beads = 2.0
+cooldown = 40.0
+channel = 0.6
+base_damage = 40.0
+steps = [{
+"color": "#6ad04a",
+"distance": -8.0,
+"t": "teleport"
+}, {
+"t": "cleanse"
+}, {
+"color": "#6ad04a",
+"reduction": 0.8,
+"t": "armor",
+"time": 2.0
+}]
+description = "Ein Schritt zurück, um zu überleben: 8 m Rücksprung, alle Zustände weg, 2 s 80 % Schutz. Kein Schaden."
+lore = "Move des Limitless Demon Venerable, Vorbild für die Apertur-Verwaltungstechnik des Thieving Heaven Demon Venerable. Pfad im Lexikon nicht genannt; im Spiel als Raum-Pfad geführt (Interpretation). Kern im Spiel: Exquisiter-Sprung-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Limitless Demon Venerable"

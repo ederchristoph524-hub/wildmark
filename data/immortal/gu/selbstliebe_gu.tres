@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://jbsotfnd1bg7"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_lpe5k"]
+
+[resource]
+script = ExtResource("1_lpe5k")
+id = &"selbstliebe_gu"
+display_name = "Selbstliebe-Unsterblichen-Gu"
+name_en = "Self Love Immortal Gu"
+path = &"weisheit"
+category = &"sonstiges"
+description = "Selbstliebe: heilt 25 % über 6 s, entfernt alle Zustände und gibt 10 s +15 % Schaden."
+lore = "Wisdom-Path-Gu rund um Selbstliebe. Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 0.5
+cooldown = 30.0
+base_damage = 20.0
+steps = [{
+"frac": 0.25,
+"t": "heal",
+"time": 6.0
+}, {
+"t": "cleanse"
+}, {
+"color": "#7fc8ff",
+"damage": 1.15,
+"key": "selbstliebe",
+"t": "buff",
+"time": 10.0
+}]

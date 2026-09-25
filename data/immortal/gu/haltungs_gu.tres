@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bh4e5gqap7f0e"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_e438l"]
+
+[resource]
+script = ExtResource("1_e438l")
+id = &"haltungs_gu"
+display_name = "Haltungs-Gu"
+name_en = "Attitude Gu"
+rank = 8
+path = &"gefuehl"
+category = &"tarnung"
+description = "Zeigt eine falsche Haltung: 10 s getarnt, auch vor Gu-Meistern, gereinigt und 20 % schneller."
+lore = "Verbirgt die wahren Emotionen des Trägers und zeigt Außenstehenden eine 'gefälschte' Haltung – benötigt keine Immortal Essence, nur mentale Energie. Kern-Gu des Tarnungs-Killer-Moves Familiar Face (Transformation + Emotion Path)."
+owner = "Fang Yuan, Hei Lou Lan, Hei Feng Yue, Hei Fan, Thieving Heaven Demon Venerable, Reckless Savage Demon Venerable"
+beads = 2.0
+cooldown = 40.0
+base_damage = 20.0
+steps = [{
+"t": "stealth",
+"time": 10.0
+}, {
+"t": "cleanse"
+}, {
+"color": "#ff6fa8",
+"key": "haltung",
+"speed": 1.2,
+"t": "buff",
+"time": 10.0
+}]

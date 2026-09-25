@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cpbuf0onltbco"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_2aik5"]
+
+[resource]
+script = ExtResource("1_2aik5")
+id = &"sternschuss_gu"
+display_name = "Sternschuss-Unsterblichen-Gu"
+name_en = "Star Shoot Immortal Gu"
+path = &"stern"
+category = &"angriff"
+description = "Ein zielsuchender Sternschuss, ×1,8 gegen Geschwächte (Sternenfall)."
+lore = "Kernkomponente von Fang Yuans Star-Path-Killer-Move-Reihe (Star Body, Star Snake Rope, Star Fire Escape, Six Illusion Star Bodies, Position Star Swap)."
+owner = "Star Lord Wan Xiang (Erbe) → Fang Yuan"
+cooldown = 10.0
+steps = [{
+"color": "#fff2b0",
+"count": 1.0,
+"homing": true,
+"mult": 3.2,
+"range": 24.0,
+"speed": 30.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["stern"]
+}]

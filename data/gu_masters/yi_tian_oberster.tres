@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://3cytq4tx8xkq"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_e5l1m"]
+
+[resource]
+script = ExtResource("1_e5l1m")
+id = &"yi_tian_oberster"
+display_name = "Oberster Ältester der Yi-Tian-Sekte"
+color = Color(0.5411765, 0.6901961, 0.7529412, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"sternentor", &"schildkroetenjade", &"qi_mauer", &"taifun"])
+rank = 6
+hat = &"kappe"
+immortal_gu = Array[StringName]([&"sternenschiffchen_gu"])
+title = "Oberster Ältester der Yi-Tian-Sekte"
+path = &"stern"
+lore = "Der einzige Unsterbliche der Yi-Tian-Sekte, um deren Berg die großen Sekten ringen."

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bei23efi4qecv"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_0vqmk"]
+
+[resource]
+script = ExtResource("1_0vqmk")
+id = &"zorniger_vogel"
+display_name = "Zorniger-Vogel"
+name_en = "Angry Bird"
+path = &"feuer"
+core = &"sommer_gu"
+mortal_families = Array[StringName]([&"flamme", &"fackel", &"wind", &"stern"])
+beads = 4.0
+steps = [{
+"color": "#ff7a3a",
+"count": 6.0,
+"explode": 3.0,
+"homing": true,
+"mult": 1.5,
+"range": 20.0,
+"spread": 90.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer"]
+}]
+description = "Sechs zornige Feuervögel stürzen sich auf die Gegner und explodieren (Umkreis 3, Brand)."
+lore = "Signatur-Move der Blazing Heaven Demoness (Angry Bird / Nirvana Fire). Kern im Spiel: Sommer-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Blazing Heaven Demoness"

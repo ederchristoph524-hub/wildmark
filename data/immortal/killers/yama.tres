@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://blo4q1qy0p46h"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_c402j"]
+
+[resource]
+script = ExtResource("1_c402j")
+id = &"yama"
+display_name = "Yama"
+name_en = "Yama"
+path = &"seele"
+core = &"seelensog_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"sklaverei", &"pluenderung", &"zeit"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.8
+steps = [{
+"color": "#c9a0ff",
+"essence_steal": 0.3,
+"follow": true,
+"lifesteal": 0.1,
+"mult": 0.6,
+"radius": 12.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 15.0
+}]
+description = "Das Totenreich wandert mit dir (Umkreis 12, 15 s): Gegner verfallen der Furcht, jeder Takt saugt Leben und Uressenz."
+lore = "Grundform der Yama-Serie: Schlachtfeld-Killer-Move des Soul Path, den Fang Yuan aus dem Erbe des Spectral Soul Demon Venerable entwickelte. Kern im Spiel: Seelensog-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan (Erbe des Spectral Soul Demon Venerable)"

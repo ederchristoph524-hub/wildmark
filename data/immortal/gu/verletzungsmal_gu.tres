@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dubjwdm2ksyvu"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_x1lnl"]
+
+[resource]
+script = ExtResource("1_x1lnl")
+id = &"verletzungsmal_gu"
+display_name = "Verletzungsmal-Gu"
+name_en = "Injury Mark Gu"
+path = &"mensch"
+category = &"kontrolle"
+description = "Brennt ein Verletzungsmal ein: ein zielsuchendes Mal setzt 3 Stapel Blutung und 2 Stapel Schwäche, dann bricht die Wunde auf."
+lore = "Human-Path-Gu rund um Verletzung und Heilung (mit Heal Injury Gu). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 14.0
+steps = [{
+"color": "#f0c090",
+"count": 1.0,
+"homing": true,
+"mult": 1.5,
+"range": 20.0,
+"set_stacks": {
+"blutung": 3.0,
+"wunde": 1.0
+},
+"spread": 0.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#f0c090",
+"distance": 12.0,
+"mult": 1.5,
+"radius": 3.0,
+"t": "circle",
+"tags": ["schnitt", "blut"]
+}],
+"time": 0.5
+}]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://b75peaqhmq2ea"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_knr7p"]
+
+[resource]
+script = ExtResource("1_knr7p")
+id = &"langlebigkeitshimmel"
+display_name = "Langlebigkeits-Himmel"
+icon = "☀️"
+faction = &"righteous"
+org_type = &"sekte"
+immortals = 3
+power = 6
+rivals = Array[StringName]([&"himmelshof"])
+min_rank = 8
+join_gift = Dictionary[StringName, int]({
+&"sonnengold": 1,
+&"unsterblichen_stein": 20
+})
+signature_gu = &"himmelsglueck"
+politics = "Vom Riesensonnen-Ehrwürdigen gegründet und seit jeher Rivale des Himmlischen Hofes. Seine Erben sitzen in der Nördlichen Ebene, seine Feste schwebt darüber."
+description = "Die Macht des Riesensonnen-Ehrwürdigen – Glück, Blut und eine Lebensspanne, um die ihn jeder beneidet."

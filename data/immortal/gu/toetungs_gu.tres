@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d2nw4evcxxann"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3cwcg"]
+
+[resource]
+script = ExtResource("1_3cwcg")
+id = &"toetungs_gu"
+display_name = "Tötungs-Gu"
+name_en = "Kill Gu"
+rank = 8
+path = &"toetung"
+category = &"angriff"
+description = "Der Tötungs-Gu: Du stehst vor dem Ziel und stößt durch Körper und Seele – durchbohrt jede Rüstung, richtet unter 30 % Leben hin und heilt dich; deine Gu sind 2 s weiter."
+lore = "Das definierende Kern-Gu des gesamten Killing Path, entstanden, als der wahnsinnige Spectral Soul Demon Venerable unzählige Lebewesen auf dem Central Continent abschlachtete und ihre Seelen verzehrte; markiert die Entstehung des Pfades."
+owner = "Spectral Soul Demon Venerable"
+beads = 3.0
+base_damage = 60.0
+steps = [{
+"color": "#a01030",
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 40.0,
+"color": "#a01030",
+"execute": 1.5,
+"lifesteal": 0.5,
+"mult": 6.0,
+"pierce_armor": true,
+"reach": 5.0,
+"t": "cone",
+"tags": ["seele", "durchbohren"]
+}, {
+"refund": 2.0,
+"t": "haste"
+}]

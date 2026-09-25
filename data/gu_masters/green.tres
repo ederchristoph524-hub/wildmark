@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://gqd71lhmcp41"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_qjcch"]
+
+[resource]
+script = ExtResource("1_qjcch")
+id = &"green"
+display_name = "Grün"
+color = Color(0.3529412, 0.6901961, 0.41568628, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"goettlichersinn", &"sklaverei", &"auraverbergen", &"blutkaiser"])
+rank = 7
+hat = &"kapuze"
+immortal_gu = Array[StringName]([&"seelenwechsel_gu", &"seelenheul_gu", &"seelensog_gu"])
+title = "Splitterseele des Seelengespenst-Ehrwürdigen"
+path = &"seele"
+lore = "Eine Splitterseele des Seelengespenst-Ehrwürdigen. Sie verfeinerte als Erste den Seelenwechsel-Gu und gab ihn an Fee Mo Yao weiter."

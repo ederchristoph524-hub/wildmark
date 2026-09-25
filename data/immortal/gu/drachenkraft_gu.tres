@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://lm65iqei70nt"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ffs7c"]
+
+[resource]
+script = ExtResource("1_ffs7c")
+id = &"drachenkraft_gu"
+display_name = "Drachenkraft-Unsterblichen-Gu"
+name_en = "Dragon Strength Immortal Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Drachenkraft: 12 s +70 % Schaden; zwei feurige Drachenhiebe im Kegel (Brand)."
+lore = "Teil der 'Beast Strength'-Serie des Strength Path (jeweils Rang 6–7), jedes Gu an ein bestimmtes Fabelwesen angelehnt – hier: Dragon. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"color": "#e07a4a",
+"damage": 1.7,
+"key": "drachenkraft",
+"t": "buff",
+"time": 12.0
+}, {
+"angle": 60.0,
+"color": "#ff7a3a",
+"mult": 1.5,
+"reach": 8.0,
+"status": "brand",
+"t": "cone",
+"tags": ["feuer", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#ff7a3a",
+"mult": 1.5,
+"reach": 8.0,
+"status": "brand",
+"t": "cone",
+"tags": ["feuer", "wucht"]
+}],
+"time": 0.35
+}]

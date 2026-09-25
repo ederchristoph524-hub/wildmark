@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://hfe7mpn6q5it"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_jp8gb"]
+
+[resource]
+script = ExtResource("1_jp8gb")
+id = &"mensch_wie_zuvor_gu"
+display_name = "Mensch-wie-zuvor-Gu"
+name_en = "Man as Before Gu"
+path = &"zeit"
+category = &"heilung"
+description = "Setzt deinen Körper auf einen früheren Zustand zurück: heilt 60 % Leben, entfernt alle Zustände und heilt Verbündete im Umkreis 8 um 30 %."
+lore = "Heilendes Zeit-Gu, das den Körperzustand auf einen früheren Punkt zurücksetzt – kann sogar kürzlich Verstorbene wiederbeleben. Im Text Rang 5–8 (existiert also schon als sterbliches Rang-5-Gu); steigt bis Rang 8."
+owner = "Tai Bai Yun Sheng → Fang Yuan"
+beads = 1.5
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"frac": 0.6,
+"t": "heal"
+}, {
+"t": "cleanse"
+}, {
+"allies": true,
+"frac": 0.3,
+"radius": 8.0,
+"t": "heal"
+}]

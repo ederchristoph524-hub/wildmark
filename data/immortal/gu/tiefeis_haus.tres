@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://xy4w8liinvqg"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_guqd7"]
+
+[resource]
+script = ExtResource("1_guqd7")
+id = &"tiefeis_haus"
+display_name = "Tiefeis-Haus"
+name_en = "Profound Ice House"
+path = &"eis"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Das Tiefeis-Haus erhebt sich um dich (Umkreis 12, 12 s): Gegner darin erfrieren jeden Takt, Verbündete sind 40 % geschützt."
+lore = "Immortal-Gu-Haus des Ice/Snow Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 50.0
+base_damage = 30.0
+steps = [{
+"ally_reduction": 0.4,
+"color": "#bfeaff",
+"mult": 0.3,
+"radius": 12.0,
+"status": "frost",
+"t": "zone",
+"tags": ["eis"],
+"tick": 1.0,
+"time": 12.0
+}]

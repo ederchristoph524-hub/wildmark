@@ -1435,6 +1435,957 @@
    "beh": "boss",
    "fly": 1,
    "rang": 5
+  },
+  "wuestes_mammut": {
+   "n": "Wüstes Mammut",
+   "klasse": "Wüste Bestie",
+   "hp": 8000,
+   "dmg": 110,
+   "spd": 2.4,
+   "xp": 2000,
+   "r": 1.4,
+   "c": "#8a6a4a",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.5
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "erdkern",
+     1
+    ],
+    [
+     "fell",
+     1
+    ],
+    [
+     "heldenherz",
+     0.3
+    ],
+    [
+     "erdqi",
+     0.25
+    ]
+   ],
+   "shape": "bear",
+   "beh": "armor",
+   "f_name": "Mammutansturm",
+   "faehigkeit": [
+    {
+     "t": "line",
+     "length": 14.0,
+     "width": 3.5,
+     "dash": true,
+     "mult": 1.2,
+     "tags": [
+      "wucht",
+      "erde"
+     ],
+     "stun": 0.8,
+     "knockback": 2.0,
+     "color": "#c0a070"
+    },
+    {
+     "t": "circle",
+     "radius": 7.0,
+     "mult": 0.9,
+     "tags": [
+      "erde",
+      "wucht"
+     ],
+     "status": "verwurzelt",
+     "color": "#a08050"
+    }
+   ],
+   "f_reichweite": 12,
+   "f_cd": 9
+  },
+  "wuester_sturmadler": {
+   "n": "Wüster Sturmadler",
+   "klasse": "Wüste Bestie",
+   "hp": 5200,
+   "dmg": 105,
+   "spd": 5.8,
+   "xp": 2000,
+   "r": 1.0,
+   "c": "#b8c8d8",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.4
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "windfeder",
+     1
+    ],
+    [
+     "windfeder",
+     1
+    ],
+    [
+     "wolkenerz",
+     0.25
+    ],
+    [
+     "himmelsqi",
+     0.3
+    ]
+   ],
+   "shape": "bird",
+   "fly": 1,
+   "f_name": "Federsturm",
+   "faehigkeit": [
+    {
+     "t": "projectiles",
+     "count": 6,
+     "spread": 60.0,
+     "range": 18.0,
+     "speed": 26.0,
+     "pierce": 2,
+     "mult": 0.6,
+     "tags": [
+      "wind",
+      "schnitt"
+     ],
+     "status": "wunde",
+     "color": "#dfe8ff"
+    },
+    {
+     "t": "cone",
+     "reach": 10.0,
+     "angle": 90.0,
+     "mult": 0.8,
+     "tags": [
+      "wind",
+      "wucht"
+     ],
+     "knockback": 2.4,
+     "color": "#c8e0ff"
+    }
+   ],
+   "f_reichweite": 14,
+   "f_cd": 7
+  },
+  "wuester_feuerwolf": {
+   "n": "Wüster Feuerwolf",
+   "klasse": "Wüste Bestie",
+   "hp": 6000,
+   "dmg": 120,
+   "spd": 5.4,
+   "xp": 2000,
+   "r": 0.95,
+   "c": "#e0502a",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.4
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "glutasche",
+     1
+    ],
+    [
+     "wolfsgeist",
+     1
+    ],
+    [
+     "drachenschuppe",
+     0.5
+    ]
+   ],
+   "shape": "wolf",
+   "burn": 1,
+   "f_name": "Höllensprung",
+   "faehigkeit": [
+    {
+     "t": "teleport",
+     "to": "target",
+     "distance": 12.0
+    },
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 1.1,
+     "tags": [
+      "feuer"
+     ],
+     "status": "brand",
+     "stacks": 3,
+     "color": "#ff7a3a"
+    },
+    {
+     "t": "summon",
+     "enemy": "feuerfuchs",
+     "count": 2,
+     "time": 20.0
+    }
+   ],
+   "f_reichweite": 14,
+   "f_cd": 10
+  },
+  "wuester_seelenfresser": {
+   "n": "Wüster Seelenfresser",
+   "klasse": "Wüste Bestie",
+   "hp": 5000,
+   "dmg": 130,
+   "spd": 3.6,
+   "xp": 2000,
+   "r": 1.0,
+   "c": "#6a4a9a",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.35
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "seelenstaub",
+     1
+    ],
+    [
+     "seelenglas",
+     1
+    ],
+    [
+     "seelenkern",
+     0.1
+    ]
+   ],
+   "shape": "ghost",
+   "night": 1,
+   "f_name": "Seelenschlund",
+   "faehigkeit": [
+    {
+     "t": "zone",
+     "at": "target",
+     "radius": 5.0,
+     "time": 5.0,
+     "tick": 1.0,
+     "pull": 1.5,
+     "mult": 0.35,
+     "tags": [
+      "seele"
+     ],
+     "status": "furcht",
+     "lifesteal": 0.3,
+     "color": "#9a6aff"
+    },
+    {
+     "t": "cone",
+     "reach": 12.0,
+     "angle": 70.0,
+     "mult": 0.9,
+     "tags": [
+      "seele"
+     ],
+     "status": "furcht",
+     "essence_steal": 1.0,
+     "color": "#b08aff"
+    }
+   ],
+   "f_reichweite": 12,
+   "f_cd": 9
+  },
+  "wuester_nebelfuchs": {
+   "n": "Wüster Nebelfuchs",
+   "klasse": "Wüste Bestie",
+   "hp": 5400,
+   "dmg": 95,
+   "spd": 5.6,
+   "xp": 2000,
+   "r": 0.8,
+   "c": "#c8b8d8",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.35
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "geisterseide",
+     1
+    ],
+    [
+     "traumsplitter",
+     0.4
+    ],
+    [
+     "fell",
+     1
+    ]
+   ],
+   "shape": "wolf",
+   "f_name": "Trugnebel",
+   "faehigkeit": [
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 8.0,
+     "time": 6.0,
+     "tick": 1.0,
+     "slow": 0.4,
+     "mult": 0.3,
+     "tags": [
+      "seele"
+     ],
+     "status": "schwaeche",
+     "blind": 1.5,
+     "color": "#d8d0e8"
+    },
+    {
+     "t": "stealth",
+     "time": 2.0
+    },
+    {
+     "t": "delay",
+     "time": 1.8,
+     "then": [
+      {
+       "t": "teleport",
+       "to": "target",
+       "distance": 10.0
+      },
+      {
+       "t": "circle",
+       "radius": 3.5,
+       "mult": 1.4,
+       "tags": [
+        "schnitt"
+       ],
+       "status": "wunde",
+       "stun": 0.5,
+       "color": "#e8d8ff"
+      }
+     ]
+    }
+   ],
+   "f_reichweite": 10,
+   "f_cd": 10
+  },
+  "wueste_frostschlange": {
+   "n": "Wüste Frostschlange",
+   "klasse": "Wüste Bestie",
+   "hp": 6800,
+   "dmg": 100,
+   "spd": 3.4,
+   "xp": 2000,
+   "r": 1.2,
+   "c": "#8ac8e8",
+   "z": 9,
+   "rang": 6,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     0.4
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "frostsplitter",
+     1
+    ],
+    [
+     "frostsplitter",
+     1
+    ],
+    [
+     "schlangenhaut",
+     1
+    ],
+    [
+     "himmelsjade",
+     0.15
+    ]
+   ],
+   "shape": "snake",
+   "f_name": "Frostatem",
+   "faehigkeit": [
+    {
+     "t": "cone",
+     "reach": 12.0,
+     "angle": 60.0,
+     "mult": 1.0,
+     "tags": [
+      "eis"
+     ],
+     "status": "frost",
+     "stacks": 3,
+     "color": "#bfe8ff"
+    },
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 6.0,
+     "time": 6.0,
+     "tick": 1.0,
+     "slow": 0.5,
+     "mult": 0.25,
+     "tags": [
+      "eis"
+     ],
+     "status": "frost",
+     "color": "#dff4ff"
+    }
+   ],
+   "f_reichweite": 11,
+   "f_cd": 8
+  },
+  "uralter_donnerbueffel": {
+   "n": "Uralter Donnerbüffel",
+   "klasse": "Uralte wüste Bestie",
+   "hp": 26000,
+   "dmg": 400,
+   "spd": 4.2,
+   "xp": 6000,
+   "r": 1.4,
+   "c": "#5a6a9a",
+   "z": 9,
+   "rang": 7,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "donnerkrone",
+     1
+    ],
+    [
+     "donnerholz",
+     1
+    ],
+    [
+     "trübsalsstahl",
+     0.35
+    ],
+    [
+     "himmelskristall",
+     0.3
+    ],
+    [
+     "himmelsqi",
+     0.3
+    ]
+   ],
+   "shape": "boar",
+   "beh": "charge",
+   "f_name": "Donnerstampede",
+   "faehigkeit": [
+    {
+     "t": "line",
+     "length": 16.0,
+     "width": 3.5,
+     "dash": true,
+     "mult": 1.0,
+     "tags": [
+      "blitz",
+      "wucht"
+     ],
+     "status": "ladung",
+     "stacks": 2,
+     "knockback": 2.0,
+     "color": "#dfe8ff"
+    },
+    {
+     "t": "chain",
+     "jumps": 6,
+     "radius": 10.0,
+     "mult": 0.8,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "stun": 0.5,
+     "color": "#bfd0ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.8,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 8.0,
+       "mult": 1.2,
+       "tags": [
+        "blitz",
+        "klang"
+       ],
+       "stun": 1.0,
+       "color": "#f0f4ff"
+      }
+     ]
+    }
+   ],
+   "f_reichweite": 14,
+   "f_cd": 9
+  },
+  "uralter_knochendrache": {
+   "n": "Uralter Knochendrache",
+   "klasse": "Uralte wüste Bestie",
+   "hp": 24000,
+   "dmg": 450,
+   "spd": 3.8,
+   "xp": 6000,
+   "r": 1.5,
+   "c": "#e8e0c8",
+   "z": 9,
+   "rang": 7,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "knochenmehl",
+     1
+    ],
+    [
+     "drachenschuppe",
+     1
+    ],
+    [
+     "seelenkern",
+     0.3
+    ],
+    [
+     "himmelskristall",
+     0.3
+    ]
+   ],
+   "shape": "croc",
+   "fly": 1,
+   "f_name": "Knochensturm",
+   "faehigkeit": [
+    {
+     "t": "cone",
+     "reach": 14.0,
+     "angle": 50.0,
+     "mult": 1.2,
+     "tags": [
+      "durchbohren",
+      "seele"
+     ],
+     "status": "furcht",
+     "color": "#f0e8d0"
+    },
+    {
+     "t": "projectiles",
+     "count": 12,
+     "spread": 360.0,
+     "range": 14.0,
+     "speed": 22.0,
+     "mult": 0.5,
+     "tags": [
+      "durchbohren"
+     ],
+     "set_stacks": {
+      "wunde": 1
+     },
+     "color": "#fff8e0"
+    },
+    {
+     "t": "summon",
+     "enemy": "schuetze",
+     "count": 3,
+     "time": 20.0
+    }
+   ],
+   "f_reichweite": 14,
+   "f_cd": 10
+  },
+  "uralte_tiefseeschildkroete": {
+   "n": "Uralte Tiefseeschildkröte",
+   "klasse": "Uralte wüste Bestie",
+   "hp": 28000,
+   "dmg": 300,
+   "spd": 2.0,
+   "xp": 6000,
+   "r": 1.5,
+   "c": "#2a6a6a",
+   "z": 9,
+   "rang": 7,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "tiefseeperle",
+     1
+    ],
+    [
+     "schuppe",
+     1
+    ],
+    [
+     "zeitharz",
+     0.4
+    ],
+    [
+     "himmelskristall",
+     0.35
+    ],
+    [
+     "erdqi",
+     0.3
+    ]
+   ],
+   "shape": "beetle",
+   "beh": "armor",
+   "f_name": "Gezeitenpanzer",
+   "faehigkeit": [
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 6.0,
+     "reduction": 0.6,
+     "value_mult": 0.5
+    },
+    {
+     "t": "circle",
+     "radius": 10.0,
+     "mult": 1.0,
+     "tags": [
+      "wasser",
+      "wucht"
+     ],
+     "status": "nass",
+     "knockback": 2.5,
+     "color": "#4a9ad0"
+    },
+    {
+     "t": "zone",
+     "at": "target",
+     "radius": 5.0,
+     "time": 5.0,
+     "tick": 1.0,
+     "pull": 1.2,
+     "slow": 0.4,
+     "mult": 0.3,
+     "tags": [
+      "wasser"
+     ],
+     "status": "nass",
+     "color": "#3a8ac0"
+    }
+   ],
+   "f_reichweite": 12,
+   "f_cd": 11
+  },
+  "uralter_wolkenkranich": {
+   "n": "Uralter Wolkenkranich",
+   "klasse": "Uralte wüste Bestie",
+   "hp": 18000,
+   "dmg": 380,
+   "spd": 5.8,
+   "xp": 6000,
+   "r": 1.2,
+   "c": "#f0f4ff",
+   "z": 9,
+   "rang": 7,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "windfeder",
+     1
+    ],
+    [
+     "wolkenerz",
+     1
+    ],
+    [
+     "himmelsqi",
+     0.5
+    ],
+    [
+     "himmelskristall",
+     0.3
+    ]
+   ],
+   "shape": "bird",
+   "fly": 1,
+   "f_name": "Wolkenfedern",
+   "faehigkeit": [
+    {
+     "t": "projectiles",
+     "count": 8,
+     "spread": 50.0,
+     "range": 20.0,
+     "speed": 28.0,
+     "homing": true,
+     "mult": 0.55,
+     "tags": [
+      "wind",
+      "schnitt"
+     ],
+     "status": "wunde",
+     "color": "#ffffff"
+    },
+    {
+     "t": "zone",
+     "at": "target",
+     "radius": 6.0,
+     "time": 5.0,
+     "tick": 1.0,
+     "slow": 0.3,
+     "mult": 0.3,
+     "tags": [
+      "blitz",
+      "wasser"
+     ],
+     "status": "nass",
+     "color": "#c8d8f0"
+    },
+    {
+     "t": "teleport",
+     "distance": -10.0
+    }
+   ],
+   "f_reichweite": 18,
+   "f_cd": 8
+  },
+  "urzeitlicher_drachenwal": {
+   "n": "Urzeitlicher Drachenwal",
+   "klasse": "Urzeitliche wüste Bestie",
+   "hp": 85000,
+   "dmg": 1400,
+   "spd": 3.0,
+   "xp": 20000,
+   "r": 1.6,
+   "c": "#1a4a7a",
+   "z": 9,
+   "rang": 8,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "tiefseeperle",
+     1
+    ],
+    [
+     "drachenschuppe",
+     1
+    ],
+    [
+     "grottenstein",
+     0.5
+    ],
+    [
+     "himmelskristall",
+     1
+    ],
+    [
+     "daokern",
+     0.3
+    ]
+   ],
+   "shape": "croc",
+   "fly": 1,
+   "boss": 1,
+   "f_name": "Walgesang der Tiefe",
+   "faehigkeit": [
+    {
+     "t": "line",
+     "length": 22.0,
+     "width": 5.0,
+     "mult": 1.1,
+     "tags": [
+      "wasser",
+      "wucht"
+     ],
+     "status": "nass",
+     "knockback": 3.0,
+     "color": "#4a9ad0"
+    },
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 14.0,
+     "time": 6.0,
+     "tick": 1.0,
+     "pull": 1.6,
+     "slow": 0.4,
+     "mult": 0.3,
+     "tags": [
+      "wasser",
+      "klang"
+     ],
+     "status": "nass",
+     "color": "#2a6aa0"
+    },
+    {
+     "t": "summon",
+     "enemy": "seeschlange",
+     "count": 2,
+     "time": 25.0
+    }
+   ],
+   "f_reichweite": 20,
+   "f_cd": 12
+  },
+  "urzeitlicher_erdwurm": {
+   "n": "Urzeitlicher Erdwurm",
+   "klasse": "Urzeitliche wüste Bestie",
+   "hp": 75000,
+   "dmg": 1200,
+   "spd": 2.4,
+   "xp": 20000,
+   "r": 1.6,
+   "c": "#8a6a3a",
+   "z": 9,
+   "rang": 8,
+   "drop": [
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "unsterblichen_stein",
+     1
+    ],
+    [
+     "wuestes_mark",
+     1
+    ],
+    [
+     "erdkern",
+     1
+    ],
+    [
+     "erdkern",
+     1
+    ],
+    [
+     "wuestenrose",
+     1
+    ],
+    [
+     "grottenstein",
+     0.5
+    ],
+    [
+     "himmelskristall",
+     1
+    ],
+    [
+     "erdqi",
+     1
+    ]
+   ],
+   "shape": "snake",
+   "beh": "armor",
+   "boss": 1,
+   "f_name": "Beben der Urzeit",
+   "faehigkeit": [
+    {
+     "t": "circle",
+     "radius": 12.0,
+     "mult": 1.2,
+     "tags": [
+      "erde",
+      "wucht"
+     ],
+     "status": "verwurzelt",
+     "stun": 1.0,
+     "color": "#c0a070"
+    },
+    {
+     "t": "trap",
+     "count": 5,
+     "spacing": 3.0,
+     "trigger": 1.6,
+     "radius": 4.0,
+     "time": 15.0,
+     "mult": 0.9,
+     "tags": [
+      "erde"
+     ],
+     "status": "verwurzelt",
+     "color": "#a08050"
+    },
+    {
+     "t": "delay",
+     "time": 1.2,
+     "then": [
+      {
+       "t": "zone",
+       "at": "target",
+       "radius": 8.0,
+       "time": 6.0,
+       "tick": 1.0,
+       "slow": 0.5,
+       "mult": 0.35,
+       "tags": [
+        "erde",
+        "gift"
+       ],
+       "status": "gift",
+       "color": "#8a9a3a"
+      }
+     ]
+    }
+   ],
+   "f_reichweite": 12,
+   "f_cd": 11
   }
  },
  "VARIANTS": {
@@ -1947,6 +2898,661 @@
     "sternpfeil_klein"
    ],
    "hut": "krone"
+  },
+  "herzog_long": {
+   "n": "Herzog Long",
+   "c": "#e8c860",
+   "f": "righteous",
+   "gu": [
+    "qi_mauer",
+    "bestienkoenig_gestalt",
+    "drachenatem",
+    "kriegsgott"
+   ],
+   "rang": 8,
+   "hut": "krone",
+   "unsterbliche_gu": [
+    "menschen_qi_gu",
+    "himmels_qi_gu",
+    "erd_qi_gu"
+   ],
+   "titel": "Feldherr des Himmlischen Hofs",
+   "pfad": "qi",
+   "fraktion": "himmelshof",
+   "lore": "Einer der Drei Herzöge und Befehlshaber der Streitkräfte des Himmlischen Hofs, mit Kampfkraft nahe Rang 9. Er eroberte den Drachenpalast und bündelt mit Dreifacher Qi-Rücknahme Himmels-, Erd- und Menschen-Qi.",
+   "rang_geschaetzt": false,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche heavenly_court; 02_Charaktere Abschnitt 3"
+  },
+  "ming_hao": {
+   "n": "Ming Hao",
+   "c": "#f0e0a0",
+   "f": "righteous",
+   "gu": [
+    "qi_mauer",
+    "lebensbaum",
+    "himmelsweisheit",
+    "goettlichersinn"
+   ],
+   "rang": 8,
+   "hut": "krone",
+   "unsterbliche_gu": [
+    "demuts_gu"
+   ],
+   "titel": "Hüter des Menschenpfad-Erbes",
+   "pfad": "mensch",
+   "fraktion": "himmelshof",
+   "lore": "Mitglied des Himmlischen Hofs, das den Trumpf-Satz des Menschenpfads weitergab. Er trägt den Demuts-Gu, den Kern der Demütigen Erwiderung.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche heavenly_court (Rang: Hof nimmt nur Rang 8–9 auf)"
+  },
+  "zheng_yuan": {
+   "n": "Zheng Yuan",
+   "c": "#d8d0a8",
+   "f": "righteous",
+   "gu": [
+    "qi_mauer",
+    "lebensbaum",
+    "kriegsgott",
+    "himmelsweisheit"
+   ],
+   "rang": 8,
+   "hut": "kappe",
+   "unsterbliche_gu": [
+    "beharrlichkeits_gu",
+    "verletzungsheilungs_gu"
+   ],
+   "titel": "Unsterblicher des Himmlischen Hofs",
+   "pfad": "mensch",
+   "fraktion": "himmelshof",
+   "lore": "Unsterblicher des Himmlischen Hofs, der den Trumpf-Satz des Menschenpfads weitergab. Wie jedes Hofmitglied hat er seine Apertur dem gemeinsamen Grotto-Himmel übergeben.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche heavenly_court (Rang: Hof nimmt nur Rang 8–9 auf)"
+  },
+  "feng_jiu_ge": {
+   "n": "Feng Jiu Ge",
+   "c": "#8ac0e0",
+   "f": "righteous",
+   "gu": [
+    "himmelsglocke",
+    "goettliche_reise",
+    "qi_mauer",
+    "himmelsweisheit"
+   ],
+   "rang": 8,
+   "hut": "krone",
+   "unsterbliche_gu": [
+    "schicksalsruestung_gu",
+    "fester_unsterblichen_reise",
+    "himmelsgong_gu"
+   ],
+   "titel": "Ältester des Hauses der Geistesverwandtschaft",
+   "pfad": "ton",
+   "fraktion": "geisterverwandtschaftshaus",
+   "lore": "Vater von Feng Jin Huang und Träger des Schicksalsrüstungs-Gu, Kern seines Killer Moves „Schicksalslied“. Früher besaß er auch den Feste-Unsterblichen-Reise-Gu.",
+   "rang_geschaetzt": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche spirit_affinity_house"
+  },
+  "feng_jin_huang": {
+   "n": "Feng Jin Huang",
+   "c": "#f0a0c8",
+   "f": "righteous",
+   "gu": [
+    "goettlichersinn",
+    "blauerhimmel",
+    "himmelsglocke",
+    "meeresgeist"
+   ],
+   "rang": 6,
+   "hut": "feder",
+   "unsterbliche_gu": [
+    "traumfluegel_gu"
+   ],
+   "titel": "Traumpfad-Genie des Hauses der Geistesverwandtschaft",
+   "pfad": "traum",
+   "fraktion": "geisterverwandtschaftshaus",
+   "lore": "Tochter von Feng Jiu Ge, Trägerin des Traumflügel-Gu; Herzog Long erklärte sie zur künftigen Großen-Traum-Ehrwürdigen. Das Hu-Unsterblichen-Erbe verlor sie gegen Fang Yuan.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche spirit_affinity_house; 02_Charaktere Abschnitt 3"
+  },
+  "wu_yong": {
+   "n": "Wu Yong",
+   "c": "#c03030",
+   "f": "righteous",
+   "gu": [
+    "taifun",
+    "blauerhimmel",
+    "frostdaemon",
+    "qi_mauer",
+    "kriegsgott"
+   ],
+   "rang": 8,
+   "hut": "krone",
+   "unsterbliche_gu": [
+    "achtseitiger_prestigewind_gu",
+    "sanfter_wind_gu",
+    "windsprint_gu"
+   ],
+   "titel": "Oberster Ältester des Wu-Klans",
+   "pfad": "wind",
+   "fraktion": "wu_clan",
+   "lore": "Oberster Ältester des Wu-Klans und Anführer der Südlichen Allianz gegen den Himmlischen Hof. Gefürchtet für „Lebwohl-Freund-Wind“ und „Schneewind ohne Wiederkehr“.",
+   "rang_geschaetzt": false,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche wu_clan; 02_Charaktere Abschnitt 3"
+  },
+  "fang_zheng": {
+   "n": "Gu Yue Fang Zheng",
+   "c": "#7ab8e0",
+   "f": "righteous",
+   "gu": [
+    "blutkaiser",
+    "blutrasend",
+    "mondgift",
+    "lebensbaum"
+   ],
+   "rang": 6,
+   "hut": "band",
+   "unsterbliche_gu": [
+    "kaltblut_gu"
+   ],
+   "titel": "Unsterbliche Hoffnung des Gu-Yue-Klans",
+   "pfad": "blut",
+   "fraktion": "gu_yue",
+   "lore": "Fang Yuans Zwillingsbruder mit der höheren Begabung. Er trägt den Kaltblut-Gu, Kern von „Blut wird kalt“.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche gu_yue_clan"
+  },
+  "chi_shang": {
+   "n": "Gu Yue Chi Shang",
+   "c": "#5a9ad0",
+   "f": "righteous",
+   "gu": [
+    "meeresdrache",
+    "neun_palaeste",
+    "meeresgeist",
+    "himmelsweisheit"
+   ],
+   "rang": 6,
+   "hut": "band",
+   "unsterbliche_gu": [
+    "schweiss"
+   ],
+   "titel": "Formationsmeister der Chi-Familie",
+   "pfad": "wasser",
+   "fraktion": "gu_yue",
+   "lore": "Aus dem Chi-Zweig des Gu-Yue-Klans; sein Schweiß-Gu ist der Kern der Weisheitsschweiß-Formation. Einer der wenigen, mit denen Fang Yuan ein belastbares Verhältnis hat.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche gu_yue_clan"
+  },
+  "bai_ning_bing": {
+   "n": "Bai Ning Bing",
+   "c": "#dff0ff",
+   "f": "demonic",
+   "gu": [
+    "frostdaemon",
+    "goettlichersinn",
+    "schildkroetenjade",
+    "blauerhimmel"
+   ],
+   "rang": 6,
+   "hut": "",
+   "unsterbliche_gu": [
+    "eisseelen_gu"
+   ],
+   "titel": "Eisseele des Bai-Klans",
+   "pfad": "eis",
+   "fraktion": "bai_clan",
+   "lore": "Genie des Bai-Klans mit dem Nördlichen-Dunkeleisseelen-Körper und dem Eisseelen-Gu. Verbündete und Rivalin Fang Yuans, die ihn im Drei-Könige-Erbe verriet.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche bai_clan; 02_Charaktere Abschnitt 2–3"
+  },
+  "tie_qu_zhong": {
+   "n": "Tie Qu Zhong",
+   "c": "#a8b0b8",
+   "f": "righteous",
+   "gu": [
+    "zehntausendschwert",
+    "himmelsgold_tausendfuessler",
+    "schildkroetenjade",
+    "kriegsgott"
+   ],
+   "rang": 8,
+   "hut": "kappe",
+   "unsterbliche_gu": [
+    "schneide_gu",
+    "einzelklingen_gu"
+   ],
+   "titel": "Klingenmeister des Tie-Klans",
+   "pfad": "schwert",
+   "fraktion": "tie_clan",
+   "lore": "Träger des legendären Schneide-Gu, des Ursprungs von Klingen- und Schwertpfad. Der Tie-Klan zählt zu den Super-Klans der Südlichen Grenze und jagt dämonische Kultivierende.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche tie_clan (Zugehörigkeit nur über den Namen)"
+  },
+  "sixth_hair": {
+   "n": "Sechstes Haar",
+   "c": "#7a4aa0",
+   "f": "demonic",
+   "gu": [
+    "auraverbergen",
+    "neun_palaeste",
+    "himmelsweisheit",
+    "goettlichersinn"
+   ],
+   "rang": 7,
+   "hut": "kapuze",
+   "unsterbliche_gu": [
+    "schattenspaltung_gu"
+   ],
+   "titel": "Verfeinerungsmeister der Schattensekte",
+   "pfad": "raffinerie",
+   "fraktion": "schattensekte",
+   "lore": "Verfeinerungspfad-Unsterblicher der Schattensekte, der Fang Yuan in mehreren Kämpfen taktisch unterstützt. Wie viele Sektenmitglieder womöglich eine Splitterseele des Seelengespenst-Ehrwürdigen.",
+   "rang_geschaetzt": true,
+   "gu_hinweis": "kein aktiver Raffinerie-Gu in der Liste; Schattenspaltung als Sektenthema",
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche shadow_sect"
+  },
+  "xue_song_zi": {
+   "n": "Xue Song Zi",
+   "c": "#c8e0f0",
+   "f": "demonic",
+   "gu": [
+    "frostdaemon",
+    "auraverbergen",
+    "neun_palaeste",
+    "goettlichersinn"
+   ],
+   "rang": 7,
+   "hut": "kapuze",
+   "unsterbliche_gu": [
+    "eisherz_gu",
+    "eisschmelze"
+   ],
+   "titel": "Anführer der Schattensekte in der Nördlichen Ebene",
+   "pfad": "eis",
+   "fraktion": "schattensekte",
+   "lore": "Eis-und-Schnee-Unsterblicher, der die Schattensekte in der Nördlichen Ebene anführt. Er verfolgt die jahrhundertelangen Pläne zur Wiederkehr des Seelengespenst-Ehrwürdigen.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche shadow_sect"
+  },
+  "green": {
+   "n": "Grün",
+   "c": "#5ab06a",
+   "f": "demonic",
+   "gu": [
+    "goettlichersinn",
+    "sklaverei",
+    "auraverbergen",
+    "blutkaiser"
+   ],
+   "rang": 7,
+   "hut": "kapuze",
+   "unsterbliche_gu": [
+    "seelenwechsel_gu",
+    "seelenheul_gu",
+    "seelensog_gu"
+   ],
+   "titel": "Splitterseele des Seelengespenst-Ehrwürdigen",
+   "pfad": "seele",
+   "fraktion": "schattensekte",
+   "lore": "Eine Splitterseele des Seelengespenst-Ehrwürdigen. Sie verfeinerte als Erste den Seelenwechsel-Gu und gab ihn an Fee Mo Yao weiter.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche shadow_sect"
+  },
+  "hei_cheng": {
+   "n": "Hei Cheng",
+   "c": "#3a3a4a",
+   "f": "righteous",
+   "gu": [
+    "auraverbergen",
+    "kraftleihen",
+    "taifun",
+    "bestienkoenig_gestalt"
+   ],
+   "rang": 6,
+   "hut": "fell",
+   "unsterbliche_gu": [
+    "dunkelpfeil_gu"
+   ],
+   "titel": "Anführer des Hei-Stamms",
+   "pfad": "dunkelheit",
+   "fraktion": "hei_stamm",
+   "lore": "Anführer des Hei-Stamms der Nördlichen Ebene und Vater von Hei Lou Lan. Er trägt den Dunkelpfeil-Gu; sein Stamm besitzt das Gu-Haus Dunkles Gefängnis.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche hei_tribe"
+  },
+  "hei_lou_lan": {
+   "n": "Hei Lou Lan",
+   "c": "#5a3a3a",
+   "f": "righteous",
+   "gu": [
+    "kraftleihen",
+    "bergziehen",
+    "kriegsgott",
+    "bestienkoenig_gestalt"
+   ],
+   "rang": 7,
+   "hut": "fell",
+   "unsterbliche_gu": [
+    "stark_gu",
+    "kraftverbrauchs_gu"
+   ],
+   "titel": "Kraftpfad-Unsterbliche des Hei-Stamms",
+   "pfad": "kraft",
+   "fraktion": "hei_stamm",
+   "lore": "Tochter Hei Chengs und Fang Yuans strategische Verbündete im Norden. Vom Langlebigkeits-Himmel erhielt sie den Stark-Gu.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche hei_tribe (besitzt auch Rang-8-Gu: Mühe, Haltung)"
+  },
+  "dong_fang_yu_liang": {
+   "n": "Dong Fang Yu Liang",
+   "c": "#8a9ae0",
+   "f": "righteous",
+   "gu": [
+    "sternentor",
+    "himmelsweisheit",
+    "neun_palaeste",
+    "auraverbergen"
+   ],
+   "rang": 6,
+   "hut": "fell",
+   "unsterbliche_gu": [
+    "sternengedanken_gu"
+   ],
+   "titel": "Sternenweiser des Dong-Fang-Stamms",
+   "pfad": "weisheit",
+   "fraktion": "dong_fang_stamm",
+   "lore": "Weisheits- und Sternpfad-Unsterblicher des Dong-Fang-Stamms mit dem Sternengedanken-Gu. Mitentwickler von „Zehntausend Sternen-Glühwürmchen“.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche dong_fang_tribe"
+  },
+  "tai_bai_yun_sheng": {
+   "n": "Tai Bai Yun Sheng",
+   "c": "#b0d0e8",
+   "f": "righteous",
+   "gu": [
+    "fruehlingherbst",
+    "himmelsweisheit",
+    "lebensbaum",
+    "blauerhimmel"
+   ],
+   "rang": 6,
+   "hut": "stroh",
+   "unsterbliche_gu": [
+    "mensch_wie_zuvor_gu"
+   ],
+   "titel": "Zeitpfad-Meister der Nördlichen Ebene",
+   "pfad": "zeit",
+   "fraktion": "noerdliche_ebene",
+   "lore": "Rechtschaffener Zeitpfad-Meister aus der Nördlichen Ebene, früher Mentor Fang Yuans in der Verfeinerung. Er erreichte selbst Rang 6 und besaß den Mensch-wie-zuvor-Gu.",
+   "rang_geschaetzt": false,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche einzelne_unsterbliche_ohne_fraktion; 02_Charaktere Abschnitt 2"
+  },
+  "lang_ya_landgeist": {
+   "n": "Landgeist von Lang Ya",
+   "c": "#9ad0b0",
+   "f": "righteous",
+   "gu": [
+    "schildkroetenjade",
+    "qi_mauer",
+    "himmelsweisheit",
+    "neun_palaeste"
+   ],
+   "rang": 6,
+   "hut": "",
+   "unsterbliche_gu": [
+    "eisenwand_gu"
+   ],
+   "titel": "Landgeist des Lang-Ya-Gesegneten-Landes",
+   "pfad": "metall",
+   "fraktion": "lang_ya",
+   "lore": "Der Landgeist des Lang-Ya-Gesegneten-Landes, Hüter der Schatzkammer mit dem Eisenwand-Gu. Die Lang-Ya-Sekte verfeinerte hier Fang Yuans Myriaden-Selbst-Gu.",
+   "rang_geschaetzt": true,
+   "landgeist": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche lang_ya_sect"
+  },
+  "fang_di_chang": {
+   "n": "Fang Di Chang",
+   "c": "#6a5a3a",
+   "f": "demonic",
+   "gu": [
+    "himmelsdieb",
+    "auraverbergen",
+    "goettliche_reise",
+    "blauerhimmel"
+   ],
+   "rang": 7,
+   "hut": "kapuze",
+   "unsterbliche_gu": [
+    "grosser_dieb_gu"
+   ],
+   "titel": "Erbe des Himmelsdieb-Ehrwürdigen",
+   "pfad": "diebstahl",
+   "fraktion": "fang_klan",
+   "lore": "Zwischenbesitzer des Großer-Dieb-Gu zwischen dem Himmelsdieb-Ehrwürdigen und Fang Yuan. Der Fang-Klan hütet eines der echten Vermächtnisse des Himmelsdiebs.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche fang_clan (Zugehörigkeit nur über den Namen)"
+  },
+  "wu_shuai": {
+   "n": "Wu Shuai",
+   "c": "#4a2a2a",
+   "f": "demonic",
+   "gu": [
+    "sklaverei",
+    "goettlichersinn",
+    "bestienkoenig_gestalt",
+    "auraverbergen"
+   ],
+   "rang": 8,
+   "hut": "kapuze",
+   "unsterbliche_gu": [
+    "ameisennest_gu",
+    "traummarken_gu"
+   ],
+   "titel": "Anführer der Andersweltlichen",
+   "pfad": "sklaverei",
+   "fraktion": "andersweltliche",
+   "lore": "Führt im späten Handlungsverlauf variantenmenschliche und andersweltliche Kräfte an. Träger des Ameisennest-Gu und zeitweise des Traummarken-Gu.",
+   "rang_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche otherworldly_demons"
+  },
+  "kranich_oberster": {
+   "n": "Oberster Ältester der Himmelskranich-Sekte",
+   "c": "#eef4ff",
+   "f": "righteous",
+   "gu": [
+    "taifun",
+    "blauerhimmel",
+    "sternentor",
+    "himmelsweisheit"
+   ],
+   "rang": 7,
+   "hut": "krone",
+   "unsterbliche_gu": [
+    "windsprint_gu",
+    "aufsteigende_azurwolke_gu"
+   ],
+   "titel": "Oberster Ältester der Himmelskranich-Sekte",
+   "pfad": "wind",
+   "fraktion": "himmelskranich",
+   "lore": "Jede der Zehn Großen Alten Sekten hat mindestens einen unsterblichen Obersten Ältesten. Er wacht über das Tal der Himmelskraniche und die Ansprüche der Sekte am Yi-Tian-Berg.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche immortal_crane_sect / ten_great_ancient_sects (kein Name im Text)"
+  },
+  "zehn_extreme_oberster": {
+   "n": "Oberster Ältester der Zehn Extreme",
+   "c": "#e8c040",
+   "f": "righteous",
+   "gu": [
+    "zehntausendschwert",
+    "kraftleihen",
+    "blauerhimmel",
+    "schildkroetenjade"
+   ],
+   "rang": 7,
+   "hut": "band",
+   "unsterbliche_gu": [
+    "flugschwert_gu",
+    "drachenkraft_gu"
+   ],
+   "titel": "Oberster Ältester der Sekte der Zehn Extreme",
+   "pfad": "schwert",
+   "fraktion": "zehn_extreme",
+   "lore": "Unsterblicher Oberster Ältester der Sekte der Zehn Extreme. Er steht im Allerheiligsten des Sektenbergs und prüft nur Unsterbliche.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "fraktionen.json zehn_extreme (imm 2); Spielsetzung, kein Name im Text"
+  },
+  "yi_tian_oberster": {
+   "n": "Oberster Ältester der Yi-Tian-Sekte",
+   "c": "#8ab0c0",
+   "f": "righteous",
+   "gu": [
+    "sternentor",
+    "schildkroetenjade",
+    "qi_mauer",
+    "taifun"
+   ],
+   "rang": 6,
+   "hut": "kappe",
+   "unsterbliche_gu": [
+    "sternenschiffchen_gu"
+   ],
+   "titel": "Oberster Ältester der Yi-Tian-Sekte",
+   "pfad": "stern",
+   "fraktion": "yi_tian",
+   "lore": "Der einzige Unsterbliche der Yi-Tian-Sekte, um deren Berg die großen Sekten ringen.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "fraktionen.json yi_tian (imm 1); Spielsetzung, kein Name im Text"
+  },
+  "huang_jin_oberster": {
+   "n": "Ahnherr der Huang-Jin-Stämme",
+   "c": "#e0b040",
+   "f": "righteous",
+   "gu": [
+    "bestienkoenig_gestalt",
+    "kraftleihen",
+    "taifun",
+    "kriegsgott"
+   ],
+   "rang": 6,
+   "hut": "fell",
+   "unsterbliche_gu": [
+    "qi_grossloewen_kraft_gu",
+    "eisenkronen_adler_kraft_gu"
+   ],
+   "titel": "Ahnherr der Huang-Jin-Stämme",
+   "pfad": "kraft",
+   "fraktion": "huang_jin",
+   "lore": "Unsterblicher Ahnherr der Huang-Jin-Koalition, einer der konkurrierenden Mächte der Nördlichen Ebene ohne Oberherrn.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche huang_jin_tribes (kein Name im Text)"
+  },
+  "shang_oberster": {
+   "n": "Oberster Ältester des Shang-Klans",
+   "c": "#d8a830",
+   "f": "righteous",
+   "gu": [
+    "himmelsglueck",
+    "himmelsweisheit",
+    "qi_mauer",
+    "goettliche_reise"
+   ],
+   "rang": 6,
+   "hut": "kappe",
+   "unsterbliche_gu": [
+    "gluecksplan_gu"
+   ],
+   "titel": "Oberster Ältester des Shang-Klans",
+   "pfad": "glueck",
+   "fraktion": "shang_clan",
+   "lore": "Der verborgene Unsterbliche des reichsten Handelsklans der Südlichen Grenze; er wacht im innersten Ring der Klanstadt.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche shang_clan (kein Unsterblicher namentlich)"
+  },
+  "ostmeer_oberster": {
+   "n": "Oberster Ältester der Allianz des Rechtschaffenen Qi",
+   "c": "#3a9ac0",
+   "f": "righteous",
+   "gu": [
+    "meeresdrache",
+    "meeresgeist",
+    "qi_mauer",
+    "taifun"
+   ],
+   "rang": 6,
+   "hut": "stroh",
+   "unsterbliche_gu": [
+    "weltliche_wellenspur_gu",
+    "qi_fluss_gu"
+   ],
+   "titel": "Oberster Ältester der Ostmeer-Allianz",
+   "pfad": "wasser",
+   "fraktion": "ostmeer_allianz",
+   "lore": "Unsterblicher der Allianz des Rechtschaffenen Qi im Östlichen Meer, die rechtschaffene Klans gegen Seeräuber und Zombies eint.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche righteous_qi_alliance (kein Name im Text)"
+  },
+  "wuestentempel_oberster": {
+   "n": "Hohepriester des Wüstentempels",
+   "c": "#c8a060",
+   "f": "righteous",
+   "gu": [
+    "erdloch",
+    "sonnenkoerper",
+    "bergziehen",
+    "auraverbergen"
+   ],
+   "rang": 6,
+   "hut": "turban",
+   "unsterbliche_gu": [
+    "zu_stein_gu",
+    "breischlamm_gu"
+   ],
+   "titel": "Hohepriester des Wüstentempel-Ordens",
+   "pfad": "erde",
+   "fraktion": "wuestentempel",
+   "lore": "Der unsterbliche Hohepriester des Wüstentempel-Ordens in der Westlichen Wüste. Er hütet die Oasenstadt vor Sandräubern.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "fraktionen.json wuestentempel (imm 1); Spielsetzung, kein Name im Text"
+  },
+  "zombie_oberster": {
+   "n": "Zombie-Unsterblicher des Meeres-Zombie-Bunds",
+   "c": "#5a8a5a",
+   "f": "demonic",
+   "gu": [
+    "weissknochenrad",
+    "blutkaiser",
+    "meeresgeist",
+    "jadehimmel"
+   ],
+   "rang": 6,
+   "hut": "",
+   "unsterbliche_gu": [
+    "knochenstachel_gu_unsterblich",
+    "monddaemon_fledermausklauen_gu"
+   ],
+   "titel": "Zombie-Unsterblicher",
+   "pfad": "knochen",
+   "fraktion": "meereszombies",
+   "lore": "Ein zombifizierter Unsterblicher, dem die Zombie-Allianz mit Zombie-Gu ein Dasein ohne Alter und ohne Kalamitätsangst verschafft hat.",
+   "rang_geschaetzt": true,
+   "generisch": true,
+   "pfad_geschaetzt": true,
+   "quelle": "unsterbliche_welt.json → fraktionen_unsterbliche zombie_alliance (keine Namen im Text)"
   }
  },
  "NPCTYPE": {

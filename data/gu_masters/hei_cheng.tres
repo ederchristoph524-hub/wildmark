@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://b2g11vuia84gi"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_blbad"]
+
+[resource]
+script = ExtResource("1_blbad")
+id = &"hei_cheng"
+display_name = "Hei Cheng"
+color = Color(0.22745098, 0.22745098, 0.2901961, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"auraverbergen", &"kraftleihen", &"taifun", &"bestienkoenig_gestalt"])
+rank = 6
+hat = &"fell"
+immortal_gu = Array[StringName]([&"dunkelpfeil_gu"])
+title = "Anführer des Hei-Stamms"
+path = &"dunkelheit"
+lore = "Anführer des Hei-Stamms der Nördlichen Ebene und Vater von Hei Lou Lan. Er trägt den Dunkelpfeil-Gu; sein Stamm besitzt das Gu-Haus Dunkles Gefängnis."

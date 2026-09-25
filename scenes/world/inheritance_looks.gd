@@ -2,10 +2,12 @@ class_name InheritanceLooks
 extends RefCounted
 ## Bauformen der Erben (gebiete.json → orte[].stil): Felsspalte („hoehle“), Grabhügel mit Steintür und Opferbecken
 ## („grab“), verfallener Tempel auf einer Terrasse („tempel“), Steinkreis mit Altar und Bestienstatuen („altar“) und
-## Meeresgrotte mit Felsbogen („grotte“). Der Siegelstein steht bei allen vorn bei (0, 0, 1,6), damit Opfergabe,
+## Meeresgrotte mit Felsbogen („grotte“) und hoher Turm mit Stockwerken („turm“: Wahres-Yang-Gebäude, Himmelsaufsichtsturm). Der Siegelstein steht bei allen vorn bei (0, 0, 1,6), damit Opfergabe,
 ## Wächter und Belohnung überall gleich funktionieren. Akzentfarbe (`akzent`) für Leuchtrunen, Laternen und Becken.
 
-const STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte"]
+const STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte", &"turm"]
+const TOWER_FLOORS: int = 6
+const TOWER_FLOOR_HEIGHT: float = 3.6
 const CAVE: Color = Color(0.05, 0.04, 0.04)
 const EARTH: Color = Color(0.36, 0.3, 0.22)
 const GRASS: Color = Color(0.3, 0.42, 0.22)
@@ -29,6 +31,8 @@ static func build(parent: Node3D, style: StringName, rock: Color, accent: Color,
 			_circle(b, glow, boxes, rock, rng)
 		&"grotte":
 			_grotto(b, glow, boxes, rock, rng)
+		&"turm":
+			_tower(b, glow, boxes, rock)
 		_:
 			_cave(b, boxes, rock, rng)
 	_add(parent, b, WorldMaterials.props())
@@ -150,6 +154,38 @@ static func _grotto(b: MeshBuilder, glow: MeshBuilder, boxes: Array[Array], rock
 	for side: float in [-1.0, 1.0]:
 		boxes.append([MeshBuilder.at(Vector3(side * 3.2, 3.5, -1.8)), Vector3(3.2, 7.0, 3.0)])
 	boxes.append([MeshBuilder.at(Vector3(0, 3.0, -5.0)), Vector3(9.0, 6.0, 4.0)])
+
+
+## Hoher Turm: Steinsockel mit Treppe, sechs sich verjüngende Stockwerke mit Säulen, Walmdächern und leuchtenden
+## Fenstern, Spitze mit Kugel. Der Eingang liegt hinter dem Siegelstein.
+static func _tower(b: MeshBuilder, glow: MeshBuilder, boxes: Array[Array], rock: Color) -> void:
+	var stone: Color = rock.lightened(0.1)
+	var wall := Color(0.82, 0.76, 0.62)
+	var roof := Color(0.62, 0.22, 0.16)
+	var base_z: float = -8.0
+	b.add(MeshBuilder.box(Vector3(14.0, 1.2, 14.0)), MeshBuilder.at(Vector3(0, 0.6, base_z)), stone.darkened(0.1))
+	for step: int in 3:
+		b.add(MeshBuilder.box(Vector3(4.0, 0.4 * (step + 1), 0.7)), MeshBuilder.at(Vector3(0, 0.2 * (step + 1), base_z + 7.2 + (2 - step) * 0.7)), stone)
+	var y: float = 1.2
+	for floor_index: int in TOWER_FLOORS:
+		var width: float = 11.0 - floor_index * 1.3
+		b.add(MeshBuilder.box(Vector3(width, TOWER_FLOOR_HEIGHT, width)), MeshBuilder.at(Vector3(0, y + TOWER_FLOOR_HEIGHT * 0.5, base_z)), wall.darkened(floor_index * 0.03))
+		for side: int in 4:
+			var rot := Basis(Vector3.UP, side * PI * 0.5)
+			for k: int in [-1, 1]:
+				glow.add(MeshBuilder.box(Vector3(0.9, 1.3, 0.1)), Transform3D(rot, rot * Vector3(k * width * 0.22, y + TOWER_FLOOR_HEIGHT * 0.55, width * 0.5 + 0.02) + Vector3(0, 0, base_z)), Color.WHITE)
+		for sx: float in [-1.0, 1.0]:
+			for sz: float in [-1.0, 1.0]:
+				b.add(MeshBuilder.cylinder(0.3, 0.3, TOWER_FLOOR_HEIGHT, 8), MeshBuilder.at(Vector3(sx * width * 0.5, y + TOWER_FLOOR_HEIGHT * 0.5, base_z + sz * width * 0.5)), roof.darkened(0.2))
+		y += TOWER_FLOOR_HEIGHT
+		ArchitectureExtra.hip_roof(b, Transform3D.IDENTITY, Vector3(0, y, base_z), width + 2.4, 1.3, roof)
+		y += 0.9
+	b.add(MeshBuilder.cylinder(0.05, 0.25, 3.0, 6), MeshBuilder.at(Vector3(0, y + 1.5, base_z)), Color(0.85, 0.7, 0.3))
+	glow.add(MeshBuilder.sphere(0.5, 8, 5), MeshBuilder.at(Vector3(0, y + 3.2, base_z)), Color.WHITE)
+	b.add(MeshBuilder.box(Vector3(2.4, 3.0, 0.2)), MeshBuilder.at(Vector3(0, 2.7, base_z + 5.55)), CAVE)
+	for side: float in [-1.0, 1.0]:
+		_guardian(b, Vector3(side * 3.0, 0, 1.2), stone)
+	boxes.append([MeshBuilder.at(Vector3(0, y * 0.5, base_z)), Vector3(11.0, y, 11.0)])
 
 
 ## Sitzende Wächterstatue (Löwe/Wolf) auf Sockel.

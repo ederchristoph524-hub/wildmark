@@ -1,0 +1,207 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dxedvx38feuq5"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_u7qma"]
+
+[resource]
+script = ExtResource("1_u7qma")
+id = &"hu_land"
+display_name = "Hu-Unsterblichen-Gesegnetes-Land"
+map_position = Vector2(0.62, 0.93)
+rank_min = 6
+rank_max = 7
+open = true
+description = "Das Fuchsland der verstorbenen Hu-Unsterblichen: rotgoldene Hügel, Füchse im Nebel und ein Land, das langsam verdorrt. Sein Landgeist wartet auf einen neuen Herrn – Fang Yuans erstes eigenes Gesegnetes Land."
+size = 440.0
+terrain_seed = 60404
+biome = &"fuchsland"
+relief = Dictionary[StringName, float]({
+&"berge": 18.0,
+&"detail": 0.9,
+&"frequenz": 0.006,
+&"hoehe": 12.0,
+&"horizont": 160.0,
+&"rand": 50.0,
+&"randhoehe": 40.0
+})
+arrival = Vector2(0, 160)
+paths = [[Vector2(0, 160), Vector2(0, 20)], [Vector2(0, 20), Vector2(-60, -40), Vector2(-100, -85)], [Vector2(0, 20), Vector2(80, 60)]]
+places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Aperturkern-Quelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, 0),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(1, 0.6039216, 0.2901961, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wuester_nebelfuchs", &"wuester_nebelfuchs", &"feuerfuchs"]),
+"id": &"hu_unsterblichen_erbe",
+"item": &"",
+"name": "Fuchsgrotte der Hu-Unsterblichen",
+"offering": {
+&"kristall": 100,
+&"unsterblichen_stein": 6
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-100, -95),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"kein_verlust_gu"]),
+"items": {
+&"himmelsjade": 3,
+&"reliquie_lilakristall": 1,
+&"unsterblichen_stein": 20
+},
+"support": Array[StringName]([&"himmelsessenz"])
+},
+"style": &"grotte",
+"text": "Hier ruht, was die Hu-Unsterbliche zurückließ. Ihre Füchse lassen nur den ein, dem der Landgeist vertraut.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Fuchsbau-Felsen",
+"offering": {},
+"owner": &"",
+"path": &"verwandlung",
+"position": Vector2(110, -70),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Füchse des Landes wechseln hier ihre Gestalt wie andere ihr Fell. Wer zusieht, versteht die Verwandlung.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Uressenz-Teich",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(85, 75),
+"radius": 20.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 2,
+"count": 5,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Unsterblichen-Steinader",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-120, 60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Eine dünne, grün schimmernde Ader. Das Land gibt, was es noch hat.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 5,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenglas",
+"name": "Verdorrter Blumenhang",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(140, 130),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(50, 3),
+&"gruenkraut": Vector2i(40, 2),
+&"himmelsjade": Vector2i(6, 1),
+&"holz": Vector2i(50, 2),
+&"kristall": Vector2i(40, 3),
+&"mondtau": Vector2i(30, 1),
+&"unsterblichen_stein": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([100.0, 160.0])
+enemy_zones = [[&"feuerfuchs", &"weisser_tiger"], [&"wuester_nebelfuchs", &"feuerfuchs", &"donnerkronenwolf"], [&"wuester_nebelfuchs", &"wuester_feuerwolf", &"wuestes_mammut"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(60, 185)
+wild_passives = [[&"glueckssicht", &"support", 60.0, 180.0, false], [&"zehntausendjun", &"body", 100.0, 185.0, true]]
+immortal = {
+"annex": {
+"gift": {
+&"daokern": 1,
+&"himmelsjade": 3,
+&"unsterblichen_stein": 40
+},
+"growth": 60.0,
+"path": &"verwandlung"
+},
+"entrance": "Hinter einem Wasserfall im Süden der Südlichen Grenze öffnet sich eine Nebelpforte; der Landgeist lässt nur Unsterbliche ein.",
+"entry_rank": 6,
+"kind": &"gesegnetes_land",
+"rules": Array[StringName]([&"zeitfluss"]),
+"spirit": {
+"lines": ["Bist du … mein neuer Herr? Die Hu-Unsterbliche ist fort, schon so lange.", "Früher war hier alles voller Blumen und Füchse. Jetzt verdorrt das Land jeden Tag ein bisschen mehr.", "Wenn du bleibst, gebe ich dir alles, was ich noch habe. Bitte lass mich nicht allein."],
+"name": "Kleine Hu-Unsterbliche"
+},
+"time_flow": 3.0
+}

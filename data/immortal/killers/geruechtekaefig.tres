@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://d1o1wht0ftl2j"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_rry4o"]
+
+[resource]
+script = ExtResource("1_rry4o")
+id = &"geruechtekaefig"
+display_name = "Gerüchtekäfig"
+name_en = "Rumor Cage"
+path = &"information"
+core = &"windfluester_gu"
+mortal_families = Array[StringName]([&"glocke", &"labyrinth", &"wind", &"weisheit"])
+cooldown = 50.0
+channel = 0.6
+steps = [{
+"at": "target",
+"color": "#99ffff",
+"distance": 12.0,
+"mult": 4.0,
+"radius": 8.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["klang"]
+}, {
+"at": "target",
+"color": "#99ffff",
+"distance": 12.0,
+"mult": 0.6,
+"radius": 8.0,
+"slow": 0.5,
+"status": "verwurzelt",
+"t": "zone",
+"tags": ["klang"],
+"tick": 1.0,
+"time": 8.0
+}]
+description = "Ein Käfig aus Gerüchten, schneller als jeder andere Killer Move: Das Gerücht betäubt alle am Ziel (Umkreis 8) und hält sie 8 s gefangen."
+lore = "Die schnellsten Aktivierungs-Schlachtfeld-Moves überhaupt (Rumor Cage / Rumors Become Tigers), von Zhou Xiong Xin entwickelt. Kern im Spiel: Windflüster-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Zhou Xiong Xin"

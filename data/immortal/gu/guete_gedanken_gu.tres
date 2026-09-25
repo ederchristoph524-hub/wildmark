@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://utfk5whm4it2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_dlubu"]
+
+[resource]
+script = ExtResource("1_dlubu")
+id = &"guete_gedanken_gu"
+display_name = "Güte-Gedanken-Gu"
+name_en = "Kindness Thought Gu"
+path = &"weisheit"
+category = &"sonstiges"
+description = "Güte um dich (Umkreis 6, 10 s): Verbündete heilen jeden Takt und sind 15 % geschützt, Gegner werden sanft (30 % langsamer)."
+lore = "Wisdom-Path-Gu, das einen Geisteszustand verkörpert (Reihe: Unerschütterlichkeit, Güte, Gelassenheit, reine Logik). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"ally_reduction": 0.15,
+"color": "#7fc8ff",
+"follow": true,
+"heal": 0.02,
+"mult": 0.0,
+"radius": 6.0,
+"slow": 0.3,
+"t": "zone",
+"tags": ["holz", "seele"],
+"tick": 1.0,
+"time": 10.0
+}]

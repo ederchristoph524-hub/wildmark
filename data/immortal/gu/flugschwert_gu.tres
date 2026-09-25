@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c421oedia302c"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_1472u"]
+
+[resource]
+script = ExtResource("1_1472u")
+id = &"flugschwert_gu"
+display_name = "Flugschwert-Gu"
+name_en = "Flying Sword Gu"
+path = &"schwert"
+category = &"angriff"
+description = "Ein fliegendes Schwert kreist 10 s schneidend um dich und stößt dann selbst auf das nächste Ziel."
+lore = "Sword-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+steps = [{
+"color": "#e8f4ff",
+"count": 1.0,
+"mult": 0.3,
+"radius": 3.0,
+"size": 0.5,
+"speed": 2.0,
+"t": "orbit",
+"tags": ["schnitt"],
+"time": 10.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8f4ff",
+"count": 1.0,
+"homing": true,
+"mult": 1.0,
+"range": 18.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "durchbohren"]
+}],
+"time": 10.0
+}]

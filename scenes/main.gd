@@ -22,6 +22,7 @@ func _ready() -> void:
 	if DisplayServer.is_touchscreen_available():
 		get_tree().root.content_scale_factor = TOUCH_UI_SCALE
 	GraphicsSettings.apply(get_viewport())
+	ImmortalAperture.register()
 	_menu_layer = CanvasLayer.new()
 	_menu_layer.layer = 20
 	_menu_layer.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -60,6 +61,8 @@ func _on_new_game(options: Dictionary) -> void:
 		SaveSystem.save_game()
 		return
 	_give_start_kit()
+	if options.has("free"):
+		FreeStart.apply(player, world, options["free"])
 	SaveSystem.save_game()
 
 
@@ -212,13 +215,17 @@ func _on_travel(area_id: StringName) -> void:
 	if player.loadout.in_combat():
 		EventBus.message.emit(tr("Im Kampf kannst du nicht aufbrechen."), UiTheme.DANGER)
 		return
+	if not ImmortalTravel.allowed(target):
+		return
 	var b: BalanceData = Balance.values
-	var crossing: bool = target.region != world.area.region
-	var days: float = b.travel_days_wall if crossing else b.travel_days_region
+	var instant: bool = ImmortalTravel.is_instant(area_id)
+	var crossing: bool = target.region != world.area.region and not instant
+	var days: float = 0.0 if instant else (b.travel_days_wall if crossing else b.travel_days_region)
 	if not await _show_loading():
 		return
+	var leaving_aperture: bool = GameState.area == ImmortalAperture.AREA_ID
 	GameState.area = area_id
-	GameState.position = Vector3.ZERO
+	GameState.position = GameState.immortal.return_position if leaving_aperture else Vector3.ZERO
 	GameState.time_of_day += days
 	while GameState.time_of_day >= 1.0:
 		GameState.time_of_day -= 1.0
@@ -230,7 +237,7 @@ func _on_travel(area_id: StringName) -> void:
 	if crossing:
 		var region: RegionData = DataRegistry.region(world.area.region)
 		EventBus.message.emit(tr("Du durchquerst die %s – deine Gu zittern unter dem fremden Qi.") % tr(region.wall_name), region.wall_color)
-	EventBus.message.emit(tr("Nach langer Reise erreichst du: %s") % tr(target.display_name), UiTheme.ACCENT)
+	EventBus.message.emit(tr("Du bist angekommen: %s") % tr(target.display_name) if instant else tr("Nach langer Reise erreichst du: %s") % tr(target.display_name), UiTheme.ACCENT)
 	SaveSystem.save_game()
 
 
@@ -297,6 +304,8 @@ func _on_reaction(reaction_id: StringName, _where: Vector3) -> void:
 
 
 func _on_player_died() -> void:
+	if ImmortalTravel.escape_death(player, world):
+		return
 	var alive: bool = DeathRules.apply(player.global_position)
 	_overlay = DeathScreen.create(DeathRules.description(GameState.death_mode), not alive)
 	_menu_layer.add_child(_overlay)

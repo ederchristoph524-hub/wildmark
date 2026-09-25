@@ -63,6 +63,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },
@@ -85,6 +86,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },
@@ -107,6 +109,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },
@@ -132,6 +135,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([&"zehntausendjun"]),
 "gu": Array[StringName]([&"drachenatem", &"sonnenkoerper"]),
+"immortal": Array[StringName]([]),
 "items": {
 &"drachenschuppe": 3,
 &"heldenherz": 1,
@@ -159,6 +163,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },
@@ -181,6 +186,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },
@@ -203,6 +209,7 @@ places = Array[Dictionary]([{
 "reward": {
 "body": Array[StringName]([]),
 "gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
 "items": {},
 "support": Array[StringName]([])
 },

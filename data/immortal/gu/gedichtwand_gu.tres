@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ba2jp6spyi0y"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_8msq2"]
+
+[resource]
+script = ExtResource("1_8msq2")
+id = &"gedichtwand_gu"
+display_name = "Gedichtwand-Gu"
+name_en = "Poem Wall Gu"
+rank = 7
+path = &"information"
+category = &"sonstiges"
+description = "Eine Wand aus Gedichtzeilen (Umkreis 4, 8 s) vor dir: Gegner darin kommen kaum voran (60 % langsamer) und werden getroffen, Verbündete dahinter sind 40 % geschützt."
+lore = "Information-Path-Gu aus dem 'Gedicht'-Zweig."
+owner = "Li Xiao Bai"
+beads = 1.5
+cooldown = 30.0
+steps = [{
+"ally_reduction": 0.4,
+"at": "aim",
+"color": "#99ffff",
+"distance": 4.0,
+"mult": 0.4,
+"radius": 4.0,
+"slow": 0.6,
+"t": "zone",
+"tags": ["klang"],
+"tick": 1.0,
+"time": 8.0
+}]

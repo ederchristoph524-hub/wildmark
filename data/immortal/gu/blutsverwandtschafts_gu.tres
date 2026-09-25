@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cshl8wm4mqxc0"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_baec5"]
+
+[resource]
+script = ExtResource("1_baec5")
+id = &"blutsverwandtschafts_gu"
+display_name = "Blutsverwandtschafts-Unsterblichen-Gu"
+name_en = "Blood Relation Immortal Gu"
+rank = 8
+path = &"blut"
+category = &"information"
+kind = &"passiv"
+description = "Spürt Blutsbande in aller Welt: Blutpfad-Meister erscheinen auf der Weltkarte; du siehst Verborgenes und triffst Blutsverwandte zielsicher (+15 % kritisch, +5 % Schaden)."
+lore = "Kern des Heavenly-Court-Gu-Hauses Demon Judgment Board; erlaubt das Aufspüren von Blood-Path-Kultivierenden weltweit."
+owner = "Heavenly Court"
+passive = {
+"crit": 0.15,
+"schaden": 0.05,
+"sicht": true
+}
+world = &"sicht"

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bsmjbusrmaho8"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_iarlt"]
+
+[resource]
+script = ExtResource("1_iarlt")
+id = &"liebende_mutter_gu"
+display_name = "Liebende-Mutter-Gu"
+name_en = "Doting Mother Gu"
+path = &"mensch"
+category = &"sonstiges"
+description = "Mütterliche Fürsorge (Umkreis 7, 10 s): Verbündete und Gefährten darin sind 50 % geschützt und heilen jeden Takt."
+lore = "Eines von zwei Gu (mit Traveling Son Gu), die lange fälschlich dem Emotion Path zugeordnet wurden, tatsächlich aber zum Human Path gehören. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 40.0
+base_damage = 20.0
+steps = [{
+"ally_reduction": 0.5,
+"color": "#f0c090",
+"follow": true,
+"heal": 0.02,
+"mult": 0.0,
+"radius": 7.0,
+"t": "zone",
+"tags": ["holz"],
+"tick": 1.0,
+"time": 10.0
+}]

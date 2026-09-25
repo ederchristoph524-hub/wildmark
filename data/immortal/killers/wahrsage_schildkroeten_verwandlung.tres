@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://1rhevmhvagg6"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_61rqv"]
+
+[resource]
+script = ExtResource("1_61rqv")
+id = &"wahrsage_schildkroeten_verwandlung"
+display_name = "Wahrsage-Schildkröten-Verwandlung"
+name_en = "Divination Tortoise Transformation"
+path = &"verwandlung"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"haut", &"erde", &"weisheit"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"color": "#ff8ae2",
+"grow": 1.6,
+"key": "wahrsage_schildkroete",
+"reduction": 0.6,
+"speed": 0.75,
+"t": "buff",
+"time": 20.0
+}, {
+"cd_mult": 0.7,
+"refund": 8.0,
+"t": "haste",
+"time": 20.0
+}, {
+"color": "#ff8ae2",
+"mult": 4.0,
+"radius": 8.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff8ae2",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 10.0,
+"t": "circle",
+"tags": ["erde"]
+}],
+"time": 0.5
+}]
+description = "Du wirst zur mystischen Wahrsage-Schildkröte (20 s): riesig, 60 % geschützt, das Orakel beschleunigt deine Gu; der Panzer bebt zweimal in den Boden."
+lore = "Erlaubt Fang Yuan die Verwandlung in eine mystische Wahrsage-Schildkröte (Rang 7)."
+owner = "Fang Yuan"

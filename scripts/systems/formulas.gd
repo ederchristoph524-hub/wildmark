@@ -95,7 +95,7 @@ static func gu_hp_cost(percent: float, max_hp: float) -> float:
 static func master_hp(b: BalanceData, rank: int, stage: int) -> float:
 	var table: Array[float] = b.master_hp_rank_mult
 	var mult: float = table[clampi(rank - 1, 0, table.size() - 1)] if not table.is_empty() else 1.0
-	return cultivated_hp(b, rank, stage) * mult
+	return cultivated_hp(b, mini(rank, 5), stage) * mult
 
 
 ## Grundschaden-Bonus aus Stufen und Durchbrüchen (wie beim Spieler).

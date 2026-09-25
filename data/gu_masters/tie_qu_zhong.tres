@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://poko3d01f84u"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_4da23"]
+
+[resource]
+script = ExtResource("1_4da23")
+id = &"tie_qu_zhong"
+display_name = "Tie Qu Zhong"
+color = Color(0.65882355, 0.6901961, 0.72156864, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"zehntausendschwert", &"himmelsgold_tausendfuessler", &"schildkroetenjade", &"kriegsgott"])
+rank = 8
+hat = &"kappe"
+immortal_gu = Array[StringName]([&"schneide_gu", &"einzelklingen_gu"])
+title = "Klingenmeister des Tie-Klans"
+path = &"schwert"
+lore = "Träger des legendären Schneide-Gu, des Ursprungs von Klingen- und Schwertpfad. Der Tie-Klan zählt zu den Super-Klans der Südlichen Grenze und jagt dämonische Kultivierende."

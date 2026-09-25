@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://duooeftgj0fh7"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_7wxol"]
+
+[resource]
+script = ExtResource("1_7wxol")
+id = &"ostmeer_oberster"
+display_name = "Oberster Ältester der Allianz des Rechtschaffenen Qi"
+color = Color(0.22745098, 0.6039216, 0.7529412, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"meeresdrache", &"meeresgeist", &"qi_mauer", &"taifun"])
+rank = 6
+hat = &"stroh"
+immortal_gu = Array[StringName]([&"weltliche_wellenspur_gu", &"qi_fluss_gu"])
+title = "Oberster Ältester der Ostmeer-Allianz"
+path = &"wasser"
+lore = "Unsterblicher der Allianz des Rechtschaffenen Qi im Östlichen Meer, die rechtschaffene Klans gegen Seeräuber und Zombies eint."

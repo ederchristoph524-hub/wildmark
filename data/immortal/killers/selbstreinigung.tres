@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cd2lfi0niliiw"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_2xpuh"]
+
+[resource]
+script = ExtResource("1_2xpuh")
+id = &"selbstreinigung"
+display_name = "Selbstreinigung"
+name_en = "Self Cleansing"
+path = &"weisheit"
+core = &"selbstliebe_gu"
+mortal_families = Array[StringName]([&"weisheit", &"blatt", &"mondlicht"])
+channel = 0.8
+steps = [{
+"t": "cleanse",
+"time": 4.0
+}, {
+"frac": 0.35,
+"t": "heal"
+}, {
+"color": "#7fc8ff",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["licht", "seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 4.0,
+"radius": 10.0,
+"t": "circle",
+"tags": ["licht"]
+}],
+"time": 0.4
+}]
+description = "Selbstreinigung: alle Zustände fallen ab (4 s Immunität), du heilst 35 %, und die ausgestoßene Unreinheit bricht zweimal als Licht aus."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Selbstliebe-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

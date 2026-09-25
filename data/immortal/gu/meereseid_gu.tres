@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://df66mdhvsasvl"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ni4bs"]
+
+[resource]
+script = ExtResource("1_ni4bs")
+id = &"meereseid_gu"
+display_name = "Meereseid-Gu"
+name_en = "Sea Oath Gu"
+path = &"information"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Ein Eid tief wie das Meer: +12 % Höchstleben, Kalamitäten richten 8 % weniger Schaden an."
+lore = "Übereinkunfts-/Verbindungstyp-Gu des Information Path (mit Mountain Pledge und Mutual Sense)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"kalamitaet_schutz": 0.08,
+"max_hp": 0.12
+}

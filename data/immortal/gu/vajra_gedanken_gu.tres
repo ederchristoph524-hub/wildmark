@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bwjoaqvqy7kqa"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_rxie6"]
+
+[resource]
+script = ExtResource("1_rxie6")
+id = &"vajra_gedanken_gu"
+display_name = "Vajra-Gedanken-Unsterblichen-Gu"
+name_en = "Vajra Thought Immortal Gu"
+rank = 7
+path = &"weisheit"
+category = &"verteidigung"
+description = "Unerschütterlicher Vajra-Gedanke: 5 s unaufhaltsam, 40 % Schutz und immun gegen alle Zustände; die Standfestigkeit stößt Nahe (Umkreis 4) zurück."
+lore = "Wisdom-Path-Gu, das einen Geisteszustand verkörpert; die Textreihe nennt Unerschütterlichkeit, Güte, Gelassenheit und reine Logik (Vajra Thought / Kindness Thought / Delight In Water And Mountain / Calm). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"t": "unstoppable",
+"time": 5.0
+}, {
+"color": "#7fc8ff",
+"reduction": 0.4,
+"t": "armor",
+"time": 5.0
+}, {
+"t": "cleanse",
+"time": 5.0
+}, {
+"color": "#7fc8ff",
+"knockback": 1.5,
+"mult": 0.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["seele"]
+}]

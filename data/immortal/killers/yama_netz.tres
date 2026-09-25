@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://4dmhtd0rym23"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_t1v86"]
+
+[resource]
+script = ExtResource("1_t1v86")
+id = &"yama_netz"
+display_name = "Yama-Netz"
+name_en = "Yama Web"
+path = &"seele"
+core = &"sklaverei_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"sklaverei", &"tausendfuessler", &"zeit"])
+beads = 4.0
+channel = 1.2
+steps = [{
+"color": "#c9a0ff",
+"jumps": 8.0,
+"mult": 2.0,
+"radius": 7.0,
+"status": "verwurzelt",
+"t": "chain",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9a0ff",
+"jumps": 8.0,
+"mult": 2.0,
+"radius": 7.0,
+"stun": 1.0,
+"t": "chain",
+"tags": ["seele"]
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9a0ff",
+"jumps": 8.0,
+"mult": 2.0,
+"radius": 7.0,
+"status": "furcht",
+"t": "chain",
+"tags": ["seele"]
+}],
+"time": 1.0
+}, {
+"at": "target",
+"color": "#c9a0ff",
+"distance": 12.0,
+"mult": 0.5,
+"radius": 7.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 4.0
+}]
+description = "Ein Netz aus Seelenfäden: drei Seelenketten springen über je 8 Gegner – fesseln, betäuben, verängstigen – und am Ziel bleibt das Netz 4 s hängen."
+lore = "Netz-Variante der Yama-Serie (Soul Path, teils + Enslavement/Theft/Time Path) aus dem Erbe des Spectral Soul Demon Venerable. Kern im Spiel: Sklaverei-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan (Erbe des Spectral Soul Demon Venerable)"

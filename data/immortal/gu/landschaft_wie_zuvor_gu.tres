@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dhhuha5vo1dsl"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_5c2gk"]
+
+[resource]
+script = ExtResource("1_5c2gk")
+id = &"landschaft_wie_zuvor_gu"
+display_name = "Landschaft-wie-zuvor-Unsterblichen-Gu"
+name_en = "Landscape as Before Immortal Gu"
+path = &"zeit"
+category = &"welt"
+description = "Setzt die Landschaft zurück (Umkreis 14, 8 s): Gegner darin laufen wie in der Vergangenheit fest (35 % langsamer), Verbündete sind 30 % geschützt und heilen langsam; du wirst gereinigt."
+lore = "Setzt die Umgebung/Landschaft auf einen früheren Zustand zurück. Steigt bis Rang 8."
+owner = "Fang Yuan"
+cooldown = 35.0
+base_damage = 30.0
+steps = [{
+"t": "cleanse"
+}, {
+"ally_reduction": 0.3,
+"color": "#a04ad0",
+"heal": 0.01,
+"mult": 0.4,
+"radius": 14.0,
+"slow": 0.35,
+"t": "zone",
+"tags": ["zeit", "erde"],
+"tick": 1.0,
+"time": 8.0
+}]

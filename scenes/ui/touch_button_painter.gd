@@ -10,6 +10,7 @@ const COOLDOWN: Color = Color(1.0, 1.0, 1.0, 0.8)
 const HUNGER: Color = Color(1.0, 0.55, 0.2)
 const GLOW: Color = Color(1.0, 0.8, 0.3)
 const TEXT: Color = Color(0.95, 0.93, 0.86)
+const IMMORTAL: Color = Color(1.0, 0.86, 0.35)
 
 
 static func paint(canvas: CanvasItem, font: Font, button: Dictionary, center: Vector2, player: Player, pressed: bool) -> void:
@@ -32,6 +33,20 @@ static func paint(canvas: CanvasItem, font: Font, button: Dictionary, center: Ve
 				_paint_cooldown(canvas, center, radius, instance.cooldown_left / maxf(player.holder.cooldown_of(instance), 0.01))
 				if player.holder.is_hungry(instance):
 					canvas.draw_circle(center + Vector2(radius * 0.7, -radius * 0.7), 7.0, HUNGER)
+		elif action == &"immortal_gu_1" or action == &"immortal_gu_2":
+			var result: Array = _paint_immortal(canvas, center, radius, player, 0 if action == &"immortal_gu_1" else 1)
+			label = result[0]
+			fill = result[1]
+			border = IMMORTAL
+		elif action == &"immortal_killer":
+			var immortal_move: ImmortalKillerData = player.immortal.controller.current()
+			border = IMMORTAL
+			if immortal_move != null:
+				label = _short(immortal_move.display_name)
+				canvas.draw_arc(center, radius + 6.0, 0.0, TAU, 32, Color(IMMORTAL, 0.7), 4.0)
+				_paint_cooldown(canvas, center, radius, player.immortal.controller.cooldown_left(immortal_move.id) / maxf(immortal_move.cooldown, 0.01))
+			else:
+				fill = DISABLED
 		elif action == &"killer_move":
 			var move: KillerMoveData = player.killer.current()
 			if move != null:
@@ -47,6 +62,17 @@ static func paint(canvas: CanvasItem, font: Font, button: Dictionary, center: Ve
 	while font_size > 11 and font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > radius * 1.85:
 		font_size -= 1
 	canvas.draw_string(font, center + Vector2(-radius, font_size * 0.35), label, HORIZONTAL_ALIGNMENT_CENTER, radius * 2.0, font_size, TEXT)
+
+
+## Unsterblicher Gu auf Taste slot: [Beschriftung, Füllung]; zeichnet die Abklingzeit.
+static func _paint_immortal(canvas: CanvasItem, center: Vector2, radius: float, player: Player, slot: int) -> Array:
+	var id: StringName = GameState.immortal.slots[slot] if slot < GameState.immortal.slots.size() else &""
+	if id == &"" or not DataRegistry.has_immortal_gu(id):
+		return ["–", DISABLED]
+	var data: ImmortalGuData = DataRegistry.immortal_gu(id)
+	var controller: ImmortalController = player.immortal.controller
+	_paint_cooldown(canvas, center, radius, controller.cooldown_left(id) / maxf(data.cooldown, 0.01))
+	return [_short(data.display_name), FILL if controller.blocked_reason(id) == "" or controller.cooldown_left(id) > 0.0 else DISABLED]
 
 
 static func _paint_cooldown(canvas: CanvasItem, center: Vector2, radius: float, fraction: float) -> void:

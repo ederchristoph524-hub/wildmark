@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c1m2c87qaocdb"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_70m3l"]
+
+[resource]
+script = ExtResource("1_70m3l")
+id = &"qi_flucht_gu"
+display_name = "Qi-Flucht-Gu"
+name_en = "Qi Escape Gu"
+rank = 7
+path = &"qi"
+category = &"bewegung"
+description = "Qi-Flucht: Du entweichst 25 m weit, bist gereinigt, 1 s unaufhaltsam und 1 s unsichtbar."
+lore = "Bewegungs-Gu des Qi Path; steht laut Text auf Platz 4 der 'Top Ten Big Mystical Gu'-Liste (Listenplatz, kein Gu-Rang). Rang im Text nicht genannt."
+owner = "Kong Sheng Tian"
+cooldown = 18.0
+base_damage = 20.0
+steps = [{
+"t": "cleanse"
+}, {
+"color": "#99ffff",
+"distance": 25.0,
+"t": "teleport"
+}, {
+"t": "unstoppable",
+"time": 1.0
+}, {
+"t": "stealth",
+"time": 1.0
+}]

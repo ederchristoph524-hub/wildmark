@@ -1,0 +1,216 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://ugnq0korvxuc"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_mkvst"]
+
+[resource]
+script = ExtResource("1_mkvst")
+id = &"himmlischer_hof"
+display_name = "Grotto-Himmel des Himmlischen Hofes"
+region = 4
+map_position = Vector2(0.56, 0.36)
+rank_min = 8
+rank_max = 9
+open = true
+description = "Die gemeinsame Apertur-Welt des Himmlischen Hofes: weiße Wolkeninseln über dem Zentralkontinent, in denen die Welten aller Mitglieder aufgegangen sind. In der Mitte ragt der Himmelsaufsichtsturm, der mit dem Schicksals-Gu die fünf Regionen überwacht."
+size = 560.0
+terrain_seed = 60707
+biome = &"wolkenfeste"
+relief = Dictionary[StringName, float]({
+&"basis": -5.0,
+&"berge": 0.0,
+&"detail": 0.5,
+&"frequenz": 0.005,
+&"hoehe": 4.0,
+&"horizont": 30.0,
+&"rand": 60.0,
+&"randhoehe": -10.0
+})
+hills = Array[Vector4]([Vector4(0, -30, 175, 30), Vector4(-190, 145, 60, 18), Vector4(185, 150, 60, 18), Vector4(190, -175, 50, 20), Vector4(-185, -170, 50, 16), Vector4(0, 110, 40, 16), Vector4(0, -160, 40, 14), Vector4(-130, -60, 40, 15), Vector4(130, -60, 40, 15)])
+arrival = Vector2(0, 110)
+paths = [[Vector2(0, 110), Vector2(0, 50)], [Vector2(-90, -40), Vector2(-125, -60)], [Vector2(90, -40), Vector2(125, -60)], [Vector2(0, -130), Vector2(0, -145)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(1, 0.8235294, 0.23921569, 1),
+&"dach": Color(0.9098039, 0.7529412, 0.2509804, 1),
+&"holz": Color(0.41568628, 0.3137255, 0.1882353, 1),
+&"platz": Color(0.95686275, 0.9254902, 0.84705883, 1),
+&"saeule": Color(0.95686275, 0.9411765, 0.8784314, 1),
+&"stein": Color(0.84705883, 0.83137256, 0.8, 1),
+&"wand": Color(0.9843137, 0.972549, 0.9411765, 1)
+},
+"faction": &"himmelshof",
+"houses": 0,
+"id": &"himmlischer_hof_sitz",
+"pond": 0.0,
+"position": Vector2(0, -40),
+"radius": 90.0,
+"residents": &"himmlischer_hof",
+"type": &"sekte"
+}])
+places = Array[Dictionary]([{
+"accent": Color(1, 0.9529412, 0.8156863, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_wolkenkranich", &"uralter_wolkenkranich", &"uralter_donnerbueffel"]),
+"id": &"himmelsaufsichtsturm",
+"item": &"",
+"name": "Himmelsaufsichtsturm",
+"offering": {
+&"himmelskristall": 3,
+&"unsterblichen_stein": 60
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, -160),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"sternenaugen", &"himmelsneid_gu"]),
+"items": {
+&"grottenstein": 3,
+&"himmelskristall": 6,
+&"schicksalsfaden": 1
+},
+"support": Array[StringName]([])
+},
+"style": &"turm",
+"text": "Neun mal neun Stockwerke über den Wolken. Von der Spitze sieht der Hof jede Region – wer sie erreicht, sieht für einen Augenblick dasselbe.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Sternbild-Schachbrett",
+"offering": {},
+"owner": &"",
+"path": &"stern",
+"position": Vector2(-130, -60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein Brett aus Sternenlicht, groß wie ein Platz. Die Figuren bewegen sich von selbst – nach den Plänen der Sternbild-Ehrwürdigen.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Dämonen-Richttafel",
+"offering": {},
+"owner": &"",
+"path": &"blut",
+"position": Vector2(130, -60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Tafel spürt jedes Blut, das auf der Welt vergossen wird. Wer davor meditiert, hört es rauschen.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Wolkenquelle des Hofes",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-190, 145),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 4,
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Grotto-Ader des Hofes",
+"offering": {},
+"owner": &"himmelshof",
+"path": &"",
+"position": Vector2(185, 150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Hof verteilt diesen Urstein an seine Mitglieder. Ein Fremder, der hier hackt, steht bald vor der Richttafel.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 3,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"himmelskristall",
+"name": "Brandnarbe des Rot-Lotus",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(190, -175),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"aschefeld"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"grottenstein": Vector2i(4, 1),
+&"himmelskristall": Vector2i(6, 1),
+&"holz": Vector2i(30, 2),
+&"kristall": Vector2i(30, 3),
+&"stein": Vector2i(30, 2),
+&"unsterblichen_stein": Vector2i(14, 1),
+&"wolkenerz": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([150.0, 210.0])
+enemy_zones = [[&"uralter_wolkenkranich"], [&"uralter_wolkenkranich", &"wuester_sturmadler"], [&"uralter_wolkenkranich", &"uralter_donnerbueffel", &"wuester_sturmadler"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(150, 240)
+wild_passives = [[&"hundertschlachten", &"support", 150.0, 240.0, true]]
+immortal = {
+"entrance": "Ein Unsterblicher des Hofes öffnet das Wolkentor über dem Zentralkontinent – auf Einladung, oder du brichst es auf und wirst gejagt.",
+"entry_rank": 8,
+"kind": &"grotto_himmel",
+"rules": Array[StringName]([&"zeitfluss"]),
+"time_flow": 2.0
+}

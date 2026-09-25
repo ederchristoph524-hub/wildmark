@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://doh64dsp4rr8v"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_f5xa0"]
+
+[resource]
+script = ExtResource("1_f5xa0")
+id = &"imbiss_gu"
+display_name = "Imbiss-Unsterblichen-Gu"
+name_en = "Snack Immortal Gu"
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Ein Imbiss aus Unsterblichen-Essenz: +10 % Höchstleben, du heilst 0,2 % Leben je Sekunde."
+lore = "Erzeugt Nahrungsersatzflüssigkeit."
+owner = "Fang Yuan"
+passive = {
+"max_hp": 0.1,
+"regen": 0.002
+}

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://crm4lmdufyd7y"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_03ks8"]
+
+[resource]
+script = ExtResource("1_03ks8")
+id = &"windfluester_gu"
+display_name = "Windflüster-Unsterblichen-Gu"
+name_en = "Wind Whisper Immortal Gu"
+path = &"wind"
+category = &"information"
+kind = &"passiv"
+description = "Der Wind trägt dir jedes Flüstern zu: Verborgenes ist sichtbar, du bist 10 % schneller."
+lore = "Theoretisch grenzenlose Reichweite als 'Lautsprecher'."
+owner = "Wu Yong"
+passive = {
+"sicht": true,
+"speed": 0.1
+}

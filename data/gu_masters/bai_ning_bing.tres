@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://covw1dort5fu"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_pewji"]
+
+[resource]
+script = ExtResource("1_pewji")
+id = &"bai_ning_bing"
+display_name = "Bai Ning Bing"
+color = Color(0.8745098, 0.9411765, 1, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"frostdaemon", &"goettlichersinn", &"schildkroetenjade", &"blauerhimmel"])
+rank = 6
+immortal_gu = Array[StringName]([&"eisseelen_gu"])
+title = "Eisseele des Bai-Klans"
+path = &"eis"
+lore = "Genie des Bai-Klans mit dem Nördlichen-Dunkeleisseelen-Körper und dem Eisseelen-Gu. Verbündete und Rivalin Fang Yuans, die ihn im Drei-Könige-Erbe verriet."

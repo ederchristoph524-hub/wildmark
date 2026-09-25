@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dlfhpcc3oi4rp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_5noaq"]
+
+[resource]
+script = ExtResource("1_5noaq")
+id = &"myriaden_geister_schwertdrache"
+display_name = "Myriaden-Geister-Schwertdrache"
+name_en = "Myriad Ghost Sword Dragon"
+path = &"kraft"
+core = &"myriaden_selbst_gu"
+mortal_families = Array[StringName]([&"wasserbild", &"schwert", &"seelenschrei", &"tarnung", &"gestalt", &"sklaverei"])
+beads = 8.0
+cooldown = 120.0
+channel = 2.5
+base_damage = 70.0
+steps = [{
+"count": 4.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 15.0
+}, {
+"t": "stealth",
+"time": 1.5
+}, {
+"color": "#e07a4a",
+"dash": true,
+"length": 18.0,
+"mult": 8.0,
+"t": "line",
+"tags": ["schnitt", "seele"],
+"width": 3.0
+}, {
+"color": "#e07a4a",
+"essence_steal": 0.3,
+"mult": 0.8,
+"radius": 12.0,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 10.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"length": 18.0,
+"mult": 6.0,
+"t": "line",
+"tags": ["schnitt", "seele"],
+"width": 3.0
+}],
+"time": 0.5
+}]
+description = "Myriaden Geister werden zum Schwertdrachen: vier getarnte Abbilder, ein Totenreich (Umkreis 12, 10 s), und der Schwertdrache fährt zweimal 18 m durch alles hindurch."
+lore = "Folgemove aus der Myriad-Self-Familie: Kombination von Myriad Self mit Familiar Face und Yama."
+owner = "Fang Yuan"

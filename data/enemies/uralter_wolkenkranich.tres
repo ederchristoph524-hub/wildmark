@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dffdj6uoomujd"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_i5tf0"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_wvpy2"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_i5tf0")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_i5tf0")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_i5tf0")
+item = &"windfeder"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_i5tf0")
+item = &"wolkenerz"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_i5tf0")
+item = &"himmelsqi"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_i5tf0")
+item = &"himmelskristall"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_wvpy2")
+id = &"uralter_wolkenkranich"
+display_name = "Uralter Wolkenkranich"
+max_hp = 18000
+damage = 380
+speed = 5.8
+xp = 6000
+radius = 1.2
+color = Color(0.9411765, 0.95686275, 1, 1)
+zone = 9
+rank = 7
+ability = [{
+"color": "#ffffff",
+"count": 8.0,
+"homing": true,
+"mult": 0.55,
+"range": 20.0,
+"speed": 28.0,
+"spread": 50.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["wind", "schnitt"]
+}, {
+"at": "target",
+"color": "#c8d8f0",
+"mult": 0.3,
+"radius": 6.0,
+"slow": 0.3,
+"status": "nass",
+"t": "zone",
+"tags": ["blitz", "wasser"],
+"tick": 1.0,
+"time": 5.0
+}, {
+"distance": -10.0,
+"t": "teleport"
+}]
+ability_range = 18.0
+ability_cooldown = 8.0
+drops = Array[ExtResource("1_i5tf0")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"bird"
+flying = true

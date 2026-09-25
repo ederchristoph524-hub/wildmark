@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b5s8xf8kc2mv5"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_cthr8"]
+
+[resource]
+script = ExtResource("1_cthr8")
+id = &"fester_unsterblichen_reise"
+display_name = "Feste-Unsterblichen-Reise-Gu"
+name_en = "Fixed Immortal Travel Gu"
+path = &"raum"
+category = &"bewegung"
+description = "Teleportiert dich sofort 30 m weit in Blickrichtung. Auf der Weltkarte: Reise ohne Grenzen zu jedem bekannten Ort, auch zwischen den Regionen."
+lore = "Eines der vier großen Bewegungs-Gu; ermöglicht sofortige Teleportation über feste Distanzen. Steigt bis Rang 8."
+owner = "Feng Jiu Ge, Ying Wu Xie u. a. → Fang Yuan"
+beads = 0.5
+cooldown = 12.0
+base_damage = 20.0
+steps = [{
+"color": "#6ad04a",
+"distance": 30.0,
+"t": "teleport"
+}, {
+"t": "cleanse"
+}]
+world = &"reise"

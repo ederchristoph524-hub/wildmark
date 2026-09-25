@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://0kpkljl3ml7f"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6r766"]
+
+[resource]
+script = ExtResource("1_6r766")
+id = &"drei_herbste_gelber_kranich_plattform"
+display_name = "Drei-Herbste-Gelber-Kranich-Plattform"
+name_en = "Three Autumn Yellow Crane Platform"
+rank = 7
+path = &"licht"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Ruft die fliegende Plattform: ein uralter Wolkenkranich kämpft 20 s für dich, und auf der Plattform (Umkreis 12, 12 s) sind Verbündete 40 % geschützt und heilen."
+lore = "Gu-Haus, dessen Kern-Gu das Autumn Light Gu ist; im Lexikon nur über dieses Kern-Gu erwähnt. Pfad und Rang nicht genannt."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.5
+cooldown = 60.0
+base_damage = 20.0
+steps = [{
+"count": 1.0,
+"enemy": "uralter_wolkenkranich",
+"t": "summon",
+"time": 20.0
+}, {
+"ally_reduction": 0.4,
+"color": "#ffd080",
+"heal": 0.01,
+"mult": 0.0,
+"radius": 12.0,
+"t": "zone",
+"tags": ["licht"],
+"tick": 1.0,
+"time": 12.0
+}]

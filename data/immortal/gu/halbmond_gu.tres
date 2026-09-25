@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://mp0wyn6tnrqh"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_b8ilw"]
+
+[resource]
+script = ExtResource("1_b8ilw")
+id = &"halbmond_gu"
+display_name = "Halbmond-Gu"
+name_en = "Crescent Moon Gu"
+rank = 7
+path = &"mond"
+category = &"sonstiges"
+description = "Ein Halbmond fliegt durch drei Gegner und kehrt zielsuchend zurück."
+lore = "Moon-Path-Gu auf Rang 7; das Lexikon nennt nur Name und Rang. (Deutscher Name 'Halbmond' statt 'Mondsichel', weil 'Mondsichel-Gu' im Spiel schon das Rang-2-Mondlicht-Gu ist.)"
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 16.0
+steps = [{
+"color": "#d9e6ff",
+"count": 1.0,
+"mult": 2.5,
+"pierce": 3.0,
+"range": 20.0,
+"speed": 22.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9e6ff",
+"count": 1.0,
+"homing": true,
+"mult": 2.0,
+"range": 20.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "licht"]
+}],
+"time": 0.6
+}]

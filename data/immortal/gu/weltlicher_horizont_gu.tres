@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d34s7q2sj02y5"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_edhb7"]
+
+[resource]
+script = ExtResource("1_edhb7")
+id = &"weltlicher_horizont_gu"
+display_name = "Weltlicher-Horizont-Unsterblichen-Gu"
+name_en = "Worldly Horizon Immortal Gu"
+rank = 7
+path = &"raum"
+category = &"bewegung"
+kind = &"passiv"
+description = "Der weltliche Horizont führt zurück: freie Reise zwischen den Regionen, Verborgenes auf dem Weg ist sichtbar, 15 % schneller."
+lore = "Erlaubt (mit World Horizon Immortal Gu) freien Zutritt zu den Immemorial Nine Heavens und senkt die Kosten beim Durchbrechen der Heavenly Wind Qi Wall. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"sicht": true,
+"speed": 0.15
+}
+world = &"reise"

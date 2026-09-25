@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bbxpbaraa73mp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kwkxd"]
+
+[resource]
+script = ExtResource("1_kwkxd")
+id = &"standhaftigkeits_gu"
+display_name = "Standhaftigkeits-Gu"
+name_en = "Fortitude Gu"
+rank = 8
+path = &"mensch"
+category = &"sonstiges"
+description = "Standhaftigkeit aus der Legende: 8 s unaufhaltsam und 50 % geschützt, du heilst 25 % über 8 s."
+lore = "Legendäres Gu aus den Legends of Ren Zu (mit Ability Gu); später von Zhan Bu Du erlangt."
+owner = "Zhan Bu Du"
+beads = 3.0
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"t": "unstoppable",
+"time": 8.0
+}, {
+"color": "#f0c090",
+"reduction": 0.5,
+"t": "armor",
+"time": 8.0
+}, {
+"frac": 0.25,
+"t": "heal",
+"time": 8.0
+}]

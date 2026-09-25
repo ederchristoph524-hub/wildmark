@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cfcmxn42pdtjr"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_tiwkf"]
+
+[resource]
+script = ExtResource("1_tiwkf")
+id = &"anklage_des_volkes"
+display_name = "Anklage-des-Volkes"
+name_en = "People's Accusation"
+path = &"mensch"
+core = &"gedichtwand_gu"
+mortal_families = Array[StringName]([&"glocke", &"seelenschrei", &"weisheit", &"stern"])
+beads = 4.0
+steps = [{
+"color": "#f0c090",
+"count": 15.0,
+"homing": true,
+"mult": 0.6,
+"range": 20.0,
+"spread": 360.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["klang", "seele"]
+}]
+description = "Fünfzehn Anklagen des Volkes suchen die Gegner und schwächen sie."
+lore = "Teil des 'Human Path Trumpf-Sets' von Heavenly Court (Human Path, z. T. + Wood/Painting/Information Path), ursprünglich vor allem von Primordial Origin Immortal Venerable und Genesis Lotus Immortal Venerable entwickelt und über Zheng Yuan/Ming Hao weitergegeben. Kern im Spiel: Gedichtwand-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Heavenly Court: Primordial Origin Immortal Venerable, Genesis Lotus Immortal Venerable → Zheng Yuan, Ming Hao"

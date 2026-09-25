@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dd4ujf1nowfu6"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_qdche"]
+
+[resource]
+script = ExtResource("1_qdche")
+id = &"flugbaer_verwandlung"
+display_name = "Flugbär-Verwandlung"
+name_en = "Flying Bear Transformation"
+path = &"verwandlung"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"wirbel", &"phantom", &"kampfgeist"])
+cooldown = 80.0
+channel = 1.2
+steps = [{
+"color": "#ff8ae2",
+"damage": 1.8,
+"grow": 1.6,
+"key": "flugbaer",
+"reduction": 0.4,
+"t": "buff",
+"time": 15.0
+}, {
+"color": "#ff8ae2",
+"distance": 12.0,
+"t": "dash"
+}, {
+"color": "#ff8ae2",
+"knockback": 2.5,
+"mult": 4.0,
+"radius": 7.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#ff8ae2",
+"knockback": 2.0,
+"mult": 4.0,
+"reach": 9.0,
+"t": "cone",
+"tags": ["wucht"]
+}],
+"time": 0.5
+}]
+description = "Verwandlung in einen Flugbären (15 s, +80 % Schaden, 40 % Schutz): Du springst 12 m, landest mit Wucht und fegst alles vor dir fort."
+lore = "Verwandlung in einen Desolate-Beast-Bären (Rang 6)."
+owner = "Fang Yuan"

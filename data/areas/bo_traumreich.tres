@@ -1,0 +1,148 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://btiwioaw7tdfk"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_8wg42"]
+
+[resource]
+script = ExtResource("1_8wg42")
+id = &"bo_traumreich"
+display_name = "Traumreich der Bo"
+region = 4
+map_position = Vector2(0.47, 0.66)
+rank_min = 7
+rank_max = 8
+open = true
+description = "Der gefrorene Traum eines untergegangenen Klans. Die Zeit steht in Eis, die Ahnen der Bo träumen weiter – und hüten die Zeit-Pfad-Techniken, aus denen Fang Yuans Zeitschneide stammt."
+size = 400.0
+terrain_seed = 61515
+biome = &"gefrorener_traum"
+relief = Dictionary[StringName, float]({
+&"berge": 18.0,
+&"detail": 1.0,
+&"frequenz": 0.006,
+&"hoehe": 10.0,
+&"horizont": 150.0,
+&"rand": 45.0,
+&"randhoehe": 40.0
+})
+arrival = Vector2(0, 145)
+paths = [[Vector2(0, 145), Vector2(0, -110)]]
+places = Array[Dictionary]([{
+"accent": Color(0.65882355, 0.78431374, 0.9098039, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wueste_frostschlange", &"wueste_frostschlange", &"uralter_knochendrache"]),
+"id": &"bo_ahnenhalle",
+"item": &"",
+"name": "Gefrorene Ahnenhalle der Bo",
+"offering": {
+&"traumsplitter": 15,
+&"unsterblichen_stein": 30
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, -120),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"winter_gu"]),
+"items": {
+&"frostsplitter": 10,
+&"traumsplitter": 15,
+&"zeitharz": 8
+},
+"support": Array[StringName]([])
+},
+"style": &"grab",
+"text": "Die Ahnen der Bo sitzen im Eis, als warteten sie auf ein Urteil. Wer ihre Prüfung besteht, erbt ihren Winter.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"frostquelle",
+"item": &"frostsplitter",
+"name": "Quelle der eingefrorenen Stunde",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-100, 40),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"frostquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Uhrwerk aus Eis",
+"offering": {},
+"owner": &"",
+"path": &"zeit",
+"position": Vector2(95, 30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein riesiges Uhrwerk, in Eis gefroren. Es tickt trotzdem – rückwärts.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Schneehang der Ahnen",
+"offering": {},
+"owner": &"",
+"path": &"eis",
+"position": Vector2(-40, 110),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Schnee fällt hier seit tausend Jahren auf dieselben Spuren.",
+"type": &"dao_ort"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"frostsplitter": Vector2i(30, 1),
+&"holz": Vector2i(20, 2),
+&"kristall": Vector2i(25, 3),
+&"stein": Vector2i(30, 2),
+&"traumsplitter": Vector2i(15, 1),
+&"zeitharz": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([80.0, 140.0])
+enemy_zones = [[&"wueste_frostschlange", &"schatten"], [&"wueste_frostschlange", &"wuester_seelenfresser"], [&"uralter_knochendrache", &"wueste_frostschlange"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(70, 165)
+wild_passives = [[&"eiskristall", &"body", 70.0, 165.0, true]]
+immortal = {
+"entrance": "Ein Riss aus Raureif in einem verlassenen Klan-Hof des Zentralkontinents; wer davor einschläft, friert – und erwacht im Traum.",
+"entry_rank": 7,
+"kind": &"dimension",
+"rules": Array[StringName]([&"traum"]),
+"time_flow": 1.0
+}

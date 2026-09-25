@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cx6k5ijulptp0"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_goyrq"]
+
+[resource]
+script = ExtResource("1_goyrq")
+id = &"wiedergeburts_schlachtfeld"
+display_name = "Wiedergeburts-Schlachtfeld"
+name_en = "Reincarnation Battlefield"
+path = &"erde"
+core = &"landschaft_wie_zuvor_gu"
+mortal_families = Array[StringName]([&"erde", &"wasserbild", &"sklaverei", &"blatt", &"labyrinth"])
+beads = 6.0
+cooldown = 120.0
+channel = 2.2
+steps = [{
+"ally_reduction": 0.3,
+"color": "#a08050",
+"heal": 0.01,
+"mult": 1.0,
+"radius": 16.0,
+"t": "zone",
+"tags": ["erde", "seele"],
+"tick": 2.5,
+"time": 25.0
+}, {
+"count": 2.0,
+"enemy": "erdwall_waechter",
+"t": "summon",
+"time": 25.0
+}]
+description = "Das Wiedergeburts-Schlachtfeld (Umkreis 16, 25 s): Verbündete sind geschützt und heilen, alle 2,5 s bebt das Feld unter den Gegnern; zwei Erdwall-Wächter erstehen neu."
+lore = "Schlachtfeld-Erbschaft rund um den Paradise Earth Immortal Venerable und seine Erbin Lu Wei Yin (Reincarnation Battlefield / Paradise Creation / Illusory Sand Shifting Shadow Battlefield / Fetus Earth Maze / Three Lifetime Dreams Reform a Chosen One). Kern im Spiel: Landschaft-wie-zuvor-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Paradise Earth Immortal Venerable → Lu Wei Yin (Three Lifetime Dreams auch Fang Yuan)"

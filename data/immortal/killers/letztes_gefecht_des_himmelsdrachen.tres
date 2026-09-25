@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://1uoyvv6md6av"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_nyq1t"]
+
+[resource]
+script = ExtResource("1_nyq1t")
+id = &"letztes_gefecht_des_himmelsdrachen"
+display_name = "Letztes-Gefecht-des-Himmelsdrachen"
+name_en = "Heavenly Dragon's Last Stand"
+path = &"verwandlung"
+core = &"beharrlichkeits_gu"
+mortal_families = Array[StringName]([&"gestalt", &"kampfgeist", &"haut", &"fackel"])
+beads = 5.0
+cooldown = 120.0
+base_damage = 60.0
+steps = [{
+"color": "#ff8ae2",
+"damage": 2.5,
+"grow": 1.4,
+"key": "himmelsdrache",
+"reduction": 0.5,
+"t": "buff",
+"time": 10.0
+}, {
+"t": "unstoppable",
+"time": 10.0
+}, {
+"frac": 0.3,
+"t": "heal"
+}, {
+"color": "#ff8ae2",
+"knockback": 3.0,
+"mult": 8.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wucht", "feuer"]
+}]
+description = "Das letzte Gefecht des Himmelsdrachen: 10 s +150 % Schaden, 50 % Schutz, unaufhaltsam, 30 % Heilung – und ein Drachenschrei (Umkreis 8) schleudert alles fort."
+lore = "Teil der umfangreichen Drachen-Move-Reihe von Duke Long, einem der Three Dukes von Heavenly Court (vor allem Transformation/Qi Path). Kern im Spiel: Beharrlichkeits-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Duke Long (Heavenly Court)"

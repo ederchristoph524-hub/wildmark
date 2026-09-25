@@ -30,7 +30,7 @@ func _test_essence() -> void:
 	_near(Formulas.cultivated_hp(_b, 1, 0), _b.player_base_hp, "Leben R1 Stufe 0")
 	_near(Formulas.cultivated_hp(_b, 2, 1), _b.player_base_hp + 4.0 * _b.stage_max_hp + 2.0 * _b.breakthrough_hp_per_rank, "Leben R2 Stufe 1")
 	_near(Formulas.master_hp(_b, 1, 0), _b.player_base_hp * _b.master_hp_rank_mult[0], "Meister-Leben R1")
-	_near(Formulas.master_hp(_b, 9, 0), Formulas.cultivated_hp(_b, 9, 0) * _b.master_hp_rank_mult[-1], "Meister-Leben über der Tabelle")
+	_near(Formulas.master_hp(_b, 9, 0), Formulas.cultivated_hp(_b, 5, 0) * _b.master_hp_rank_mult[-1], "Meister-Leben über der Tabelle (sterblicher Teil, Rang 5 als Obergrenze)")
 	_near(Formulas.cultivated_damage(_b, 2, 0), 3.0 * _b.stage_damage + _b.breakthrough_damage, "Schaden R2 Stufe 0")
 
 

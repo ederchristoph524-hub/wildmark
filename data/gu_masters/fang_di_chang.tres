@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://cnn0kvlo7a65a"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_5kbu4"]
+
+[resource]
+script = ExtResource("1_5kbu4")
+id = &"fang_di_chang"
+display_name = "Fang Di Chang"
+color = Color(0.41568628, 0.3529412, 0.22745098, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"himmelsdieb", &"auraverbergen", &"goettliche_reise", &"blauerhimmel"])
+rank = 7
+hat = &"kapuze"
+immortal_gu = Array[StringName]([&"grosser_dieb_gu"])
+title = "Erbe des Himmelsdieb-Ehrwürdigen"
+path = &"diebstahl"
+lore = "Zwischenbesitzer des Großer-Dieb-Gu zwischen dem Himmelsdieb-Ehrwürdigen und Fang Yuan. Der Fang-Klan hütet eines der echten Vermächtnisse des Himmelsdiebs."

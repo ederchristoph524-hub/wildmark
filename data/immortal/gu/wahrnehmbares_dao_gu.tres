@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://btmwoh831puhf"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_u4mnw"]
+
+[resource]
+script = ExtResource("1_u4mnw")
+id = &"wahrnehmbares_dao_gu"
+display_name = "Wahrnehmbares-Dao-Unsterblichen-Gu"
+name_en = "Perceivable Dao Immortal Gu"
+rank = 7
+path = &"information"
+category = &"information"
+kind = &"passiv"
+description = "Macht das Dao wahrnehmbar: Dao-Orte und Verborgenes sind sichtbar, +45 % Dao-Markierungen."
+lore = "Information-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"dao_mult": 0.45,
+"sicht": true
+}

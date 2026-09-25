@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bh5tvg4u2monb"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ohygk"]
+
+[resource]
+script = ExtResource("1_ohygk")
+id = &"bergzieh_gu"
+display_name = "Bergzieh-Unsterblichen-Gu"
+name_en = "Pulling Mountain Immortal Gu"
+rank = 7
+path = &"kraft"
+category = &"angriff"
+description = "Zieht einen Berg heran: 3 s Sog zum Ziel (Umkreis 6), dann stürzt der Berg auf die Zusammengezogenen (1 s betäubt)."
+lore = "Strength-Path-Gu bei Fang Yuan (Reihe Pulling Mountain / Pulling Water / Self Strength). Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 2.0
+cooldown = 30.0
+steps = [{
+"at": "target",
+"color": "#e07a4a",
+"distance": 12.0,
+"end": [{
+"color": "#a08050",
+"knockback": 2.0,
+"mult": 4.0,
+"radius": 6.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}],
+"mult": 0.2,
+"pull": 3.0,
+"radius": 6.0,
+"t": "zone",
+"tags": ["erde"],
+"time": 3.0
+}]

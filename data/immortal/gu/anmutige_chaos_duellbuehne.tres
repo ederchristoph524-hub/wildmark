@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://y4urk5aocgc5"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_f4u3x"]
+
+[resource]
+script = ExtResource("1_f4u3x")
+id = &"anmutige_chaos_duellbuehne"
+display_name = "Anmutige-Chaos-Duellbühne"
+name_en = "Graceful Chaotic Duel Stage"
+rank = 7
+path = &"zeit"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Errichtet die Duellbühne (Umkreis 14, 15 s): Gegner darauf sind 20 % langsamer und nehmen jeden Takt Schaden, Verbündete sind 30 % geschützt, du kämpfst 30 % stärker."
+lore = "Ein Zeit-Immortal-Gu-Haus, das als Duell-Arena dient."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.5
+cooldown = 60.0
+steps = [{
+"ally_reduction": 0.3,
+"color": "#a04ad0",
+"mult": 0.3,
+"radius": 14.0,
+"slow": 0.2,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 1.0,
+"time": 15.0
+}, {
+"color": "#a04ad0",
+"damage": 1.3,
+"key": "duellbuehne",
+"t": "buff",
+"time": 15.0
+}]

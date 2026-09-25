@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dp13kppv13if8"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_c4ga4"]
+
+[resource]
+script = ExtResource("1_c4ga4")
+id = &"klagewal_kraft_gu"
+display_name = "Klagewal-Kraft-Gu"
+name_en = "Wailing Whale Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Klagewalkraft: 12 s riesig und 40 % geschützt; das Klagen des Wals dröhnt zweimal über das Feld, die zweite Welle durchnässt."
+lore = "Teil der 'Beast Strength'-Serie des Strength Path (jeweils Rang 6–7), jedes Gu an ein bestimmtes Fabelwesen angelehnt – hier: Wailing Whale. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"color": "#e07a4a",
+"grow": 1.6,
+"key": "klagewal",
+"reduction": 0.4,
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#d9c27a",
+"mult": 1.8,
+"radius": 6.0,
+"t": "circle",
+"tags": ["klang", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#4a9ad0",
+"mult": 1.2,
+"radius": 9.0,
+"status": "nass",
+"t": "circle",
+"tags": ["klang", "wasser"]
+}],
+"time": 0.6
+}]

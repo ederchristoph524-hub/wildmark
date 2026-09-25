@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bwrn3y4wi3k3p"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_uud2i"]
+
+[resource]
+script = ExtResource("1_uud2i")
+id = &"achtseitiger_prestigewind_gu"
+display_name = "Achtseitiger-Prestigewind-Gu"
+name_en = "Eight-Faced Prestige Wind Gu"
+rank = 8
+path = &"wind"
+category = &"sonstiges"
+description = "Wind aus acht Richtungen: ein Windstoß (Umkreis 8) schleudert alles fort, acht Windklingen fliegen nach allen Seiten, dann kehrt der Wind zurück (Umkreis 10)."
+lore = "Wind-Path-Gu auf Rang 8; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 3.0
+cooldown = 30.0
+steps = [{
+"color": "#c8f0ff",
+"knockback": 3.0,
+"mult": 3.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wind", "wucht"]
+}, {
+"color": "#c8f0ff",
+"count": 8.0,
+"mult": 1.2,
+"range": 14.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["wind", "schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#c8f0ff",
+"knockback": -1.0,
+"mult": 2.0,
+"radius": 10.0,
+"t": "circle",
+"tags": ["wind"]
+}],
+"time": 0.5
+}]

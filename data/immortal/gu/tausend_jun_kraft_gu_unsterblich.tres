@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://82om6wgvfmuf"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_dskdd"]
+
+[resource]
+script = ExtResource("1_dskdd")
+id = &"tausend_jun_kraft_gu_unsterblich"
+display_name = "Unsterblicher-Tausend-Jun-Kraft-Gu"
+name_en = "Thousand Jun Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+description = "Tausend Jun in einem Schlag: 10 s +80 % Schaden; ein gewaltiger Hieb im Kegel (6 m) betäubt und schleudert weit."
+lore = "Im Lexikon unter den unsterblichen Strength-Path-Gu genannt; ohne Rang und Beschreibung."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"color": "#e07a4a",
+"damage": 1.8,
+"key": "tausend_jun",
+"t": "buff",
+"time": 10.0
+}, {
+"angle": 70.0,
+"color": "#e07a4a",
+"knockback": 3.0,
+"mult": 3.0,
+"reach": 6.0,
+"stun": 0.5,
+"t": "cone",
+"tags": ["wucht"]
+}]

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bof2lvlcuh5bj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7g4y6"]
+
+[resource]
+script = ExtResource("1_7g4y6")
+id = &"jahr_gu"
+display_name = "Jahr-Gu"
+name_en = "Year Gu"
+path = &"zeit"
+category = &"zeit"
+description = "Ein ganzes Jahr über dem Ziel (Umkreis 7, 8 s): Gegner altern, sind 60 % langsamer und geschwächt; am Ende des Jahres betäubt ein Zeitecho sie 0,8 s."
+lore = "Teil einer Reihe verwandter, wiederverwendbarer Zeit-Verbrauchs-Gu (Year/Month/Day), die feste Zeiteinheiten (Jahre) manipulieren; Grundbausteine vieler Zeit-Killer-Moves, u. a. der 'Years'-Serie von Hei Fan. Steigt bis Rang 8."
+owner = "Hei Fan (Years-Serie), Fang Yuan"
+beads = 1.5
+cooldown = 30.0
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 10.0,
+"end": [{
+"color": "#a04ad0",
+"mult": 1.8,
+"radius": 7.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"mult": 0.4,
+"radius": 7.0,
+"slow": 0.6,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["zeit"],
+"tick": 1.0,
+"time": 8.0
+}]

@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cwd305o37svgu"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ou0f3"]
+
+[resource]
+script = ExtResource("1_ou0f3")
+id = &"vierarm_erdkoenig"
+display_name = "Vierarm-Erdkönig"
+name_en = "Four Arm Earth King"
+path = &"kraft"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"erde", &"wirbel", &"haut"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.5
+steps = [{
+"color": "#e07a4a",
+"damage": 1.6,
+"grow": 1.5,
+"key": "vierarm_erdkoenig",
+"t": "buff",
+"time": 15.0
+}, {
+"color": "#e07a4a",
+"mult": 3.0,
+"radius": 6.0,
+"status": "verwurzelt",
+"t": "circle",
+"tags": ["erde", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"mult": 3.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.3
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"mult": 3.0,
+"radius": 8.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"knockback": 2.0,
+"mult": 3.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 0.9
+}]
+description = "Vierarmiger Erdkönig (15 s, +60 % Schaden): vier Fäuste hämmern nacheinander in den Boden – verwurzeln, erschüttern, betäuben, schleudern."
+lore = "Teil der eskalierenden Serie von Vier-/Sechs-Arm-Kampfformen (Four Arm Earth King → Four Arm Wind King → Six Arm Heavenly Zombie King). Kern im Spiel: Gestaltwandel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dswak2566jmlq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_i2ock"]
+
+[resource]
+script = ExtResource("1_i2ock")
+id = &"reissender_lichtstrom"
+display_name = "Reißender-Lichtstrom"
+name_en = "Torrential Light Stream"
+path = &"licht"
+core = &"herbstlicht_gu"
+mortal_families = Array[StringName]([&"mondlicht", &"stroemung", &"stern"])
+beads = 4.0
+cooldown = 70.0
+channel = 1.4
+steps = [{
+"blind": 2.0,
+"color": "#ffe9a0",
+"length": 20.0,
+"mult": 4.0,
+"t": "line",
+"tags": ["licht"],
+"width": 6.0
+}, {
+"at": "aim",
+"color": "#ffe9a0",
+"distance": 10.0,
+"mult": 0.5,
+"radius": 6.0,
+"t": "zone",
+"tags": ["licht"],
+"tick": 0.25,
+"time": 2.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#ffe9a0",
+"length": 20.0,
+"mult": 4.0,
+"t": "line",
+"tags": ["licht"],
+"width": 6.0
+}],
+"time": 0.5
+}]
+description = "Ein reißender Lichtstrom (20 m, breit) blendet alles, hält 2 s an und schwillt ein zweites Mal an."
+lore = "Teil der 'Light of Glory'-Reihe von Xiao Mang (Immemorial Light Fist / My Glorious Spear / Torrential Light Stream). Kern im Spiel: Herbstlicht-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Xiao Mang"

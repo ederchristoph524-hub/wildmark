@@ -406,6 +406,48 @@
     "kristall": 30
    },
    "gu": "wolkenschritt"
+  },
+  {
+   "id": "drachenmenschen",
+   "n": "Drachenmenschen des Drachenpalasts",
+   "f": "demonic",
+   "reg": 2,
+   "ic": "🐉",
+   "type": "stamm",
+   "imm": 2,
+   "power": 5,
+   "rivals": [
+    "himmelshof"
+   ],
+   "pol": "Seit Herzog Long ihren Palast erobert hat, leben die Drachenmenschen in den Ruinen und hassen den Himmlischen Hof. Fremde Unsterbliche dulden sie nur, solange diese nichts aus dem Hort nehmen.",
+   "d": "Ein Volk der Variant-Menschen mit Schuppen und Kiemen, Hüter des Drachenpalasts im Östlichen Meer.",
+   "req": 7,
+   "gift": {
+    "tiefseeperle": 2,
+    "unsterblichen_stein": 10
+   },
+   "gu": "meeresdrache"
+  },
+  {
+   "id": "langlebigkeitshimmel",
+   "n": "Langlebigkeits-Himmel",
+   "f": "righteous",
+   "reg": 0,
+   "ic": "☀️",
+   "type": "sekte",
+   "imm": 3,
+   "power": 6,
+   "rivals": [
+    "himmelshof"
+   ],
+   "pol": "Vom Riesensonnen-Ehrwürdigen gegründet und seit jeher Rivale des Himmlischen Hofes. Seine Erben sitzen in der Nördlichen Ebene, seine Feste schwebt darüber.",
+   "d": "Die Macht des Riesensonnen-Ehrwürdigen – Glück, Blut und eine Lebensspanne, um die ihn jeder beneidet.",
+   "req": 8,
+   "gift": {
+    "sonnengold": 1,
+    "unsterblichen_stein": 20
+   },
+   "gu": "himmelsglueck"
   }
  ],
  "SECTRANKS": [

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://11nc0dxqjbeg"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_k847w"]
+
+[resource]
+script = ExtResource("1_k847w")
+id = &"bitterer_geschmack"
+display_name = "Bitterer-Geschmack"
+name_en = "Bitter Taste"
+path = &"nahrung"
+core = &"koch_gu"
+mortal_families = Array[StringName]([&"gift", &"blatt", &"flamme", &"seelenschrei"])
+steps = [{
+"color": "#f0b060",
+"mult": 4.0,
+"radius": 8.0,
+"set_stacks": {
+"gift": 4.0
+},
+"status": "schwaeche",
+"t": "circle",
+"tags": ["gift"]
+}, {
+"color": "#f0b060",
+"mult": 0.7,
+"radius": 8.0,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["gift"],
+"tick": 1.0,
+"time": 6.0
+}]
+description = "Ein bitterer Geschmack erfüllt die Luft (Umkreis 8): sofort 4 Stapel Gift, dann 6 s lang Bitterkeit, die schwächt."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Koch-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

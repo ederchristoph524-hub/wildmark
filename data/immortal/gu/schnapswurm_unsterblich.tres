@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bctscv3tp1qal"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_spx2y"]
+
+[resource]
+script = ExtResource("1_spx2y")
+id = &"schnapswurm_unsterblich"
+display_name = "Unsterblicher-Schnapswurm"
+name_en = "Liquor Worm"
+rank = 8
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Der unsterbliche Schnapswurm verfeinert deine Essenz: +1 Perle je Spieltag, +10 % Schaden und +10 % kritische Treffer."
+lore = "Food-Path-Gu auf Rang 8. Im Spiel existiert die Schnapswurm-Reihe bereits als sterbliche Rezepte (Schnaps-Wurm → Vier Geschmäcker → Sieben Düfte → Neun Augen)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"crit": 0.1,
+"perlen_ertrag": 1.0,
+"schaden": 0.1
+}

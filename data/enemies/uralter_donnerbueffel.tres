@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b5cxylcqthq3n"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_m47fq"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_y2ys6"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_m47fq")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_m47fq")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_m47fq")
+item = &"donnerkrone"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_m47fq")
+item = &"donnerholz"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_m47fq")
+item = &"trübsalsstahl"
+chance = 0.35
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_m47fq")
+item = &"himmelskristall"
+chance = 0.3
+
+[sub_resource type="Resource" id="drop_6"]
+script = ExtResource("1_m47fq")
+item = &"himmelsqi"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_y2ys6")
+id = &"uralter_donnerbueffel"
+display_name = "Uralter Donnerbüffel"
+max_hp = 26000
+damage = 400
+speed = 4.2
+xp = 6000
+radius = 1.4
+color = Color(0.3529412, 0.41568628, 0.6039216, 1)
+zone = 9
+rank = 7
+ability = [{
+"color": "#dfe8ff",
+"dash": true,
+"knockback": 2.0,
+"length": 16.0,
+"mult": 1.0,
+"stacks": 2.0,
+"status": "ladung",
+"t": "line",
+"tags": ["blitz", "wucht"],
+"width": 3.5
+}, {
+"color": "#bfd0ff",
+"jumps": 6.0,
+"mult": 0.8,
+"radius": 10.0,
+"status": "ladung",
+"stun": 0.5,
+"t": "chain",
+"tags": ["blitz"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#f0f4ff",
+"mult": 1.2,
+"radius": 8.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["blitz", "klang"]
+}],
+"time": 0.8
+}]
+ability_range = 14.0
+ability_cooldown = 9.0
+drops = Array[ExtResource("1_m47fq")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6")])
+shape = &"boar"
+behavior = &"charge"

@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ghb5ejwklyf2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_4oboc"]
+
+[resource]
+script = ExtResource("1_4oboc")
+id = &"drei_gu"
+display_name = "Drei-Gu"
+name_en = "Three Gu"
+rank = 7
+path = &"regel"
+category = &"sonstiges"
+description = "Regel „drei“: dreimal hintereinander ein Kegelstoß (9 m), der dritte schleudert die Gegner fort."
+lore = "Teil einer Familie fundamentaler Rule-Path-Gu (Big/Small/Normal/One/Three/No), die Grundkonzepte wie 'groß', 'klein', 'normal', 'eins', 'drei' und 'Verneinung' verkörpern; Baustein zahlreicher Fang-Yuan-Killer-Moves (u. a. bei Ba Shi Ba entliehen). Kein Rang im Text."
+owner = "Fang Yuan (u. a. von Ba Shi Ba entliehen)"
+beads = 2.0
+cooldown = 22.0
+steps = [{
+"angle": 60.0,
+"color": "#e8e0ff",
+"knockback": 0.5,
+"mult": 1.5,
+"reach": 9.0,
+"t": "cone",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#e8e0ff",
+"knockback": 0.5,
+"mult": 1.5,
+"reach": 9.0,
+"t": "cone",
+"tags": ["wucht"]
+}],
+"time": 0.3
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#e8e0ff",
+"knockback": 2.0,
+"mult": 1.5,
+"reach": 9.0,
+"t": "cone",
+"tags": ["wucht"]
+}],
+"time": 0.6
+}]

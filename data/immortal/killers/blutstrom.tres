@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b6xu041uxv1ds"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_fngdd"]
+
+[resource]
+script = ExtResource("1_fngdd")
+id = &"blutstrom"
+display_name = "Blutstrom"
+name_en = "Blood Torrent"
+path = &"blut"
+core = &"blutvermoegen_gu"
+mortal_families = Array[StringName]([&"blutmond", &"knochen", &"stroemung", &"wind"])
+cooldown = 50.0
+base_damage = 60.0
+steps = [{
+"color": "#d0303a",
+"knockback": 2.0,
+"length": 16.0,
+"lifesteal": 0.4,
+"mult": 6.0,
+"set_stacks": {
+"blutung": 3.0
+},
+"t": "line",
+"tags": ["blut"],
+"width": 4.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#d0303a",
+"length": 16.0,
+"lifesteal": 0.3,
+"mult": 4.0,
+"t": "line",
+"tags": ["blut"],
+"width": 5.0
+}],
+"time": 0.4
+}]
+description = "Ein reißender Blutstrom (16 m) lässt alles maximal bluten, schleudert fort und heilt dich; eine zweite Welle folgt."
+lore = "Teil von Fang Yuans zentraler Blood-Path-Kampftechnik-Familie (Blood Torrent / Blood Healing Lake / Blood Light Spirit Suppression / Life Staking Blood Print / Bloodstained Conqueror's Robe)."
+owner = "Fang Yuan"

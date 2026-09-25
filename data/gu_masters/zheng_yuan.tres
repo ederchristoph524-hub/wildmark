@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dx4ki4oowbm"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_u00ts"]
+
+[resource]
+script = ExtResource("1_u00ts")
+id = &"zheng_yuan"
+display_name = "Zheng Yuan"
+color = Color(0.84705883, 0.8156863, 0.65882355, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"qi_mauer", &"lebensbaum", &"kriegsgott", &"himmelsweisheit"])
+rank = 8
+hat = &"kappe"
+immortal_gu = Array[StringName]([&"beharrlichkeits_gu", &"verletzungsheilungs_gu"])
+title = "Unsterblicher des Himmlischen Hofs"
+path = &"mensch"
+lore = "Unsterblicher des Himmlischen Hofs, der den Trumpf-Satz des Menschenpfads weitergab. Wie jedes Hofmitglied hat er seine Apertur dem gemeinsamen Grotto-Himmel übergeben."

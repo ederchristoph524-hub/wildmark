@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cehhm3n1yxgla"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_m8kvh"]
+
+[resource]
+script = ExtResource("1_m8kvh")
+id = &"himmelsgeheimnis_gu"
+display_name = "Himmelsgeheimnis-Unsterblichen-Gu"
+name_en = "Heavenly Secret Immortal Gu"
+rank = 7
+path = &"weisheit"
+category = &"information"
+description = "Enthüllt Himmelsgeheimnisse: Alle Gegner im Umkreis 18 werden geblendet und ihre Schwächen offengelegt (3 Stapel Schwäche); du erhältst 6 s Abklingzeit zurück und 10 s lang 30 % kritische Treffer."
+lore = "Investigatives Spitzen-Gu, das verborgenes Wissen und Himmelsgeheimnisse aufdeckt; Kernstück mehrerer Wahrsage-Killer-Moves. Steigt bis Rang 9."
+owner = "Paradise Earth Immortal Venerable → Old Man Yan Shi → Fang Yuan"
+beads = 2.0
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"blind": 2.0,
+"color": "#7fc8ff",
+"mult": 0.0,
+"radius": 18.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["licht", "seele"]
+}, {
+"refund": 6.0,
+"t": "haste"
+}, {
+"chance": 0.3,
+"t": "luck",
+"time": 10.0
+}]

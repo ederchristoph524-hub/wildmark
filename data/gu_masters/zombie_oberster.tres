@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dexst7a06lb8k"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_rx0sx"]
+
+[resource]
+script = ExtResource("1_rx0sx")
+id = &"zombie_oberster"
+display_name = "Zombie-Unsterblicher des Meeres-Zombie-Bunds"
+color = Color(0.3529412, 0.5411765, 0.3529412, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"weissknochenrad", &"blutkaiser", &"meeresgeist", &"jadehimmel"])
+rank = 6
+immortal_gu = Array[StringName]([&"knochenstachel_gu_unsterblich", &"monddaemon_fledermausklauen_gu"])
+title = "Zombie-Unsterblicher"
+path = &"knochen"
+lore = "Ein zombifizierter Unsterblicher, dem die Zombie-Allianz mit Zombie-Gu ein Dasein ohne Alter und ohne Kalamitätsangst verschafft hat."

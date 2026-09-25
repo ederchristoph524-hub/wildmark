@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://di2uk514vgv83"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6qmqs"]
+
+[resource]
+script = ExtResource("1_6qmqs")
+id = &"vier_elemente_reue_blutverfeinerungs_becken"
+display_name = "Vier-Elemente-Quadrat-Reue-Blutverfeinerungs-Becken"
+name_en = "Four Elements Square Regret Blood Refinement Pool"
+rank = 9
+path = &"raffinerie"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Fang Yuans Verfeinerungs-Gu-Haus in deiner Apertur: doppelte Erträge, 3 Perlen je Spieltag und 50 % mehr Dao-Markierungen."
+lore = "Spitzen-Refinement-Gu-Haus, das wegen widersprüchlicher Dao-Marks nur innerhalb von Fang Yuans eigener Sovereign Grotto-Heaven existieren kann. Pfade: Refinement, Time, Blood, Wisdom, Heaven."
+owner = "Fang Yuan"
+passive = {
+"dao_mult": 0.5,
+"ertrag_mult": 1.0,
+"perlen_ertrag": 3.0
+}

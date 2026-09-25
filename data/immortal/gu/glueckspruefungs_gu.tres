@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://kwspgofh57gx"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_byjxx"]
+
+[resource]
+script = ExtResource("1_byjxx")
+id = &"glueckspruefungs_gu"
+display_name = "Glücksprüfungs-Unsterblichen-Gu"
+name_en = "Luck Inspection Immortal Gu"
+path = &"glueck"
+category = &"information"
+kind = &"passiv"
+description = "Prüft das Glück von allem: +10 % kritische Treffer und +15 % Apertur-Erträge."
+lore = "Luck-Path-Gu zum Prüfen von Glück. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"crit": 0.1,
+"ertrag_mult": 0.15
+}

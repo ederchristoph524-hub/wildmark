@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bwrilc4enmul2"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_bb3md"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_qophc"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_bb3md")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_bb3md")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_bb3md")
+item = &"tiefseeperle"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_bb3md")
+item = &"schuppe"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_bb3md")
+item = &"zeitharz"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_bb3md")
+item = &"himmelskristall"
+chance = 0.35
+
+[sub_resource type="Resource" id="drop_6"]
+script = ExtResource("1_bb3md")
+item = &"erdqi"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_qophc")
+id = &"uralte_tiefseeschildkroete"
+display_name = "Uralte Tiefseeschildkröte"
+max_hp = 28000
+damage = 300
+speed = 2.0
+xp = 6000
+radius = 1.5
+color = Color(0.16470589, 0.41568628, 0.41568628, 1)
+zone = 9
+rank = 7
+ability = [{
+"kind": "thorns",
+"reduction": 0.6,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.5
+}, {
+"color": "#4a9ad0",
+"knockback": 2.5,
+"mult": 1.0,
+"radius": 10.0,
+"status": "nass",
+"t": "circle",
+"tags": ["wasser", "wucht"]
+}, {
+"at": "target",
+"color": "#3a8ac0",
+"mult": 0.3,
+"pull": 1.2,
+"radius": 5.0,
+"slow": 0.4,
+"status": "nass",
+"t": "zone",
+"tags": ["wasser"],
+"tick": 1.0,
+"time": 5.0
+}]
+ability_range = 12.0
+ability_cooldown = 11.0
+drops = Array[ExtResource("1_bb3md")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6")])
+shape = &"beetle"
+behavior = &"armor"

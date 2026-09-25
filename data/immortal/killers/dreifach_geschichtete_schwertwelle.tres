@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c6md1rb1p6dja"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_rueus"]
+
+[resource]
+script = ExtResource("1_rueus")
+id = &"dreifach_geschichtete_schwertwelle"
+display_name = "Dreifach-geschichtete-Schwertwelle"
+name_en = "Triple Layered Sword Wave"
+path = &"schwert"
+core = &"wellenschwert_gu"
+mortal_families = Array[StringName]([&"schwert", &"stroemung", &"wind"])
+cooldown = 45.0
+steps = [{
+"angle": 60.0,
+"color": "#e8f4ff",
+"mult": 3.0,
+"reach": 12.0,
+"t": "cone",
+"tags": ["schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#e8f4ff",
+"mult": 3.0,
+"reach": 13.0,
+"status": "nass",
+"t": "cone",
+"tags": ["schnitt", "wasser"]
+}],
+"time": 0.3
+}, {
+"t": "delay",
+"then": [{
+"angle": 60.0,
+"color": "#e8f4ff",
+"knockback": 2.0,
+"mult": 3.0,
+"reach": 14.0,
+"t": "cone",
+"tags": ["schnitt", "wasser"]
+}],
+"time": 0.6
+}]
+description = "Drei geschichtete Schwertwellen rollen nacheinander vor dir her, jede weiter als die letzte; die dritte schleudert fort."
+lore = "Teil von Fang Yuans Schwert-Killer-Moves (Myriad Thought Sword Waterfall / Sword Marks Targeting Death / Triple Layered Sword Wave), teils kombiniert mit Wave Sword Immortal Gu. Kern im Spiel: Wellenschwert-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

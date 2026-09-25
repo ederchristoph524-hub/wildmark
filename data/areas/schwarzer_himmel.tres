@@ -1,0 +1,173 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://oi7eu3are5b5"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_1dhqg"]
+
+[resource]
+script = ExtResource("1_1dhqg")
+id = &"schwarzer_himmel"
+display_name = "Schwarzer Himmel"
+region = 6
+map_position = Vector2(0.965, 0.12)
+rank_min = 8
+rank_max = 9
+open = true
+description = "Die Leere zwischen den Sternen, der Himmel der Nacht. Inseln aus schwarzem Fels treiben in violettem Nebel; darunter nichts. Die Dämonen-Ehrwürdigen sollen hier ihre Gräber und Geheimnisse verborgen haben."
+size = 560.0
+terrain_seed = 61212
+biome = &"schwarzer_himmel"
+relief = Dictionary[StringName, float]({
+&"basis": -5.0,
+&"berge": 0.0,
+&"detail": 0.7,
+&"frequenz": 0.005,
+&"hoehe": 5.0,
+&"horizont": 20.0,
+&"rand": 60.0,
+&"randhoehe": -10.0
+})
+hills = Array[Vector4]([Vector4(0, 0, 145, 22), Vector4(-180, -150, 65, 20), Vector4(180, -150, 60, 18), Vector4(-160, 160, 60, 16), Vector4(170, 150, 60, 20), Vector4(0, 110, 40, 17)])
+arrival = Vector2(0, 110)
+places = Array[Dictionary]([{
+"accent": Color(0.6901961, 0.4392157, 1, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_knochendrache", &"wuester_seelenfresser", &"wuester_seelenfresser"]),
+"id": &"sternengrab_daemonen",
+"item": &"",
+"name": "Sternengrab der Dämonen-Ehrwürdigen",
+"offering": {
+&"seelenkern": 2,
+&"unsterblichen_stein": 60
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-180, -150),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"dunkelpfeil_gu", &"sternschuss_gu"]),
+"items": {
+&"himmelskristall": 5,
+&"schicksalsfaden": 1,
+&"seelenkern": 2
+},
+"support": Array[StringName]([])
+},
+"style": &"grab",
+"text": "Ein Grab ohne Namen, erleuchtet von toten Sternen. Wer es öffnet, wird von allem bewacht, was hier jemals starb.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Sternenstrudel",
+"offering": {},
+"owner": &"",
+"path": &"stern",
+"position": Vector2(0, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Sterne drehen sich hier um einen leeren Punkt. Wer lange hinsieht, erkennt ihre Bahnen.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Schattenschlund",
+"offering": {},
+"owner": &"",
+"path": &"verbergen",
+"position": Vector2(170, 150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein Riss, in dem selbst das Sternenlicht verschwindet. Wer hier kultiviert, lernt, nicht gesehen zu werden.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"seelenstaub",
+"name": "Sternenfriedhof",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-160, 160),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"frostquelle",
+"item": &"frostsplitter",
+"name": "Kälte der Leere",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(180, -150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"frostquelle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"himmelskristall": Vector2i(6, 1),
+&"himmelsqi": Vector2i(8, 1),
+&"kristall": Vector2i(30, 3),
+&"seelenstaub": Vector2i(12, 1),
+&"stein": Vector2i(20, 2),
+&"sternsand": Vector2i(30, 1),
+&"unsterblichen_stein": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([120.0, 200.0])
+enemy_zones = [[&"schatten", &"wuester_seelenfresser", &"wueste_frostschlange"], [&"wuester_seelenfresser", &"wueste_frostschlange", &"uralter_knochendrache"], [&"uralter_knochendrache", &"wuester_seelenfresser"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(120, 240)
+wild_passives = [[&"boeserGedanke", &"support", 120.0, 240.0, true]]
+immortal = {
+"entrance": "Durch die Himmelswind-Qi-Wand, wenn der Schwarze Himmel über den Regionen steht – also nur nachts.",
+"entry_rank": 8,
+"kind": &"himmel",
+"rules": Array[StringName]([&"leichte_schwere", &"sterbliche_sterben"]),
+"time_flow": 1.0
+}

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c6bkktebv3j1f"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_nxty0"]
+
+[resource]
+script = ExtResource("1_nxty0")
+id = &"mein_glorreicher_speer"
+display_name = "Mein-glorreicher-Speer"
+name_en = "My Glorious Spear"
+path = &"licht"
+core = &"sichtlicht_gu"
+mortal_families = Array[StringName]([&"mondlicht", &"tausendfuessler", &"kampfgeist"])
+beads = 4.0
+channel = 1.4
+base_damage = 70.0
+steps = [{
+"blind": 2.0,
+"color": "#ffe9a0",
+"count": 1.0,
+"mult": 10.0,
+"pierce": 5.0,
+"pierce_armor": true,
+"range": 30.0,
+"speed": 36.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["licht", "durchbohren"]
+}]
+description = "Ein Speer aus Glorie durchbohrt fünf Gegner und jede Rüstung auf 30 m und blendet sie."
+lore = "Teil der 'Light of Glory'-Reihe von Xiao Mang (Immemorial Light Fist / My Glorious Spear / Torrential Light Stream). Kern im Spiel: Sichtlicht-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Xiao Mang"

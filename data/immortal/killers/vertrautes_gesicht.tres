@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://imd2gvhhqvec"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_usk4t"]
+
+[resource]
+script = ExtResource("1_usk4t")
+id = &"vertrautes_gesicht"
+display_name = "Vertrautes-Gesicht"
+name_en = "Familiar Face"
+path = &"verwandlung"
+core = &"haltungs_gu"
+mortal_families = Array[StringName]([&"tarnung", &"gestalt", &"wasserbild"])
+beads = 2.0
+base_damage = 40.0
+steps = [{
+"t": "stealth",
+"time": 20.0
+}, {
+"t": "cleanse"
+}, {
+"color": "#ff8ae2",
+"key": "vertrautes_gesicht",
+"speed": 1.1,
+"t": "buff",
+"time": 20.0
+}]
+description = "Du erscheinst als jemand anderes: 20 s getarnt – auch Siedlungen und Gu-Meister erkennen dich nicht –, gereinigt und 10 % schneller. Kein Schaden."
+lore = "Tarn-Move, der den Anwender als eine andere Person oder Sache erscheinen lässt."
+owner = "Fang Yuan; auch Thieving Heaven Demon Venerable und Feng Jiu Ge"

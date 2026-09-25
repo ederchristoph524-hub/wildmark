@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://lrdok4eyqno"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_wdifw"]
+
+[resource]
+script = ExtResource("1_wdifw")
+id = &"tai_bai_yun_sheng"
+display_name = "Tai Bai Yun Sheng"
+color = Color(0.6901961, 0.8156863, 0.9098039, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"fruehlingherbst", &"himmelsweisheit", &"lebensbaum", &"blauerhimmel"])
+rank = 6
+hat = &"stroh"
+immortal_gu = Array[StringName]([&"mensch_wie_zuvor_gu"])
+title = "Zeitpfad-Meister der Nördlichen Ebene"
+path = &"zeit"
+lore = "Rechtschaffener Zeitpfad-Meister aus der Nördlichen Ebene, früher Mentor Fang Yuans in der Verfeinerung. Er erreichte selbst Rang 6 und besaß den Mensch-wie-zuvor-Gu."

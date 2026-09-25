@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bd6sgugtqqhmu"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_vxd7h"]
+
+[resource]
+script = ExtResource("1_vxd7h")
+id = &"himmelskristall"
+display_name = "Himmelskristall"
+icon = "🔷"
+category = &"material"
+rank = 8
+path = &"himmel"
+source = "Grotto-Himmel, uralte und urzeitliche wüste Bestien"
+description = "Entsteht nur in Grotto-Himmeln. Wertvollste Ware im Schatzhimmel."

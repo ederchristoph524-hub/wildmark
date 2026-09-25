@@ -55,6 +55,18 @@ extends Resource
 ## Wandernde Gu-Meister auf den Straßen (gebiete.json → wanderer: meister, anzahl gleichzeitig), siehe Wanderers.
 @export var wanderers: Array[StringName] = []
 @export var wanderer_count: int = 0
+## Unsterblichen-Ebene (gebiete.json → unsterblich): entry_rank (Zutritt ab Rang), kind (gesegnetes_land,
+## grotto_himmel, dimension, himmel), rules (Array[StringName], siehe DimensionRules), current (Vector3: dx, dz,
+## Stärke), time_flow, spirit {name, lines}, annex {path, growth, gift}, entrance; leer = gewöhnliches Gebiet.
+@export var immortal: Dictionary = {}
+
+
+func entry_rank() -> int:
+	return int(immortal.get("entry_rank", 1))
+
+
+func has_rule(rule: StringName) -> bool:
+	return rule in immortal.get("rules", [])
 
 
 ## Siedlung per ID (leer, wenn es sie nicht gibt).

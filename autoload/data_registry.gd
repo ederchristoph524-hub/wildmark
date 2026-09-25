@@ -21,8 +21,11 @@ const DATA_DIRS: Dictionary[StringName, String] = {
 	&"areas": "res://data/areas/",
 	&"biomes": "res://data/biomes/",
 	&"standings": "res://data/standings/",
+	&"immortal_gu": "res://data/immortal/gu/",
+	&"immortal_killers": "res://data/immortal/killers/",
 }
 const GU_SYSTEM_PATH: String = "res://data/gu/gu_system.tres"
+const IMMORTAL_SYSTEM_PATH: String = "res://data/immortal/immortal_system.tres"
 const PROGRESSION_PATH: String = "res://data/progression.tres"
 const RESOURCE_EXTENSIONS: Array[String] = [".tres", ".res"]
 
@@ -32,6 +35,7 @@ var _tables: Dictionary[StringName, Dictionary] = {}
 var _gu: Dictionary[StringName, GuData] = {}
 var _gu_system: GuSystemData = null
 var _progression: ProgressionData = null
+var _immortal: ImmortalSystemData = null
 
 
 func _ready() -> void:
@@ -50,6 +54,9 @@ func load_all() -> void:
 	_gu_system = load(GU_SYSTEM_PATH) as GuSystemData
 	if _gu_system == null:
 		push_error("DataRegistry: %s fehlt – Datenimport ausführen" % GU_SYSTEM_PATH)
+	_immortal = load(IMMORTAL_SYSTEM_PATH) as ImmortalSystemData
+	if _immortal == null:
+		push_error("DataRegistry: %s fehlt – Datenimport ausführen" % IMMORTAL_SYSTEM_PATH)
 	_progression = load(PROGRESSION_PATH) as ProgressionData
 	if _progression == null:
 		push_error("DataRegistry: %s fehlt – Datenimport ausführen" % PROGRESSION_PATH)
@@ -169,7 +176,14 @@ func gu_master(id: StringName) -> GuMasterData:
 	return _lookup(&"gu_masters", id) as GuMasterData
 
 
+## Zur Laufzeit gebaute Gebiete (ID → Callable, das AreaData liefert), z. B. die eigene Unsterblichen-Apertur.
+var runtime_areas: Dictionary[StringName, Callable] = {}
+
+
+## Gebiet per ID; zur Laufzeit gebaute Gebiete (runtime_areas) zuerst.
 func area(id: StringName) -> AreaData:
+	if runtime_areas.has(id):
+		return runtime_areas[id].call() as AreaData
 	return _lookup(&"areas", id) as AreaData
 
 
@@ -183,6 +197,24 @@ func gu_system() -> GuSystemData:
 
 func progression() -> ProgressionData:
 	return _progression
+
+
+## Regeln des Unsterblichen-Reichs (Ränge 6–9, Kalamitäten, Landgrade, Schatzhimmel …).
+func immortal() -> ImmortalSystemData:
+	return _immortal
+
+
+## Unsterblicher Gu per ID (unbekannt: null und Fehler im Log; vorher prüfen mit has_immortal_gu).
+func immortal_gu(id: StringName) -> ImmortalGuData:
+	return _lookup(&"immortal_gu", id) as ImmortalGuData
+
+
+func immortal_killer(id: StringName) -> ImmortalKillerData:
+	return _lookup(&"immortal_killers", id) as ImmortalKillerData
+
+
+func has_immortal_gu(id: StringName) -> bool:
+	return _tables.get(&"immortal_gu", {}).has(id)
 
 
 # --- Listen und Existenzprüfung ------------------------------------------

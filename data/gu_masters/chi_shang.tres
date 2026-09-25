@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://cv87ikghlnq3m"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_6mqr3"]
+
+[resource]
+script = ExtResource("1_6mqr3")
+id = &"chi_shang"
+display_name = "Gu Yue Chi Shang"
+color = Color(0.3529412, 0.6039216, 0.8156863, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"meeresdrache", &"neun_palaeste", &"meeresgeist", &"himmelsweisheit"])
+rank = 6
+hat = &"band"
+immortal_gu = Array[StringName]([&"schweiss"])
+title = "Formationsmeister der Chi-Familie"
+path = &"wasser"
+lore = "Aus dem Chi-Zweig des Gu-Yue-Klans; sein Schweiß-Gu ist der Kern der Weisheitsschweiß-Formation. Einer der wenigen, mit denen Fang Yuan ein belastbares Verhältnis hat."

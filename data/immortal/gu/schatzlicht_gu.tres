@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bd5rbj4u73dkl"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kk6q7"]
+
+[resource]
+script = ExtResource("1_kk6q7")
+id = &"schatzlicht_gu"
+display_name = "Schatzlicht-Gu"
+name_en = "Treasure Light Gu"
+rank = 8
+path = &"licht"
+category = &"sonstiges"
+description = "Schatzlicht: ein Aufblitzen (Umkreis 10) blendet alle, sechs Schatzfunken suchen Ziele; 15 s lang 40 % kritische Treffer und reichere Beute."
+lore = "Light-Path-Gu bei Daoist Countless Treasures bzw. dem Treasure Yellow Heaven Heavenly Spirit."
+owner = "Daoist Countless Treasures / Treasure Yellow Heaven Heavenly Spirit"
+beads = 3.0
+cooldown = 40.0
+steps = [{
+"blind": 3.0,
+"color": "#ffe9a0",
+"mult": 3.0,
+"radius": 10.0,
+"t": "circle",
+"tags": ["licht"]
+}, {
+"chance": 0.4,
+"t": "luck",
+"time": 15.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#ffd24a",
+"count": 6.0,
+"homing": true,
+"mult": 0.8,
+"range": 18.0,
+"spread": 120.0,
+"t": "projectiles",
+"tags": ["licht"]
+}],
+"time": 0.4
+}]

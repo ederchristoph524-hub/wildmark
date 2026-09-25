@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://3wd4x5g0y8ve"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s1x3g"]
+
+[resource]
+script = ExtResource("1_s1x3g")
+id = &"herbstlicht_gu"
+display_name = "Herbstlicht-Gu"
+name_en = "Autumn Light Gu"
+rank = 7
+path = &"licht"
+category = &"sonstiges"
+description = "Herbstlicht (Umkreis 7, 8 s): Gegner werden geblendet und getroffen, Verbündete ernten Heilung jeden Takt."
+lore = "Kern-Gu des Gu-Hauses Three Autumn Yellow Crane Platform. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 35.0
+steps = [{
+"blind": 1.0,
+"color": "#ffd080",
+"heal": 0.02,
+"mult": 0.4,
+"radius": 7.0,
+"t": "zone",
+"tags": ["licht", "zeit"],
+"tick": 1.0,
+"time": 8.0
+}]

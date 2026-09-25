@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dyxeclt3s6f2h"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_s85rw"]
+
+[resource]
+script = ExtResource("1_s85rw")
+id = &"ablenkende_gedanken_erzeugung"
+display_name = "Ablenkende-Gedanken-Erzeugung"
+name_en = "Distracting Thoughts Generation"
+path = &"weisheit"
+core = &"gefuehls_gu"
+mortal_families = Array[StringName]([&"weisheit", &"seelenschrei", &"labyrinth", &"tarnung"])
+steps = [{
+"blind": 4.0,
+"color": "#7fc8ff",
+"mult": 2.5,
+"radius": 9.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["seele"]
+}, {
+"blind": 1.0,
+"color": "#7fc8ff",
+"mult": 0.5,
+"radius": 9.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 2.5,
+"radius": 9.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 1.0
+}]
+description = "Erzeugt ablenkende Gedanken: Gegner im Umkreis 9 verlieren 4 s ihr Ziel und irren 6 s umher; ein zweiter Gedankenstoß jagt ihnen Furcht ein."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Gefühls-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

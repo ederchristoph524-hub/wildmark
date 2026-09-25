@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://hjoad1j1srhm"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_0ep5j"]
+
+[resource]
+script = ExtResource("1_0ep5j")
+id = &"qing_chou"
+display_name = "Qing Chou"
+name_en = "Qing Chou"
+path = &"gefuehl"
+core = &"hass_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"labyrinth", &"sklaverei", &"glocke", &"blitz", &"kampfgeist"])
+beads = 10.0
+cooldown = 120.0
+channel = 2.5
+base_damage = 70.0
+steps = [{
+"color": "#ff6fa8",
+"end": [{
+"color": "#ff6fa8",
+"mult": 8.0,
+"radius": 15.0,
+"stun": 2.0,
+"t": "circle",
+"tags": ["seele", "blitz"]
+}],
+"mult": 1.0,
+"radius": 15.0,
+"slow": 0.2,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 2.0,
+"time": 30.0
+}, {
+"color": "#ff6fa8",
+"damage": 1.5,
+"key": "qing_chou",
+"t": "buff",
+"time": 30.0
+}]
+description = "Die Racheformation Qing Chou (Umkreis 15, 30 s): Hass packt alle Gegner (Furcht, alle 2 s Schaden), du kämpfst 50 % stärker; am Ende entlädt sich der gesammelte Hass wie Blitz."
+lore = "Racheformation des Qing-Clans mit dem Hatred Gu als Kern, gerichtet gegen den jungen Spectral Soul Demon Venerable."
+owner = "Qing-Clan"

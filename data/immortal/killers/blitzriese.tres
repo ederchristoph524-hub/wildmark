@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dbpo4tjm6hi2q"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_stpfw"]
+
+[resource]
+script = ExtResource("1_stpfw")
+id = &"blitzriese"
+display_name = "Blitzriese"
+name_en = "Lightning Giant"
+path = &"diebstahl"
+core = &"himmels_qi_gu"
+mortal_families = Array[StringName]([&"blitz", &"donnerknolle", &"gestalt", &"pluenderung"])
+beads = 6.0
+cooldown = 100.0
+channel = 1.6
+steps = [{
+"color": "#8fd06a",
+"damage": 1.5,
+"grow": 2.2,
+"key": "blitzriese",
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#8fd06a",
+"follow": true,
+"mult": 0.5,
+"radius": 5.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["blitz"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"color": "#8fd06a",
+"jumps": 6.0,
+"mult": 3.0,
+"radius": 8.0,
+"stun": 0.5,
+"t": "chain",
+"tags": ["blitz"]
+}]
+description = "Du wirst zum Blitzriesen (12 s, riesig, +50 % Schaden): ein Kettenblitz springt über 6 Gegner, und um dich knistert ein Gewitter, das alle Nahen auflädt."
+lore = "Teil der gesamten Theft-Path-Kerntechnik-Reihe des Thieving Heaven Demon Venerable (Theft/Space/Soul Path), die Fang Yuan nach dessen Tod größtenteils erbt bzw. nachbaut. Kern im Spiel: Himmels-Qi-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable → Fang Yuan"

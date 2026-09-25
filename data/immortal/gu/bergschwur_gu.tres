@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c8fkwpku2768d"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_maaae"]
+
+[resource]
+script = ExtResource("1_maaae")
+id = &"bergschwur_gu"
+display_name = "Bergschwur-Gu"
+name_en = "Mountain Pledge Gu"
+path = &"information"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Ein Schwur fest wie ein Berg: 8 % weniger Schaden und +10 % Höchstleben."
+lore = "Übereinkunfts-/Verbindungstyp-Gu des Information Path (mit Mutual Sense und Sea Oath Gu)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"max_hp": 0.1,
+"reduction": 0.08
+}

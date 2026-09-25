@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bowag3pgjl2pn"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_sqloy"]
+
+[resource]
+script = ExtResource("1_sqloy")
+id = &"aufstiegs_verfeinerungs_gu"
+display_name = "Aufstiegs-Verfeinerungs-Gu"
+name_en = "Advance Refinement Gu"
+rank = 8
+path = &"raffinerie"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Treibt jede Verfeinerung in deiner Apertur voran: +30 % Erträge und 1,5 zusätzliche Perlen je Spieltag."
+lore = "Kernstück der 'Long Hair'-Formation; fiel Fang Yuan in die Hände und wurde einer der Kerne seines Refinement-Gu-Hauses Four Elements Square Regret Blood Refinement Pool. Steigt bis Rang 9."
+owner = "Long-Hair-Formation → Fang Yuan"
+passive = {
+"ertrag_mult": 0.3,
+"perlen_ertrag": 1.5
+}

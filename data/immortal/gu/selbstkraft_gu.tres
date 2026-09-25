@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cvh8fg3qn4rek"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_urvx6"]
+
+[resource]
+script = ExtResource("1_urvx6")
+id = &"selbstkraft_gu"
+display_name = "Selbstkraft-Gu"
+name_en = "Self Strength Gu"
+path = &"kraft"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Kraft aus dir selbst: +20 % Schaden und +15 % Höchstleben."
+lore = "Strength-Path-Gu bei Fang Yuan (Reihe Pulling Mountain / Pulling Water / Self Strength). Kein Rang im Text."
+owner = "Fang Yuan"
+passive = {
+"max_hp": 0.15,
+"schaden": 0.2
+}

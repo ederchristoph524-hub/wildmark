@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://c3scycf0qib46"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_8hgqg"]
+
+[resource]
+script = ExtResource("1_8hgqg")
+id = &"wolkensee"
+display_name = "Wolkensee von Lang Ya"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.41568628, 0.38431373, 0.3137255, 1),
+&"fels": Color(0.5411765, 0.54901963, 0.5647059, 1),
+&"gipfel": Color(0.95686275, 0.9647059, 0.98039216, 1),
+&"gras_dunkel": Color(0.24313726, 0.41568628, 0.3529412, 1),
+&"gras_hell": Color(0.44705883, 0.627451, 0.5411765, 1),
+&"moos": Color(0.3529412, 0.5411765, 0.4392157, 1),
+&"platz": Color(0.84705883, 0.8235294, 0.7529412, 1),
+&"strand": Color(0.8784314, 0.85490197, 0.78431374, 1),
+&"weg": Color(0.78431374, 0.7607843, 0.6901961, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.35,
+&"laubbaum": 0.25,
+&"nadelbaum": 0.4
+})
+trees_per_1000 = 3.5
+bushes_per_1000 = 2.5
+grass_per_1000 = 50.0
+rocks_per_1000 = 1.8
+sky = Color(0.89411765, 0.93333334, 0.95686275, 1)
+sky_top = Color(0.3529412, 0.5411765, 0.78431374, 1)
+fog = Color(0.8627451, 0.9098039, 0.9411765, 1)
+fog_density = 0.0028
+water = Color(0.2901961, 0.5411765, 0.65882355, 1)
+weather = &"regen"
+weather_chance = 0.2

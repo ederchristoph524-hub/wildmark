@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dme6k2l87ub4b"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_amf28"]
+
+[resource]
+script = ExtResource("1_amf28")
+id = &"jahre_fliessen_wie_wasser_gu"
+display_name = "Jahre-fließen-wie-Wasser-Unsterblichen-Gu"
+name_en = "Years Flow Like Water Immortal Gu"
+rank = 8
+path = &"zeit"
+category = &"zeit"
+kind = &"passiv"
+description = "Die Jahre deiner Apertur fließen wie Wasser: +60 % Erträge und 0,8 Perlen je Spieltag."
+lore = "Beschleunigt oder verlangsamt die Zeit innerhalb einer Immortal Aperture."
+owner = "Hei Fan → Fang Yuan"
+passive = {
+"ertrag_mult": 0.6,
+"perlen_ertrag": 0.8
+}

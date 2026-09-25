@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cdiimo5rlyjmi"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7eqqe"]
+
+[resource]
+script = ExtResource("1_7eqqe")
+id = &"besitz_gu"
+display_name = "Besitz-Unsterblichen-Gu"
+name_en = "Possession Immortal Gu"
+path = &"mensch"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Verlängert deine Lebensspanne: +30 % Höchstleben."
+lore = "Verlängert die Lebensspanne; von Giant Sun Immortal Venerable erschaffen."
+owner = "Giant Sun Immortal Venerable"
+passive = {
+"max_hp": 0.3
+}

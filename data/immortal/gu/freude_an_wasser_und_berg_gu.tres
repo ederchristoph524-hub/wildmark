@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://rjr5bdhlp7r7"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_gvyu2"]
+
+[resource]
+script = ExtResource("1_gvyu2")
+id = &"freude_an_wasser_und_berg_gu"
+display_name = "Freude-an-Wasser-und-Berg-Gu"
+name_en = "Delight In Water And Mountain Gu"
+path = &"weisheit"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Gelassenheit an Wasser und Berg: du heilst 0,4 % Leben je Sekunde und prägst 10 % mehr Dao-Markierungen."
+lore = "Wisdom-Path-Gu, das einen Geisteszustand verkörpert (Reihe: Unerschütterlichkeit, Güte, Gelassenheit, reine Logik). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"dao_mult": 0.1,
+"regen": 0.004
+}

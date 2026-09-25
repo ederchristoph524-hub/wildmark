@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ck40gjpfxhi1n"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_kcxm4"]
+
+[resource]
+script = ExtResource("1_kcxm4")
+id = &"unsterblichen_stein"
+display_name = "Unsterblichen-Essenzstein"
+icon = "💎"
+category = &"material"
+rank = 6
+path = &"raffinerie"
+source = "Dein Gesegnetes Land, wüste Bestien, Schatzhimmel"
+description = "Verdichtete Unsterblichen-Essenz. Der Landgeist macht Perlen daraus; im Schatzhimmel die Währung der Unsterblichen."

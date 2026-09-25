@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c2q3fftpkf3ny"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_kbcqm"]
+
+[resource]
+script = ExtResource("1_kbcqm")
+id = &"myriaden_sternen_gluehwuermchen"
+display_name = "Myriaden-Sternen-Glühwürmchen"
+name_en = "Myriad Star Fireflies"
+path = &"weisheit"
+core = &"sternengedanken_gu"
+mortal_families = Array[StringName]([&"stern", &"weisheit", &"mondlicht", &"blatt"])
+cooldown = 45.0
+steps = [{
+"color": "#7fc8ff",
+"count": 30.0,
+"homing": true,
+"mult": 0.4,
+"range": 20.0,
+"spread": 360.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern", "seele"]
+}]
+description = "Dreißig Sternen-Glühwürmchen schwärmen in alle Richtungen aus, suchen ihre Ziele und schwächen sie – Sternenfall wartet."
+lore = "Ursprünglich von Dong Fang Chang Fan/Dong Fang Yu Liang entwickelt, von Fang Yuan als Vorlage für eigene Star-Path-Offensivtechniken genutzt."
+owner = "Dong Fang Chang Fan, Dong Fang Yu Liang → Fang Yuan"

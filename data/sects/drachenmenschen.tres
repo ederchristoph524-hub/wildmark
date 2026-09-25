@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://if0f5ogpd8mk"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_qojuf"]
+
+[resource]
+script = ExtResource("1_qojuf")
+id = &"drachenmenschen"
+display_name = "Drachenmenschen des Drachenpalasts"
+icon = "🐉"
+faction = &"demonic"
+org_type = &"stamm"
+region = 2
+immortals = 2
+power = 5
+rivals = Array[StringName]([&"himmelshof"])
+min_rank = 7
+join_gift = Dictionary[StringName, int]({
+&"tiefseeperle": 2,
+&"unsterblichen_stein": 10
+})
+signature_gu = &"meeresdrache"
+politics = "Seit Herzog Long ihren Palast erobert hat, leben die Drachenmenschen in den Ruinen und hassen den Himmlischen Hof. Fremde Unsterbliche dulden sie nur, solange diese nichts aus dem Hort nehmen."
+description = "Ein Volk der Variant-Menschen mit Schuppen und Kiemen, Hüter des Drachenpalasts im Östlichen Meer."

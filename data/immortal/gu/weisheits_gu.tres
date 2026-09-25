@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ct3hhtowoiaka"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kwbn5"]
+
+[resource]
+script = ExtResource("1_kwbn5")
+id = &"weisheits_gu"
+display_name = "Weisheits-Gu"
+name_en = "Wisdom Gu"
+rank = 9
+path = &"weisheit"
+category = &"konzept"
+description = "Licht der Weisheit: blendet alle Gegner im Umkreis 14 und schwächt sie (3 Stapel), zehn Gedankenstrahlen suchen ihre Ziele; alle anderen Gu sind sofort 20 s weiter und 15 s lang doppelt so schnell bereit."
+lore = "Legendäres Gu aus den Legends of Ren Zu, das Ren Zu Intelligenz im Tausch gegen Lebensspanne schenkte. Strahlt Licht der Weisheit aus, das Denkprozesse massiv beschleunigt, verbraucht dabei Lebensspanne."
+owner = "Star Constellation Immortal Venerable → Giant Sun Immortal Venerable → Fang Yuan"
+beads = 5.0
+cooldown = 60.0
+steps = [{
+"blind": 3.0,
+"color": "#7fc8ff",
+"mult": 2.0,
+"radius": 14.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["licht", "seele"]
+}, {
+"cd_mult": 0.5,
+"refund": 20.0,
+"t": "haste",
+"time": 15.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"count": 10.0,
+"homing": true,
+"mult": 0.8,
+"range": 20.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["licht", "seele"]
+}],
+"time": 0.5
+}]

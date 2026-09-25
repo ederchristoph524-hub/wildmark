@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bm17mt4mtpowd"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_meqy8"]
+
+[resource]
+script = ExtResource("1_meqy8")
+id = &"nirvana_feuer"
+display_name = "Nirvana-Feuer"
+name_en = "Nirvana Fire"
+path = &"feuer"
+core = &"auferstehung_von_den_toten"
+mortal_families = Array[StringName]([&"flamme", &"fackel", &"blatt", &"zeit"])
+beads = 6.0
+cooldown = 110.0
+channel = 1.8
+steps = [{
+"frac": 0.3,
+"t": "heal"
+}, {
+"color": "#ff7a3a",
+"end": [{
+"color": "#ff7a3a",
+"mult": 0.6,
+"radius": 8.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"tick": 1.0,
+"time": 5.0
+}],
+"mult": 0.8,
+"radius": 10.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"tick": 1.0,
+"time": 10.0
+}]
+description = "Nirvana-Feuer (Umkreis 10, 10 s): du heilst 30 %, alles um dich brennt – und wenn das Feuer erlischt, ersteht es aus der Asche neu (5 s)."
+lore = "Signatur-Move der Blazing Heaven Demoness (Angry Bird / Nirvana Fire). Kern im Spiel: Auferstehung-von-den-Toten – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Blazing Heaven Demoness"

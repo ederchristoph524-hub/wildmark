@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://butw8t6dhng2b"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_hxd1y"]
+
+[resource]
+script = ExtResource("1_hxd1y")
+id = &"medizinduft"
+display_name = "Medizinduft"
+name_en = "Medicine Fragrance"
+rank = 8
+path = &"nahrung"
+category = &"heilung"
+description = "Medizinduft (Umkreis 8, 12 s): Verbündete heilen jeden Takt 4 % und sind 10 % geschützt; du bist 4 s immun gegen Zustände."
+lore = "Heilungstyp-Gu des Food Path auf Rang 8."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 3.0
+cooldown = 50.0
+base_damage = 20.0
+steps = [{
+"ally_reduction": 0.1,
+"color": "#f0b060",
+"follow": true,
+"heal": 0.04,
+"mult": 0.0,
+"radius": 8.0,
+"t": "zone",
+"tags": ["holz"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"t": "cleanse",
+"time": 4.0
+}]

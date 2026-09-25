@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c20aax021sifq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_iir5g"]
+
+[resource]
+script = ExtResource("1_iir5g")
+id = &"qi_glueck_gu"
+display_name = "Qi-Glück-Unsterblichen-Gu"
+name_en = "Qi Luck Immortal Gu"
+path = &"glueck"
+category = &"information"
+kind = &"passiv"
+description = "Spürt Glück als Qi: Die Karte zeigt Ursteinadern, Erbschaften und wilde Gu; +0,3 Perlen je Spieltag."
+lore = "Glücks-Qi-Gu, Kern des Killer Moves Qi Luck Sensation."
+owner = "Fang Yuan"
+passive = {
+"perlen_ertrag": 0.3,
+"sicht": true
+}
+world = &"sicht"

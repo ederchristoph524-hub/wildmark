@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cb8fka5fcxci3"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_kcq25"]
+
+[resource]
+script = ExtResource("1_kcq25")
+id = &"qi_glueck_wahrnehmung"
+display_name = "Qi-Glück-Wahrnehmung"
+name_en = "Qi Luck Sensation"
+path = &"glueck"
+core = &"qi_glueck_gu"
+mortal_families = Array[StringName]([&"glueck", &"qischirm", &"stern"])
+beads = 2.0
+cooldown = 90.0
+channel = 1.2
+base_damage = 40.0
+steps = [{
+"chance": 0.6,
+"t": "luck",
+"time": 20.0
+}, {
+"color": "#7dff9b",
+"damage": 1.2,
+"key": "qi_glueck",
+"t": "buff",
+"time": 20.0
+}, {
+"color": "#7dff9b",
+"mult": 0.0,
+"radius": 20.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["licht"]
+}]
+description = "Nimmt das Glück als Qi wahr: 20 s lang 60 % kritische Treffer und reichere Beute, +20 % Schaden; das Unglück der Gegner im Umkreis 20 wird sichtbar (Schwäche). Kein direkter Schaden."
+lore = "Killer Move Fang Yuans mit dem Qi Luck Immortal Gu als Kern. Im Spiel wirkt das Aufspüren im Kampf; das Aufdecken der Gebietsschätze übernimmt der Kern-Gu."
+owner = "Fang Yuan"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://iliinrggpyob"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_strke"]
+
+[resource]
+script = ExtResource("1_strke")
+id = &"sorglose_reise_gu"
+display_name = "Sorglose-Reise-Gu"
+name_en = "Carefree Travel Gu"
+path = &"raum"
+category = &"bewegung"
+description = "Sorglos ausweichen: Sprung 8 m und für einen Augenblick (0,5 s) nahezu unverwundbar und unaufhaltsam."
+lore = "Eines der vier großen Bewegungs-Gu, spezialisiert aufs Ausweichen."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 8.0
+base_damage = 20.0
+steps = [{
+"color": "#6ad04a",
+"distance": 8.0,
+"t": "dash"
+}, {
+"color": "#6ad04a",
+"reduction": 0.95,
+"t": "armor",
+"time": 0.5
+}, {
+"t": "unstoppable",
+"time": 0.5
+}]

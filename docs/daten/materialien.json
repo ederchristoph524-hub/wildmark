@@ -345,6 +345,62 @@
    "path": "raffinerie",
    "src": "Erbschaften, Bestienkönige, Auktionen",
    "d": "Ein Relikt-Gu: Verfeinert (Inventar) die Aperturwand sofort um eine Stufe, wenn sein Rang deinem entspricht."
+  },
+  "unsterblichen_stein": {
+   "n": "Unsterblichen-Essenzstein",
+   "ic": "💎",
+   "rank": 6,
+   "path": "raffinerie",
+   "src": "Dein Gesegnetes Land, wüste Bestien, Schatzhimmel",
+   "d": "Verdichtete Unsterblichen-Essenz. Der Landgeist macht Perlen daraus; im Schatzhimmel die Währung der Unsterblichen."
+  },
+  "himmelsqi": {
+   "n": "Himmels-Qi-Kristall",
+   "ic": "☁️",
+   "rank": 5,
+   "path": "himmel",
+   "src": "Hohe Gipfel, Himmelsfragmente, Seelenberge",
+   "d": "Gebundenes Himmels-Qi. Für den Unsterblichen-Aufstieg: +40 Himmels-Qi."
+  },
+  "erdqi": {
+   "n": "Erd-Qi-Kristall",
+   "ic": "⛰️",
+   "rank": 5,
+   "path": "erde",
+   "src": "Urstein-Adern, tiefe Höhlen, Erdwürmer",
+   "d": "Gebundenes Erd-Qi. Für den Unsterblichen-Aufstieg: +40 Erd-Qi."
+  },
+  "himmelskristall": {
+   "n": "Himmelskristall",
+   "ic": "🔷",
+   "rank": 8,
+   "path": "himmel",
+   "src": "Grotto-Himmel, uralte und urzeitliche wüste Bestien",
+   "d": "Entsteht nur in Grotto-Himmeln. Wertvollste Ware im Schatzhimmel."
+  },
+  "wuestes_mark": {
+   "n": "Mark einer wüsten Bestie",
+   "ic": "🦴",
+   "rank": 6,
+   "path": "kraft",
+   "src": "Wüste Bestien (Rang 6–8)",
+   "d": "Das Knochenmark wüster Bestien – Futter für unsterbliche Gu und begehrte Handelsware."
+  },
+  "seelenstaub": {
+   "n": "Seelenstaub",
+   "ic": "✨",
+   "rank": 5,
+   "path": "seele",
+   "src": "Dang-Hun-Berg, Luo-Po-Tal, Seelenfresser",
+   "d": "Zerriebene Seelenreste. Stärkt beim Kultivieren das Seelenfundament."
+  },
+  "traumsplitter": {
+   "n": "Traumsplitter",
+   "ic": "🌙",
+   "rank": 6,
+   "path": "traum",
+   "src": "Traumreiche",
+   "d": "Ein Splitter aus einem zerfallenen Traumreich – Schlüssel zu tieferen Träumen."
   }
  },
  "MAT_KEYS": [
@@ -389,7 +445,14 @@
   "reliquie_rotstahl",
   "reliquie_weisssilber",
   "reliquie_gelbgold",
-  "reliquie_lilakristall"
+  "reliquie_lilakristall",
+  "unsterblichen_stein",
+  "himmelsqi",
+  "erdqi",
+  "himmelskristall",
+  "wuestes_mark",
+  "seelenstaub",
+  "traumsplitter"
  ],
  "GEAR": {
   "w1": {

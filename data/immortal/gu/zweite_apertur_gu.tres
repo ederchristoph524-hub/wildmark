@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cusmg6c00qsm7"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_f332t"]
+
+[resource]
+script = ExtResource("1_f332t")
+id = &"zweite_apertur_gu"
+display_name = "Zweite-Apertur-Gu"
+name_en = "Second Aperture Gu"
+path = &"mensch"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Eine zweite Unsterblichen-Apertur: +0,6 Perlen und +20 % Erträge je Spieltag."
+lore = "Erlaubt Gu-Meistern, zwei Immortal Apertures gleichzeitig zu kultivieren. Im Lexikon auch unter Heaven Path geführt."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"ertrag_mult": 0.2,
+"perlen_ertrag": 0.6
+}

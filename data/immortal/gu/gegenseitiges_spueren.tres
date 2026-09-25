@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bjrcwpxpqjwh2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_34613"]
+
+[resource]
+script = ExtResource("1_34613")
+id = &"gegenseitiges_spueren"
+display_name = "Gegenseitiges-Spüren"
+name_en = "Mutual Sense"
+path = &"information"
+category = &"information"
+kind = &"passiv"
+description = "Du spürst Verbündete und Gefährten überall (Karte) und reagierst schneller auf Gefahr (5 % weniger Schaden)."
+lore = "Übereinkunfts-/Verbindungstyp-Gu des Information Path (mit Mountain Pledge und Sea Oath Gu)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"reduction": 0.05,
+"sicht": true
+}

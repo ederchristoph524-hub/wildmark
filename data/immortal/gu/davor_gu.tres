@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dovwhex7t2wwy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7rowv"]
+
+[resource]
+script = ExtResource("1_7rowv")
+id = &"davor_gu"
+display_name = "Davor-Unsterblichen-Gu"
+name_en = "Before Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"zeit"
+description = "Regel „davor“: Die Wirkung tritt ein, bevor du wirkst – ein Zeitstoß (Umkreis 6) ohne Ausholen, dazu sind alle anderen Gu 10 s weiter und 6 s schneller bereit."
+lore = "Fundamentales Rule/Time-Grenz-Gu ('davor'), verwandt mit der Big/Small/Normal/One/Three-Rule-Path-Serie. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 30.0
+steps = [{
+"cd_mult": 0.7,
+"refund": 10.0,
+"t": "haste",
+"time": 6.0
+}, {
+"color": "#e8e0ff",
+"knockback": 1.5,
+"mult": 3.5,
+"radius": 6.0,
+"t": "circle",
+"tags": ["zeit"]
+}]

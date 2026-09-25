@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b0qf37lo3gudd"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_hvi64"]
+
+[resource]
+script = ExtResource("1_hvi64")
+id = &"kollektives_denken"
+display_name = "Kollektives-Denken"
+name_en = "Collective Thinking"
+path = &"weisheit"
+core = &"erinnerungs_gu"
+mortal_families = Array[StringName]([&"weisheit", &"wasserbild", &"sklaverei", &"kampfgeist"])
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"count": 2.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 15.0
+}, {
+"cd_mult": 0.6,
+"t": "haste",
+"time": 15.0
+}, {
+"ally_reduction": 0.2,
+"color": "#7fc8ff",
+"follow": true,
+"mult": 0.6,
+"radius": 10.0,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 15.0
+}]
+description = "Kollektives Denken (15 s): zwei Gedankenabbilder denken mit, deine Gu laden 40 % schneller, und das geteilte Bewusstsein trifft jeden Takt alle Gegner im Umkreis 10."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Erinnerungs-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

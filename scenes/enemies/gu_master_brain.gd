@@ -66,7 +66,7 @@ func _decide(foe: Combatant) -> Vector3:
 		var defend: int = master.ready_index(DEFEND_FORMS)
 		if defend >= 0 and master.use_gu(defend, toward, foe):
 			return Vector3.ZERO
-	if _try_killer(foe, distance):
+	if ImmortalNpc.try_cast(master, foe, distance) or _try_killer(foe, distance):
 		return Vector3.ZERO
 	var close: int = master.ready_index(CLOSE_FORMS)
 	if close >= 0 and distance <= close_reach(close) * 0.9:

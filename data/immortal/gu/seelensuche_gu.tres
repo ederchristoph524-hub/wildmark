@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://385xby3qqb4m"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_evhjf"]
+
+[resource]
+script = ExtResource("1_evhjf")
+id = &"seelensuche_gu"
+display_name = "Seelensuche-Gu"
+name_en = "Soul Search Gu"
+path = &"seele"
+category = &"information"
+description = "Durchsucht die Seele des Ziels: kurzer Stich durch jede Rüstung, 3 Stapel Schwäche, raubt Uressenz; 8 s lang 20 % kritische Treffer."
+lore = "Weitverbreitetes investigatives Gu zur Seelen-/Gedankendurchsuchung, besonders unter dämonischen Immortals beliebt, obwohl diese oft nicht im Soul Path kultivieren. Im Text Rang 3–7 (existiert also schon als sterbliches Gu); unsterblich bis Rang 7."
+owner = "Fang Yuan, Yang Ku"
+cooldown = 16.0
+steps = [{
+"angle": 40.0,
+"color": "#c9a0ff",
+"essence_steal": 0.5,
+"mult": 3.0,
+"pierce_armor": true,
+"reach": 5.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["seele"]
+}, {
+"chance": 0.2,
+"t": "luck",
+"time": 8.0
+}]

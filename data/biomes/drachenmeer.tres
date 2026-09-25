@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://b8xcafnoea8hi"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_pqre5"]
+
+[resource]
+script = ExtResource("1_pqre5")
+id = &"drachenmeer"
+display_name = "Türkismeer des Drachenpalasts"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.5411765, 0.47843137, 0.3529412, 1),
+&"fels": Color(0.3529412, 0.47843137, 0.47843137, 1),
+&"gipfel": Color(0.65882355, 0.8156863, 0.8, 1),
+&"gras_dunkel": Color(0.16470589, 0.47843137, 0.41568628, 1),
+&"gras_hell": Color(0.2901961, 0.6901961, 0.6039216, 1),
+&"moos": Color(0.22745098, 0.6039216, 0.5176471, 1),
+&"platz": Color(0.8784314, 0.83137256, 0.6901961, 1),
+&"strand": Color(0.9411765, 0.9019608, 0.76862746, 1),
+&"weg": Color(0.84705883, 0.8, 0.6666667, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.15,
+&"laubbaum": 0.2,
+&"palme": 0.65
+})
+trees_per_1000 = 2.5
+bushes_per_1000 = 2.5
+grass_per_1000 = 40.0
+sky = Color(0.78431374, 0.9411765, 0.9254902, 1)
+sky_top = Color(0.16470589, 0.6039216, 0.6901961, 1)
+fog = Color(0.7058824, 0.89411765, 0.8784314, 1)
+fog_density = 0.002
+water = Color(0.12156863, 0.6901961, 0.65882355, 1)
+sea_level = 0.0
+weather = &"regen"
+weather_chance = 0.25

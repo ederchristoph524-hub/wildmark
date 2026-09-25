@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://c53katgr77qr6"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_rn3mn"]
+
+[resource]
+script = ExtResource("1_rn3mn")
+id = &"fuchsland"
+display_name = "Fuchsland der Hu-Unsterblichen"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.47843137, 0.2901961, 0.18039216, 1),
+&"fels": Color(0.5411765, 0.39215687, 0.32156864, 1),
+&"gipfel": Color(0.8784314, 0.7529412, 0.6039216, 1),
+&"gras_dunkel": Color(0.5411765, 0.2901961, 0.14117648, 1),
+&"gras_hell": Color(0.78431374, 0.5176471, 0.22745098, 1),
+&"moos": Color(0.6431373, 0.39215687, 0.17254902, 1),
+&"platz": Color(0.78431374, 0.627451, 0.47843137, 1),
+&"weg": Color(0.72156864, 0.5647059, 0.41568628, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bambus": 0.2,
+&"bluetenbaum": 0.35,
+&"laubbaum": 0.45
+})
+trees_per_1000 = 4.0
+bushes_per_1000 = 3.5
+grass_per_1000 = 70.0
+sky = Color(0.9490196, 0.84705883, 0.7058824, 1)
+sky_top = Color(0.78431374, 0.41568628, 0.22745098, 1)
+fog = Color(0.91764706, 0.78431374, 0.627451, 1)
+fog_density = 0.0024
+water = Color(0.41568628, 0.5411765, 0.5411765, 1)
+plant_tint = Color(1, 0.6901961, 0.4392157, 1)
+weather = &"regen"
+weather_chance = 0.1

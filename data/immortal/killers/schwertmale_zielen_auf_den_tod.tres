@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://duvtqv8dn86sm"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_pm4ri"]
+
+[resource]
+script = ExtResource("1_pm4ri")
+id = &"schwertmale_zielen_auf_den_tod"
+display_name = "Schwertmale-zielen-auf-den-Tod"
+name_en = "Sword Marks Targeting Death"
+path = &"schwert"
+core = &"weisheitsschwert_gu"
+mortal_families = Array[StringName]([&"schwert", &"weisheit", &"stern", &"tarnung"])
+beads = 5.0
+channel = 1.2
+base_damage = 60.0
+steps = [{
+"color": "#e8f4ff",
+"count": 1.0,
+"execute": 2.0,
+"homing": true,
+"mult": 8.0,
+"pierce_armor": true,
+"range": 26.0,
+"speed": 34.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "durchbohren"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8f4ff",
+"count": 3.0,
+"homing": true,
+"mult": 1.0,
+"range": 20.0,
+"spread": 60.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}],
+"time": 0.5
+}]
+description = "Ein Schwertmal sucht den Tod des Ziels: durchdringt jede Rüstung, dreifach gegen Geschwächte unter 30 %; drei Nachklingen folgen."
+lore = "Teil von Fang Yuans Schwert-Killer-Moves (Myriad Thought Sword Waterfall / Sword Marks Targeting Death / Triple Layered Sword Wave), teils kombiniert mit Wave Sword Immortal Gu. Kern im Spiel: Weisheitsschwert-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

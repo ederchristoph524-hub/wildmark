@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://btgkkojhrka2l"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s1nvm"]
+
+[resource]
+script = ExtResource("1_s1nvm")
+id = &"aeusserste_vergangenheit_gu"
+display_name = "Äußerste-Vergangenheit-Unsterblichen-Gu"
+name_en = "Extreme Past Immortal Gu"
+rank = 7
+path = &"zeit"
+category = &"information"
+kind = &"passiv"
+description = "Liest die äußerste Vergangenheit: Verborgenes wird sichtbar, +15 % Dao-Markierungen, Kalamitäten treffen dich vorbereitet (−10 % Schaden)."
+lore = "Investigatives Zeit-Gu zur Erforschung der Vergangenheit (Reihe Looking Back / Vivid Recollection / Extreme Past). Steigt bis Rang 8."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"dao_mult": 0.15,
+"kalamitaet_schutz": 0.1,
+"sicht": true
+}

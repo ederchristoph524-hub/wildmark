@@ -113,6 +113,9 @@ func costs(slots: Array[int]) -> Dictionary:
 
 func start(aim: Vector3) -> bool:
 	var move: KillerMoveData = current()
+	if DimensionRules.blocks_gu():
+		EventBus.message.emit(tr("Hier schweigt jeder Gu"), Color(1.0, 0.6, 0.4))
+		return false
 	if move == null or is_channeling():
 		if move == null:
 			EventBus.message.emit(tr("Kein Killer Move bereit"), Color(1.0, 0.6, 0.4))

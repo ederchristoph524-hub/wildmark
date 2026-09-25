@@ -1,0 +1,455 @@
+[gd_resource type="Resource" script_class="ImmortalSystemData" format=3 uid="uid://dtrkw8k16cdhx"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_system_data.gd" id="1_8vqmx"]
+
+[resource]
+script = ExtResource("1_8vqmx")
+ranks = Array[Dictionary]([{
+"breakthrough": {
+"attain": 0,
+"dao": 2000.0,
+"stones": 60,
+"text": "Drei Himmlische Trübsale überstanden – deine Apertur kann Rotdattel-Essenz tragen."
+},
+"color": Color(0.49019608, 0.8745098, 0.41568628, 1),
+"cycle": Array[StringName]([&"erd", &"erd", &"himm"]),
+"days": 3,
+"essence": "Grüntrauben-Essenz",
+"per_stage": 3,
+"rank": 6
+}, {
+"breakthrough": {
+"attain": 0,
+"dao": 20000.0,
+"stones": 240,
+"text": "Drei Große Trübsale überstanden – der Weg zu Rang 8 und zum Grotto-Himmel ist offen."
+},
+"color": Color(0.8784314, 0.2784314, 0.22745098, 1),
+"cycle": Array[StringName]([&"erd", &"himm", &"gross"]),
+"days": 3,
+"essence": "Rotdattel-Essenz",
+"per_stage": 3,
+"rank": 7
+}, {
+"breakthrough": {
+"attain": 5,
+"dao": 300000.0,
+"stones": 1000,
+"text": "Die vier Bedingungen sind erfüllt – stelle dich der Höchsten Trübsal."
+},
+"color": Color(0.9490196, 0.9490196, 0.9254902, 1),
+"cycle": Array[StringName]([&"himm", &"gross", &"myriad"]),
+"days": 4,
+"essence": "Weißlitschi-Essenz",
+"per_stage": 3,
+"rank": 8
+}, {
+"breakthrough": {
+"attain": 0,
+"dao": 0.0,
+"stones": 0,
+"text": ""
+},
+"color": Color(1, 0.8235294, 0.23921569, 1),
+"cycle": Array[StringName]([&"chaos"]),
+"days": 5,
+"essence": "Gelbaprikosen-Essenz",
+"per_stage": 1,
+"rank": 9
+}])
+calamities = {
+&"aufstieg_erd": {
+"bolts": 0,
+"color": Color(0.7882353, 0.627451, 0.4392157, 1),
+"dao": 0.0,
+"duration": 35.0,
+"name": "Erdkalamität des Aufstiegs",
+"quakes": true,
+"warning": "Die Erde antwortet auf deinen Aufstieg.",
+"waves": 3
+},
+&"aufstieg_himm": {
+"bolts": 16,
+"color": Color(0.49803922, 0.78431374, 1, 1),
+"dao": 0.0,
+"duration": 35.0,
+"name": "Himmlische Trübsal des Aufstiegs",
+"quakes": false,
+"warning": "Der Himmel prüft, ob du würdig bist.",
+"waves": 2
+},
+&"chaos": {
+"bolts": 30,
+"color": Color(1, 0.8235294, 0.23921569, 1),
+"dao": 100000.0,
+"duration": 80.0,
+"name": "Chaos-Katastrophe",
+"quakes": true,
+"warning": "Aus dem Chaos jenseits der Weltgrenze naht etwas.",
+"waves": 6
+},
+&"erd": {
+"bolts": 0,
+"color": Color(0.7882353, 0.627451, 0.4392157, 1),
+"dao": 250.0,
+"duration": 40.0,
+"name": "Erdkalamität",
+"quakes": true,
+"warning": "Die Erde deiner Apertur bebt – eine Erdkalamität naht.",
+"waves": 3
+},
+&"gross": {
+"bolts": 18,
+"color": Color(0.7882353, 0.23137255, 1, 1),
+"dao": 7250.0,
+"duration": 55.0,
+"name": "Große Trübsal",
+"quakes": true,
+"warning": "Die Welt selbst wendet sich gegen dich – eine Große Trübsal naht.",
+"waves": 4
+},
+&"himm": {
+"bolts": 14,
+"color": Color(0.49803922, 0.78431374, 1, 1),
+"dao": 750.0,
+"duration": 45.0,
+"name": "Himmlische Trübsal",
+"quakes": false,
+"warning": "Der Himmel über deiner Apertur verdunkelt sich – eine Himmlische Trübsal naht.",
+"waves": 3
+},
+&"hoechst": {
+"bolts": 34,
+"color": Color(1, 1, 1, 1),
+"dao": 150000.0,
+"duration": 80.0,
+"name": "Höchste Trübsal",
+"quakes": true,
+"warning": "Himmel und Erde verweigern dir den letzten Schritt – die Höchste Trübsal.",
+"waves": 6
+},
+&"myriad": {
+"bolts": 26,
+"color": Color(1, 0.3647059, 0.4509804, 1),
+"dao": 86750.0,
+"duration": 65.0,
+"name": "Myriaden-Trübsal",
+"quakes": true,
+"warning": "Ein apokalyptisches Zeichen steht am Himmel – die Myriaden-Trübsal naht.",
+"waves": 5
+}
+}
+calamity_beasts = {
+0: Array[StringName]([&"urzeitlicher_drachenwal", &"urzeitlicher_erdwurm"])
+}
+land_grades = Array[Dictionary]([{
+"color": Color(0.6627451, 0.70980394, 0.627451, 1),
+"id": &"niedrig",
+"name": "Niedriges Gesegnetes Land",
+"size": 300.0,
+"start_beads": 4.0,
+"stones_per_day": 3.0,
+"time_flow": 5.0,
+"yield": 1.0
+}, {
+"color": Color(0.49019608, 0.827451, 0.3529412, 1),
+"id": &"mittel",
+"name": "Mittleres Gesegnetes Land",
+"size": 360.0,
+"start_beads": 6.0,
+"stones_per_day": 5.0,
+"time_flow": 10.0,
+"yield": 1.35
+}, {
+"color": Color(0.2901961, 0.6039216, 0.8156863, 1),
+"id": &"hoch",
+"name": "Hohes Gesegnetes Land",
+"size": 440.0,
+"start_beads": 9.0,
+"stones_per_day": 8.0,
+"time_flow": 20.0,
+"yield": 1.8
+}, {
+"color": Color(1, 0.8235294, 0.23921569, 1),
+"id": &"super",
+"name": "Super-Gesegnetes Land",
+"size": 520.0,
+"start_beads": 14.0,
+"stones_per_day": 12.0,
+"time_flow": 30.0,
+"yield": 2.6
+}])
+ascension = {
+"erd_pfade": ["erde", "holz", "wasser", "feuer", "metall", "kraft", "blut", "knochen", "gift", "eis", "nahrung"],
+"erd_rate": 1.4,
+"grad_schwellen": [120.0, 300.0, 520.0, 780.0],
+"himmel_rate": 1.4,
+"himmels_pfade": ["wind", "stern", "licht", "wolke", "blitz", "glueck", "zeit", "raum", "weisheit", "seele", "himmel", "traum"],
+"item_qi": 40.0,
+"mensch": {
+"aufgaben": 20.0,
+"dao": 0.05,
+"duelle": 12.0,
+"erbschaften": 50.0,
+"gebiete": 15.0,
+"gu": 8.0,
+"kills": 1.0,
+"ruf": 0.25,
+"tage": 3.0
+},
+"min_balance": 0.45,
+"qi_max": 1000.0,
+"rueckfall_stufe": 1.0,
+"text_scheitern": "Himmel und Erde verwerfen dich – deine Apertur zerbricht, doch du lebst."
+}
+inspirations = Array[Dictionary]([{
+"effect": {
+"ertrag_mult": 0.4
+},
+"id": &"perlen",
+"question": "Wie verdichtet sich Essenz?",
+"text": "Dein Gesegnetes Land erzeugt 40 % mehr Essenzsteine."
+}, {
+"effect": {
+"perlen_kosten": -0.25
+},
+"id": &"kosten",
+"question": "Was ist der wahre Preis der Macht?",
+"text": "Unsterbliche Gu und Killer Moves kosten 25 % weniger Perlen."
+}, {
+"effect": {
+"kalamitaet_schutz": 0.5
+},
+"id": &"kalamitaet",
+"question": "Wie übersteht man den Zorn des Himmels?",
+"text": "Kalamitäten fügen dir und deinem Land nur halben Schaden zu."
+}, {
+"effect": {
+"dao_mult": 1.0
+},
+"id": &"dao",
+"question": "Woraus besteht die Welt?",
+"text": "Doppelte Dao-Markierungen aus allem."
+}, {
+"effect": {
+"max_hp": 0.25
+},
+"id": &"leben",
+"question": "Was hält den Körper zusammen?",
+"text": "+25 % Leben für immer."
+}])
+treasure = {
+"auktion": {
+"anzahl": 5.0,
+"killer_moves": 2.0,
+"killer_preis": 120.0,
+"preise": {
+"6": 60.0,
+"7": 220.0,
+"8": 900.0,
+"9": 4000.0
+}
+},
+"d": "Der Schatzhimmel (Treasure Yellow Heaven) ist ein Marktplatz über den Wolken, zu dem nur Unsterbliche Zugang haben. Gehandelt wird in Unsterblichen-Essenzsteinen – ohne Namen, ohne Gesicht.",
+"kristall_je_stein": 150.0,
+"materialien": {
+"drachenschuppe": 2.0,
+"erdqi": 3.0,
+"geisterseide": 2.0,
+"heldenherz": 2.0,
+"himmelsqi": 3.0,
+"reliquie_lilakristall": 6.0,
+"seelenglas": 1.0,
+"sonnengold": 4.0,
+"sternsand": 1.0,
+"tiefseeperle": 2.0,
+"urkristall": 2.0,
+"zeitharz": 2.0
+},
+"n": "Schatzhimmel",
+"sterbliche_gu": {
+"3": 1.0,
+"4": 1.0,
+"5": 3.0
+},
+"verkauf": {
+"drachenschuppe": 1.0,
+"heldenherz": 1.0,
+"himmelskristall": 25.0,
+"urkristall": 1.0,
+"wuestes_mark": 2.0
+},
+"zutritt_rang": 6.0
+}
+land_spirit = {
+"lines": ["Diese Welt ist dein Werk, Herr. Jede Dao-Markierung formt sie mit.", "Ich bin aus deiner Apertur geboren. Ohne dich gäbe es mich nicht.", "Gib mir Essenzsteine, ich verdichte sie zu Perlen – oder lass sie liegen, dann wächst dein Vorrat.", "Die nächste Kalamität spüre ich lange, bevor sie kommt. Sei dann hier, Herr."],
+"n": "Dein Landgeist"
+}
+path_biomes = {
+"_standard": "dschungel_berg",
+"blitz": "angleichungswinde",
+"blut": "blutsumpf",
+"dunkelheit": "schwarzer_himmel",
+"eis": "froststeppe",
+"erde": "felsberg",
+"feuer": "rote_schlucht",
+"gift": "blutsumpf",
+"glueck": "goldsteppe",
+"himmel": "wolkenfeste",
+"holz": "dschungel_berg",
+"kraft": "steppe",
+"licht": "weisser_himmel",
+"metall": "felsberg",
+"raffinerie": "wolkensee",
+"raum": "blauer_himmel",
+"schwert": "sektenberg",
+"seele": "seelenberg",
+"stern": "weisser_himmel",
+"traum": "traumreich",
+"verwandlung": "fuchsland",
+"wasser": "inseln",
+"weisheit": "wolkensee",
+"wind": "kranichtal",
+"zeit": "zeitstrom"
+}
+placements = Array[Dictionary]([{
+"area": &"drachenpalast",
+"master": &"herzog_long",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"himmlischer_hof",
+"master": &"ming_hao",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"weisser_himmel",
+"master": &"zheng_yuan",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"himmlischer_hof",
+"master": &"feng_jiu_ge",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"traumreich",
+"master": &"feng_jin_huang",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"wu_klan",
+"master": &"wu_yong",
+"role": &"sanctum",
+"settlement": &"wu_festung"
+}, {
+"area": &"qing_mao",
+"master": &"fang_zheng",
+"role": &"sanctum",
+"settlement": &"gu_yue_dorf"
+}, {
+"area": &"qing_mao",
+"master": &"chi_shang",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"drei_koenige",
+"master": &"bai_ning_bing",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"blutsumpf",
+"master": &"tie_qu_zhong",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"sektenberg",
+"master": &"sixth_hair",
+"role": &"sanctum",
+"settlement": &"schatten_versteck"
+}, {
+"area": &"steppe",
+"master": &"xue_song_zi",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"dang_hun_berg",
+"master": &"green",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"steppe",
+"master": &"hei_cheng",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"steppe",
+"master": &"hei_lou_lan",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"yi_tian_berg",
+"master": &"dong_fang_yu_liang",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"yi_tian_berg",
+"master": &"tai_bai_yun_sheng",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"lang_ya_land",
+"master": &"lang_ya_landgeist",
+"role": &"waechter",
+"settlement": &""
+}, {
+"area": &"oase",
+"master": &"fang_di_chang",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"schwarzer_himmel",
+"master": &"wu_shuai",
+"role": &"wanderer",
+"settlement": &""
+}, {
+"area": &"kranichtal",
+"master": &"kranich_oberster",
+"role": &"sanctum",
+"settlement": &"himmelskranich_sekte"
+}, {
+"area": &"sektenberg",
+"master": &"zehn_extreme_oberster",
+"role": &"sanctum",
+"settlement": &"zehn_extreme_sekte"
+}, {
+"area": &"yi_tian_berg",
+"master": &"yi_tian_oberster",
+"role": &"sanctum",
+"settlement": &"yi_tian_sekte"
+}, {
+"area": &"steppe",
+"master": &"huang_jin_oberster",
+"role": &"sanctum",
+"settlement": &"huang_jin_lager"
+}, {
+"area": &"shang_stadt",
+"master": &"shang_oberster",
+"role": &"sanctum",
+"settlement": &"shang_stadt"
+}, {
+"area": &"inseln",
+"master": &"ostmeer_oberster",
+"role": &"sanctum",
+"settlement": &"perleninsel"
+}, {
+"area": &"oase",
+"master": &"wuestentempel_oberster",
+"role": &"sanctum",
+"settlement": &"oasenstadt"
+}, {
+"area": &"inseln",
+"master": &"zombie_oberster",
+"role": &"sanctum",
+"settlement": &"zombieinsel"
+}])

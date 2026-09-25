@@ -1,0 +1,273 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://cpcvnwsagqt5a"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_xs6x0"]
+
+[resource]
+script = ExtResource("1_xs6x0")
+id = &"lang_ya_land"
+display_name = "Lang-Ya-Gesegnetes-Land"
+region = 0
+map_position = Vector2(0.5, 0.15)
+rank_min = 6
+rank_max = 8
+open = true
+description = "Sitz der Lang-Ya-Sekte über dem großen See der Nördlichen Ebene. Haarmenschen verfeinern hier Gu für die ganze Welt, die Bibliothek hütet mehr Wissen als jede Sekte – und der Landgeist handelt mit jedem, der etwas zu bieten hat."
+size = 520.0
+terrain_seed = 60505
+biome = &"wolkensee"
+relief = Dictionary[StringName, float]({
+&"berge": 16.0,
+&"detail": 0.9,
+&"frequenz": 0.0045,
+&"hoehe": 10.0,
+&"horizont": 180.0,
+&"rand": 60.0,
+&"randhoehe": 50.0
+})
+arrival = Vector2(0, 210)
+paths = [[Vector2(0, 210), Vector2(20, 100), Vector2(60, 30)], [Vector2(10, -40), Vector2(-60, -90), Vector2(-100, -115)], [Vector2(110, -40), Vector2(170, 20)], [Vector2(60, -110), Vector2(-30, -150)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.49803922, 0.78431374, 1, 1),
+&"dach": Color(0.22745098, 0.3529412, 0.47843137, 1),
+&"holz": Color(0.3529412, 0.2901961, 0.22745098, 1),
+&"saeule": Color(0.49803922, 0.78431374, 1, 1),
+&"stein": Color(0.65882355, 0.65882355, 0.6431373, 1),
+&"wand": Color(0.9490196, 0.93333334, 0.8862745, 1)
+},
+"faction": &"lang_ya",
+"houses": 0,
+"id": &"lang_ya_sekte",
+"pond": 0.0,
+"position": Vector2(60, -40),
+"radius": 70.0,
+"residents": &"haarmenschen",
+"type": &"sekte"
+}, {
+"colors": {
+&"banner": Color(0.49803922, 0.78431374, 1, 1),
+&"dach": Color(0.41568628, 0.3529412, 0.28235295, 1),
+&"holz": Color(0.2901961, 0.22745098, 0.16470589, 1),
+&"saeule": Color(0.5411765, 0.41568628, 0.2901961, 1),
+&"stein": Color(0.5411765, 0.5254902, 0.5019608, 1),
+&"wand": Color(0.8784314, 0.8392157, 0.7529412, 1)
+},
+"faction": &"lang_ya",
+"houses": 6,
+"id": &"haarmenschen_werkstaetten",
+"pond": 0.0,
+"position": Vector2(-110, -120),
+"radius": 30.0,
+"residents": &"haarmenschen",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Großer See",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-130, 100),
+"radius": 55.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.49803922, 0.78431374, 1, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_wolkenkranich", &"wuester_sturmadler"]),
+"id": &"lang_ya_bibliothek",
+"item": &"",
+"name": "Große Bibliothek von Lang Ya",
+"offering": {
+&"daokern": 1,
+&"unsterblichen_stein": 25
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-40, -170),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"himmelsweisheit", &"neun_palaeste"]),
+"immortal": Array[StringName]([&"myriaden_selbst_gu"]),
+"items": {
+&"daokern": 2,
+&"himmelsjade": 2
+},
+"support": Array[StringName]([&"boeserGedanke"])
+},
+"style": &"turm",
+"text": "Stockwerk um Stockwerk Schriftrollen, bewacht von Kranichen, die nie schlafen. Wer oben ankommt, darf eine Abschrift mitnehmen.",
+"type": &"erbe"
+}, {
+"accent": Color(0.78431374, 0.89411765, 1, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_wolkenkranich", &"wueste_frostschlange"]),
+"id": &"lang_ya_schatzkammer",
+"item": &"",
+"name": "Schatzkammer von Lang Ya",
+"offering": {
+&"himmelsjade": 2,
+&"unsterblichen_stein": 15
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(170, -160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"eisenwand_gu"]),
+"items": {
+&"daokern": 2,
+&"himmelsjade": 4,
+&"reliquie_lilakristall": 1
+},
+"support": Array[StringName]([&"sterngedanke", &"hundertschlachten"])
+},
+"style": &"tempel",
+"text": "Die Haarmenschen lagern hier, was sie nicht verkaufen wollen. Die Tür öffnet sich nur gegen ein Opfer.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Verfeinerungshalle der Haarmenschen",
+"offering": {},
+"owner": &"",
+"path": &"raffinerie",
+"position": Vector2(110, 50),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hundert Öfen brennen Tag und Nacht. Wer den Haarmenschen beim Verfeinern zusieht, lernt mehr als aus jedem Buch.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Lesepavillon am See",
+"offering": {},
+"owner": &"",
+"path": &"weisheit",
+"position": Vector2(-40, 150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein offener Pavillon über dem Wasser. Hier lesen die Schüler laut – und die Worte bleiben in der Luft hängen.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Wolkenquelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(190, 100),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 3,
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Lang-Ya-Ader",
+"offering": {},
+"owner": &"lang_ya",
+"path": &"",
+"position": Vector2(185, 10),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Sekte lässt hier Urstein für ihre Öfen brechen. Wer ohne Erlaubnis hackt, wird nicht wieder eingeladen.",
+"type": &"ursteinader"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(30, 3),
+&"himmelsjade": Vector2i(8, 1),
+&"holz": Vector2i(40, 2),
+&"jadeader": Vector2i(10, 1),
+&"kristall": Vector2i(40, 3),
+&"stein": Vector2i(40, 2),
+&"unsterblichen_stein": Vector2i(10, 1),
+&"wolkenerz": Vector2i(8, 1)
+})
+enemy_radii = Array[float]([140.0, 200.0])
+enemy_zones = [[&"sturmadler", &"weisser_tiger"], [&"wuester_sturmadler", &"wueste_frostschlange", &"donnerkronenwolf"], [&"uralter_wolkenkranich", &"wuester_sturmadler", &"wueste_frostschlange"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(140, 230)
+wild_passives = [[&"fadenspur", &"support", 140.0, 230.0, false], [&"hundertschlachten", &"support", 160.0, 230.0, true]]
+immortal = {
+"annex": {
+"gift": {
+&"daokern": 3,
+&"himmelsjade": 4,
+&"unsterblichen_stein": 60
+},
+"growth": 80.0,
+"path": &"raffinerie"
+},
+"entrance": "Ein Wolkenpfad steigt vom großen See der Nördlichen Ebene auf; die Lang-Ya-Sekte lässt Unsterbliche als Handelsgäste ein.",
+"entry_rank": 6,
+"kind": &"gesegnetes_land",
+"rules": Array[StringName]([&"zeitfluss"]),
+"spirit": {
+"lines": ["Willkommen in Lang Ya. Die Haarmenschen verfeinern, ich handle.", "Wissen gegen Wissen, Schatz gegen Schatz. Bring mir Mut-Gu vom Dang-Hun-Berg, und die Bibliothek steht dir offen.", "Der Langhaar-Ahn hat dieses Land geschaffen. Ich hüte es, bis er zurückkehrt – oder bis mir jemand ein besseres Angebot macht."],
+"name": "Lang-Ya-Landgeist"
+},
+"time_flow": 2.0
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://clh2txkf5uf3a"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_lhd8v"]
+
+[resource]
+script = ExtResource("1_lhd8v")
+id = &"wasserverfeinerungs_gu"
+display_name = "Wasserverfeinerungs-Unsterblichen-Gu"
+name_en = "Water Refinement Immortal Gu"
+rank = 8
+path = &"raffinerie"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Verfeinert mit Wasser: +50 % Erträge, +1 Perle je Spieltag, 0,2 % Heilung je Sekunde."
+lore = "Kombiniert Refinement und Water Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"ertrag_mult": 0.5,
+"perlen_ertrag": 1.0,
+"regen": 0.002
+}

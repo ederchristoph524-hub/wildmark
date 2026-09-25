@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://pfd7xrxlj2yq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_5t4nl"]
+
+[resource]
+script = ExtResource("1_5t4nl")
+id = &"kraftverbrauchs_gu"
+display_name = "Kraftverbrauchs-Gu"
+name_en = "Expend Strength Gu"
+rank = 7
+path = &"kraft"
+category = &"kontrolle"
+description = "Zehrt die Kraft der Gegner aus: zwei Wellen (Umkreis 7) setzen insgesamt 4 Stapel Schwäche und bremsen 4 s um 40 %."
+lore = "Schwächt gegnerische Strength-Path-Nutzer."
+owner = "Hei Lou Lan"
+beads = 1.5
+cooldown = 25.0
+base_damage = 30.0
+steps = [{
+"color": "#e07a4a",
+"mult": 1.5,
+"radius": 7.0,
+"slow": 0.4,
+"slow_time": 4.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"mult": 1.5,
+"radius": 7.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["wucht"]
+}],
+"time": 0.5
+}]

@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://wua7j1x80dcl"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ljdai"]
+
+[resource]
+script = ExtResource("1_ljdai")
+id = &"zeitschneide"
+display_name = "Zeitschneide"
+name_en = "Time Cutting Edge"
+path = &"zeit"
+core = &"schneide_gu"
+mortal_families = Array[StringName]([&"schwert", &"zeit", &"mondlicht", &"tausendfuessler", &"wind"])
+beads = 8.0
+cooldown = 100.0
+channel = 2.0
+base_damage = 80.0
+steps = [{
+"color": "#a04ad0",
+"length": 18.0,
+"mult": 10.0,
+"pierce_armor": true,
+"set_stacks": {
+"wunde": 1.0
+},
+"slow": 0.6,
+"slow_time": 4.0,
+"t": "line",
+"tags": ["zeit", "schnitt"],
+"width": 2.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"length": 18.0,
+"mult": 6.0,
+"t": "line",
+"tags": ["zeit", "schnitt"],
+"width": 3.0
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"length": 18.0,
+"mult": 6.0,
+"stun": 0.8,
+"t": "line",
+"tags": ["zeit", "schnitt"],
+"width": 3.0
+}],
+"time": 1.2
+}]
+description = "Die Zeitschneide: ein Schnitt durch die Zeit (18 m) durchdringt jede Rüstung, reißt eine Wunde und bremst 4 s – zweimal hallt er als Zeitecho nach."
+lore = "Fang Yuans stärkste offensive Zeit-Path-Technik, aus einer Bo-Clan-Traumreich-Erbschaft (zusammen mit Shrink Time und Winter Coat)."
+owner = "Fang Yuan (Bo-Clan-Erbschaft)"

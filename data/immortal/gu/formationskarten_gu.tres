@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b0x87awa3nuhw"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_28npk"]
+
+[resource]
+script = ExtResource("1_28npk")
+id = &"formationskarten_gu"
+display_name = "Formationskarten-Unsterblichen-Gu"
+name_en = "Formation Chart Immortal Gu"
+path = &"formation"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Gespeicherte Formationen schützen deine Apertur: Kalamitäten richten 20 % weniger Schaden an."
+lore = "Expendable (verbrauchbares) Formation-Path-Gu. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"kalamitaet_schutz": 0.2
+}

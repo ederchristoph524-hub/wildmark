@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dskyol8bsgkgx"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_gqt53"]
+
+[resource]
+script = ExtResource("1_gqt53")
+id = &"formationsflaggen_gu"
+display_name = "Formationsflaggen-Unsterblichen-Gu"
+name_en = "Formation Flag Immortal Gu"
+path = &"formation"
+category = &"unterstuetzung"
+description = "Setzt vier Formationsflaggen (30 s): Wer sie berührt, löst einen Formationsschlag aus und bleibt 2 s gebremst."
+lore = "Speicher-/Trägertyp-Gu für Formationen; ursprünglich bei Zhen Yuan Zi, später Teil von Fang Yuans Ausrüstung. Steigt bis Rang 7."
+owner = "Zhen Yuan Zi → Fang Yuan"
+cooldown = 25.0
+steps = [{
+"color": "#d8c070",
+"count": 4.0,
+"mult": 1.5,
+"radius": 3.0,
+"slow": 0.4,
+"slow_time": 2.0,
+"spacing": 3.0,
+"t": "trap",
+"tags": ["wucht"],
+"time": 30.0,
+"trigger": 1.8
+}]

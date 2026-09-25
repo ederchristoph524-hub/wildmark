@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bohmfwnw5nong"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_bws4j"]
+
+[resource]
+script = ExtResource("1_bws4j")
+id = &"jahre_verleihen_kraft"
+display_name = "Jahre-verleihen-Kraft"
+name_en = "Years Grant Strength"
+path = &"zeit"
+core = &"jahr_gu"
+mortal_families = Array[StringName]([&"zeit", &"kampfgeist", &"wirbel", &"gestalt"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"color": "#a04ad0",
+"damage": 1.3,
+"key": "jahreskraft",
+"t": "buff",
+"time": 5.0
+}, {
+"color": "#a04ad0",
+"mult": 4.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"damage": 1.7,
+"key": "jahreskraft",
+"t": "buff",
+"time": 5.0
+}],
+"time": 5.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"damage": 2.2,
+"grow": 1.2,
+"key": "jahreskraft",
+"t": "buff",
+"time": 5.0
+}],
+"time": 10.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#a04ad0",
+"knockback": 2.5,
+"mult": 5.0,
+"radius": 8.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["zeit", "wucht"]
+}],
+"time": 15.0
+}]
+description = "Jahre verleihen Kraft: ein Zeitschlag, dann wächst deine Kraft 15 s lang in drei Stufen (+30 %, +70 %, +120 %) – am Ende entlädt sich alles in einem Jahrhundertschlag."
+lore = "Teil der Serie von Zeitraffer- und Zeitlupe-Techniken (Myriad Year Hunting / Year Beast Summoning / Years Grant Strength / Years Pass Like Days/Months), Time + Enslavement/Strength Path, Kern Year Gu bzw. Years Flow Like Water Gu; teils von Hei Fan genutzt."
+owner = "Fang Yuan, Hei Fan"

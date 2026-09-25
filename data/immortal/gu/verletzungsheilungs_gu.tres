@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bt2o03e0ckyqs"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_mtxy6"]
+
+[resource]
+script = ExtResource("1_mtxy6")
+id = &"verletzungsheilungs_gu"
+display_name = "Verletzungsheilungs-Gu"
+name_en = "Heal Injury Gu"
+path = &"mensch"
+category = &"heilung"
+description = "Heilt Verletzungen: 35 % Leben über 4 s und entfernt Wunden, Blutung und alle anderen Zustände."
+lore = "Human-Path-Gu rund um Verletzung und Heilung (mit Injury Mark Gu). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"frac": 0.35,
+"t": "heal",
+"time": 4.0
+}, {
+"t": "cleanse"
+}]

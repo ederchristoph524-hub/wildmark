@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://lx3k8t2mvgw1"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_dxmo1"]
+
+[resource]
+script = ExtResource("1_dxmo1")
+id = &"seelenberg"
+display_name = "Seelenberg (Dang Hun)"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.30588236, 0.27450982, 0.3372549, 1),
+&"fels": Color(0.36862746, 0.3529412, 0.41568628, 1),
+&"gipfel": Color(0.78431374, 0.7529412, 0.8627451, 1),
+&"gras_dunkel": Color(0.2901961, 0.27450982, 0.34509805, 1),
+&"gras_hell": Color(0.43137255, 0.41568628, 0.50980395, 1),
+&"moos": Color(0.3529412, 0.32941177, 0.4392157, 1),
+&"platz": Color(0.5411765, 0.5176471, 0.59607846, 1),
+&"weg": Color(0.47843137, 0.45490196, 0.53333336, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"nadelbaum": 0.45,
+&"totholz": 0.55
+})
+trees_per_1000 = 1.2
+bushes_per_1000 = 1.0
+grass_per_1000 = 18.0
+rocks_per_1000 = 4.5
+sky = Color(0.72156864, 0.6901961, 0.78431374, 1)
+sky_top = Color(0.2901961, 0.24313726, 0.43137255, 1)
+fog = Color(0.6509804, 0.6117647, 0.7372549, 1)
+fog_density = 0.003
+water = Color(0.22745098, 0.20392157, 0.3137255, 1)
+plant_tint = Color(0.78431374, 0.72156864, 0.8784314, 1)

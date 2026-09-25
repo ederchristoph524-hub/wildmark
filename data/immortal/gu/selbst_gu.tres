@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ckl0lahpngsgw"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ekh33"]
+
+[resource]
+script = ExtResource("1_ekh33")
+id = &"selbst_gu"
+display_name = "Selbst-Gu"
+name_en = "Self Gu"
+rank = 9
+path = &"mensch"
+category = &"konzept"
+kind = &"konzept"
+description = "Legende aus den Sagen von Ren Zu – so winzig, dass niemand es spürt. Nur Lexikon-Eintrag."
+lore = "Zentrale Figur der Legends of Ren Zu – so winzig, dass niemand seine Existenz im Wirt spüren kann. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"

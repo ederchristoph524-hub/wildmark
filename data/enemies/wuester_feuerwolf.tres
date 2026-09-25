@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dosu4iq35gf1k"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_fewm6"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_cyi4q"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_fewm6")
+item = &"unsterblichen_stein"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_fewm6")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_fewm6")
+item = &"glutasche"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_fewm6")
+item = &"wolfsgeist"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_fewm6")
+item = &"drachenschuppe"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_cyi4q")
+id = &"wuester_feuerwolf"
+display_name = "Wüster Feuerwolf"
+max_hp = 6000
+damage = 120
+speed = 5.4
+xp = 2000
+radius = 0.95
+color = Color(0.8784314, 0.3137255, 0.16470589, 1)
+zone = 9
+rank = 6
+ability = [{
+"distance": 12.0,
+"t": "teleport",
+"to": "target"
+}, {
+"color": "#ff7a3a",
+"mult": 1.1,
+"radius": 5.0,
+"stacks": 3.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"count": 2.0,
+"enemy": "feuerfuchs",
+"t": "summon",
+"time": 20.0
+}]
+ability_range = 14.0
+ability_cooldown = 10.0
+drops = Array[ExtResource("1_fewm6")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+shape = &"wolf"
+burn = true

@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c4oxkkvocy1aq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_hj1tu"]
+
+[resource]
+script = ExtResource("1_hj1tu")
+id = &"raumloser_tunnel"
+display_name = "Raumloser-Tunnel"
+name_en = "Spaceless Tunnel"
+path = &"raum"
+core = &"durchgang_gu"
+mortal_families = Array[StringName]([&"schritt", &"tausch", &"tarnung"])
+cooldown = 50.0
+channel = 0.8
+steps = [{
+"color": "#6ad04a",
+"knockback": 1.5,
+"mult": 0.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["raum"]
+}, {
+"color": "#6ad04a",
+"distance": 40.0,
+"t": "teleport"
+}, {
+"t": "unstoppable",
+"time": 1.0
+}, {
+"color": "#6ad04a",
+"mult": 4.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["raum"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"mult": 4.0,
+"pierce_armor": true,
+"radius": 8.0,
+"t": "circle",
+"tags": ["raum", "durchbohren"]
+}],
+"time": 0.3
+}]
+description = "Ein raumloser Tunnel: Du reist 40 m weit – durch alles hindurch – und reißt beim Austreten zweimal den Raum auf."
+lore = "Teil der gesamten Theft-Path-Kerntechnik-Reihe des Thieving Heaven Demon Venerable (Theft/Space/Soul Path), die Fang Yuan nach dessen Tod größtenteils erbt bzw. nachbaut. Kern im Spiel: Durchgang-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable → Fang Yuan"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dwmu726hgig6w"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_scpci"]
+
+[resource]
+script = ExtResource("1_scpci")
+id = &"paradies_erschaffung"
+display_name = "Paradies-Erschaffung"
+name_en = "Paradise Creation"
+path = &"erde"
+core = &"fruehlings_gu"
+mortal_families = Array[StringName]([&"erde", &"blatt", &"qischirm", &"labyrinth"])
+beads = 5.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"ally_reduction": 0.5,
+"color": "#a08050",
+"heal": 0.03,
+"mult": 0.8,
+"radius": 14.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["erde", "holz"],
+"tick": 2.0,
+"time": 20.0
+}]
+description = "Erschafft ein kleines Paradies (Umkreis 14, 20 s): Verbündete heilen und sind 50 % geschützt, Gegner werden gebremst und vom Boden getroffen."
+lore = "Schlachtfeld-Erbschaft rund um den Paradise Earth Immortal Venerable und seine Erbin Lu Wei Yin (Reincarnation Battlefield / Paradise Creation / Illusory Sand Shifting Shadow Battlefield / Fetus Earth Maze / Three Lifetime Dreams Reform a Chosen One). Kern im Spiel: Frühlings-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Paradise Earth Immortal Venerable → Lu Wei Yin (Three Lifetime Dreams auch Fang Yuan)"

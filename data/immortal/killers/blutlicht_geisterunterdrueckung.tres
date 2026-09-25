@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://vmb1h628nym2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ek5ix"]
+
+[resource]
+script = ExtResource("1_ek5ix")
+id = &"blutlicht_geisterunterdrueckung"
+display_name = "Blutlicht-Geisterunterdrückung"
+name_en = "Blood Light Spirit Suppression"
+path = &"blut"
+core = &"blutvermoegen_gu"
+mortal_families = Array[StringName]([&"blutmond", &"mondlicht", &"seelenschrei", &"glocke"])
+steps = [{
+"color": "#d0303a",
+"mult": 4.0,
+"radius": 9.0,
+"status": "furcht",
+"stun": 1.5,
+"t": "circle",
+"tags": ["blut", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d0303a",
+"mult": 4.0,
+"radius": 9.0,
+"t": "circle",
+"tags": ["blut", "seele"]
+}],
+"time": 0.5
+}]
+description = "Blutlicht unterdrückt Geister: ein roter Lichtschlag (Umkreis 9) betäubt und verängstigt, der zweite trifft die Verängstigten doppelt (Seelenbruch)."
+lore = "Teil von Fang Yuans zentraler Blood-Path-Kampftechnik-Familie (Blood Torrent / Blood Healing Lake / Blood Light Spirit Suppression / Life Staking Blood Print / Bloodstained Conqueror's Robe)."
+owner = "Fang Yuan"

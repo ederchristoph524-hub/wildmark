@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cyqqgktwrp26v"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_mbmya"]
+
+[resource]
+script = ExtResource("1_mbmya")
+id = &"himmelsqi"
+display_name = "Himmels-Qi-Kristall"
+icon = "☁️"
+category = &"material"
+rank = 5
+path = &"himmel"
+source = "Hohe Gipfel, Himmelsfragmente, Seelenberge"
+description = "Gebundenes Himmels-Qi. Für den Unsterblichen-Aufstieg: +40 Himmels-Qi."

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cnbo7n53k5dt1"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3j1v2"]
+
+[resource]
+script = ExtResource("1_3j1v2")
+id = &"formationsplatten_gu"
+display_name = "Formationsplatten-Gu"
+name_en = "Formation Plate Gu"
+path = &"formation"
+category = &"sonstiges"
+description = "Legt eine Formationsplatte (Umkreis 5, 12 s): Verbündete darauf sind 40 % geschützt, Gegner gebremst und getroffen."
+lore = "Formation-Path-Gu; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 35.0
+steps = [{
+"ally_reduction": 0.4,
+"at": "aim",
+"color": "#d8c070",
+"distance": 6.0,
+"mult": 0.25,
+"radius": 5.0,
+"slow": 0.3,
+"t": "zone",
+"tags": ["erde"],
+"tick": 1.0,
+"time": 12.0
+}]

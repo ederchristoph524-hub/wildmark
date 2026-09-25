@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://f1rfypunw1ta"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_ifvaf"]
+
+[resource]
+script = ExtResource("1_ifvaf")
+id = &"schwarzer_himmel"
+display_name = "Leere des Schwarzen Himmels"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.13333334, 0.10980392, 0.17254902, 1),
+&"fels": Color(0.20392157, 0.1882353, 0.2901961, 1),
+&"gipfel": Color(0.5411765, 0.47843137, 0.72156864, 1),
+&"gras_dunkel": Color(0.11764706, 0.101960786, 0.16470589, 1),
+&"gras_hell": Color(0.22745098, 0.1882353, 0.3137255, 1),
+&"moos": Color(0.16470589, 0.14117648, 0.2509804, 1),
+&"platz": Color(0.3372549, 0.29803923, 0.4392157, 1),
+&"strand": Color(0.22745098, 0.20392157, 0.32156864, 1),
+&"weg": Color(0.2901961, 0.25882354, 0.38431373, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"nadelbaum": 0.3,
+&"totholz": 0.7
+})
+trees_per_1000 = 0.6
+bushes_per_1000 = 0.5
+grass_per_1000 = 12.0
+rocks_per_1000 = 2.5
+sky = Color(0.101960786, 0.078431375, 0.15686275, 1)
+sky_top = Color(0.019607844, 0.011764706, 0.047058824, 1)
+fog = Color(0.2901961, 0.16470589, 0.47843137, 1)
+fog_density = 0.0036
+water = Color(0.078431375, 0.047058824, 0.14117648, 1)
+sea_level = 0.0
+plant_tint = Color(0.5411765, 0.4392157, 0.7529412, 1)

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dx5dvx7qnxsk4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3d8ne"]
+
+[resource]
+script = ExtResource("1_3d8ne")
+id = &"gluecksdeduktions_gu"
+display_name = "Glücksdeduktions-Unsterblichen-Gu"
+name_en = "Luck Deduction Immortal Gu"
+rank = 7
+path = &"glueck"
+category = &"information"
+description = "Berechnet das Glück: fünf glückliche Funken suchen Ziele, deine Gu sind 4 s weiter, und 10 s lang triffst du zu 25 % kritisch."
+lore = "Luck-Path-Gu zum Berechnen von Glück. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+steps = [{
+"color": "#7dff9b",
+"count": 5.0,
+"homing": true,
+"mult": 0.7,
+"range": 18.0,
+"spread": 90.0,
+"t": "projectiles",
+"tags": ["stern"]
+}, {
+"refund": 4.0,
+"t": "haste"
+}, {
+"chance": 0.25,
+"t": "luck",
+"time": 10.0
+}]

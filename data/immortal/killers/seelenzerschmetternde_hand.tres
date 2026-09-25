@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://c4ev2apq61qoy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_mvkfs"]
+
+[resource]
+script = ExtResource("1_mvkfs")
+id = &"seelenzerschmetternde_hand"
+display_name = "Seelenzerschmetternde-Hand"
+name_en = "Soul Shattering Hand"
+path = &"seele"
+core = &"toetungs_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"phantom", &"pluenderung", &"knochen"])
+beads = 7.0
+cooldown = 90.0
+channel = 1.5
+base_damage = 70.0
+steps = [{
+"color": "#c9a0ff",
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 45.0,
+"color": "#c9a0ff",
+"execute": 1.5,
+"mult": 10.0,
+"pierce_armor": true,
+"reach": 5.0,
+"t": "cone",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9a0ff",
+"mult": 3.0,
+"radius": 4.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 0.3
+}]
+description = "Die Hand, die Seelen zerschmettert: Du greifst am Ziel vorbei direkt nach der Seele – kein Schutz hilft, Geschwächte sterben sofort; der Nachhall verängstigt die Umstehenden."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Tötungs-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

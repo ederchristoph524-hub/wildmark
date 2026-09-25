@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bngohqod357ix"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_lhvlm"]
+
+[resource]
+script = ExtResource("1_lhvlm")
+id = &"schwertbrauen_gu"
+display_name = "Schwertbrauen-Unsterblichen-Gu"
+name_en = "Sword Eyebrows Immortal Gu"
+path = &"schwert"
+category = &"angriff"
+description = "Zwei Klingen schießen aus deinen Brauen und durchbohren je einen weiteren Gegner."
+lore = "Sword-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 10.0
+steps = [{
+"color": "#e8f4ff",
+"count": 2.0,
+"mult": 1.5,
+"pierce": 1.0,
+"range": 20.0,
+"speed": 26.0,
+"spread": 10.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}]

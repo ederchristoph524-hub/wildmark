@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://tw1p5l2p1cwg"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_h4fun"]
+
+[resource]
+script = ExtResource("1_h4fun")
+id = &"der_himmel_neidet_heldengenies"
+display_name = "Der-Himmel-neidet-Heldengenies"
+name_en = "Heaven Envies Heroic Geniuses"
+path = &"himmel"
+core = &"himmelsneid_gu"
+mortal_families = Array[StringName]([&"blitz", &"donnerknolle", &"stern", &"glueck"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.4
+steps = [{
+"at": "target",
+"color": "#dfe8ff",
+"distance": 14.0,
+"mult": 0.6,
+"radius": 6.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["blitz"],
+"time": 5.0
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#dfe8ff",
+"distance": 14.0,
+"mult": 4.0,
+"radius": 8.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["blitz", "licht"]
+}],
+"time": 5.0
+}]
+description = "Der Himmel neidet Heldengenies: 5 s Trübsal-Blitze auf das Ziel (Umkreis 6), dann der Richtblitz des Himmels (1,5 s betäubt)."
+lore = "Killer Move mit dem Heaven's Envy Gu als Kern; lenkt Tribulationen gezielt gegen talentierte Kultivierende."
+owner = "unbekannt (im Lexikon nicht genannt)"

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://f6jqjgd5qevk"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_2aou8"]
+
+[resource]
+script = ExtResource("1_2aou8")
+id = &"seelenheul_gu"
+display_name = "Seelenheul-Unsterblichen-Gu"
+name_en = "Soul Howl Immortal Gu"
+rank = 7
+path = &"seele"
+category = &"angriff"
+description = "Ein Seelenheulen (Kegel 12 m) jagt Furcht ein, das Echo betäubt geladene und verängstigte Gegner."
+lore = "Soul-Path-Gu mit schallbasierter Wirkung."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 22.0
+steps = [{
+"angle": 80.0,
+"color": "#c9a0ff",
+"mult": 2.2,
+"reach": 12.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele", "klang"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 80.0,
+"color": "#c9a0ff",
+"mult": 2.0,
+"reach": 12.0,
+"stun": 0.5,
+"t": "cone",
+"tags": ["klang", "seele"]
+}],
+"time": 0.5
+}]

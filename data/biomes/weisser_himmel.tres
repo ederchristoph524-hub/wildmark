@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://cebe5nr5siopu"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_6hpl7"]
+
+[resource]
+script = ExtResource("1_6hpl7")
+id = &"weisser_himmel"
+display_name = "Wolkenboden des Weißen Himmels"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.84705883, 0.8156863, 0.7372549, 1),
+&"fels": Color(0.8784314, 0.8627451, 0.8156863, 1),
+&"gipfel": Color(1, 1, 1, 1),
+&"gras_dunkel": Color(0.84705883, 0.8627451, 0.8, 1),
+&"gras_hell": Color(0.95686275, 0.9647059, 0.9254902, 1),
+&"moos": Color(0.89411765, 0.9098039, 0.85490197, 1),
+&"platz": Color(0.972549, 0.9411765, 0.84705883, 1),
+&"strand": Color(0.9843137, 0.972549, 0.9411765, 1),
+&"weg": Color(0.9411765, 0.9098039, 0.8, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"bluetenbaum": 0.6,
+&"nadelbaum": 0.4
+})
+trees_per_1000 = 0.8
+bushes_per_1000 = 0.8
+grass_per_1000 = 25.0
+rocks_per_1000 = 0.8
+sky = Color(1, 0.99215686, 0.95686275, 1)
+sky_top = Color(1, 0.9137255, 0.65882355, 1)
+fog = Color(0.9843137, 0.972549, 0.9254902, 1)
+fog_density = 0.003
+water = Color(0.9647059, 0.96862745, 0.9843137, 1)
+sea_level = 0.0
+plant_tint = Color(1, 0.972549, 0.9098039, 1)

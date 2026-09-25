@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://cc2nd7xdo5ipk"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_0ru1y"]
+
+[resource]
+script = ExtResource("1_0ru1y")
+id = &"zehn_extreme_oberster"
+display_name = "Oberster Ältester der Zehn Extreme"
+color = Color(0.9098039, 0.7529412, 0.2509804, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"zehntausendschwert", &"kraftleihen", &"blauerhimmel", &"schildkroetenjade"])
+rank = 7
+hat = &"band"
+immortal_gu = Array[StringName]([&"flugschwert_gu", &"drachenkraft_gu"])
+title = "Oberster Ältester der Sekte der Zehn Extreme"
+path = &"schwert"
+lore = "Unsterblicher Oberster Ältester der Sekte der Zehn Extreme. Er steht im Allerheiligsten des Sektenbergs und prüft nur Unsterbliche."

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bge1lkqxwffka"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_hugl0"]
+
+[resource]
+script = ExtResource("1_hugl0")
+id = &"grosser_dieb_gu"
+display_name = "Großer-Dieb-Unsterblichen-Gu"
+name_en = "Great Thief Immortal Gu"
+rank = 7
+path = &"diebstahl"
+category = &"angriff"
+description = "Der große Dieb greift zu: Du erscheinst vor dem Ziel, stiehlst Uressenz und Leben mit einem Griff durch die Rüstung und bist sofort 8 m weg."
+lore = "Theft-Path-Gu, das vom Thieving Heaven Demon Venerable über Fang Di Chang an Fang Yuan ging; Bestandteil von Emperor Yama. Steigt bis Rang 8."
+owner = "Thieving Heaven Demon Venerable → Fang Di Chang → Fang Yuan"
+beads = 2.0
+steps = [{
+"color": "#8fd06a",
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 60.0,
+"color": "#8fd06a",
+"essence_steal": 0.8,
+"lifesteal": 0.3,
+"mult": 3.0,
+"pierce_armor": true,
+"reach": 4.0,
+"t": "cone",
+"tags": ["durchbohren"]
+}, {
+"color": "#8fd06a",
+"distance": -8.0,
+"t": "teleport"
+}]

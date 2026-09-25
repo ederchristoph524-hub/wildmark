@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://diq3oqt548boj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_uvvop"]
+
+[resource]
+script = ExtResource("1_uvvop")
+id = &"seelenreinigungs_gu"
+display_name = "Seelenreinigungs-Unsterblichen-Gu"
+name_en = "Cleanse Soul Immortal Gu"
+path = &"seele"
+category = &"unterstuetzung"
+description = "Reinigt die Seele: entfernt alle Zustände, heilt 20 % über 5 s und gibt 5 s 20 % Schutz."
+lore = "Unterstützt die Kultivierung durch Reinigung der Seele; Kern (mit Star Mark) des Killer Moves Star Soul Battlefield."
+owner = "Fang Yuan"
+beads = 0.5
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"t": "cleanse"
+}, {
+"frac": 0.2,
+"t": "heal",
+"time": 5.0
+}, {
+"color": "#c9a0ff",
+"key": "seelenreinheit",
+"reduction": 0.2,
+"t": "buff",
+"time": 5.0
+}]

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cdm02os2f6au0"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ivy2n"]
+
+[resource]
+script = ExtResource("1_ivy2n")
+id = &"reue_gu"
+display_name = "Reue-Gu"
+name_en = "Regret Gu"
+rank = 8
+path = &"gefuehl"
+category = &"kontrolle"
+description = "Reue überkommt die Gegner: ein Kegel (10 m) jagt Furcht ein, dann bricht Reue über das Ziel herein (Umkreis 6, ×2 gegen Verängstigte, 3 Stapel Schwäche)."
+lore = "Emotion-Path-Gu (Unterzweig des Wisdom Path); im Besitz u. a. des Red Lotus Demon Venerable, Paradise Earth Immortal Venerable und Fang Yuan."
+owner = "Red Lotus Demon Venerable, Paradise Earth Immortal Venerable, Fang Yuan"
+beads = 3.0
+cooldown = 30.0
+steps = [{
+"angle": 70.0,
+"color": "#ff6fa8",
+"mult": 3.0,
+"reach": 10.0,
+"status": "furcht",
+"stun": 0.5,
+"t": "cone",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#ff6fa8",
+"distance": 12.0,
+"mult": 4.0,
+"radius": 6.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 1.0
+}]

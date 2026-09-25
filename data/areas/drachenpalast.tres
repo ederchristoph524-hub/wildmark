@@ -1,0 +1,213 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://bvj56avxbd0d2"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_yyavp"]
+
+[resource]
+script = ExtResource("1_yyavp")
+id = &"drachenpalast"
+display_name = "Drachenpalast"
+region = 2
+map_position = Vector2(0.9, 0.62)
+rank_min = 7
+rank_max = 8
+open = true
+description = "Der Palast der Drachenmenschen tief im Östlichen Meer: türkisfarbenes Wasser, Korallentürme und die Ruinen eines Hofes, den Herzog Long für den Himmlischen Hof erobert hat. Aus seinem Hort stammt der Traummarken-Gu, der selbst Rang-8-Unsterbliche versklaven kann."
+size = 560.0
+terrain_seed = 61010
+biome = &"drachenmeer"
+relief = Dictionary[StringName, float]({
+&"basis": -4.0,
+&"berge": 0.0,
+&"detail": 0.4,
+&"frequenz": 0.006,
+&"hoehe": 3.0,
+&"horizont": 25.0,
+&"rand": 60.0,
+&"randhoehe": -8.0
+})
+hills = Array[Vector4]([Vector4(0, -20, 130, 14), Vector4(-190, 120, 70, 10), Vector4(180, 140, 60, 10), Vector4(190, -150, 60, 12), Vector4(-180, -160, 55, 12), Vector4(0, 80, 40, 15), Vector4(-190, 120, 40, 12), Vector4(180, 140, 40, 12), Vector4(60, 60, 40, 15)])
+arrival = Vector2(0, 80)
+paths = [[Vector2(0, 80), Vector2(0, 20)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.12156863, 0.8156863, 0.7529412, 1),
+&"dach": Color(0.101960786, 0.41568628, 0.41568628, 1),
+&"holz": Color(0.22745098, 0.3529412, 0.3529412, 1),
+&"platz": Color(0.78431374, 0.8784314, 0.84705883, 1),
+&"saeule": Color(0.16470589, 0.6901961, 0.627451, 1),
+&"stein": Color(0.47843137, 0.6039216, 0.59607846, 1),
+&"wand": Color(0.8784314, 0.9411765, 0.9098039, 1)
+},
+"faction": &"drachenmenschen",
+"houses": 8,
+"id": &"drachenpalast_ruine",
+"pond": 0.0,
+"position": Vector2(0, -40),
+"radius": 60.0,
+"residents": &"drachenmenschen",
+"type": &"festung"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.12156863, 0.8156863, 0.7529412, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"urzeitlicher_drachenwal", &"uralte_tiefseeschildkroete"]),
+"id": &"traummarken_hort",
+"item": &"",
+"name": "Hort des Traummarken-Gu",
+"offering": {
+&"tiefseeperle": 6,
+&"unsterblichen_stein": 40
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(190, -150),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"traummarken_gu"]),
+"items": {
+&"drachenschuppe": 6,
+&"grottenstein": 2,
+&"tiefseeperle": 6
+},
+"support": Array[StringName]([])
+},
+"style": &"grotte",
+"text": "Herzog Long nahm den Hort – aber nicht alles. Der Drachenwal, der ihn bewachte, ist nie gegangen.",
+"type": &"erbe"
+}, {
+"accent": Color(0.3019608, 0.7647059, 1, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralte_tiefseeschildkroete", &"seeschlange", &"seeschlange"]),
+"id": &"drachenkoenig_thron",
+"item": &"",
+"name": "Thronsaal des Drachenkönigs",
+"offering": {
+&"drachenschuppe": 4,
+&"unsterblichen_stein": 25
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-180, -160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"meeresdrache", &"drachenatem"]),
+"immortal": Array[StringName]([&"drachenschuppen_gu"]),
+"items": {
+&"drachenschuppe": 4,
+&"reliquie_lilakristall": 1,
+&"tiefseeperle": 4
+},
+"support": Array[StringName]([])
+},
+"style": &"tempel",
+"text": "Der Thron ist leer, die Schuppen des letzten Königs liegen noch auf den Stufen.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Gezeitenhalle",
+"offering": {},
+"owner": &"",
+"path": &"wasser",
+"position": Vector2(-190, 120),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hier atmet das Meer. Wer die Gezeiten zählt, versteht das Wasser.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Perlenquelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(180, 140),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"blutkoralle",
+"name": "Korallengräber",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(60, 60),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(30, 3),
+&"blutkoralle": Vector2i(12, 1),
+&"drachenschuppe": Vector2i(6, 1),
+&"holz": Vector2i(20, 2),
+&"kristall": Vector2i(30, 3),
+&"tiefseeperle": Vector2i(10, 1),
+&"unsterblichen_stein": Vector2i(10, 1)
+})
+enemy_radii = Array[float]([110.0, 190.0])
+enemy_zones = [[&"seeschlange", &"riesenkrabbe"], [&"uralte_tiefseeschildkroete", &"seeschlange", &"wueste_frostschlange"], [&"urzeitlicher_drachenwal", &"uralte_tiefseeschildkroete"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(60, 110)
+wild_passives = [[&"essenzeisenknochen", &"body", 60.0, 110.0, true], [&"fadenspur", &"support", 50.0, 110.0, false]]
+tide = {
+"beasts": Array[StringName]([&"seeschlange", &"riesenkrabbe", &"uralte_tiefseeschildkroete"]),
+"count": 8,
+"every": 6,
+"leader": &"urzeitlicher_drachenwal",
+"name": "Drachenflut der Tiefe",
+"reward": {
+&"tiefseeperle": 3,
+&"unsterblichen_stein": 10
+},
+"target": &"drachenpalast_ruine"
+}
+immortal = {
+"current": Vector3(1, 0, 1.5),
+"entrance": "Bei Ebbe öffnet sich unter dem Nebel des Ostmeers ein Korallenschlund; die Drachenmenschen lassen nur Unsterbliche passieren.",
+"entry_rank": 7,
+"kind": &"dimension",
+"rules": Array[StringName]([&"stroemung"]),
+"time_flow": 1.0
+}

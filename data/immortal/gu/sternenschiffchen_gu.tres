@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c5x6lura20x18"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_5b70t"]
+
+[resource]
+script = ExtResource("1_5b70t")
+id = &"sternenschiffchen_gu"
+display_name = "Sternenschiffchen-Gu"
+name_en = "Star Shuttle Gu"
+path = &"stern"
+category = &"bewegung"
+description = "Sternenschiffchen: Du startest mit einem Sterneneinschlag, gleitest 12 m weit und schlägst am Ziel wieder ein."
+lore = "Bewegungstyp-Gu des Star Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 12.0
+steps = [{
+"color": "#fff2b0",
+"mult": 1.5,
+"radius": 4.0,
+"t": "circle",
+"tags": ["stern"]
+}, {
+"color": "#fff2b0",
+"distance": 12.0,
+"t": "teleport"
+}, {
+"color": "#fff2b0",
+"mult": 1.5,
+"radius": 4.0,
+"t": "circle",
+"tags": ["stern", "raum"]
+}]

@@ -4,7 +4,7 @@ extends CanvasLayer
 
 const MESSAGE_TIME: float = 4.5
 const MAX_MESSAGES: int = 5
-const KEY_HINT: String = "WASD laufen · Maus schauen · Linksklick Faust · 1–4 Gu · Q Killer Move · Mausrad wechseln · Shift Dash · Leertaste Sprung · Tab Ziel · E Aktion · M Kultivieren · K Karte · R Urstein · G Gu-Menü · Esc Menü"
+const KEY_HINT: String = "WASD laufen · Maus schauen · Linksklick Faust · 1–4 Gu · Q Killer Move · Mausrad wechseln · 5/6 unsterbliche Gu · T/Y Unsterblichen-Killer · Shift Dash · Leertaste Sprung · Tab Ziel · E Aktion · M Kultivieren · K Karte · R Urstein · G Gu-Menü · Esc Menü"
 const TOUCH_HINT: String = "Links ziehen: laufen · Rechts wischen: Kamera · Buttons rechts: Faust, Gu 1–4, Killer Move, Sprung, Dash · Oben: Kultivieren, Urstein, Gu-Menü · Minikarte antippen: Karte"
 
 var player: Player = null
@@ -166,6 +166,8 @@ func _update_bars() -> void:
 		_essence_text.text += tr("  (Unterhalt −%.2f/s)") % upkeep
 	_essence_bar.add_theme_stylebox_override(&"fill", UiTheme.box(progression.rank_color(GameState.rank).lightened(0.15), 6, Color(0, 0, 0, 0)))
 	_rank_text.text = "%s · %s · %s %d %%" % [tr(progression.rank_name(GameState.rank)), tr(progression.stage_name(GameState.stage)), tr("Wand"), roundi(GameState.wall * 100.0)]
+	if Immortal.is_immortal():
+		HudText.immortal_bars(_essence_bar, _essence_text, _rank_text)
 	_essence_bar.visible = not Childhood.is_child()
 	if Childhood.is_child():
 		_rank_text.text = tr("Kindheit · Apertur noch verschlossen")
@@ -173,6 +175,8 @@ func _update_bars() -> void:
 	_quest_text.text = Childhood.tracker_text() if Childhood.is_child() else Quests.tracker_text()
 	if BeastTide.status_text != "":
 		_quest_text.text = BeastTide.status_text + ("\n" + _quest_text.text if _quest_text.text != "" else "")
+	if CalamityEvent.status_text != "":
+		_quest_text.text = CalamityEvent.status_text + ("\n" + _quest_text.text if _quest_text.text != "" else "")
 	if ClanFeud.status_text != "":
 		_quest_text.text = ClanFeud.status_text + ("\n" + _quest_text.text if _quest_text.text != "" else "")
 	_quest_text.visible = _quest_text.text != ""
@@ -182,8 +186,12 @@ func _update_bars() -> void:
 func _update_center() -> void:
 	var node: Node3D = player.nearest_interactable()
 	_prompt.text = ("E: " if not touch.visible else "") + String(node.call("interact_label")) if node != null else ""
-	_channel.visible = player.killer.is_channeling() or player.loadout.is_channeling()
-	if player.killer.is_channeling():
+	var immortal: ImmortalController = player.immortal.controller
+	_channel.visible = player.killer.is_channeling() or player.loadout.is_channeling() or immortal.is_channeling()
+	if immortal.is_channeling():
+		_channel.value = immortal.channel_progress() * 100.0
+		_channel_text.text = tr("Unsterblicher Killer Move: %s …") % tr(immortal.channel_move.display_name)
+	elif player.killer.is_channeling():
 		_channel.value = player.killer.channel_progress() * 100.0
 		_channel_text.text = tr("Kanalisiere %s …") % tr(player.killer.channel_move.display_name)
 	elif player.loadout.is_channeling():

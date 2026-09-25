@@ -5319,6 +5319,4034 @@
      "breite": 10
     }
    ]
+  },
+  "dang_hun_berg": {
+   "n": "Dang-Hun-Berg",
+   "region": 1,
+   "karte": [
+    0.33,
+    0.79
+   ],
+   "rang": [
+    5,
+    7
+   ],
+   "offen": true,
+   "d": "Der seelenerschütternde Berg der Südlichen Grenze. Jeder Schritt bergauf drückt auf die Seele – wer oben ausharrt, dessen Seelenfundament wächst. An seinen Hängen gedeihen Mut-Gu, nach denen Unsterbliche aller Regionen gieren.",
+   "groesse": 480,
+   "seed": 60101,
+   "biom": "seelenberg",
+   "relief": {
+    "hoehe": 12,
+    "frequenz": 0.005,
+    "detail": 1.1,
+    "berge": 26,
+    "rand": 55,
+    "randhoehe": 55,
+    "horizont": 200
+   },
+   "erhebungen": [
+    [
+     0,
+     -40,
+     160,
+     72
+    ]
+   ],
+   "ankunft": [
+    0,
+    185
+   ],
+   "siedlungen": [],
+   "wege": [
+    [
+     [
+      0,
+      185
+     ],
+     [
+      20,
+      120
+     ],
+     [
+      -20,
+      60
+     ],
+     [
+      10,
+      0
+     ],
+     [
+      0,
+      -40
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "dang_hun_gipfel",
+     "n": "Gipfelaltar des Dang-Hun-Bergs",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 11,
+     "opfer": {
+      "seelenglas": 6,
+      "kristall": 80
+     },
+     "waechter": [
+      "wuester_seelenfresser",
+      "schatten",
+      "schatten"
+     ],
+     "belohnung": {
+      "gu": [
+       "goettlichersinn",
+       "seelenexplosion"
+      ],
+      "unsterbliche_gu": [
+       "seelenreinigungs_gu"
+      ],
+      "items": {
+       "seelenstaub": 12,
+       "seelenkern": 1,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Auf dem Gipfel ist die Last am schwersten. Wer hier die Seelenfresser bezwingt, dessen Seele wird wie geschmiedet.",
+     "stil": "altar",
+     "akzent": "#b58cff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Hang der Mut-Gu",
+     "pos": [
+      -70,
+      60
+     ],
+     "radius": 10,
+     "pfad": "seele",
+     "text": "Zwischen den grauen Felsen wachsen die Mut-Gu. Wer hier kultiviert, lernt, dass die Seele nur unter Druck wächst."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Feld der zerbrochenen Seelen",
+     "pos": [
+      130,
+      90
+     ],
+     "radius": 12,
+     "item": "seelenstaub",
+     "anzahl": 8
+    },
+    {
+     "typ": "friedhof",
+     "n": "Grauer Stelenhang",
+     "pos": [
+      -150,
+      -130
+     ],
+     "radius": 12,
+     "item": "seelenglas",
+     "anzahl": 6
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Stille Quelle am Bergfuß",
+     "pos": [
+      150,
+      -120
+     ],
+     "radius": 9
+    }
+   ],
+   "ressourcen": {
+    "stein": [
+     60,
+     2
+    ],
+    "kristall": [
+     40,
+     3
+    ],
+    "holz": [
+     20,
+     2
+    ],
+    "beeren": [
+     15,
+     2
+    ],
+    "seelenglas": [
+     14,
+     1
+    ],
+    "seelenstaub": [
+     18,
+     1
+    ],
+    "himmelsqi": [
+     5,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     110,
+     170
+    ],
+    "zonen": [
+     [
+      "wuester_seelenfresser",
+      "schatten",
+      "obsidian",
+      "donnerkronenwolf"
+     ],
+     [
+      "schatten",
+      "troll",
+      "obsidian",
+      "weisser_tiger"
+     ],
+     [
+      "schatten",
+      "golem",
+      "sturmadler",
+      "troll"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     80,
+     200
+    ]
+   },
+   "wilde_passive": [
+    [
+     "boeserGedanke",
+     "support",
+     60,
+     200,
+     true
+    ],
+    [
+     "seelensuche",
+     "support",
+     90,
+     200,
+     false
+    ],
+    [
+     "essenzeisenknochen",
+     "body",
+     120,
+     200,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 5,
+    "art": "dimension",
+    "regeln": [
+     "seelenlast"
+    ],
+    "eingang": "Ein grauer Pfad führt aus den Blutsümpfen bergauf – wer ihn betritt, spürt schon am Fuß des Berges, wie die Seele zu zittern beginnt."
+   }
+  },
+  "luo_po_tal": {
+   "n": "Luo-Po-Tal",
+   "region": 0,
+   "karte": [
+    0.8,
+    0.15
+   ],
+   "rang": [
+    5,
+    7
+   ],
+   "offen": true,
+   "d": "Ein graues Tal ohne Echo in der Nördlichen Ebene. In Abständen fegen Seelenwinde hindurch, die ungeschützte Seelen zerreißen. Wer hinter den Felsen ausharrt, begreift den Seelenpfad – das Tal soll das Luo-Po-Siegel inspiriert haben.",
+   "groesse": 460,
+   "seed": 60202,
+   "biom": "seelental",
+   "relief": {
+    "hoehe": 8,
+    "frequenz": 0.0055,
+    "detail": 0.9,
+    "berge": 12,
+    "rand": 80,
+    "randhoehe": 72,
+    "horizont": 230
+   },
+   "ankunft": [
+    0,
+    170
+   ],
+   "siedlungen": [],
+   "wege": [
+    [
+     [
+      0,
+      170
+     ],
+     [
+      0,
+      60
+     ],
+     [
+      -40,
+      -20
+     ],
+     [
+      -100,
+      -90
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "dao_ort",
+     "n": "Echoloser Grund",
+     "pos": [
+      0,
+      0
+     ],
+     "radius": 10,
+     "pfad": "seele",
+     "text": "Hier verschluckt das Tal jeden Laut. Zwischen zwei Windwellen hört man nur die eigene Seele."
+    },
+    {
+     "typ": "erbe",
+     "id": "luo_po_siegelstein",
+     "n": "Luo-Po-Siegelstein",
+     "pos": [
+      -110,
+      -100
+     ],
+     "radius": 11,
+     "opfer": {
+      "seelenstaub": 10,
+      "kristall": 120
+     },
+     "waechter": [
+      "wuester_seelenfresser",
+      "schatten",
+      "schatten",
+      "schatten"
+     ],
+     "belohnung": {
+      "gu": [
+       "goettlichersinn"
+      ],
+      "hilfs_gu": [
+       "seelensuche"
+      ],
+      "unsterbliche_gu": [
+       "seelensog_gu"
+      ],
+      "items": {
+       "seelenstaub": 15,
+       "seelenkern": 1,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "In den Stein sind Hunderte Seelen versiegelt. Ihr Wächter hält sie – und prüft jeden, der das Siegel lesen will.",
+     "stil": "grab",
+     "akzent": "#9ab4d0"
+    },
+    {
+     "typ": "friedhof",
+     "n": "Hain der Verwehten",
+     "pos": [
+      120,
+      -60
+     ],
+     "radius": 12,
+     "item": "seelenstaub",
+     "anzahl": 8
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Windstille Quelle",
+     "pos": [
+      100,
+      110
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "see",
+     "n": "Stiller Teich",
+     "pos": [
+      -120,
+      80
+     ],
+     "radius": 18
+    }
+   ],
+   "ressourcen": {
+    "stein": [
+     70,
+     2
+    ],
+    "kristall": [
+     35,
+     3
+    ],
+    "holz": [
+     15,
+     2
+    ],
+    "beeren": [
+     20,
+     2
+    ],
+    "seelenstaub": [
+     16,
+     1
+    ],
+    "seelenglas": [
+     10,
+     1
+    ],
+    "windfeder": [
+     15,
+     1
+    ],
+    "himmelsqi": [
+     5,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     90,
+     160
+    ],
+    "zonen": [
+     [
+      "schatten",
+      "blitzwolf",
+      "sturmadler"
+     ],
+     [
+      "schatten",
+      "donnerkronenwolf",
+      "troll",
+      "feuerfuchs"
+     ],
+     [
+      "wuester_seelenfresser",
+      "wuester_nebelfuchs",
+      "schatten",
+      "weisser_tiger"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     70,
+     190
+    ]
+   },
+   "wilde_passive": [
+    [
+     "boeserGedanke",
+     "support",
+     80,
+     190,
+     true
+    ],
+    [
+     "fadenspur",
+     "support",
+     60,
+     180,
+     false
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 5,
+    "art": "dimension",
+    "regeln": [
+     "seelensturm"
+    ],
+    "eingang": "Zwischen zwei Hügeln der Steppe hört das Gras plötzlich auf zu rauschen – dort beginnt das Tal."
+   }
+  },
+  "rueckfluss_fluss": {
+   "n": "Rückfluss-Fluss",
+   "region": 4,
+   "karte": [
+    0.4,
+    0.4
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Ein uraltes Zeit-Pfad-Gebiet: Im Fluss wirkt kein Gu, nur Körper und Wille zählen. Die Strömung drückt jeden zurück – wer sich bis zur Quelle kämpft, darf sich Herr des Rückfluss-Flusses nennen.",
+   "groesse": 520,
+   "seed": 60303,
+   "biom": "zeitstrom",
+   "relief": {
+    "hoehe": 10,
+    "frequenz": 0.004,
+    "detail": 0.8,
+    "berge": 14,
+    "rand": 60,
+    "randhoehe": 45,
+    "horizont": 180
+   },
+   "fluesse": [
+    {
+     "n": "Rückfluss-Fluss",
+     "punkte": [
+      [
+       15,
+       -230
+      ],
+      [
+       -10,
+       -120
+      ],
+      [
+       20,
+       -30
+      ],
+      [
+       -15,
+       60
+      ],
+      [
+       10,
+       150
+      ],
+      [
+       -20,
+       230
+      ]
+     ],
+     "breite": 40
+    }
+   ],
+   "ankunft": [
+    70,
+    200
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "rueckfluss_quelle",
+     "n": "Quelle des Rückfluss-Flusses",
+     "pos": [
+      70,
+      -200
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 20
+     },
+     "waechter": [
+      "uralter_donnerbueffel",
+      "wuestes_mammut"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "rueckblick_gu",
+       "tausend_jahre_gu"
+      ],
+      "items": {
+       "zeitharz": 10,
+       "schicksalsfaden": 1,
+       "himmelskristall": 3
+      }
+     },
+     "text": "Nur wer ohne einen einzigen Gu gegen die Strömung bis hierher gelangt, erhält den Titel des Flussherrn – und was die Jahre angespült haben.",
+     "stil": "altar",
+     "akzent": "#e0c070"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Wirbel der verkehrten Jahre",
+     "pos": [
+      -90,
+      -60
+     ],
+     "radius": 10,
+     "pfad": "zeit",
+     "text": "Das Wasser dreht sich hier gegen die Zeit. Wer still sitzt, fühlt die Jahre rückwärts an sich vorbeiziehen."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Quelle am Altwasser",
+     "pos": [
+      130,
+      40
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Ufer der Ertrunkenen",
+     "pos": [
+      -130,
+      110
+     ],
+     "radius": 12,
+     "item": "seelenkern",
+     "anzahl": 3
+    }
+   ],
+   "ressourcen": {
+    "zeitharz": [
+     20,
+     1
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "holz": [
+     30,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "unsterblichen_stein": [
+     10,
+     1
+    ],
+    "wuestes_mark": [
+     6,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     120,
+     190
+    ],
+    "zonen": [
+     [
+      "wuestes_mammut",
+      "wuester_feuerwolf"
+     ],
+     [
+      "wuestes_mammut",
+      "uralter_donnerbueffel",
+      "wuester_feuerwolf"
+     ],
+     [
+      "uralter_donnerbueffel",
+      "urzeitlicher_erdwurm"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     150,
+     225
+    ]
+   },
+   "wilde_passive": [
+    [
+     "zehntausendjun",
+     "body",
+     150,
+     225,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "dimension",
+    "regeln": [
+     "keine_gu",
+     "stroemung"
+    ],
+    "stroemung": [
+     0,
+     1,
+     3.5
+    ],
+    "eingang": "Wenn sich das Gebiet öffnet, steigt über dem Zentralkontinent ein goldener Nebel auf; wer hineintaucht, verliert den Zugriff auf seine Apertur."
+   }
+  },
+  "hu_land": {
+   "n": "Hu-Unsterblichen-Gesegnetes-Land",
+   "region": 1,
+   "karte": [
+    0.62,
+    0.93
+   ],
+   "rang": [
+    6,
+    7
+   ],
+   "offen": true,
+   "d": "Das Fuchsland der verstorbenen Hu-Unsterblichen: rotgoldene Hügel, Füchse im Nebel und ein Land, das langsam verdorrt. Sein Landgeist wartet auf einen neuen Herrn – Fang Yuans erstes eigenes Gesegnetes Land.",
+   "groesse": 440,
+   "seed": 60404,
+   "biom": "fuchsland",
+   "relief": {
+    "hoehe": 12,
+    "frequenz": 0.006,
+    "detail": 0.9,
+    "berge": 18,
+    "rand": 50,
+    "randhoehe": 40,
+    "horizont": 160
+   },
+   "ankunft": [
+    0,
+    160
+   ],
+   "siedlungen": [],
+   "wege": [
+    [
+     [
+      0,
+      160
+     ],
+     [
+      0,
+      20
+     ]
+    ],
+    [
+     [
+      0,
+      20
+     ],
+     [
+      -60,
+      -40
+     ],
+     [
+      -100,
+      -85
+     ]
+    ],
+    [
+     [
+      0,
+      20
+     ],
+     [
+      80,
+      60
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "geisterquelle",
+     "n": "Aperturkern-Quelle",
+     "pos": [
+      0,
+      0
+     ],
+     "radius": 11
+    },
+    {
+     "typ": "erbe",
+     "id": "hu_unsterblichen_erbe",
+     "n": "Fuchsgrotte der Hu-Unsterblichen",
+     "pos": [
+      -100,
+      -95
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 6,
+      "kristall": 100
+     },
+     "waechter": [
+      "wuester_nebelfuchs",
+      "wuester_nebelfuchs",
+      "feuerfuchs"
+     ],
+     "belohnung": {
+      "hilfs_gu": [
+       "himmelsessenz"
+      ],
+      "unsterbliche_gu": [
+       "kein_verlust_gu"
+      ],
+      "items": {
+       "himmelsjade": 3,
+       "unsterblichen_stein": 20,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Hier ruht, was die Hu-Unsterbliche zurückließ. Ihre Füchse lassen nur den ein, dem der Landgeist vertraut.",
+     "stil": "grotte",
+     "akzent": "#ff9a4a"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Fuchsbau-Felsen",
+     "pos": [
+      110,
+      -70
+     ],
+     "radius": 10,
+     "pfad": "verwandlung",
+     "text": "Die Füchse des Landes wechseln hier ihre Gestalt wie andere ihr Fell. Wer zusieht, versteht die Verwandlung."
+    },
+    {
+     "typ": "see",
+     "n": "Uressenz-Teich",
+     "pos": [
+      85,
+      75
+     ],
+     "radius": 20
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Unsterblichen-Steinader",
+     "pos": [
+      -120,
+      60
+     ],
+     "radius": 10,
+     "anzahl": 5,
+     "ertrag": 2,
+     "text": "Eine dünne, grün schimmernde Ader. Das Land gibt, was es noch hat."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Verdorrter Blumenhang",
+     "pos": [
+      140,
+      130
+     ],
+     "radius": 10,
+     "item": "seelenglas",
+     "anzahl": 5
+    }
+   ],
+   "ressourcen": {
+    "holz": [
+     50,
+     2
+    ],
+    "beeren": [
+     50,
+     3
+    ],
+    "kristall": [
+     40,
+     3
+    ],
+    "gruenkraut": [
+     40,
+     2
+    ],
+    "unsterblichen_stein": [
+     12,
+     1
+    ],
+    "himmelsjade": [
+     6,
+     1
+    ],
+    "mondtau": [
+     30,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     160
+    ],
+    "zonen": [
+     [
+      "feuerfuchs",
+      "weisser_tiger"
+     ],
+     [
+      "wuester_nebelfuchs",
+      "feuerfuchs",
+      "donnerkronenwolf"
+     ],
+     [
+      "wuester_nebelfuchs",
+      "wuester_feuerwolf",
+      "wuestes_mammut"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     60,
+     185
+    ]
+   },
+   "wilde_passive": [
+    [
+     "glueckssicht",
+     "support",
+     60,
+     180,
+     false
+    ],
+    [
+     "zehntausendjun",
+     "body",
+     100,
+     185,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 6,
+    "art": "gesegnetes_land",
+    "regeln": [
+     "zeitfluss"
+    ],
+    "zeitfluss": 3,
+    "landgeist": {
+     "n": "Kleine Hu-Unsterbliche",
+     "lines": [
+      "Bist du … mein neuer Herr? Die Hu-Unsterbliche ist fort, schon so lange.",
+      "Früher war hier alles voller Blumen und Füchse. Jetzt verdorrt das Land jeden Tag ein bisschen mehr.",
+      "Wenn du bleibst, gebe ich dir alles, was ich noch habe. Bitte lass mich nicht allein."
+     ]
+    },
+    "annektierbar": {
+     "pfad": "verwandlung",
+     "wachstum": 60,
+     "geschenk": {
+      "unsterblichen_stein": 40,
+      "himmelsjade": 3,
+      "daokern": 1
+     }
+    },
+    "eingang": "Hinter einem Wasserfall im Süden der Südlichen Grenze öffnet sich eine Nebelpforte; der Landgeist lässt nur Unsterbliche ein."
+   }
+  },
+  "lang_ya_land": {
+   "n": "Lang-Ya-Gesegnetes-Land",
+   "region": 0,
+   "karte": [
+    0.5,
+    0.15
+   ],
+   "rang": [
+    6,
+    8
+   ],
+   "offen": true,
+   "d": "Sitz der Lang-Ya-Sekte über dem großen See der Nördlichen Ebene. Haarmenschen verfeinern hier Gu für die ganze Welt, die Bibliothek hütet mehr Wissen als jede Sekte – und der Landgeist handelt mit jedem, der etwas zu bieten hat.",
+   "groesse": 520,
+   "seed": 60505,
+   "biom": "wolkensee",
+   "relief": {
+    "hoehe": 10,
+    "frequenz": 0.0045,
+    "detail": 0.9,
+    "berge": 16,
+    "rand": 60,
+    "randhoehe": 50,
+    "horizont": 180
+   },
+   "ankunft": [
+    0,
+    210
+   ],
+   "siedlungen": [
+    {
+     "id": "lang_ya_sekte",
+     "typ": "sekte",
+     "fraktion": "lang_ya",
+     "pos": [
+      60,
+      -40
+     ],
+     "radius": 70,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#3a5a7a",
+      "wand": "#f2eee2",
+      "holz": "#5a4a3a",
+      "saeule": "#7fc8ff",
+      "banner": "#7fc8ff",
+      "stein": "#a8a8a4"
+     },
+     "bewohner": "haarmenschen"
+    },
+    {
+     "id": "haarmenschen_werkstaetten",
+     "typ": "zeltlager",
+     "fraktion": "lang_ya",
+     "pos": [
+      -110,
+      -120
+     ],
+     "radius": 30,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#6a5a48",
+      "wand": "#e0d6c0",
+      "holz": "#4a3a2a",
+      "saeule": "#8a6a4a",
+      "banner": "#7fc8ff",
+      "stein": "#8a8680"
+     },
+     "bewohner": "haarmenschen"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      210
+     ],
+     [
+      20,
+      100
+     ],
+     [
+      60,
+      30
+     ]
+    ],
+    [
+     [
+      10,
+      -40
+     ],
+     [
+      -60,
+      -90
+     ],
+     [
+      -100,
+      -115
+     ]
+    ],
+    [
+     [
+      110,
+      -40
+     ],
+     [
+      170,
+      20
+     ]
+    ],
+    [
+     [
+      60,
+      -110
+     ],
+     [
+      -30,
+      -150
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "see",
+     "n": "Großer See",
+     "pos": [
+      -130,
+      100
+     ],
+     "radius": 55
+    },
+    {
+     "typ": "erbe",
+     "id": "lang_ya_bibliothek",
+     "n": "Große Bibliothek von Lang Ya",
+     "pos": [
+      -40,
+      -170
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 25,
+      "daokern": 1
+     },
+     "waechter": [
+      "uralter_wolkenkranich",
+      "wuester_sturmadler"
+     ],
+     "belohnung": {
+      "gu": [
+       "himmelsweisheit",
+       "neun_palaeste"
+      ],
+      "hilfs_gu": [
+       "boeserGedanke"
+      ],
+      "unsterbliche_gu": [
+       "myriaden_selbst_gu"
+      ],
+      "items": {
+       "daokern": 2,
+       "himmelsjade": 2
+      }
+     },
+     "text": "Stockwerk um Stockwerk Schriftrollen, bewacht von Kranichen, die nie schlafen. Wer oben ankommt, darf eine Abschrift mitnehmen.",
+     "stil": "turm",
+     "akzent": "#7fc8ff"
+    },
+    {
+     "typ": "erbe",
+     "id": "lang_ya_schatzkammer",
+     "n": "Schatzkammer von Lang Ya",
+     "pos": [
+      170,
+      -160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 15,
+      "himmelsjade": 2
+     },
+     "waechter": [
+      "uralter_wolkenkranich",
+      "wueste_frostschlange"
+     ],
+     "belohnung": {
+      "hilfs_gu": [
+       "sterngedanke",
+       "hundertschlachten"
+      ],
+      "unsterbliche_gu": [
+       "eisenwand_gu"
+      ],
+      "items": {
+       "himmelsjade": 4,
+       "daokern": 2,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Die Haarmenschen lagern hier, was sie nicht verkaufen wollen. Die Tür öffnet sich nur gegen ein Opfer.",
+     "stil": "tempel",
+     "akzent": "#c8e4ff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Verfeinerungshalle der Haarmenschen",
+     "pos": [
+      110,
+      50
+     ],
+     "radius": 10,
+     "pfad": "raffinerie",
+     "text": "Hundert Öfen brennen Tag und Nacht. Wer den Haarmenschen beim Verfeinern zusieht, lernt mehr als aus jedem Buch."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Lesepavillon am See",
+     "pos": [
+      -40,
+      150
+     ],
+     "radius": 10,
+     "pfad": "weisheit",
+     "text": "Ein offener Pavillon über dem Wasser. Hier lesen die Schüler laut – und die Worte bleiben in der Luft hängen."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Wolkenquelle",
+     "pos": [
+      190,
+      100
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Lang-Ya-Ader",
+     "pos": [
+      185,
+      10
+     ],
+     "radius": 10,
+     "anzahl": 6,
+     "ertrag": 3,
+     "besitzer": "lang_ya",
+     "text": "Die Sekte lässt hier Urstein für ihre Öfen brechen. Wer ohne Erlaubnis hackt, wird nicht wieder eingeladen."
+    }
+   ],
+   "ressourcen": {
+    "holz": [
+     40,
+     2
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "kristall": [
+     40,
+     3
+    ],
+    "beeren": [
+     30,
+     3
+    ],
+    "jadeader": [
+     10,
+     1
+    ],
+    "unsterblichen_stein": [
+     10,
+     1
+    ],
+    "himmelsjade": [
+     8,
+     1
+    ],
+    "wolkenerz": [
+     8,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     140,
+     200
+    ],
+    "zonen": [
+     [
+      "sturmadler",
+      "weisser_tiger"
+     ],
+     [
+      "wuester_sturmadler",
+      "wueste_frostschlange",
+      "donnerkronenwolf"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "wuester_sturmadler",
+      "wueste_frostschlange"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     140,
+     230
+    ]
+   },
+   "wilde_passive": [
+    [
+     "fadenspur",
+     "support",
+     140,
+     230,
+     false
+    ],
+    [
+     "hundertschlachten",
+     "support",
+     160,
+     230,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 6,
+    "art": "gesegnetes_land",
+    "regeln": [
+     "zeitfluss"
+    ],
+    "zeitfluss": 2,
+    "landgeist": {
+     "n": "Lang-Ya-Landgeist",
+     "lines": [
+      "Willkommen in Lang Ya. Die Haarmenschen verfeinern, ich handle.",
+      "Wissen gegen Wissen, Schatz gegen Schatz. Bring mir Mut-Gu vom Dang-Hun-Berg, und die Bibliothek steht dir offen.",
+      "Der Langhaar-Ahn hat dieses Land geschaffen. Ich hüte es, bis er zurückkehrt – oder bis mir jemand ein besseres Angebot macht."
+     ]
+    },
+    "annektierbar": {
+     "pfad": "raffinerie",
+     "wachstum": 80,
+     "geschenk": {
+      "himmelsjade": 4,
+      "daokern": 3,
+      "unsterblichen_stein": 60
+     }
+    },
+    "eingang": "Ein Wolkenpfad steigt vom großen See der Nördlichen Ebene auf; die Lang-Ya-Sekte lässt Unsterbliche als Handelsgäste ein."
+   }
+  },
+  "kaiserhof_land": {
+   "n": "Kaiserhof-Gesegnetes-Land",
+   "region": 0,
+   "karte": [
+    0.22,
+    0.14
+   ],
+   "rang": [
+    6,
+    8
+   ],
+   "offen": true,
+   "d": "Das umkämpfte Gesegnete Land der Nördlichen Ebene: goldene Steppe, ein halb verfallener Palast und das Achtundachtzig-Wahres-Yang-Gebäude. Der Wille des Riesensonnen-Ehrwürdigen liegt noch immer über dem Land, und die Stämme ringen alle paar Jahrzehnte um den Thron.",
+   "groesse": 560,
+   "seed": 60606,
+   "biom": "goldsteppe",
+   "relief": {
+    "hoehe": 6,
+    "frequenz": 0.004,
+    "detail": 0.6,
+    "berge": 4,
+    "rand": 60,
+    "randhoehe": 30,
+    "horizont": 120
+   },
+   "ankunft": [
+    0,
+    220
+   ],
+   "siedlungen": [
+    {
+     "id": "kaiserhof_palast",
+     "typ": "festung",
+     "fraktion": "huang_jin",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 70,
+     "haeuser": 10,
+     "farben": {
+      "dach": "#8a6a1a",
+      "wand": "#e8d8a8",
+      "holz": "#5a3a1a",
+      "saeule": "#c8962a",
+      "banner": "#ffd23d",
+      "stein": "#a89a78",
+      "platz": "#d8c48a"
+     },
+     "bewohner": "kaiserhof_wache"
+    },
+    {
+     "id": "wolfsreiter_lager",
+     "typ": "zeltlager",
+     "fraktion": "wilde_horde",
+     "pos": [
+      -170,
+      120
+     ],
+     "radius": 30,
+     "haeuser": 7,
+     "farben": {
+      "dach": "#6a5a3a",
+      "wand": "#c8b48a",
+      "holz": "#4a3422",
+      "saeule": "#7a5a3a",
+      "banner": "#8a8a8a",
+      "stein": "#8a806a"
+     },
+     "bewohner": "wolfsreiter"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      220
+     ],
+     [
+      0,
+      30
+     ]
+    ],
+    [
+     [
+      0,
+      -110
+     ],
+     [
+      0,
+      -130
+     ]
+    ],
+    [
+     [
+      50,
+      -80
+     ],
+     [
+      110,
+      -140
+     ]
+    ],
+    [
+     [
+      -50,
+      -80
+     ],
+     [
+      -130,
+      -140
+     ]
+    ],
+    [
+     [
+      -50,
+      20
+     ],
+     [
+      -140,
+      100
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "wahres_yang_gebaeude",
+     "n": "Achtundachtzig-Wahres-Yang-Gebäude",
+     "pos": [
+      125,
+      -160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 20,
+      "heldenherz": 2
+     },
+     "waechter": [
+      "uralter_donnerbueffel",
+      "wuester_feuerwolf",
+      "wuester_feuerwolf"
+     ],
+     "belohnung": {
+      "gu": [
+       "flugbaer",
+       "kraftleihen"
+      ],
+      "unsterbliche_gu": [
+       "flugbaer_kraft_gu",
+       "hundedreck_glueck_gu"
+      ],
+      "items": {
+       "sonnengold": 2,
+       "seelenkern": 1
+      }
+     },
+     "text": "Achtundachtzig Ecken, Stockwerk über Stockwerk. Jede Ebene prüft Kraft oder Glück – in der Schatzkammer ganz oben wartet ein Bär aus Licht.",
+     "stil": "turm",
+     "akzent": "#ffd23d"
+    },
+    {
+     "typ": "erbe",
+     "id": "kaiserhof_kriegserbe",
+     "n": "Kaiserhof-Kriegs-Erbe",
+     "pos": [
+      -140,
+      -160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 15,
+      "trübsalsstahl": 1
+     },
+     "waechter": [
+      "wuester_feuerwolf",
+      "wuester_feuerwolf",
+      "wuestes_mammut"
+     ],
+     "belohnung": {
+      "koerper_gu": [
+       "zehntausendjun"
+      ],
+      "unsterbliche_gu": [
+       "alles_oder_nichts_gu_unsterblich"
+      ],
+      "items": {
+       "trübsalsstahl": 2,
+       "heldenherz": 2,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Die Wachen des Kaiserhofs kämpften, bis nur noch ihre Waffen standen. Ihr Altar erinnert sich an jeden Schlag.",
+     "stil": "altar",
+     "akzent": "#e07a4a"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Thronhof des Riesensonnen-Willens",
+     "pos": [
+      0,
+      -135
+     ],
+     "radius": 10,
+     "pfad": "glueck",
+     "text": "Vor dem leeren Thron liegt noch das Glück eines Ehrwürdigen in der Luft. Wer hier sitzt, fühlt, wie das Schicksal sich zu ihm neigt."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Arena der Wolfsreiter",
+     "pos": [
+      170,
+      80
+     ],
+     "radius": 10,
+     "pfad": "kraft",
+     "text": "Ein Ring aus zertrampelter Erde. Die Stämme messen hier ihre Kraft – und wer zusieht, versteht sie."
+    },
+    {
+     "typ": "see",
+     "n": "Goldsee",
+     "pos": [
+      -80,
+      95
+     ],
+     "radius": 25
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Palastquelle",
+     "pos": [
+      200,
+      -20
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "friedhof",
+     "n": "Schlachtfeld der Stämme",
+     "pos": [
+      60,
+      160
+     ],
+     "radius": 12,
+     "item": "seelenglas",
+     "anzahl": 8
+    }
+   ],
+   "ressourcen": {
+    "holz": [
+     15,
+     2
+    ],
+    "stein": [
+     30,
+     2
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "kristall": [
+     40,
+     3
+    ],
+    "windfeder": [
+     20,
+     1
+    ],
+    "unsterblichen_stein": [
+     10,
+     1
+    ],
+    "sonnengold": [
+     3,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     140,
+     210
+    ],
+    "zonen": [
+     [
+      "donnerkronenwolf",
+      "weisser_tiger",
+      "sturmadler"
+     ],
+     [
+      "wuester_feuerwolf",
+      "donnerkronenwolf",
+      "wuester_sturmadler"
+     ],
+     [
+      "wuester_feuerwolf",
+      "wuestes_mammut",
+      "uralter_donnerbueffel"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     140,
+     245
+    ]
+   },
+   "wilde_passive": [
+    [
+     "zehntausendjun",
+     "body",
+     150,
+     245,
+     false
+    ],
+    [
+     "glueckssicht",
+     "support",
+     140,
+     240,
+     true
+    ]
+   ],
+   "flut": {
+    "n": "Wüste Wolfsflut",
+    "bestien": [
+     "wuester_feuerwolf",
+     "donnerkronenwolf"
+    ],
+    "anfuehrer": "uralter_donnerbueffel",
+    "anzahl": 10,
+    "alle_tage": 5,
+    "ziel": "kaiserhof_palast",
+    "belohnung": {
+     "unsterblichen_stein": 8,
+     "fell": 10
+    }
+   },
+   "unsterblich": {
+    "zutritt_rang": 6,
+    "art": "gesegnetes_land",
+    "regeln": [],
+    "annektierbar": {
+     "pfad": "glueck",
+     "wachstum": 100,
+     "geschenk": {
+      "sonnengold": 3,
+      "seelenkern": 2,
+      "unsterblichen_stein": 80
+     }
+    },
+    "eingang": "Das Palasttor steht mitten in der Steppe der Nördlichen Ebene; beim Kaiserhof-Kampf öffnet es sich für alle Stämme, für Unsterbliche jederzeit."
+   }
+  },
+  "himmlischer_hof": {
+   "n": "Grotto-Himmel des Himmlischen Hofes",
+   "region": 4,
+   "karte": [
+    0.56,
+    0.36
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Die gemeinsame Apertur-Welt des Himmlischen Hofes: weiße Wolkeninseln über dem Zentralkontinent, in denen die Welten aller Mitglieder aufgegangen sind. In der Mitte ragt der Himmelsaufsichtsturm, der mit dem Schicksals-Gu die fünf Regionen überwacht.",
+   "groesse": 560,
+   "seed": 60707,
+   "biom": "wolkenfeste",
+   "relief": {
+    "hoehe": 4,
+    "frequenz": 0.005,
+    "detail": 0.5,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -10,
+    "horizont": 30,
+    "basis": -5
+   },
+   "erhebungen": [
+    [
+     0,
+     -30,
+     175,
+     30
+    ],
+    [
+     -190,
+     145,
+     60,
+     18
+    ],
+    [
+     185,
+     150,
+     60,
+     18
+    ],
+    [
+     190,
+     -175,
+     50,
+     20
+    ],
+    [
+     -185,
+     -170,
+     50,
+     16
+    ],
+    [
+     0,
+     110,
+     40,
+     16
+    ],
+    [
+     0,
+     -160,
+     40,
+     14
+    ],
+    [
+     -130,
+     -60,
+     40,
+     15
+    ],
+    [
+     130,
+     -60,
+     40,
+     15
+    ]
+   ],
+   "ankunft": [
+    0,
+    110
+   ],
+   "siedlungen": [
+    {
+     "id": "himmlischer_hof_sitz",
+     "typ": "sekte",
+     "fraktion": "himmelshof",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 90,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#e8c040",
+      "wand": "#fbf8f0",
+      "holz": "#6a5030",
+      "saeule": "#f4f0e0",
+      "banner": "#ffd23d",
+      "stein": "#d8d4cc",
+      "platz": "#f4ecd8"
+     },
+     "bewohner": "himmlischer_hof"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      110
+     ],
+     [
+      0,
+      50
+     ]
+    ],
+    [
+     [
+      -90,
+      -40
+     ],
+     [
+      -125,
+      -60
+     ]
+    ],
+    [
+     [
+      90,
+      -40
+     ],
+     [
+      125,
+      -60
+     ]
+    ],
+    [
+     [
+      0,
+      -130
+     ],
+     [
+      0,
+      -145
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "himmelsaufsichtsturm",
+     "n": "Himmelsaufsichtsturm",
+     "pos": [
+      0,
+      -160
+     ],
+     "radius": 12,
+     "opfer": {
+      "unsterblichen_stein": 60,
+      "himmelskristall": 3
+     },
+     "waechter": [
+      "uralter_wolkenkranich",
+      "uralter_wolkenkranich",
+      "uralter_donnerbueffel"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "sternenaugen",
+       "himmelsneid_gu"
+      ],
+      "items": {
+       "himmelskristall": 6,
+       "schicksalsfaden": 1,
+       "grottenstein": 3
+      }
+     },
+     "text": "Neun mal neun Stockwerke über den Wolken. Von der Spitze sieht der Hof jede Region – wer sie erreicht, sieht für einen Augenblick dasselbe.",
+     "stil": "turm",
+     "akzent": "#fff3d0"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Sternbild-Schachbrett",
+     "pos": [
+      -130,
+      -60
+     ],
+     "radius": 10,
+     "pfad": "stern",
+     "text": "Ein Brett aus Sternenlicht, groß wie ein Platz. Die Figuren bewegen sich von selbst – nach den Plänen der Sternbild-Ehrwürdigen."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Dämonen-Richttafel",
+     "pos": [
+      130,
+      -60
+     ],
+     "radius": 10,
+     "pfad": "blut",
+     "text": "Die Tafel spürt jedes Blut, das auf der Welt vergossen wird. Wer davor meditiert, hört es rauschen."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Wolkenquelle des Hofes",
+     "pos": [
+      -190,
+      145
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Grotto-Ader des Hofes",
+     "pos": [
+      185,
+      150
+     ],
+     "radius": 10,
+     "anzahl": 6,
+     "ertrag": 4,
+     "besitzer": "himmelshof",
+     "text": "Der Hof verteilt diesen Urstein an seine Mitglieder. Ein Fremder, der hier hackt, steht bald vor der Richttafel."
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Brandnarbe des Rot-Lotus",
+     "pos": [
+      190,
+      -175
+     ],
+     "radius": 10,
+     "item": "himmelskristall",
+     "anzahl": 3
+    }
+   ],
+   "ressourcen": {
+    "kristall": [
+     30,
+     3
+    ],
+    "stein": [
+     30,
+     2
+    ],
+    "holz": [
+     30,
+     2
+    ],
+    "unsterblichen_stein": [
+     14,
+     1
+    ],
+    "himmelskristall": [
+     6,
+     1
+    ],
+    "wolkenerz": [
+     12,
+     1
+    ],
+    "grottenstein": [
+     4,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     150,
+     210
+    ],
+    "zonen": [
+     [
+      "uralter_wolkenkranich"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "wuester_sturmadler"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "uralter_donnerbueffel",
+      "wuester_sturmadler"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     150,
+     240
+    ]
+   },
+   "wilde_passive": [
+    [
+     "hundertschlachten",
+     "support",
+     150,
+     240,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "grotto_himmel",
+    "regeln": [
+     "zeitfluss"
+    ],
+    "zeitfluss": 2,
+    "eingang": "Ein Unsterblicher des Hofes öffnet das Wolkentor über dem Zentralkontinent – auf Einladung, oder du brichst es auf und wirst gejagt."
+   }
+  },
+  "langlebigkeitshimmel": {
+   "n": "Langlebigkeits-Himmel",
+   "region": 0,
+   "karte": [
+    0.6,
+    0.08
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Die schwebende Feste des Riesensonnen-Ehrwürdigen und Sitz seiner Macht, des Langlebigkeits-Himmels. Goldene Wolkeninseln, in denen die Zeit schneller läuft – und irgendwo die Wahren Erben des größten Glückspilzes der Geschichte.",
+   "groesse": 500,
+   "seed": 60808,
+   "biom": "langlebigkeit",
+   "relief": {
+    "hoehe": 4,
+    "frequenz": 0.005,
+    "detail": 0.5,
+    "berge": 0,
+    "rand": 55,
+    "randhoehe": -10,
+    "horizont": 30,
+    "basis": -5
+   },
+   "erhebungen": [
+    [
+     0,
+     0,
+     150,
+     26
+    ],
+    [
+     -165,
+     -150,
+     60,
+     20
+    ],
+    [
+     165,
+     -145,
+     55,
+     18
+    ],
+    [
+     -160,
+     160,
+     55,
+     16
+    ],
+    [
+     0,
+     115,
+     40,
+     15
+    ],
+    [
+     70,
+     60,
+     40,
+     12
+    ],
+    [
+     -75,
+     65,
+     40,
+     12
+    ],
+    [
+     105,
+     -55,
+     40,
+     16
+    ]
+   ],
+   "ankunft": [
+    0,
+    115
+   ],
+   "siedlungen": [
+    {
+     "id": "langlebigkeits_feste",
+     "typ": "sekte",
+     "fraktion": "langlebigkeitshimmel",
+     "pos": [
+      0,
+      -30
+     ],
+     "radius": 70,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#c89020",
+      "wand": "#fff4d8",
+      "holz": "#6a4a20",
+      "saeule": "#e0a030",
+      "banner": "#ffd23d",
+      "stein": "#d8c8a0",
+      "platz": "#f4e0b0"
+     },
+     "bewohner": "langlebigkeitshimmel"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      115
+     ],
+     [
+      0,
+      40
+     ]
+    ],
+    [
+     [
+      50,
+      -60
+     ],
+     [
+      95,
+      -90
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "riesensonnen_halle",
+     "n": "Sonnenhalle des Riesensonnen-Ehrwürdigen",
+     "pos": [
+      -165,
+      -150
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 50,
+      "sonnengold": 2
+     },
+     "waechter": [
+      "uralter_donnerbueffel",
+      "wuester_feuerwolf",
+      "wuester_feuerwolf"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "besitz_gu",
+       "nachahmungs_gu"
+      ],
+      "items": {
+       "sonnengold": 3,
+       "ehrwuerdenessenz": 1
+      }
+     },
+     "text": "Die Halle ist für einen Riesen gebaut. Auf dem Thron liegt, was der Ehrwürdige seinen Erben zugedacht hat – bewacht von Bestien, die er selbst gezähmt hat.",
+     "stil": "tempel",
+     "akzent": "#ffd23d"
+    },
+    {
+     "typ": "erbe",
+     "id": "himmel_erde_glueck",
+     "n": "Himmel-und-Erde-Glück · Wahrer Erbe",
+     "pos": [
+      165,
+      -145
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 40,
+      "himmelskristall": 2
+     },
+     "waechter": [
+      "uralter_wolkenkranich",
+      "uralter_wolkenkranich"
+     ],
+     "belohnung": {
+      "hilfs_gu": [
+       "glueckssicht"
+      ],
+      "unsterbliche_gu": [
+       "dem_himmel_trotzendes_glueck_gu"
+      ],
+      "items": {
+       "schicksalsfaden": 1,
+       "himmelskristall": 4
+      }
+     },
+     "text": "Der letzte der drei Glücks-Erben. Wer ihn berührt, spürt für einen Herzschlag, wie Himmel und Erde ihm zulächeln.",
+     "stil": "altar",
+     "akzent": "#fff0a0"
+    },
+    {
+     "typ": "erbe",
+     "id": "blutmeer_grotte",
+     "n": "Blutmeer-Grotte",
+     "pos": [
+      -160,
+      160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 30,
+      "blutkoralle": 6
+     },
+     "waechter": [
+      "uralter_knochendrache"
+     ],
+     "belohnung": {
+      "gu": [
+       "blutkaiser"
+      ],
+      "unsterbliche_gu": [
+       "blutlinien_gu"
+      ],
+      "items": {
+       "seelenkern": 2,
+       "blutkoralle": 6
+      }
+     },
+     "text": "Hier zog der Ehrwürdige seinen Blutmeer-Klon heran. Das Becken ist leer – doch der Knochendrache, der es bewachte, lebt noch.",
+     "stil": "grotte",
+     "akzent": "#d0303a"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Goldener Glücksgarten",
+     "pos": [
+      70,
+      60
+     ],
+     "radius": 10,
+     "pfad": "glueck",
+     "text": "Die Blüten fallen hier immer so, dass man sie fängt. Wer verweilt, begreift das Glück."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Halle der tausend Jahre",
+     "pos": [
+      -75,
+      65
+     ],
+     "radius": 10,
+     "pfad": "zeit",
+     "text": "Der Ehrwürdige lebte über achttausend Jahre. In dieser Halle zählte er sie."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Sonnenquelle",
+     "pos": [
+      105,
+      -55
+     ],
+     "radius": 10
+    }
+   ],
+   "ressourcen": {
+    "kristall": [
+     30,
+     3
+    ],
+    "stein": [
+     25,
+     2
+    ],
+    "holz": [
+     30,
+     2
+    ],
+    "beeren": [
+     30,
+     3
+    ],
+    "unsterblichen_stein": [
+     14,
+     1
+    ],
+    "himmelskristall": [
+     6,
+     1
+    ],
+    "sonnengold": [
+     4,
+     1
+    ],
+    "grottenstein": [
+     4,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     120,
+     190
+    ],
+    "zonen": [
+     [
+      "wuester_sturmadler"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "wuester_feuerwolf"
+     ],
+     [
+      "uralter_knochendrache",
+      "uralter_wolkenkranich",
+      "uralter_donnerbueffel"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     120,
+     215
+    ]
+   },
+   "wilde_passive": [
+    [
+     "glueckssicht",
+     "support",
+     120,
+     215,
+     false
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "grotto_himmel",
+    "regeln": [
+     "zeitfluss",
+     "leichte_schwere"
+    ],
+    "zeitfluss": 3,
+    "eingang": "Über der Nördlichen Ebene hängt bei Sonnenaufgang eine goldene Wolke, die nicht weiterzieht; wer mit Rang-8-Kraft hinauffliegt, landet vor dem Tor."
+   }
+  },
+  "traumreich": {
+   "n": "Traumreich",
+   "region": 4,
+   "karte": [
+    0.64,
+    0.58
+   ],
+   "rang": [
+    5,
+    8
+   ],
+   "offen": true,
+   "d": "Ein pastellfarbener Traum, den ein Verstorbener zurückließ. Nichts hier ist ganz wirklich: Wer stirbt, erwacht am Eingang. Doch das Verständnis, das man im Traum gewinnt, bleibt – fünfmal so schnell wie in der wachen Welt.",
+   "groesse": 460,
+   "seed": 60909,
+   "biom": "traumreich",
+   "relief": {
+    "hoehe": 14,
+    "frequenz": 0.007,
+    "detail": 1.2,
+    "berge": 20,
+    "rand": 40,
+    "randhoehe": 30,
+    "horizont": 150
+   },
+   "erhebungen": [
+    [
+     -120,
+     -30,
+     55,
+     22
+    ],
+    [
+     110,
+     -80,
+     50,
+     26
+    ],
+    [
+     0,
+     -150,
+     60,
+     18
+    ]
+   ],
+   "ankunft": [
+    0,
+    170
+   ],
+   "siedlungen": [],
+   "wege": [
+    [
+     [
+      0,
+      170
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      -130
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "kern_des_traums",
+     "n": "Kern des Traums",
+     "pos": [
+      0,
+      -150
+     ],
+     "radius": 11,
+     "opfer": {
+      "traumsplitter": 10
+     },
+     "waechter": [
+      "wuester_nebelfuchs",
+      "schatten",
+      "schatten"
+     ],
+     "belohnung": {
+      "gu": [
+       "sternennebel",
+       "nebelschleier"
+      ],
+      "unsterbliche_gu": [
+       "traumschmetterlings_gu"
+      ],
+      "items": {
+       "traumsplitter": 20,
+       "seelenkern": 1
+      }
+     },
+     "text": "Im Herzen jedes Traums liegt, was der Träumer am meisten liebte. Hier ist es ein Schmetterling aus Licht.",
+     "stil": "altar",
+     "akzent": "#f4c8ff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Bibliothek der vergessenen Träume",
+     "pos": [
+      -120,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "weisheit",
+     "text": "Regale ohne Ende, die Bücher darin schreiben sich beim Lesen selbst."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Sternenschaukel",
+     "pos": [
+      110,
+      -80
+     ],
+     "radius": 10,
+     "pfad": "stern",
+     "text": "Eine Schaukel hängt an einem Stern. Wer darauf schwingt, versteht, warum Sterne nicht fallen."
+    },
+    {
+     "typ": "see",
+     "n": "Spiegelsee der Erinnerung",
+     "pos": [
+      80,
+      90
+     ],
+     "radius": 22
+    },
+    {
+     "typ": "friedhof",
+     "n": "Feld der Träumer",
+     "pos": [
+      -130,
+      110
+     ],
+     "radius": 12,
+     "item": "traumsplitter",
+     "anzahl": 10
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Quelle des Erwachens",
+     "pos": [
+      0,
+      20
+     ],
+     "radius": 10
+    }
+   ],
+   "ressourcen": {
+    "traumsplitter": [
+     20,
+     1
+    ],
+    "seelenstaub": [
+     10,
+     1
+    ],
+    "mondtau": [
+     30,
+     1
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "holz": [
+     30,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "himmelsqi": [
+     6,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     160
+    ],
+    "zonen": [
+     [
+      "schatten",
+      "sturmadler",
+      "feuerfuchs"
+     ],
+     [
+      "schatten",
+      "weisser_tiger",
+      "donnerkronenwolf",
+      "feuerfuchs"
+     ],
+     [
+      "wuester_nebelfuchs",
+      "wuester_seelenfresser",
+      "schatten"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     80,
+     200
+    ]
+   },
+   "wilde_passive": [
+    [
+     "boeserGedanke",
+     "support",
+     80,
+     200,
+     true
+    ],
+    [
+     "glueckssicht",
+     "support",
+     60,
+     180,
+     false
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 5,
+    "art": "dimension",
+    "regeln": [
+     "traum"
+    ],
+    "eingang": "Ein flimmernder Riss in der Luft des Zentralkontinents; wer daneben einschläft, erwacht im Traum."
+   }
+  },
+  "drachenpalast": {
+   "n": "Drachenpalast",
+   "region": 2,
+   "karte": [
+    0.9,
+    0.62
+   ],
+   "rang": [
+    7,
+    8
+   ],
+   "offen": true,
+   "d": "Der Palast der Drachenmenschen tief im Östlichen Meer: türkisfarbenes Wasser, Korallentürme und die Ruinen eines Hofes, den Herzog Long für den Himmlischen Hof erobert hat. Aus seinem Hort stammt der Traummarken-Gu, der selbst Rang-8-Unsterbliche versklaven kann.",
+   "groesse": 560,
+   "seed": 61010,
+   "biom": "drachenmeer",
+   "relief": {
+    "hoehe": 3,
+    "frequenz": 0.006,
+    "detail": 0.4,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -8,
+    "horizont": 25,
+    "basis": -4
+   },
+   "erhebungen": [
+    [
+     0,
+     -20,
+     130,
+     14
+    ],
+    [
+     -190,
+     120,
+     70,
+     10
+    ],
+    [
+     180,
+     140,
+     60,
+     10
+    ],
+    [
+     190,
+     -150,
+     60,
+     12
+    ],
+    [
+     -180,
+     -160,
+     55,
+     12
+    ],
+    [
+     0,
+     80,
+     40,
+     15
+    ],
+    [
+     -190,
+     120,
+     40,
+     12
+    ],
+    [
+     180,
+     140,
+     40,
+     12
+    ],
+    [
+     60,
+     60,
+     40,
+     15
+    ]
+   ],
+   "ankunft": [
+    0,
+    80
+   ],
+   "siedlungen": [
+    {
+     "id": "drachenpalast_ruine",
+     "typ": "festung",
+     "fraktion": "drachenmenschen",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 60,
+     "haeuser": 8,
+     "farben": {
+      "dach": "#1a6a6a",
+      "wand": "#e0f0e8",
+      "holz": "#3a5a5a",
+      "saeule": "#2ab0a0",
+      "banner": "#1fd0c0",
+      "stein": "#7a9a98",
+      "platz": "#c8e0d8"
+     },
+     "bewohner": "drachenmenschen"
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      80
+     ],
+     [
+      0,
+      20
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "traummarken_hort",
+     "n": "Hort des Traummarken-Gu",
+     "pos": [
+      190,
+      -150
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 40,
+      "tiefseeperle": 6
+     },
+     "waechter": [
+      "urzeitlicher_drachenwal",
+      "uralte_tiefseeschildkroete"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "traummarken_gu"
+      ],
+      "items": {
+       "drachenschuppe": 6,
+       "grottenstein": 2,
+       "tiefseeperle": 6
+      }
+     },
+     "text": "Herzog Long nahm den Hort – aber nicht alles. Der Drachenwal, der ihn bewachte, ist nie gegangen.",
+     "stil": "grotte",
+     "akzent": "#1fd0c0"
+    },
+    {
+     "typ": "erbe",
+     "id": "drachenkoenig_thron",
+     "n": "Thronsaal des Drachenkönigs",
+     "pos": [
+      -180,
+      -160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 25,
+      "drachenschuppe": 4
+     },
+     "waechter": [
+      "uralte_tiefseeschildkroete",
+      "seeschlange",
+      "seeschlange"
+     ],
+     "belohnung": {
+      "gu": [
+       "meeresdrache",
+       "drachenatem"
+      ],
+      "unsterbliche_gu": [
+       "drachenschuppen_gu"
+      ],
+      "items": {
+       "drachenschuppe": 4,
+       "tiefseeperle": 4,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Der Thron ist leer, die Schuppen des letzten Königs liegen noch auf den Stufen.",
+     "stil": "tempel",
+     "akzent": "#4dc3ff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Gezeitenhalle",
+     "pos": [
+      -190,
+      120
+     ],
+     "radius": 10,
+     "pfad": "wasser",
+     "text": "Hier atmet das Meer. Wer die Gezeiten zählt, versteht das Wasser."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Perlenquelle",
+     "pos": [
+      180,
+      140
+     ],
+     "radius": 10
+    },
+    {
+     "typ": "friedhof",
+     "n": "Korallengräber",
+     "pos": [
+      60,
+      60
+     ],
+     "radius": 12,
+     "item": "blutkoralle",
+     "anzahl": 8
+    }
+   ],
+   "ressourcen": {
+    "kristall": [
+     30,
+     3
+    ],
+    "holz": [
+     20,
+     2
+    ],
+    "beeren": [
+     30,
+     3
+    ],
+    "tiefseeperle": [
+     10,
+     1
+    ],
+    "blutkoralle": [
+     12,
+     1
+    ],
+    "drachenschuppe": [
+     6,
+     1
+    ],
+    "unsterblichen_stein": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     110,
+     190
+    ],
+    "zonen": [
+     [
+      "seeschlange",
+      "riesenkrabbe"
+     ],
+     [
+      "uralte_tiefseeschildkroete",
+      "seeschlange",
+      "wueste_frostschlange"
+     ],
+     [
+      "urzeitlicher_drachenwal",
+      "uralte_tiefseeschildkroete"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     60,
+     110
+    ]
+   },
+   "wilde_passive": [
+    [
+     "essenzeisenknochen",
+     "body",
+     60,
+     110,
+     true
+    ],
+    [
+     "fadenspur",
+     "support",
+     50,
+     110,
+     false
+    ]
+   ],
+   "flut": {
+    "n": "Drachenflut der Tiefe",
+    "bestien": [
+     "seeschlange",
+     "riesenkrabbe",
+     "uralte_tiefseeschildkroete"
+    ],
+    "anfuehrer": "urzeitlicher_drachenwal",
+    "anzahl": 8,
+    "alle_tage": 6,
+    "ziel": "drachenpalast_ruine",
+    "belohnung": {
+     "unsterblichen_stein": 10,
+     "tiefseeperle": 3
+    }
+   },
+   "unsterblich": {
+    "zutritt_rang": 7,
+    "art": "dimension",
+    "regeln": [
+     "stroemung"
+    ],
+    "stroemung": [
+     1,
+     0,
+     1.5
+    ],
+    "eingang": "Bei Ebbe öffnet sich unter dem Nebel des Ostmeers ein Korallenschlund; die Drachenmenschen lassen nur Unsterbliche passieren."
+   }
+  },
+  "weisser_himmel": {
+   "n": "Fragment des Weißen Himmels",
+   "region": 5,
+   "karte": [
+    0.04,
+    0.12
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Ein Stück des Weißen Himmels jenseits der Himmelswind-Qi-Wand: ein Meer aus Licht und Wolken, auf dem Inseln treiben. In der Ferne liegen die Trümmer der erloschenen Sonne, in der einst der Feuer-Gu und der Licht-Gu lebten.",
+   "groesse": 560,
+   "seed": 61111,
+   "biom": "weisser_himmel",
+   "relief": {
+    "hoehe": 4,
+    "frequenz": 0.005,
+    "detail": 0.5,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -10,
+    "horizont": 20,
+    "basis": -5
+   },
+   "erhebungen": [
+    [
+     0,
+     0,
+     150,
+     20
+    ],
+    [
+     -190,
+     -150,
+     70,
+     24
+    ],
+    [
+     180,
+     -160,
+     60,
+     18
+    ],
+    [
+     -170,
+     160,
+     60,
+     14
+    ],
+    [
+     190,
+     150,
+     65,
+     16
+    ],
+    [
+     0,
+     115,
+     40,
+     16
+    ]
+   ],
+   "ankunft": [
+    0,
+    115
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "aschefeld",
+     "n": "Trümmer der erloschenen Sonne",
+     "pos": [
+      -190,
+      -150
+     ],
+     "radius": 14,
+     "item": "sonnengold",
+     "anzahl": 4
+    },
+    {
+     "typ": "erbe",
+     "id": "lichtaltar_weisser_himmel",
+     "n": "Lichtaltar des Weißen Himmels",
+     "pos": [
+      180,
+      -160
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 60,
+      "himmelskristall": 4
+     },
+     "waechter": [
+      "uralter_wolkenkranich",
+      "uralter_donnerbueffel",
+      "wuester_sturmadler"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "sichtlicht_gu",
+       "aufsteigende_azurwolke_gu"
+      ],
+      "items": {
+       "wolkenerz": 8,
+       "himmelskristall": 6,
+       "sonnengold": 2
+      }
+     },
+     "text": "Ein Altar aus reinem Licht, der den Tag über die fünf Regionen trägt. Seine Wächter kreisen seit dem Fall der Sonne.",
+     "stil": "altar",
+     "akzent": "#fff3d0"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Lichtstrom über den Wolken",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 10,
+     "pfad": "licht",
+     "text": "Das Licht fließt hier wie Wasser. Wer darin sitzt, wird selbst ein wenig heller."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Himmelswind-Klippe",
+     "pos": [
+      -170,
+      160
+     ],
+     "radius": 10,
+     "pfad": "wind",
+     "text": "Hier reißt die Himmelswind-Qi-Wand an der Insel. Wer standhält, versteht den Wind."
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Wolkenquelle",
+     "pos": [
+      190,
+      150
+     ],
+     "radius": 10
+    }
+   ],
+   "ressourcen": {
+    "wolkenerz": [
+     20,
+     1
+    ],
+    "himmelskristall": [
+     8,
+     1
+    ],
+    "himmelsqi": [
+     10,
+     1
+    ],
+    "stein": [
+     20,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "unsterblichen_stein": [
+     12,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     120,
+     200
+    ],
+    "zonen": [
+     [
+      "wuester_sturmadler",
+      "uralter_wolkenkranich"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "wuester_sturmadler",
+      "uralter_donnerbueffel"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "uralter_donnerbueffel",
+      "urzeitlicher_drachenwal"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     120,
+     240
+    ]
+   },
+   "wilde_passive": [
+    [
+     "glueckssicht",
+     "support",
+     120,
+     240,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "himmel",
+    "regeln": [
+     "leichte_schwere",
+     "sterbliche_sterben"
+    ],
+    "eingang": "Durch die Himmelswind-Qi-Wand: nur wer mit Rang-8-Kraft hindurchbricht oder einen Welthorizont-Gu trägt, steht auf dem Wolkenboden."
+   }
+  },
+  "schwarzer_himmel": {
+   "n": "Schwarzer Himmel",
+   "region": 6,
+   "karte": [
+    0.965,
+    0.12
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Die Leere zwischen den Sternen, der Himmel der Nacht. Inseln aus schwarzem Fels treiben in violettem Nebel; darunter nichts. Die Dämonen-Ehrwürdigen sollen hier ihre Gräber und Geheimnisse verborgen haben.",
+   "groesse": 560,
+   "seed": 61212,
+   "biom": "schwarzer_himmel",
+   "relief": {
+    "hoehe": 5,
+    "frequenz": 0.005,
+    "detail": 0.7,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -10,
+    "horizont": 20,
+    "basis": -5
+   },
+   "erhebungen": [
+    [
+     0,
+     0,
+     145,
+     22
+    ],
+    [
+     -180,
+     -150,
+     65,
+     20
+    ],
+    [
+     180,
+     -150,
+     60,
+     18
+    ],
+    [
+     -160,
+     160,
+     60,
+     16
+    ],
+    [
+     170,
+     150,
+     60,
+     20
+    ],
+    [
+     0,
+     110,
+     40,
+     17
+    ]
+   ],
+   "ankunft": [
+    0,
+    110
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "sternengrab_daemonen",
+     "n": "Sternengrab der Dämonen-Ehrwürdigen",
+     "pos": [
+      -180,
+      -150
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 60,
+      "seelenkern": 2
+     },
+     "waechter": [
+      "uralter_knochendrache",
+      "wuester_seelenfresser",
+      "wuester_seelenfresser"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "dunkelpfeil_gu",
+       "sternschuss_gu"
+      ],
+      "items": {
+       "schicksalsfaden": 1,
+       "seelenkern": 2,
+       "himmelskristall": 5
+      }
+     },
+     "text": "Ein Grab ohne Namen, erleuchtet von toten Sternen. Wer es öffnet, wird von allem bewacht, was hier jemals starb.",
+     "stil": "grab",
+     "akzent": "#b070ff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Sternenstrudel",
+     "pos": [
+      0,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "stern",
+     "text": "Die Sterne drehen sich hier um einen leeren Punkt. Wer lange hinsieht, erkennt ihre Bahnen."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Schattenschlund",
+     "pos": [
+      170,
+      150
+     ],
+     "radius": 10,
+     "pfad": "verbergen",
+     "text": "Ein Riss, in dem selbst das Sternenlicht verschwindet. Wer hier kultiviert, lernt, nicht gesehen zu werden."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Sternenfriedhof",
+     "pos": [
+      -160,
+      160
+     ],
+     "radius": 12,
+     "item": "seelenstaub",
+     "anzahl": 10
+    },
+    {
+     "typ": "frostquelle",
+     "n": "Kälte der Leere",
+     "pos": [
+      180,
+      -150
+     ],
+     "radius": 10,
+     "item": "frostsplitter",
+     "anzahl": 10
+    }
+   ],
+   "ressourcen": {
+    "seelenstaub": [
+     12,
+     1
+    ],
+    "himmelskristall": [
+     6,
+     1
+    ],
+    "sternsand": [
+     30,
+     1
+    ],
+    "stein": [
+     20,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "unsterblichen_stein": [
+     12,
+     1
+    ],
+    "himmelsqi": [
+     8,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     120,
+     200
+    ],
+    "zonen": [
+     [
+      "schatten",
+      "wuester_seelenfresser",
+      "wueste_frostschlange"
+     ],
+     [
+      "wuester_seelenfresser",
+      "wueste_frostschlange",
+      "uralter_knochendrache"
+     ],
+     [
+      "uralter_knochendrache",
+      "wuester_seelenfresser"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     120,
+     240
+    ]
+   },
+   "wilde_passive": [
+    [
+     "boeserGedanke",
+     "support",
+     120,
+     240,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "himmel",
+    "regeln": [
+     "leichte_schwere",
+     "sterbliche_sterben"
+    ],
+    "eingang": "Durch die Himmelswind-Qi-Wand, wenn der Schwarze Himmel über den Regionen steht – also nur nachts."
+   }
+  },
+  "irre_daemonen_hoehle": {
+   "n": "Höhle des irren Dämons",
+   "region": 4,
+   "karte": [
+    0.66,
+    0.44
+   ],
+   "rang": [
+    9,
+    9
+   ],
+   "offen": true,
+   "d": "Eine schwarze Riesenhöhle, in deren Grund Chaos-Risse glühen. Hier trafen sich zuletzt der Himmlische Hof, der Riesensonnen-Ehrwürdige und Fang Yuan im Wettlauf um die Unsterblichkeit. Nur Ehrwürdige kehren von hier zurück.",
+   "groesse": 480,
+   "seed": 61313,
+   "biom": "daemonenhoehle",
+   "relief": {
+    "hoehe": 18,
+    "frequenz": 0.005,
+    "detail": 1.2,
+    "berge": 30,
+    "rand": 70,
+    "randhoehe": 90,
+    "horizont": 260
+   },
+   "ankunft": [
+    0,
+    180
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "irre_daemonen_grund",
+     "n": "Grund der Höhle des irren Dämons",
+     "pos": [
+      0,
+      -150
+     ],
+     "radius": 12,
+     "opfer": {
+      "unsterblichen_stein": 120,
+      "schicksalsfaden": 1
+     },
+     "waechter": [
+      "urzeitlicher_erdwurm",
+      "urzeitlicher_erdwurm",
+      "uralter_knochendrache"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "anpassungs_gu"
+      ],
+      "items": {
+       "ehrwuerdenessenz": 1,
+       "schicksalsfaden": 2,
+       "grottenstein": 4
+      }
+     },
+     "text": "Am tiefsten Punkt der Höhle liegt, worum Ehrwürdige kämpften. Die Würmer, die hier graben, fressen Stein und Unsterbliche gleichermaßen.",
+     "stil": "grotte",
+     "akzent": "#ff4a3a"
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Chaos-Riss",
+     "pos": [
+      -120,
+      -40
+     ],
+     "radius": 12,
+     "item": "trübsalsstahl",
+     "anzahl": 5
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Wütender Fels",
+     "pos": [
+      115,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "kraft",
+     "text": "Der Fels bebt, als wäre er zornig. Wer darauf sitzt, spürt eine Kraft, die keine Regeln kennt."
+    },
+    {
+     "typ": "friedhof",
+     "n": "Knochenfeld der Venerable-Kriege",
+     "pos": [
+      120,
+      100
+     ],
+     "radius": 12,
+     "item": "seelenkern",
+     "anzahl": 3
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Blutquelle im Fels",
+     "pos": [
+      -110,
+      110
+     ],
+     "radius": 9
+    }
+   ],
+   "ressourcen": {
+    "stein": [
+     60,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "trübsalsstahl": [
+     8,
+     1
+    ],
+    "grottenstein": [
+     6,
+     1
+    ],
+    "unsterblichen_stein": [
+     15,
+     1
+    ],
+    "wuestes_mark": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     170
+    ],
+    "zonen": [
+     [
+      "urzeitlicher_erdwurm",
+      "uralter_knochendrache"
+     ],
+     [
+      "urzeitlicher_erdwurm",
+      "uralter_knochendrache",
+      "wuester_seelenfresser"
+     ],
+     [
+      "uralter_donnerbueffel",
+      "uralter_knochendrache",
+      "wuester_feuerwolf"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     100,
+     200
+    ]
+   },
+   "wilde_passive": [
+    [
+     "zehntausendjun",
+     "body",
+     100,
+     200,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 9,
+    "art": "dimension",
+    "regeln": [
+     "sterbliche_sterben"
+    ],
+    "eingang": "Ein schwarzer Schlund öffnet sich im Zentralkontinent, wenn die Chaos-Katastrophe naht; nur ein Rang-9-Körper übersteht den Abstieg."
+   }
+  },
+  "winde_der_angleichung": {
+   "n": "Winde der Angleichung",
+   "region": 5,
+   "karte": [
+    0.035,
+    0.2
+   ],
+   "rang": [
+    8,
+    9
+   ],
+   "offen": true,
+   "d": "Ein Sturmfeld aus grauem Licht jenseits der Himmelswind-Qi-Wand. Die Winde gleichen alles einander an – Gedanken, Gu, Seelen. Hier fand Fang Yuan einst den wilden Weisheits-Gu.",
+   "groesse": 440,
+   "seed": 61414,
+   "biom": "angleichungswinde",
+   "relief": {
+    "hoehe": 8,
+    "frequenz": 0.005,
+    "detail": 1.0,
+    "berge": 12,
+    "rand": 50,
+    "randhoehe": 30,
+    "horizont": 120
+   },
+   "ankunft": [
+    0,
+    160
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "auge_der_winde",
+     "n": "Auge der Winde",
+     "pos": [
+      0,
+      -130
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 50,
+      "daokern": 2
+     },
+     "waechter": [
+      "wuester_sturmadler",
+      "wuester_sturmadler",
+      "uralter_wolkenkranich"
+     ],
+     "belohnung": {
+      "hilfs_gu": [
+       "boeserGedanke"
+      ],
+      "unsterbliche_gu": [
+       "weisheitshindernis_gu",
+       "wahrnehmbares_dao_gu"
+      ],
+      "items": {
+       "himmelskristall": 4,
+       "daokern": 3
+      }
+     },
+     "text": "Im Zentrum des Sturms ist es still. Hier trieb einst ein Gu, der dachte – ein Rest seiner Gedanken hängt noch in der Luft.",
+     "stil": "altar",
+     "akzent": "#c8ccd8"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Felsen des klaren Denkens",
+     "pos": [
+      -100,
+      0
+     ],
+     "radius": 10,
+     "pfad": "weisheit",
+     "text": "Der Wind schleift hier jeden Gedanken, bis nur der wahre übrig bleibt."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Rand des Sturms",
+     "pos": [
+      100,
+      20
+     ],
+     "radius": 10,
+     "pfad": "wind",
+     "text": "Wo der Sturm auf die Wand trifft, versteht man, wohin jeder Wind will."
+    }
+   ],
+   "ressourcen": {
+    "windfeder": [
+     30,
+     1
+    ],
+    "wolkenerz": [
+     10,
+     1
+    ],
+    "himmelsqi": [
+     10,
+     1
+    ],
+    "daokern": [
+     4,
+     1
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "kristall": [
+     25,
+     3
+    ]
+   },
+   "gegner": {
+    "radien": [
+     90,
+     150
+    ],
+    "zonen": [
+     [
+      "wuester_sturmadler"
+     ],
+     [
+      "wuester_sturmadler",
+      "wuester_seelenfresser"
+     ],
+     [
+      "uralter_wolkenkranich",
+      "wuester_seelenfresser"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     90,
+     185
+    ]
+   },
+   "wilde_passive": [
+    [
+     "boeserGedanke",
+     "support",
+     90,
+     185,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 8,
+    "art": "dimension",
+    "regeln": [
+     "seelensturm",
+     "stroemung"
+    ],
+    "stroemung": [
+     1,
+     0,
+     4.0
+    ],
+    "eingang": "Hinter der Himmelswind-Qi-Wand, dort, wo der Weiße Himmel ausfranst; der Sturm zieht jeden hinein, der zu nah kommt."
+   }
+  },
+  "bo_traumreich": {
+   "n": "Traumreich der Bo",
+   "region": 4,
+   "karte": [
+    0.47,
+    0.66
+   ],
+   "rang": [
+    7,
+    8
+   ],
+   "offen": true,
+   "d": "Der gefrorene Traum eines untergegangenen Klans. Die Zeit steht in Eis, die Ahnen der Bo träumen weiter – und hüten die Zeit-Pfad-Techniken, aus denen Fang Yuans Zeitschneide stammt.",
+   "groesse": 400,
+   "seed": 61515,
+   "biom": "gefrorener_traum",
+   "relief": {
+    "hoehe": 10,
+    "frequenz": 0.006,
+    "detail": 1.0,
+    "berge": 18,
+    "rand": 45,
+    "randhoehe": 40,
+    "horizont": 150
+   },
+   "ankunft": [
+    0,
+    145
+   ],
+   "siedlungen": [],
+   "wege": [
+    [
+     [
+      0,
+      145
+     ],
+     [
+      0,
+      -110
+     ]
+    ]
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "bo_ahnenhalle",
+     "n": "Gefrorene Ahnenhalle der Bo",
+     "pos": [
+      0,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "traumsplitter": 15,
+      "unsterblichen_stein": 30
+     },
+     "waechter": [
+      "wueste_frostschlange",
+      "wueste_frostschlange",
+      "uralter_knochendrache"
+     ],
+     "belohnung": {
+      "unsterbliche_gu": [
+       "winter_gu"
+      ],
+      "items": {
+       "zeitharz": 8,
+       "traumsplitter": 15,
+       "frostsplitter": 10
+      }
+     },
+     "text": "Die Ahnen der Bo sitzen im Eis, als warteten sie auf ein Urteil. Wer ihre Prüfung besteht, erbt ihren Winter.",
+     "stil": "grab",
+     "akzent": "#a8c8e8"
+    },
+    {
+     "typ": "frostquelle",
+     "n": "Quelle der eingefrorenen Stunde",
+     "pos": [
+      -100,
+      40
+     ],
+     "radius": 9,
+     "item": "frostsplitter",
+     "anzahl": 10
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Uhrwerk aus Eis",
+     "pos": [
+      95,
+      30
+     ],
+     "radius": 10,
+     "pfad": "zeit",
+     "text": "Ein riesiges Uhrwerk, in Eis gefroren. Es tickt trotzdem – rückwärts."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Schneehang der Ahnen",
+     "pos": [
+      -40,
+      110
+     ],
+     "radius": 10,
+     "pfad": "eis",
+     "text": "Der Schnee fällt hier seit tausend Jahren auf dieselben Spuren."
+    }
+   ],
+   "ressourcen": {
+    "frostsplitter": [
+     30,
+     1
+    ],
+    "zeitharz": [
+     12,
+     1
+    ],
+    "traumsplitter": [
+     15,
+     1
+    ],
+    "stein": [
+     30,
+     2
+    ],
+    "holz": [
+     20,
+     2
+    ],
+    "kristall": [
+     25,
+     3
+    ]
+   },
+   "gegner": {
+    "radien": [
+     80,
+     140
+    ],
+    "zonen": [
+     [
+      "wueste_frostschlange",
+      "schatten"
+     ],
+     [
+      "wueste_frostschlange",
+      "wuester_seelenfresser"
+     ],
+     [
+      "uralter_knochendrache",
+      "wueste_frostschlange"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     70,
+     165
+    ]
+   },
+   "wilde_passive": [
+    [
+     "eiskristall",
+     "body",
+     70,
+     165,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 7,
+    "art": "dimension",
+    "regeln": [
+     "traum"
+    ],
+    "eingang": "Ein Riss aus Raureif in einem verlassenen Klan-Hof des Zentralkontinents; wer davor einschläft, friert – und erwacht im Traum."
+   }
+  },
+  "blauer_himmel_fragment": {
+   "n": "Trümmer des Blauen Himmels",
+   "region": 4,
+   "karte": [
+    0.32,
+    0.5
+   ],
+   "rang": [
+    7,
+    8
+   ],
+   "offen": true,
+   "d": "Ein Fragment des zerstörten Blauen Himmels, das in den Zentralkontinent stürzte. Blitze zucken ohne Unterlass über die blauen Splitter – hier soll einst der Blitz-Gu gefangen gewesen sein, bis Zorn und Blitz den Himmel sprengten.",
+   "groesse": 440,
+   "seed": 61616,
+   "biom": "blauer_himmel",
+   "relief": {
+    "hoehe": 16,
+    "frequenz": 0.006,
+    "detail": 1.3,
+    "berge": 40,
+    "rand": 50,
+    "randhoehe": 40,
+    "horizont": 140
+   },
+   "erhebungen": [
+    [
+     -110,
+     -60,
+     45,
+     30
+    ],
+    [
+     100,
+     -70,
+     40,
+     34
+    ],
+    [
+     0,
+     -120,
+     55,
+     26
+    ]
+   ],
+   "ankunft": [
+    0,
+    165
+   ],
+   "siedlungen": [],
+   "wege": [],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "gefaengnis_des_blitzes",
+     "n": "Gefängnis des Blitz-Gu",
+     "pos": [
+      0,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "unsterblichen_stein": 40,
+      "donnerkrone": 2
+     },
+     "waechter": [
+      "uralter_donnerbueffel",
+      "uralter_donnerbueffel",
+      "wuester_sturmadler"
+     ],
+     "belohnung": {
+      "gu": [
+       "himmelsdonner",
+       "himmelsfeuerknolle"
+      ],
+      "unsterbliche_gu": [
+       "himmelsgong_gu"
+      ],
+      "items": {
+       "donnerholz": 10,
+       "himmelskristall": 4,
+       "donnerkrone": 2
+      }
+     },
+     "text": "Die Ketten hängen leer. Was sie hielten, ist längst fort – doch sein Donner hallt noch in einem Gong aus Himmelsstein.",
+     "stil": "altar",
+     "akzent": "#8ad0ff"
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Blitzsplitter",
+     "pos": [
+      -110,
+      -60
+     ],
+     "radius": 10,
+     "pfad": "blitz",
+     "text": "Auf diesem Splitter schlägt der Blitz jede Minute ein. Wer bleibt, versteht ihn."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Donnerhall",
+     "pos": [
+      100,
+      -70
+     ],
+     "radius": 10,
+     "pfad": "ton",
+     "text": "Jeder Donner kommt hier dreifach zurück. Wer lauscht, hört den Klang des Himmels."
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Blitzgeschwärzter Grund",
+     "pos": [
+      90,
+      90
+     ],
+     "radius": 12,
+     "item": "donnerholz",
+     "anzahl": 8
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Azurquelle",
+     "pos": [
+      -110,
+      100
+     ],
+     "radius": 9
+    }
+   ],
+   "ressourcen": {
+    "donnerholz": [
+     20,
+     1
+    ],
+    "himmelskristall": [
+     5,
+     1
+    ],
+    "wolkenerz": [
+     10,
+     1
+    ],
+    "himmelsqi": [
+     8,
+     1
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "kristall": [
+     30,
+     3
+    ],
+    "unsterblichen_stein": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     170
+    ],
+    "zonen": [
+     [
+      "donnerkronenwolf",
+      "wuester_sturmadler"
+     ],
+     [
+      "uralter_donnerbueffel",
+      "donnerkronenwolf",
+      "wuester_sturmadler"
+     ],
+     [
+      "uralter_donnerbueffel",
+      "wuester_sturmadler"
+     ]
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     90,
+     185
+    ]
+   },
+   "wilde_passive": [
+    [
+     "hundertschlachten",
+     "support",
+     90,
+     185,
+     true
+    ]
+   ],
+   "unsterblich": {
+    "zutritt_rang": 7,
+    "art": "himmel",
+    "regeln": [
+     "leichte_schwere"
+    ],
+    "eingang": "Der Splitter ragt schräg aus einem Krater im Westen des Zentralkontinents; wer hinaufsteigt, betritt ein Stück Himmel."
+   }
   }
  },
  "BIOME": {
@@ -5736,6 +9764,489 @@
    "wetter": {
     "art": "regen",
     "chance": 0.2
+   }
+  },
+  "seelenberg": {
+   "n": "Seelenberg (Dang Hun)",
+   "farben": {
+    "gras_dunkel": "#4a4658",
+    "gras_hell": "#6e6a82",
+    "moos": "#5a5470",
+    "erde": "#4e4656",
+    "fels": "#5e5a6a",
+    "gipfel": "#c8c0dc",
+    "weg": "#7a7488",
+    "platz": "#8a8498"
+   },
+   "vegetation": {
+    "totholz": 0.55,
+    "nadelbaum": 0.45
+   },
+   "baeume_pro_1000m2": 1.2,
+   "buesche_pro_1000m2": 1.0,
+   "gras_pro_1000m2": 18,
+   "felsen_pro_1000m2": 4.5,
+   "himmel": "#b8b0c8",
+   "himmel_oben": "#4a3e6e",
+   "nebel": "#a69cbc",
+   "nebel_dichte": 0.003,
+   "wasser": "#3a3450",
+   "pflanzenfarbe": "#c8b8e0"
+  },
+  "seelental": {
+   "n": "Echoloses Seelental (Luo Po)",
+   "farben": {
+    "gras_dunkel": "#5a6458",
+    "gras_hell": "#8a9484",
+    "moos": "#6e7868",
+    "erde": "#5e5a52",
+    "fels": "#6a6a70",
+    "gipfel": "#b4b4bc",
+    "weg": "#8a887e",
+    "platz": "#9a988e"
+   },
+   "vegetation": {
+    "totholz": 0.6,
+    "nadelbaum": 0.4,
+    "steppengras": 0.8
+   },
+   "baeume_pro_1000m2": 0.6,
+   "buesche_pro_1000m2": 0.8,
+   "gras_pro_1000m2": 70,
+   "felsen_pro_1000m2": 5.5,
+   "himmel": "#c4c8cc",
+   "himmel_oben": "#5a6478",
+   "nebel": "#b8bec4",
+   "nebel_dichte": 0.0038,
+   "wasser": "#4a5660",
+   "pflanzenfarbe": "#d0d8d4",
+   "wetter": {
+    "art": "sand",
+    "chance": 0.35
+   }
+  },
+  "zeitstrom": {
+   "n": "Ufer des Rückfluss-Flusses",
+   "farben": {
+    "gras_dunkel": "#5a5a36",
+    "gras_hell": "#8e8a52",
+    "moos": "#76703e",
+    "erde": "#7a6444",
+    "fels": "#7a7060",
+    "gipfel": "#c8bc9c",
+    "weg": "#a08e68",
+    "platz": "#b09e78",
+    "strand": "#c8b48a"
+   },
+   "vegetation": {
+    "totholz": 0.5,
+    "laubbaum": 0.35,
+    "nadelbaum": 0.15
+   },
+   "baeume_pro_1000m2": 1.5,
+   "buesche_pro_1000m2": 1.5,
+   "gras_pro_1000m2": 40,
+   "felsen_pro_1000m2": 2.5,
+   "himmel": "#e2d6b4",
+   "himmel_oben": "#7a6a9a",
+   "nebel": "#d6c8a4",
+   "nebel_dichte": 0.0032,
+   "wasser": "#8a7440",
+   "pflanzenfarbe": "#e8d8a8"
+  },
+  "fuchsland": {
+   "n": "Fuchsland der Hu-Unsterblichen",
+   "farben": {
+    "gras_dunkel": "#8a4a24",
+    "gras_hell": "#c8843a",
+    "moos": "#a4642c",
+    "erde": "#7a4a2e",
+    "fels": "#8a6452",
+    "gipfel": "#e0c09a",
+    "weg": "#b8906a",
+    "platz": "#c8a07a"
+   },
+   "vegetation": {
+    "laubbaum": 0.45,
+    "bluetenbaum": 0.35,
+    "bambus": 0.2
+   },
+   "baeume_pro_1000m2": 4.0,
+   "buesche_pro_1000m2": 3.5,
+   "gras_pro_1000m2": 70,
+   "felsen_pro_1000m2": 1.5,
+   "himmel": "#f2d8b4",
+   "himmel_oben": "#c86a3a",
+   "nebel": "#eac8a0",
+   "nebel_dichte": 0.0024,
+   "wasser": "#6a8a8a",
+   "pflanzenfarbe": "#ffb070",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.1
+   }
+  },
+  "wolkensee": {
+   "n": "Wolkensee von Lang Ya",
+   "farben": {
+    "gras_dunkel": "#3e6a5a",
+    "gras_hell": "#72a08a",
+    "moos": "#5a8a70",
+    "erde": "#6a6250",
+    "fels": "#8a8c90",
+    "gipfel": "#f4f6fa",
+    "weg": "#c8c2b0",
+    "platz": "#d8d2c0",
+    "strand": "#e0dac8"
+   },
+   "vegetation": {
+    "nadelbaum": 0.4,
+    "bambus": 0.35,
+    "laubbaum": 0.25
+   },
+   "baeume_pro_1000m2": 3.5,
+   "buesche_pro_1000m2": 2.5,
+   "gras_pro_1000m2": 50,
+   "felsen_pro_1000m2": 1.8,
+   "himmel": "#e4eef4",
+   "himmel_oben": "#5a8ac8",
+   "nebel": "#dce8f0",
+   "nebel_dichte": 0.0028,
+   "wasser": "#4a8aa8",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.2
+   }
+  },
+  "goldsteppe": {
+   "n": "Goldene Steppe des Kaiserhofs",
+   "farben": {
+    "gras_dunkel": "#8a7a2a",
+    "gras_hell": "#d4b84a",
+    "moos": "#a8923a",
+    "erde": "#8a6a3a",
+    "fels": "#8a7a5e",
+    "gipfel": "#d8c89a",
+    "weg": "#b8a070",
+    "platz": "#d0b880"
+   },
+   "vegetation": {
+    "laubbaum": 0.7,
+    "nadelbaum": 0.3,
+    "steppengras": 1.0
+   },
+   "baeume_pro_1000m2": 0.3,
+   "buesche_pro_1000m2": 1.2,
+   "gras_pro_1000m2": 150,
+   "felsen_pro_1000m2": 0.6,
+   "himmel": "#f4e4b8",
+   "himmel_oben": "#3a7ad0",
+   "nebel": "#ecdcb0",
+   "nebel_dichte": 0.0012,
+   "wasser": "#3a7a9a",
+   "pflanzenfarbe": "#ffe08a",
+   "wetter": {
+    "art": "sand",
+    "chance": 0.15
+   }
+  },
+  "wolkenfeste": {
+   "n": "Wolkenfeste des Himmlischen Hofes",
+   "farben": {
+    "gras_dunkel": "#6a8a6a",
+    "gras_hell": "#a8c8a0",
+    "moos": "#88a884",
+    "erde": "#9a8e78",
+    "fels": "#b8b4ac",
+    "gipfel": "#ffffff",
+    "weg": "#e8e0c8",
+    "platz": "#f0e8d0",
+    "strand": "#f4f2ec"
+   },
+   "vegetation": {
+    "nadelbaum": 0.45,
+    "bluetenbaum": 0.4,
+    "bambus": 0.15
+   },
+   "baeume_pro_1000m2": 2.5,
+   "buesche_pro_1000m2": 2.0,
+   "gras_pro_1000m2": 40,
+   "felsen_pro_1000m2": 1.2,
+   "himmel": "#fbf6e6",
+   "himmel_oben": "#8ab0e8",
+   "nebel": "#f4f0e2",
+   "nebel_dichte": 0.0026,
+   "wasser": "#eef0f4",
+   "meeresspiegel": 0.0,
+   "pflanzenfarbe": "#f4f8e8"
+  },
+  "langlebigkeit": {
+   "n": "Goldwolken des Langlebigkeits-Himmels",
+   "farben": {
+    "gras_dunkel": "#7a7a3a",
+    "gras_hell": "#c0b85a",
+    "moos": "#9a9444",
+    "erde": "#9a7a4a",
+    "fels": "#a89070",
+    "gipfel": "#fff2c8",
+    "weg": "#e0c890",
+    "platz": "#ecd49a",
+    "strand": "#f8ecc8"
+   },
+   "vegetation": {
+    "bluetenbaum": 0.5,
+    "laubbaum": 0.3,
+    "nadelbaum": 0.2
+   },
+   "baeume_pro_1000m2": 2.5,
+   "buesche_pro_1000m2": 2.0,
+   "gras_pro_1000m2": 50,
+   "felsen_pro_1000m2": 1.0,
+   "himmel": "#fff0c4",
+   "himmel_oben": "#e0a040",
+   "nebel": "#f8e4b0",
+   "nebel_dichte": 0.0024,
+   "wasser": "#fce8b8",
+   "meeresspiegel": 0.0,
+   "pflanzenfarbe": "#ffe4a0"
+  },
+  "traumreich": {
+   "n": "Traumreich",
+   "farben": {
+    "gras_dunkel": "#8a9ac8",
+    "gras_hell": "#c8b8e8",
+    "moos": "#a8b0dc",
+    "erde": "#b89ab0",
+    "fels": "#b0a8c8",
+    "gipfel": "#fff0fa",
+    "weg": "#e8d0e0",
+    "platz": "#f0dcea"
+   },
+   "vegetation": {
+    "bluetenbaum": 0.6,
+    "laubbaum": 0.3,
+    "bambus": 0.1
+   },
+   "baeume_pro_1000m2": 3.0,
+   "buesche_pro_1000m2": 3.0,
+   "gras_pro_1000m2": 60,
+   "felsen_pro_1000m2": 1.0,
+   "himmel": "#fbe4f0",
+   "himmel_oben": "#a8b8f0",
+   "nebel": "#f0dcf0",
+   "nebel_dichte": 0.0042,
+   "wasser": "#b8d8f0",
+   "pflanzenfarbe": "#f4c8ff"
+  },
+  "gefrorener_traum": {
+   "n": "Gefrorener Traum der Bo",
+   "farben": {
+    "gras_dunkel": "#8a9aae",
+    "gras_hell": "#c4d4e4",
+    "moos": "#a4b4c8",
+    "erde": "#8a8a98",
+    "fels": "#9aa4b4",
+    "gipfel": "#ffffff",
+    "weg": "#d4dce8",
+    "platz": "#e0e6f0"
+   },
+   "vegetation": {
+    "nadelbaum": 0.7,
+    "totholz": 0.3
+   },
+   "baeume_pro_1000m2": 2.0,
+   "buesche_pro_1000m2": 1.0,
+   "gras_pro_1000m2": 20,
+   "felsen_pro_1000m2": 2.0,
+   "himmel": "#e8eef8",
+   "himmel_oben": "#b0a0e0",
+   "nebel": "#dce4f4",
+   "nebel_dichte": 0.004,
+   "wasser": "#a8c8e8",
+   "pflanzenfarbe": "#e4ecff",
+   "wetter": {
+    "art": "schnee",
+    "chance": 0.8
+   }
+  },
+  "drachenmeer": {
+   "n": "Türkismeer des Drachenpalasts",
+   "farben": {
+    "gras_dunkel": "#2a7a6a",
+    "gras_hell": "#4ab09a",
+    "moos": "#3a9a84",
+    "erde": "#8a7a5a",
+    "fels": "#5a7a7a",
+    "gipfel": "#a8d0cc",
+    "weg": "#d8ccaa",
+    "platz": "#e0d4b0",
+    "strand": "#f0e6c4"
+   },
+   "vegetation": {
+    "palme": 0.65,
+    "laubbaum": 0.2,
+    "bambus": 0.15
+   },
+   "baeume_pro_1000m2": 2.5,
+   "buesche_pro_1000m2": 2.5,
+   "gras_pro_1000m2": 40,
+   "felsen_pro_1000m2": 1.5,
+   "himmel": "#c8f0ec",
+   "himmel_oben": "#2a9ab0",
+   "nebel": "#b4e4e0",
+   "nebel_dichte": 0.002,
+   "wasser": "#1fb0a8",
+   "meeresspiegel": 0.0,
+   "wetter": {
+    "art": "regen",
+    "chance": 0.25
+   }
+  },
+  "weisser_himmel": {
+   "n": "Wolkenboden des Weißen Himmels",
+   "farben": {
+    "gras_dunkel": "#d8dccc",
+    "gras_hell": "#f4f6ec",
+    "moos": "#e4e8da",
+    "erde": "#d8d0bc",
+    "fels": "#e0dcd0",
+    "gipfel": "#ffffff",
+    "weg": "#f0e8cc",
+    "platz": "#f8f0d8",
+    "strand": "#fbf8f0"
+   },
+   "vegetation": {
+    "bluetenbaum": 0.6,
+    "nadelbaum": 0.4
+   },
+   "baeume_pro_1000m2": 0.8,
+   "buesche_pro_1000m2": 0.8,
+   "gras_pro_1000m2": 25,
+   "felsen_pro_1000m2": 0.8,
+   "himmel": "#fffdf4",
+   "himmel_oben": "#ffe9a8",
+   "nebel": "#fbf8ec",
+   "nebel_dichte": 0.003,
+   "wasser": "#f6f7fb",
+   "meeresspiegel": 0.0,
+   "pflanzenfarbe": "#fff8e8"
+  },
+  "schwarzer_himmel": {
+   "n": "Leere des Schwarzen Himmels",
+   "farben": {
+    "gras_dunkel": "#1e1a2a",
+    "gras_hell": "#3a3050",
+    "moos": "#2a2440",
+    "erde": "#221c2c",
+    "fels": "#34304a",
+    "gipfel": "#8a7ab8",
+    "weg": "#4a4262",
+    "platz": "#564c70",
+    "strand": "#3a3452"
+   },
+   "vegetation": {
+    "totholz": 0.7,
+    "nadelbaum": 0.3
+   },
+   "baeume_pro_1000m2": 0.6,
+   "buesche_pro_1000m2": 0.5,
+   "gras_pro_1000m2": 12,
+   "felsen_pro_1000m2": 2.5,
+   "himmel": "#1a1428",
+   "himmel_oben": "#05030c",
+   "nebel": "#4a2a7a",
+   "nebel_dichte": 0.0036,
+   "wasser": "#140c24",
+   "meeresspiegel": 0.0,
+   "pflanzenfarbe": "#8a70c0"
+  },
+  "daemonenhoehle": {
+   "n": "Höhle des irren Dämons",
+   "farben": {
+    "gras_dunkel": "#2a2020",
+    "gras_hell": "#4a3430",
+    "moos": "#3a2a26",
+    "erde": "#2e2422",
+    "fels": "#3a3232",
+    "gipfel": "#6a4a44",
+    "weg": "#5a4038",
+    "platz": "#6a4a40"
+   },
+   "vegetation": {
+    "totholz": 1.0
+   },
+   "baeume_pro_1000m2": 0.5,
+   "buesche_pro_1000m2": 0.3,
+   "gras_pro_1000m2": 4,
+   "felsen_pro_1000m2": 6.0,
+   "himmel": "#3a1a1a",
+   "himmel_oben": "#0a0406",
+   "nebel": "#5a1e1a",
+   "nebel_dichte": 0.0048,
+   "wasser": "#4a0e0e",
+   "pflanzenfarbe": "#a06050"
+  },
+  "angleichungswinde": {
+   "n": "Sturmfeld der Angleichung",
+   "farben": {
+    "gras_dunkel": "#7a7c80",
+    "gras_hell": "#a8aab0",
+    "moos": "#8e9096",
+    "erde": "#76726c",
+    "fels": "#8a8a8e",
+    "gipfel": "#dcdce4",
+    "weg": "#a8a49a",
+    "platz": "#b4b0a6"
+   },
+   "vegetation": {
+    "totholz": 0.7,
+    "steppengras": 1.0,
+    "nadelbaum": 0.3
+   },
+   "baeume_pro_1000m2": 0.4,
+   "buesche_pro_1000m2": 0.5,
+   "gras_pro_1000m2": 90,
+   "felsen_pro_1000m2": 5.0,
+   "himmel": "#d4d6dc",
+   "himmel_oben": "#8a8ea0",
+   "nebel": "#c8cad2",
+   "nebel_dichte": 0.0034,
+   "wasser": "#6a7280",
+   "pflanzenfarbe": "#d8dce4",
+   "wetter": {
+    "art": "sand",
+    "chance": 0.7
+   }
+  },
+  "blauer_himmel": {
+   "n": "Trümmer des Blauen Himmels",
+   "farben": {
+    "gras_dunkel": "#2a4a7a",
+    "gras_hell": "#4a7ab8",
+    "moos": "#3a5e98",
+    "erde": "#3a4260",
+    "fels": "#4a5a7a",
+    "gipfel": "#b8d4ff",
+    "weg": "#7a8aa8",
+    "platz": "#8a9ab8"
+   },
+   "vegetation": {
+    "totholz": 0.5,
+    "nadelbaum": 0.5
+   },
+   "baeume_pro_1000m2": 1.0,
+   "buesche_pro_1000m2": 1.0,
+   "gras_pro_1000m2": 30,
+   "felsen_pro_1000m2": 4.0,
+   "himmel": "#b8d0f4",
+   "himmel_oben": "#1a3a8a",
+   "nebel": "#a4bce4",
+   "nebel_dichte": 0.0026,
+   "wasser": "#2a5ab0",
+   "pflanzenfarbe": "#a8c8ff",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.55
    }
   }
  }

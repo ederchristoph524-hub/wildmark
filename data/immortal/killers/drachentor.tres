@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cvuy0weld7b4a"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_sjkns"]
+
+[resource]
+script = ExtResource("1_sjkns")
+id = &"drachentor"
+display_name = "Drachentor"
+name_en = "Dragon Gate"
+path = &"verwandlung"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"schritt", &"labyrinth", &"qischirm"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.4
+steps = [{
+"color": "#ff8ae2",
+"count": 2.0,
+"mult": 4.0,
+"radius": 4.0,
+"spacing": 8.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "trap",
+"tags": ["wucht", "feuer"],
+"time": 20.0,
+"trigger": 2.0
+}, {
+"color": "#ff8ae2",
+"damage": 1.5,
+"key": "drachentor",
+"t": "buff",
+"time": 10.0
+}, {
+"color": "#ff8ae2",
+"distance": 8.0,
+"t": "teleport"
+}]
+description = "Zwei Drachentore stehen 20 s: Gegner, die hindurchgehen, werden getroffen und geschwächt; du trittst selbst durch ein Tor 8 m weiter und kämpfst 10 s 50 % stärker."
+lore = "Teil der umfangreichen Drachen-Move-Reihe von Duke Long, einem der Three Dukes von Heavenly Court (vor allem Transformation/Qi Path). Kern im Spiel: Gestaltwandel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Duke Long (Heavenly Court)"

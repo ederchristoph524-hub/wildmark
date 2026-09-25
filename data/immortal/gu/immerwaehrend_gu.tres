@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://djcyl7o0w74uv"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_v2cyp"]
+
+[resource]
+script = ExtResource("1_v2cyp")
+id = &"immerwaehrend_gu"
+display_name = "Immerwährend-Gu"
+name_en = "Everlasting Gu"
+rank = 8
+path = &"zeit"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Macht Wandlungen immerwährend und sichert die Apertur: +20 % Höchstleben, 10 % weniger Schaden, Kalamitäten richten 20 % weniger Schaden an."
+lore = "Macht eine Transformation dauerhaft; kann auch Immortal Apertures unter extremem Druck (z. B. den Ten Extreme Physiques) versiegeln. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"kalamitaet_schutz": 0.2,
+"max_hp": 0.2,
+"reduction": 0.1
+}

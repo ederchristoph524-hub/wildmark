@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dakfa5s46kh2l"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_2gt31"]
+
+[resource]
+script = ExtResource("1_2gt31")
+id = &"feng_jin_huang"
+display_name = "Feng Jin Huang"
+color = Color(0.9411765, 0.627451, 0.78431374, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"goettlichersinn", &"blauerhimmel", &"himmelsglocke", &"meeresgeist"])
+rank = 6
+hat = &"feder"
+immortal_gu = Array[StringName]([&"traumfluegel_gu"])
+title = "Traumpfad-Genie des Hauses der Geistesverwandtschaft"
+path = &"traum"
+lore = "Tochter von Feng Jiu Ge, Trägerin des Traumflügel-Gu; Herzog Long erklärte sie zur künftigen Großen-Traum-Ehrwürdigen. Das Hu-Unsterblichen-Erbe verlor sie gegen Fang Yuan."

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://toy0ng08x1e8"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_l51fl"]
+
+[resource]
+script = ExtResource("1_l51fl")
+id = &"kranich_oberster"
+display_name = "Oberster Ältester der Himmelskranich-Sekte"
+color = Color(0.93333334, 0.95686275, 1, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"taifun", &"blauerhimmel", &"sternentor", &"himmelsweisheit"])
+rank = 7
+hat = &"krone"
+immortal_gu = Array[StringName]([&"windsprint_gu", &"aufsteigende_azurwolke_gu"])
+title = "Oberster Ältester der Himmelskranich-Sekte"
+path = &"wind"
+lore = "Jede der Zehn Großen Alten Sekten hat mindestens einen unsterblichen Obersten Ältesten. Er wacht über das Tal der Himmelskraniche und die Ansprüche der Sekte am Yi-Tian-Berg."

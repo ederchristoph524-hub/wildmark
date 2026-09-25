@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ddo1yug3kbbhh"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_pqslp"]
+
+[resource]
+script = ExtResource("1_pqslp")
+id = &"sternenmal_gu"
+display_name = "Sternenmal-Gu"
+name_en = "Star Mark Gu"
+path = &"stern"
+category = &"unterstuetzung"
+description = "Brennt Sternenmale ein: Alle Gegner im Umkreis 8 werden gezeichnet (2 Stapel Schwäche), du richtest 10 s 25 % mehr Schaden an."
+lore = "Kernkomponente (mit Star Shoot und Starlight) von Fang Yuans Star-Path-Killer-Move-Reihe aus dem Erbe des Star Lord Wan Xiang; mit Cleanse Soul Kern von Star Soul Battlefield."
+owner = "Star Lord Wan Xiang (Erbe) → Fang Yuan"
+beads = 0.5
+base_damage = 20.0
+steps = [{
+"color": "#fff2b0",
+"mult": 0.0,
+"radius": 8.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["stern"]
+}, {
+"color": "#fff2b0",
+"damage": 1.25,
+"key": "sternenmal",
+"t": "buff",
+"time": 10.0
+}]

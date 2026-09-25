@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://demqclvl5cnew"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_c4p01"]
+
+[resource]
+script = ExtResource("1_c4p01")
+id = &"monat_gu"
+display_name = "Monat-Gu"
+name_en = "Month Gu"
+path = &"zeit"
+category = &"zeit"
+description = "Ein Monat im Zeitraffer (Umkreis 5, 5 s): schnelle Zeittakte treffen alle darin und bremsen um 45 %; danach ein kurzes Zeitecho."
+lore = "Teil einer Reihe verwandter, wiederverwendbarer Zeit-Verbrauchs-Gu (Year/Month/Day), die feste Zeiteinheiten (Monate) manipulieren; Grundbausteine vieler Zeit-Killer-Moves, u. a. der 'Years'-Serie von Hei Fan. Steigt bis Rang 8."
+owner = "Hei Fan (Years-Serie), Fang Yuan"
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 10.0,
+"end": [{
+"color": "#a04ad0",
+"mult": 1.2,
+"radius": 5.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"mult": 0.3,
+"radius": 5.0,
+"slow": 0.45,
+"t": "zone",
+"tags": ["zeit"],
+"time": 5.0
+}]

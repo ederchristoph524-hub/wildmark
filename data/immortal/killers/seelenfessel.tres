@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://74s5u1dkaici"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_txknd"]
+
+[resource]
+script = ExtResource("1_txknd")
+id = &"seelenfessel"
+display_name = "Seelenfessel"
+name_en = "Soul Shackle"
+path = &"seele"
+core = &"sklaverei_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"sklaverei", &"tausendfuessler"])
+beads = 4.0
+cooldown = 70.0
+channel = 1.2
+steps = [{
+"color": "#c9a0ff",
+"jumps": 6.0,
+"mult": 4.0,
+"radius": 7.0,
+"status": "verwurzelt",
+"stun": 2.5,
+"t": "chain",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9a0ff",
+"jumps": 6.0,
+"mult": 4.0,
+"radius": 7.0,
+"status": "furcht",
+"t": "chain",
+"tags": ["seele"]
+}],
+"time": 2.5
+}]
+description = "Seelenfesseln springen über 6 Gegner und lähmen sie 2,5 s; reißen die Fesseln, springt die Furcht über."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Sklaverei-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

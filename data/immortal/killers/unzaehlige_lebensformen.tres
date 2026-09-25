@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dog3hr1jv3fj2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ixxej"]
+
+[resource]
+script = ExtResource("1_ixxej")
+id = &"unzaehlige_lebensformen"
+display_name = "Unzählige-Lebensformen"
+name_en = "Countless Lifeforms"
+path = &"mensch"
+core = &"liebende_mutter_gu"
+mortal_families = Array[StringName]([&"wasserbild", &"sklaverei", &"blatt", &"kampfgeist"])
+beads = 4.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"count": 5.0,
+"enemy": "schuetze",
+"t": "summon",
+"time": 15.0
+}, {
+"count": 5.0,
+"enemy": "wasserkrieger",
+"t": "summon",
+"time": 15.0
+}, {
+"color": "#f0c090",
+"count": 10.0,
+"homing": true,
+"mult": 0.8,
+"range": 20.0,
+"spread": 90.0,
+"t": "projectiles",
+"tags": ["durchbohren"]
+}]
+description = "Unzählige Lebensformen: zehn Menschen – fünf Schützen und fünf Krieger – erheben sich für 15 s, ihre erste Pfeilsalve sucht die Gegner."
+lore = "Teil des 'Human Path Trumpf-Sets' von Heavenly Court (Human Path, z. T. + Wood/Painting/Information Path), ursprünglich vor allem von Primordial Origin Immortal Venerable und Genesis Lotus Immortal Venerable entwickelt und über Zheng Yuan/Ming Hao weitergegeben. Kern im Spiel: Liebende-Mutter-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Heavenly Court: Primordial Origin Immortal Venerable, Genesis Lotus Immortal Venerable → Zheng Yuan, Ming Hao"

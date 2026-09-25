@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://douf1stmuomt6"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_mt445"]
+
+[resource]
+script = ExtResource("1_mt445")
+id = &"bambus_edelmann_gu"
+display_name = "Bambus-Edelmann-Gu"
+name_en = "Bamboo Gentleman Gu"
+path = &"holz"
+category = &"information"
+kind = &"passiv"
+description = "Der Bambus-Edelmann weissagt Wetter und Bestienflut: Verborgenes ist sichtbar, Kalamitäten richten 12 % weniger Schaden an."
+lore = "Investigatives Gu beim Old Oracle."
+owner = "Old Oracle"
+passive = {
+"kalamitaet_schutz": 0.12,
+"sicht": true
+}

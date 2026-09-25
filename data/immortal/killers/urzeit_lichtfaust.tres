@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b44or6c62tiql"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_tuw8u"]
+
+[resource]
+script = ExtResource("1_tuw8u")
+id = &"urzeit_lichtfaust"
+display_name = "Urzeit-Lichtfaust"
+name_en = "Immemorial Light Fist"
+path = &"licht"
+core = &"schatzlicht_gu"
+mortal_families = Array[StringName]([&"mondlicht", &"wirbel", &"kampfgeist", &"phantom"])
+beads = 5.0
+cooldown = 70.0
+channel = 1.2
+base_damage = 60.0
+steps = [{
+"angle": 50.0,
+"blind": 3.0,
+"color": "#ffe9a0",
+"knockback": 3.0,
+"mult": 8.0,
+"reach": 6.0,
+"t": "cone",
+"tags": ["licht", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#ffe9a0",
+"distance": 6.0,
+"mult": 4.0,
+"radius": 5.0,
+"t": "circle",
+"tags": ["licht"]
+}],
+"time": 0.3
+}]
+description = "Die Urzeit-Lichtfaust: ein Hieb aus reinem Glanz blendet und schleudert fort, das Licht platzt am Ziel nach."
+lore = "Teil der 'Light of Glory'-Reihe von Xiao Mang (Immemorial Light Fist / My Glorious Spear / Torrential Light Stream). Kern im Spiel: Schatzlicht-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Xiao Mang"

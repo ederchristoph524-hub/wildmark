@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://yey7bs2au6cl"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3yy42"]
+
+[resource]
+script = ExtResource("1_3yy42")
+id = &"sternbild_schachbrett"
+display_name = "Sternbild-Schachbrett"
+name_en = "Star Constellation Chessboard"
+rank = 8
+path = &"weisheit"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Entfaltet ein Sternbild-Schachbrett (Umkreis 14, 12 s): Gegner bewegen sich nur noch im Takt (70 % langsamer) und werden geschwächt, acht Sternfiguren lauern als Fallen; deine Gu sind 8 s weiter und 12 s lang schneller bereit."
+lore = "Immortal-Gu-Haus von Heavenly Court, dessen Rang direkt an die Qualität des darin verwendeten Wisdom Gu gekoppelt ist (Rang 8, mit Rang-9-Wisdom-Gu sogar Rang 9)."
+owner = "Heavenly Court"
+beads = 3.0
+cooldown = 55.0
+steps = [{
+"color": "#7fc8ff",
+"mult": 0.4,
+"radius": 14.0,
+"slow": 0.7,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["stern"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"color": "#7fc8ff",
+"count": 8.0,
+"mult": 1.2,
+"radius": 3.0,
+"spacing": 3.5,
+"t": "trap",
+"tags": ["stern", "wucht"],
+"time": 12.0,
+"trigger": 1.8
+}, {
+"cd_mult": 0.6,
+"refund": 8.0,
+"t": "haste",
+"time": 12.0
+}]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://8emhirjoboiq"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s0dqh"]
+
+[resource]
+script = ExtResource("1_s0dqh")
+id = &"himmels_essenz_schatz_kaiserlotus"
+display_name = "Himmels-Essenz-Schatz-Kaiserlotus"
+name_en = "Heavenly Essence Treasure Imperial Lotus"
+path = &"holz"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Ein Lotus-Gu-Haus, das in deiner Apertur Unsterblichen-Essenz gebiert: +1,2 Perlen je Spieltag, dazu heilst du 0,3 % Leben je Sekunde."
+lore = "Ein 'Flower Gu'/Gu-Haus aus der Erbschaft des Genesis Lotus Immortal Venerable; geht über Lang Ya Land Spirit und Thieving Heaven Demon Venerable an Fang Yuan. Steigt bis Rang 9."
+owner = "Genesis Lotus Immortal Venerable → Lang Ya Land Spirit → Thieving Heaven Demon Venerable → Fang Yuan"
+passive = {
+"perlen_ertrag": 1.2,
+"regen": 0.003
+}

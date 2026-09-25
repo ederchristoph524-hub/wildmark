@@ -13,3 +13,12 @@ extends Resource
 @export var stage: int = -1
 ## Kopfbedeckung (CharacterMesh.HATS): stroh, kappe, fell, band, kapuze, turban, krone, feder; leer = Haarknoten.
 @export var hat: StringName = &""
+## Unsterbliche (Rang 6–8): ihre unsterblichen Gu (ImmortalGuData-IDs), Titel, Hauptpfad und Lore.
+@export var immortal_gu: Array[StringName] = []
+@export var title: String = ""
+@export var path: StringName = &""
+@export_multiline var lore: String = ""
+
+
+func is_immortal() -> bool:
+	return rank >= 6

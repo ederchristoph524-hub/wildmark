@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dbeieu2f33co0"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_nk3ui"]
+
+[resource]
+script = ExtResource("1_nk3ui")
+id = &"breischlamm_gu"
+display_name = "Breischlamm-Unsterblichen-Gu"
+name_en = "Gruel Mud Immortal Gu"
+path = &"erde"
+category = &"angriff"
+description = "Ätzender Breischlamm (Umkreis 5, 8 s) am Zielort: Gegner versinken (50 % langsamer) und werden jeden Takt vergiftet."
+lore = "Erzeugt korrosiven 'Brei-Schlamm', der ganze Secluded Domains zerfrisst."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"at": "aim",
+"color": "#8a7a40",
+"distance": 8.0,
+"mult": 0.4,
+"radius": 5.0,
+"slow": 0.5,
+"status": "gift",
+"t": "zone",
+"tags": ["erde", "gift"],
+"tick": 1.0,
+"time": 8.0
+}]

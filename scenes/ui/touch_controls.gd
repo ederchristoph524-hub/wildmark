@@ -9,6 +9,8 @@ const READY_COLOR: Color = Color(0.1, 0.14, 0.12)
 const BORDER: Color = Color(0.86, 0.72, 0.36, 0.7)
 const MOVE_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_forward", &"move_back"]
 const KILLER_ACTION: StringName = &"killer_move"
+const IMMORTAL_KILLER_ACTION: StringName = &"immortal_killer"
+const IMMORTAL_ACTIONS: Array[StringName] = [&"immortal_gu_1", &"immortal_gu_2", &"immortal_killer"]
 const SWIPE_DISTANCE: float = 40.0
 ## Kurzes Tippen im Kamerabereich (kaum bewegt) fixiert den Gegner unter dem Finger.
 const TAP_DISTANCE: float = 18.0
@@ -34,6 +36,7 @@ var _pressed: Dictionary[int, StringName] = {}
 var _killer_index: int = -1
 var _killer_start: Vector2 = Vector2.ZERO
 var _killer_swiped: bool = false
+var _killer_action: StringName = KILLER_ACTION
 
 
 func _ready() -> void:
@@ -57,6 +60,10 @@ func _define_buttons() -> void:
 	# Großer Kultivieren-Knopf (Meditation, auf der Höchststufe Durchbruch).
 	_add(&"meditate", Vector2(-50.0 - small.size() * 68.0 - 22.0, 58.0), 40.0, tr("Kultivieren"), false)
 	_add(&"interact", Vector2(0.0, -150.0), 34.0, tr("Aktion"), true, true)
+	# Unsterbliche: zwei unsterbliche Gu und der Unsterblichen-Killer-Move (goldene Knöpfe über dem Bogen).
+	_add(&"immortal_gu_1", fist + Vector2(-150, -255), 38.0, "5", true)
+	_add(&"immortal_gu_2", fist + Vector2(-55, -275), 38.0, "6", true)
+	_add(IMMORTAL_KILLER_ACTION, fist + Vector2(-250, -275), 40.0, tr("Unst."), true)
 
 
 ## from_bottom: Position relativ zur unteren rechten Ecke (sonst obere rechte); centered: relativ zur unteren Mitte.
@@ -102,7 +109,8 @@ func _touch_down(index: int, at: Vector2) -> void:
 		if not _button_visible(button):
 			continue
 		if at.distance_to(button_center(button)) <= float(button["radius"]) * 1.25:
-			if button["action"] == KILLER_ACTION:
+			if button["action"] == KILLER_ACTION or button["action"] == IMMORTAL_KILLER_ACTION:
+				_killer_action = button["action"]
 				_killer_index = index
 				_killer_start = at
 				_killer_swiped = false
@@ -126,8 +134,8 @@ func _touch_up(index: int) -> void:
 	if index == _killer_index:
 		_killer_index = -1
 		if not _killer_swiped:
-			_send(KILLER_ACTION, true)
-			_send(KILLER_ACTION, false)
+			_send(_killer_action, true)
+			_send(_killer_action, false)
 	if _pressed.has(index):
 		_send(_pressed[index], false)
 		_pressed.erase(index)
@@ -160,6 +168,8 @@ func _killer_drag(at: Vector2) -> void:
 	_killer_swiped = true
 	_killer_start = at
 	var action: StringName = &"killer_move_next" if dx > 0.0 else &"killer_move_prev"
+	if _killer_action == IMMORTAL_KILLER_ACTION:
+		action = &"immortal_killer_next"
 	_send(action, true)
 	_send(action, false)
 
@@ -205,6 +215,8 @@ func release_all() -> void:
 func _button_visible(button: Dictionary) -> bool:
 	if button["action"] == &"interact":
 		return player != null and player.nearest_interactable() != null
+	if button["action"] in IMMORTAL_ACTIONS:
+		return Immortal.is_immortal()
 	return true
 
 

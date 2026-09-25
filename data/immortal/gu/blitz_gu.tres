@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://kkw5am62d0p"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_4gnol"]
+
+[resource]
+script = ExtResource("1_4gnol")
+id = &"blitz_gu"
+display_name = "Blitz-Gu"
+name_en = "Lightning Gu"
+rank = 9
+path = &"blitz"
+category = &"konzept"
+description = "Blitz vom Blauen Himmel: ein Kettenblitz über 12 Ziele lädt sie sofort voll auf (Entladung), dann hängt 6 s ein Gewitter über dem Zielgebiet; zum Schluss schlägt der Himmelsblitz ein (Umkreis 12, 1,5 s betäubt)."
+lore = "Legendäres Gu, laut den Legends of Ren Zu einst in Blue Heaven gefangen; die Kombination aus Zorn (Hatred Gu) und Blitz soll Blue Heaven zerstört haben. Im Text Rang 8–9."
+owner = "unbekannt (Legende, Blue Heaven)"
+beads = 5.0
+cooldown = 50.0
+base_damage = 60.0
+steps = [{
+"color": "#8ad0ff",
+"jumps": 12.0,
+"mult": 3.0,
+"radius": 10.0,
+"set_stacks": {
+"ladung": 3.0
+},
+"t": "chain",
+"tags": ["blitz"]
+}, {
+"at": "aim",
+"color": "#8ad0ff",
+"distance": 12.0,
+"mult": 0.4,
+"radius": 10.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["blitz"],
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#dfe8ff",
+"distance": 12.0,
+"mult": 4.0,
+"radius": 12.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["blitz", "licht"]
+}],
+"time": 1.2
+}]

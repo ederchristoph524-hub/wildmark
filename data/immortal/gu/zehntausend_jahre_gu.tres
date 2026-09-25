@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bwcc02xx8ddsg"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_xbqf7"]
+
+[resource]
+script = ExtResource("1_xbqf7")
+id = &"zehntausend_jahre_gu"
+display_name = "Zehntausend-Jahre-Gu"
+name_en = "Ten Thousand Year Gu"
+rank = 9
+path = &"zeit"
+category = &"konzept"
+kind = &"konzept"
+description = "Rein theoretisch: Ein Zehntausend-Jahre-Gu hat es in der Geschichte nie gegeben. Nur Lexikon-Eintrag."
+lore = "Rein theoretisches Gu: ein Thousand Year Gu gilt als Rang 8, ein Ten Thousand Year Gu wäre folgerichtig Rang 9, hat aber in der gesamten aufgezeichneten Geschichte nie existiert."
+owner = "niemand (theoretisch)"

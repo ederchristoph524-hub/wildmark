@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dtdayhwuotydg"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_emkod"]
+
+[resource]
+script = ExtResource("1_emkod")
+id = &"karma_verlagerung"
+display_name = "Karma-Verlagerung"
+name_en = "Karma Relocation"
+path = &"holz"
+core = &"ursachen_gu"
+mortal_families = Array[StringName]([&"blatt", &"weisheit", &"tausch", &"glueck"])
+beads = 6.0
+cooldown = 100.0
+channel = 1.5
+steps = [{
+"t": "reflect",
+"time": 6.0
+}, {
+"color": "#6fbf4a",
+"kind": "thorns",
+"reduction": 0.5,
+"t": "armor",
+"time": 6.0,
+"value_mult": 1.5
+}, {
+"color": "#6fbf4a",
+"jumps": 6.0,
+"mult": 3.0,
+"radius": 10.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "chain",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#6fbf4a",
+"distance": 12.0,
+"mult": 6.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["seele", "holz"]
+}],
+"time": 6.0
+}]
+description = "Verlagert Karma: 6 s lang gehen Schaden und Geschosse auf die Angreifer über (50 % Schutz), eine Karmakette schwächt 6 Gegner, dann bricht die Schuld über dem Ziel herein."
+lore = "Signatur-Erbschaft (Karma Divine Tree / Karma Relocation), ursprünglich von Chen Yi und Qing Chou genutzt, später auch von Fang Yuan. Im Spiel dient Ursachen-Gu als Kern; das Lexikon nennt Wirkungs-Gu (Anpassung)."
+owner = "Chen Yi, Qing Chou → Fang Yuan"

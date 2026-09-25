@@ -10,7 +10,7 @@ const ANNOUNCE_COLOR: Color = Color(1.0, 0.8, 0.3)
 const UNGUIDED_HITS: int = 3
 const TRAP_HITS: int = 2
 const ORBIT_SHARE: float = 0.5
-const UTILITY_STEPS: Array[String] = ["delay", "armor", "heal", "summon", "buff", "stealth", "teleport", "dash", "cleanse", "unstoppable", "reflect"]
+const UTILITY_STEPS: Array[String] = ["delay", "armor", "heal", "summon", "buff", "stealth", "teleport", "dash", "cleanse", "unstoppable", "reflect", "haste", "luck"]
 
 static var _scale_cache: Dictionary = {}
 

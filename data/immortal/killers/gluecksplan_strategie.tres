@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://43i6obyj752u"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_hxlk3"]
+
+[resource]
+script = ExtResource("1_hxlk3")
+id = &"gluecksplan_strategie"
+display_name = "Glücksplan-Strategie"
+name_en = "Luck Plan Strategy"
+path = &"glueck"
+core = &"gluecksplan_gu"
+mortal_families = Array[StringName]([&"glueck", &"weisheit", &"stern"])
+steps = [{
+"cd_mult": 0.6,
+"refund": 8.0,
+"t": "haste",
+"time": 12.0
+}, {
+"chance": 0.5,
+"t": "luck",
+"time": 12.0
+}, {
+"color": "#7dff9b",
+"count": 8.0,
+"homing": true,
+"mult": 1.0,
+"range": 20.0,
+"spread": 120.0,
+"t": "projectiles",
+"tags": ["stern"]
+}]
+description = "Die Glücksplan-Strategie: deine Gu sind 8 s weiter und 12 s 40 % schneller bereit, jeder zweite Treffer ist kritisch; acht glückliche Sterne eröffnen den Plan."
+lore = "Killer Move mit dem Luck Plan Gu als Kern (Luck Path mit wisdom-path-artigem Planungseffekt)."
+owner = "unbekannt (im Lexikon nicht genannt)"

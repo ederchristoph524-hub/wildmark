@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://fnvhpvilfo5o"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_db0p0"]
+
+[resource]
+script = ExtResource("1_db0p0")
+id = &"sixth_hair"
+display_name = "Sechstes Haar"
+color = Color(0.47843137, 0.2901961, 0.627451, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"auraverbergen", &"neun_palaeste", &"himmelsweisheit", &"goettlichersinn"])
+rank = 7
+hat = &"kapuze"
+immortal_gu = Array[StringName]([&"schattenspaltung_gu"])
+title = "Verfeinerungsmeister der Schattensekte"
+path = &"raffinerie"
+lore = "Verfeinerungspfad-Unsterblicher der Schattensekte, der Fang Yuan in mehreren Kämpfen taktisch unterstützt. Wie viele Sektenmitglieder womöglich eine Splitterseele des Seelengespenst-Ehrwürdigen."

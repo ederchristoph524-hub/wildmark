@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://0250xxlkqbxj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_diebo"]
+
+[resource]
+script = ExtResource("1_diebo")
+id = &"souveraener_unsterblichen_foetus"
+display_name = "Souveräner-Unsterblichen-Fötus-Gu"
+name_en = "Sovereign Immortal Fetus Gu"
+rank = 9
+path = &"mensch"
+category = &"konzept"
+kind = &"konzept"
+description = "Einweg-Gu: Pflanzt deine Seele beim Tod in einen neuen Körper (Wiedergeburt). Keine Kampfwirkung."
+lore = "Einweg-Verbrauchsgu (auch Paragon Immortal Fetus Gu), von Spectral Soul Demon Venerable über Jahrzehntausende und unter Verbrauch von zehn Extreme-Physique-Zombie-Körpern verfeinert."
+owner = "Spectral Soul Demon Venerable → Fang Yuan"
+world = &"wiedergeburt"

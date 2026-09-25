@@ -36,6 +36,7 @@ static func place(world: World, data: Dictionary, anchors: Dictionary) -> void:
 		var master := GuMaster.new()
 		master.setup(DataRegistry.gu_master(master_entry[0]), String(master_entry[1]), _at(world, anchors, master_entry[2], Vector2(2.0, 0.0)))
 		world.add_child(master)
+	ImmortalWorld.place_sanctum(world, data, anchors)
 	for offset: Vector2 in BUSHES.get(group, []):
 		var bush := ResourceNode.new(&"beeren", BUSH_YIELD)
 		world.add_child(bush)

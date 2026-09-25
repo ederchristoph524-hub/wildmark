@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://32v06jrgmt15"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_tqdmm"]
+
+[resource]
+script = ExtResource("1_tqdmm")
+id = &"foetus_erd_labyrinth"
+display_name = "Fötus-Erd-Labyrinth"
+name_en = "Fetus Earth Maze"
+path = &"erde"
+core = &"erdgefaengnis_gu"
+mortal_families = Array[StringName]([&"erde", &"labyrinth", &"tarnung"])
+beads = 5.0
+cooldown = 110.0
+channel = 2.0
+steps = [{
+"blind": 1.0,
+"color": "#a08050",
+"mult": 0.6,
+"radius": 12.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["erde"],
+"tick": 2.0,
+"time": 20.0
+}, {
+"color": "#a08050",
+"count": 6.0,
+"mult": 1.5,
+"radius": 3.0,
+"spacing": 3.0,
+"status": "verwurzelt",
+"t": "trap",
+"tags": ["erde", "wucht"],
+"time": 20.0,
+"trigger": 1.8
+}]
+description = "Ein Erd-Labyrinth wächst (Umkreis 12, 20 s): Gegner verlieren Weg und Ziel und laufen in sechs Erdfallen."
+lore = "Schlachtfeld-Erbschaft rund um den Paradise Earth Immortal Venerable und seine Erbin Lu Wei Yin (Reincarnation Battlefield / Paradise Creation / Illusory Sand Shifting Shadow Battlefield / Fetus Earth Maze / Three Lifetime Dreams Reform a Chosen One). Kern im Spiel: Erdgefängnis-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Paradise Earth Immortal Venerable → Lu Wei Yin (Three Lifetime Dreams auch Fang Yuan)"

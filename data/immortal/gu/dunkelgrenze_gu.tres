@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ds544dni8b8y5"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_qkras"]
+
+[resource]
+script = ExtResource("1_qkras")
+id = &"dunkelgrenze_gu"
+display_name = "Dunkelgrenze-Unsterblichen-Gu"
+name_en = "Dark Limit Immortal Gu"
+path = &"dunkelheit"
+category = &"tarnung"
+kind = &"passiv"
+description = "Eine Grenze aus Dunkelheit: Wahrsagen und Aufspüren versagen – du bleibst getarnt, bis du angreifst; +5 % kritische Treffer."
+lore = "Blockiert gegnerische Wahrsage-Deduktionen."
+owner = "Fang Yuan, Lang Ya Land Spirit, Hei Lou Lan, Jiang Yu"
+passive = {
+"crit": 0.05,
+"stealth": true
+}

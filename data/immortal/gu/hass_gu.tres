@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://drmyphh7rb22b"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_rrukh"]
+
+[resource]
+script = ExtResource("1_rrukh")
+id = &"hass_gu"
+display_name = "Hass-Gu"
+name_en = "Hatred Gu"
+rank = 9
+path = &"gefuehl"
+category = &"konzept"
+description = "Hass wie jener, der den Blauen Himmel zerstörte: 10 s tobt um dich ein Hass-Gewitter (Umkreis 10, Furcht, Blitz), du richtest 50 % mehr Schaden an; vergeht es, bricht ein Donner des Zorns los (Umkreis 12, 1,5 s betäubt)."
+lore = "Legendäres Gu, verwickelt in die Zerstörung von Blue Heaven (Legends of Ren Zu). In der Haupthandlung beim Qing-Clan auf Rang 8, Kern der Racheformation Qing Chou gegen den jungen Spectral Soul Demon Venerable, unter dessen Pflege bis Rang 9 gewachsen."
+owner = "Qing-Clan (Rang 8) → Spectral Soul Demon Venerable (Rang 9)"
+beads = 5.0
+cooldown = 55.0
+steps = [{
+"color": "#ff6fa8",
+"damage": 1.5,
+"key": "hass",
+"t": "buff",
+"time": 10.0
+}, {
+"color": "#ff3060",
+"end": [{
+"color": "#ff3060",
+"knockback": 2.0,
+"mult": 5.0,
+"radius": 12.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["blitz", "seele"]
+}],
+"follow": true,
+"mult": 0.5,
+"radius": 10.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele", "blitz"],
+"tick": 1.0,
+"time": 10.0
+}]

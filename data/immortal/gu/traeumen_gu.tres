@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://iwap2w2o8t3q"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_go2dp"]
+
+[resource]
+script = ExtResource("1_go2dp")
+id = &"traeumen_gu"
+display_name = "Träumen-Unsterblichen-Gu"
+name_en = "Dreaming Immortal Gu"
+rank = 7
+path = &"traum"
+category = &"sonstiges"
+description = "Öffnet ein Traumreich (Umkreis 8, 10 s): Gegner darin sind geblendet und 40 % langsamer, deine Gu laden 20 % schneller."
+lore = "Kern des Compound-Killer-Moves Three Lifetime Dreams Reform a Chosen One."
+owner = "Fang Yuan, Lu Wei Yin"
+beads = 2.0
+cooldown = 40.0
+base_damage = 30.0
+steps = [{
+"blind": 1.0,
+"color": "#d0a0ff",
+"mult": 0.3,
+"radius": 8.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 10.0
+}, {
+"cd_mult": 0.8,
+"t": "haste",
+"time": 10.0
+}]

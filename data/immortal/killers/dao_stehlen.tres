@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://1a7tw68hiee3"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_vupkq"]
+
+[resource]
+script = ExtResource("1_vupkq")
+id = &"dao_stehlen"
+display_name = "Dao-Stehlen"
+name_en = "Steal Dao"
+path = &"diebstahl"
+core = &"grosser_dieb_gu"
+mortal_families = Array[StringName]([&"pluenderung", &"tausch", &"seelenschrei", &"tarnung"])
+beads = 5.0
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"color": "#8fd06a",
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 50.0,
+"color": "#8fd06a",
+"essence_steal": 1.0,
+"mult": 6.0,
+"pierce_armor": true,
+"reach": 5.0,
+"stacks": 3.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["durchbohren", "seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#8fd06a",
+"mult": 3.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 0.3
+}, {
+"color": "#8fd06a",
+"damage": 1.4,
+"key": "gestohlenes_dao",
+"t": "buff",
+"time": 30.0
+}, {
+"color": "#8fd06a",
+"distance": -10.0,
+"t": "teleport"
+}]
+description = "Stiehlt Dao: Du greifst dem Ziel durch Rüstung und Seele, raubst Uressenz und sein Dao (30 s +40 % Schaden für dich) und bist sofort 10 m weg."
+lore = "Teil der gesamten Theft-Path-Kerntechnik-Reihe des Thieving Heaven Demon Venerable (Theft/Space/Soul Path), die Fang Yuan nach dessen Tod größtenteils erbt bzw. nachbaut. Kern im Spiel: Großer-Dieb-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable → Fang Yuan"

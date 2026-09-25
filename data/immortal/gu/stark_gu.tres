@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dy8g8fgib3qvi"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_htaw8"]
+
+[resource]
+script = ExtResource("1_htaw8")
+id = &"stark_gu"
+display_name = "Stark-Gu"
+name_en = "Strong Gu"
+rank = 7
+path = &"regel"
+category = &"unterstuetzung"
+description = "Regel „stark“: 12 s +60 % Schaden; die Kraft entlädt sich sofort in einem Stoß (Umkreis 5, starker Rückstoß)."
+lore = "Legendäres Gu aus den Legends of Ren Zu; früher bei Longevity Heaven, dann an Hei Lou Lan geschenkt zur Unterstützung ihrer Strength-Path-Kultivierung."
+owner = "Longevity Heaven → Hei Lou Lan"
+beads = 2.0
+cooldown = 40.0
+steps = [{
+"color": "#e8e0ff",
+"damage": 1.6,
+"key": "stark",
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#e8e0ff",
+"knockback": 3.0,
+"mult": 3.0,
+"radius": 5.0,
+"t": "circle",
+"tags": ["wucht"]
+}]

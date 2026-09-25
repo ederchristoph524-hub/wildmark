@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://blp47gwgch7d2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_oj0qw"]
+
+[resource]
+script = ExtResource("1_oj0qw")
+id = &"kraft_qi_gu"
+display_name = "Kraft-Qi-Gu"
+name_en = "Strength Qi Gu"
+path = &"qi"
+category = &"unterstuetzung"
+description = "Kraft-Qi: 10 s +35 % Schaden; eine Qi-Hülle stößt jeden Takt alles nahe bei dir zurück."
+lore = "Verbindungs-Gu, das Qi Path mit Strength Path kombiniert; im Lexikon sowohl unter Strength als auch unter Qi Path genannt. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 30.0
+steps = [{
+"color": "#99ffff",
+"damage": 1.35,
+"key": "kraft_qi",
+"t": "buff",
+"time": 10.0
+}, {
+"color": "#99ffff",
+"follow": true,
+"knockback": 0.5,
+"mult": 0.3,
+"radius": 3.0,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 1.0,
+"time": 10.0
+}]

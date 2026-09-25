@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://3naipgm6h7rs"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_83nj5"]
+
+[resource]
+script = ExtResource("1_83nj5")
+id = &"geordneter_brunnen"
+display_name = "Geordneter-Brunnen"
+name_en = "Orderly Well"
+path = &"regel"
+core = &"nein_gu"
+mortal_families = Array[StringName]([&"labyrinth", &"stroemung", &"seelenschrei", &"glocke"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.4
+steps = [{
+"at": "target",
+"color": "#e8e0ff",
+"distance": 12.0,
+"end": [{
+"color": "#4a9ad0",
+"mult": 3.0,
+"radius": 8.0,
+"status": "nass",
+"t": "circle",
+"tags": ["wasser", "seele"]
+}],
+"mult": 0.6,
+"pull": 0.8,
+"radius": 8.0,
+"slow": 0.5,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 10.0
+}]
+description = "Ein geordneter Brunnen (Umkreis 8, 10 s): Wer hineingerät, muss sich der Ordnung fügen – gebremst, geschwächt, zur Mitte gezogen; am Ende quillt der Brunnen über."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Nein-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

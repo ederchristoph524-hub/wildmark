@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://lo1js5w854h3"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_u3aab"]
+
+[resource]
+script = ExtResource("1_u3aab")
+id = &"wirkungs_gu"
+display_name = "Wirkungs-Gu"
+name_en = "Effect Gu"
+rank = 8
+path = &"holz"
+category = &"sonstiges"
+description = "Karma-Wirkung: 8 s wird jeder Schaden an dir zur Wirkung auf den Angreifer (Dornen, 30 % Schutz); ein Wurzelgeflecht springt über 6 Gegner, und wenn die Frist endet, bricht die gesammelte Wirkung aus (Umkreis 8)."
+lore = "Kern-Gu (mit Cause Gu und Mature Bamboo Gu) des Killer Moves Karma Divine Tree. Kein Rang im Text."
+owner = "Genesis Lotus Immortal Venerable; Move später bei Chen Yi, Qing Chou, Fang Yuan"
+beads = 3.0
+cooldown = 40.0
+steps = [{
+"color": "#6fbf4a",
+"kind": "thorns",
+"reduction": 0.3,
+"t": "armor",
+"time": 8.0,
+"value_mult": 1.0
+}, {
+"color": "#6fbf4a",
+"jumps": 6.0,
+"mult": 3.0,
+"radius": 8.0,
+"status": "verwurzelt",
+"t": "chain",
+"tags": ["holz"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#6fbf4a",
+"knockback": 1.5,
+"mult": 4.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["holz", "wucht"]
+}],
+"time": 8.0
+}]

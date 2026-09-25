@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://biff5atwur043"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_c8lfu"]
+
+[resource]
+script = ExtResource("1_c8lfu")
+id = &"dunkelgefaengnis"
+display_name = "Dunkelgefängnis"
+name_en = "Dark Prison"
+path = &"dunkelheit"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Das Dunkelgefängnis senkt sich über das Ziel (Umkreis 10, 12 s): Gegner darin sind blind und von Furcht gepackt."
+lore = "Abschreckungs-Gu-Haus des Hei-Tribe."
+owner = "Hei-Tribe"
+beads = 1.5
+cooldown = 55.0
+base_damage = 30.0
+steps = [{
+"at": "target",
+"blind": 1.0,
+"color": "#5a4a78",
+"distance": 12.0,
+"mult": 0.3,
+"radius": 10.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 12.0
+}]

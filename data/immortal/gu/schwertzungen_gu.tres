@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b0m2gv258ww0o"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_13bli"]
+
+[resource]
+script = ExtResource("1_13bli")
+id = &"schwertzungen_gu"
+display_name = "Schwertzungen-Gu"
+name_en = "Sword Tongue Gu"
+path = &"schwert"
+category = &"angriff"
+description = "Schwertlicht aus dem Mund: ein schneller Stich aus Licht blendet und durchbohrt, ein zweiter folgt."
+lore = "Schießt scharfes Schwertlicht aus dem Mund; im Lexikon sowohl unter Sword Path als auch unter Information Path genannt. Kein Rang im Text."
+owner = "Shi Zheng Yi"
+beads = 0.5
+cooldown = 10.0
+steps = [{
+"blind": 1.5,
+"color": "#e8f4ff",
+"count": 1.0,
+"mult": 2.0,
+"pierce": 1.0,
+"range": 20.0,
+"speed": 32.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8f4ff",
+"count": 1.0,
+"mult": 1.0,
+"range": 20.0,
+"speed": 32.0,
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["schnitt", "licht"]
+}],
+"time": 0.25
+}]

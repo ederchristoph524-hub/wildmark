@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://de3nleljiyt5m"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_qmum3"]
+
+[resource]
+script = ExtResource("1_qmum3")
+id = &"menschen_qi_gu"
+display_name = "Menschen-Qi-Unsterblichen-Gu"
+name_en = "Human Qi Immortal Gu"
+rank = 8
+path = &"qi"
+category = &"sonstiges"
+description = "Zieht das Menschen-Qi zurück: ein Sog (Umkreis 8, 5 s) raubt Gegnern Uressenz und Kraft, dann bricht das Qi aus."
+lore = "Eines der drei Qi-Gu (Human/Heaven/Earth Qi, jeweils Rang 8), Grundlage des Killer Moves Triple Qi Retraction von Duke Long."
+owner = "Duke Long"
+beads = 3.0
+cooldown = 35.0
+steps = [{
+"at": "target",
+"color": "#99ffff",
+"distance": 12.0,
+"end": [{
+"color": "#99ffff",
+"knockback": 1.5,
+"mult": 3.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"essence_steal": 0.6,
+"mult": 0.5,
+"pull": 2.0,
+"radius": 8.0,
+"t": "zone",
+"tags": ["seele"],
+"time": 5.0
+}]

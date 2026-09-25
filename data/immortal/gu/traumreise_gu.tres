@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dr1tiicx6i0g7"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3lnwm"]
+
+[resource]
+script = ExtResource("1_3lnwm")
+id = &"traumreise_gu"
+display_name = "Traumreise-Gu"
+name_en = "Dream Travel Gu"
+path = &"traum"
+category = &"bewegung"
+description = "Reist durch Träume 15 m weit und tritt 1,5 s unsichtbar wieder heraus."
+lore = "Bewegungstyp-Traum-Gu."
+owner = "Lady Poison Scorpion"
+beads = 0.5
+cooldown = 14.0
+base_damage = 20.0
+steps = [{
+"color": "#d0a0ff",
+"distance": 15.0,
+"t": "teleport"
+}, {
+"t": "stealth",
+"time": 1.5
+}]

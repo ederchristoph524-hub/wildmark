@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://btlv3qis4i0p1"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_a8pwp"]
+
+[resource]
+script = ExtResource("1_a8pwp")
+id = &"ein_schritt_zurueck_meer_und_himmel_weiten_sich"
+display_name = "Ein-Schritt-zurück-Meer-und-Himmel-weiten-sich"
+name_en = "One Step Back, Sea and Sky Expands"
+path = &"raffinerie"
+core = &"aufstiegs_verfeinerungs_gu"
+mortal_families = Array[StringName]([&"schritt", &"labyrinth", &"qischirm"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.5
+base_damage = 40.0
+steps = [{
+"color": "#c9a070",
+"distance": -12.0,
+"t": "teleport"
+}, {
+"frac": 0.4,
+"t": "heal"
+}, {
+"refund": 5.0,
+"t": "haste"
+}, {
+"ally_reduction": 0.3,
+"color": "#c9a070",
+"mult": 0.0,
+"radius": 14.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["raum"],
+"tick": 1.0,
+"time": 8.0
+}]
+description = "Ein Schritt zurück, und die Welt weitet sich: Du springst 12 m zurück, heilst 40 %, deine Gu sind 5 s weiter, und 8 s lang kommen Gegner um dich kaum voran. Kein Schaden."
+lore = "Verwaltungstechnik für die Immortal Aperture, konzipiert vom Thieving Heaven Demon Venerable, inspiriert vom Move One Step Back des Limitless Demon Venerable. Im Spiel als Rückzug im Kampf umgesetzt; die Apertur-Verwaltung ist Lore. Kern im Spiel: Aufstiegs-Verfeinerungs-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable"

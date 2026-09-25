@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://ddopla4va1lqa"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_inly4"]
+
+[resource]
+script = ExtResource("1_inly4")
+id = &"long_hair_formation"
+display_name = "Langhaar-Formation"
+name_en = "Long Hair Formation"
+path = &"raffinerie"
+core = &"aufstiegs_verfeinerungs_gu"
+mortal_families = Array[StringName]([&"labyrinth", &"tausendfuessler", &"blatt"])
+beads = 5.0
+cooldown = 100.0
+channel = 1.6
+steps = [{
+"color": "#c9a070",
+"mult": 0.8,
+"radius": 10.0,
+"slow": 0.5,
+"status": "verwurzelt",
+"t": "zone",
+"tags": ["holz"],
+"tick": 2.0,
+"time": 20.0
+}]
+description = "Die Langhaar-Formation (Umkreis 10, 20 s): endlose Haare fesseln die Gegner, bremsen und würgen sie alle 2 s."
+lore = "Formation, deren Kernstück das Advance Refinement Gu war, bevor es Fang Yuan in die Hände fiel. Im Spiel als Kampfformation umgesetzt; die Verfeinerungswirkung trägt der Kern-Gu (passiv)."
+owner = "unbekannt (im Lexikon nicht genannt)"

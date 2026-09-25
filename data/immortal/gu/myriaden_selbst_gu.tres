@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://byh6pbqblkx73"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_gg8e6"]
+
+[resource]
+script = ExtResource("1_gg8e6")
+id = &"myriaden_selbst_gu"
+display_name = "Myriaden-Selbst-Unsterblichen-Gu"
+name_en = "Myriad Self Immortal Gu"
+rank = 7
+path = &"mensch"
+category = &"unterstuetzung"
+description = "Myriaden-Selbst: drei Abbilder deiner selbst kämpfen 15 s an deiner Seite; du richtest in der Zeit 20 % mehr Schaden an."
+lore = "Von Fang Yuan aus seinem eigenen Killer Move Myriad Self in ein echtes Gu-Rezept umgewandelt und vom Lang Ya Sect verfeinert."
+owner = "Fang Yuan (Rezept), Lang Ya Sect (Verfeinerung)"
+beads = 2.0
+cooldown = 50.0
+steps = [{
+"count": 3.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 15.0
+}, {
+"color": "#f0c090",
+"damage": 1.2,
+"key": "myriaden_selbst",
+"t": "buff",
+"time": 15.0
+}]

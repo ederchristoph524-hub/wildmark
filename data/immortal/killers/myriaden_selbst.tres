@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cakfmdbtt4gqt"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_sjru4"]
+
+[resource]
+script = ExtResource("1_sjru4")
+id = &"myriaden_selbst"
+display_name = "Myriaden-Selbst"
+name_en = "Myriad Self"
+path = &"kraft"
+core = &"myriaden_selbst_gu"
+mortal_families = Array[StringName]([&"wasserbild", &"gestalt", &"sklaverei", &"wirbel", &"kampfgeist", &"stroemung"])
+beads = 5.0
+cooldown = 90.0
+channel = 1.5
+steps = [{
+"count": 4.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 18.0
+}, {
+"color": "#e07a4a",
+"damage": 1.3,
+"key": "myriaden_selbst",
+"t": "buff",
+"time": 18.0
+}, {
+"color": "#e07a4a",
+"knockback": 2.0,
+"mult": 3.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#e07a4a",
+"knockback": 1.0,
+"mult": 3.0,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wucht"]
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"color": "#4a9ad0",
+"mult": 3.0,
+"radius": 10.0,
+"status": "nass",
+"t": "circle",
+"tags": ["wasser", "wucht"]
+}],
+"time": 0.8
+}]
+description = "Vier Abbilder deiner selbst treten 18 s neben dich; gemeinsam schlagt ihr dreimal zu – Rundschlag, Kegel, Flutwelle – und du kämpfst 30 % stärker."
+lore = "Fang Yuans Signatur-Move: erzeugt kontrollierte Kopien seiner selbst bzw. vervielfältigt seine Kraft mehrfach; entwickelte sich mit seiner fast 600 Jahre langen Lebenserfahrung zu einer Human-Path-Technik weiter. Basis einer ganzen Familie von Folgemoves (u. a. Myriad Ghost Sword Dragon)."
+owner = "Fang Yuan"

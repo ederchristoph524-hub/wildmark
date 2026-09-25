@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b187rmuhmkcep"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ogsed"]
+
+[resource]
+script = ExtResource("1_ogsed")
+id = &"qi_fluss_gu"
+display_name = "Qi-Fluss-Gu"
+name_en = "Qi Flow Gu"
+path = &"qi"
+category = &"sonstiges"
+description = "Qi fließt: alle Gu 2 s weiter und 8 s 20 % schneller bereit, du selbst 20 % schneller."
+lore = "Qi-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+base_damage = 20.0
+steps = [{
+"cd_mult": 0.8,
+"refund": 2.0,
+"t": "haste",
+"time": 8.0
+}, {
+"color": "#99ffff",
+"key": "qi_fluss",
+"speed": 1.2,
+"t": "buff",
+"time": 8.0
+}]

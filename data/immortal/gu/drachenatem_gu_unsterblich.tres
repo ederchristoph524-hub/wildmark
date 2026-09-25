@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ctgdpb45611mc"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_63rua"]
+
+[resource]
+script = ExtResource("1_63rua")
+id = &"drachenatem_gu_unsterblich"
+display_name = "Unsterblicher-Drachenatem-Gu"
+name_en = "Dragon Breath Gu"
+path = &"verwandlung"
+category = &"unterstuetzung"
+description = "Atmet wie ein Drache: ein Flammenkegel (10 m, Brand), dann ein zweiter, weiter reichender Stoß."
+lore = "Ermöglicht Drachenimitation. Steigt bis Rang 7."
+owner = "Fang Yuan"
+cooldown = 16.0
+steps = [{
+"angle": 50.0,
+"color": "#ff7a3a",
+"mult": 1.6,
+"reach": 10.0,
+"status": "brand",
+"t": "cone",
+"tags": ["feuer", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 40.0,
+"color": "#ff7a3a",
+"mult": 1.6,
+"reach": 12.0,
+"status": "brand",
+"t": "cone",
+"tags": ["feuer"]
+}],
+"time": 0.4
+}]

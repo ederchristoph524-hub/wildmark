@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dugpa0o6lwc7t"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_kvnw4"]
+
+[resource]
+script = ExtResource("1_kvnw4")
+id = &"wuestentempel_oberster"
+display_name = "Hohepriester des Wüstentempels"
+color = Color(0.78431374, 0.627451, 0.3764706, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"erdloch", &"sonnenkoerper", &"bergziehen", &"auraverbergen"])
+rank = 6
+hat = &"turban"
+immortal_gu = Array[StringName]([&"zu_stein_gu", &"breischlamm_gu"])
+title = "Hohepriester des Wüstentempel-Ordens"
+path = &"erde"
+lore = "Der unsterbliche Hohepriester des Wüstentempel-Ordens in der Westlichen Wüste. Er hütet die Oasenstadt vor Sandräubern."

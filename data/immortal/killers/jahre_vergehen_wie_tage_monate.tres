@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://fhencufgjc7y"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_it85g"]
+
+[resource]
+script = ExtResource("1_it85g")
+id = &"jahre_vergehen_wie_tage_monate"
+display_name = "Jahre-vergehen-wie-Tage/Monate"
+name_en = "Years Pass Like Days/Months"
+path = &"zeit"
+core = &"jahre_fliessen_wie_wasser_gu"
+mortal_families = Array[StringName]([&"zeit", &"kampfgeist", &"stroemung", &"weisheit"])
+beads = 5.0
+cooldown = 90.0
+channel = 1.4
+steps = [{
+"cd_mult": 0.4,
+"t": "haste",
+"time": 12.0
+}, {
+"at": "target",
+"color": "#a04ad0",
+"distance": 12.0,
+"mult": 2.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 12.0,
+"mult": 2.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"time": 0.2
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 12.0,
+"mult": 2.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 12.0,
+"mult": 2.0,
+"radius": 8.0,
+"slow": 0.5,
+"slow_time": 4.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"time": 0.6
+}]
+description = "Jahre vergehen wie Tage: vier Zeitschläge treffen das Ziel im Nu (Umkreis 8), und 12 s lang laden deine Gu zweieinhalbmal so schnell."
+lore = "Teil der Serie von Zeitraffer- und Zeitlupe-Techniken (Myriad Year Hunting / Year Beast Summoning / Years Grant Strength / Years Pass Like Days/Months), Time + Enslavement/Strength Path, Kern Year Gu bzw. Years Flow Like Water Gu; teils von Hei Fan genutzt. Im Spiel dient Jahre-fließen-wie-Wasser-Unsterblichen-Gu als Kern; das Lexikon nennt Jahr-Gu (Anpassung)."
+owner = "Fang Yuan, Hei Fan"

@@ -17,8 +17,11 @@ func _init(owner_combatant: Combatant) -> void:
 	name = "Aperture"
 
 
+## Unsterbliche rechnen hier mit Rang 5 Höchststufe: ihre Uressenz ist ohnehin unerschöpflich, solange Perlen da sind.
 func capacity() -> float:
-	return Formulas.essence_cap(Balance.values, GameState.rank, GameState.stage, GameState.apt) * PassiveGu.mult("cap_mult")
+	var immortal: bool = Immortal.is_immortal()
+	var stage: int = Balance.values.max_stage if immortal else GameState.stage
+	return Formulas.essence_cap(Balance.values, Immortal.mortal_rank(GameState.rank), stage, GameState.apt) * PassiveGu.mult("cap_mult")
 
 
 ## Regeneration (Hilfs-Gu wie der Schnaps-Wurm eingerechnet), ohne Unterhalt.
@@ -31,15 +34,25 @@ func essence() -> float:
 
 
 func ratio() -> float:
+	if Immortal.is_immortal():
+		return 1.0 if Immortal.has_mortal_essence() else 0.0
 	var cap: float = capacity()
 	return GameState.essence / cap if cap > 0.0 else 0.0
 
 
 func has_essence(amount: float) -> bool:
+	if Immortal.is_immortal():
+		return Immortal.has_mortal_essence()
 	return GameState.essence + 0.001 >= amount
 
 
+## Unsterbliche zahlen sterbliche Gu mit einem winzigen Bruchteil einer Perle.
 func spend(amount: float) -> bool:
+	if Immortal.is_immortal():
+		if not Immortal.has_mortal_essence():
+			return false
+		Immortal.spend_mortal_cast()
+		return true
 	if not has_essence(amount):
 		return false
 	GameState.essence = maxf(0.0, GameState.essence - amount)
@@ -51,7 +64,8 @@ func gain(amount: float) -> void:
 
 
 func max_hp() -> float:
-	return Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
+	var mortal: float = Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
+	return mortal + Immortal.player_hp_bonus(mortal)
 
 
 func _physics_process(delta: float) -> void:
@@ -63,6 +77,11 @@ func _physics_process(delta: float) -> void:
 			ritual_left = 0.0
 			ritual_changed.emit(false)
 			break_through()
+		return
+	if Immortal.is_immortal():
+		GameState.essence = capacity()
+		if meditating:
+			Dao.add(DaoSite.path_at(host.get_tree(), host.global_position), Balance.values.dao_site_rate * delta)
 		return
 	if meditating:
 		_meditate(delta)
@@ -129,6 +148,8 @@ func _meditate(delta: float) -> void:
 	Dao.add(DaoSite.path_at(host.get_tree(), host.global_position), b.dao_site_rate * delta)
 	if GameState.stage >= b.max_stage:
 		gain(regeneration() * b.meditation_peak_regen_mult * spring * delta)
+		if ImmortalAscension.is_gathering():
+			ImmortalAscension.gather(host, delta)
 		return
 	var burn: float = minf(GameState.essence, capacity() * b.meditation_burn * spring * delta)
 	GameState.essence -= burn
@@ -178,7 +199,7 @@ func _peak_text() -> String:
 	if GameState.rank < rank_cap():
 		return tr("Höchststufe erreicht – mit fast voller Apertur kannst du den Durchbruch wagen.")
 	if GameState.rank >= 5:
-		return tr("Gipfel von Rang 5: die sterbliche Ebene ist vollendet. Der Schritt zur Unsterblichkeit (Rang 6) ist noch verschlossen.")
+		return tr("Gipfel von Rang 5: Kultiviere weiter, um Himmels- und Erd-Qi zu sammeln – dann wage im Gu-Menü (Unsterblich) den Aufstieg.")
 	return tr("Höchststufe erreicht – doch dein Talent (Grad %s) trägt dich nicht höher.") % GameState.talent_grade
 
 

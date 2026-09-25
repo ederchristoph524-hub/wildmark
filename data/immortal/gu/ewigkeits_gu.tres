@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dnx5tdiirmlrx"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_a5g86"]
+
+[resource]
+script = ExtResource("1_a5g86")
+id = &"ewigkeits_gu"
+display_name = "Ewigkeits-Gu"
+name_en = "Eternal Gu"
+rank = 9
+path = &"mensch"
+category = &"konzept"
+kind = &"konzept"
+description = "Legende aus den Sagen von Ren Zu: wahre Unsterblichkeit. Nie verfeinert – Fernziel und Lexikon-Eintrag, keine Wirkung im Spiel."
+lore = "Rein legendäres Gu aus den Legends of Ren Zu (auch Eternal Life Gu), das buchstäbliche Unsterblichkeit verleihen soll. Schon die Hairy Men versuchten es mit Ren Zus erstem Sohn Verdant Great Sun zu verfeinern."
+owner = "niemand (nie verfeinert); Fernziel Fang Yuans"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://doog6sko0r0xk"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_rtp34"]
+
+[resource]
+script = ExtResource("1_rtp34")
+id = &"koch_gu"
+display_name = "Koch-Gu"
+name_en = "Cook Gu"
+rank = 7
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Ein unsterblicher Koch: +20 % Höchstleben, 0,3 % Heilung je Sekunde und +15 % Erträge der Apertur."
+lore = "Food-Path-Gu, von Fang Yuan aus dem Southern-Border-Righteous-Path erpresst."
+owner = "Southern Border Righteous Path → Fang Yuan"
+passive = {
+"ertrag_mult": 0.15,
+"max_hp": 0.2,
+"regen": 0.003
+}

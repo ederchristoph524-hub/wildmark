@@ -71,6 +71,20 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 - `TRIALS` – Kalamitäten/Trübsale: `min` Mindestrang, `dmg` Schadensfaktor, `ranks`, `every` (Abstand in Apertur-Jahren, Referenzlogik), `warn` Warntext.
 - `CALAMITY` – Bosse der Kalamitäten nach Index. `BLANDS` – Gesegnete Länder und eigene Apertur-Welt (`spirit` = Landgeist mit Dialogzeilen, `annex` = Annexionsbedingung). `LANDGRADE` – Qualitätsstufen der Apertur-Welt.
 - `INHERIT` – Erbschaften (`bl` Ort, `need` Bedingung, `perk` Effekt). `HEAVEN` – Schatzhimmel. `LANGYA_SHOP` – Langya-Händler. `INSPIRATION` – Eingebungen mit dauerhaften Boni.
+- Diese alten Blöcke sind nur Referenz. Importiert werden (→ `data/immortal/immortal_system.tres`, siehe `docs/UNSTERBLICH.md`):
+  - `raenge` – Rang 6–9: `essenz`, `farbe`, `kalamitaet_tage`, `zyklus` (Kalamitäts-IDs), `je_stufe` (Kalamitäten je Stufe), `durchbruch` {`dao`, `steine`, `attain`, `text`}.
+  - `kalamitaeten` – ID → `n`, `farbe`, `warnung`, `wellen`, `dauer`, `beben`, `blitze`, `dao`; `kalamitaet_wesen` – Rang → Bestien-IDs.
+  - `landgrade` – Grade des Gesegneten Landes: `n`, `farbe`, `groesse`, `steine_pro_tag`, `zeitfluss`, `perlen_start`, `ertrag`.
+  - `aufstieg` – `min_balance`, `qi_max`, `grad_schwellen`, Sammelraten, `himmels_pfade`/`erd_pfade`, Gewichte des Menschen-Qi (`mensch`).
+  - `eingebungen` – `id`, `frage`, `wirkung`, `effekt` (z. B. `max_hp`, `perlen_kosten`, `dao_mult`).
+  - `schatzhimmel` – `zutritt_rang`, `sterbliche_gu` (Rang → Preis in Essenzsteinen), `materialien`, `verkauf`, `kristall_je_stein`, `auktion` {`anzahl`, `preise` je Rang, `killer_moves`, `killer_preis`}.
+  - `landgeist`, `pfad_biome` (Hauptpfad → Biom der eigenen Apertur), `platzierung` (NPC-Unsterbliche: `meister`, `gebiet`, `siedlung`, `rolle`).
+
+## unsterbliche_gu.json
+
+- `gu` – 245 unsterbliche Gu (Rang 6–9): `id`, `name`, `name_en`, `rang`, `pfad`, `kategorie`, `art` (`aktiv`, `passiv`, `gu_haus`, `konzept`), `beschreibung`, `lore`, `besitzer`, `perlen` (Kosten), `cd`, `grundschaden`, `schritte` (Wirkungsschritte wie Killer Moves), `passiv` (Dauerwirkungen: `max_hp`, `reduction`, `speed`, `regen`, `dao_mult`, `crit`, `stealth`, `reflect`, `unstoppable`, `kalamitaet_schutz`, `ertrag_mult`, `perlen_ertrag`, `schaden`, `sicht`), `welt` (`reise`, `zeitruecksprung`, `wiedergeburt`, `sicht`).
+- `killer_moves` – 119 Unsterblichen-Killer-Moves: `kern` (unsterblicher Gu), `sterbliche` (3–8 sterbliche Familien-IDs), `perlen`, `cd`, `kanalisieren`, `grundschaden`, `schritte`, `beschreibung`, `lore`, `besitzer`.
+- Gebiete mit Block `unsterblich` in `gebiete.json`: `zutritt_rang`, `regeln` (z. B. `keine_gu`, `seelenlast`, `seelensturm`, `sterblich_zehrt`, `traum`, `leichte_schwerkraft`), `art`, `zeitfluss`, `landgeist` {`n`, `lines`}, `annektierbar` {`pfad`, `wachstum`, `gabe`}, `eingang`; Gegner `rang` 6–8 = wüste Bestien, `GUMASTER` mit `rang` ≥ 6 = NPC-Unsterbliche (`unsterbliche_gu`, `titel`, `pfad`, `lore`).
 
 ## Validierung
 

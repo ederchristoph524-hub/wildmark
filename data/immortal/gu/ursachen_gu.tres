@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ci5lq2isa1o00"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_nf4hs"]
+
+[resource]
+script = ExtResource("1_nf4hs")
+id = &"ursachen_gu"
+display_name = "Ursachen-Gu"
+name_en = "Cause Gu"
+rank = 8
+path = &"regel"
+category = &"sonstiges"
+description = "Setzt eine Ursache: ein Mal im Ziel (Wunde, 3 Stapel Schwäche); 3 s später zieht es eine Kette von Folgen über 5 Gegner nach sich. Deine Gu sind 5 s weiter."
+lore = "Nur in Abschnitt 3 genannt: Kern-Gu (mit Effect Gu und Mature Bamboo Gu) des Killer Moves Karma Divine Tree (Wood + Rule Path). Pfad und Rang im Text nicht genannt. Pfad im Lexikon nicht genannt; im Spiel als Regel-Pfad geführt (Interpretation)."
+owner = "Move bei Chen Yi, Qing Chou, Fang Yuan"
+beads = 3.0
+cooldown = 30.0
+steps = [{
+"color": "#e8e0ff",
+"count": 1.0,
+"homing": true,
+"mult": 2.0,
+"range": 22.0,
+"set_stacks": {
+"schwaeche": 3.0,
+"wunde": 1.0
+},
+"spread": 0.0,
+"t": "projectiles",
+"tags": ["seele"]
+}, {
+"refund": 5.0,
+"t": "haste"
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8e0ff",
+"jumps": 5.0,
+"mult": 3.0,
+"radius": 8.0,
+"stun": 0.5,
+"t": "chain",
+"tags": ["seele", "zeit"]
+}],
+"time": 3.0
+}]

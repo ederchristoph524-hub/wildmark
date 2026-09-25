@@ -26,6 +26,10 @@ var _death_buttons: Dictionary[StringName, Button] = {}
 var _standing: StringName = DEFAULT_STANDING
 var _standing_buttons: Dictionary[StringName, Button] = {}
 var _description: Label = null
+## Freier Start: Geburtsort, Rang 1–9, Unsterblichkeit (StartFreeSection); Kindheit entfällt dann.
+var _free: bool = false
+var _mode_buttons: Array[Button] = []
+var _free_section: StartFreeSection = null
 
 
 func _ready() -> void:
@@ -54,6 +58,14 @@ func _build(column: VBoxContainer) -> void:
 	column.add_child(UiTheme.label(tr("Die Südliche Grenze. Deine Apertur erwacht bald – die Welt wartet nicht auf dich."), 18, UiTheme.MUTED))
 	if SaveSystem.has_save():
 		column.add_child(UiTheme.button(tr("Weiterspielen"), func() -> void: EventBus.continue_requested.emit(), 60.0))
+	column.add_child(UiTheme.label(tr("Spielmodus"), 24, UiTheme.ACCENT))
+	var modes := HBoxContainer.new()
+	column.add_child(modes)
+	for free: bool in [false, true]:
+		var mode_button: Button = UiTheme.button(tr("Freier Start (Ort, Rang 1–9, Unsterblichkeit)") if free else tr("Geschichte (Rang 1 im Klan)"), _choose_mode.bind(free))
+		mode_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		modes.add_child(mode_button)
+		_mode_buttons.append(mode_button)
 	column.add_child(UiTheme.label(tr("Kindheit"), 24, UiTheme.ACCENT))
 	var childhood := HBoxContainer.new()
 	column.add_child(childhood)
@@ -74,6 +86,9 @@ func _build(column: VBoxContainer) -> void:
 	var start_text: String = tr("Neues Spiel") + (tr(" (überschreibt den Spielstand)") if SaveSystem.has_save() else "")
 	# Start-Knopf vor den Erklärungen, damit er am Handy quer ohne Scrollen sichtbar bleibt.
 	column.add_child(UiTheme.button(start_text, _start, 64.0))
+	_free_section = StartFreeSection.new()
+	_free_section.changed.connect(_update_description)
+	column.add_child(_free_section)
 	_build_standing_section(column)
 	_build_talent_section(column)
 	_skip_section = VBoxContainer.new()
@@ -153,6 +168,11 @@ func _choose_physique(id: StringName) -> void:
 	_refresh()
 
 
+func _choose_mode(free: bool) -> void:
+	_free = free
+	_refresh()
+
+
 func _choose_childhood(playable: bool) -> void:
 	_childhood = playable
 	_refresh()
@@ -174,10 +194,15 @@ func _choose_death(mode: StringName) -> void:
 
 
 func _refresh() -> void:
+	for i: int in _mode_buttons.size():
+		_mode_buttons[i].toggle_mode = true
+		_mode_buttons[i].set_pressed_no_signal((i == 1) == _free)
+	_free_section.visible = _free
 	for i: int in _childhood_buttons.size():
 		_childhood_buttons[i].toggle_mode = true
 		_childhood_buttons[i].button_pressed = (i == 0) == _childhood
-	_skip_section.visible = not _childhood
+		_childhood_buttons[i].disabled = _free
+	_skip_section.visible = not _childhood or _free
 	for id: StringName in _family_buttons:
 		_family_buttons[id].button_pressed = id == _family
 		_family_buttons[id].toggle_mode = true
@@ -196,7 +221,16 @@ func _refresh() -> void:
 	for id: StringName in _standing_buttons:
 		_standing_buttons[id].toggle_mode = true
 		_standing_buttons[id].button_pressed = id == _standing
-	_description.text = _childhood_text() if _childhood else _family_text()
+	_update_description()
+
+
+func _update_description() -> void:
+	if _description == null:
+		return
+	var playing_child: bool = _childhood and not _free
+	_description.text = _childhood_text() if playing_child else _family_text()
+	if _free:
+		_description.text = _free_section.describe() + "\n\n" + _description.text
 	_description.text += "\n\n" + _talent_text() + "\n\n" + _death_text()
 	if DataRegistry.has(&"standings", _standing):
 		_description.text += "\n\n" + Origins.describe(DataRegistry.standing(_standing))
@@ -240,8 +274,12 @@ func _death_text() -> String:
 ## Mit Kindheit und Talent „Zufall“ würfelt erst der Talenttest beim Erwachen (talent_grade bleibt leer).
 func _start() -> void:
 	var b: BalanceData = Balance.values
-	var options: Dictionary = {"childhood": _childhood, "first_family": &"" if _childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &"", "standing": _standing}
-	if not (_childhood and _talent == TALENT_RANDOM):
+	var childhood: bool = _childhood and not _free
+	var options: Dictionary = {"childhood": childhood, "first_family": &"" if childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &"", "standing": _standing}
+	if _free:
+		options["free"] = _free_section.options()
+		options["area"] = _free_section.area_id
+	if not (childhood and _talent == TALENT_RANDOM):
 		var talent: Dictionary = Formulas.roll_talent(b, randf() * 100.0, randf()) if _talent == TALENT_RANDOM else Formulas.talent_for_grade(b, _talent, randf())
 		options["talent_grade"] = talent["grade"]
 		options["apt"] = talent["apt"]

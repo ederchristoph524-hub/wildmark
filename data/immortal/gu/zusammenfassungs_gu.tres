@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dqcx5ergicgog"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_17t6k"]
+
+[resource]
+script = ExtResource("1_17t6k")
+id = &"zusammenfassungs_gu"
+display_name = "Zusammenfassungs-Gu"
+name_en = "Summary Gu"
+rank = 8
+path = &"information"
+category = &"information"
+kind = &"passiv"
+description = "Fasst alles zusammen: Schwächen der Gegner liegen offen (+20 % kritische Treffer), Einsichten prägen sich ein (+30 % Dao-Markierungen)."
+lore = "Fasst komplexe Informationen automatisch zusammen."
+owner = "Paradise Earth Immortal Venerable"
+passive = {
+"crit": 0.2,
+"dao_mult": 0.3
+}

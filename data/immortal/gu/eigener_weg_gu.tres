@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://l82xtn7hqot4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_exhyr"]
+
+[resource]
+script = ExtResource("1_exhyr")
+id = &"eigener_weg_gu"
+display_name = "Eigener-Weg-Gu"
+name_en = "One's Own Way Gu"
+path = &"regel"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Dein eigener Weg: sterbliche Gu wirken auch in Gesegneten Ländern ungebremst (+15 % Schaden)."
+lore = "Erlaubt einem mortalen Gu-Wurm, unabhängig von himmlischen Restriktionen innerhalb eines Blessed Land zu operieren. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"schaden": 0.15
+}

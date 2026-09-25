@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://clkqp51mlf0n2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ucekp"]
+
+[resource]
+script = ExtResource("1_ucekp")
+id = &"vierarm_windkoenig"
+display_name = "Vierarm-Windkönig"
+name_en = "Four Arm Wind King"
+path = &"kraft"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"wind", &"wirbel", &"phantom"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.5
+steps = [{
+"color": "#e07a4a",
+"damage": 1.5,
+"grow": 1.5,
+"key": "vierarm_windkoenig",
+"speed": 1.4,
+"t": "buff",
+"time": 15.0
+}, {
+"angle": 120.0,
+"color": "#e07a4a",
+"knockback": 2.0,
+"mult": 3.0,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wind", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 120.0,
+"color": "#e07a4a",
+"mult": 3.0,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wind", "schnitt"]
+}],
+"time": 0.25
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"follow": true,
+"mult": 0.3,
+"pull": 0.8,
+"radius": 5.0,
+"t": "zone",
+"tags": ["wind"],
+"time": 6.0
+}],
+"time": 0.5
+}]
+description = "Vierarmiger Windkönig (15 s, 40 % schneller): zwei Sturmfächer aus vier Armen, danach 6 s ein Wirbelsturm um dich, der Gegner hineinzieht."
+lore = "Teil der eskalierenden Serie von Vier-/Sechs-Arm-Kampfformen (Four Arm Earth King → Four Arm Wind King → Six Arm Heavenly Zombie King). Kern im Spiel: Gestaltwandel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

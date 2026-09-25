@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dfmy31012sa50"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_48vvb"]
+
+[resource]
+script = ExtResource("1_48vvb")
+id = &"zeitverbergungs_gu"
+display_name = "Zeitverbergungs-Gu"
+name_en = "Time Concealment Gu"
+rank = 7
+path = &"zeit"
+category = &"tarnung"
+description = "Verbirgt dich 8 s in der Zeit: unsichtbar, gereinigt, und deine anderen Gu laden doppelt so schnell."
+lore = "Verbirgt einen Gu-Immortal mit Zeitpfad-Methoden."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"t": "stealth",
+"time": 8.0
+}, {
+"t": "cleanse"
+}, {
+"cd_mult": 0.5,
+"t": "haste",
+"time": 8.0
+}]

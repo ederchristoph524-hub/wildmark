@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://btfr3jifssqm6"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_705uv"]
+
+[resource]
+script = ExtResource("1_705uv")
+id = &"aufloesungs_gu"
+display_name = "Auflösungs-Unsterblichen-Gu"
+name_en = "Disintegrate Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"angriff"
+description = "Regel „Auflösung“: ein Strahl (16 m), der Rüstung auflöst und Gegner unter 30 % Leben vollends zerfallen lässt."
+lore = "Rule-Path-Gu für Auflösung (Gegenstück: Become Real). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 22.0
+steps = [{
+"color": "#f0f0ff",
+"execute": 0.5,
+"length": 16.0,
+"mult": 3.5,
+"pierce_armor": true,
+"t": "line",
+"tags": ["durchbohren"],
+"width": 2.5
+}]

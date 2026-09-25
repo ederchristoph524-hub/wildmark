@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://c4hhp4scakaik"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_1xvwe"]
+
+[resource]
+script = ExtResource("1_1xvwe")
+id = &"himmelsgeburt_gu"
+display_name = "Himmelsgeburt-Unsterblichen-Gu"
+name_en = "Heavenly Birth Immortal Gu"
+rank = 8
+path = &"himmel"
+category = &"heilung"
+description = "Himmlische Geburt: heilt dich um 80 % über 6 s, entfernt alle Zustände, heilt Verbündete (Umkreis 8) um 40 % und umgibt dich 6 s mit neuem Leben."
+lore = "Heilungs-Gu des Heaven Path."
+owner = "Paradise Earth Immortal Venerable, Fang Yuan"
+beads = 3.0
+cooldown = 50.0
+base_damage = 20.0
+steps = [{
+"frac": 0.8,
+"t": "heal",
+"time": 6.0
+}, {
+"t": "cleanse"
+}, {
+"allies": true,
+"frac": 0.4,
+"radius": 8.0,
+"t": "heal"
+}, {
+"color": "#6fbf4a",
+"follow": true,
+"heal": 0.02,
+"mult": 0.0,
+"radius": 6.0,
+"t": "zone",
+"tags": ["holz"],
+"tick": 1.0,
+"time": 6.0
+}]

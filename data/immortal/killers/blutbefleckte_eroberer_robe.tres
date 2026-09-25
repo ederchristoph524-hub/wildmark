@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dx24w8qc3boto"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_pyhtg"]
+
+[resource]
+script = ExtResource("1_pyhtg")
+id = &"blutbefleckte_eroberer_robe"
+display_name = "Blutbefleckte-Eroberer-Robe"
+name_en = "Bloodstained Conqueror's Robe"
+path = &"blut"
+core = &"blutvermoegen_gu"
+mortal_families = Array[StringName]([&"blutmond", &"haut", &"fackel", &"knochen"])
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"color": "#d0303a",
+"kind": "thorns",
+"reduction": 0.7,
+"t": "armor",
+"time": 15.0,
+"value_mult": 0.6
+}, {
+"color": "#d0303a",
+"damage": 1.3,
+"key": "eroberer_robe",
+"t": "buff",
+"time": 15.0
+}, {
+"color": "#d0303a",
+"follow": true,
+"lifesteal": 0.3,
+"mult": 0.6,
+"radius": 4.0,
+"status": "blutung",
+"t": "zone",
+"tags": ["blut"],
+"tick": 1.0,
+"time": 15.0
+}]
+description = "Die blutbefleckte Robe des Eroberers (15 s): 70 % Schutz, Dornen, +30 % Schaden – wer dir nahe kommt, blutet und nährt dich."
+lore = "Teil von Fang Yuans zentraler Blood-Path-Kampftechnik-Familie (Blood Torrent / Blood Healing Lake / Blood Light Spirit Suppression / Life Staking Blood Print / Bloodstained Conqueror's Robe)."
+owner = "Fang Yuan"

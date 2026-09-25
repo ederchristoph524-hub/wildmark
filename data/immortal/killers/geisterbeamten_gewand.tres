@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cp6wwheh3h12r"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_0esv8"]
+
+[resource]
+script = ExtResource("1_0esv8")
+id = &"geisterbeamten_gewand"
+display_name = "Geisterbeamten-Gewand"
+name_en = "Ghost Official Garment"
+path = &"seele"
+core = &"vorsicht_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"haut", &"sklaverei", &"labyrinth"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"color": "#c9a0ff",
+"kind": "thorns",
+"reduction": 0.7,
+"t": "armor",
+"time": 15.0,
+"value_mult": 0.6
+}, {
+"color": "#c9a0ff",
+"follow": true,
+"mult": 0.8,
+"radius": 5.0,
+"status": "furcht",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.5,
+"time": 15.0
+}]
+description = "Das Gewand eines Geisterbeamten (15 s): 70 % Schutz, Dornen, und alle in deiner Nähe packt die Furcht vor dem Totengericht."
+lore = "Teil der Signatur-Reihe des Spectral Soul Demon Venerable (Soul/Food/Rule Path). Kern im Spiel: Vorsicht-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable"

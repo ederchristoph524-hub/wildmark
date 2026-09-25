@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dqxb4ywvxujgh"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_u1kly"]
+
+[resource]
+script = ExtResource("1_u1kly")
+id = &"hei_lou_lan"
+display_name = "Hei Lou Lan"
+color = Color(0.3529412, 0.22745098, 0.22745098, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"kraftleihen", &"bergziehen", &"kriegsgott", &"bestienkoenig_gestalt"])
+rank = 7
+hat = &"fell"
+immortal_gu = Array[StringName]([&"stark_gu", &"kraftverbrauchs_gu"])
+title = "Kraftpfad-Unsterbliche des Hei-Stamms"
+path = &"kraft"
+lore = "Tochter Hei Chengs und Fang Yuans strategische Verbündete im Norden. Vom Langlebigkeits-Himmel erhielt sie den Stark-Gu."

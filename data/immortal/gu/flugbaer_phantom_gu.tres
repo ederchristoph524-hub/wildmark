@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://lu7h434oo8fp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_x50g5"]
+
+[resource]
+script = ExtResource("1_x50g5")
+id = &"flugbaer_phantom_gu"
+display_name = "Flugbär-Phantom-Gu"
+name_en = "Flying Bear Phantom Gu"
+path = &"phantom"
+category = &"sonstiges"
+description = "Ein Flugbär-Phantom stürzt nach vorn (Kegel 8 m), stößt Gegner fort und lähmt sie kurz."
+lore = "Phantom-Path-Gu (Sub-Pfad des Rule Path) auf Rang 6; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 14.0
+steps = [{
+"angle": 50.0,
+"color": "#b0b8ff",
+"knockback": 2.0,
+"mult": 3.0,
+"reach": 8.0,
+"stun": 0.3,
+"t": "cone",
+"tags": ["seele", "wucht"]
+}]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://djbdb7ub2f7n2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_jwmyg"]
+
+[resource]
+script = ExtResource("1_jwmyg")
+id = &"blutspur_gu"
+display_name = "Blutspur-Unsterblichen-Gu"
+name_en = "Blood Trace Immortal Gu"
+path = &"blut"
+category = &"information"
+kind = &"passiv"
+description = "Folgt jeder Blutspur: Verwundete Gegner bleiben sichtbar, auch getarnt, und du triffst sie 8 % härter."
+lore = "Investigatives Blood-Path-Gu zur Spurensuche. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"schaden": 0.08,
+"sicht": true
+}

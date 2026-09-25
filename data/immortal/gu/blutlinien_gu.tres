@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dx8nys8217ypt"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ad26l"]
+
+[resource]
+script = ExtResource("1_ad26l")
+id = &"blutlinien_gu"
+display_name = "Blutlinien-Unsterblichen-Gu"
+name_en = "Bloodline Immortal Gu"
+rank = 7
+path = &"blut"
+category = &"sonstiges"
+description = "Weckt die Kraft deiner Blutlinie: 12 s +40 % Schaden, Verbündete im Umkreis 10 heilen 20 %, und ein Blutstoß (Umkreis 6) lässt Gegner bluten und nährt dich."
+lore = "Blood-Path-Gu, verbunden mit Abstammungslinien."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 35.0
+steps = [{
+"color": "#d0303a",
+"damage": 1.4,
+"key": "blutlinie",
+"t": "buff",
+"time": 12.0
+}, {
+"allies": true,
+"frac": 0.2,
+"radius": 10.0,
+"t": "heal"
+}, {
+"color": "#d0303a",
+"lifesteal": 0.2,
+"mult": 3.0,
+"radius": 6.0,
+"stacks": 2.0,
+"status": "blutung",
+"t": "circle",
+"tags": ["blut"]
+}]

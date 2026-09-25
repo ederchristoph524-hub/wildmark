@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://eixh3wnfu7vt"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kmebb"]
+
+[resource]
+script = ExtResource("1_kmebb")
+id = &"gluecksunterdrueckungs_gu"
+display_name = "Glücksunterdrückungs-Unsterblichen-Gu"
+name_en = "Luck Suppression Immortal Gu"
+rank = 7
+path = &"glueck"
+category = &"kontrolle"
+description = "Unterdrückt Glück (Umkreis 8, 10 s): Gegner darin werden geschwächt und 30 % langsamer; du triffst 10 s lang zu 20 % kritisch."
+lore = "Luck-Path-Gu zum Unterdrücken von Glück. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 40.0
+base_damage = 30.0
+steps = [{
+"at": "target",
+"color": "#7dff9b",
+"distance": 10.0,
+"mult": 0.35,
+"radius": 8.0,
+"slow": 0.3,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 10.0
+}, {
+"chance": 0.2,
+"t": "luck",
+"time": 10.0
+}]

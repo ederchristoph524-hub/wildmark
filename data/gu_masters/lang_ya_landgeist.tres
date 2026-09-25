@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://difc2xk0ym0tq"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_tokjb"]
+
+[resource]
+script = ExtResource("1_tokjb")
+id = &"lang_ya_landgeist"
+display_name = "Landgeist von Lang Ya"
+color = Color(0.6039216, 0.8156863, 0.6901961, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"schildkroetenjade", &"qi_mauer", &"himmelsweisheit", &"neun_palaeste"])
+rank = 6
+immortal_gu = Array[StringName]([&"eisenwand_gu"])
+title = "Landgeist des Lang-Ya-Gesegneten-Landes"
+path = &"metall"
+lore = "Der Landgeist des Lang-Ya-Gesegneten-Landes, Hüter der Schatzkammer mit dem Eisenwand-Gu. Die Lang-Ya-Sekte verfeinerte hier Fang Yuans Myriaden-Selbst-Gu."

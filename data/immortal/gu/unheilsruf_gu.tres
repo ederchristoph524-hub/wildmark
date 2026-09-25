@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bo30hd7m3qnfa"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_r5b0l"]
+
+[resource]
+script = ExtResource("1_r5b0l")
+id = &"unheilsruf_gu"
+display_name = "Unheilsruf-Gu"
+name_en = "Calamity Beckoning Gu"
+rank = 7
+path = &"glueck"
+category = &"angriff"
+description = "Ruft Unheil herab: Blitze fallen 5 s auf das Zielgebiet (Umkreis 7), Feuer bricht aus, und am Ende reißt die Erde auf (1 s betäubt)."
+lore = "Echtes Selbstopfer-Gu, das gezielt Katastrophen/Unglück auf ein Ziel lenkt."
+owner = "Fang Yuan"
+beads = 2.0
+cooldown = 35.0
+steps = [{
+"at": "target",
+"color": "#ff7a3a",
+"distance": 12.0,
+"mult": 1.5,
+"radius": 7.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"at": "target",
+"color": "#8ad0ff",
+"distance": 12.0,
+"end": [{
+"color": "#a08050",
+"mult": 2.5,
+"radius": 7.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"mult": 0.5,
+"radius": 7.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["blitz"],
+"tick": 1.0,
+"time": 5.0
+}]

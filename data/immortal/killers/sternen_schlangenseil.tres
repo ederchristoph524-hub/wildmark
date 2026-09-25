@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://2rdidu1o5v1v"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_tuiy0"]
+
+[resource]
+script = ExtResource("1_tuiy0")
+id = &"sternen_schlangenseil"
+display_name = "Sternen-Schlangenseil"
+name_en = "Star Snake Rope"
+path = &"stern"
+core = &"sternenmal_gu"
+mortal_families = Array[StringName]([&"stern", &"tausendfuessler", &"erde", &"mondlicht"])
+cooldown = 45.0
+channel = 0.8
+steps = [{
+"color": "#fff2b0",
+"knockback": -3.0,
+"length": 14.0,
+"mult": 3.0,
+"status": "verwurzelt",
+"t": "line",
+"tags": ["stern"],
+"width": 1.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#fff2b0",
+"jumps": 5.0,
+"mult": 2.0,
+"radius": 6.0,
+"status": "schwaeche",
+"t": "chain",
+"tags": ["stern"]
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"color": "#fff2b0",
+"count": 6.0,
+"homing": true,
+"mult": 0.6,
+"range": 18.0,
+"spread": 90.0,
+"t": "projectiles",
+"tags": ["stern"]
+}],
+"time": 0.8
+}]
+description = "Ein Sternenseil peitscht 14 m nach vorn, fesselt und zieht heran, schlängelt sich über 5 weitere Gegner, dann fallen sechs Sterne."
+lore = "Teil der Star-Path-Killer-Move-Reihe aus dem Erbe des Star Lord Wan Xiang (Kerne: Star Mark + Star Shoot + Starlight Gu) – Beweglichkeits- und Verwandlungs-Moves auf Sternenbasis."
+owner = "Star Lord Wan Xiang (Erbe) → Fang Yuan"

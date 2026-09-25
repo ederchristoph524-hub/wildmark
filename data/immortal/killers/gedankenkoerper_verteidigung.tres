@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://d1bum1w5mubgj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_rca1i"]
+
+[resource]
+script = ExtResource("1_rca1i")
+id = &"gedankenkoerper_verteidigung"
+display_name = "Gedankenkörper-Verteidigung"
+name_en = "Thought Body Defense"
+path = &"weisheit"
+core = &"weisheitshindernis_gu"
+mortal_families = Array[StringName]([&"weisheit", &"haut", &"glocke", &"qischirm"])
+beads = 4.0
+cooldown = 80.0
+steps = [{
+"color": "#7fc8ff",
+"kind": "thunder",
+"reduction": 0.5,
+"t": "armor",
+"time": 12.0,
+"value": 3.0
+}, {
+"t": "cleanse",
+"time": 12.0
+}, {
+"color": "#7fc8ff",
+"mult": 4.0,
+"radius": 6.0,
+"stun": 1.0,
+"t": "circle",
+"tags": ["seele", "klang"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 4.0,
+"radius": 6.0,
+"t": "circle",
+"tags": ["seele", "klang"]
+}],
+"time": 1.0
+}]
+description = "Ein Körper aus Gedanken (12 s): 50 % Schutz, Angreifer werden aufgeladen, du bist immun gegen Zustände; zwei Gedankenstöße (Umkreis 6) betäuben und dröhnen nach."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Weisheitshindernis-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

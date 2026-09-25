@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ctmdtxg1ao4fd"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_428bm"]
+
+[resource]
+script = ExtResource("1_428bm")
+id = &"gluecksverbindungs_gu"
+display_name = "Glücksverbindungs-Gu"
+name_en = "Connect Luck Gu"
+path = &"glueck"
+category = &"unterstuetzung"
+description = "Verbindet das Glück der Gegner: ein Glücksfaden springt über 6 Ziele und schwächt sie, ein zweiter folgt; Verbündete im Umkreis 8 heilen 15 %."
+lore = "Verbindet das Glück mehrerer Personen/Objekte, sodass sich ihr Schicksal gegenseitig beeinflusst. Steigt bis Rang 8."
+owner = "Fang Yuan"
+steps = [{
+"color": "#7dff9b",
+"jumps": 6.0,
+"mult": 1.5,
+"radius": 8.0,
+"status": "schwaeche",
+"t": "chain",
+"tags": ["seele"]
+}, {
+"allies": true,
+"frac": 0.15,
+"radius": 8.0,
+"t": "heal"
+}, {
+"t": "delay",
+"then": [{
+"color": "#7dff9b",
+"jumps": 6.0,
+"mult": 1.5,
+"radius": 8.0,
+"t": "chain",
+"tags": ["seele"]
+}],
+"time": 0.5
+}]

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cawyosvbhhvsp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_vkfl0"]
+
+[resource]
+script = ExtResource("1_vkfl0")
+id = &"schicksalslied"
+display_name = "Schicksalslied"
+name_en = "Destiny Song"
+path = &"himmel"
+core = &"schicksalsruestung_gu"
+mortal_families = Array[StringName]([&"glocke", &"glueck", &"qischirm", &"zeit"])
+beads = 6.0
+cooldown = 110.0
+channel = 1.8
+steps = [{
+"color": "#b0e0ff",
+"reduction": 0.6,
+"t": "armor",
+"time": 15.0
+}, {
+"ally_reduction": 0.4,
+"color": "#b0e0ff",
+"follow": true,
+"mult": 0.6,
+"radius": 10.0,
+"slow": 0.3,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["klang"],
+"tick": 1.0,
+"time": 15.0
+}]
+description = "Das Schicksalslied erklingt (Umkreis 10, 15 s): du und Verbündete seid 60 % bzw. 40 % geschützt, Gegner werden gebremst, geschwächt und vom Lied getroffen."
+lore = "Killer Move von Feng Jiu Ge mit dem Fate Armor Immortal Gu als Kern; sein Destiny Song war eines der Materialien, aus denen Heavenly Court Destiny Gu erschaffen wollte. Pfad im Lexikon nicht genannt; im Spiel wie sein Kern als Himmelspfad geführt (Interpretation)."
+owner = "Feng Jiu Ge"

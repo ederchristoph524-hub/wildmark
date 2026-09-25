@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://lp8uoxyluhmi"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_femai"]
+
+[resource]
+script = ExtResource("1_femai")
+id = &"schicksalsruestung_gu"
+display_name = "Schicksalsrüstung-Unsterblichen-Gu"
+name_en = "Fate Armor Immortal Gu"
+rank = 8
+path = &"himmel"
+category = &"verteidigung"
+description = "Rüstung des Schicksals: 8 s 75 % Schutz, 2 s unaufhaltsam, du heilst 30 %."
+lore = "Defensives Rang-8-Gu bei Feng Jiu Ge, Kern des Killer Moves Destiny Song."
+owner = "Feng Jiu Ge"
+beads = 3.0
+cooldown = 50.0
+base_damage = 20.0
+steps = [{
+"color": "#b0e0ff",
+"reduction": 0.75,
+"t": "armor",
+"time": 8.0
+}, {
+"t": "unstoppable",
+"time": 2.0
+}, {
+"frac": 0.3,
+"t": "heal"
+}]

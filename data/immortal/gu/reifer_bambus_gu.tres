@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://d2hsdi0xnsqyo"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_wtoeu"]
+
+[resource]
+script = ExtResource("1_wtoeu")
+id = &"reifer_bambus_gu"
+display_name = "Reifer-Bambus-Unsterblichen-Gu"
+name_en = "Mature Bamboo Immortal Gu"
+path = &"holz"
+category = &"unterstuetzung"
+description = "Reifer Bambus: deine Gu sind 3 s weiter und 8 s 15 % schneller bereit, du bist zäh wie Bambus (20 % Schutz) und heilst 10 %."
+lore = "Kern für Wisdom-Path-Deduktionen und Genesis-Lotus-Erbschaften; Bestandteil von Karma Divine Tree."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"cd_mult": 0.85,
+"refund": 3.0,
+"t": "haste",
+"time": 8.0
+}, {
+"color": "#6fbf4a",
+"key": "reifer_bambus",
+"reduction": 0.2,
+"t": "buff",
+"time": 8.0
+}, {
+"frac": 0.1,
+"t": "heal"
+}]

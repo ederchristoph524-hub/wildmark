@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://xa3tmqhgw3pv"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ylgx5"]
+
+[resource]
+script = ExtResource("1_ylgx5")
+id = &"einzelklingen_gu"
+display_name = "Einzelklingen-Gu"
+name_en = "Sole Blade Gu"
+path = &"schwert"
+category = &"angriff"
+description = "Eine einzige, zielsuchende Klinge – schnell, sicher und mit Wunde."
+lore = "Blade-Path-Fernkampf-Serie. Im Text Rang 4–6 (existiert also schon als sterbliches Gu)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 10.0
+steps = [{
+"color": "#e8f4ff",
+"count": 1.0,
+"homing": true,
+"mult": 3.0,
+"pierce": 1.0,
+"range": 22.0,
+"speed": 30.0,
+"spread": 0.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["schnitt"]
+}]

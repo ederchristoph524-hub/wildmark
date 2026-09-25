@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cat36t4sl5uw8"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_cg57r"]
+
+[resource]
+script = ExtResource("1_cg57r")
+id = &"unzaehlige_sterne_fuehren"
+display_name = "Unzählige-Sterne-führen"
+name_en = "Leading Countless Stars"
+path = &"weisheit"
+core = &"sternengedanken_gu"
+mortal_families = Array[StringName]([&"stern", &"weisheit", &"knochenrad", &"schwert"])
+channel = 1.2
+steps = [{
+"color": "#7fc8ff",
+"count": 12.0,
+"mult": 0.2,
+"radius": 5.0,
+"speed": 2.0,
+"t": "orbit",
+"tags": ["stern"],
+"time": 15.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"count": 12.0,
+"homing": true,
+"mult": 0.5,
+"range": 20.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["stern"]
+}],
+"time": 15.0
+}]
+description = "Zwölf Sterne kreisen 15 s um dich und treffen alles in ihrer Bahn; danach stürzen sie auf die nächsten Gegner."
+lore = "Ursprünglich von Dong Fang Chang Fan/Dong Fang Yu Liang entwickelt, von Fang Yuan als Vorlage für eigene Star-Path-Offensivtechniken genutzt."
+owner = "Dong Fang Chang Fan, Dong Fang Yu Liang → Fang Yuan"

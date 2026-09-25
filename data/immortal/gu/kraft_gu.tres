@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dukobgjkrtdih"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_yi8x7"]
+
+[resource]
+script = ExtResource("1_yi8x7")
+id = &"kraft_gu"
+display_name = "Kraft-Gu"
+name_en = "Strength Gu"
+rank = 9
+path = &"kraft"
+category = &"konzept"
+description = "Die Urkraft selbst: 15 s doppelter Schaden, riesige Gestalt und unaufhaltsam; dein Bodenschlag (Umkreis 10) betäubt 1,5 s, die Druckwelle rollt bis 16 m weiter, ein letzter Schlag trifft das Ziel."
+lore = "Legendäres Ur-Gu des Strength Path aus den Legends of Ren Zu."
+owner = "unbekannt (Legende)"
+beads = 5.0
+cooldown = 50.0
+base_damage = 60.0
+steps = [{
+"color": "#e07a4a",
+"damage": 2.0,
+"grow": 1.5,
+"key": "urkraft",
+"t": "buff",
+"time": 15.0
+}, {
+"t": "unstoppable",
+"time": 15.0
+}, {
+"color": "#e07a4a",
+"knockback": 3.0,
+"mult": 5.0,
+"radius": 10.0,
+"stun": 1.5,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e07a4a",
+"knockback": 2.0,
+"mult": 3.0,
+"radius": 16.0,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#e07a4a",
+"distance": 12.0,
+"mult": 3.0,
+"radius": 6.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"time": 1.0
+}]

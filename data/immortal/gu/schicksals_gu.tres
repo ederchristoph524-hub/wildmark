@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bn32w83i4mswu"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_rvmx0"]
+
+[resource]
+script = ExtResource("1_rvmx0")
+id = &"schicksals_gu"
+display_name = "Schicksals-Gu"
+name_en = "Fate Gu"
+rank = 9
+path = &"himmel"
+category = &"konzept"
+kind = &"konzept"
+description = "Kein Kampf-Gu: Das Werkzeug des Himmelswillens zwingt alle Wesen auf vorbestimmte Bahnen. Im Spiel Endziel der Geschichte und Lexikon-Eintrag, keine Waffe."
+lore = "Zentrales Werkzeug von Heaven's Will: zwingt den Lebensweg jedes Wesens auf vorbestimmte Bahnen; wer abweicht, wird zurückgedrängt. Vom Red Lotus Demon Venerable mit dem Love Gu schwer beschädigt, von Heavenly Court über Jahrhunderte repariert (Refinement Path Convention), am Ende von Fang Yuan endgültig zerstört."
+owner = "Yu Ji (gestohlen aus dem Rockman Imperial Court) → Primordial Origin Immortal Venerable → Heaven's Will / Heavenly Court; zerstört durch Fang Yuan"

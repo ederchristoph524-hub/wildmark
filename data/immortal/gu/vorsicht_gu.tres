@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://30fjuqu1kiqo"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_a7n7b"]
+
+[resource]
+script = ExtResource("1_a7n7b")
+id = &"vorsicht_gu"
+display_name = "Vorsicht-Unsterblichen-Gu"
+name_en = "Precaution Immortal Gu"
+rank = 7
+path = &"regel"
+category = &"verteidigung"
+description = "Regel „Vorsicht“: 3 s 80 % Schutz gegen den ersten Ansturm, danach 7 s 30 %."
+lore = "Rule-Path-Gu (Vorsicht), größtenteils von Fang Yuan genutzt (Reihe Fight/Pass/Precaution). Kein Rang im Text."
+owner = "Fang Yuan"
+beads = 1.5
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"color": "#e8e0ff",
+"reduction": 0.8,
+"t": "armor",
+"time": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e8e0ff",
+"reduction": 0.3,
+"t": "armor",
+"time": 7.0
+}],
+"time": 3.0
+}]

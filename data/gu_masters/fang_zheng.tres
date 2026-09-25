@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://qg5kd8p3whsj"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_bo78u"]
+
+[resource]
+script = ExtResource("1_bo78u")
+id = &"fang_zheng"
+display_name = "Gu Yue Fang Zheng"
+color = Color(0.47843137, 0.72156864, 0.8784314, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"blutkaiser", &"blutrasend", &"mondgift", &"lebensbaum"])
+rank = 6
+hat = &"band"
+immortal_gu = Array[StringName]([&"kaltblut_gu"])
+title = "Unsterbliche Hoffnung des Gu-Yue-Klans"
+path = &"blut"
+lore = "Fang Yuans Zwillingsbruder mit der höheren Begabung. Er trägt den Kaltblut-Gu, Kern von „Blut wird kalt“."

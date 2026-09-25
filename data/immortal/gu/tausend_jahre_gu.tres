@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://brje58ia1odmi"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6n2r8"]
+
+[resource]
+script = ExtResource("1_6n2r8")
+id = &"tausend_jahre_gu"
+display_name = "Tausend-Jahre-Gu"
+name_en = "Thousand Year Gu"
+rank = 8
+path = &"zeit"
+category = &"zeit"
+kind = &"passiv"
+description = "Tausend Jahre in einem Gu: Die Zeit deiner Apertur läuft schneller – +80 % Erträge – und Dao-Markierungen prägen sich 30 % stärker ein."
+lore = "Im Text nur als Vergleichsgröße erwähnt: ein Thousand Year Gu gilt als Rang 8 (Maßstab für das theoretische Ten Thousand Year Gu). Mehr sagt das Lexikon nicht."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"dao_mult": 0.3,
+"ertrag_mult": 0.8
+}

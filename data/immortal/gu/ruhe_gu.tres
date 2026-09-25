@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cvj7jlwf5yk6w"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_a43kh"]
+
+[resource]
+script = ExtResource("1_a43kh")
+id = &"ruhe_gu"
+display_name = "Ruhe-Gu"
+name_en = "Calm Gu"
+path = &"weisheit"
+category = &"sonstiges"
+description = "Reine Logik: 10 s immun gegen Zustände, alle anderen Gu 30 % schneller bereit."
+lore = "Wisdom-Path-Gu, das einen Geisteszustand verkörpert (Reihe: Unerschütterlichkeit, Güte, Gelassenheit, reine Logik). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 35.0
+base_damage = 20.0
+steps = [{
+"t": "cleanse",
+"time": 10.0
+}, {
+"cd_mult": 0.7,
+"t": "haste",
+"time": 10.0
+}]

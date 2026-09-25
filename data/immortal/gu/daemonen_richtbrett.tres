@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://de04w1ya04gbn"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_j8onn"]
+
+[resource]
+script = ExtResource("1_j8onn")
+id = &"daemonen_richtbrett"
+display_name = "Dämonen-Richtbrett"
+name_en = "Demon Judgment Board"
+rank = 8
+path = &"blut"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Das Richtbrett des Himmlischen Hofs fällt sein Urteil: ein Richtspruch springt über 8 Gegner (1 s betäubt, Hinrichtungsbonus), dann trifft das Urteil das Hauptziel."
+lore = "Gu-Haus von Heavenly Court, dessen Kern das Blood Relation Immortal Gu (Rang 8) ist; dient dem Aufspüren von Blood-Path-Kultivierenden. Rang im Text nicht genannt (nach dem Kern-Gu geschätzt)."
+owner = "Heavenly Court"
+beads = 3.0
+cooldown = 50.0
+steps = [{
+"color": "#d0303a",
+"execute": 1.0,
+"jumps": 8.0,
+"mult": 2.5,
+"radius": 12.0,
+"stun": 1.0,
+"t": "chain",
+"tags": ["blut", "licht"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#d0303a",
+"distance": 14.0,
+"execute": 1.0,
+"mult": 4.0,
+"pierce_armor": true,
+"radius": 5.0,
+"t": "circle",
+"tags": ["blut", "licht"]
+}],
+"time": 1.0
+}]

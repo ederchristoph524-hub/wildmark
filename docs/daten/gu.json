@@ -2573,7 +2573,19 @@
   "verbergen": "Verbergen",
   "knochen": "Knochen",
   "diebstahl": "Diebstahl",
-  "formation": "Formation"
+  "formation": "Formation",
+  "regel": "Regel",
+  "mensch": "Mensch",
+  "himmel": "Himmel",
+  "sklaverei": "Sklaverei",
+  "nahrung": "Nahrung",
+  "traum": "Traum",
+  "gefuehl": "Gefühl",
+  "dunkelheit": "Dunkelheit",
+  "toetung": "Tötung",
+  "mond": "Mond",
+  "phantom": "Phantom",
+  "wolke": "Wolke"
  },
  "PATH_COLOR": {
   "raffinerie": "#c9a070",
@@ -2603,7 +2615,19 @@
   "verbergen": "#8090a0",
   "knochen": "#f2ead8",
   "diebstahl": "#8fd06a",
-  "formation": "#d8c070"
+  "formation": "#d8c070",
+  "regel": "#d9c27a",
+  "mensch": "#e0b38a",
+  "himmel": "#bfe3ff",
+  "sklaverei": "#a08060",
+  "nahrung": "#e0a050",
+  "traum": "#c9a0ff",
+  "gefuehl": "#ff8fb0",
+  "dunkelheit": "#5a4a7a",
+  "toetung": "#c03040",
+  "mond": "#dfe7ff",
+  "phantom": "#b0a0d0",
+  "wolke": "#e8f0f8"
  },
  "PATH_CONFLICT": {
   "feuer": [

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dsvar6er4k2n"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_1mdu0"]
+
+[resource]
+script = ExtResource("1_1mdu0")
+id = &"weisheitsschwert_gu"
+display_name = "Weisheitsschwert-Gu"
+name_en = "Wisdom Sword Gu"
+rank = 8
+path = &"weisheit"
+category = &"angriff"
+description = "Drei Schwerter aus reiner Einsicht durchbohren je drei Gegner, dann suchen drei Gedankenklingen die Überlebenden."
+lore = "Verbindet Sword Path mit der Raffinesse des Wisdom Path."
+owner = "Bo Qing → Fang Yuan"
+beads = 3.0
+steps = [{
+"color": "#e8f4ff",
+"count": 3.0,
+"mult": 2.4,
+"pierce": 3.0,
+"range": 22.0,
+"speed": 30.0,
+"spread": 12.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["schnitt", "durchbohren"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"count": 3.0,
+"homing": true,
+"mult": 1.0,
+"range": 20.0,
+"spread": 60.0,
+"t": "projectiles",
+"tags": ["schnitt", "seele"]
+}],
+"time": 0.5
+}]

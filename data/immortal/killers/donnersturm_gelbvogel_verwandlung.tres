@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://5wj54iwb22ym"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_aa6hl"]
+
+[resource]
+script = ExtResource("1_aa6hl")
+id = &"donnersturm_gelbvogel_verwandlung"
+display_name = "Donnersturm-Gelbvogel-Verwandlung"
+name_en = "Thunder Rush Yellow Bird Transformation"
+path = &"verwandlung"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"blitz", &"wind", &"donnerknolle"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.2
+steps = [{
+"color": "#ff8ae2",
+"grow": 1.3,
+"key": "gelbvogel",
+"speed": 1.8,
+"t": "buff",
+"time": 12.0
+}, {
+"color": "#ff8ae2",
+"dash": true,
+"length": 16.0,
+"mult": 4.0,
+"stacks": 2.0,
+"status": "ladung",
+"t": "line",
+"tags": ["blitz"],
+"width": 2.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff8ae2",
+"dash": true,
+"length": 16.0,
+"mult": 4.0,
+"status": "ladung",
+"t": "line",
+"tags": ["blitz", "wind"],
+"width": 2.5
+}],
+"time": 0.6
+}]
+description = "Verwandlung in den Donnersturm-Gelbvogel (12 s, 80 % schneller): zweimal jagst du als Blitz 16 m durch die Gegner und lädst sie auf."
+lore = "Teil der von den Legends of Ren Zu ('Pursuing Freedom') inspirierten Move-Trias des Reckless Savage Demon Venerable (Devouring Blue Leopard / Internal Breathing Green Fish / Thunder Rush Yellow Bird Transformation). Kern im Spiel: Gestaltwandel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Reckless Savage Demon Venerable"

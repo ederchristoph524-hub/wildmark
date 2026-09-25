@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://djatsbrqj7v1p"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_tlc7h"]
+
+[resource]
+script = ExtResource("1_tlc7h")
+id = &"reisender_sohn_gu"
+display_name = "Reisender-Sohn-Gu"
+name_en = "Traveling Son Gu"
+path = &"mensch"
+category = &"sonstiges"
+description = "Der reisende Sohn zieht weiter: Sprung 10 m, 8 s 40 % schneller, 10 % Heilung."
+lore = "Eines von zwei Gu (mit Doting Mother Gu), die lange fälschlich dem Emotion Path zugeordnet wurden, tatsächlich aber zum Human Path gehören. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 12.0
+base_damage = 20.0
+steps = [{
+"color": "#f0c090",
+"distance": 10.0,
+"t": "dash"
+}, {
+"color": "#f0c090",
+"key": "reisender_sohn",
+"speed": 1.4,
+"t": "buff",
+"time": 8.0
+}, {
+"frac": 0.1,
+"t": "heal"
+}]

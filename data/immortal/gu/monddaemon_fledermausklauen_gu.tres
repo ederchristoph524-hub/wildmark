@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://f4ahydg8k2vd"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ma7fq"]
+
+[resource]
+script = ExtResource("1_ma7fq")
+id = &"monddaemon_fledermausklauen_gu"
+display_name = "Monddämon-Fledermausklauen-Unsterblichen-Gu"
+name_en = "Moon Demon Bat Claw Immortal Gu"
+path = &"verwandlung"
+category = &"angriff"
+description = "Fledermausklauen im Mondlicht: drei schnelle Hiebe, jeder lässt bluten und heilt dich um 20 % des Schadens."
+lore = "Transformations-Gu für Fledermaus-Klauen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 10.0
+steps = [{
+"angle": 90.0,
+"color": "#d9e6ff",
+"lifesteal": 0.2,
+"mult": 1.2,
+"reach": 4.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#d9e6ff",
+"lifesteal": 0.2,
+"mult": 1.2,
+"reach": 4.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.2
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#d9e6ff",
+"lifesteal": 0.2,
+"mult": 1.2,
+"reach": 4.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["schnitt", "licht"]
+}],
+"time": 0.4
+}]

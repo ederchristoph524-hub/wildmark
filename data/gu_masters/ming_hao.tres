@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://bs302sdf84cr5"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ivj7w"]
+
+[resource]
+script = ExtResource("1_ivj7w")
+id = &"ming_hao"
+display_name = "Ming Hao"
+color = Color(0.9411765, 0.8784314, 0.627451, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"qi_mauer", &"lebensbaum", &"himmelsweisheit", &"goettlichersinn"])
+rank = 8
+hat = &"krone"
+immortal_gu = Array[StringName]([&"demuts_gu"])
+title = "Hüter des Menschenpfad-Erbes"
+path = &"mensch"
+lore = "Mitglied des Himmlischen Hofs, das den Trumpf-Satz des Menschenpfads weitergab. Er trägt den Demuts-Gu, den Kern der Demütigen Erwiderung."

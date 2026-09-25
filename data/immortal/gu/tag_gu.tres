@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bpoylm4ggvasr"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_plv1e"]
+
+[resource]
+script = ExtResource("1_plv1e")
+id = &"tag_gu"
+display_name = "Tag-Gu"
+name_en = "Day Gu"
+path = &"zeit"
+category = &"zeit"
+description = "Ein Tag in drei Schlägen: Morgen, Mittag und Abend treffen das Ziel (Umkreis 4) kurz nacheinander und verlangsamen es jeweils 3 s."
+lore = "Teil einer Reihe verwandter, wiederverwendbarer Zeit-Verbrauchs-Gu (Year/Month/Day), die feste Zeiteinheiten (Tage) manipulieren; Grundbausteine vieler Zeit-Killer-Moves, u. a. der 'Years'-Serie von Hei Fan. Steigt bis Rang 8."
+owner = "Hei Fan (Years-Serie), Fang Yuan"
+beads = 0.5
+cooldown = 12.0
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 10.0,
+"mult": 1.2,
+"radius": 4.0,
+"slow": 0.4,
+"slow_time": 3.0,
+"t": "circle",
+"tags": ["zeit"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 10.0,
+"mult": 1.0,
+"radius": 4.0,
+"slow": 0.4,
+"slow_time": 3.0,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 10.0,
+"mult": 1.0,
+"radius": 4.0,
+"slow": 0.4,
+"slow_time": 3.0,
+"t": "circle",
+"tags": ["zeit", "licht"]
+}],
+"time": 1.0
+}]

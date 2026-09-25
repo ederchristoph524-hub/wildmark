@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dxubqmkthaftu"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s1o7n"]
+
+[resource]
+script = ExtResource("1_s1o7n")
+id = &"buchtpavillon"
+display_name = "Buchtpavillon"
+name_en = "Bay Pavilion"
+rank = 7
+path = &"wasser"
+category = &"gu_haus"
+kind = &"gu_haus"
+description = "Ein Pavillon an der Bucht, Ruheort in deiner Apertur: du heilst 0,6 % Leben je Sekunde und hast 15 % mehr Höchstleben."
+lore = "Immortal-Gu-Haus auf Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"max_hp": 0.15,
+"regen": 0.006
+}

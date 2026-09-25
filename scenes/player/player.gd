@@ -19,6 +19,7 @@ var cultivation: PlayerCultivation = null
 var camera_rig: PlayerCamera = null
 var model: PlayerModel = null
 var targeting: TargetingComponent = null
+var immortal: PlayerImmortal = null
 var eat_time_left: float = 0.0
 var input_enabled: bool = true
 
@@ -62,13 +63,16 @@ func _ready() -> void:
 	add_child(targeting)
 	cultivation = PlayerCultivation.new(self)
 	add_child(cultivation)
+	immortal = PlayerImmortal.create(self)
+	add_child(immortal)
 	floor_snap_length = 0.4
 	model.set_rank_color(DataRegistry.progression().rank_color(GameState.rank))
 	EventBus.breakthrough_attempted.connect(func(_ok: bool, rank: int) -> void: model.set_rank_color(DataRegistry.progression().rank_color(rank)))
 
 
 func max_hp_now() -> float:
-	return Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
+	var mortal: float = Balance.values.player_base_hp + GameState.bonus_hp + PassiveGu.body(&"max_hp")
+	return mortal + Immortal.player_hp_bonus(mortal)
 
 
 func _physics_process(delta: float) -> void:
@@ -105,14 +109,14 @@ func _update_timers(delta: float) -> void:
 
 func _move(delta: float, wish: Vector3) -> void:
 	var b: BalanceData = Balance.values
-	var busy: bool = killer.is_channeling() or eat_time_left > 0.0 or aperture.meditating or aperture.ritual_left > 0.0
+	var busy: bool = killer.is_channeling() or immortal.controller.is_channeling() or eat_time_left > 0.0 or aperture.meditating or aperture.ritual_left > 0.0
 	var speed: float = b.walk_speed * status.speed_multiplier() * PassiveGu.mult("move_speed_mult") * (0.0 if busy else 1.0)
 	if _dash_time > 0.0:
 		_dash_time -= delta
 		velocity.x = _dash_direction.x * b.dash_speed
 		velocity.z = _dash_direction.z * b.dash_speed
 	else:
-		var target_velocity: Vector3 = wish * speed
+		var target_velocity: Vector3 = wish * speed + DimensionRules.drift()
 		velocity.x = move_toward(velocity.x, target_velocity.x, b.acceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z, b.acceleration * delta)
 	if is_on_floor():
@@ -121,7 +125,7 @@ func _move(delta: float, wish: Vector3) -> void:
 		if velocity.y < 0.0:
 			velocity.y = 0.0
 	else:
-		velocity.y -= b.gravity * delta
+		velocity.y -= b.gravity * DimensionRules.gravity_scale() * delta
 		if velocity.y < -b.glide_fall_speed and Input.is_action_pressed(&"jump") and holder.slotted_gift("glide"):
 			velocity.y = -b.glide_fall_speed
 	apply_knockback(delta)
@@ -185,7 +189,7 @@ func aim_direction() -> Vector3:
 
 
 func _can_act() -> bool:
-	return not is_dead() and not status.is_stunned() and not killer.is_channeling() and eat_time_left <= 0.0 and aperture.ritual_left <= 0.0
+	return immortal.can_act()
 
 
 func _cancel_idle_actions() -> void:

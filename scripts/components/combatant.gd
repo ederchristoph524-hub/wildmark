@@ -34,8 +34,12 @@ var luck_chance: float = 0.0
 var luck_time: float = 0.0
 ## Bronzehaut: kein Rückstoß, keine Betäubung, solange > 0.
 var unstoppable_time: float = 0.0
+## Kultivierungsrang (1–9): Unsterbliche (≥ 6) und Sterbliche treffen einander sehr verschieden (Immortal.damage_mult).
+var cultivation_rank: int = 1
 ## Anteil des Rückstoßes, den die Masse schluckt (0 = leicht, schwere Bestien bis knockback_mass_max).
 var push_resist: float = 0.0
+## Bestienkönige: kein Rückstoß, keine Betäubung, kein Einfrieren; Verlangsamung wirkt nur halb (boss_slow_mult).
+var control_immune: bool = false
 ## Tarnung: Bestien bemerken die Figur nicht; der erste Treffer daraus ist verstärkt.
 var stealth_time: float = 0.0
 ## Stärkungen (Quelle → {damage, speed, time}); multiplikativ.
@@ -144,6 +148,8 @@ func receive_hit(hit: HitInfo) -> void:
 		return
 	var mult: float = status.process_hit(hit) * damage_multiplier_taken() * _armor_multiplier(hit)
 	var attacker: Combatant = hit.source as Combatant if is_instance_valid(hit.source) else null
+	if attacker != null:
+		mult *= Immortal.damage_mult(attacker.cultivation_rank, cultivation_rank)
 	if attacker != null and not hit.is_dot:
 		mult *= attacker.damage_dealt_mult()
 		if attacker.stealth_time > 0.0:
@@ -152,7 +158,7 @@ func receive_hit(hit: HitInfo) -> void:
 	if hit.execute_bonus > 0.0 and health.ratio() < EffectSteps.EXECUTE_THRESHOLD:
 		mult *= 1.0 + hit.execute_bonus
 	var dealt: float = health.apply_damage(hit.damage * mult)
-	if hit.knockback != Vector3.ZERO and not status.is_frozen() and unstoppable_time <= 0.0:
+	if hit.knockback != Vector3.ZERO and not status.is_frozen() and unstoppable_time <= 0.0 and not control_immune:
 		_knockback += hit.knockback * status.push_scale() * (1.0 - push_resist)
 	if hit.stun > 0.0:
 		status.stun(hit.stun)

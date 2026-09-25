@@ -54,7 +54,46 @@ static func gu_bar(player: Player) -> String:
 	var move: KillerMoveData = player.killer.current()
 	if move != null:
 		parts.append("[Q] " + Loc.t(move.display_name))
+	if Immortal.is_immortal():
+		parts.append(_immortal_bar(player))
 	return "   ".join(parts)
+
+
+## Unsterbliche Tasten: [5] [6] unsterbliche Gu, [T] Unsterblichen-Killer-Move.
+static func _immortal_bar(player: Player) -> String:
+	var parts: PackedStringArray = []
+	var controller: ImmortalController = player.immortal.controller
+	for slot: int in GameState.immortal.slots.size():
+		var id: StringName = GameState.immortal.slots[slot]
+		if id == &"" or not DataRegistry.has_immortal_gu(id):
+			parts.append("[%d] –" % (slot + 5))
+			continue
+		var text: String = "[%d] %s" % [slot + 5, Loc.t(DataRegistry.immortal_gu(id).display_name)]
+		if controller.cooldown_left(id) > 0.0:
+			text += " %.0fs" % controller.cooldown_left(id)
+		parts.append(text)
+	var move: ImmortalKillerData = controller.current()
+	if move != null:
+		parts.append("[T] " + Loc.t(move.display_name))
+	return "   ".join(parts)
+
+
+## Balken und Ranganzeige eines Unsterblichen: Perlen statt Uressenz, Kalamitäten statt Aperturwand.
+static func immortal_bars(bar: ProgressBar, text: Label, rank_text: Label) -> void:
+	var state: ImmortalState = GameState.immortal
+	var beads: float = state.beads_for(GameState.rank)
+	var color: Color = Immortal.essence_color(GameState.rank)
+	bar.max_value = maxf(beads, float(Immortal.land_grade().get("start_beads", 4.0)))
+	bar.value = beads
+	bar.add_theme_stylebox_override(&"fill", UiTheme.box(color, 6, Color(0, 0, 0, 0)))
+	text.text = Loc.t("%.2f Perlen %s · Uressenz ∞") % [beads, Loc.t(Immortal.essence_name(GameState.rank))]
+	var progression: ProgressionData = DataRegistry.progression()
+	var per_stage: int = int(Immortal.rank_info().get("per_stage", 3))
+	rank_text.text = Loc.t("%s · %s · Kalamitäten %d/%d") % [Loc.t(progression.rank_name(GameState.rank)), Loc.t(progression.stage_name(GameState.stage)),
+		state.calamities_survived % per_stage if GameState.stage < Balance.values.max_stage else per_stage, per_stage]
+	if state.venerable_title != "":
+		rank_text.text = state.venerable_title
+	rank_text.add_theme_color_override(&"font_color", color)
 
 
 static func center_info(player: Player) -> String:
@@ -63,6 +102,11 @@ static func center_info(player: Player) -> String:
 	if player.aperture.meditating:
 		if player.aperture.ritual_left > 0.0:
 			return Loc.t("Durchbruch … %.1f s") % player.aperture.ritual_left
+		if ImmortalAscension.is_gathering():
+			return Loc.t("Kultivieren … Himmels-Qi %d · Erd-Qi %d · Menschen-Qi %d – voraussichtlich: %s") % [roundi(GameState.immortal.heaven_qi),
+				roundi(GameState.immortal.earth_qi), roundi(ImmortalAscension.human_qi()), ImmortalAscension.grade_name(ImmortalAscension.predicted_grade())]
+		if Immortal.is_immortal():
+			return Loc.t("Kultivieren … Dao-Markierungen im Pfad des Ortes")
 		if GameState.stage >= Balance.values.max_stage and GameState.rank >= player.aperture.rank_cap():
 			return Loc.t("Kultivieren … Uressenz %d %% – Gipfel erreicht, kein höherer Rang möglich") % roundi(player.aperture.ratio() * 100.0)
 		if GameState.stage >= Balance.values.max_stage:

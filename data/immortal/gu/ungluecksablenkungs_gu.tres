@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cbrqdvdpllcc2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_u0kft"]
+
+[resource]
+script = ExtResource("1_u0kft")
+id = &"ungluecksablenkungs_gu"
+display_name = "Unglücksablenkungs-Gu"
+name_en = "Divert Disaster Gu"
+path = &"glueck"
+category = &"verteidigung"
+description = "Lenkt Unheil ab: 8 s 50 % Schutz, und 2 s lang prallen Geschosse auf ihre Schützen zurück."
+lore = "Lenkt drohendes Unheil vom Nutzer weg. Steigt bis Rang 7."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"color": "#7dff9b",
+"reduction": 0.5,
+"t": "armor",
+"time": 8.0
+}, {
+"t": "reflect",
+"time": 2.0
+}]

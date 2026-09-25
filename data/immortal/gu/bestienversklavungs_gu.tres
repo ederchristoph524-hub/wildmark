@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ou7h25pu4k38"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_dm1gp"]
+
+[resource]
+script = ExtResource("1_dm1gp")
+id = &"bestienversklavungs_gu"
+display_name = "Bestienversklavungs-Gu"
+name_en = "Beast Enslavement Gu"
+path = &"sklaverei"
+category = &"kontrolle"
+description = "Unterwirft Bestien: Alles im Umkreis 8 ist 2 s gelähmt vor Ehrfurcht, zwei versklavte Bergbären kämpfen 25 s für dich."
+lore = "Sammelbegriff für Tier-Versklavungs-Gu von mortal bis immortal (Rang 6 als unsterbliche Fassung)."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 1.5
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"color": "#b080e0",
+"mult": 0.0,
+"radius": 8.0,
+"stun": 2.0,
+"t": "circle",
+"tags": ["seele"]
+}, {
+"count": 2.0,
+"enemy": "bergbaer",
+"t": "summon",
+"time": 25.0
+}]

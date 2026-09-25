@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://5jq2q0udpeuy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_mennh"]
+
+[resource]
+script = ExtResource("1_mennh")
+id = &"geheimnis_entwirren"
+display_name = "Geheimnis-Entwirren"
+name_en = "Unravel Mystery"
+path = &"weisheit"
+category = &"information"
+description = "Entwirrt alle Geheimnisse im Umkreis 10: Getarnte werden getroffen und geschwächt, eine zweite Welle folgt; du wirst gereinigt."
+lore = "Löst Geheimnisse/Verschleierungen auf; Kern von Unravel Dream."
+owner = "Fang Yuan"
+cooldown = 25.0
+steps = [{
+"blind": 1.5,
+"color": "#7fc8ff",
+"mult": 1.5,
+"radius": 10.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["licht", "seele"]
+}, {
+"t": "cleanse"
+}, {
+"t": "delay",
+"then": [{
+"color": "#7fc8ff",
+"mult": 1.5,
+"radius": 10.0,
+"t": "circle",
+"tags": ["licht", "seele"]
+}],
+"time": 0.4
+}]

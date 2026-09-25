@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://0wfv6586imxo"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_hc5mo"]
+
+[resource]
+script = ExtResource("1_hc5mo")
+id = &"blutschaedel_gu"
+display_name = "Blutschädel-Gu"
+name_en = "Blood Skull Gu"
+path = &"blut"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Blutschädel stärkt deine Eignung: Dao-Markierungen prägen sich 35 % stärker ein."
+lore = "Steigert die Kultivierungs-Eignung des Nutzers durch das Töten eigener Blutsverwandter."
+owner = "First Gen Gu Yue → Fang Yuan"
+passive = {
+"dao_mult": 0.35
+}

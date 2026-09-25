@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://y3wyi7x0ixda"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_js0e3"]
+
+[resource]
+script = ExtResource("1_js0e3")
+id = &"graspuppen_gu"
+display_name = "Graspuppen-Gu"
+name_en = "Grass Puppet Gu"
+path = &"sklaverei"
+category = &"unterstuetzung"
+description = "Drei Graspuppen (Waldgeister) wachsen aus dem Boden und kämpfen 20 s für dich."
+lore = "Erzeugt selbstheilende Graspuppen."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 40.0
+base_damage = 20.0
+steps = [{
+"count": 3.0,
+"enemy": "waldgeist",
+"t": "summon",
+"time": 20.0
+}]

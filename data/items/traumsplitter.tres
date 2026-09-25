@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://04fbw6gtwu15"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_2tn1q"]
+
+[resource]
+script = ExtResource("1_2tn1q")
+id = &"traumsplitter"
+display_name = "Traumsplitter"
+icon = "🌙"
+category = &"material"
+rank = 6
+path = &"traum"
+source = "Traumreiche"
+description = "Ein Splitter aus einem zerfallenen Traumreich – Schlüssel zu tieferen Träumen."

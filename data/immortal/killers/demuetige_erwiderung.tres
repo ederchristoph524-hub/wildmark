@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cvmvheovel34d"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_pbyao"]
+
+[resource]
+script = ExtResource("1_pbyao")
+id = &"demuetige_erwiderung"
+display_name = "Demütige-Erwiderung"
+name_en = "Humble Reciprocation"
+path = &"mensch"
+core = &"demuts_gu"
+mortal_families = Array[StringName]([&"haut", &"qischirm", &"glocke"])
+beads = 5.0
+cooldown = 100.0
+channel = 1.2
+steps = [{
+"t": "reflect",
+"time": 6.0
+}, {
+"color": "#f0c090",
+"kind": "thorns",
+"reduction": 0.6,
+"t": "armor",
+"time": 6.0,
+"value_mult": 2.0
+}, {
+"t": "delay",
+"then": [{
+"frac": 0.3,
+"t": "heal"
+}, {
+"color": "#f0c090",
+"knockback": 2.0,
+"mult": 8.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["wucht", "seele"]
+}],
+"time": 6.0
+}]
+description = "Demütige Erwiderung: 6 s lang gibt jeder Treffer doppelt zurück (60 % Schutz, Rückprall); dann erwiderst du alles auf einmal (Umkreis 8) und heilst 30 %."
+lore = "Killer Move mit dem Humility Gu als Kern."
+owner = "Ming Hao, Star Constellation Immortal Venerable"

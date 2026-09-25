@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b70h1vjsi45ac"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_x703u"]
+
+[resource]
+script = ExtResource("1_x703u")
+id = &"grosser_imbiss_gu"
+display_name = "Großer-Imbiss-Unsterblichen-Gu"
+name_en = "Big Snack Immortal Gu"
+rank = 7
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Großer Imbiss nährt auch unsterbliche Gu: +25 % Höchstleben und +0,5 Perlen je Spieltag."
+lore = "Food-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"max_hp": 0.25,
+"perlen_ertrag": 0.5
+}

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cyqkoh3n8jdoy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_biylp"]
+
+[resource]
+script = ExtResource("1_biylp")
+id = &"unsterblicher_sklave"
+display_name = "Unsterblicher-Sklave"
+name_en = "Immortal Slave"
+rank = 7
+path = &"sklaverei"
+category = &"kontrolle"
+description = "Ruft deinen unsterblichen Sklaven: ein wüster Feuerwolf (Rang-6-Bestie) kämpft 40 s für dich."
+lore = "Enslavement-Path-Gu; das Lexikon nennt nur den Namen. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.5
+cooldown = 60.0
+base_damage = 20.0
+steps = [{
+"count": 1.0,
+"enemy": "wuester_feuerwolf",
+"t": "summon",
+"time": 40.0
+}]

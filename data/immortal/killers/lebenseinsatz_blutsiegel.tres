@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bq5ded37do10d"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_jrs16"]
+
+[resource]
+script = ExtResource("1_jrs16")
+id = &"lebenseinsatz_blutsiegel"
+display_name = "Lebenseinsatz-Blutsiegel"
+name_en = "Life Staking Blood Print"
+path = &"blut"
+core = &"blutvermoegen_gu"
+mortal_families = Array[StringName]([&"blutmond", &"knochen", &"kampfgeist", &"phantom"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.8
+base_damage = 80.0
+steps = [{
+"color": "#d0303a",
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 40.0,
+"color": "#d0303a",
+"execute": 2.0,
+"lifesteal": 0.5,
+"mult": 12.0,
+"pierce_armor": true,
+"reach": 4.0,
+"t": "cone",
+"tags": ["blut", "durchbohren"]
+}]
+description = "Alles auf eine Karte: Du stehst vor dem Ziel und drückst ihm das Blutsiegel auf – gewaltiger Schaden durch jede Rüstung, dreifach gegen Geschwächte unter 30 %, heilt dich um die Hälfte."
+lore = "Teil von Fang Yuans zentraler Blood-Path-Kampftechnik-Familie (Blood Torrent / Blood Healing Lake / Blood Light Spirit Suppression / Life Staking Blood Print / Bloodstained Conqueror's Robe)."
+owner = "Fang Yuan"

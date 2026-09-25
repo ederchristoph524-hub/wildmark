@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bq64pw6ukmjyu"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s672c"]
+
+[resource]
+script = ExtResource("1_s672c")
+id = &"sanfter_wind_gu"
+display_name = "Sanfter-Wind-Gu"
+name_en = "Gentle Wind Gu"
+rank = 8
+path = &"wind"
+category = &"sonstiges"
+description = "Sanfter Wind um dich (Umkreis 8, 12 s): verweht Brand und Gift auf Gegner, schützt Verbündete (20 %), macht dich 25 % schneller und lenkt 2 s lang Geschosse ab."
+lore = "Wind-Path-Gu auf Rang 8; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 3.0
+cooldown = 45.0
+steps = [{
+"ally_reduction": 0.2,
+"color": "#c8f0ff",
+"follow": true,
+"mult": 0.3,
+"radius": 8.0,
+"t": "zone",
+"tags": ["wind"],
+"tick": 1.0,
+"time": 12.0
+}, {
+"color": "#c8f0ff",
+"key": "sanfter_wind",
+"speed": 1.25,
+"t": "buff",
+"time": 12.0
+}, {
+"t": "reflect",
+"time": 2.0
+}]

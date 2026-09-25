@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dwcbsg3nnnext"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_aq0aw"]
+
+[resource]
+script = ExtResource("1_aq0aw")
+id = &"wu_shuai"
+display_name = "Wu Shuai"
+color = Color(0.2901961, 0.16470589, 0.16470589, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"sklaverei", &"goettlichersinn", &"bestienkoenig_gestalt", &"auraverbergen"])
+rank = 8
+hat = &"kapuze"
+immortal_gu = Array[StringName]([&"ameisennest_gu", &"traummarken_gu"])
+title = "Anführer der Andersweltlichen"
+path = &"sklaverei"
+lore = "Führt im späten Handlungsverlauf variantenmenschliche und andersweltliche Kräfte an. Träger des Ameisennest-Gu und zeitweise des Traummarken-Gu."

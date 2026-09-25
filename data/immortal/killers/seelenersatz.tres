@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dugh1ncv1n3s2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_yj31s"]
+
+[resource]
+script = ExtResource("1_yj31s")
+id = &"seelenersatz"
+display_name = "Seelenersatz"
+name_en = "Soul Replacement"
+path = &"seele"
+core = &"seelenwechsel_gu"
+mortal_families = Array[StringName]([&"seelenschrei", &"sklaverei", &"tausch"])
+beads = 4.0
+cooldown = 80.0
+channel = 1.5
+steps = [{
+"color": "#c9a0ff",
+"mult": 4.0,
+"range": 16.0,
+"status": "furcht",
+"stun": 3.0,
+"t": "swap",
+"tags": ["seele", "raum"]
+}, {
+"t": "stealth",
+"time": 3.0
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#c9a0ff",
+"distance": 10.0,
+"mult": 4.0,
+"radius": 5.0,
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 3.0
+}]
+description = "Stößt die eigene Seele aus und ergreift die des Ziels: Platztausch, das Ziel ist 3 s seelenlos (betäubt, verängstigt), dein Körper bleibt so lange unbemerkt – dann kehrt die Seele mit Wucht zurück."
+lore = "Erlaubt es, die eigene Seele auszustoßen und die eines Ziels zu übernehmen; ursprünglich von Spectral Soul Demon Venerable erschaffen, später von Fang Yuan genutzt. Kern im Spiel: Seelenwechsel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Spectral Soul Demon Venerable → Fang Yuan"

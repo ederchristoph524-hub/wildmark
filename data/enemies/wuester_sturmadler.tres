@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c4wglpne0appx"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_6ltcj"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_fp3fo"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_6ltcj")
+item = &"unsterblichen_stein"
+chance = 0.4
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_6ltcj")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_6ltcj")
+item = &"windfeder"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_6ltcj")
+item = &"windfeder"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_6ltcj")
+item = &"wolkenerz"
+chance = 0.25
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_6ltcj")
+item = &"himmelsqi"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_fp3fo")
+id = &"wuester_sturmadler"
+display_name = "Wüster Sturmadler"
+max_hp = 5200
+damage = 105
+speed = 5.8
+xp = 2000
+radius = 1.0
+color = Color(0.72156864, 0.78431374, 0.84705883, 1)
+zone = 9
+rank = 6
+ability = [{
+"color": "#dfe8ff",
+"count": 6.0,
+"mult": 0.6,
+"pierce": 2.0,
+"range": 18.0,
+"speed": 26.0,
+"spread": 60.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["wind", "schnitt"]
+}, {
+"angle": 90.0,
+"color": "#c8e0ff",
+"knockback": 2.4,
+"mult": 0.8,
+"reach": 10.0,
+"t": "cone",
+"tags": ["wind", "wucht"]
+}]
+ability_range = 14.0
+ability_cooldown = 7.0
+drops = Array[ExtResource("1_6ltcj")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5")])
+shape = &"bird"
+flying = true

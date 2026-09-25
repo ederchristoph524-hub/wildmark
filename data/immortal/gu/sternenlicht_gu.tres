@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://h3c3j3fb74wc"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_3n4km"]
+
+[resource]
+script = ExtResource("1_3n4km")
+id = &"sternenlicht_gu"
+display_name = "Sternenlicht-Gu"
+name_en = "Starlight Gu"
+path = &"stern"
+category = &"angriff"
+description = "Acht Strahlen Sternenlicht suchen Ziele und blenden sie."
+lore = "Kernkomponente von Fang Yuans Star-Path-Killer-Move-Reihe aus dem Erbe des Star Lord Wan Xiang."
+owner = "Star Lord Wan Xiang (Erbe) → Fang Yuan"
+cooldown = 12.0
+steps = [{
+"blind": 1.0,
+"color": "#fff2b0",
+"count": 8.0,
+"homing": true,
+"mult": 0.4,
+"range": 18.0,
+"spread": 60.0,
+"t": "projectiles",
+"tags": ["stern", "licht"]
+}]

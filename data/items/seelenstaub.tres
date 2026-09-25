@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://blwo6ct1hp4w0"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="1_o25s0"]
+
+[resource]
+script = ExtResource("1_o25s0")
+id = &"seelenstaub"
+display_name = "Seelenstaub"
+icon = "✨"
+category = &"material"
+rank = 5
+path = &"seele"
+source = "Dang-Hun-Berg, Luo-Po-Tal, Seelenfresser"
+description = "Zerriebene Seelenreste. Stärkt beim Kultivieren das Seelenfundament."

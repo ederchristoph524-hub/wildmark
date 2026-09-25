@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://83fw4s0et06e"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_rblb7"]
+
+[resource]
+script = ExtResource("1_rblb7")
+id = &"drei_leben_traeume_formen_einen_auserwaehlten"
+display_name = "Drei-Leben-Träume-formen-einen-Auserwählten"
+name_en = "Three Lifetime Dreams Reform a Chosen One"
+path = &"traum"
+core = &"traeumen_gu"
+mortal_families = Array[StringName]([&"weisheit", &"wasserbild", &"seelenschrei", &"zeit", &"erde"])
+beads = 6.0
+cooldown = 120.0
+channel = 2.2
+steps = [{
+"blind": 1.0,
+"color": "#d0a0ff",
+"mult": 0.6,
+"radius": 10.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 15.0
+}, {
+"color": "#d0a0ff",
+"damage": 2.0,
+"grow": 1.5,
+"key": "auserwaehlter",
+"t": "buff",
+"time": 15.0
+}, {
+"frac": 0.5,
+"t": "heal"
+}]
+description = "Drei Leben voller Träume formen einen Auserwählten: 15 s ein Traumreich (Umkreis 10, Gegner blind und langsam), du wirst zum Auserwählten (doppelter Schaden) und heilst 50 %."
+lore = "Schlachtfeld-Erbschaft rund um den Paradise Earth Immortal Venerable und seine Erbin Lu Wei Yin (Reincarnation Battlefield / Paradise Creation / Illusory Sand Shifting Shadow Battlefield / Fetus Earth Maze / Three Lifetime Dreams Reform a Chosen One)."
+owner = "Paradise Earth Immortal Venerable → Lu Wei Yin (Three Lifetime Dreams auch Fang Yuan)"

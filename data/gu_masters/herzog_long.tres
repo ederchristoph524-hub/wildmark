@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://mneu74jnkl35"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_lm5w1"]
+
+[resource]
+script = ExtResource("1_lm5w1")
+id = &"herzog_long"
+display_name = "Herzog Long"
+color = Color(0.9098039, 0.78431374, 0.3764706, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"qi_mauer", &"bestienkoenig_gestalt", &"drachenatem", &"kriegsgott"])
+rank = 8
+hat = &"krone"
+immortal_gu = Array[StringName]([&"menschen_qi_gu", &"himmels_qi_gu", &"erd_qi_gu"])
+title = "Feldherr des Himmlischen Hofs"
+path = &"qi"
+lore = "Einer der Drei Herzöge und Befehlshaber der Streitkräfte des Himmlischen Hofs, mit Kampfkraft nahe Rang 9. Er eroberte den Drachenpalast und bündelt mit Dreifacher Qi-Rücknahme Himmels-, Erd- und Menschen-Qi."

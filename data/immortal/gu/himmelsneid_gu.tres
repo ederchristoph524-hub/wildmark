@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cjfgiq5e6e3bj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_knswf"]
+
+[resource]
+script = ExtResource("1_knswf")
+id = &"himmelsneid_gu"
+display_name = "Himmelsneid-Gu"
+name_en = "Heaven's Envy Gu"
+rank = 7
+path = &"himmel"
+category = &"angriff"
+description = "Der Himmel neidet: 4 s lang fallen Trübsal-Blitze auf das Ziel (Umkreis 5) und schwächen es."
+lore = "Kern des Killer Moves Heaven Envies Heroic Geniuses; lenkt Tribulationen gezielt gegen talentierte Kultivierende."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 30.0
+steps = [{
+"at": "target",
+"color": "#dfe8ff",
+"distance": 14.0,
+"mult": 1.0,
+"radius": 5.0,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["blitz"],
+"tick": 1.0,
+"time": 4.0
+}]

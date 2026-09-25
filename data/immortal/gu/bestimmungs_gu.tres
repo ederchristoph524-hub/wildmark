@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dshietao0p8t"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_j3k6f"]
+
+[resource]
+script = ExtResource("1_j3k6f")
+id = &"bestimmungs_gu"
+display_name = "Bestimmungs-Gu"
+name_en = "Destiny Gu"
+rank = 9
+path = &"himmel"
+category = &"konzept"
+kind = &"konzept"
+description = "Nie vollendetes Rang-10-Projekt des Himmlischen Hofs – existiert nur als Lexikon-Eintrag und Gerücht, nicht als Gu im Besitz."
+lore = "Nie vollständig verfeinertes Rang-10-Gu, das Heavenly Court aus den Resten von Fate Gu, Fang Yuans Wisdom Gu, dem letzten Move des Giant Sun Immortal Zombie und Feng Jiu Ges Destiny Song erschaffen wollte, um die volle Tiefe von Heaven's Will zu beherrschen."
+owner = "Heavenly Court (Verfeinerungsprojekt, gescheitert)"

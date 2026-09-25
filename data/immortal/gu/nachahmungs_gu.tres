@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://0qhi4vhbskbt"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_1c8hh"]
+
+[resource]
+script = ExtResource("1_1c8hh")
+id = &"nachahmungs_gu"
+display_name = "Nachahmungs-Gu"
+name_en = "Imitation Gu"
+rank = 8
+path = &"verwandlung"
+category = &"sonstiges"
+description = "Ahmt jede Kampfkunst nach: Du erscheinst vor dem Ziel und schlägt nacheinander wie ein Kraft-, ein Schwert- und ein Feuermeister zu."
+lore = "Rang-8-Gu bei Thieving Heaven Demon Venerable und Giant Sun Immortal Venerable; Effekt im Lexikon nicht beschrieben."
+owner = "Thieving Heaven Demon Venerable, Giant Sun Immortal Venerable"
+beads = 3.0
+cooldown = 30.0
+steps = [{
+"color": "#ff8ae2",
+"t": "teleport",
+"to": "target"
+}, {
+"color": "#e07a4a",
+"knockback": 1.0,
+"mult": 3.0,
+"radius": 5.0,
+"t": "circle",
+"tags": ["wucht"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 70.0,
+"color": "#e8f4ff",
+"mult": 3.0,
+"reach": 6.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.3
+}, {
+"t": "delay",
+"then": [{
+"color": "#ff7a3a",
+"count": 4.0,
+"homing": true,
+"mult": 0.6,
+"range": 16.0,
+"spread": 60.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer"]
+}],
+"time": 0.6
+}]

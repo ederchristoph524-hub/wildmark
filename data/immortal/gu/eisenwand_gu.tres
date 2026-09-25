@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cg7jcnex2jyul"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_h051i"]
+
+[resource]
+script = ExtResource("1_h051i")
+id = &"eisenwand_gu"
+display_name = "Eisenwand-Gu"
+name_en = "Iron Wall Gu"
+path = &"metall"
+category = &"verteidigung"
+description = "Eisenwand: 6 s 70 % Schutz und unaufhaltsam; die Wand stößt alles Nahe zurück."
+lore = "Defensives Metal-Path-Gu aus der Lang-Ya-Schatzkammer."
+owner = "Lang-Ya-Schatzkammer"
+cooldown = 30.0
+base_damage = 20.0
+steps = [{
+"color": "#c9c9d4",
+"reduction": 0.7,
+"t": "armor",
+"time": 6.0
+}, {
+"t": "unstoppable",
+"time": 6.0
+}, {
+"color": "#c9c9d4",
+"knockback": 2.0,
+"mult": 0.0,
+"radius": 3.0,
+"t": "circle",
+"tags": ["metall"]
+}]

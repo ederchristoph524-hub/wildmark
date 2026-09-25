@@ -5,6 +5,8 @@ extends Node
 const OVERRIDE_PATH: String = "res://data/balance.tres"
 
 var values: BalanceData = BalanceData.new()
+## Werte des Unsterblichen-Reichs (Rang 6–9).
+var immortal: ImmortalBalanceData = ImmortalBalanceData.new()
 
 
 func _enter_tree() -> void:

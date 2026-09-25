@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://detoeqek8k3an"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_dfvhv"]
+
+[resource]
+script = ExtResource("1_dfvhv")
+id = &"duft_essen_gu"
+display_name = "Duft-essen-Unsterblichen-Gu"
+name_en = "Eat Fragrance Immortal Gu"
+path = &"nahrung"
+category = &"unterstuetzung"
+kind = &"passiv"
+description = "Nährt sich von Düften: +0,4 Perlen je Spieltag, du heilst 0,2 % Leben je Sekunde."
+lore = "Kultivierungstyp-Gu des Food Path (mit Eat Strength Immortal Gu)."
+owner = "Fang Yuan"
+passive = {
+"perlen_ertrag": 0.4,
+"regen": 0.002
+}

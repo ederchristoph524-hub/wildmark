@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://csrtnhq50oes"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_ek11x"]
+
+[resource]
+script = ExtResource("1_ek11x")
+id = &"winde_der_angleichung"
+display_name = "Winde der Angleichung"
+region = 5
+map_position = Vector2(0.035, 0.2)
+rank_min = 8
+rank_max = 9
+open = true
+description = "Ein Sturmfeld aus grauem Licht jenseits der Himmelswind-Qi-Wand. Die Winde gleichen alles einander an – Gedanken, Gu, Seelen. Hier fand Fang Yuan einst den wilden Weisheits-Gu."
+size = 440.0
+terrain_seed = 61414
+biome = &"angleichungswinde"
+relief = Dictionary[StringName, float]({
+&"berge": 12.0,
+&"detail": 1.0,
+&"frequenz": 0.005,
+&"hoehe": 8.0,
+&"horizont": 120.0,
+&"rand": 50.0,
+&"randhoehe": 30.0
+})
+arrival = Vector2(0, 160)
+places = Array[Dictionary]([{
+"accent": Color(0.78431374, 0.8, 0.84705883, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"wuester_sturmadler", &"wuester_sturmadler", &"uralter_wolkenkranich"]),
+"id": &"auge_der_winde",
+"item": &"",
+"name": "Auge der Winde",
+"offering": {
+&"daokern": 2,
+&"unsterblichen_stein": 50
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(0, -130),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"weisheitshindernis_gu", &"wahrnehmbares_dao_gu"]),
+"items": {
+&"daokern": 3,
+&"himmelskristall": 4
+},
+"support": Array[StringName]([&"boeserGedanke"])
+},
+"style": &"altar",
+"text": "Im Zentrum des Sturms ist es still. Hier trieb einst ein Gu, der dachte – ein Rest seiner Gedanken hängt noch in der Luft.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Felsen des klaren Denkens",
+"offering": {},
+"owner": &"",
+"path": &"weisheit",
+"position": Vector2(-100, 0),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Wind schleift hier jeden Gedanken, bis nur der wahre übrig bleibt.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Rand des Sturms",
+"offering": {},
+"owner": &"",
+"path": &"wind",
+"position": Vector2(100, 20),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Wo der Sturm auf die Wand trifft, versteht man, wohin jeder Wind will.",
+"type": &"dao_ort"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"daokern": Vector2i(4, 1),
+&"himmelsqi": Vector2i(10, 1),
+&"kristall": Vector2i(25, 3),
+&"stein": Vector2i(40, 2),
+&"windfeder": Vector2i(30, 1),
+&"wolkenerz": Vector2i(10, 1)
+})
+enemy_radii = Array[float]([90.0, 150.0])
+enemy_zones = [[&"wuester_sturmadler"], [&"wuester_sturmadler", &"wuester_seelenfresser"], [&"uralter_wolkenkranich", &"wuester_seelenfresser"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(90, 185)
+wild_passives = [[&"boeserGedanke", &"support", 90.0, 185.0, true]]
+immortal = {
+"current": Vector3(1, 0, 4),
+"entrance": "Hinter der Himmelswind-Qi-Wand, dort, wo der Weiße Himmel ausfranst; der Sturm zieht jeden hinein, der zu nah kommt.",
+"entry_rank": 8,
+"kind": &"dimension",
+"rules": Array[StringName]([&"seelensturm", &"stroemung"]),
+"time_flow": 1.0
+}

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ohbkfe7cupf2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ch3ld"]
+
+[resource]
+script = ExtResource("1_ch3ld")
+id = &"gluecksplan_gu"
+display_name = "Glücksplan-Gu"
+name_en = "Luck Plan Gu"
+path = &"glueck"
+category = &"unterstuetzung"
+description = "Plant das Glück voraus: Deine Gu sind 3 s weiter und 10 s lang 20 % schneller bereit, dazu 25 % kritische Treffer."
+lore = "Luck-Path-Gu mit wisdom-path-artigem Planungseffekt; Kern des Killer Moves Luck Plan Strategy."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"cd_mult": 0.8,
+"refund": 3.0,
+"t": "haste",
+"time": 10.0
+}, {
+"chance": 0.25,
+"t": "luck",
+"time": 10.0
+}]

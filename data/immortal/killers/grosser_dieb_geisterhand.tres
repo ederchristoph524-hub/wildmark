@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://j7gohiyyascy"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_kfs1q"]
+
+[resource]
+script = ExtResource("1_kfs1q")
+id = &"grosser_dieb_geisterhand"
+display_name = "Großer-Dieb-Geisterhand"
+name_en = "Great Thief Ghost Hand"
+path = &"diebstahl"
+core = &"grosser_dieb_gu"
+mortal_families = Array[StringName]([&"pluenderung", &"phantom", &"seelenschrei", &"schritt"])
+beads = 5.0
+cooldown = 70.0
+steps = [{
+"color": "#8fd06a",
+"essence_steal": 0.5,
+"knockback": -3.0,
+"length": 12.0,
+"mult": 3.0,
+"t": "line",
+"tags": ["seele"],
+"width": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#8fd06a",
+"knockback": -3.0,
+"length": 12.0,
+"mult": 3.0,
+"t": "line",
+"tags": ["seele"],
+"width": 4.0
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"lifesteal": 0.5,
+"mult": 3.0,
+"reach": 5.0,
+"t": "cone",
+"tags": ["seele", "durchbohren"]
+}],
+"time": 0.8
+}]
+description = "Die Geisterhand des großen Diebs greift zweimal 12 m weit, reißt Gegner und Uressenz heran und plündert sie aus nächster Nähe (heilt 50 %)."
+lore = "Teil der gesamten Theft-Path-Kerntechnik-Reihe des Thieving Heaven Demon Venerable (Theft/Space/Soul Path), die Fang Yuan nach dessen Tod größtenteils erbt bzw. nachbaut. Kern im Spiel: Großer-Dieb-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable → Fang Yuan"

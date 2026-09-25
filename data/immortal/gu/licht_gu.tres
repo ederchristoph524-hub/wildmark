@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://iortd33o5pc8"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_x2831"]
+
+[resource]
+script = ExtResource("1_x2831")
+id = &"licht_gu"
+display_name = "Licht-Gu"
+name_en = "Light Gu"
+rank = 9
+path = &"licht"
+category = &"konzept"
+description = "Urlicht der Sonne: ein 30 m langer Lichtstrahl blendet und durchbohrt jede Rüstung, ein breiterer zweiter folgt; am Ziel schlägt ein Sonnenfleck ein (Umkreis 7, Brand)."
+lore = "Wildes Gu, das ursprünglich tief in der Sonne verborgen lebte (zusammen mit Fire Gu); heute im Besitz des Light Emperor, Sohn des Giant Sun Immortal Venerable."
+owner = "Light Emperor"
+beads = 5.0
+cooldown = 45.0
+base_damage = 60.0
+steps = [{
+"blind": 3.0,
+"color": "#ffe9a0",
+"length": 30.0,
+"mult": 5.0,
+"pierce_armor": true,
+"t": "line",
+"tags": ["licht", "durchbohren"],
+"width": 4.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#fff8d0",
+"length": 30.0,
+"mult": 4.0,
+"t": "line",
+"tags": ["licht", "feuer"],
+"width": 6.0
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#fff0a0",
+"distance": 20.0,
+"mult": 3.0,
+"radius": 7.0,
+"stacks": 2.0,
+"status": "brand",
+"t": "circle",
+"tags": ["licht", "feuer"]
+}],
+"time": 1.0
+}]

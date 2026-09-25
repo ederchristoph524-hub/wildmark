@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dk30ytjqkg4as"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_0sfjq"]
+
+[resource]
+script = ExtResource("1_0sfjq")
+id = &"sternenseelen_schlachtfeld"
+display_name = "Sternenseelen-Schlachtfeld"
+name_en = "Star Soul Battlefield"
+path = &"stern"
+core = &"seelenreinigungs_gu"
+mortal_families = Array[StringName]([&"stern", &"seelenschrei", &"sklaverei", &"mondlicht", &"blatt"])
+beads = 4.0
+cooldown = 120.0
+channel = 2.0
+base_damage = 40.0
+steps = [{
+"color": "#fff2b0",
+"essence_steal": 0.8,
+"heal": 0.01,
+"mult": 0.35,
+"radius": 14.0,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele", "stern"],
+"tick": 1.0,
+"time": 25.0
+}]
+description = "Ein Schlachtfeld aus Sternen und Seelen (Umkreis 14, 25 s): wenig Schaden, aber jeder Takt raubt Uressenz, schwächt Gegner und heilt Verbündete."
+lore = "Schlachtfeld-Move, der endlos Seelenenergie absaugt statt roher Angriffskraft."
+owner = "Fang Yuan"

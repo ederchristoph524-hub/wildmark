@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://byr2neln0uoat"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_4465x"]
+
+[resource]
+script = ExtResource("1_4465x")
+id = &"himmelsgong_gu"
+display_name = "Himmelsgong-Unsterblichen-Gu"
+name_en = "Heavenly Gong Immortal Gu"
+path = &"ton"
+category = &"sonstiges"
+description = "Der Himmelsgong dröhnt (Umkreis 7, 0,8 s betäubt), sein Nachhall reicht weiter."
+lore = "Sound-Path-Gu auf Rang 6; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+cooldown = 18.0
+steps = [{
+"color": "#d9c27a",
+"mult": 2.0,
+"radius": 7.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["klang", "wucht"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 1.0,
+"radius": 9.0,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 0.5
+}]

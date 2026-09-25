@@ -1,0 +1,228 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://0liftd7vl26j"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_agpb1"]
+
+[resource]
+script = ExtResource("1_agpb1")
+id = &"langlebigkeitshimmel"
+display_name = "Langlebigkeits-Himmel"
+region = 0
+map_position = Vector2(0.6, 0.08)
+rank_min = 8
+rank_max = 9
+open = true
+description = "Die schwebende Feste des Riesensonnen-Ehrwürdigen und Sitz seiner Macht, des Langlebigkeits-Himmels. Goldene Wolkeninseln, in denen die Zeit schneller läuft – und irgendwo die Wahren Erben des größten Glückspilzes der Geschichte."
+size = 500.0
+terrain_seed = 60808
+biome = &"langlebigkeit"
+relief = Dictionary[StringName, float]({
+&"basis": -5.0,
+&"berge": 0.0,
+&"detail": 0.5,
+&"frequenz": 0.005,
+&"hoehe": 4.0,
+&"horizont": 30.0,
+&"rand": 55.0,
+&"randhoehe": -10.0
+})
+hills = Array[Vector4]([Vector4(0, 0, 150, 26), Vector4(-165, -150, 60, 20), Vector4(165, -145, 55, 18), Vector4(-160, 160, 55, 16), Vector4(0, 115, 40, 15), Vector4(70, 60, 40, 12), Vector4(-75, 65, 40, 12), Vector4(105, -55, 40, 16)])
+arrival = Vector2(0, 115)
+paths = [[Vector2(0, 115), Vector2(0, 40)], [Vector2(50, -60), Vector2(95, -90)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(1, 0.8235294, 0.23921569, 1),
+&"dach": Color(0.78431374, 0.5647059, 0.1254902, 1),
+&"holz": Color(0.41568628, 0.2901961, 0.1254902, 1),
+&"platz": Color(0.95686275, 0.8784314, 0.6901961, 1),
+&"saeule": Color(0.8784314, 0.627451, 0.1882353, 1),
+&"stein": Color(0.84705883, 0.78431374, 0.627451, 1),
+&"wand": Color(1, 0.95686275, 0.84705883, 1)
+},
+"faction": &"langlebigkeitshimmel",
+"houses": 0,
+"id": &"langlebigkeits_feste",
+"pond": 0.0,
+"position": Vector2(0, -30),
+"radius": 70.0,
+"residents": &"langlebigkeitshimmel",
+"type": &"sekte"
+}])
+places = Array[Dictionary]([{
+"accent": Color(1, 0.8235294, 0.23921569, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_donnerbueffel", &"wuester_feuerwolf", &"wuester_feuerwolf"]),
+"id": &"riesensonnen_halle",
+"item": &"",
+"name": "Sonnenhalle des Riesensonnen-Ehrwürdigen",
+"offering": {
+&"sonnengold": 2,
+&"unsterblichen_stein": 50
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-165, -150),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"besitz_gu", &"nachahmungs_gu"]),
+"items": {
+&"ehrwuerdenessenz": 1,
+&"sonnengold": 3
+},
+"support": Array[StringName]([])
+},
+"style": &"tempel",
+"text": "Die Halle ist für einen Riesen gebaut. Auf dem Thron liegt, was der Ehrwürdige seinen Erben zugedacht hat – bewacht von Bestien, die er selbst gezähmt hat.",
+"type": &"erbe"
+}, {
+"accent": Color(1, 0.9411765, 0.627451, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_wolkenkranich", &"uralter_wolkenkranich"]),
+"id": &"himmel_erde_glueck",
+"item": &"",
+"name": "Himmel-und-Erde-Glück · Wahrer Erbe",
+"offering": {
+&"himmelskristall": 2,
+&"unsterblichen_stein": 40
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(165, -145),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([&"dem_himmel_trotzendes_glueck_gu"]),
+"items": {
+&"himmelskristall": 4,
+&"schicksalsfaden": 1
+},
+"support": Array[StringName]([&"glueckssicht"])
+},
+"style": &"altar",
+"text": "Der letzte der drei Glücks-Erben. Wer ihn berührt, spürt für einen Herzschlag, wie Himmel und Erde ihm zulächeln.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8156863, 0.1882353, 0.22745098, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([&"uralter_knochendrache"]),
+"id": &"blutmeer_grotte",
+"item": &"",
+"name": "Blutmeer-Grotte",
+"offering": {
+&"blutkoralle": 6,
+&"unsterblichen_stein": 30
+},
+"owner": &"",
+"path": &"",
+"position": Vector2(-160, 160),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"blutkaiser"]),
+"immortal": Array[StringName]([&"blutlinien_gu"]),
+"items": {
+&"blutkoralle": 6,
+&"seelenkern": 2
+},
+"support": Array[StringName]([])
+},
+"style": &"grotte",
+"text": "Hier zog der Ehrwürdige seinen Blutmeer-Klon heran. Das Becken ist leer – doch der Knochendrache, der es bewachte, lebt noch.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Goldener Glücksgarten",
+"offering": {},
+"owner": &"",
+"path": &"glueck",
+"position": Vector2(70, 60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Blüten fallen hier immer so, dass man sie fängt. Wer verweilt, begreift das Glück.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Halle der tausend Jahre",
+"offering": {},
+"owner": &"",
+"path": &"zeit",
+"position": Vector2(-75, 65),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Ehrwürdige lebte über achttausend Jahre. In dieser Halle zählte er sie.",
+"type": &"dao_ort"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Sonnenquelle",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(105, -55),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"immortal": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(30, 3),
+&"grottenstein": Vector2i(4, 1),
+&"himmelskristall": Vector2i(6, 1),
+&"holz": Vector2i(30, 2),
+&"kristall": Vector2i(30, 3),
+&"sonnengold": Vector2i(4, 1),
+&"stein": Vector2i(25, 2),
+&"unsterblichen_stein": Vector2i(14, 1)
+})
+enemy_radii = Array[float]([120.0, 190.0])
+enemy_zones = [[&"wuester_sturmadler"], [&"uralter_wolkenkranich", &"wuester_feuerwolf"], [&"uralter_knochendrache", &"uralter_wolkenkranich", &"uralter_donnerbueffel"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(120, 215)
+wild_passives = [[&"glueckssicht", &"support", 120.0, 215.0, false]]
+immortal = {
+"entrance": "Über der Nördlichen Ebene hängt bei Sonnenaufgang eine goldene Wolke, die nicht weiterzieht; wer mit Rang-8-Kraft hinauffliegt, landet vor dem Tor.",
+"entry_rank": 8,
+"kind": &"grotto_himmel",
+"rules": Array[StringName]([&"zeitfluss", &"leichte_schwere"]),
+"time_flow": 3.0
+}

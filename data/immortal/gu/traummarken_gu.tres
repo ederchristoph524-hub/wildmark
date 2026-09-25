@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dfk85sv1pwwom"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_6nyr8"]
+
+[resource]
+script = ExtResource("1_6nyr8")
+id = &"traummarken_gu"
+display_name = "Traummarken-Gu"
+name_en = "Dream Token Gu"
+rank = 8
+path = &"traum"
+category = &"kontrolle"
+description = "Eine Traummarke unterwirft den Willen: Gegner um das Ziel (Umkreis 6) sind 3 s wie versklavt (betäubt), danach 6 s in Träumen gefangen (50 % langsamer, geblendet)."
+lore = "Wildes Gu aus dem Dragon Palace mit der Macht, sogar Rang-8-Gu-Immortals zu versklaven; von Heavenly Court nach der Eroberung des Dragon Palace durch Duke Long erbeutet. Kern des Killer Moves Dreamy Light Smoke."
+owner = "Dragon Palace → Heavenly Court (Duke Long) → Wu Shuai, Bai Ning Bing, Fang Yuan"
+beads = 3.0
+cooldown = 45.0
+base_damage = 30.0
+steps = [{
+"at": "target",
+"color": "#d0a0ff",
+"distance": 12.0,
+"mult": 3.0,
+"radius": 6.0,
+"status": "furcht",
+"stun": 3.0,
+"t": "circle",
+"tags": ["seele"]
+}, {
+"at": "target",
+"blind": 1.0,
+"color": "#d0a0ff",
+"distance": 12.0,
+"mult": 0.5,
+"radius": 6.0,
+"slow": 0.5,
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 6.0
+}]

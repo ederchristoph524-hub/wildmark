@@ -135,6 +135,13 @@ func _frames(count: int) -> void:
 
 func _setup(rank: int) -> void:
 	var b: BalanceData = Balance.values
+	# --player-rank=7: Spieler auf eigenem Rang (ab 6 als Unsterblicher mit Rang-5-Gu), Gegner auf ihrem.
+	var own: int = int(_arg("--player-rank=", "0"))
+	own = own if own > 0 else (rank if rank >= Immortal.FIRST_RANK else 0)
+	if own >= Immortal.FIRST_RANK:
+		_setup_immortal(own)
+		return
+	rank = own if own > 0 else rank
 	GameState.rank = rank
 	GameState.stage = 2
 	GameState.gu.clear()
@@ -150,6 +157,28 @@ func _setup(rank: int) -> void:
 	player.health.floor_hp = 1.0
 	player.flat_damage = Formulas.cultivated_damage(b, rank, 2)
 	GameState.essence = player.aperture.capacity()
+	player.global_position = Vector3(SPOT.x, main.world.terrain.height_at(SPOT.x, SPOT.z) + 0.5, SPOT.z)
+
+
+## Unsterblicher auf Rang own: Aufstieg und Durchbrüche ohne Meldungen, sterbliche Gu auf Rang 5.
+func _setup_immortal(own: int) -> void:
+	var b: BalanceData = Balance.values
+	GameState.immortal.reset()
+	GameState.rank = Immortal.MORTAL_PEAK
+	ImmortalAscension.ascend(1, true)
+	while GameState.rank < own:
+		ImmortalProgress.advance(true)
+	GameState.gu.clear()
+	GameState.slots.fill(GameState.EMPTY_SLOT)
+	var loadout: Array[StringName] = _loadout()
+	for i: int in loadout.size():
+		GameState.gu.append(GuInstance.create(DataRegistry.family(loadout[i]).member_for_rank(Immortal.MORTAL_PEAK).id))
+		GameState.slots[i] = i
+	GameState.bonus_hp = Formulas.cultivated_hp(b, Immortal.MORTAL_PEAK, b.max_stage) - b.player_base_hp
+	GameState.bonus_damage = Formulas.cultivated_damage(b, Immortal.MORTAL_PEAK, b.max_stage)
+	player.immortal.refresh()
+	player.health.hp = player.health.max_hp
+	player.health.floor_hp = 1.0
 	player.global_position = Vector3(SPOT.x, main.world.terrain.height_at(SPOT.x, SPOT.z) + 0.5, SPOT.z)
 
 
@@ -178,7 +207,7 @@ func _fight(rank: int, beast_id: StringName) -> void:
 				break
 		await tree.physics_frame
 		if frame % 120 == 0 and OS.get_cmdline_user_args().has("--trace"):
-			print("    t=%ds Abstand %.1f m, Zustände %s, gefroren %.1f, betäubt %.1f" % [floori(frame / 60.0), beast.global_position.distance_to(player.global_position), str(beast.status.active_statuses()), beast.status.frozen_time, beast.status.stun_time])
+			print("    t=%ds Abstand %.1f m, Zustände %s, gefroren %.1f, betäubt %.1f, Zustand %d, Diener %d, Tempo %.1f" % [floori(frame / 60.0), beast.global_position.distance_to(player.global_position), str(beast.status.active_statuses()), beast.status.frozen_time, beast.status.stun_time, beast.state, beast.minions.size(), Vector2(beast.velocity.x, beast.velocity.z).length()])
 		if player.health.hp < last_hp:
 			taken += last_hp - player.health.hp
 		player.health.hp = player.health.max_hp
@@ -216,8 +245,8 @@ func _duel(data: GuMasterData) -> void:
 	await _frames(2)
 	var real_hp: float = master.health.max_hp
 	var start_hp: float = player.health.max_hp
-	player.health.max_hp = DUMMY_HP
-	player.health.hp = DUMMY_HP
+	var taken: float = 0.0
+	var ended: float = -1.0
 	master.start_duel(player)
 	player.health.floor_hp = 1.0
 	while master.duel_state != GuMaster.DuelState.FIGHT:
@@ -240,8 +269,14 @@ func _duel(data: GuMasterData) -> void:
 			dealt += maxf(0.0, master.health.max_hp - master.health.hp - (master.paid_hp - paid))
 			paid = master.paid_hp
 			master.health.hp = master.health.max_hp
+		# Eigenes Leben jedes Bild auffüllen (echtes Höchstleben, damit Prozent-Heilungen und Schwellen stimmen).
+		if ended < 0.0 and master.duel_state != GuMaster.DuelState.FIGHT:
+			ended = frame / 60.0
+		taken += maxf(0.0, player.health.max_hp - player.health.hp)
+		player.health.hp = player.health.max_hp
 	var seconds: float = MEASURE_FRAMES / 60.0
 	var dps_out: float = dealt / seconds
-	var dps_in: float = (DUMMY_HP - player.health.hp) / seconds
-	print("%s | %d | %d | %.1f | %.1f | %.1f | %d | %.1f" % [data.id, rank, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01)])
+	var dps_in: float = taken / seconds
+	print("%s | %d | %d | %.1f | %.1f | %.1f | %d | %.1f | %s" % [data.id, rank, roundi(real_hp), dps_out, real_hp / maxf(dps_out, 0.01), dps_in, roundi(start_hp), start_hp / maxf(dps_in, 0.01),
+		"Duell entschieden nach %.1f s" % ended if ended >= 0.0 else "-"])
 	master.queue_free()

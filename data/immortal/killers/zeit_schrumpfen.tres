@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://dg1qh4dsrvgy2"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_uq3x0"]
+
+[resource]
+script = ExtResource("1_uq3x0")
+id = &"zeit_schrumpfen"
+display_name = "Zeit-Schrumpfen"
+name_en = "Shrink Time"
+path = &"zeit"
+core = &"jahre_fliessen_wie_wasser_gu"
+mortal_families = Array[StringName]([&"zeit", &"weisheit", &"schritt", &"stroemung"])
+beads = 5.0
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"cd_mult": 0.5,
+"refund": 10.0,
+"t": "haste",
+"time": 10.0
+}, {
+"color": "#a04ad0",
+"mult": 0.4,
+"radius": 10.0,
+"slow": 0.6,
+"t": "zone",
+"tags": ["zeit"],
+"time": 10.0
+}]
+description = "Die Zeit schrumpft für dich und dehnt sich für sie: deine Gu sind 10 s weiter und doppelt so schnell bereit, Gegner um dich (Umkreis 10) 60 % langsamer."
+lore = "Zeit-Path-Technik Fang Yuans aus einer Bo-Clan-Traumreich-Erbschaft (Reihe Time Cutting Edge / Shrink Time / Winter Coat). Kern im Spiel: Jahre-fließen-wie-Wasser-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan (Bo-Clan-Erbschaft)"

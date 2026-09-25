@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://d4njxldktvjrd"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_8lpy7"]
+
+[resource]
+script = ExtResource("1_8lpy7")
+id = &"entzuendeter_gedanke_flugfels"
+display_name = "Entzündeter-Gedanke-Flugfels"
+name_en = "Ignited Thought Flying Rock"
+path = &"weisheit"
+core = &"bergzieh_gu"
+mortal_families = Array[StringName]([&"weisheit", &"flamme", &"erde", &"wirbel"])
+beads = 4.0
+cooldown = 50.0
+channel = 1.2
+steps = [{
+"color": "#7fc8ff",
+"count": 1.0,
+"explode": 5.0,
+"mult": 5.0,
+"range": 22.0,
+"speed": 18.0,
+"spread": 0.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer", "erde"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#ff7a3a",
+"distance": 14.0,
+"mult": 0.4,
+"radius": 5.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 4.0
+}],
+"time": 0.4
+}]
+description = "Ein entzündeter Gedanke schleudert einen brennenden Felsen: er schlägt ein (Umkreis 5) und hinterlässt 4 s ein Glutfeld."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Bergzieh-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"

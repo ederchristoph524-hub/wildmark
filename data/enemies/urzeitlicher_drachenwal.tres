@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://no3qi5tbp0la"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_u52y2"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_1k5l0"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_u52y2")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_u52y2")
+item = &"unsterblichen_stein"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_u52y2")
+item = &"wuestes_mark"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_u52y2")
+item = &"tiefseeperle"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_u52y2")
+item = &"drachenschuppe"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_5"]
+script = ExtResource("1_u52y2")
+item = &"grottenstein"
+chance = 0.5
+
+[sub_resource type="Resource" id="drop_6"]
+script = ExtResource("1_u52y2")
+item = &"himmelskristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_7"]
+script = ExtResource("1_u52y2")
+item = &"daokern"
+chance = 0.3
+
+[resource]
+script = ExtResource("2_1k5l0")
+id = &"urzeitlicher_drachenwal"
+display_name = "Urzeitlicher Drachenwal"
+max_hp = 85000
+damage = 1400
+speed = 3.0
+xp = 20000
+radius = 1.6
+color = Color(0.101960786, 0.2901961, 0.47843137, 1)
+zone = 9
+rank = 8
+ability = [{
+"color": "#4a9ad0",
+"knockback": 3.0,
+"length": 22.0,
+"mult": 1.1,
+"status": "nass",
+"t": "line",
+"tags": ["wasser", "wucht"],
+"width": 5.0
+}, {
+"at": "self",
+"color": "#2a6aa0",
+"mult": 0.3,
+"pull": 1.6,
+"radius": 14.0,
+"slow": 0.4,
+"status": "nass",
+"t": "zone",
+"tags": ["wasser", "klang"],
+"tick": 1.0,
+"time": 6.0
+}, {
+"count": 2.0,
+"enemy": "seeschlange",
+"t": "summon",
+"time": 25.0
+}]
+ability_range = 20.0
+ability_cooldown = 12.0
+drops = Array[ExtResource("1_u52y2")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4"), SubResource("drop_5"), SubResource("drop_6"), SubResource("drop_7")])
+shape = &"croc"
+flying = true
+boss = true

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://d0adamisg671"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ifh03"]
+
+[resource]
+script = ExtResource("1_ifh03")
+id = &"xue_song_zi"
+display_name = "Xue Song Zi"
+color = Color(0.78431374, 0.8784314, 0.9411765, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"frostdaemon", &"auraverbergen", &"neun_palaeste", &"goettlichersinn"])
+rank = 7
+hat = &"kapuze"
+immortal_gu = Array[StringName]([&"eisherz_gu", &"eisschmelze"])
+title = "Anführer der Schattensekte in der Nördlichen Ebene"
+path = &"eis"
+lore = "Eis-und-Schnee-Unsterblicher, der die Schattensekte in der Nördlichen Ebene anführt. Er verfolgt die jahrhundertelangen Pläne zur Wiederkehr des Seelengespenst-Ehrwürdigen."

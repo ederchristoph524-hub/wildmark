@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bv011vj0ufy7v"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_ru3k0"]
+
+[resource]
+script = ExtResource("1_ru3k0")
+id = &"seelenbestien_marken_gu"
+display_name = "Seelenbestien-Marken-Gu"
+name_en = "Soul Beast Token Gu"
+rank = 8
+path = &"sklaverei"
+category = &"kontrolle"
+description = "Seelenbestien-Marken: zwei wüste Seelenfresser erscheinen für 20 s, ihr Brüllen (Umkreis 6) jagt allen Furcht ein."
+lore = "Enslavement-Path-Gu; Bestandteil von Fang Yuans Emperor Yama."
+owner = "Fang Yuan, Bai Jun"
+beads = 3.0
+cooldown = 55.0
+steps = [{
+"count": 2.0,
+"enemy": "wuester_seelenfresser",
+"t": "summon",
+"time": 20.0
+}, {
+"color": "#b080e0",
+"mult": 4.0,
+"radius": 6.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["seele"]
+}]

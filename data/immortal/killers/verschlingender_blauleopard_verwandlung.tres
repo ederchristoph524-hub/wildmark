@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://bxfwyia531kxj"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_sw128"]
+
+[resource]
+script = ExtResource("1_sw128")
+id = &"verschlingender_blauleopard_verwandlung"
+display_name = "Verschlingender-Blauleopard-Verwandlung"
+name_en = "Devouring Blue Leopard Transformation"
+path = &"verwandlung"
+core = &"gestaltwandel_gu"
+mortal_families = Array[StringName]([&"gestalt", &"blutmond", &"pluenderung", &"kampfgeist"])
+beads = 4.0
+cooldown = 90.0
+channel = 1.2
+steps = [{
+"color": "#ff8ae2",
+"damage": 1.7,
+"grow": 1.4,
+"key": "blauleopard",
+"speed": 1.5,
+"t": "buff",
+"time": 15.0
+}, {
+"color": "#ff8ae2",
+"dash": true,
+"essence_steal": 0.3,
+"length": 14.0,
+"lifesteal": 0.5,
+"mult": 5.0,
+"t": "line",
+"tags": ["schnitt"],
+"width": 2.5
+}, {
+"t": "delay",
+"then": [{
+"angle": 120.0,
+"color": "#ff8ae2",
+"lifesteal": 0.5,
+"mult": 4.0,
+"reach": 5.0,
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.2
+}]
+description = "Verwandlung in den verschlingenden Blauleoparden (15 s, 50 % schneller, +70 % Schaden): ein Sprung durch die Gegner und ein Biss, die Leben und Uressenz verschlingen."
+lore = "Teil der von den Legends of Ren Zu ('Pursuing Freedom') inspirierten Move-Trias des Reckless Savage Demon Venerable (Devouring Blue Leopard / Internal Breathing Green Fish / Thunder Rush Yellow Bird Transformation). Kern im Spiel: Gestaltwandel-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Reckless Savage Demon Venerable"

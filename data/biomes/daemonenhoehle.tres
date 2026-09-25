@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://dy44jdxm5yh3o"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_na0ih"]
+
+[resource]
+script = ExtResource("1_na0ih")
+id = &"daemonenhoehle"
+display_name = "Höhle des irren Dämons"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.18039216, 0.14117648, 0.13333334, 1),
+&"fels": Color(0.22745098, 0.19607843, 0.19607843, 1),
+&"gipfel": Color(0.41568628, 0.2901961, 0.26666668, 1),
+&"gras_dunkel": Color(0.16470589, 0.1254902, 0.1254902, 1),
+&"gras_hell": Color(0.2901961, 0.20392157, 0.1882353, 1),
+&"moos": Color(0.22745098, 0.16470589, 0.14901961, 1),
+&"platz": Color(0.41568628, 0.2901961, 0.2509804, 1),
+&"weg": Color(0.3529412, 0.2509804, 0.21960784, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"totholz": 1.0
+})
+trees_per_1000 = 0.5
+bushes_per_1000 = 0.3
+grass_per_1000 = 4.0
+rocks_per_1000 = 6.0
+sky = Color(0.22745098, 0.101960786, 0.101960786, 1)
+sky_top = Color(0.039215688, 0.015686275, 0.023529412, 1)
+fog = Color(0.3529412, 0.11764706, 0.101960786, 1)
+fog_density = 0.0048
+water = Color(0.2901961, 0.05490196, 0.05490196, 1)
+plant_tint = Color(0.627451, 0.3764706, 0.3137255, 1)

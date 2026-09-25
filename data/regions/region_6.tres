@@ -8,3 +8,6 @@ id = 6
 display_name = "Schwarzer Himmel"
 color = Color(0.6901961, 0.4392157, 1, 1)
 description = "Leere zwischen den Sternen. Heimat der Dämonen-Ehrwürdigen."
+map_polygon = Array[Vector2]([Vector2(0.94, 0.01), Vector2(0.995, 0.01), Vector2(0.995, 0.24), Vector2(0.955, 0.245), Vector2(0.935, 0.12)])
+wall_name = "Himmelswind-Qi-Wand"
+wall_color = Color(0.41568628, 0.22745098, 0.627451, 1)

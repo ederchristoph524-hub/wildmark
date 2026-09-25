@@ -80,7 +80,31 @@ func build_area(id: StringName, d: Dictionary) -> Resource:
 	for entry: Variant in d.get("hindernisse", []):
 		area.obstacles.append({"id": ImportUtil.sn(entry["id"]), "kind": ImportUtil.sn(entry["art"]), "reward": ImportUtil.sn(entry["belohnung"]), "angle": ImportUtil.to_float(entry["richtung"]), "distance": ImportUtil.to_float(entry["abstand"])})
 	_fill_contents(area, d)
+	area.immortal = _immortal(d.get("unsterblich", {}), context)
 	return area
+
+
+func _immortal(d: Dictionary, context: String) -> Dictionary:
+	if d.is_empty():
+		return {}
+	var result: Dictionary = {"entry_rank": ImportUtil.to_int(d.get("zutritt_rang"), 6), "kind": ImportUtil.sn(d.get("art")),
+		"rules": ImportUtil.names(d.get("regeln", [])), "time_flow": ImportUtil.to_float(d.get("zeitfluss"), 1.0),
+		"entrance": ImportUtil.text(d.get("eingang"))}
+	var current: Array = ImportUtil.plain_list(d.get("stroemung"))
+	if current.size() >= 3:
+		result["current"] = Vector3(ImportUtil.to_float(current[0]), ImportUtil.to_float(current[1]), ImportUtil.to_float(current[2]))
+	var spirit: Dictionary = d.get("landgeist", {})
+	if not spirit.is_empty():
+		result["spirit"] = {"name": ImportUtil.text(spirit.get("n")), "lines": ImportUtil.plain_list(spirit.get("lines"))}
+	var annex: Dictionary = d.get("annektierbar", {})
+	if not annex.is_empty():
+		var gift: Dictionary = {}
+		for item: Variant in annex.get("geschenk", {}):
+			gift[StringName(str(item))] = ImportUtil.to_int(annex["geschenk"][item])
+		result["annex"] = {"path": ImportUtil.sn(annex.get("pfad")), "growth": ImportUtil.to_float(annex.get("wachstum"), 60.0), "gift": gift}
+	if result["kind"] == &"":
+		_report.error("%s: unsterblich.art fehlt" % context)
+	return result
 
 
 func _fill_contents(area: AreaData, d: Dictionary) -> void:
@@ -157,7 +181,8 @@ func _place(entry: Dictionary) -> Dictionary:
 	var items: Dictionary = {}
 	for item: Variant in reward.get("items", {}):
 		items[StringName(str(item))] = ImportUtil.to_int(reward["items"][item])
-	place["reward"] = {"support": ImportUtil.names(reward.get("hilfs_gu", [])), "gu": ImportUtil.names(reward.get("gu", [])), "body": ImportUtil.names(reward.get("koerper_gu", [])), "items": items}
+	place["reward"] = {"support": ImportUtil.names(reward.get("hilfs_gu", [])), "gu": ImportUtil.names(reward.get("gu", [])), "body": ImportUtil.names(reward.get("koerper_gu", [])), "items": items,
+		"immortal": ImportUtil.names(reward.get("unsterbliche_gu", []))}
 	return place
 
 

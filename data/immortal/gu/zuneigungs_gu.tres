@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://brtibur1fse1p"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_s5jxx"]
+
+[resource]
+script = ExtResource("1_s5jxx")
+id = &"zuneigungs_gu"
+display_name = "Zuneigungs-Gu"
+name_en = "Affection Gu"
+path = &"weisheit"
+category = &"sonstiges"
+description = "Weckt Zuneigung: Gegner im Kegel vor dir (10 m) sind 2,5 s betört und kämpfen nicht; Verbündete im Umkreis 10 heilen 20 %."
+lore = "Wisdom-Path-Gu rund um Zuneigung. Kein Rang im Text."
+owner = "Fang Yuan"
+cooldown = 30.0
+base_damage = 20.0
+steps = [{
+"angle": 70.0,
+"color": "#ff8ae2",
+"mult": 0.0,
+"reach": 10.0,
+"stun": 2.5,
+"t": "cone",
+"tags": ["seele"]
+}, {
+"allies": true,
+"frac": 0.2,
+"radius": 10.0,
+"t": "heal"
+}]

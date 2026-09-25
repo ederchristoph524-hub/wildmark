@@ -21,6 +21,7 @@ static func grant(master: GuMaster) -> void:
 	var stones: int = (b.duel_first_win_stones if GameState.duels_won == 1 else b.duel_reward_stones) * maxi(1, master.rank - 1)
 	GameState.add_item(STONE_ITEM, stones)
 	EventBus.message.emit(Loc.t("Lohn des Siegers: %d %s") % [stones, Loc.t(DataRegistry.item(STONE_ITEM).display_name)], Color(0.6, 1.0, 0.6))
+	ImmortalNpc.reward(master)
 	if randf() < b.duel_gu_drop_chance:
 		drop_gu(master)
 

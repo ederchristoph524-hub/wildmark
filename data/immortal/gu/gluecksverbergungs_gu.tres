@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dq1y0spctu7kp"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_gwd7u"]
+
+[resource]
+script = ExtResource("1_gwd7u")
+id = &"gluecksverbergungs_gu"
+display_name = "Glücksverbergungs-Unsterblichen-Gu"
+name_en = "Conceal Luck Immortal Gu"
+path = &"glueck"
+category = &"tarnung"
+description = "Verbirgt dein Glück: 6 s getarnt; aus der Tarnung heraus 30 % kritische Treffer."
+lore = "Luck-Path-Gu zum Verbergen von Glück (Reihe Conceal/Inspection/Deduction/Suppression). Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 25.0
+base_damage = 20.0
+steps = [{
+"t": "stealth",
+"time": 6.0
+}, {
+"chance": 0.3,
+"t": "luck",
+"time": 6.0
+}]

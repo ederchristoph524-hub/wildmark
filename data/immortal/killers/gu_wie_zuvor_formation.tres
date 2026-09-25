@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://cun3khtkdk0nc"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_slndl"]
+
+[resource]
+script = ExtResource("1_slndl")
+id = &"gu_wie_zuvor_formation"
+display_name = "Gu-wie-zuvor-Formation"
+name_en = "Gu As Before Formation"
+path = &"raffinerie"
+core = &"mensch_wie_zuvor_gu"
+mortal_families = Array[StringName]([&"zeit", &"labyrinth", &"blatt", &"qischirm"])
+cooldown = 100.0
+channel = 2.0
+base_damage = 40.0
+steps = [{
+"allies": true,
+"frac": 0.5,
+"radius": 12.0,
+"t": "heal"
+}, {
+"frac": 0.5,
+"t": "heal"
+}, {
+"t": "cleanse"
+}, {
+"ally_reduction": 0.3,
+"color": "#c9a070",
+"heal": 0.02,
+"mult": 0.0,
+"radius": 10.0,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 1.0,
+"time": 10.0
+}]
+description = "Die Gu-wie-zuvor-Formation stellt wieder her: du und Verbündete (Umkreis 12) heilen 50 %, alle Zustände verschwinden, und 10 s lang schützt und heilt die Formation. Kein Schaden."
+lore = "Immortal-Gu-Formation, die Selbstzerstörungsmechanismen stoppt und Schäden umkehren kann. Im Spiel wirkt die Formation im Kampf als Wiederherstellung; der Schutz vor Gu-Verlust ist Lore. Kern im Spiel: Mensch-wie-zuvor-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

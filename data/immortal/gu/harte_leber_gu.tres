@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://cpllpi8u5lhns"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7bgsg"]
+
+[resource]
+script = ExtResource("1_7bgsg")
+id = &"harte_leber_gu"
+display_name = "Harte-Leber-Gu"
+name_en = "Hard Liver Gu"
+path = &"mensch"
+category = &"sonstiges"
+kind = &"passiv"
+description = "Eine harte Leber verträgt alles: 10 % weniger Schaden, 0,2 % Heilung je Sekunde."
+lore = "Rang-6–8-Gu bei Fang Yuan; Effekt im Lexikon nicht beschrieben. Steigt bis Rang 8."
+owner = "Fang Yuan"
+passive = {
+"reduction": 0.1,
+"regen": 0.002
+}

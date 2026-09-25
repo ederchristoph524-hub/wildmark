@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://bbkj0plld5w6s"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_jquvg"]
+
+[resource]
+script = ExtResource("1_jquvg")
+id = &"seelenwechsel_gu"
+display_name = "Seelenwechsel-Unsterblichen-Gu"
+name_en = "Change Soul Immortal Gu"
+rank = 7
+path = &"seele"
+category = &"kontrolle"
+description = "Tauscht Seelen: Du wechselst mit dem Ziel den Platz (14 m), es ist 1,5 s betäubt und verängstigt, dann zerreißt es die fremde Seele."
+lore = "Tauscht die Seele des Nutzers mit der eines Ziels – effektiv Körperübernahme. Zuerst von Green (Splitterseele des Spectral Soul Demon Venerable) verfeinert, dann an Fairy Mo Yao weitergegeben, um Bo Qing zu retten."
+owner = "Green → Fairy Mo Yao"
+beads = 2.0
+cooldown = 25.0
+steps = [{
+"color": "#c9a0ff",
+"mult": 2.0,
+"range": 14.0,
+"status": "furcht",
+"stun": 1.5,
+"t": "swap",
+"tags": ["seele", "raum"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#c9a0ff",
+"distance": 10.0,
+"mult": 1.2,
+"radius": 4.0,
+"t": "circle",
+"tags": ["seele"]
+}],
+"time": 1.0
+}]

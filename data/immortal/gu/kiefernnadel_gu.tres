@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://dsovb7fyvyc65"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_kwpn3"]
+
+[resource]
+script = ExtResource("1_kwpn3")
+id = &"kiefernnadel_gu"
+display_name = "Kiefernnadel-Unsterblichen-Gu"
+name_en = "Pine Needle Immortal Gu"
+rank = 7
+path = &"holz"
+category = &"sonstiges"
+description = "Ein Regen aus fünfzehn Kiefernnadeln durchbohrt je einen weiteren Gegner und vergiftet."
+lore = "Wood-Path-Gu; das Lexikon nennt nur Name und Rang."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 16.0
+steps = [{
+"color": "#6fbf4a",
+"count": 15.0,
+"mult": 1.2,
+"pierce": 1.0,
+"range": 16.0,
+"speed": 22.0,
+"spread": 40.0,
+"status": "gift",
+"t": "projectiles",
+"tags": ["holz", "durchbohren"]
+}]

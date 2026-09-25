@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://b4a7vbyguyynv"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_au4fx"]
+
+[resource]
+script = ExtResource("1_au4fx")
+id = &"geisterhafte_verbergung"
+display_name = "Geisterhafte-Verbergung"
+name_en = "Ghostly Concealment"
+path = &"seele"
+core = &"hinterhalts_gu"
+mortal_families = Array[StringName]([&"tarnung", &"seelenschrei", &"pluenderung"])
+cooldown = 70.0
+channel = 0.8
+base_damage = 40.0
+steps = [{
+"t": "stealth",
+"time": 12.0
+}, {
+"color": "#c9a0ff",
+"damage": 2.0,
+"key": "geisterhaft",
+"t": "buff",
+"time": 12.0
+}]
+description = "Geisterhafte Verbergung: 12 s unsichtbar selbst für Geister und Nachtwesen, dein Schaden ist doppelt – der erste Schlag aus dem Nichts zählt dreifach."
+lore = "Teil der gesamten Theft-Path-Kerntechnik-Reihe des Thieving Heaven Demon Venerable (Theft/Space/Soul Path), die Fang Yuan nach dessen Tod größtenteils erbt bzw. nachbaut. Kern im Spiel: Hinterhalts-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Thieving Heaven Demon Venerable → Fang Yuan"

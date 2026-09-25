@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://b0k30lvr1xp7x"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_vflor"]
+
+[resource]
+script = ExtResource("1_vflor")
+id = &"raumerweiterungs_gu"
+display_name = "Raumerweiterungs-Unsterblichen-Gu"
+name_en = "Expand Space Immortal Gu"
+rank = 7
+path = &"raum"
+category = &"raum"
+kind = &"passiv"
+description = "Erweitert deine Unsterblichen-Apertur: mehr Fläche bringt +35 % Erträge und verteilt Kalamitäten (10 % weniger Schaden durch sie)."
+lore = "Erweitert den Innenraum eines Blessed Land von außen und schafft kurzzeitig eine 'Hintertür'; kann auch dauerhaft den Platz einer Immortal Aperture vergrößern."
+owner = "unbekannt (im Lexikon nicht genannt)"
+passive = {
+"ertrag_mult": 0.35,
+"kalamitaet_schutz": 0.1
+}

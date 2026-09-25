@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://mt31prgc0aj4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_7g6hj"]
+
+[resource]
+script = ExtResource("1_7g6hj")
+id = &"exquisiter_sprung_gu"
+display_name = "Exquisiter-Sprung-Gu"
+name_en = "Exquisite Warp Gu"
+path = &"raum"
+category = &"bewegung"
+description = "Winziger, blitzschneller Raumsprung (8 m): löst Verwurzelung und Frost und lässt Geschosse 1 s lang abprallen."
+lore = "Unterstützendes Bewegungs-Gu des Space Path."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 0.5
+cooldown = 8.0
+base_damage = 20.0
+steps = [{
+"color": "#6ad04a",
+"distance": 8.0,
+"t": "teleport"
+}, {
+"t": "cleanse"
+}, {
+"t": "reflect",
+"time": 1.0
+}]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ImmortalGuData" format=3 uid="uid://ba1nc66hfq5uo"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_gu_data.gd" id="1_n3p4y"]
+
+[resource]
+script = ExtResource("1_n3p4y")
+id = &"schattenspaltung_gu"
+display_name = "Schattenspaltung-Unsterblichen-Gu"
+name_en = "Split Shadow Immortal Gu"
+rank = 7
+path = &"dunkelheit"
+category = &"unterstuetzung"
+description = "Spaltet deinen Schatten: zwei Schattendoppelgänger kämpfen 12 s, du selbst verschwindest 1 s."
+lore = "Erzeugt feste Doppelgänger-Kopien. Kein Rang im Text."
+owner = "unbekannt (im Lexikon nicht genannt)"
+beads = 2.0
+cooldown = 45.0
+base_damage = 20.0
+steps = [{
+"count": 2.0,
+"enemy": "schatten",
+"t": "summon",
+"time": 12.0
+}, {
+"t": "stealth",
+"time": 1.0
+}]

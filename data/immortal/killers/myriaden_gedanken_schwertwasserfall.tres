@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://56qeubtb4264"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_ouow3"]
+
+[resource]
+script = ExtResource("1_ouow3")
+id = &"myriaden_gedanken_schwertwasserfall"
+display_name = "Myriaden-Gedanken-Schwertwasserfall"
+name_en = "Myriad Thought Sword Waterfall"
+path = &"schwert"
+core = &"weisheitsschwert_gu"
+mortal_families = Array[StringName]([&"schwert", &"weisheit", &"stroemung", &"tausendfuessler"])
+beads = 5.0
+cooldown = 70.0
+channel = 1.4
+steps = [{
+"color": "#e8f4ff",
+"count": 20.0,
+"mult": 1.0,
+"pierce": 2.0,
+"range": 18.0,
+"speed": 24.0,
+"spread": 30.0,
+"t": "projectiles",
+"tags": ["schnitt"]
+}, {
+"at": "target",
+"color": "#e8f4ff",
+"distance": 12.0,
+"mult": 0.5,
+"radius": 7.0,
+"status": "wunde",
+"t": "zone",
+"tags": ["schnitt", "durchbohren"],
+"tick": 0.25,
+"time": 3.0
+}]
+description = "Ein Wasserfall aus zehntausend Gedankenschwertern: zwanzig Klingen fächern nach vorn, und 3 s lang stürzt ein Schwertregen auf das Ziel (Umkreis 7)."
+lore = "Teil von Fang Yuans Schwert-Killer-Moves (Myriad Thought Sword Waterfall / Sword Marks Targeting Death / Triple Layered Sword Wave), teils kombiniert mit Wave Sword Immortal Gu. Kern im Spiel: Weisheitsschwert-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Fang Yuan"

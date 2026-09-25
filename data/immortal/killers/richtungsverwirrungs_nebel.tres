@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ImmortalKillerData" format=3 uid="uid://beugdba82j0k4"]
+
+[ext_resource type="Script" path="res://scripts/resources/immortal_killer_data.gd" id="1_nbffr"]
+
+[resource]
+script = ExtResource("1_nbffr")
+id = &"richtungsverwirrungs_nebel"
+display_name = "Richtungsverwirrungs-Nebel"
+name_en = "Directional Confusion Fog"
+path = &"weisheit"
+core = &"traeumen_gu"
+mortal_families = Array[StringName]([&"weisheit", &"labyrinth", &"stroemung", &"tarnung"])
+channel = 1.2
+steps = [{
+"blind": 1.0,
+"color": "#7fc8ff",
+"mult": 0.6,
+"radius": 10.0,
+"slow": 0.5,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele"],
+"tick": 1.0,
+"time": 8.0
+}, {
+"color": "#7fc8ff",
+"count": 4.0,
+"mult": 2.0,
+"radius": 3.0,
+"spacing": 3.0,
+"stun": 1.0,
+"t": "trap",
+"tags": ["seele"],
+"time": 8.0,
+"trigger": 1.8
+}]
+description = "Ein Nebel, der jede Richtung verdreht (Umkreis 10, 8 s): Gegner irren blind umher und laufen in vier Gedankenfallen, die sie betäuben."
+lore = "Teil der riesigen Wisdom-Path-Move-Familie des Purple Mountain True Monarch (bzw. teils Old Man Yan Shi), die Fang Yuan sich im späteren Handlungsverlauf aneignet; fast alle Wisdom Path. Kern im Spiel: Träumen-Unsterblichen-Gu – das Lexikon nennt keinen Kern-Gu (Interpretation)."
+owner = "Purple Mountain True Monarch (teils Old Man Yan Shi) → Fang Yuan"
