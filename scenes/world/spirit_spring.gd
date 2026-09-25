@@ -19,7 +19,7 @@ func _ready() -> void:
 		b.add(MeshBuilder.sphere(0.55, 6, 3), MeshBuilder.at(Vector3(cos(angle) * 3.3, 0.15, sin(angle) * 3.3), Vector3(1.3, 0.7, 1.0), Vector3(0, -angle, 0)), STONE.darkened(0.05 * (i % 3)))
 	var stones := MeshInstance3D.new()
 	stones.mesh = b.build()
-	stones.material_override = WorldMaterials.vertex_colored()
+	stones.material_override = WorldMaterials.props()
 	add_child(stones)
 	var pool := MeshInstance3D.new()
 	var disc := CylinderMesh.new()

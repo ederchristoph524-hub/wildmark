@@ -63,6 +63,9 @@ func _check_open(area: AreaData, context: String) -> void:
 	for item: StringName in area.resources:
 		_require(item, "items", context + " Ressource")
 	_check_tide(area, context)
+	for river: Dictionary in area.rivers:
+		if (river["points"] as Array).size() < 2:
+			_report.error("%s: Fluss mit weniger als zwei Punkten" % context)
 	_check_feud(area, context)
 	for master: StringName in area.wanderers:
 		_require(master, "gu_masters", context + " Wanderer")

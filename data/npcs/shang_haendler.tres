@@ -17,3 +17,4 @@ trade_get = Dictionary[StringName, int]({
 &"jadeader": 1
 })
 trade_text = "10 Ursteine gegen eine Jadeader"
+hat = &"kappe"

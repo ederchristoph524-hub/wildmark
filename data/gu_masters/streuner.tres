@@ -11,3 +11,4 @@ faction = &"demonic"
 gu = Array[StringName]([&"mondlicht", &"stachelwurm"])
 rank = 1
 stage = 0
+hat = &"stroh"

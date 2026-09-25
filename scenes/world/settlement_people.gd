@@ -8,6 +8,7 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 	&"gu_yue": [
 		[&"klan", "Dorfältester", &"bau", false, &"hall", Vector2(0.0, 0.0)],
 		[&"klan", "Klanwächter", &"j10", false, &"gate", Vector2(0.0, 0.0)],
+		[&"klan", "Wachhauptmann", &"klanfehde", false, &"gate", Vector2(3.5, 0.5)],
 		[&"klan", "Holzfäller", &"holz", false, &"back_gate", Vector2(0.0, 0.0)],
 		[&"klan", "Späherin", &"ero", false, &"tower", Vector2(0.0, 0.0)],
 		[&"klan", "Akademie-Lehrerin", &"akademie", false, &"academy", Vector2(0.0, 0.0)],
@@ -41,6 +42,7 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 	],
 	&"lang_ya": [
 		[&"klan", "Lang-Ya-Hüter", &"reise_welt", false, &"hall", Vector2(0.0, 0.0)],
+		[&"klan", "Lang-Ya-Schreiber", &"gu_sammler", false, &"hall", Vector2(3.0, 1.5)],
 		[&"haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"wueste": [
@@ -88,7 +90,7 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"wu_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"yi_tian": [
-		[&"klan", "Yi-Tian-Ältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"klan", "Yi-Tian-Ältester", &"dao_pilger", false, &"hall", Vector2(-3.0, 1.0)],
 		[&"klan", "Yi-Tian-Torwächter", &"yi_tian_pruefung", false, &"gate", Vector2(0.0, 0.0)],
 		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
@@ -105,7 +107,7 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"seemann", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"kranich": [
-		[&"klan", "Kranich-Ältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"klan", "Kranich-Ältester", &"dao_meister", false, &"hall", Vector2(-3.0, 1.0)],
 		[&"klan", "Kranich-Torwächter", &"kranich_pruefung", false, &"gate", Vector2(0.0, 0.0)],
 		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"auktionator_hoch", "", &"", true, &"market", Vector2(-4.0, 2.0)],
@@ -113,6 +115,7 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 	&"sekte": [
 		[&"klan", "Torwächter", &"sekte_herz", false, &"gate", Vector2(0.0, 0.0)],
 		[&"klan", "Bibliothekar", &"sekte_bibliothek", false, &"academy", Vector2(0.0, 0.0)],
+		[&"klan", "Sektenwächter", &"sekte_fehde", false, &"gate", Vector2(3.5, 0.5)],
 		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"sekten_schatzmeister", "", &"", true, &"hall", Vector2(-3.0, 1.0)],
 	],

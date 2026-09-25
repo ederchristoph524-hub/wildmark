@@ -10,3 +10,4 @@ color = Color(0.72156864, 0.39215687, 0.16470589, 1)
 faction = &"righteous"
 gu = Array[StringName]([&"eberstoss", &"eisenzahn", &"wirbelwind"])
 rank = 2
+hat = &"fell"

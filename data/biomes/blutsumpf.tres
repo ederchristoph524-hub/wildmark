@@ -30,3 +30,5 @@ fog = Color(0.7372549, 0.627451, 0.59607846, 1)
 fog_density = 0.0034
 water = Color(0.41568628, 0.101960786, 0.11764706, 1)
 plant_tint = Color(0.78431374, 0.72156864, 0.627451, 1)
+weather = &"regen"
+weather_chance = 0.45

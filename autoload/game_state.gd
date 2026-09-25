@@ -83,6 +83,10 @@ var fame: int = 0
 var infamy: int = 0
 ## Besiegte dämonische Wanderer (Aufgaben „rogues").
 var rogues_defeated: int = 0
+## Abgewehrte Klanfehden (ClanFeud, Aufgaben „feud").
+var feuds_repelled: int = 0
+## Gu-Lexikon (Codex): IDs aller Gu, die du kennst (besessen, wild gesehen, gegen dich eingesetzt).
+var codex: Array[String] = []
 
 # --- Welt ---
 var time_of_day: float = 0.0
@@ -138,6 +142,8 @@ func reset(options: Dictionary) -> void:
 	fame = 0
 	infamy = 0
 	rogues_defeated = 0
+	feuds_repelled = 0
+	codex = []
 	dao = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
@@ -215,7 +221,7 @@ func to_dict() -> Dictionary:
 			"duels_won": duels_won, "last_duel_day": last_duel_day, "duel_days": duel_days, "childhood_step": childhood_step, "area": area, "inheritances": inheritances,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 			"sect": {"id": String(sect), "merit": sect_merit, "rank": sect_rank, "stipend_day": sect_stipend_day, "task": _task_to_dict()},
-			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy, "rogues": rogues_defeated},
+			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy, "rogues": rogues_defeated, "feuds": feuds_repelled}, "codex": codex,
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -295,6 +301,10 @@ func _player_from_dict(p: Dictionary) -> void:
 	fame = int(renown.get("fame", 0))
 	infamy = int(renown.get("infamy", 0))
 	rogues_defeated = int(renown.get("rogues", 0))
+	feuds_repelled = int(renown.get("feuds", 0))
+	codex.clear()
+	for id: Variant in p.get("codex", []):
+		codex.append(str(id))
 	var saved_dao: Dictionary = p.get("dao", {})
 	for key: Variant in saved_dao:
 		dao[StringName(str(key))] = float(saved_dao[key])

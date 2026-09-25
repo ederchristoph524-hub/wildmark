@@ -72,13 +72,12 @@ func run(scene_tree: SceneTree) -> void:
 	main._open_menu(GuMenu.new())
 	await _frames(10)
 	await _shot("07_gu_menue")
-	for child: Node in main._menu_layer.get_children():
-		var tabs: Array[Node] = child.find_children("*", "TabContainer", true, false)
-		if not tabs.is_empty():
-			var container: TabContainer = tabs[0] as TabContainer
-			container.current_tab = container.get_tab_count() - 1
+	_open_tab("Kultivierung")
 	await _frames(20)
 	await _shot("07b_apertur")
+	_open_tab("Lexikon")
+	await _frames(10)
+	await _shot("07c_lexikon")
 	for child: Node in main._menu_layer.get_children():
 		child.queue_free()
 	await _frames(3)
@@ -160,6 +159,18 @@ func _shoot_sites(player: Player) -> void:
 		player.camera_rig.yaw = atan2(toward_center.x, toward_center.z)
 		await _frames(15)
 		await _shot("site_%d_%s" % [index, String(area.obstacles[index]["kind"])])
+
+
+## Wechselt im offenen Gu-Menü zum Reiter mit diesem Titel.
+func _open_tab(title: String) -> void:
+	for child: Node in main._menu_layer.get_children():
+		var tabs: Array[Node] = child.find_children("*", "TabContainer", true, false)
+		if tabs.is_empty():
+			continue
+		var container: TabContainer = tabs[0] as TabContainer
+		for i: int in container.get_tab_count():
+			if container.get_tab_title(i) == tr(title):
+				container.current_tab = i
 
 
 func _frames(count: int) -> void:

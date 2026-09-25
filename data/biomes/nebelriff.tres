@@ -32,3 +32,5 @@ fog = Color(0.7058824, 0.76862746, 0.80784315, 1)
 fog_density = 0.0034
 water = Color(0.12156863, 0.3529412, 0.47058824, 1)
 sea_level = 0.0
+weather = &"regen"
+weather_chance = 0.35

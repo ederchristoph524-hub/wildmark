@@ -5,6 +5,8 @@ extends Node3D
 
 const FOLLOW_HEIGHT: float = 1.5
 const BOX: Vector3 = Vector3(16.0, 3.0, 16.0)
+## Innen frei um die Kamera (m).
+const NEAR_CLEAR: float = 3.5
 const FIREFLY_COLOR: Color = Color(0.8, 1.0, 0.3)
 const POLLEN_COLOR: Color = Color(1.0, 0.97, 0.85, 0.8)
 const DUST_COLOR: Color = Color(0.95, 0.85, 0.65, 0.6)
@@ -57,8 +59,12 @@ func _particles(color: Color, size: float, amount: int, lifetime: float, speed: 
 	particles.lifetime = lifetime
 	particles.preprocess = lifetime
 	particles.local_coords = false
-	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
-	particles.emission_box_extents = BOX * 0.5
+	# Ring um die Kamera: dicht vor dem Auge würden die Lichter zu großen, unscharfen Flecken.
+	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_RING
+	particles.emission_ring_axis = Vector3.UP
+	particles.emission_ring_radius = BOX.x * 0.5
+	particles.emission_ring_inner_radius = NEAR_CLEAR
+	particles.emission_ring_height = BOX.y
 	particles.direction = Vector3.UP
 	particles.spread = 180.0
 	particles.gravity = Vector3.ZERO

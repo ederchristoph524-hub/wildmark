@@ -1,7 +1,7 @@
 class_name GraphicsSettings
 extends RefCounted
 ## Grafikstufe (Niedrig, Mittel, Hoch) für schwächere Handys: Gras- und Pflanzendichte, Sichtweite der Pflanzen,
-## Schatten und 3D-Auflösung. Liegt in user://settings.cfg (unabhängig vom Spielstand). Dichte und Sichtweite
+## Schatten, Leuchten und 3D-Auflösung. Liegt in user://settings.cfg (unabhängig vom Spielstand). Dichte und Sichtweite
 ## gelten ab dem nächsten Weltaufbau, Schatten und Auflösung sofort.
 
 enum Quality { LOW, MEDIUM, HIGH }
@@ -12,6 +12,8 @@ const GRASS: Array[float] = [0.35, 0.7, 1.0]
 const VIEW: Array[float] = [0.6, 0.85, 1.0]
 const SCALE_3D: Array[float] = [0.7, 0.85, 1.0]
 const SHADOWS: Array[bool] = [false, true, true]
+## Leuchten (Glow) um Laternen, Gu-Effekte und Sonne: erst ab Mittel.
+const GLOW: Array[bool] = [false, true, true]
 
 static var _quality: int = -1
 
@@ -50,6 +52,10 @@ static func view_mult() -> float:
 
 static func shadows() -> bool:
 	return SHADOWS[quality()]
+
+
+static func glow() -> bool:
+	return GLOW[quality()]
 
 
 static func label() -> String:

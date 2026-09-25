@@ -43,6 +43,7 @@ func _ready() -> void:
 	_model.body_color = robe
 	_model.show_aperture = false
 	PlayerModel.vary_looks(_model, display_title())
+	_model.hat = type.hat
 	_model.view_distance = VIEW
 	add_child(_model)
 	_label = Label3D.new()

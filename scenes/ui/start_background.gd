@@ -244,6 +244,9 @@ func _draw_pines(ridge: PackedVector2Array) -> void:
 ## Gu-Lichter: steigen langsam aus dem Tal, schwanken, leuchten auf und verlöschen oben.
 func _draw_lights() -> void:
 	var unit: float = size.y * 0.004
+	var cores: Array[Vector4] = []
+	var core_colors: Array[Color] = []
+	# Erst alle Scheine (eine Textur, ein Stapel), dann alle Kerne – sonst wechselt jedes Licht den Stapel.
 	for light: Vector4 in _lights:
 		var rise: float = fposmod(_time * light.y + light.z, 1.0)
 		var x: float = light.x * size.x + sin(_time * 0.7 + light.z * 20.0) * size.x * 0.015
@@ -252,7 +255,10 @@ func _draw_lights() -> void:
 		var color: Color = LIGHT_COLORS[int(light.w)]
 		var radius: float = unit * (1.0 + light.z)
 		_glow_at(Vector2(x, y), radius * 6.0, Color(color, 0.85 * alpha))
-		draw_circle(Vector2(x, y), radius, Color(color.lightened(0.5), alpha))
+		cores.append(Vector4(x, y, radius, 0.0))
+		core_colors.append(Color(color.lightened(0.5), alpha))
+	for i: int in cores.size():
+		draw_circle(Vector2(cores[i].x, cores[i].y), cores[i].z, core_colors[i])
 
 
 ## Dunkler Schleier hinter der Menüspalte, damit die Schrift lesbar bleibt; weich auslaufende Ränder.

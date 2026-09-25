@@ -5,6 +5,9 @@ extends Node3D
 ## Sichtweite von Körper und Leuchthülle (weiter weg ist ein 40-cm-Gu ohnehin nicht zu erkennen; spart Draw Calls).
 const BODY_VIEW: float = 70.0
 const HALO_VIEW: float = 45.0
+## Aus dieser Nähe gilt der Gu als gesehen (Gu-Lexikon); Prüfung alle CODEX_CHECK Sekunden.
+const CODEX_RANGE: float = 12.0
+const CODEX_CHECK: float = 0.5
 
 var spot_id: StringName = &""
 ## GuData, BodyGuData oder SupportGuData.
@@ -14,6 +17,7 @@ var hidden: bool = false
 var _time: float = 0.0
 var _body: Node3D = null
 var _label: Label3D = null
+var _check_left: float = 0.0
 
 
 func setup(id: StringName, gu_data: Resource, is_hidden: bool = false) -> void:
@@ -68,6 +72,12 @@ func _process(delta: float) -> void:
 	_body.visible = seen
 	_label.visible = seen
 	_label.visibility_range_end = PassiveGu.detection_range() * 1.5
+	_check_left -= delta
+	if seen and _check_left <= 0.0:
+		_check_left = CODEX_CHECK
+		var player: Node3D = get_tree().get_first_node_in_group(Player.GROUP_PLAYER) as Node3D
+		if player != null and player.global_position.distance_to(global_position) < CODEX_RANGE:
+			Codex.note(gu.get("id"))
 	if seen != is_in_group(Player.GROUP_INTERACTABLES):
 		if seen:
 			add_to_group(Player.GROUP_INTERACTABLES)

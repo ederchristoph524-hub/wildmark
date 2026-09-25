@@ -8,6 +8,9 @@ const REGROW_TIME: float = 240.0
 ## Sammelstellen werden erst aus der Nähe gezeichnet (spart Draw Calls am Handy).
 const VIEW_DISTANCE: float = 55.0
 const NIGHT_ONLY: Array[StringName] = [&"mondtau"]
+const HARD_ITEMS: Array[StringName] = [&"stein", &"kristall", &"eisenerz", &"frostsplitter"]
+const HARD_PITCH: float = 1.5
+const SOFT_PITCH: float = 0.7
 ## Aussehen je Gegenstand: Grundform und Farbe (glow = leuchtet).
 const LOOKS: Dictionary[StringName, Dictionary] = {
 	&"beeren": {"base": Color(0.2, 0.45, 0.2), "accent": Color(0.55, 0.25, 0.85), "shape": &"bush"},
@@ -59,7 +62,10 @@ func _ready() -> void:
 func add_mesh(mesh: ArrayMesh, glow: Color = Color(0, 0, 0, 0)) -> void:
 	var node := MeshInstance3D.new()
 	node.mesh = mesh
-	node.material_override = WorldMaterials.glowing(glow) if glow.a > 0.0 else WorldMaterials.vertex_colored()
+	var material: Material = WorldMaterials.props()
+	if glow.a > 0.0:
+		material = WorldMaterials.glowing(glow)
+	node.material_override = material
 	node.visibility_range_end = VIEW_DISTANCE
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_visual.add_child(node)
@@ -75,6 +81,8 @@ func harvest_hit(_player: Node3D) -> void:
 	if not is_available():
 		return
 	_hits += 1
+	# Stein und Erz klingen hell, Holz und Pflanzen dumpf.
+	Sound.play(&"hit", global_position, -10.0, HARD_PITCH if item in HARD_ITEMS else SOFT_PITCH)
 	var tween: Tween = create_tween()
 	tween.tween_property(_visual, "scale", Vector3(1.12, 0.9, 1.12), 0.06)
 	tween.tween_property(_visual, "scale", Vector3.ONE, 0.1)

@@ -90,6 +90,15 @@ func _visit(area: AreaData) -> void:
 		var at: Vector2 = place["position"]
 		if place["type"] != &"see":
 			_check(not world.terrain.in_water(at.x, at.y), label + ": Ort %s liegt nicht im Wasser" % place["name"])
+	# Brücken: wo ein Weg den Fluss kreuzt, trägt ein Steg über dem Wasser.
+	for i: int in area.rivers.size():
+		for crossing: Array in TerrainRivers._crossings(world.terrain.paths, area.rivers[i]["points"]):
+			var at: Vector2 = crossing[0]
+			var ray := PhysicsRayQueryParameters3D.create(Vector3(at.x, 300.0, at.y), Vector3(at.x, -300.0, at.y), 1)
+			var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(ray)
+			var water: float = world.terrain.height_at(at.x, at.y)
+			_check(not hit.is_empty() and not hit["collider"] is Terrain and (hit["position"] as Vector3).y > water + 0.5,
+				label + ": Brücke über den Fluss bei %s" % str(at))
 	for obstacle: Node in tree.get_nodes_in_group(&"obstacles"):
 		var point: Vector3 = (obstacle as Node3D).global_position
 		if (obstacle as WorldObstacle).kind != WorldObstacle.KIND_WATER:

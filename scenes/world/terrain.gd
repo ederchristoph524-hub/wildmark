@@ -29,6 +29,10 @@ var plazas: Array[Vector4] = []
 ## Eingefärbte Böden besonderer Orte (Asche, Frost, Friedhofserde): {at: Vector2, radius, color} mit unregelmäßigem, weichem Rand.
 var stains: Array[Dictionary] = []
 var paths: Array = []
+## Flüsse (TerrainRivers): Abstand zur Mitte je Gitterpunkt (relativ zur halben Breite) und Lauf je Fluss
+## ({samples: Array[Vector2], levels: PackedFloat32Array}).
+var river_mask: PackedFloat32Array = PackedFloat32Array()
+var river_courses: Array[Dictionary] = []
 ## Gitterpunkte auf Wegen (vorab berechnet, spart beim Einfärben die Suche über alle Wegstücke).
 var _path_mask: PackedByteArray = PackedByteArray()
 var _noise := FastNoiseLite.new()
@@ -65,12 +69,16 @@ func generate() -> void:
 			heights[iz * resolution + ix] = raw_height(ix * CELL - half, iz * CELL - half)
 	_apply_flats()
 	_apply_lakes()
+	TerrainRivers.carve(self)
 	_paint()
 
 
 func _ready() -> void:
 	_material = ShaderMaterial.new()
 	_material.shader = TERRAIN_SHADER
+	for pair: Array in [["grass_tex", &"grass"], ["soil_tex", &"soil"], ["rock_tex", &"rock"], ["stone_tex", &"stone"],
+			["grass_nm", &"grass_normal"], ["soil_nm", &"soil_normal"], ["rock_nm", &"rock_normal"]]:
+		_material.set_shader_parameter(pair[0], ProceduralTextures.get_texture(pair[1]))
 	var chunks: int = ceili(float(resolution - 1) / CHUNK_CELLS)
 	for cz: int in chunks:
 		for cx: int in chunks:
@@ -160,7 +168,8 @@ func _paint() -> void:
 		for ix: int in resolution:
 			var x: float = ix * CELL - half
 			var z: float = iz * CELL - half
-			colors[iz * resolution + ix] = _color_at(x, z, _grid_normal(ix, iz), heights[iz * resolution + ix], _path_mask[iz * resolution + ix] == 1)
+			var index: int = iz * resolution + ix
+			colors[index] = TerrainRivers.tint(self, index, _color_at(x, z, _grid_normal(ix, iz), heights[index], _path_mask[index] == 1))
 
 
 func _grid_normal(ix: int, iz: int) -> Vector3:
@@ -183,10 +192,14 @@ func _color_at(x: float, z: float, normal: Vector3, h: float, on_path: bool) -> 
 		color = color.lerp(biome.color(&"fels"), clampf((steep - 0.32) * 3.5, 0.0, 1.0))
 	if h > PEAK_HEIGHT:
 		color = color.lerp(biome.color(&"gipfel"), clampf((h - PEAK_HEIGHT) * 0.08, 0.0, 0.9))
+	var paved: float = 0.0
 	for plaza: Vector4 in plazas:
-		var d: float = Vector2(x - plaza.x, z - plaza.y).length()
+		# w: 0 = gestampfter Boden, 1 = gepflastert (rund), 2 = gepflastert (quadratisch, Stadt und Festung).
+		var d: float = Vector2(x - plaza.x, z - plaza.y).length() if plaza.w < 1.5 else maxf(absf(x - plaza.x), absf(z - plaza.y))
 		if d < plaza.z:
 			color = color.lerp(biome.color(&"platz"), (1.0 - smoothstep(plaza.z * 0.75, plaza.z, d)) * (0.55 + 0.35 * variation))
+			if plaza.w > 0.5:
+				paved = maxf(paved, 1.0 - smoothstep(plaza.z * 0.85, plaza.z, d))
 	for stain: Dictionary in stains:
 		color = _stain(color, stain, x, z, variation)
 	for lake: Vector4 in lakes:
@@ -200,6 +213,8 @@ func _color_at(x: float, z: float, normal: Vector3, h: float, on_path: bool) -> 
 			color = color.darkened(clampf((biome.sea_level - h) * 0.08, 0.0, 0.45))
 	if on_path:
 		color = color.lerp(biome.color(&"weg"), 0.8)
+	# Alpha trägt das Pflaster: der Gelände-Shader zeichnet dort Steinplatten.
+	color.a = 1.0 - paved
 	return color
 
 
@@ -307,7 +322,21 @@ func in_water(x: float, z: float) -> bool:
 	for lake: Vector4 in lakes:
 		if Vector2(x - lake.x, z - lake.y).length() < lake.z + 0.5:
 			return true
-	return false
+	return TerrainRivers.in_river(self, x, z)
+
+
+## Nässe des Bodens 0–1 (Weather bei Regen).
+func set_wetness(amount: float) -> void:
+	if _material != null:
+		_material.set_shader_parameter(&"wetness", clampf(amount, 0.0, 1.0))
+
+
+## Höhe am nächsten Gitterpunkt (vor dem Bau der Kacheln, z. B. für Flüsse).
+func grid_height(x: float, z: float) -> float:
+	var half: float = size * 0.5
+	var ix: int = clampi(roundi((x + half) / CELL), 0, resolution - 1)
+	var iz: int = clampi(roundi((z + half) / CELL), 0, resolution - 1)
+	return heights[iz * resolution + ix]
 
 
 ## Farbe für die Karte: Bodenfarbe mit Hangschattierung (Licht von Nordwesten), Seen in Wasserfarbe.

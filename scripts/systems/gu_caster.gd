@@ -52,6 +52,9 @@ func cast() -> bool:
 	if done:
 		Sound.cast(family, gu.rank, caster.global_position)
 		_cast_flash()
+		if not (caster is Player):
+			# Gegen dich eingesetzt: jetzt kennst du ihn (Gu-Lexikon).
+			Codex.note(gu.id)
 		var extra: Variant = GuGifts.flags(gu).get("extra", [])
 		if extra is Array and not (extra as Array).is_empty():
 			EffectSteps.run(extra, context())

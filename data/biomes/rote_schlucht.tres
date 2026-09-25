@@ -31,3 +31,5 @@ fog = Color(0.9098039, 0.8, 0.6666667, 1)
 fog_density = 0.0018
 water = Color(0.22745098, 0.47843137, 0.47843137, 1)
 plant_tint = Color(0.8784314, 0.78431374, 0.5647059, 1)
+weather = &"sand"
+weather_chance = 0.25

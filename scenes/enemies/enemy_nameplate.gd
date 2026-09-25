@@ -5,18 +5,25 @@ extends Label3D
 const BAR_SEGMENTS: int = 8
 const ENEMY_TINT: Color = Color(1.0, 0.95, 0.9)
 const COMPANION_TINT: Color = Color(0.75, 0.65, 1.0)
+const PIXEL_SIZE: float = 0.006
+## Ab dieser Nähe wächst das Schild nicht weiter (sonst füllt es bei nahen Bestien den halben Bildschirm).
+const FULL_SIZE_DISTANCE: float = 8.0
 
 
 func _init() -> void:
 	billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	no_depth_test = true
 	font_size = 40
-	pixel_size = 0.006
+	pixel_size = PIXEL_SIZE
 	outline_size = 10
 
 
 func _process(_delta: float) -> void:
 	visibility_range_end = PassiveGu.detection_range()
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	if camera != null:
+		var distance: float = camera.global_position.distance_to(global_position)
+		pixel_size = PIXEL_SIZE * clampf(distance / FULL_SIZE_DISTANCE, 0.25, 1.0)
 
 
 func refresh(title: String, health: HealthComponent, status: StatusComponent, companion: bool) -> void:

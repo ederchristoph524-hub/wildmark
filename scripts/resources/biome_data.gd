@@ -23,6 +23,9 @@ const NO_SEA: float = -1000.0
 @export var sea_level: float = NO_SEA
 ## Tönung der Pflanzen (Steppe gelblich, Wüste staubig); jede Instanz variiert leicht.
 @export var plant_tint: Color = Color.WHITE
+## Wetter (Weather): regen, schnee, sand oder leer; Chance je Tag.
+@export var weather: StringName = &""
+@export var weather_chance: float = 0.0
 
 
 func color(key: StringName, fallback: Color = Color.MAGENTA) -> Color:

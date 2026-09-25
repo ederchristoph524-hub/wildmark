@@ -43,7 +43,7 @@ func _ready() -> void:
 	b.add(MeshBuilder.sphere(1.1, 7, 3), MeshBuilder.at(Vector3(0.9, 0.3, -0.6), Vector3(1.0, 0.3, 0.8)), MOSS)
 	glow.add(MeshBuilder.sphere(0.55, 8, 5), MeshBuilder.at(Vector3.UP * 4.75), color)
 	glow.add(MeshBuilder.box(Vector3(0.1, 2.0, 0.82)), MeshBuilder.at(Vector3(0.0, 2.3, 0.0)), color)
-	_add_mesh(b, WorldMaterials.vertex_colored())
+	_add_mesh(b, WorldMaterials.props())
 	_add_mesh(glow, WorldMaterials.glowing(color))
 	_add_beam(color)
 	GuVfx.zone(self, GuVfx.style_of(path), radius * 0.45)

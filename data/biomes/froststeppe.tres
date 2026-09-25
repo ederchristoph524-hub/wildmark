@@ -31,3 +31,5 @@ fog = Color(0.8156863, 0.85490197, 0.8862745, 1)
 fog_density = 0.0022
 water = Color(0.22745098, 0.41568628, 0.5411765, 1)
 plant_tint = Color(0.9019608, 0.93333334, 0.9411765, 1)
+weather = &"schnee"
+weather_chance = 0.5

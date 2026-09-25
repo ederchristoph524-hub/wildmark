@@ -17,3 +17,4 @@ trade_get = Dictionary[StringName, int]({
 &"kristall": 2
 })
 trade_text = "8 🍖 gegen 2 💎"
+hat = &"stroh"

@@ -22,6 +22,7 @@ func run() -> void:
 	await _test_clan_feud()
 	_test_disguise_and_compass()
 	_test_luck()
+	_test_codex()
 	GameState.fame = 0
 	GameState.infamy = 0
 
@@ -200,6 +201,23 @@ func _test_clan_feud() -> void:
 		if is_instance_valid(raider):
 			raider.queue_free()
 	GameState.sect = sect
+
+
+## Gu-Lexikon: eigene Gu sind bekannt, die Seite baut sich auf.
+func _test_codex() -> void:
+	Codex.sync_owned()
+	var first: StringName = GameState.gu[0].gu_id if not GameState.gu.is_empty() else &""
+	steps._check(first != &"" and Codex.knows(first) and Codex.known_count() > 0 and Codex.known_count() < Codex.total(),
+		"Gu-Lexikon kennt eigene Gu (%d / %d)" % [Codex.known_count(), Codex.total()])
+	var page: Control = CodexPage.build()
+	steps._check(page.get_child_count() >= 3, "Lexikon-Seite")
+	page.free()
+	var dao_page: Control = DaoPage.build()
+	var sites: int = 0
+	for child: Node in dao_page.get_children():
+		sites += 1 if child is Label and (child as Label).text.contains(" · ") else 0
+	steps._check(sites >= 13, "Dao-Seite nennt die Dao-Orte (%d)" % sites)
+	dao_page.free()
 
 
 func _spawn(id: StringName, at: Vector3) -> Wanderer:

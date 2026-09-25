@@ -9,6 +9,7 @@ const RADIUS_SHARE: float = 0.42
 const WALL_WIDTH: float = 10.0
 const GU_DOT: float = 6.0
 const MAX_DOTS: int = 24
+const GLINTS: int = 7
 
 var essence_ratio: float = 0.0
 var _time: float = 0.0
@@ -72,8 +73,19 @@ func _draw_sea(center: Vector2, radius: float, color: Color) -> void:
 	for i: int in steps + 1:
 		var angle: float = lerpf(right_angle, left_angle, float(i) / steps)
 		fill.append(center + Vector2(cos(angle), sin(angle)) * radius)
-	draw_colored_polygon(fill, Color(color.darkened(0.25), 0.9))
+	# Tiefe: unten dunkler, an der Oberfläche heller.
+	var colors := PackedColorArray()
+	for point: Vector2 in fill:
+		var depth: float = clampf((point.y - level) / maxf(1.0, center.y + radius - level), 0.0, 1.0)
+		colors.append(Color(color.lightened(0.15).lerp(color.darkened(0.55), depth), 0.95))
+	draw_polygon(fill, colors)
 	draw_polyline(surface, color.lightened(0.45), 2.0, true)
+	# Glitzern auf der Oberfläche.
+	for i: int in GLINTS:
+		var along: float = fposmod(float(i) / GLINTS + _time * 0.05 * (1.0 + i % 3), 1.0)
+		var point: Vector2 = surface[clampi(int(along * (surface.size() - 1)), 0, surface.size() - 1)]
+		var shine: float = 0.5 + 0.5 * sin(_time * 3.0 + i * 1.7)
+		draw_circle(point + Vector2(0.0, 3.0), 1.5 + shine * 1.5, Color(1.0, 1.0, 1.0, 0.35 + 0.4 * shine))
 
 
 ## Aperturwand: vier Bögen für die Stufen; erreichte leuchten, die aktuelle füllt sich mit der Verfeinerung.

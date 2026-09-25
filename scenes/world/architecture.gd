@@ -10,6 +10,8 @@ const DOOR: Color = Color(0.16, 0.11, 0.08)
 const WINDOW: Color = Color(0.2, 0.15, 0.1)
 const PAPER: Color = Color(0.93, 0.88, 0.74)
 const LANTERN: Color = Color(0.95, 0.3, 0.18)
+## Laternen leuchten nachts in ihrer eigenen Farbe (UV2.y = 0).
+const LANTERN_GLOW: Vector2 = Vector2(1.0, 0.0)
 const PLINTH: float = 0.4
 const WALL_HEIGHT: float = 3.2
 const EAVE: float = 0.9
@@ -21,13 +23,47 @@ static func house(b: MeshBuilder, t: Transform3D, width: float, depth: float, p:
 	_box(b, t, Vector3(0, PLINTH * 0.5, 0), Vector3(width + 0.4, PLINTH, depth + 0.4), p["stein"])
 	_box(b, t, Vector3(0, PLINTH + WALL_HEIGHT * 0.5, 0), Vector3(width, WALL_HEIGHT, depth), p["wand"])
 	_frame(b, t, width, depth, WALL_HEIGHT, p["holz"])
-	_box(b, t, Vector3(0, PLINTH + 1.1, depth * 0.5 + 0.03), Vector3(1.3, 2.2, 0.08), DOOR)
+	door(b, t, Vector3(0, PLINTH, depth * 0.5), 1.3, 2.2, p["holz"])
 	for side: float in [-1.0, 1.0]:
-		_box(b, t, Vector3(side * width * 0.3, PLINTH + 1.9, depth * 0.5 + 0.03), Vector3(1.0, 0.9, 0.08), WINDOW)
-		_box(b, t, Vector3(side * width * 0.3, PLINTH + 1.9, depth * 0.5 + 0.06), Vector3(0.8, 0.7, 0.04), PAPER)
-		_box(b, t, Vector3(side * (width * 0.5 + 0.03), PLINTH + 1.9, 0), Vector3(0.08, 0.9, 1.0), WINDOW)
+		window(b, t, Vector3(side * width * 0.3, PLINTH + 1.9, depth * 0.5), 1.0, 0.9, p["holz"], window_glow(t, side))
+		_box(b, t, Vector3(side * (width * 0.5 + 0.03), PLINTH + 1.9, 0), Vector3(0.08, 0.9, 1.0), WINDOW, window_glow(t, side + 2.0))
+		_box(b, t, Vector3(side * (width * 0.5 + 0.06), PLINTH + 1.9, 0), Vector3(0.04, 0.7, 0.8), PAPER)
 	roof(b, t, Vector3(0, PLINTH + WALL_HEIGHT, 0), width + EAVE * 2.0, depth + EAVE * 2.0, 2.4, p["dach"], p["holz"])
+	rafters(b, t, Vector3(0, PLINTH + WALL_HEIGHT, 0), width, depth, p["holz"])
 	return [[t, Vector3(width + 0.4, PLINTH + WALL_HEIGHT + 2.0, depth + 0.4)]]
+
+
+## Tür in der Front (Mitte unten bei at): Holzrahmen mit Sturz, Türblatt, Steinschwelle.
+static func door(b: MeshBuilder, t: Transform3D, at: Vector3, width: float, height: float, wood: Color) -> void:
+	_box(b, t, at + Vector3(0, height * 0.5, 0.03), Vector3(width, height, 0.08), DOOR)
+	for side: float in [-1.0, 1.0]:
+		_box(b, t, at + Vector3(side * (width * 0.5 + 0.06), height * 0.5, 0.06), Vector3(0.12, height, 0.14), wood)
+	_box(b, t, at + Vector3(0, height + 0.08, 0.06), Vector3(width + 0.4, 0.16, 0.16), wood)
+	_box(b, t, at + Vector3(0, 0.06, 0.25), Vector3(width + 0.5, 0.12, 0.5), Color(0.5, 0.5, 0.48))
+	# Türgriff.
+	_box(b, t, at + Vector3(width * 0.3, height * 0.45, 0.09), Vector3(0.05, 0.14, 0.05), Color(0.75, 0.6, 0.3))
+
+
+## Fenster in der Front (Mitte bei at): Holzrahmen, Papierbespannung, Gitterstäbe; glow = Nachtlicht (UV2).
+static func window(b: MeshBuilder, t: Transform3D, at: Vector3, width: float, height: float, wood: Color, glow: Vector2) -> void:
+	_box(b, t, at + Vector3(0, 0, 0.03), Vector3(width, height, 0.08), WINDOW, glow)
+	_box(b, t, at + Vector3(0, 0, 0.06), Vector3(width - 0.2, height - 0.2, 0.04), PAPER, glow)
+	for side: float in [-1.0, 1.0]:
+		_box(b, t, at + Vector3(side * width * 0.5, 0, 0.06), Vector3(0.08, height + 0.08, 0.1), wood)
+		_box(b, t, at + Vector3(0, side * height * 0.5, 0.06), Vector3(width + 0.08, 0.08, 0.1), wood)
+		_box(b, t, at + Vector3(side * width * 0.17, 0, 0.085), Vector3(0.03, height - 0.2, 0.02), wood.darkened(0.2))
+	_box(b, t, at + Vector3(0, 0, 0.085), Vector3(width - 0.2, 0.03, 0.02), wood.darkened(0.2))
+	# Fensterbrett.
+	_box(b, t, at + Vector3(0, -height * 0.5 - 0.06, 0.12), Vector3(width + 0.3, 0.06, 0.22), wood)
+
+
+## Sparrenköpfe unter der Traufe (vorn und hinten), alle 1,2 m.
+static func rafters(b: MeshBuilder, t: Transform3D, base: Vector3, width: float, depth: float, wood: Color) -> void:
+	var count: int = maxi(2, floori(width / 1.2))
+	for i: int in count + 1:
+		var x: float = -width * 0.5 + width * float(i) / count
+		for front: float in [-1.0, 1.0]:
+			_box(b, t, base + Vector3(x, -0.12, front * (depth * 0.5 + EAVE * 0.5)), Vector3(0.12, 0.12, EAVE), wood.darkened(0.1))
 
 
 ## Ahnenhalle: Steinplattform mit Treppe, rote Säulen vor der Front, Doppeldach, Ehrentafel.
@@ -81,9 +117,21 @@ static func gate(b: MeshBuilder, t: Transform3D, width: float, p: Dictionary) ->
 		_cylinder(b, t, Vector3(side * (width * 0.5 + 0.6), height * 0.5, 0), 0.4, height, p["saeule"])
 		boxes.append([t.translated_local(Vector3(side * (width * 0.5 + 0.6), 0, 0)), Vector3(1.4, height, 1.4)])
 	_box(b, t, Vector3(0, height - 0.3, 0), Vector3(width + 3.0, 0.5, 0.7), p["holz"])
-	_box(b, t, Vector3(0, height - 1.1, 0.4), Vector3(width * 0.45, 0.8, 0.1), p["banner"])
+	plaque(b, t, Vector3(0, height - 1.1, 0.4), width * 0.45, 0.8, p["banner"])
 	roof(b, t, Vector3(0, height, 0), width + 4.0, 2.6, 1.4, p["dach"], p["holz"])
 	return boxes
+
+
+## Namenstafel: dunkel lackiertes Brett mit Rahmen in der Klanfarbe und goldenen Zeichenfeldern.
+static func plaque(b: MeshBuilder, t: Transform3D, at: Vector3, width: float, height: float, frame: Color) -> void:
+	_box(b, t, at, Vector3(width, height, 0.1), Color(0.1, 0.08, 0.08))
+	for side: float in [-1.0, 1.0]:
+		_box(b, t, at + Vector3(side * width * 0.5, 0, 0.02), Vector3(0.1, height + 0.1, 0.12), frame)
+		_box(b, t, at + Vector3(0, side * height * 0.5, 0.02), Vector3(width + 0.1, 0.1, 0.12), frame)
+	var count: int = maxi(2, floori(width / 0.7))
+	for i: int in count:
+		var x: float = lerpf(-width * 0.5 + 0.4, width * 0.5 - 0.4, float(i) / (count - 1))
+		_box(b, t, at + Vector3(x, 0, 0.055), Vector3(0.36, height * 0.55, 0.02), Color(0.85, 0.68, 0.25))
 
 
 ## Mauerstück von a nach c (Bodenpunkte): Steinsockel, Stampflehm, Ziegelkappe.
@@ -121,11 +169,21 @@ static func stall(b: MeshBuilder, t: Transform3D, p: Dictionary, goods: Color) -
 	return [[t, Vector3(2.8, 1.0, 1.2)]]
 
 
+## Laternenfüße der Siedlung, die gerade gebaut wird (LanternLights holt sie sich in Settlement.finish).
+static var lantern_points: Array[Vector3] = []
+
+
+## Laternenpfahl: Ausleger mit Papierlaterne (Deckel, Bodenring, Quaste); der Fuß wird für LanternLights gemerkt.
 static func lantern_post(b: MeshBuilder, t: Transform3D, p: Dictionary) -> void:
+	lantern_points.append(t * Vector3(0.0, 0.0, 0.6))
 	_cylinder(b, t, Vector3(0, 1.4, 0), 0.08, 2.8, p["holz"])
 	_box(b, t, Vector3(0, 2.75, 0.3), Vector3(0.08, 0.08, 0.7), p["holz"])
-	b.add(MeshBuilder.sphere(0.28, 7, 4), t * MeshBuilder.at(Vector3(0, 2.35, 0.6), Vector3(1.0, 1.3, 1.0)), LANTERN)
-	b.add(MeshBuilder.cylinder(0.12, 0.2, 0.12, 6), t * MeshBuilder.at(Vector3(0, 2.72, 0.6)), Color(0.15, 0.1, 0.05))
+	_box(b, t, Vector3(0, 2.55, 0.12), Vector3(0.05, 0.05, 0.4), p["holz"].darkened(0.1))
+	_cylinder(b, t, Vector3(0, 2.63, 0.6), 0.015, 0.18, Color(0.2, 0.15, 0.1))
+	b.add(MeshBuilder.sphere(0.22, 8, 5), t * MeshBuilder.at(Vector3(0, 2.32, 0.6), Vector3(1.0, 1.25, 1.0)), LANTERN, LANTERN_GLOW)
+	b.add(MeshBuilder.cylinder(0.1, 0.16, 0.1, 8), t * MeshBuilder.at(Vector3(0, 2.57, 0.6)), Color(0.15, 0.1, 0.05))
+	b.add(MeshBuilder.cylinder(0.1, 0.08, 0.06, 8), t * MeshBuilder.at(Vector3(0, 2.05, 0.6)), Color(0.15, 0.1, 0.05))
+	_box(b, t, Vector3(0, 1.88, 0.6), Vector3(0.05, 0.28, 0.05), Color(0.85, 0.65, 0.2))
 
 
 static func banner_pole(b: MeshBuilder, t: Transform3D, p: Dictionary) -> void:
@@ -171,8 +229,16 @@ static func _frame(b: MeshBuilder, t: Transform3D, width: float, depth: float, h
 	_box(b, t, Vector3(0, bottom + 0.15, z_offset + depth * 0.5 + 0.02), Vector3(width + 0.2, 0.2, 0.08), wood)
 
 
-static func _box(b: MeshBuilder, t: Transform3D, center: Vector3, box_size: Vector3, color: Color) -> void:
-	b.add(MeshBuilder.box(box_size), t * MeshBuilder.at(center), color)
+static func _box(b: MeshBuilder, t: Transform3D, center: Vector3, box_size: Vector3, color: Color, glow: Vector2 = Vector2.ZERO) -> void:
+	b.add(MeshBuilder.box(box_size), t * MeshBuilder.at(center), color, glow)
+
+
+## Nachtlicht eines Fensters (UV2 für den Siedlungs-Shader): etwa zwei von drei Fenstern sind erleuchtet, unterschiedlich hell.
+static func window_glow(t: Transform3D, salt: float) -> Vector2:
+	var roll: int = absi(hash(Vector3i(roundi(t.origin.x * 3.0 + salt * 7.0), roundi(t.origin.y), roundi(t.origin.z * 3.0))))
+	if roll % 3 == 0:
+		return Vector2.ZERO
+	return Vector2(0.55 + float(roll % 50) / 110.0, 1.0)
 
 
 static func _cylinder(b: MeshBuilder, t: Transform3D, center: Vector3, radius: float, height: float, color: Color) -> void:

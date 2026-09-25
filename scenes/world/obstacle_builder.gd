@@ -36,7 +36,7 @@ static func wall_ring(parent: Node3D, world: World, center: Vector3, radius: flo
 		shape.shape = box
 		shape.transform = transform
 		body.add_child(shape)
-	_mesh(body, b.build(), WorldMaterials.vertex_colored())
+	_mesh(body, b.build(), WorldMaterials.props())
 
 
 ## Verwitterte Mauer: Steinfugen, Deckstein, teils eingestürzte Zinnen und Moos obenauf.
@@ -66,7 +66,7 @@ static func blocker_ring(obstacle: WorldObstacle, world: World, center: Vector3,
 			b.add(MeshBuilder.cylinder(0.0, 0.12, 0.6, 3), Transform3D(Basis.IDENTITY, point + Vector3(0, height, 0)), THORN)
 		obstacle.blockers.append(_shape(obstacle, BoxShape3D.new(), size, transform))
 	if visible:
-		obstacle.closed_visuals.append(_mesh(obstacle, b.build(), WorldMaterials.vertex_colored()))
+		obstacle.closed_visuals.append(_mesh(obstacle, b.build(), WorldMaterials.props()))
 
 
 ## Tor in einer Maueröffnung (Blocker), optional mit leuchtendem Siegel.
@@ -74,7 +74,7 @@ static func gate(obstacle: WorldObstacle, local_position: Vector3, facing: float
 	var size := Vector3(3.0, WALL_HEIGHT, 0.5)
 	var transform := Transform3D(Basis(Vector3.UP, facing), local_position + Vector3.UP * WALL_HEIGHT * 0.5)
 	obstacle.blockers.append(_shape(obstacle, BoxShape3D.new(), size, transform))
-	var door: MeshInstance3D = _mesh(obstacle, MeshBuilder.new().add(MeshBuilder.box(size), transform, RUIN.darkened(0.2)).build(), WorldMaterials.vertex_colored())
+	var door: MeshInstance3D = _mesh(obstacle, MeshBuilder.new().add(MeshBuilder.box(size), transform, RUIN.darkened(0.2)).build(), WorldMaterials.props())
 	obstacle.closed_visuals.append(door)
 	if seal_color.a > 0.0:
 		var seal_transform := transform.translated_local(Vector3(0, 0.2, -0.3))
@@ -85,13 +85,13 @@ static func gate(obstacle: WorldObstacle, local_position: Vector3, facing: float
 static func boulder(obstacle: WorldObstacle) -> void:
 	var transform := Transform3D(Basis.IDENTITY.scaled(Vector3(1.0, 0.9, 1.0)), Vector3.UP * 1.2)
 	obstacle.blockers.append(_shape(obstacle, SphereShape3D.new(), Vector3.ONE * 1.5, transform))
-	obstacle.closed_visuals.append(_mesh(obstacle, MeshBuilder.new().add(MeshBuilder.sphere(1.5, 7, 4), transform, BOULDER).build(), WorldMaterials.vertex_colored()))
+	obstacle.closed_visuals.append(_mesh(obstacle, MeshBuilder.new().add(MeshBuilder.sphere(1.5, 7, 4), transform, BOULDER).build(), WorldMaterials.props()))
 
 
 static func switch_pillar(obstacle: WorldObstacle) -> void:
 	_shape(obstacle, CylinderShape3D.new(), Vector3(0.5, 1.8, 0.5), Transform3D(Basis.IDENTITY, Vector3.UP * 0.9))
 	var b := MeshBuilder.new().add(MeshBuilder.cylinder(0.35, 0.5, 1.8, 6), MeshBuilder.at(Vector3.UP * 0.9), RUIN)
-	_mesh(obstacle, b.build(), WorldMaterials.vertex_colored())
+	_mesh(obstacle, b.build(), WorldMaterials.props())
 	_mesh(obstacle, MeshBuilder.new().add(MeshBuilder.sphere(0.3, 6, 3), MeshBuilder.at(Vector3.UP * 2.0), Color.WHITE).build(), WorldMaterials.glowing(Color(0.5, 0.7, 1.0)))
 
 
@@ -101,7 +101,7 @@ static func pond(obstacle: WorldObstacle, radius: float) -> void:
 	obstacle.closed_visuals.append(_mesh(obstacle, water, Fx.material(WATER)))
 	obstacle.open_visuals.append(_mesh(obstacle, water, WorldMaterials.glowing(ICE)))
 	var island := MeshBuilder.new().add(MeshBuilder.cylinder(1.8, 2.2, 0.5, 10), MeshBuilder.at(Vector3.UP * 0.2), Color(0.35, 0.5, 0.25)).build()
-	_mesh(obstacle, island, WorldMaterials.vertex_colored())
+	_mesh(obstacle, island, WorldMaterials.props())
 
 
 ## Hoher Vorsprung: nur mit Doppelsprung (Schritt-Familie) erreichbar.
@@ -116,7 +116,7 @@ static func ledge(parent: Node3D, top_height: float) -> void:
 	shape.shape = cylinder
 	shape.transform = transform
 	body.add_child(shape)
-	_mesh(body, MeshBuilder.new().add(MeshBuilder.cylinder(1.6, 1.9, top_height, 7), transform, STONE).build(), WorldMaterials.vertex_colored())
+	_mesh(body, MeshBuilder.new().add(MeshBuilder.cylinder(1.6, 1.9, top_height, 7), transform, STONE).build(), WorldMaterials.props())
 
 
 static func _ring_point(world: World, center: Vector3, radius: float, angle: float) -> Vector3:

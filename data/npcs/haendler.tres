@@ -18,3 +18,4 @@ trade_get = Dictionary[StringName, int]({
 &"fleisch": 6
 })
 trade_text = "2 💎 gegen Vorräte"
+hat = &"stroh"

@@ -48,7 +48,7 @@ func _ready() -> void:
 			b.add(MeshBuilder.box(Vector3(1.6, 0.08, 1.6)), MeshBuilder.at(Vector3.UP * 0.04), WOOD)
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = b.build()
-	mesh.material_override = WorldMaterials.vertex_colored()
+	mesh.material_override = WorldMaterials.props()
 	add_child(mesh)
 	if part.light > 0.0 and part.id != &"feuer":
 		var light := OmniLight3D.new()

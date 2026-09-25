@@ -5,6 +5,8 @@ extends RefCounted
 var _vertices: PackedVector3Array = PackedVector3Array()
 var _normals: PackedVector3Array = PackedVector3Array()
 var _colors: PackedColorArray = PackedColorArray()
+## Kennung von Karten-Texturkoordinaten in UV2 (Werte ≥ 2 sind Karten).
+const CARD_OFFSET: float = 2.0
 ## Zusatzdaten pro Vertex (UV2), z. B. Schwunggewicht und Drehpunkt für Figuren-Shader.
 var _custom: PackedVector2Array = PackedVector2Array()
 var _has_custom: bool = false
@@ -41,6 +43,26 @@ func add_triangles(points: PackedVector3Array, color: Color, double_sided: bool 
 		_triangle(a, b, c, -normal, color)
 		if double_sided:
 			_triangle(a, c, b, normal, color)
+	return self
+
+
+## Karte (Viereck a, b, c, d im Uhrzeigersinn) mit Textur-Koordinaten in UV2 (Blatt- und Grasbüschel-Karten,
+## die der Vegetations-Shader ausschneidet); beidseitig.
+func add_card(corners: Array[Vector3], color: Color, uvs: Array[Vector2] = [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]) -> MeshBuilder:
+	var normal: Vector3 = (corners[1] - corners[0]).cross(corners[3] - corners[0]).normalized()
+	for flip: int in 2:
+		var offset: int = _vertices.size()
+		for i: int in 4:
+			_vertices.append(corners[i])
+			_normals.append(-normal if flip == 0 else normal)
+			_colors.append(color)
+			# + CARD_OFFSET markiert Karten (der Vegetations-Shader zieht ihn wieder ab).
+			_custom.append(uvs[i] + Vector2.ONE * CARD_OFFSET)
+		if flip == 0:
+			_indices.append_array([offset, offset + 1, offset + 2, offset, offset + 2, offset + 3])
+		else:
+			_indices.append_array([offset, offset + 2, offset + 1, offset, offset + 3, offset + 2])
+	_has_custom = true
 	return self
 
 

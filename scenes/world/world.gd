@@ -18,6 +18,7 @@ const SETTLEMENT_TITLES: Dictionary[StringName, String] = {
 }
 const SQUARE_SETTLEMENTS: Array[StringName] = [&"stadt", &"festung"]
 const SQUARE_REACH: float = 1.3
+const PAVED_SETTLEMENTS: Array[StringName] = [&"sekte"]
 ## Übergang ins Gelände für Inseldörfer (sonst würde das Plateau ins Meer wachsen).
 const ISLAND_FALLOFF: float = 6.0
 
@@ -63,6 +64,7 @@ func _ready() -> void:
 	day_night.biome = biome
 	add_child(day_night)
 	_build_settlements()
+	TerrainRivers.build(self)
 	for place: Dictionary in area.places:
 		WorldAreas.build(self, place)
 	ObstacleSites.build(self, area)
@@ -80,13 +82,22 @@ func _ready() -> void:
 		wanderers = Wanderers.new(self)
 		add_child(wanderers)
 	add_child(Ambience.new(self))
+	add_child(Weather.new(self))
 	BuildSystem.restore(self)
 	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)
 
 
+## Pflaster einer Siedlung (Terrain.plazas.w): Städte und Festungen quadratisch, Sekten rund, sonst gestampfter Boden.
+static func _paving(type: StringName) -> float:
+	if type in SQUARE_SETTLEMENTS:
+		return 2.0
+	return 1.0 if type in PAVED_SETTLEMENTS else 0.0
+
+
 ## Gelände: Plätze für Siedlungen, Orte und Hindernisse einebnen, Seen ausheben, Wege färben.
 func _build_terrain() -> void:
+	WaterSurface.reset()
 	terrain = Terrain.new(area, biome)
 	var roads: Array = area.paths.duplicate()
 	for settlement: Dictionary in area.settlements:
@@ -95,7 +106,7 @@ func _build_terrain() -> void:
 		# Quadratische Mauern (Stadt, Festung) reichen mit den Ecken bis 1,27 × Radius – auch dort muss es eben sein.
 		var reach: float = radius * SQUARE_REACH if settlement["type"] in SQUARE_SETTLEMENTS else radius
 		terrain.flats.append(Vector4(at.x, at.y, reach + 4.0, ISLAND_FALLOFF if settlement["type"] == &"inseldorf" else SETTLEMENT_FALLOFF))
-		terrain.plazas.append(Vector4(at.x, at.y, radius * 0.95, 0.0))
+		terrain.plazas.append(Vector4(at.x, at.y, radius * 0.95, _paving(settlement["type"])))
 		clearings.append(Vector4(at.x, 0.0, at.y, reach + 8.0))
 		settlement_areas.append(Vector4(at.x, 0.0, at.y, radius + 10.0))
 		roads.append_array(Settlement.roads(settlement))

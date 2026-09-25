@@ -31,7 +31,7 @@ static func build(parent: Node3D, style: StringName, rock: Color, accent: Color,
 			_grotto(b, glow, boxes, rock, rng)
 		_:
 			_cave(b, boxes, rock, rng)
-	_add(parent, b, WorldMaterials.vertex_colored())
+	_add(parent, b, WorldMaterials.props())
 	if style != &"hoehle":
 		_add(parent, glow, WorldMaterials.glowing(accent))
 	var body := StaticBody3D.new()

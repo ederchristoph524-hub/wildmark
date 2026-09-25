@@ -226,7 +226,7 @@ func _check_sect_ranks(progression: ProgressionData) -> void:
 
 
 const QUEST_TYPES: Array[StringName] = [&"item", &"kills", &"built", &"area", &"day", &"rogues", &"duels", &"refine", &"rank",
-	&"inheritance", &"infamy", &"fame"]
+	&"inheritance", &"infamy", &"fame", &"feud", &"dao", &"codex"]
 
 
 ## Aufgaben mit Regel: bekannte Art, vorhandene Gegenstände (Abgabe und Belohnung).

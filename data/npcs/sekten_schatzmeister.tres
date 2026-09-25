@@ -16,3 +16,4 @@ trade_give = Dictionary[StringName, int]({
 trade_gu = 1
 trade_gu_rank = 5
 trade_text = "120 Ursteine gegen einen zufälligen Rang-5-Gu"
+hat = &"krone"

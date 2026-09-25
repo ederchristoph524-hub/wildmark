@@ -23,6 +23,8 @@ var body_color: Color = BODY_COLOR
 var skin_color: Color = SKIN_COLOR
 var hair_color: Color = HAIR_COLOR
 var sash_color: Color = SASH_COLOR
+## Kopfbedeckung (CharacterMesh._hat); leer = Haarknoten.
+var hat: StringName = &""
 ## Nur Gu-Meister zeigen die leuchtende Apertur.
 var show_aperture: bool = true
 var aperture_glow: MeshInstance3D = null
@@ -38,6 +40,10 @@ var _material: ShaderMaterial = null
 func _ready() -> void:
 	_material = ShaderMaterial.new()
 	_material.shader = CHARACTER_SHADER
+	_material.set_shader_parameter(&"fabric_tex", ProceduralTextures.get_texture(&"fabric"))
+	_material.set_shader_parameter(&"fabric_nm", ProceduralTextures.get_texture(&"fabric_normal"))
+	_material.set_shader_parameter(&"skin_color", skin_color)
+	_material.set_shader_parameter(&"hair_color", hair_color)
 	_body = MeshInstance3D.new()
 	_body.material_override = _material
 	add_child(_body)
@@ -46,7 +52,7 @@ func _ready() -> void:
 	if show_aperture:
 		aperture_glow = MeshInstance3D.new()
 		aperture_glow.mesh = MeshBuilder.sphere(0.07, 6, 4)
-		aperture_glow.position = Vector3(0.0, 1.0, -0.25)
+		aperture_glow.position = Vector3(0.0, 1.02, -0.13)
 		aperture_glow.material_override = Fx.material(Color(0.5, 0.8, 0.4))
 		aperture_glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(aperture_glow)
@@ -61,7 +67,7 @@ static func vary_looks(model: PlayerModel, seed_text: String) -> void:
 
 
 func _colors() -> Dictionary:
-	return {"robe": body_color, "sleeve": body_color.darkened(0.08), "trousers": cloth_color, "sash": sash_color, "skin": skin_color, "hair": hair_color}
+	return {"robe": body_color, "sleeve": body_color.darkened(0.08), "trousers": cloth_color, "sash": sash_color, "skin": skin_color, "hair": hair_color, "hat": hat}
 
 
 func set_rank_color(color: Color) -> void:
@@ -76,7 +82,7 @@ func set_sitting(active: bool) -> void:
 	sitting = active
 	_body.mesh = CharacterMesh.build(_colors(), active)
 	if aperture_glow != null:
-		aperture_glow.position.y = 1.0 - (CharacterMesh.HIP - CharacterMesh.SIT_HIP if active else 0.0)
+		aperture_glow.position.y = 1.02 - (CharacterMesh.HIP - CharacterMesh.SIT_HIP if active else 0.0)
 
 
 ## Leuchten der ganzen Figur (Aura beim Kultivieren), a = Stärke.

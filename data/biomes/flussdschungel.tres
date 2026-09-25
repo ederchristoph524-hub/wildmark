@@ -30,3 +30,5 @@ sky_top = Color(0.2901961, 0.53333336, 0.7529412, 1)
 fog = Color(0.7058824, 0.8, 0.78431374, 1)
 fog_density = 0.0026
 water = Color(0.22745098, 0.41568628, 0.3529412, 1)
+weather = &"regen"
+weather_chance = 0.4

@@ -92,6 +92,7 @@ func _build_body() -> void:
 	_model = PlayerModel.new()
 	_model.cloth_color = data.color.darkened(0.35)
 	_model.body_color = data.color
+	_model.hat = data.hat
 	add_child(_model)
 	_model.set_rank_color(DataRegistry.progression().rank_color(rank))
 	_label = EnemyNameplate.new()

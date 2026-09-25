@@ -81,6 +81,15 @@ func _test_area() -> void:
 	steps._check(not world.terrain.lakes.is_empty() and world.terrain.in_water(world.terrain.lakes[0].x, world.terrain.lakes[0].y), "Jadesee im Gelände")
 	var center: Vector3 = world.ground_point(0.0, 0.0)
 	steps._check(world.in_settlement(center.x, center.z) and not world.in_settlement(0.0, 150.0), "Siedlungen sind Schutzzonen")
+	var weather: Weather = null
+	for child: Node in world.get_children():
+		if child is Weather:
+			weather = child
+	steps._check(weather != null and Weather.kind == Weather.KIND_RAIN, "Dschungel kennt Regentage")
+	if weather != null:
+		weather.force(1.0)
+		steps._check(is_equal_approx(Weather.intensity, 1.0), "Regen lässt sich erzwingen")
+		weather.force(0.0)
 
 
 func _test_inheritance() -> void:

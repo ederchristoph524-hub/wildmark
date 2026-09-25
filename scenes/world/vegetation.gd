@@ -10,6 +10,8 @@ const CHUNK_SMALL: float = 30.0
 const TREE_VIEW: float = 135.0
 ## Oberhalb dieser Höhe wachsen nur noch Nadelbäume.
 const TREE_LINE: float = 18.0
+## Baumarten ohne Blattausschnitt (Halme und Stämme würden löchrig).
+const SOLID_TREES: Array[StringName] = [&"bambus", &"kaktus", &"totholz"]
 ## Mindestabstand zwischen Stämmen (keine Bäume ineinander).
 const TREE_SPACING: float = 3.2
 ## Helligkeitsstreuung je Pflanze.
@@ -40,17 +42,17 @@ func _ready() -> void:
 	_place_trees(roundi(biome.trees_per_1000 * area_k))
 	var bushes: Array[Transform3D] = _scatter(roundi(biome.bushes_per_1000 * area_k), 0.6, Vector2(0.7, 1.4))
 	var half: int = floori(bushes.size() / 2.0)
-	_place_chunked(VegetationMeshes.bush(), bushes.slice(0, half), 70.0, false, CHUNK_LARGE)
-	_place_chunked(VegetationMeshes.fern(), bushes.slice(half), 60.0, false, CHUNK_LARGE)
+	_place_chunked(VegetationMeshes.bush(), bushes.slice(0, half), 70.0, false, CHUNK_LARGE, &"leafy")
+	_place_chunked(VegetationMeshes.fern(), bushes.slice(half), 60.0, false, CHUNK_LARGE, &"small")
 	var stone: Color = biome.color(&"fels", VegetationMeshes.ROCK)
 	var dry: bool = biome.vegetation.has(&"kaktus")
 	var rock_mesh: ArrayMesh = VegetationMeshes.rock(stone, stone.lightened(0.15) if dry else VegetationMeshes.MOSS)
-	_place_chunked(rock_mesh, _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE, false)
+	_place_chunked(rock_mesh, _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE, &"rock")
 	var grass: Array[Transform3D] = _scatter(roundi(biome.grass_per_1000 * area_k * GraphicsSettings.grass_mult()), 0.5, Vector2(0.7, 1.3))
 	var flowers: int = floori(grass.size() / 8.0)
 	var tall: bool = biome.vegetation.has(&"steppengras")
-	_place_chunked(VegetationMeshes.tall_grass() if tall else VegetationMeshes.grass(), grass.slice(flowers), 32.0 if not tall else 45.0, false, CHUNK_SMALL)
-	_place_chunked(VegetationMeshes.flowers(), grass.slice(0, flowers), 32.0, false, CHUNK_SMALL)
+	_place_chunked(VegetationMeshes.tall_grass() if tall else VegetationMeshes.grass(), grass.slice(flowers), 32.0 if not tall else 45.0, false, CHUNK_SMALL, &"small" if tall else &"grass")
+	_place_chunked(VegetationMeshes.flowers(), grass.slice(0, flowers), 32.0, false, CHUNK_SMALL, &"small")
 
 
 ## Baumarten nach Biom-Anteilen; über der Baumgrenze nur Nadelbäume.
@@ -77,7 +79,7 @@ func _place_trees(count: int) -> void:
 		per_type[kind].append(placement)
 		_add_trunk_collider(placement, 0.25 if kind == &"bambus" else 0.4)
 	for kind: StringName in per_type:
-		_place_chunked(meshes.get(kind, meshes[&"nadelbaum"]), per_type[kind], TREE_VIEW, true, CHUNK_LARGE)
+		_place_chunked(meshes.get(kind, meshes[&"nadelbaum"]), per_type[kind], TREE_VIEW, true, CHUNK_LARGE, &"small" if kind in SOLID_TREES else &"leafy")
 
 
 ## Zufällige Positionen im begehbaren Bereich (fester Seed, nicht zu steil, nicht auf Plätzen oder im Wasser).
@@ -126,8 +128,9 @@ func _in_clearing(x: float, z: float) -> bool:
 
 
 ## Verteilt Instanzen auf Kacheln, damit ferne Kacheln nicht gezeichnet werden. Pflanzen erhalten die Tönung des
-## Bioms und je Instanz eine leichte Farbabweichung (tinted = false für Felsen).
-func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows: bool, chunk: float, tinted: bool = true) -> void:
+## Bioms und je Instanz eine leichte Farbabweichung (Felsen keine); material = Art aus WorldMaterials.vegetation.
+func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows: bool, chunk: float, material: StringName) -> void:
+	var tinted: bool = material != &"rock"
 	var chunks: Dictionary = {}
 	for placement: Transform3D in transforms:
 		var key := Vector2i(floori(placement.origin.x / chunk), floori(placement.origin.z / chunk))
@@ -151,7 +154,7 @@ func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows
 			multimesh.set_instance_color(i, Color(tint.r * shade, tint.g * shade * _rng.randf_range(0.97, 1.03), tint.b * shade))
 		var instance := MultiMeshInstance3D.new()
 		instance.multimesh = multimesh
-		instance.material_override = WorldMaterials.vertex_colored()
+		instance.material_override = WorldMaterials.vegetation(material)
 		instance.position = center
 		instance.visibility_range_end = view_distance * GraphicsSettings.view_mult()
 		instance.visibility_range_end_margin = 8.0

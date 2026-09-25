@@ -23,16 +23,24 @@ static func build(b: MeshBuilder, t: Transform3D, width: float, depth: float, pa
 	p["wand"] = wall.lerp(Color(wall.r * 1.04, wall.g * 0.97, wall.b * 0.9), rng.randf()).darkened(rng.randf_range(0.0, 0.12))
 	p["dach"] = (p["dach"] as Color).darkened(rng.randf_range(-0.06, 0.12))
 	var boxes: Array[Array] = []
-	match rng.rand_weighted(WEIGHTS):
+	var style: int = rng.rand_weighted(WEIGHTS)
+	# Firsthöhe für den Schornstein (Pfahlhäuser haben keinen).
+	var ridge: float = Architecture.PLINTH + Architecture.WALL_HEIGHT + 2.4
+	match style:
 		Style.PLANKS:
 			boxes = _planks(b, t, width, depth, p)
 		Style.TWO_STORY:
 			boxes = _two_story(b, t, width, depth, p)
+			ridge = Architecture.PLINTH + Architecture.WALL_HEIGHT + 0.45 + UPPER_HEIGHT + 2.2
 		Style.STILTS:
 			boxes = _stilts(b, t, width * 0.85, depth * 0.85, p)
+			ridge = 0.0
 		_:
 			boxes = Architecture.house(b, t, width, depth, p)
-	_props(b, t, width, depth, p, rng)
+	var props_side: float = _props(b, t, width, depth, p, rng)
+	if ridge > 0.0:
+		VillageYards.chimney(b, t, Vector3(width * 0.28, ridge, -0.5), rng)
+		boxes.append_array(VillageYards.yard(b, t, width, depth, p, rng, props_side))
 	return boxes
 
 
@@ -79,7 +87,7 @@ static func _two_story(b: MeshBuilder, t: Transform3D, width: float, depth: floa
 	var upper_d: float = depth - 1.4
 	_box(b, t, Vector3(0, ground + 0.45 + UPPER_HEIGHT * 0.5, 0), Vector3(upper_w, UPPER_HEIGHT, upper_d), p["wand"].lightened(0.04))
 	for sx: float in [-1.0, 1.0]:
-		_box(b, t, Vector3(sx * upper_w * 0.25, ground + 1.8, upper_d * 0.5 + 0.03), Vector3(1.2, 0.9, 0.08), Architecture.WINDOW)
+		_box(b, t, Vector3(sx * upper_w * 0.25, ground + 1.8, upper_d * 0.5 + 0.03), Vector3(1.2, 0.9, 0.08), Architecture.WINDOW, Architecture.window_glow(t, sx))
 		_box(b, t, Vector3(sx * upper_w * 0.25, ground + 1.8, upper_d * 0.5 + 0.06), Vector3(1.0, 0.7, 0.04), Architecture.PAPER)
 		for sz: float in [-1.0, 1.0]:
 			_box(b, t, Vector3(sx * upper_w * 0.5, ground + 0.45 + UPPER_HEIGHT * 0.5, sz * upper_d * 0.5), Vector3(0.22, UPPER_HEIGHT, 0.22), p["holz"])
@@ -114,8 +122,8 @@ static func _stilts(b: MeshBuilder, t: Transform3D, width: float, depth: float, 
 	return [[t.translated_local(Vector3(0, 0, 0.6)), Vector3(width + 0.6, floor_y + wall_h + 2.8, depth + 2.0)]]
 
 
-## Kleinkram an der Hauswand: Fässer, Brennholzstapel, Krüge oder eine Wäschestange.
-static func _props(b: MeshBuilder, t: Transform3D, width: float, depth: float, p: Dictionary, rng: RandomNumberGenerator) -> void:
+## Kleinkram an der Hauswand: Fässer, Brennholzstapel, Krüge oder eine Wäschestange. Liefert die Seite (±1).
+static func _props(b: MeshBuilder, t: Transform3D, width: float, depth: float, p: Dictionary, rng: RandomNumberGenerator) -> float:
 	var side: float = -1.0 if rng.randf() < 0.5 else 1.0
 	var x: float = side * (width * 0.5 + 0.9)
 	match rng.randi() % 4:
@@ -135,7 +143,8 @@ static func _props(b: MeshBuilder, t: Transform3D, width: float, depth: float, p
 			b.add(MeshBuilder.cylinder(0.03, 0.03, 2.8, 4), t * MeshBuilder.at(Vector3(x, 1.85, 0), Vector3.ONE, Vector3(PI * 0.5, 0, 0)), p["holz"])
 			for i: int in 2:
 				_box(b, t, Vector3(x, 1.45, -0.6 + i * 1.1), Vector3(0.04, 0.8, 0.8), CLOTH[rng.randi() % CLOTH.size()])
+	return side
 
 
-static func _box(b: MeshBuilder, t: Transform3D, center: Vector3, box_size: Vector3, color: Color) -> void:
-	b.add(MeshBuilder.box(box_size), t * MeshBuilder.at(center), color)
+static func _box(b: MeshBuilder, t: Transform3D, center: Vector3, box_size: Vector3, color: Color, glow: Vector2 = Vector2.ZERO) -> void:
+	b.add(MeshBuilder.box(box_size), t * MeshBuilder.at(center), color, glow)

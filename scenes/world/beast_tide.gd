@@ -65,6 +65,7 @@ func start() -> void:
 	_waves_left = WAVES
 	_wave_timer = 0.0
 	EventBus.message.emit(tr("Die %s bricht los!") % tr(String(tide["name"])), WARN_COLOR)
+	Sound.play(&"drum")
 
 
 func _process(delta: float) -> void:
@@ -122,3 +123,4 @@ func _win() -> void:
 		parts.append("%d %s" % [int(reward[item]), tr(DataRegistry.item(item).display_name)])
 	SectLife.add_merit(MERIT)
 	EventBus.message.emit(tr("Die %s ist abgewehrt! Lohn: %s") % [tr(String(tide["name"])), ", ".join(parts)], WIN_COLOR)
+	Sound.play(&"gong")

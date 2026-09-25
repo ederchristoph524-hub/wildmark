@@ -35,7 +35,7 @@ static func build(world: World, data: Dictionary, center: Vector3) -> Dictionary
 		Architecture.training_dummy(b, base.translated_local(training_at + Vector3(-4.5 + i * 3.0, 0, -3.0)), palette)
 	anchors["training"] = center + training_at + Vector3(0, 0, 3.0)
 	walls_and_gates(b, boxes, world, center, radius, palette, anchors)
-	_plaza(b, boxes, base, radius, palette, anchors, center)
+	_plaza(b, boxes, world, base, radius, palette, anchors, center)
 	_houses(b, boxes, base, radius, int(data["houses"]), palette, rng, hall_size)
 	anchors["garden"] = center + Vector3(-radius * 0.55, 0, radius * 0.25)
 	finish(world, b, boxes)
@@ -70,11 +70,18 @@ static func walls_and_gates(b: MeshBuilder, boxes: Array[Array], world: World, c
 		Architecture.banner_pole(b, front.translated_local(Vector3(side * (gate_width * 0.5 + 2.2), 0, -1.8)), palette)
 
 
-## Dorfplatz: Brunnen, Marktstände, Laternen entlang der Hauptstraße, Banner vor der Halle.
-static func _plaza(b: MeshBuilder, boxes: Array[Array], base: Transform3D, radius: float, palette: Dictionary, anchors: Dictionary, center: Vector3) -> void:
+## Dorfplatz: Brunnen mit Bänken und Schattenbäumen, Marktstände, Laternen entlang der Hauptstraße, Banner vor der Halle.
+static func _plaza(b: MeshBuilder, boxes: Array[Array], world: World, base: Transform3D, radius: float, palette: Dictionary, anchors: Dictionary, center: Vector3) -> void:
 	var well_at := Vector3(-8.0, 0, radius * 0.02)
 	boxes.append_array(Architecture.well(b, base.translated_local(well_at), palette))
 	anchors["well"] = center + well_at + Vector3(2.5, 0, 1.5)
+	# Bänke im Schatten der Dorfbäume neben dem Brunnen und vor der Halle.
+	for bench_at: Array in [[well_at + Vector3(-3.4, 0, 2.6), PI * 0.5], [well_at + Vector3(-3.4, 0, -2.6), -PI * 0.5], [Vector3(-4.0, 0, -radius * 0.38 + 14.0), PI]]:
+		boxes.append_array(VillageYards.bench(b, base * Transform3D(Basis(Vector3.UP, bench_at[1]), bench_at[0]), palette["holz"]))
+	var trees: Array[Vector3] = []
+	for tree_at: Vector3 in [well_at + Vector3(0, 0, 5.5), Vector3(15.0, 0, -radius * 0.14), Vector3(-radius * 0.55 - 3.5, 0, radius * 0.25 + 3.5)]:
+		trees.append(world.ground_point(center.x + tree_at.x, center.z + tree_at.z))
+	VillageYards.trees(world, trees, boxes)
 	var goods: Array[Color] = [Color(0.8, 0.3, 0.3), Color(0.9, 0.75, 0.3), Color(0.4, 0.7, 0.35)]
 	for i: int in 3:
 		var at := Vector3(10.0, 0, radius * 0.02 + (i - 1) * 4.2)
@@ -141,9 +148,15 @@ static func roads(data: Dictionary) -> Array:
 
 ## Schreibt das gesammelte Mesh (ein Draw Call) und die Kollisionsquader der Siedlung in die Welt.
 static func finish(world: World, b: MeshBuilder, boxes: Array[Array]) -> void:
+	if not Architecture.lantern_points.is_empty():
+		LanternLights.create(world, Architecture.lantern_points.duplicate())
+		Architecture.lantern_points.clear()
+	if not VillageYards.chimney_points.is_empty():
+		VillageYards.smoke(world, VillageYards.chimney_points.duplicate())
+		VillageYards.chimney_points.clear()
 	var node := MeshInstance3D.new()
 	node.mesh = b.build()
-	node.material_override = WorldMaterials.vertex_colored()
+	node.material_override = WorldMaterials.settlement()
 	node.visibility_range_end = VIEW_DISTANCE
 	world.add_child(node)
 	var body := StaticBody3D.new()

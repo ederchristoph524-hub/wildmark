@@ -3,7 +3,8 @@ extends Control
 ## Große Karte des aktuellen Gebiets: Gelände, Orte mit Namen, Dorfbewohner, Gu-Meister und dein Standort.
 
 const LABEL: Color = Color(0.95, 0.92, 0.84)
-const NAMED_KINDS: Array[StringName] = [MapData.KIND_VILLAGE, MapData.KIND_PLACE, MapData.KIND_SITE]
+## Rätselorte nur als Punkt (sieben gleiche Namen überdecken sonst die Karte).
+const NAMED_KINDS: Array[StringName] = [MapData.KIND_VILLAGE, MapData.KIND_PLACE]
 
 var world: World = null
 var player: Player = null

@@ -11,3 +11,5 @@ extends Resource
 ## Rang und Stufe des Meisters (0 = Balance.master_rank bzw. master_stage).
 @export var rank: int = 0
 @export var stage: int = -1
+## Kopfbedeckung (CharacterMesh.HATS): stroh, kappe, fell, band, kapuze, turban, krone, feder; leer = Haarknoten.
+@export var hat: StringName = &""

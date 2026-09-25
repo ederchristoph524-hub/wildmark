@@ -32,6 +32,9 @@ func build_biome(id: StringName, d: Dictionary) -> Resource:
 		biome.sea_level = ImportUtil.to_float(d["meeresspiegel"])
 	if d.has("pflanzenfarbe"):
 		biome.plant_tint = ImportUtil.color(d["pflanzenfarbe"], context, _report)
+	var weather: Dictionary = d.get("wetter", {})
+	biome.weather = ImportUtil.sn(weather.get("art"))
+	biome.weather_chance = ImportUtil.to_float(weather.get("chance"), 0.0)
 	return biome
 
 
@@ -58,6 +61,11 @@ func build_area(id: StringName, d: Dictionary) -> Resource:
 	for key: Variant in d["relief"]:
 		area.relief[StringName(str(key))] = ImportUtil.to_float(d["relief"][key])
 	area.arrival = _vec(d["ankunft"])
+	for river: Variant in d.get("fluesse", []):
+		var points: Array[Vector2] = []
+		for point: Variant in (river as Dictionary).get("punkte", []):
+			points.append(_vec(point))
+		area.rivers.append({"points": points, "width": ImportUtil.to_float((river as Dictionary).get("breite"), 12.0)})
 	for hill: Variant in d.get("erhebungen", []):
 		area.hills.append(Vector4(ImportUtil.to_float(hill[0]), ImportUtil.to_float(hill[1]), ImportUtil.to_float(hill[2]), ImportUtil.to_float(hill[3])))
 	for path: Variant in d.get("wege", []):

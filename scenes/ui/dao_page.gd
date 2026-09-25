@@ -14,6 +14,15 @@ static func build() -> Control:
 		column.add_child(UiTheme.label(Loc.t("Noch keine Markierungen – setze Gu ein."), 17))
 	for path: StringName in paths:
 		column.add_child(_row(system, path))
+	column.add_child(UiTheme.label(Loc.t("Dao-Orte"), 22, UiTheme.ACCENT))
+	column.add_child(UiTheme.label(Loc.t("Wer an einem Dao-Ort kultiviert, prägt Markierungen in dessen Pfad (Lichtsäule über dem Steinkreis)."), 16, UiTheme.MUTED))
+	for resource: Resource in DataRegistry.all(&"areas"):
+		var area: AreaData = resource as AreaData
+		for place: Dictionary in area.places:
+			if place["type"] == &"dao_ort":
+				var path: StringName = place["path"]
+				var line: String = "%s · %s · %s" % [Loc.t(place["name"]), Loc.t(area.display_name), Loc.t(system.path_name(path))]
+				column.add_child(UiTheme.label(line, 16, system.path_color(path)))
 	if not SectLife.is_member():
 		return column
 	column.add_child(UiTheme.label(Loc.t("Sekte"), 22, UiTheme.ACCENT))

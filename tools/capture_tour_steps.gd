@@ -22,6 +22,12 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(90)
 	main.hud.visible = false
 	GameState.time_of_day = _time_arg()
+	# --weather=0.9 erzwingt das Wetter des Bioms (Regen, Schnee, Sand) mit dieser Stärke.
+	var weather_arg: float = _float_arg("--weather=", -1.0)
+	if weather_arg >= 0.0:
+		for child: Node in main.world.get_children():
+			if child is Weather and (child as Weather).is_processing():
+				(child as Weather).force(weather_arg)
 	_camera = Camera3D.new()
 	_camera.near = PlayerCamera.VIEW_NEAR
 	_camera.far = PlayerCamera.VIEW_FAR
@@ -52,6 +58,27 @@ func _time_arg() -> float:
 
 
 ## --wait=300 wartet so viele Bilder vor dem Foto (Partikel, Tageswechsel); Standard 12.
+func _float_arg(prefix: String, fallback: float) -> float:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with(prefix):
+			return float(arg.trim_prefix(prefix))
+	return fallback
+
+
+func _string_arg(prefix: String) -> String:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with(prefix):
+			return arg.trim_prefix(prefix)
+	return ""
+
+
+func _vector(text: String) -> Vector3:
+	var parts: PackedStringArray = text.split(",")
+	if parts.size() < 3:
+		return Vector3.ZERO
+	return Vector3(float(parts[0]), float(parts[1]), float(parts[2]))
+
+
 func _wait_arg() -> int:
 	for arg: String in OS.get_cmdline_user_args():
 		if arg.begins_with("--wait="):
@@ -71,6 +98,10 @@ func _only_arg() -> PackedStringArray:
 func _views(world: World) -> Array[Array]:
 	var result: Array[Array] = []
 	var size: float = world.area.size
+	# --at=x,y,z --look=x,y,z: freie Ansicht „frei" (Weltkoordinaten) für gezielte Prüfungen.
+	var free_at: String = _string_arg("--at=")
+	if free_at != "":
+		result.append(["frei", _vector(free_at), _vector(_string_arg("--look="))])
 	result.append(["uebersicht", Vector3(size * 0.1, size * 0.45, size * 0.55), Vector3(0, 0, 0)])
 	for settlement: Dictionary in world.area.settlements:
 		var at: Vector2 = settlement["position"]
@@ -84,6 +115,15 @@ func _views(world: World) -> Array[Array]:
 		var target: Vector3 = world.ground_point(p.x, p.y)
 		var distance: float = float(place["radius"]) * 1.6 + 8.0
 		result.append([String(place["id"]), target + Vector3(distance * 0.7, distance * 0.45, distance), target])
+	for i: int in world.area.rivers.size():
+		var points: Array = world.area.rivers[i]["points"]
+		var middle: int = floori(points.size() * 0.5)
+		var mid: Vector2 = points[middle]
+		var along: Vector2 = ((points[mini(middle + 1, points.size() - 1)] as Vector2) - mid).normalized()
+		var target: Vector3 = world.ground_point(mid.x, mid.y)
+		var eye: Vector3 = world.ground_point(mid.x - along.x * 30.0 + along.y * 18.0, mid.y - along.y * 30.0 - along.x * 18.0)
+		eye.y = maxf(eye.y + 6.0, target.y + 22.0)
+		result.append(["fluss_%d" % i, eye, target + Vector3(along.x * 20.0, 0.0, along.y * 20.0)])
 	result.append(["horizont", world.spawn_point() + Vector3.UP * 1.2, world.spawn_point() + Vector3(0.0, 8.0, 200.0)])
 	result.append(["wildnis", world.ground_point(-60.0, 120.0) + Vector3.UP * 1.8, world.ground_point(-110.0, 60.0) + Vector3.UP * 4.0])
 	return result

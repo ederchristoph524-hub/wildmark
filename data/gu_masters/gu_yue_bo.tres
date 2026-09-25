@@ -11,3 +11,4 @@ faction = &"righteous"
 gu = Array[StringName]([&"mondlicht", &"steinhaut", &"wirbelwind", &"lebensblatt"])
 rank = 3
 stage = 2
+hat = &"krone"

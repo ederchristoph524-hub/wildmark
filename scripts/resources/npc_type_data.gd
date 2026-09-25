@@ -17,3 +17,5 @@ extends Resource
 ## Rang der getauschten Gu (Auktionshäuser höherer Gebiete verkaufen stärkere Gu).
 @export var trade_gu_rank: int = 1
 @export var trade_text: String = ""
+## Kopfbedeckung (CharacterMesh.HATS): stroh, kappe, fell, band, kapuze, turban, krone, feder; leer = Haarknoten.
+@export var hat: StringName = &""

@@ -13,6 +13,9 @@ const MAX_DISTANCE: float = 45.0
 const AMBIENT_DB: float = -20.0
 const CRICKETS_DB: float = -24.0
 const HUM_DB: float = -14.0
+const RAIN_DB: float = -13.0
+## Wind bei Schnee und Sandsturm lauter.
+const WEATHER_WIND_DB: float = 8.0
 const CHECK_INTERVAL: float = 0.25
 const SETTINGS_PATH: String = "user://settings.cfg"
 const VOLUMES: Array[float] = [1.0, 0.5, 0.0]
@@ -46,6 +49,7 @@ var _next_2d: int = 0
 var _wind: AudioStreamPlayer = null
 var _crickets: AudioStreamPlayer = null
 var _hum: AudioStreamPlayer = null
+var _rain: AudioStreamPlayer = null
 var _check_left: float = 0.0
 var _music: Array[AudioStreamPlayer] = []
 var _next_music: int = 0
@@ -70,6 +74,7 @@ func _ready() -> void:
 	_wind = _loop_player(&"wind")
 	_crickets = _loop_player(&"crickets")
 	_hum = _loop_player(&"hum")
+	_rain = _loop_player(&"rain")
 	for i: int in 3:
 		var voice := AudioStreamPlayer.new()
 		voice.volume_db = MUSIC_DB
@@ -171,7 +176,9 @@ func _process(delta: float) -> void:
 	var player: Player = get_tree().get_first_node_in_group(Player.GROUP_PLAYER) as Player
 	var outside: bool = world != null and not get_tree().paused
 	var night: bool = Formulas.is_night(Balance.values, GameState.time_of_day)
-	_fade(_wind, outside, AMBIENT_DB)
+	var stormy: bool = Weather.kind == Weather.KIND_SNOW or Weather.kind == Weather.KIND_SAND
+	_fade(_wind, outside, AMBIENT_DB + (WEATHER_WIND_DB * Weather.intensity if stormy else 0.0))
+	_fade(_rain, outside and Weather.kind == Weather.KIND_RAIN and Weather.intensity > 0.08, lerpf(RAIN_DB - 14.0, RAIN_DB, Weather.intensity))
 	_fade(_crickets, outside and night, CRICKETS_DB)
 	_fade(_hum, player != null and player.aperture.meditating, HUM_DB)
 

@@ -11,3 +11,4 @@ faction = &"demonic"
 gu = Array[StringName]([&"windklinge", &"knochensplitter", &"langfinger"])
 rank = 2
 stage = 2
+hat = &"kapuze"

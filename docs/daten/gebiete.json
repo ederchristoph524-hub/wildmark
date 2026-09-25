@@ -545,7 +545,39 @@
      "kristall": 18,
      "gruenkraut": 4
     }
-   }
+   },
+   "fluesse": [
+    {
+     "n": "Qing-Mao-Bach",
+     "punkte": [
+      [
+       -230,
+       182
+      ],
+      [
+       -140,
+       194
+      ],
+      [
+       -60,
+       201
+      ],
+      [
+       20,
+       205
+      ],
+      [
+       100,
+       204
+      ],
+      [
+       230,
+       192
+      ]
+     ],
+     "breite": 9
+    }
+   ]
   },
   "drei_koenige": {
    "n": "Drei-Könige-Erbe",
@@ -1631,8 +1663,8 @@
      "id": "wu_fels",
      "art": "fels",
      "belohnung": "baerensklave",
-     "richtung": 115,
-     "abstand": 180
+     "richtung": 117.6,
+     "abstand": 129.7
     },
     {
      "id": "wu_schalter",
@@ -1842,7 +1874,43 @@
      "kristall": 90,
      "drachenschuppe": 1
     }
-   }
+   },
+   "fluesse": [
+    {
+     "n": "Roter Drachenfluss",
+     "punkte": [
+      [
+       -235,
+       188
+      ],
+      [
+       -150,
+       182
+      ],
+      [
+       -80,
+       176
+      ],
+      [
+       0,
+       168
+      ],
+      [
+       80,
+       180
+      ],
+      [
+       150,
+       200
+      ],
+      [
+       235,
+       190
+      ]
+     ],
+     "breite": 14
+    }
+   ]
   },
   "steppe": {
    "n": "Graslande der Stämme",
@@ -2278,7 +2346,39 @@
      "kristall": 60,
      "wolfsgeist": 1
     }
-   }
+   },
+   "fluesse": [
+    {
+     "n": "Fluss der Wolfsebene",
+     "punkte": [
+      [
+       -265,
+       -52
+      ],
+      [
+       -159,
+       -71
+      ],
+      [
+       -53,
+       -98
+      ],
+      [
+       53,
+       -106
+      ],
+      [
+       159,
+       -133
+      ],
+      [
+       265,
+       -135
+      ]
+     ],
+     "breite": 16
+    }
+   ]
   },
   "oase": {
    "n": "Oasenstadt im Sandmeer",
@@ -3751,6 +3851,38 @@
      200,
      true
     ]
+   ],
+   "fluesse": [
+    {
+     "n": "Blutstrom",
+     "punkte": [
+      [
+       -220,
+       -169
+      ],
+      [
+       -132,
+       -188
+      ],
+      [
+       -44,
+       -183
+      ],
+      [
+       44,
+       -168
+      ],
+      [
+       132,
+       -187
+      ],
+      [
+       220,
+       -173
+      ]
+     ],
+     "breite": 12
+    }
    ]
   },
   "yi_tian_berg": {
@@ -5102,7 +5234,39 @@
      200
     ]
    },
-   "wilde_passive": []
+   "wilde_passive": [],
+   "fluesse": [
+    {
+     "n": "Wolkenbach",
+     "punkte": [
+      [
+       -225,
+       -167
+      ],
+      [
+       -135,
+       -162
+      ],
+      [
+       -45,
+       -187
+      ],
+      [
+       45,
+       -189
+      ],
+      [
+       135,
+       -173
+      ],
+      [
+       225,
+       -161
+      ]
+     ],
+     "breite": 10
+    }
+   ]
   }
  },
  "BIOME": {
@@ -5132,7 +5296,11 @@
    "himmel_oben": "#4f8cc6",
    "nebel": "#b0c7cf",
    "nebel_dichte": 0.0019,
-   "wasser": "#2a6670"
+   "wasser": "#2a6670",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.3
+   }
   },
   "felsberg": {
    "n": "Felsberge der Südlichen Grenze",
@@ -5161,7 +5329,11 @@
    "nebel": "#b9cfcf",
    "nebel_dichte": 0.0022,
    "wasser": "#2c6a70",
-   "pflanzenfarbe": "#eef4e8"
+   "pflanzenfarbe": "#eef4e8",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.25
+   }
   },
   "flussdschungel": {
    "n": "Flussdschungel der Südlichen Grenze",
@@ -5188,7 +5360,11 @@
    "himmel_oben": "#4a88c0",
    "nebel": "#b4ccc8",
    "nebel_dichte": 0.0026,
-   "wasser": "#3a6a5a"
+   "wasser": "#3a6a5a",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.4
+   }
   },
   "steppe": {
    "n": "Graslande der Nördlichen Ebene",
@@ -5216,7 +5392,11 @@
    "nebel": "#c8d8e0",
    "nebel_dichte": 0.0014,
    "wasser": "#3a7a9a",
-   "pflanzenfarbe": "#f2e8c4"
+   "pflanzenfarbe": "#f2e8c4",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.15
+   }
   },
   "wueste": {
    "n": "Sandmeer der Westlichen Wüste",
@@ -5244,7 +5424,11 @@
    "nebel": "#e0d4c0",
    "nebel_dichte": 0.0016,
    "wasser": "#3a8a8a",
-   "pflanzenfarbe": "#e8e0b0"
+   "pflanzenfarbe": "#e8e0b0",
+   "wetter": {
+    "art": "sand",
+    "chance": 0.3
+   }
   },
   "roter_fluss": {
    "n": "Täler am Roten Drachenfluss",
@@ -5272,7 +5456,11 @@
    "nebel": "#cfc4b4",
    "nebel_dichte": 0.0024,
    "wasser": "#5a2e22",
-   "pflanzenfarbe": "#f6eee2"
+   "pflanzenfarbe": "#f6eee2",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.3
+   }
   },
   "inseln": {
    "n": "Zehntausend Inseln",
@@ -5300,7 +5488,11 @@
    "nebel": "#c4dce6",
    "nebel_dichte": 0.0016,
    "wasser": "#2a7a9a",
-   "meeresspiegel": 0.0
+   "meeresspiegel": 0.0,
+   "wetter": {
+    "art": "regen",
+    "chance": 0.3
+   }
   },
   "sektenberg": {
    "n": "Sektenberge des Zentralkontinents",
@@ -5327,7 +5519,11 @@
    "himmel_oben": "#4a7cb8",
    "nebel": "#c8d4dc",
    "nebel_dichte": 0.0024,
-   "wasser": "#3a6a80"
+   "wasser": "#3a6a80",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.2
+   }
   },
   "blutsumpf": {
    "n": "Blutsümpfe der Südlichen Grenze",
@@ -5355,7 +5551,11 @@
    "nebel": "#bca098",
    "nebel_dichte": 0.0034,
    "wasser": "#6a1a1e",
-   "pflanzenfarbe": "#c8b8a0"
+   "pflanzenfarbe": "#c8b8a0",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.45
+   }
   },
   "froststeppe": {
    "n": "Frostberge der Nördlichen Ebene",
@@ -5383,7 +5583,11 @@
    "nebel": "#d0dae2",
    "nebel_dichte": 0.0022,
    "wasser": "#3a6a8a",
-   "pflanzenfarbe": "#e6eef0"
+   "pflanzenfarbe": "#e6eef0",
+   "wetter": {
+    "art": "schnee",
+    "chance": 0.5
+   }
   },
   "rote_schlucht": {
    "n": "Flammenwut-Schlucht der Westlichen Wüste",
@@ -5411,7 +5615,11 @@
    "nebel": "#e8ccaa",
    "nebel_dichte": 0.0018,
    "wasser": "#3a7a7a",
-   "pflanzenfarbe": "#e0c890"
+   "pflanzenfarbe": "#e0c890",
+   "wetter": {
+    "art": "sand",
+    "chance": 0.25
+   }
   },
   "nebelriff": {
    "n": "Nebelriffe des Östlichen Meeres",
@@ -5440,7 +5648,11 @@
    "nebel": "#b4c4ce",
    "nebel_dichte": 0.0034,
    "wasser": "#1f5a78",
-   "meeresspiegel": 0.0
+   "meeresspiegel": 0.0,
+   "wetter": {
+    "art": "regen",
+    "chance": 0.35
+   }
   },
   "kranichtal": {
    "n": "Kranichtäler des Zentralkontinents",
@@ -5468,7 +5680,11 @@
    "himmel_oben": "#4a80c0",
    "nebel": "#d4e0e6",
    "nebel_dichte": 0.0022,
-   "wasser": "#3a7a9a"
+   "wasser": "#3a7a9a",
+   "wetter": {
+    "art": "regen",
+    "chance": 0.2
+   }
   }
  }
 }

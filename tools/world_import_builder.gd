@@ -236,6 +236,7 @@ func _build_npc(id: StringName, d: Dictionary) -> Resource:
 	npc.trade_gu = ImportUtil.to_int(trade.get("gu"))
 	npc.trade_gu_rank = ImportUtil.to_int(trade.get("gu_rang"), 1)
 	npc.trade_text = ImportUtil.text(trade.get("d"))
+	npc.hat = ImportUtil.sn(d.get("hut"))
 	return npc
 
 
@@ -251,6 +252,7 @@ func _build_master(id: StringName, d: Dictionary) -> Resource:
 	master.gu = ImportUtil.names(d["gu"])
 	master.rank = ImportUtil.to_int(d.get("rang"), 0)
 	master.stage = ImportUtil.to_int(d.get("stufe"), -1)
+	master.hat = ImportUtil.sn(d.get("hut"))
 	return master
 
 

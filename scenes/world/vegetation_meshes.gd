@@ -35,7 +35,8 @@ static func broadleaf() -> ArrayMesh:
 	var blobs: Array[Array] = [[Vector3(0, 7.4, 0), 2.4, LEAF_DARK], [Vector3(1.8, 7.0, 0.6), 1.8, LEAF_MID], [Vector3(-1.7, 7.2, -0.5), 1.9, LEAF_MID],
 		[Vector3(0.4, 8.5, -0.9), 1.6, LEAF_LIGHT], [Vector3(-0.6, 8.2, 1.2), 1.5, LEAF_OLIVE], [Vector3(1.0, 6.4, -1.5), 1.3, LEAF_DARK]]
 	for blob: Array in blobs:
-		b.add(MeshBuilder.sphere(blob[1], 6, 4), MeshBuilder.at(blob[0], Vector3(1.0, 0.62, 1.0)), blob[2])
+		b.add(MeshBuilder.sphere(blob[1] * 0.85, 6, 4), MeshBuilder.at(blob[0], Vector3(1.0, 0.62, 1.0)), (blob[2] as Color).darkened(0.15))
+		_crown_cards(b, blob[0], blob[1], blob[2], 7, blobs.find(blob) + 3)
 	return b.build()
 
 
@@ -43,9 +44,10 @@ static func broadleaf() -> ArrayMesh:
 static func round_tree() -> ArrayMesh:
 	var b := MeshBuilder.new()
 	b.add(MeshBuilder.cylinder(0.18, 0.3, 3.4, 6), MeshBuilder.at(Vector3(0, 1.7, 0)), TRUNK)
-	b.add(MeshBuilder.sphere(2.0, 7, 4), MeshBuilder.at(Vector3(0, 4.2, 0), Vector3(1.0, 0.8, 1.0)), LEAF_MID)
-	b.add(MeshBuilder.sphere(1.3, 6, 4), MeshBuilder.at(Vector3(0.9, 4.9, 0.5)), LEAF_LIGHT)
-	b.add(MeshBuilder.sphere(1.2, 6, 4), MeshBuilder.at(Vector3(-0.8, 3.8, -0.7)), LEAF_DARK)
+	b.add(MeshBuilder.sphere(1.7, 7, 4), MeshBuilder.at(Vector3(0, 4.2, 0), Vector3(1.0, 0.8, 1.0)), LEAF_MID.darkened(0.15))
+	_crown_cards(b, Vector3(0, 4.2, 0), 2.0, LEAF_MID, 9, 11)
+	_crown_cards(b, Vector3(0.9, 4.9, 0.5), 1.3, LEAF_LIGHT, 5, 12)
+	_crown_cards(b, Vector3(-0.8, 3.8, -0.7), 1.2, LEAF_DARK, 5, 13)
 	return b.build()
 
 
@@ -58,7 +60,8 @@ static func blossom_tree() -> ArrayMesh:
 	var blobs: Array[Array] = [[Vector3(0, 4.6, 0), 1.9, BLOSSOM], [Vector3(1.5, 4.3, 0.4), 1.4, BLOSSOM_LIGHT], [Vector3(-1.4, 4.4, -0.4), 1.5, BLOSSOM],
 		[Vector3(0.3, 5.4, -0.7), 1.2, BLOSSOM_LIGHT], [Vector3(-0.5, 5.1, 0.9), 1.1, BLOSSOM_DEEP]]
 	for blob: Array in blobs:
-		b.add(MeshBuilder.sphere(blob[1], 6, 4), MeshBuilder.at(blob[0], Vector3(1.0, 0.7, 1.0)), blob[2])
+		b.add(MeshBuilder.sphere(blob[1] * 0.8, 6, 4), MeshBuilder.at(blob[0], Vector3(1.0, 0.7, 1.0)), (blob[2] as Color).darkened(0.1))
+		_crown_cards(b, blob[0], blob[1], blob[2], 6, blobs.find(blob) + 21)
 	return b.build()
 
 
@@ -114,9 +117,10 @@ static func bamboo() -> ArrayMesh:
 
 static func bush() -> ArrayMesh:
 	var b := MeshBuilder.new()
-	b.add(MeshBuilder.sphere(0.75, 6, 4), MeshBuilder.at(Vector3(0, 0.45, 0), Vector3(1.25, 0.8, 1.05)), LEAF_DARK)
-	b.add(MeshBuilder.sphere(0.5, 6, 3), MeshBuilder.at(Vector3(0.55, 0.6, 0.2)), LEAF_MID)
-	b.add(MeshBuilder.sphere(0.45, 6, 3), MeshBuilder.at(Vector3(-0.45, 0.55, -0.3)), LEAF_OLIVE)
+	b.add(MeshBuilder.sphere(0.6, 6, 4), MeshBuilder.at(Vector3(0, 0.45, 0), Vector3(1.25, 0.8, 1.05)), LEAF_DARK.darkened(0.1))
+	_crown_cards(b, Vector3(0, 0.5, 0), 0.8, LEAF_DARK, 6, 31)
+	_crown_cards(b, Vector3(0.55, 0.6, 0.2), 0.5, LEAF_MID, 4, 32)
+	_crown_cards(b, Vector3(-0.45, 0.55, -0.3), 0.45, LEAF_OLIVE, 4, 33)
 	return b.build()
 
 
@@ -134,12 +138,14 @@ static func fern() -> ArrayMesh:
 	return b.build()
 
 
+## Grasbüschel: drei gekreuzte Karten mit Halm-Textur (Material „grass“ schneidet sie aus).
 static func grass() -> ArrayMesh:
 	var b := MeshBuilder.new()
-	for i: int in 5:
-		var angle: float = i * TAU / 5.0
-		var height: float = 0.45 + (i % 3) * 0.12
-		b.add(MeshBuilder.cylinder(0.0, 0.05, height, 3), MeshBuilder.at(Vector3(cos(angle) * 0.08, height * 0.5, sin(angle) * 0.08), Vector3.ONE, Vector3(sin(angle) * 0.35, 0, -cos(angle) * 0.35)), LEAF_MID if i % 2 == 0 else LEAF_LIGHT)
+	for i: int in 3:
+		var angle: float = i * PI / 3.0
+		var right := Vector3(cos(angle), 0.0, sin(angle)) * 0.32
+		var top := Vector3(0.0, 0.62, 0.0)
+		b.add_card([-right, right, right + top, -right + top], LEAF_MID if i % 2 == 0 else LEAF_LIGHT, [Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(0, 0)])
 	return b.build()
 
 
@@ -199,6 +205,26 @@ static func tall_grass() -> ArrayMesh:
 		var height: float = 0.8 + (i % 4) * 0.15
 		_leaf(b, dir * 0.05, (dir * 0.35 + Vector3.UP * height).normalized(), height, 0.07, 0.15, LEAF_OLIVE if i % 2 == 0 else LEAF_LIGHT)
 	return b.build()
+
+
+## Blattkarten um eine Krone: count Vierecke in zufälligen Richtungen um center, nach außen versetzt und gedreht;
+## der Vegetations-Shader schneidet aus jeder Karte ein Blattbüschel aus.
+static func _crown_cards(b: MeshBuilder, center: Vector3, radius: float, color: Color, count: int, salt: int) -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = salt
+	for i: int in count:
+		var dir := Vector3(rng.randf_range(-1.0, 1.0), rng.randf_range(-0.3, 0.7), rng.randf_range(-1.0, 1.0)).normalized()
+		var at: Vector3 = center + dir * radius * 0.5
+		var size: float = radius * rng.randf_range(1.0, 1.4)
+		var right: Vector3 = dir.cross(Vector3.UP)
+		if right.length() < 0.1:
+			right = Vector3.RIGHT
+		right = right.normalized()
+		var up: Vector3 = right.cross(dir).normalized()
+		var spin := Basis(dir, rng.randf() * TAU)
+		right = spin * right * size * 0.5
+		up = spin * up * size * 0.5
+		b.add_card([at - right - up, at + right - up, at + right + up, at - right + up], color.darkened(rng.randf_range(0.0, 0.12)))
 
 
 ## Schmales, hängendes Blatt (Raute, beidseitig) vom Ansatz in Richtung dir.

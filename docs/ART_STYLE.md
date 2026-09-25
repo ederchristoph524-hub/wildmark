@@ -4,7 +4,18 @@ Ziel: ein einheitlicher, wiedererkennbarer Look, der im Handy-Browser flüssig l
 
 ## Stil in einem Satz
 
-Stilisiertes Low-Poly mit flachen Farbflächen, weichem Licht und dichtem Nebel: schön bei Tag, bedrohlich bei Nacht.
+Realistisch angehauchtes Low-Poly: einfache Formen, aber echte Oberflächen (Gras, Erde, Fels, Putz, Holz, Ziegel, Rinde, Stoff mit Relief), Laub aus Blattkarten, Wasser mit Wellen und Himmelsspiegelung, Wolken, warmes Laternenlicht und Glow – schön bei Tag, bedrohlich bei Nacht.
+
+## Umsetzung des realistischen Looks (Stand: Realismus-Umbau)
+
+- **Texturen ohne Dateien:** `ProceduralTextures` (mit `ProceduralPatterns`, `ProceduralCards`) erzeugt beim ersten Start nahtlose Detailtexturen und Normal Maps (256 px) und legt sie als PNG in `user://textures/` ab (`VERSION` erhöhen, wenn sich ein Rezept ändert). Die Farbe kommt weiterhin aus Vertex-Farben; die Textur liefert nur Helligkeit und Relief.
+- **Gelände** (`terrain.gdshader`): Gras auf Grün, Kies/Erde auf Wegen, dreiseitig projizierter Fels an Steilhängen, Steinplatten auf Pflaster (Vertex-Alpha), Nässe bei Regen. Details blenden ab 45 m aus.
+- **Bauten und Requisiten** (`settlement.gdshader`, `WorldMaterials.settlement()`/`props()`): Material nach Farbe und Neigung – geneigte Flächen Dachziegel, Brauntöne (Farbton 14–56°) Holz, helle Töne Putz, graue Stein. Fenster und Laternen leuchten nachts (UV2), dazu `LanternLights` als echte Lichter.
+- **Pflanzen** (`vegetation.gdshader`, `WorldMaterials.vegetation()`): Kronen aus Kugeln mit organischem Ausschnitt plus Blattkarten (`MeshBuilder.add_card`, UV in UV2), Gras als Halm-Karten, Rinde an Stämmen, Gestein an Felsen, leichtes Wiegen im Wind.
+- **Wasser** (`water.gdshader`): zwei ziehende Wellen-Normal-Maps, dunkle Grundfarbe, Himmelsspiegelung nach Blickwinkel (Farbe aus `DayNight`), Schaum auf Flüssen.
+- **Himmel und Licht:** Wolkendecke (`sky_cover`), AgX-Tonemapper, Glow ab Grafikstufe Mittel (`GraphicsSettings.glow()`), Sonne mit Schatten, warmes Umgebungslicht.
+- **Dorfleben** (`VillageYards`): Zäune mit Törchen, Gemüsebeete, Steinplattenwege, Schornsteine mit Herdrauch (ein Partikelsystem je Siedlung), Bänke und Schattenbäume am Brunnen, in der Halle und im Garten – damit Dörfer bewohnt wirken statt leerer Wiesen zwischen Häusern.
+- **Figuren** (`CharacterMesh`, `character.gdshader`): etwa 6,5 Kopfhöhen, Hals, Hände, Gesicht (Augen, Brauen, Nase, Mund), Faltenwurf; Gewebe-Textur auf Stoff, Haut und Haar glatt.
 
 ## Grundregeln
 

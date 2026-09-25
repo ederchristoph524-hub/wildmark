@@ -55,7 +55,7 @@ static func ash_field(world: World, center: Vector2, radius: float) -> void:
 	for i: int in 12:
 		var at: Vector3 = _point(world, center, radius * 0.9, rng)
 		glow.add(MeshBuilder.sphere(rng.randf_range(0.06, 0.12), 4, 2), MeshBuilder.at(at + Vector3.UP * 0.06), EMBER)
-	_add(world, b, WorldMaterials.vertex_colored())
+	_add(world, b, WorldMaterials.props())
 	_add(world, glow, WorldMaterials.glowing(EMBER))
 
 
@@ -89,7 +89,7 @@ static func graveyard(world: World, center: Vector2, radius: float) -> void:
 	for i: int in 2:
 		var angle: float = rng.randf() * TAU
 		_dead_tree(b, world.ground_point(center.x + cos(angle) * radius * 0.9, center.y + sin(angle) * radius * 0.9), rng)
-	_add(world, b, WorldMaterials.vertex_colored())
+	_add(world, b, WorldMaterials.props())
 	_add(world, glow, WorldMaterials.glowing(LANTERN_GLOW))
 
 
@@ -114,7 +114,7 @@ static func frost_spring(world: World, center: Vector2, radius: float) -> void:
 	for i: int in 6:
 		var at: Vector3 = _point(world, center, radius * 1.1, rng)
 		b.add(MeshBuilder.sphere(rng.randf_range(0.6, 1.2), 7, 3), MeshBuilder.at(at, Vector3(1.4, 0.22, 1.0), Vector3(0, rng.randf() * TAU, 0)), SNOW.darkened(rng.randf_range(0.0, 0.08)))
-	_add(world, b, WorldMaterials.vertex_colored())
+	_add(world, b, WorldMaterials.props())
 	_add(world, glow, WorldMaterials.glowing(ICE))
 
 
@@ -159,7 +159,7 @@ static func stone_vein(world: World, center: Vector2, radius: float) -> void:
 	var pick: Vector3 = world.ground_point(back.x - 2.6, back.y + 2.2)
 	b.add(MeshBuilder.cylinder(0.05, 0.05, 1.3, 5), MeshBuilder.at(pick + Vector3(0, 0.6, 0), Vector3.ONE, Vector3(0.35, 0, 0.2)), TIMBER)
 	b.add(MeshBuilder.box(Vector3(0.9, 0.1, 0.1)), MeshBuilder.at(pick + Vector3(0.1, 1.22, 0.2), Vector3.ONE, Vector3(0.35, 0, 0.2)), RAIL)
-	_add(world, b, WorldMaterials.vertex_colored())
+	_add(world, b, WorldMaterials.props())
 	_add(world, glow, WorldMaterials.glowing(PRIMEVAL))
 
 

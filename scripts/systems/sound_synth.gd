@@ -69,6 +69,8 @@ static func build(id: StringName) -> AudioStreamWAV:
 			return _make(_mix([_thump(65.0, 0.35, 1.0), _thump(65.0, 0.35, 0.8, 0.3)]))
 		&"wind":
 			return _make(_wind(4.0), true)
+		&"rain":
+			return _make(_rain(3.0), true)
 		&"crickets":
 			return _make(_crickets(2.0), true)
 		&"hum":
@@ -246,6 +248,23 @@ static func _wind(seconds: float) -> PackedFloat32Array:
 		var t: float = float(i) / RATE
 		low += (_rng.randf_range(-1.0, 1.0) - low) * (0.02 + 0.015 * sin(TAU * 0.35 * t))
 		raw[i] = low * (0.6 + 0.4 * sin(TAU * 0.25 * t + 1.0)) * 2.2
+	return _loop(raw, 0.5)
+
+
+## Regen: weiches Rauschen und einzelne, kurz klingende Tropfen.
+static func _rain(seconds: float) -> PackedFloat32Array:
+	var raw := PackedFloat32Array()
+	raw.resize(_count(seconds + 0.5))
+	var soft: float = 0.0
+	for i: int in raw.size():
+		soft += (_rng.randf_range(-1.0, 1.0) - soft) * 0.3
+		raw[i] = soft * 0.55
+	for drop: int in int(seconds * 16.0):
+		var start: float = _rng.randf() * seconds
+		var pitch: float = _rng.randf_range(1400.0, 3600.0)
+		for i: int in range(_count(start), mini(raw.size(), _count(start + 0.035))):
+			var t: float = float(i) / RATE - start
+			raw[i] += sin(TAU * pitch * t) * exp(-t * 130.0) * 0.4
 	return _loop(raw, 0.5)
 
 

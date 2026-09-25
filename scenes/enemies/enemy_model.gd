@@ -3,6 +3,11 @@ extends Node3D
 ## Platzhalter-Modelle für Bestien aus einfachen Formen, je nach Feld shape in gegner.json, eingefärbt mit ihrer Farbe.
 
 const EYE_COLOR: Color = Color(1.0, 0.85, 0.3)
+## Haut je Form (WorldMaterials.creature): Fell ist Standard.
+const SKINS: Dictionary[StringName, StringName] = {
+	&"slime": &"smooth", &"ghost": &"smooth", &"pilz": &"smooth", &"golem": &"rock", &"snake": &"scales", &"croc": &"scales",
+	&"scorpion": &"scales", &"spider": &"scales", &"skel": &"rock", &"imp": &"scales", &"bird": &"fur",
+}
 
 var color: Color = Color.WHITE
 var size: float = 1.0
@@ -71,7 +76,7 @@ func build(shape: StringName, body_color: Color, radius: float, flying: bool) ->
 			_eyes(Vector3(0, 0.78, -0.5), 0.22)
 		_:
 			_golem()
-	_finish_mesh(_body, WorldMaterials.vertex_colored())
+	_finish_mesh(_body, WorldMaterials.creature(SKINS.get(shape, &"fur")))
 	_finish_mesh(_eye_builder, Fx.material(EYE_COLOR))
 	_parts.scale = Vector3.ONE * size
 

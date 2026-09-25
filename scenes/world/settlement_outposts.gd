@@ -118,7 +118,7 @@ static func _palms(world: World, center: Vector3, radius: float, count: int, rng
 		multimesh.set_instance_transform(i, Transform3D(Basis(Vector3.UP, rng.randf() * TAU).scaled(Vector3.ONE * rng.randf_range(0.9, 1.2)), at - center))
 	var node := MultiMeshInstance3D.new()
 	node.multimesh = multimesh
-	node.material_override = WorldMaterials.vertex_colored()
+	node.material_override = WorldMaterials.vegetation(&"leafy")
 	node.visibility_range_end = PALM_VIEW
 	world.add_child(node)
 	node.position = center

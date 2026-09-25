@@ -28,6 +28,8 @@ extends Resource
 @export var arrival: Vector2 = Vector2.ZERO
 ## Wege als Listen von Punkten (Vector2).
 @export var paths: Array = []
+## Flüsse (TerrainRivers): {"points": Array[Vector2], "width": float}.
+@export var rivers: Array[Dictionary] = []
 
 @export_group("Inhalte")
 ## Je Siedlung: id, type, faction, position (Vector2), radius, houses, colors, residents.

@@ -27,6 +27,10 @@ relief = Dictionary[StringName, float]({
 hills = Array[Vector4]([Vector4(0, -40, 95, 14)])
 arrival = Vector2(0, 200)
 paths = [[Vector2(0, 200), Vector2(0, 30)], [Vector2(-40, -60), Vector2(-100, -100), Vector2(-130, -112)], [Vector2(40, -20), Vector2(90, 50), Vector2(110, 80)], [Vector2(-30, 10), Vector2(-80, 70), Vector2(-100, 92)], [Vector2(50, -60), Vector2(120, -100), Vector2(140, -112)]]
+rivers = Array[Dictionary]([{
+"points": Array[Vector2]([Vector2(-225, -167), Vector2(-135, -162), Vector2(-45, -187), Vector2(45, -189), Vector2(135, -173), Vector2(225, -161)]),
+"width": 10.0
+}])
 settlements = Array[Dictionary]([{
 "colors": {
 &"banner": Color(0.9098039, 0.9411765, 1, 1),

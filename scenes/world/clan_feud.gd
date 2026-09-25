@@ -87,6 +87,7 @@ func start() -> void:
 		if source != null:
 			_spawn(source, heading, leader)
 	EventBus.message.emit(tr("Überfall! %s greift %s an!") % [_attacker_name(), _target_name()], WARN_COLOR)
+	Sound.play(&"drum")
 
 
 func _spawn(source: GuMasterData, heading: Vector3, leader: bool) -> void:
@@ -124,6 +125,7 @@ func _process(_delta: float) -> void:
 func _win() -> void:
 	active = false
 	status_text = ""
+	GameState.feuds_repelled += 1
 	var parts: PackedStringArray = []
 	var reward: Dictionary = feud["reward"]
 	for item: StringName in reward:
@@ -132,6 +134,7 @@ func _win() -> void:
 	if SectLife.is_member(_defender):
 		SectLife.add_merit(MERIT)
 	EventBus.message.emit(tr("Der Überfall ist abgewehrt! Lohn: %s") % ", ".join(parts), WIN_COLOR)
+	Sound.play(&"gong")
 	Renown.add_fame(FAME, tr("%s verteidigt") % _target_name())
 
 

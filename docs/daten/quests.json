@@ -547,6 +547,76 @@
      "urkristall": 1
     }
    }
+  },
+  {
+   "id": "klanfehde",
+   "n": "Die Nacht der Bai",
+   "d": "Der Bai-Klan will die Geisterquelle. Wenn die Späher warnen, verteidige das Dorf in der Nacht und schlage den Überfall zurück.",
+   "sp": 1,
+   "regel": {
+    "type": "feud",
+    "count": 1,
+    "reward": {
+     "kristall": 40,
+     "reliquie_gruenkupfer": 1
+    }
+   }
+  },
+  {
+   "id": "sekte_fehde",
+   "n": "Schatten vor dem Tor",
+   "d": "Die Schattensekte greift die Zehn Extreme an. Wehre einen ihrer nächtlichen Angriffe ab.",
+   "sp": 2,
+   "regel": {
+    "type": "feud",
+    "count": 1,
+    "reward": {
+     "kristall": 120,
+     "reliquie_lilakristall": 1
+    }
+   }
+  },
+  {
+   "id": "gu_sammler",
+   "n": "Das Verzeichnis von Lang Ya",
+   "d": "Die Schreiber von Lang Ya führen Buch über alle Gu der Welt. Lerne 40 Gu kennen – besitze sie, sieh sie wild oder erlebe sie im Kampf.",
+   "sp": 2,
+   "regel": {
+    "type": "codex",
+    "count": 40,
+    "reward": {
+     "kristall": 80,
+     "sternsand": 3
+    }
+   }
+  },
+  {
+   "id": "dao_pilger",
+   "n": "Pilger des Dao",
+   "d": "Wer im Dao nichts versteht, besteigt den Yi-Tian-Berg umsonst. Erreiche in einem Pfad die Beherrschung „Meister“ – Dao-Orte helfen.",
+   "sp": 2,
+   "regel": {
+    "type": "dao",
+    "count": 2,
+    "reward": {
+     "kristall": 90,
+     "seelenglas": 2
+    }
+   }
+  },
+  {
+   "id": "dao_meister",
+   "n": "Großmeister der Kraniche",
+   "d": "Die Kraniche lehren nur, wer selbst lehren könnte. Erreiche in einem Pfad die Beherrschung „Großmeister“.",
+   "sp": 2,
+   "regel": {
+    "type": "dao",
+    "count": 3,
+    "reward": {
+     "kristall": 160,
+     "urkristall": 1
+    }
+   }
   }
  ],
  "GOALS": "[fn] ()=>[\n  {n:'Apertur erwecken',d:'Deine Aptitude wurde am See bestimmt.',ok:!!P.aptitude},\n  {n:'Vital-Gu verfeinern',d:'Das erste Gu, lebenslang gebunden.',ok:!!P.vitalGu},\n  {n:'Gipfel der Sterblichen',d:'Rang 5 · Lila-Kristall erreichen.',ok:P.rank>=5},\n  {n:'Unsterblichenaufstieg',d:'Rang 6 · das Gesegnete Land entsteht.',ok:P.rank>=6},\n  {n:'Waldgeist bezwingen',d:'Erste Erdkalamität.',ok:!!P.bosses.waldgeist?.dead},\n  {n:'Steinkönig bezwingen',d:'Zweite Erdkalamität.',ok:!!P.bosses.steinkoenig?.dead},\n  {n:'Lavadrache bezwingen',d:'Himmlische Trübsal.',ok:!!P.bosses.drache?.dead},\n  {n:'Grotten-Himmel',d:'Rang 8 · deine Apertur wird ein Kosmos.',ok:P.rank>=8},\n  {n:'Ehrwürdiger werden',d:'Rang 9 · Gelb-Aprikose. Zehn in drei Millionen Jahren.',ok:P.rank>=9},\n  {n:'Alle Länder einverleiben',d:'Nimm Lang Ya, den Kaiserhof und den Langlebigkeits-Himmel in deine Apertur auf.',ok:['langya','hof','longevity'].every(k=>(P.annexed||{})[k])},\n  {n:'Alle Wahren Erben',d:'Sammle die Vermächtnisse der Ehrwürdigen.',ok:Object.keys(INHERIT).every(k=>P.inherit?.[k])},\n  {n:'Sektenherr werden',d:'Steige bis an die Spitze einer Sekte auf.',ok:!!P.sect&&sectRankIdx()>=5},\n  {n:'Ewigkeits-Gu erlangen',d:'Das Ziel, an dem alle Ehrwürdigen scheiterten.',ok:guOwned('ewigkeit')},\n  {n:'Schicksals-Gu erlangen',d:'Das mächtigste Gu der Geschichte.',ok:guOwned('schicksal')},\n]"

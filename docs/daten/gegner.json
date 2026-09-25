@@ -1491,7 +1491,8 @@
     "steinhaut",
     "wirbelwind"
    ],
-   "rang": 2
+   "rang": 2,
+   "hut": "band"
   },
   "yi_tian": {
    "n": "Yi-Tian-Schüler",
@@ -1502,7 +1503,8 @@
     "sternpfeil",
     "mondlicht"
    ],
-   "rang": 3
+   "rang": 3,
+   "hut": "kappe"
   },
   "himmelshof": {
    "n": "Hüter des Himmelshofs",
@@ -1514,7 +1516,8 @@
     "eisenhaut",
     "irrweg"
    ],
-   "rang": 5
+   "rang": 5,
+   "hut": "krone"
   },
   "blutfluegel": {
    "n": "Blutflügel-Dämon",
@@ -1525,7 +1528,8 @@
     "knochenspeer",
     "steinhaut"
    ],
-   "rang": 3
+   "rang": 3,
+   "hut": "kapuze"
   },
   "schattensekte": {
    "n": "Schattenschüler",
@@ -1536,7 +1540,8 @@
     "mondgift",
     "giftskorpion"
    ],
-   "rang": 4
+   "rang": 4,
+   "hut": "kapuze"
   },
   "wilde_horde": {
    "n": "Horden-Krieger",
@@ -1549,7 +1554,8 @@
     "zehnjin",
     "berserk"
    ],
-   "rang": 4
+   "rang": 4,
+   "hut": "fell"
   },
   "shang_arena": {
    "n": "Arenameister der Shang",
@@ -1561,7 +1567,8 @@
     "glutfunke",
     "steinhaut",
     "wirbelwind"
-   ]
+   ],
+   "hut": "band"
   },
   "wuestentempel": {
    "n": "Tempelwächter der Wüste",
@@ -1573,7 +1580,8 @@
     "eberstoss",
     "steinhaut",
     "glutatem"
-   ]
+   ],
+   "hut": "turban"
   },
   "karawane": {
    "n": "Karawanenführer",
@@ -1585,7 +1593,8 @@
     "klingenfaden",
     "aurahuelle",
     "glutfunke"
-   ]
+   ],
+   "hut": "turban"
   },
   "wu_general": {
    "n": "Wu-General",
@@ -1597,7 +1606,8 @@
     "steinhaut",
     "blutstropfen",
     "mutwurm"
-   ]
+   ],
+   "hut": "krone"
   },
   "wu_aeltester": {
    "n": "Wu-Ältester",
@@ -1610,7 +1620,8 @@
     "wirbelwind",
     "lebensblatt",
     "wasserlicht"
-   ]
+   ],
+   "hut": "krone"
   },
   "ostmeer": {
    "n": "Inselwächter der Ostmeer-Allianz",
@@ -1622,7 +1633,8 @@
     "wasserspiegel",
     "funkenwurm",
     "frostnadel"
-   ]
+   ],
+   "hut": "stroh"
   },
   "meereszombie": {
    "n": "Untoter Seefahrer",
@@ -1647,7 +1659,8 @@
     "eberstoss",
     "steinhaut",
     "windklinge"
-   ]
+   ],
+   "hut": "band"
   },
   "xiong_jaeger": {
    "n": "Xiong-Jagdmeister",
@@ -1658,7 +1671,8 @@
     "eberstoss",
     "eisenzahn",
     "wirbelwind"
-   ]
+   ],
+   "hut": "fell"
   },
   "bai_waechter": {
    "n": "Bai-Klanwächter",
@@ -1669,7 +1683,8 @@
     "frostnadel",
     "wasserlicht",
     "wirbelwind"
-   ]
+   ],
+   "hut": "band"
   },
   "huang_jin": {
    "n": "Huang-Jin-Krieger",
@@ -1680,7 +1695,8 @@
     "windklinge",
     "stummermund",
     "steinhaut"
-   ]
+   ],
+   "hut": "fell"
   },
   "streuner": {
    "n": "Streunender Dämonenkultivierender",
@@ -1691,7 +1707,8 @@
    "gu": [
     "mondlicht",
     "stachelwurm"
-   ]
+   ],
+   "hut": "stroh"
   },
   "wegelagerer": {
    "n": "Wegelagerer",
@@ -1703,7 +1720,8 @@
     "windklinge",
     "knochensplitter",
     "langfinger"
-   ]
+   ],
+   "hut": "kapuze"
   },
   "shang_wache": {
    "n": "Shang-Karawanenwache",
@@ -1714,7 +1732,8 @@
     "steinhaut",
     "sternpfeil_klein",
     "wirbelwind"
-   ]
+   ],
+   "hut": "kappe"
   },
   "wolfsreiter": {
    "n": "Wolfsreiter der Horde",
@@ -1725,7 +1744,8 @@
     "rattensklave",
     "eberstoss",
     "windklinge"
-   ]
+   ],
+   "hut": "fell"
   },
   "sandraeuber": {
    "n": "Sandräuber",
@@ -1737,7 +1757,8 @@
     "stachelwurm",
     "steinhaut",
     "aurahuelle"
-   ]
+   ],
+   "hut": "turban"
   },
   "seeraeuber": {
    "n": "Seeräuber der Zehntausend Inseln",
@@ -1749,7 +1770,8 @@
     "windklinge",
     "knochensplitter",
     "eisenzahn"
-   ]
+   ],
+   "hut": "band"
   },
   "blutaeltester": {
    "n": "Blutflügel-Ältester",
@@ -1761,7 +1783,8 @@
     "knochensplitter",
     "steinhaut",
     "aurahuelle"
-   ]
+   ],
+   "hut": "kapuze"
   },
   "schattenaeltester": {
    "n": "Schattenältester",
@@ -1773,7 +1796,8 @@
     "mondlicht",
     "stachelwurm",
     "aurahuelle"
-   ]
+   ],
+   "hut": "kapuze"
   },
   "gu_yue_chi": {
    "n": "Vorsteher der Chi-Familie",
@@ -1786,7 +1810,8 @@
     "steinhaut",
     "wirbelwind",
     "lebensblatt"
-   ]
+   ],
+   "hut": "band"
   },
   "gu_yue_mo": {
    "n": "Vorsteher der Mo-Familie",
@@ -1799,7 +1824,8 @@
     "frostnadel",
     "sprungwurm",
     "eisenhaut"
-   ]
+   ],
+   "hut": "band"
   },
   "gu_yue_bo": {
    "n": "Klanführer der Gu Yue",
@@ -1812,7 +1838,8 @@
     "steinhaut",
     "wirbelwind",
     "lebensblatt"
-   ]
+   ],
+   "hut": "krone"
   },
   "bai_aeltester": {
    "n": "Ältester des Bai-Klans",
@@ -1824,7 +1851,8 @@
     "wasserlicht",
     "eisenhaut",
     "wirbelwind"
-   ]
+   ],
+   "hut": "krone"
   },
   "xiong_aeltester": {
    "n": "Ältester des Xiong-Klans",
@@ -1836,7 +1864,8 @@
     "eisenzahn",
     "steinhaut",
     "wirbelwind"
-   ]
+   ],
+   "hut": "krone"
   },
   "yi_tian_aeltester": {
    "n": "Ältester der Yi-Tian-Sekte",
@@ -1848,7 +1877,8 @@
     "sternpfeil_klein",
     "hartes_qi",
     "windklinge"
-   ]
+   ],
+   "hut": "krone"
   },
   "ge_krieger": {
    "n": "Krieger des Ge-Stammes",
@@ -1860,7 +1890,8 @@
     "windklinge",
     "steinaffe_gestalt",
     "wirbelwind"
-   ]
+   ],
+   "hut": "fell"
   },
   "federkrieger": {
    "n": "Federkrieger",
@@ -1872,7 +1903,8 @@
     "sprungwurm",
     "sternpfeil_klein",
     "bronzeglocke"
-   ]
+   ],
+   "hut": "feder"
   },
   "kranich_meister": {
    "n": "Meister der Himmelskranich-Sekte",
@@ -1884,7 +1916,8 @@
     "windklinge",
     "gedankenblitz",
     "sternpfeil_klein"
-   ]
+   ],
+   "hut": "krone"
   }
  },
  "NPCTYPE": {
@@ -1929,7 +1962,8 @@
      "fell": 4
     },
     "d": "2 💎 gegen Vorräte"
-   }
+   },
+   "hut": "stroh"
   },
   "stamm": {
    "n": "Krieger der Nordebene",
@@ -1950,7 +1984,8 @@
      "stein": 25
     },
     "d": "6 🟫 gegen 25 🪨"
-   }
+   },
+   "hut": "fell"
   },
   "seemann": {
    "n": "Inselfischer",
@@ -1971,7 +2006,8 @@
      "kristall": 2
     },
     "d": "8 🍖 gegen 2 💎"
-   }
+   },
+   "hut": "stroh"
   },
   "daemon": {
    "n": "Dämonischer Kultivierender",
@@ -1991,7 +2027,8 @@
     "get": {},
     "gu": 1,
     "d": "5 💎 gegen ein zufälliges Gu"
-   }
+   },
+   "hut": "kapuze"
   },
   "shang_haendler": {
    "n": "Shang-Händler",
@@ -2011,7 +2048,8 @@
      "jadeader": 1
     },
     "d": "10 Ursteine gegen eine Jadeader"
-   }
+   },
+   "hut": "kappe"
   },
   "shang_schmied": {
    "n": "Klingenschmied",
@@ -2031,7 +2069,8 @@
      "klingenstahl": 1
     },
     "d": "12 Ursteine gegen Klingenstahl"
-   }
+   },
+   "hut": "band"
   },
   "auktionator": {
    "n": "Auktionator der Shang",
@@ -2051,7 +2090,8 @@
     "d": "30 Ursteine gegen einen zufälligen Rang-3-Gu",
     "gu": 1,
     "gu_rang": 3
-   }
+   },
+   "hut": "kappe"
   },
   "steppen_haendler": {
    "n": "Wolfsjäger der Steppe",
@@ -2072,7 +2112,8 @@
      "wolfsgeist": 1
     },
     "d": "10 Fell und 6 Ursteine gegen einen Wolfsgeist-Splitter"
-   }
+   },
+   "hut": "fell"
   },
   "wuesten_haendler": {
    "n": "Sandhändlerin",
@@ -2093,7 +2134,8 @@
      "sternsand": 1
     },
     "d": "15 Ursteine gegen Wüstenrose und Sternensand"
-   }
+   },
+   "hut": "turban"
   },
   "wu_haendler": {
    "n": "Wu-Quartiermeister",
@@ -2113,7 +2155,8 @@
      "drachenschuppe": 1
     },
     "d": "18 Ursteine gegen eine Drachenschuppe"
-   }
+   },
+   "hut": "kappe"
   },
   "auktionator_hoch": {
    "n": "Schatzmeister der Wu",
@@ -2133,7 +2176,8 @@
     "d": "60 Ursteine gegen einen zufälligen Rang-4-Gu",
     "gu": 1,
     "gu_rang": 4
-   }
+   },
+   "hut": "krone"
   },
   "perlentaucher": {
    "n": "Perlentaucherin",
@@ -2153,7 +2197,8 @@
      "tiefseeperle": 1
     },
     "d": "20 Ursteine gegen eine Tiefseeperle"
-   }
+   },
+   "hut": "band"
   },
   "sekten_haendler": {
    "n": "Sektenverwalter",
@@ -2173,7 +2218,8 @@
      "urkristall": 1
     },
     "d": "25 Ursteine gegen einen Urkristall"
-   }
+   },
+   "hut": "kappe"
   },
   "sekten_schatzmeister": {
    "n": "Schatzkammerwächter",
@@ -2193,7 +2239,8 @@
     "d": "120 Ursteine gegen einen zufälligen Rang-5-Gu",
     "gu": 1,
     "gu_rang": 5
-   }
+   },
+   "hut": "krone"
   },
   "bewohner": {
    "n": "Bewohner",

@@ -7,6 +7,21 @@ const SEGMENTS: int = 28
 ## So tief watet man höchstens im Meer.
 const WADE_DEPTH: float = 0.9
 
+## Alle Wasser-Materialien der aktuellen Welt (DayNight setzt die Himmelsfarbe für die Spiegelung).
+static var materials: Array[ShaderMaterial] = []
+static var _sky: Color = Color(0.6, 0.75, 0.85)
+
+
+## Beim Weltaufbau leeren (die alten Flächen sind weg).
+static func reset() -> void:
+	materials.clear()
+
+
+static func set_sky(color: Color) -> void:
+	_sky = color
+	for mat: ShaderMaterial in materials:
+		mat.set_shader_parameter(&"sky_color", color)
+
 
 ## Scheibe auf Wasserhöhe über einem See (lake = x, z, Radius, Wasserhöhe). glow > 0 lässt sie leuchten.
 static func lake(world: World, lake_data: Vector4, color: Color, glow: float) -> MeshInstance3D:
@@ -52,10 +67,14 @@ static func sea(world: World, level: float, color: Color) -> void:
 	floor_body.position = Vector3(0.0, level - WADE_DEPTH - 0.5, 0.0)
 
 
-static func material(color: Color, glow: float) -> ShaderMaterial:
+static func material(color: Color, glow: float, flow: float = 0.0) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = WATER_SHADER
-	mat.set_shader_parameter(&"shallow_color", color.lightened(0.1))
-	mat.set_shader_parameter(&"deep_color", color.darkened(0.55))
+	mat.set_shader_parameter(&"waves_nm", ProceduralTextures.get_texture(&"waves_normal"))
+	mat.set_shader_parameter(&"sky_color", _sky)
+	materials.append(mat)
+	mat.set_shader_parameter(&"shallow_color", color)
+	mat.set_shader_parameter(&"deep_color", color.darkened(0.65))
 	mat.set_shader_parameter(&"glow", glow)
+	mat.set_shader_parameter(&"flow", flow)
 	return mat

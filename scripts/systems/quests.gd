@@ -2,7 +2,8 @@ class_name Quests
 extends RefCounted
 ## Quests aus quests.json mit Bedingungen und Belohnungen (quests.json → regel, sonst Balance.quest_rules).
 ## Arten: item, kills, built, area, day, rogues (dämonische Wanderer besiegt), duels, refine (wilde Gu verfeinert),
-## rank, inheritance (item = Erbe-ID), infamy, fame.
+## rank, inheritance (item = Erbe-ID), infamy, fame, feud (Klanfehden abgewehrt), dao (höchste Dao-Beherrschung in
+## einem Pfad), codex (bekannte Gu im Lexikon).
 
 const ACTIVE: String = "active"
 const DONE: String = "done"
@@ -26,8 +27,16 @@ static func current(id: StringName) -> int:
 	match r.get("type", &""):
 		&"item":
 			return GameState.item_count(r["item"])
-		&"kills", &"rogues", &"duels", &"refine":
+		&"kills", &"rogues", &"duels", &"refine", &"feud":
 			return _counter(r.get("type", &"")) - begin
+		&"dao":
+			var best: int = 0
+			for path: StringName in GameState.dao:
+				best = maxi(best, Dao.attain(path))
+			return best
+		&"codex":
+			Codex.sync_owned()
+			return Codex.known_count()
 		&"rank":
 			return GameState.rank
 		&"inheritance":
@@ -64,6 +73,8 @@ static func _counter(type: StringName) -> int:
 			return GameState.duels_won
 		&"refine":
 			return GameState.collected_wild_gu.size()
+		&"feud":
+			return GameState.feuds_repelled
 	return 0
 
 
