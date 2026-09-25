@@ -1,0 +1,209 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://cejjvlfqqmli7"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_ay1jy"]
+
+[resource]
+script = ExtResource("1_ay1jy")
+id = &"flammenschlucht"
+display_name = "Flammenwut-Schlucht"
+region = 3
+map_position = Vector2(0.11, 0.66)
+rank_min = 3
+rank_max = 4
+open = true
+description = "Rote Schluchten voller Hitze, in denen das Federvolk auf seinen Felsen lebt. Tief im Gestein ruht das Erbe des Paradies-Erdwalls."
+size = 500.0
+terrain_seed = 9533
+biome = &"rote_schlucht"
+relief = Dictionary[StringName, float]({
+&"berge": 40.0,
+&"detail": 1.2,
+&"frequenz": 0.0055,
+&"hoehe": 12.0,
+&"horizont": 200.0,
+&"rand": 60.0,
+&"randhoehe": 60.0
+})
+arrival = Vector2(0, 185)
+paths = [[Vector2(0, 185), Vector2(10, 52)], [Vector2(45, 5), Vector2(100, -50), Vector2(135, -90)], [Vector2(-5, -5), Vector2(-70, -60), Vector2(-120, -110)], [Vector2(40, 40), Vector2(80, 90), Vector2(102, 112)], [Vector2(-5, 40), Vector2(-40, 80), Vector2(-52, 92)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.41568628, 0.6901961, 0.8156863, 1),
+&"dach": Color(0.78431374, 0.627451, 0.3764706, 1),
+&"holz": Color(0.41568628, 0.2901961, 0.16470589, 1),
+&"saeule": Color(0.627451, 0.3764706, 0.22745098, 1),
+&"stein": Color(0.6901961, 0.5647059, 0.4392157, 1),
+&"wand": Color(0.9411765, 0.8784314, 0.7529412, 1)
+},
+"faction": &"federvolk",
+"houses": 6,
+"id": &"federdorf",
+"pond": 0.0,
+"position": Vector2(20, 20),
+"radius": 30.0,
+"residents": &"federvolk",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.8784314, 0.627451, 0.3137255, 1),
+"count": 0,
+"guards": Array[StringName]([&"obsidian", &"obsidian", &"sandwurm", &"erdwall_waechter"]),
+"id": &"paradies_erdwall",
+"item": &"",
+"name": "Erbe des Paradies-Erdwalls",
+"offering": {
+&"erdkern": 2,
+&"kristall": 20
+},
+"position": Vector2(-130, -120),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([&"panzer_gu"]),
+"gu": Array[StringName]([&"felssturz", &"bergwiezuvor"]),
+"items": {
+&"erdkern": 4,
+&"kristall": 55,
+&"reliquie_weisssilber": 1
+},
+"support": Array[StringName]([])
+},
+"style": &"grab",
+"text": "Ein Erd-Unsterblicher mauerte hier sein Paradies ein. Sein Wächter aus Fels lässt nur Würdige hindurch.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 12,
+"guards": Array[StringName]([]),
+"id": &"aschefeld",
+"item": &"glutasche",
+"name": "Glutboden",
+"offering": {},
+"position": Vector2(140, -100),
+"radius": 14.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"aschefeld"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Schluchtbecken",
+"offering": {},
+"position": Vector2(-60, 100),
+"radius": 18.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Federquelle",
+"offering": {},
+"position": Vector2(110, 120),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Knochen im Sand",
+"offering": {},
+"position": Vector2(-150, 40),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 25.0,
+"distance": 150.0,
+"id": &"fs_hecke",
+"kind": &"hecke",
+"reward": &"feuerlotus"
+}, {
+"angle": 70.0,
+"distance": 165.0,
+"id": &"fs_wasser",
+"kind": &"wasser",
+"reward": &"verletzungswind"
+}, {
+"angle": 120.0,
+"distance": 150.0,
+"id": &"fs_fels",
+"kind": &"fels",
+"reward": &"selbstentzuendung"
+}, {
+"angle": 165.0,
+"distance": 160.0,
+"id": &"fs_schalter",
+"kind": &"schalter",
+"reward": &"kettenknolle"
+}, {
+"angle": 210.0,
+"distance": 155.0,
+"id": &"fs_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"wasserbild"
+}, {
+"angle": 255.0,
+"distance": 150.0,
+"id": &"fs_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"kampfrausch"
+}, {
+"angle": 305.0,
+"distance": 160.0,
+"id": &"fs_vorsprung",
+"kind": &"vorsprung",
+"reward": &"donnerglocke"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(20, 2),
+&"eisenerz": Vector2i(30, 1),
+&"erdkern": Vector2i(8, 1),
+&"glutasche": Vector2i(15, 1),
+&"holz": Vector2i(15, 2),
+&"kristall": Vector2i(40, 2),
+&"stein": Vector2i(60, 2),
+&"windfeder": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([100.0, 170.0])
+enemy_zones = [[&"riesenskorpion", &"sturmadler", &"feuerfuchs"], [&"feuerfuchs", &"imp", &"riesenskorpion", &"sandwurm", &"drachenling"], [&"sandwurm", &"lavaschnecke", &"obsidian", &"drachenling", &"imp"]]
+wild_gu_rank = 3
+wild_gu_range = Vector2(70, 190)
+wild_passives = [[&"essenzeisenknochen", &"body", 140.0, 200.0, true]]
+wanderers = Array[StringName]([&"sandraeuber", &"karawane", &"federkrieger"])
+wanderer_count = 3

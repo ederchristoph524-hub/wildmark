@@ -1,0 +1,187 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://dkyrisgxn8484"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_qw05k"]
+
+[resource]
+script = ExtResource("1_qw05k")
+id = &"nebelriff"
+display_name = "Nebelriff"
+region = 2
+map_position = Vector2(0.9, 0.34)
+rank_min = 4
+rank_max = 5
+open = true
+description = "Nebelverhangene Riffe, in denen Seeräuber ihr Nest haben. Ein Leuchtturm der Ostmeer-Allianz hält Wache, und unter den Wellen schläft ein Tempel."
+size = 560.0
+terrain_seed = 9661
+biome = &"nebelriff"
+relief = Dictionary[StringName, float]({
+&"basis": -4.0,
+&"berge": 0.0,
+&"detail": 0.5,
+&"frequenz": 0.006,
+&"hoehe": 3.0,
+&"horizont": 25.0,
+&"rand": 60.0,
+&"randhoehe": -8.0
+})
+hills = Array[Vector4]([Vector4(10, 25, 150, 14), Vector4(-180, -120, 70, 12), Vector4(170, -60, 80, 14), Vector4(-120, 170, 60, 11)])
+arrival = Vector2(20, 90)
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.22745098, 0.6039216, 0.7529412, 1),
+&"dach": Color(0.22745098, 0.2901961, 0.3529412, 1),
+&"holz": Color(0.3529412, 0.26666668, 0.1882353, 1),
+&"saeule": Color(0.16470589, 0.3529412, 0.47843137, 1),
+&"stein": Color(0.5411765, 0.5411765, 0.5176471, 1),
+&"wand": Color(0.8784314, 0.8627451, 0.8, 1)
+},
+"faction": &"ostmeer_allianz",
+"houses": 7,
+"id": &"leuchtturminsel",
+"pond": 0.0,
+"position": Vector2(20, 30),
+"radius": 30.0,
+"residents": &"insel",
+"type": &"inseldorf"
+}, {
+"colors": {
+&"banner": Color(0.16470589, 0.41568628, 0.5411765, 1),
+&"dach": Color(0.16470589, 0.14117648, 0.1254902, 1),
+&"holz": Color(0.22745098, 0.16470589, 0.1254902, 1),
+&"saeule": Color(0.2901961, 0.16470589, 0.16470589, 1),
+&"stein": Color(0.3529412, 0.3372549, 0.3137255, 1),
+&"wand": Color(0.41568628, 0.3529412, 0.2901961, 1)
+},
+"faction": &"seeraeuberbund",
+"houses": 0,
+"id": &"piratennest",
+"pond": 0.0,
+"position": Vector2(170, -60),
+"radius": 26.0,
+"residents": &"piraten",
+"type": &"versteck"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.41568628, 0.8627451, 1, 1),
+"count": 0,
+"guards": Array[StringName]([&"seeschlange", &"riesenkrabbe", &"riesenkrabbe", &"seekoenig"]),
+"id": &"tiefsee_tempel",
+"item": &"",
+"name": "Tempel unter den Wellen",
+"offering": {
+&"kristall": 40,
+&"tiefseeperle": 1
+},
+"position": Vector2(-180, -120),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"taifun", &"himmelsdonner"]),
+"items": {
+&"kristall": 80,
+&"reliquie_lilakristall": 1,
+&"tiefseeperle": 3
+},
+"support": Array[StringName]([&"glueckssicht"])
+},
+"style": &"grotte",
+"text": "Die Flut hat diesen Tempel verschluckt. Wenn der Nebel sich hebt, steigt er für eine Nacht aus dem Meer.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Nebelquelle",
+"offering": {},
+"position": Vector2(-120, 170),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"blutkoralle",
+"name": "Wrackbucht",
+"offering": {},
+"position": Vector2(60, 85),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 15.5,
+"distance": 74.7,
+"id": &"nr_hecke",
+"kind": &"hecke",
+"reward": &"sturmgeheul"
+}, {
+"angle": 58.7,
+"distance": 86.6,
+"id": &"nr_wasser",
+"kind": &"wasser",
+"reward": &"donnerwolf"
+}, {
+"angle": 121.3,
+"distance": 86.6,
+"id": &"nr_fels",
+"kind": &"fels",
+"reward": &"gezeitenstrahl"
+}, {
+"angle": 164.5,
+"distance": 74.7,
+"id": &"nr_schalter",
+"kind": &"schalter",
+"reward": &"knochenweich"
+}, {
+"angle": 216.3,
+"distance": 55.8,
+"id": &"nr_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"goldglocke"
+}, {
+"angle": 323.7,
+"distance": 55.8,
+"id": &"nr_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"sternschnuppe"
+}, {
+"angle": 270.0,
+"distance": 50.0,
+"id": &"nr_vorsprung",
+"kind": &"vorsprung",
+"reward": &"glueckskoi"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(35, 3),
+&"blutkoralle": Vector2i(10, 1),
+&"holz": Vector2i(25, 2),
+&"kristall": Vector2i(40, 3),
+&"mondtau": Vector2i(25, 1),
+&"stein": Vector2i(25, 2),
+&"tiefseeperle": Vector2i(6, 1)
+})
+enemy_radii = Array[float]([80.0, 160.0])
+enemy_zones = [[&"riesenkrabbe", &"sturmadler", &"seeschlange"], [&"seeschlange", &"riesenkrabbe", &"sturmadler", &"feuerfuchs"], [&"seeschlange", &"riesenkrabbe", &"weisser_tiger", &"donnerkronenwolf"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(40, 90)
+wanderers = Array[StringName]([&"seeraeuber", &"seeraeuber", &"meereszombie", &"ostmeer"])
+wanderer_count = 3

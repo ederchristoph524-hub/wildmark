@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://7obd2pa7av7r"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_jrfuf"]
+
+[resource]
+script = ExtResource("1_jrfuf")
+id = &"federn_rat"
+display_name = "Federn für das Federvolk"
+description = "Die Jungen des Federvolks verlieren ihre Federn im Sturm. Bringe dem Federältesten 8 Windfedern."
+reward_points = 2
+rule = {
+"area": "",
+"count": 8,
+"item": &"windfeder",
+"reward": {
+&"kristall": 40,
+&"sternsand": 2
+},
+"type": &"item"
+}

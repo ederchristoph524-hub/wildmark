@@ -344,6 +344,68 @@
     "jadeader": 2
    },
    "gu": "verstaerker"
+  },
+  {
+   "id": "federvolk",
+   "n": "Federvolk",
+   "f": "righteous",
+   "reg": 3,
+   "ic": "🪶",
+   "type": "stamm",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "karawanenbund"
+   ],
+   "pol": "Ein kleines Volk ohne Unsterbliche. Es überlebt, weil niemand die Felsen erklimmen will, auf denen es wohnt.",
+   "d": "Die Federmenschen der Westwüste: ein Volk mit Federn, das Gu-Meistern misstraut, bis sie ihm helfen.",
+   "gift": {
+    "windfeder": 4,
+    "kristall": 10
+   },
+   "gu": "windwand"
+  },
+  {
+   "id": "seeraeuberbund",
+   "n": "Seeräuberbund",
+   "f": "demonic",
+   "reg": 2,
+   "ic": "🏴",
+   "type": "stamm",
+   "imm": 0,
+   "power": 2,
+   "rivals": [
+    "ostmeer_allianz"
+   ],
+   "pol": "Keine Unsterblichen, nur Mut und Gier. Solange die Allianz sie nicht findet, gehört ihnen das Riff.",
+   "d": "Seeräuber der Nebelriffe, die Handelsschiffe der Ostmeer-Allianz plündern.",
+   "req": 4,
+   "gift": {
+    "tiefseeperle": 1,
+    "kristall": 15
+   },
+   "gu": "wasserbohrer"
+  },
+  {
+   "id": "himmelskranich",
+   "n": "Himmelskranich-Sekte",
+   "f": "righteous",
+   "reg": 4,
+   "ic": "🕊️",
+   "type": "sekte",
+   "imm": 4,
+   "power": 6,
+   "rivals": [
+    "schattensekte"
+   ],
+   "pol": "Eine der großen Sekten des Zentralkontinents. Mehrere Unsterbliche schützen das Tal – und entscheiden, wer würdig ist.",
+   "d": "Große rechtschaffene Sekte des Zentralkontinents, berühmt für ihre Bewegungs- und Wind-Gu.",
+   "req": 5,
+   "gift": {
+    "windfeder": 6,
+    "kristall": 30
+   },
+   "gu": "wolkenschritt"
   }
  ],
  "SECTRANKS": [

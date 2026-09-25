@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://b4j1k8o3sdehw"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_6r6p6"]
+
+[resource]
+script = ExtResource("1_6r6p6")
+id = &"seeraeuberbund"
+display_name = "Seeräuberbund"
+icon = "🏴"
+faction = &"demonic"
+org_type = &"stamm"
+region = 2
+power = 2
+rivals = Array[StringName]([&"ostmeer_allianz"])
+min_rank = 4
+join_gift = Dictionary[StringName, int]({
+&"kristall": 15,
+&"tiefseeperle": 1
+})
+signature_gu = &"wasserbohrer"
+politics = "Keine Unsterblichen, nur Mut und Gier. Solange die Allianz sie nicht findet, gehört ihnen das Riff."
+description = "Seeräuber der Nebelriffe, die Handelsschiffe der Ostmeer-Allianz plündern."

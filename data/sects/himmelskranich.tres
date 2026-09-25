@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://dn35674s7ajyp"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_2wxj7"]
+
+[resource]
+script = ExtResource("1_2wxj7")
+id = &"himmelskranich"
+display_name = "Himmelskranich-Sekte"
+icon = "🕊️"
+faction = &"righteous"
+org_type = &"sekte"
+region = 4
+immortals = 4
+power = 6
+rivals = Array[StringName]([&"schattensekte"])
+min_rank = 5
+join_gift = Dictionary[StringName, int]({
+&"kristall": 30,
+&"windfeder": 6
+})
+signature_gu = &"wolkenschritt"
+politics = "Eine der großen Sekten des Zentralkontinents. Mehrere Unsterbliche schützen das Tal – und entscheiden, wer würdig ist."
+description = "Große rechtschaffene Sekte des Zentralkontinents, berühmt für ihre Bewegungs- und Wind-Gu."

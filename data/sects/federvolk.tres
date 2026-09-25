@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SectData" format=3 uid="uid://6fdopwt111a8"]
+
+[ext_resource type="Script" path="res://scripts/resources/sect_data.gd" id="1_bshru"]
+
+[resource]
+script = ExtResource("1_bshru")
+id = &"federvolk"
+display_name = "Federvolk"
+icon = "🪶"
+faction = &"righteous"
+org_type = &"stamm"
+region = 3
+power = 2
+rivals = Array[StringName]([&"karawanenbund"])
+join_gift = Dictionary[StringName, int]({
+&"kristall": 10,
+&"windfeder": 4
+})
+signature_gu = &"windwand"
+politics = "Ein kleines Volk ohne Unsterbliche. Es überlebt, weil niemand die Felsen erklimmen will, auf denen es wohnt."
+description = "Die Federmenschen der Westwüste: ein Volk mit Federn, das Gu-Meistern misstraut, bis sie ihm helfen."

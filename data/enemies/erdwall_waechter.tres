@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bukicynb6ruhl"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_xtdje"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_r8k6a"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_xtdje")
+item = &"erdkern"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_xtdje")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_xtdje")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_xtdje")
+item = &"reliquie_weisssilber"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_r8k6a")
+id = &"erdwall_waechter"
+display_name = "Wächter des Erdwalls"
+max_hp = 3600
+damage = 34
+speed = 2.6
+xp = 1300
+radius = 1.1
+color = Color(0.6901961, 0.5411765, 0.34509805, 1)
+zone = 9
+rank = 4
+drops = Array[ExtResource("1_xtdje")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+shape = &"boss"
+behavior = &"boss"
+minion = &"golem"
+boss = true

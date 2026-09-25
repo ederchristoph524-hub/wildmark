@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://e5g5s5w1sxc8"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_oay13"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_evjhs"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_oay13")
+item = &"windfeder"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_oay13")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_oay13")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_oay13")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_4"]
+script = ExtResource("1_oay13")
+item = &"reliquie_lilakristall"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_evjhs")
+id = &"sturmkranich"
+display_name = "Geist des Sturmkranichs"
+max_hp = 8200
+damage = 42
+speed = 3.6
+xp = 2300
+radius = 1.1
+color = Color(0.9098039, 0.9411765, 1, 1)
+zone = 9
+rank = 5
+drops = Array[ExtResource("1_oay13")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3"), SubResource("drop_4")])
+shape = &"boss"
+behavior = &"boss"
+flying = true
+boss = true

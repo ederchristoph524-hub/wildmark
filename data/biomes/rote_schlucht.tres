@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://bg2c1tmx02m0t"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_5mxjj"]
+
+[resource]
+script = ExtResource("1_5mxjj")
+id = &"rote_schlucht"
+display_name = "Flammenwut-Schlucht der Westlichen Wüste"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.6039216, 0.2901961, 0.16470589, 1),
+&"fels": Color(0.5411765, 0.22745098, 0.14117648, 1),
+&"gipfel": Color(0.78431374, 0.5647059, 0.41568628, 1),
+&"gras_dunkel": Color(0.5411765, 0.41568628, 0.22745098, 1),
+&"gras_hell": Color(0.6901961, 0.5411765, 0.2901961, 1),
+&"moos": Color(0.6039216, 0.47843137, 0.25882354, 1),
+&"platz": Color(0.7529412, 0.5647059, 0.3764706, 1),
+&"weg": Color(0.6901961, 0.47843137, 0.3137255, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"kaktus": 0.5,
+&"palme": 0.15,
+&"totholz": 0.35
+})
+trees_per_1000 = 0.6
+bushes_per_1000 = 0.9
+grass_per_1000 = 10.0
+rocks_per_1000 = 4.0
+sky = Color(0.9411765, 0.84705883, 0.72156864, 1)
+sky_top = Color(0.3529412, 0.53333336, 0.7529412, 1)
+fog = Color(0.9098039, 0.8, 0.6666667, 1)
+fog_density = 0.0018
+water = Color(0.22745098, 0.47843137, 0.47843137, 1)
+plant_tint = Color(0.8784314, 0.78431374, 0.5647059, 1)

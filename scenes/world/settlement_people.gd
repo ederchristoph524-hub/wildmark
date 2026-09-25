@@ -96,6 +96,20 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"stamm", "Ge-Häuptling", &"ge_woelfe", false, &"hall", Vector2(0.0, 0.0)],
 		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
+	&"federvolk": [
+		[&"stamm", "Federältester", &"federn_rat", false, &"hall", Vector2(0.0, 0.0)],
+		[&"wuesten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"piraten": [
+		[&"daemon", "Piratenkapitän", &"piraten_beute", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"seemann", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"kranich": [
+		[&"klan", "Kranich-Ältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"klan", "Kranich-Torwächter", &"kranich_pruefung", false, &"gate", Vector2(0.0, 0.0)],
+		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"auktionator_hoch", "", &"", true, &"market", Vector2(-4.0, 2.0)],
+	],
 	&"sekte": [
 		[&"klan", "Torwächter", &"sekte_herz", false, &"gate", Vector2(0.0, 0.0)],
 		[&"klan", "Bibliothekar", &"sekte_bibliothek", false, &"academy", Vector2(0.0, 0.0)],
@@ -125,6 +139,9 @@ const MASTERS: Dictionary[StringName, Array] = {
 	&"wu_spaeher": [[&"wu_general", "Wu-Späher", &"training"]],
 	&"yi_tian": [[&"yi_tian", "Yi-Tian-Schüler", &"training"], [&"yi_tian_aeltester", "", &"tower"]],
 	&"ge": [[&"ge_krieger", "", &"training"]],
+	&"federvolk": [[&"federkrieger", "", &"training"]],
+	&"piraten": [[&"seeraeuber", "", &"training"]],
+	&"kranich": [[&"kranich_meister", "", &"training"], [&"himmelshof", "Gesandter des Himmlischen Hofes", &"tower"]],
 }
 ## Beerenbüsche im Garten (Versatz zum Anker garden) – für die Kindheit.
 const BUSHES: Dictionary[StringName, Array] = {

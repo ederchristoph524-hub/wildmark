@@ -1,0 +1,209 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://c6vcydjyka53w"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_jbghp"]
+
+[resource]
+script = ExtResource("1_jbghp")
+id = &"kranichtal"
+display_name = "Tal der Himmelskraniche"
+region = 4
+map_position = Vector2(0.38, 0.62)
+rank_min = 5
+rank_max = 5
+open = true
+description = "Ein blühendes Tal im Herzen der Welt. Hier lehrt die Himmelskranich-Sekte, eine der großen Sekten des Zentralkontinents – nur wer Ansehen hat, darf eintreten."
+size = 540.0
+terrain_seed = 9787
+biome = &"kranichtal"
+relief = Dictionary[StringName, float]({
+&"berge": 30.0,
+&"detail": 0.9,
+&"frequenz": 0.0045,
+&"hoehe": 12.0,
+&"horizont": 230.0,
+&"rand": 70.0,
+&"randhoehe": 70.0
+})
+hills = Array[Vector4]([Vector4(0, -40, 95, 14)])
+arrival = Vector2(0, 200)
+paths = [[Vector2(0, 200), Vector2(0, 30)], [Vector2(-40, -60), Vector2(-100, -100), Vector2(-130, -112)], [Vector2(40, -20), Vector2(90, 50), Vector2(110, 80)], [Vector2(-30, 10), Vector2(-80, 70), Vector2(-100, 92)], [Vector2(50, -60), Vector2(120, -100), Vector2(140, -112)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.9098039, 0.9411765, 1, 1),
+&"dach": Color(0.16470589, 0.2901961, 0.41568628, 1),
+&"holz": Color(0.22745098, 0.16470589, 0.1254902, 1),
+&"saeule": Color(0.7529412, 0.16470589, 0.16470589, 1),
+&"stein": Color(0.65882355, 0.6509804, 0.627451, 1),
+&"wand": Color(0.95686275, 0.9411765, 0.9098039, 1)
+},
+"faction": &"himmelskranich",
+"houses": 0,
+"id": &"himmelskranich_sekte",
+"pond": 0.0,
+"position": Vector2(0, -40),
+"radius": 66.0,
+"residents": &"kranich",
+"type": &"sekte"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.7490196, 0.89411765, 1, 1),
+"count": 0,
+"guards": Array[StringName]([&"sturmadler", &"sturmadler", &"weisser_tiger", &"sturmkranich"]),
+"id": &"kranichgrab",
+"item": &"",
+"name": "Grab des Kranich-Unsterblichen",
+"offering": {
+&"kristall": 40,
+&"windfeder": 6
+},
+"position": Vector2(-140, -120),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"blauerhimmel", &"himmelsweisheit"]),
+"items": {
+&"heldenherz": 2,
+&"kristall": 100,
+&"reliquie_lilakristall": 1,
+&"urkristall": 1
+},
+"support": Array[StringName]([&"boeserGedanke"])
+},
+"style": &"grab",
+"text": "Ein Unsterblicher ritt hier einst auf einem Sturmkranich in den Himmel. Sein Kranich ist geblieben.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Spiegelteich der Kraniche",
+"offering": {},
+"position": Vector2(120, 90),
+"radius": 22.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Himmelsquelle",
+"offering": {},
+"position": Vector2(-110, 100),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"frostquelle",
+"item": &"frostsplitter",
+"name": "Wolkenquelle",
+"offering": {},
+"position": Vector2(150, -120),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"frostquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Stelen der Ahnen",
+"offering": {},
+"position": Vector2(40, 160),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 20.0,
+"distance": 165.0,
+"id": &"kt_hecke",
+"kind": &"hecke",
+"reward": &"goettliche_reise"
+}, {
+"angle": 70.0,
+"distance": 175.0,
+"id": &"kt_wasser",
+"kind": &"wasser",
+"reward": &"himmelsdieb"
+}, {
+"angle": 115.0,
+"distance": 160.0,
+"id": &"kt_fels",
+"kind": &"fels",
+"reward": &"qi_mauer"
+}, {
+"angle": 165.0,
+"distance": 175.0,
+"id": &"kt_schalter",
+"kind": &"schalter",
+"reward": &"neun_palaeste"
+}, {
+"angle": 210.0,
+"distance": 170.0,
+"id": &"kt_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"fruehlingherbst"
+}, {
+"angle": 255.0,
+"distance": 160.0,
+"id": &"kt_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"himmelsweisheit"
+}, {
+"angle": 305.0,
+"distance": 170.0,
+"id": &"kt_vorsprung",
+"kind": &"vorsprung",
+"reward": &"himmelsglocke"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"holz": Vector2i(40, 2),
+&"jadeader": Vector2i(12, 1),
+&"kristall": Vector2i(45, 3),
+&"mondtau": Vector2i(30, 1),
+&"stein": Vector2i(45, 2),
+&"urkristall": Vector2i(3, 1)
+})
+enemy_radii = Array[float]([110.0, 180.0])
+enemy_zones = [[&"sturmadler", &"donnerkronenwolf", &"weisser_tiger"], [&"weisser_tiger", &"donnerkronenwolf", &"troll", &"sturmadler"], [&"donnerkronenwolf", &"weisser_tiger", &"drachenling", &"obsidian"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(90, 200)
+wanderers = Array[StringName]([&"schattenaeltester", &"zehn_extreme", &"kranich_meister", &"himmelshof"])
+wanderer_count = 3

@@ -1336,6 +1336,76 @@
    "beh": "boss",
    "minion": "seuche",
    "rang": 4
+  },
+  "erdwall_waechter": {
+   "n": "Wächter des Erdwalls",
+   "hp": 3600,
+   "dmg": 34,
+   "spd": 2.6,
+   "xp": 1300,
+   "r": 1.1,
+   "c": "#b08a58",
+   "z": 9,
+   "drop": [
+    [
+     "erdkern",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "reliquie_weisssilber",
+     0.5
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "minion": "golem",
+   "rang": 4
+  },
+  "sturmkranich": {
+   "n": "Geist des Sturmkranichs",
+   "hp": 8200,
+   "dmg": 42,
+   "spd": 3.6,
+   "xp": 2300,
+   "r": 1.1,
+   "c": "#e8f0ff",
+   "z": 9,
+   "drop": [
+    [
+     "windfeder",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "reliquie_lilakristall",
+     0.5
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "fly": 1,
+   "rang": 5
   }
  },
  "VARIANTS": {
@@ -1790,6 +1860,30 @@
     "windklinge",
     "steinaffe_gestalt",
     "wirbelwind"
+   ]
+  },
+  "federkrieger": {
+   "n": "Federkrieger",
+   "c": "#6ab0d0",
+   "f": "righteous",
+   "rang": 4,
+   "gu": [
+    "windklinge",
+    "sprungwurm",
+    "sternpfeil_klein",
+    "bronzeglocke"
+   ]
+  },
+  "kranich_meister": {
+   "n": "Meister der Himmelskranich-Sekte",
+   "c": "#dfe8ff",
+   "f": "righteous",
+   "rang": 5,
+   "gu": [
+    "sprungwurm",
+    "windklinge",
+    "gedankenblitz",
+    "sternpfeil_klein"
    ]
   }
  },

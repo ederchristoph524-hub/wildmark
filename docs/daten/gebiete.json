@@ -3917,6 +3917,954 @@
      false
     ]
    ]
+  },
+  "flammenschlucht": {
+   "n": "Flammenwut-Schlucht",
+   "region": 3,
+   "karte": [
+    0.11,
+    0.66
+   ],
+   "rang": [
+    3,
+    4
+   ],
+   "offen": true,
+   "d": "Rote Schluchten voller Hitze, in denen das Federvolk auf seinen Felsen lebt. Tief im Gestein ruht das Erbe des Paradies-Erdwalls.",
+   "groesse": 500,
+   "seed": 9533,
+   "biom": "rote_schlucht",
+   "relief": {
+    "hoehe": 12,
+    "frequenz": 0.0055,
+    "detail": 1.2,
+    "berge": 40,
+    "rand": 60,
+    "randhoehe": 60,
+    "horizont": 200
+   },
+   "ankunft": [
+    0,
+    185
+   ],
+   "siedlungen": [
+    {
+     "id": "federdorf",
+     "typ": "zeltlager",
+     "fraktion": "federvolk",
+     "pos": [
+      20,
+      20
+     ],
+     "radius": 30,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#c8a060",
+      "wand": "#f0e0c0",
+      "holz": "#6a4a2a",
+      "saeule": "#a0603a",
+      "banner": "#6ab0d0",
+      "stein": "#b09070"
+     },
+     "bewohner": "federvolk"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "paradies_erdwall",
+     "n": "Erbe des Paradies-Erdwalls",
+     "pos": [
+      -130,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 20,
+      "erdkern": 2
+     },
+     "waechter": [
+      "obsidian",
+      "obsidian",
+      "sandwurm",
+      "erdwall_waechter"
+     ],
+     "belohnung": {
+      "gu": [
+       "felssturz",
+       "bergwiezuvor"
+      ],
+      "koerper_gu": [
+       "panzer_gu"
+      ],
+      "items": {
+       "erdkern": 4,
+       "kristall": 55,
+       "reliquie_weisssilber": 1
+      }
+     },
+     "text": "Ein Erd-Unsterblicher mauerte hier sein Paradies ein. Sein Wächter aus Fels lässt nur Würdige hindurch.",
+     "stil": "grab",
+     "akzent": "#e0a050"
+    },
+    {
+     "typ": "aschefeld",
+     "n": "Glutboden",
+     "pos": [
+      140,
+      -100
+     ],
+     "radius": 14,
+     "item": "glutasche",
+     "anzahl": 12
+    },
+    {
+     "typ": "see",
+     "n": "Schluchtbecken",
+     "pos": [
+      -60,
+      100
+     ],
+     "radius": 18
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Federquelle",
+     "pos": [
+      110,
+      120
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Knochen im Sand",
+     "pos": [
+      -150,
+      40
+     ],
+     "radius": 11,
+     "item": "knochenmehl",
+     "anzahl": 8
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "fs_hecke",
+     "art": "hecke",
+     "belohnung": "feuerlotus",
+     "richtung": 25,
+     "abstand": 150
+    },
+    {
+     "id": "fs_wasser",
+     "art": "wasser",
+     "belohnung": "verletzungswind",
+     "richtung": 70,
+     "abstand": 165
+    },
+    {
+     "id": "fs_fels",
+     "art": "fels",
+     "belohnung": "selbstentzuendung",
+     "richtung": 120,
+     "abstand": 150
+    },
+    {
+     "id": "fs_schalter",
+     "art": "schalter",
+     "belohnung": "kettenknolle",
+     "richtung": 165,
+     "abstand": 160
+    },
+    {
+     "id": "fs_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "wasserbild",
+     "richtung": 210,
+     "abstand": 155
+    },
+    {
+     "id": "fs_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "kampfrausch",
+     "richtung": 255,
+     "abstand": 150
+    },
+    {
+     "id": "fs_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "donnerglocke",
+     "richtung": 305,
+     "abstand": 160
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      185
+     ],
+     [
+      10,
+      52
+     ]
+    ],
+    [
+     [
+      45,
+      5
+     ],
+     [
+      100,
+      -50
+     ],
+     [
+      135,
+      -90
+     ]
+    ],
+    [
+     [
+      -5,
+      -5
+     ],
+     [
+      -70,
+      -60
+     ],
+     [
+      -120,
+      -110
+     ]
+    ],
+    [
+     [
+      40,
+      40
+     ],
+     [
+      80,
+      90
+     ],
+     [
+      102,
+      112
+     ]
+    ],
+    [
+     [
+      -5,
+      40
+     ],
+     [
+      -40,
+      80
+     ],
+     [
+      -52,
+      92
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "stein": [
+     60,
+     2
+    ],
+    "kristall": [
+     40,
+     2
+    ],
+    "holz": [
+     15,
+     2
+    ],
+    "beeren": [
+     20,
+     2
+    ],
+    "glutasche": [
+     15,
+     1
+    ],
+    "windfeder": [
+     12,
+     1
+    ],
+    "eisenerz": [
+     30,
+     1
+    ],
+    "erdkern": [
+     8,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     170
+    ],
+    "zonen": [
+     [
+      "riesenskorpion",
+      "sturmadler",
+      "feuerfuchs"
+     ],
+     [
+      "feuerfuchs",
+      "imp",
+      "riesenskorpion",
+      "sandwurm",
+      "drachenling"
+     ],
+     [
+      "sandwurm",
+      "lavaschnecke",
+      "obsidian",
+      "drachenling",
+      "imp"
+     ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "sandraeuber",
+     "karawane",
+     "federkrieger"
+    ]
+   },
+   "wilde_gu": {
+    "rang": 3,
+    "abstand": [
+     70,
+     190
+    ]
+   },
+   "wilde_passive": [
+    [
+     "essenzeisenknochen",
+     "body",
+     140,
+     200,
+     true
+    ]
+   ]
+  },
+  "nebelriff": {
+   "n": "Nebelriff",
+   "region": 2,
+   "karte": [
+    0.9,
+    0.34
+   ],
+   "rang": [
+    4,
+    5
+   ],
+   "offen": true,
+   "d": "Nebelverhangene Riffe, in denen Seeräuber ihr Nest haben. Ein Leuchtturm der Ostmeer-Allianz hält Wache, und unter den Wellen schläft ein Tempel.",
+   "groesse": 560,
+   "seed": 9661,
+   "biom": "nebelriff",
+   "relief": {
+    "hoehe": 3,
+    "frequenz": 0.006,
+    "detail": 0.5,
+    "berge": 0,
+    "rand": 60,
+    "randhoehe": -8,
+    "horizont": 25,
+    "basis": -4
+   },
+   "erhebungen": [
+    [
+     10,
+     25,
+     150,
+     14
+    ],
+    [
+     -180,
+     -120,
+     70,
+     12
+    ],
+    [
+     170,
+     -60,
+     80,
+     14
+    ],
+    [
+     -120,
+     170,
+     60,
+     11
+    ]
+   ],
+   "ankunft": [
+    20,
+    90
+   ],
+   "siedlungen": [
+    {
+     "id": "leuchtturminsel",
+     "typ": "inseldorf",
+     "fraktion": "ostmeer_allianz",
+     "pos": [
+      20,
+      30
+     ],
+     "radius": 30,
+     "haeuser": 7,
+     "farben": {
+      "dach": "#3a4a5a",
+      "wand": "#e0dccc",
+      "holz": "#5a4430",
+      "saeule": "#2a5a7a",
+      "banner": "#3a9ac0",
+      "stein": "#8a8a84"
+     },
+     "bewohner": "insel"
+    },
+    {
+     "id": "piratennest",
+     "typ": "versteck",
+     "fraktion": "seeraeuberbund",
+     "pos": [
+      170,
+      -60
+     ],
+     "radius": 26,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#2a2420",
+      "wand": "#6a5a4a",
+      "holz": "#3a2a20",
+      "saeule": "#4a2a2a",
+      "banner": "#2a6a8a",
+      "stein": "#5a5650"
+     },
+     "bewohner": "piraten"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "tiefsee_tempel",
+     "n": "Tempel unter den Wellen",
+     "pos": [
+      -180,
+      -120
+     ],
+     "radius": 10,
+     "opfer": {
+      "kristall": 40,
+      "tiefseeperle": 1
+     },
+     "waechter": [
+      "seeschlange",
+      "riesenkrabbe",
+      "riesenkrabbe",
+      "seekoenig"
+     ],
+     "belohnung": {
+      "gu": [
+       "taifun",
+       "himmelsdonner"
+      ],
+      "hilfs_gu": [
+       "glueckssicht"
+      ],
+      "items": {
+       "tiefseeperle": 3,
+       "kristall": 80,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Die Flut hat diesen Tempel verschluckt. Wenn der Nebel sich hebt, steigt er für eine Nacht aus dem Meer.",
+     "stil": "grotte",
+     "akzent": "#6adcff"
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Nebelquelle",
+     "pos": [
+      -120,
+      170
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Wrackbucht",
+     "pos": [
+      60,
+      85
+     ],
+     "radius": 10,
+     "item": "blutkoralle",
+     "anzahl": 6
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "nr_hecke",
+     "art": "hecke",
+     "belohnung": "sturmgeheul",
+     "richtung": 15.5,
+     "abstand": 74.7
+    },
+    {
+     "id": "nr_wasser",
+     "art": "wasser",
+     "belohnung": "donnerwolf",
+     "richtung": 58.7,
+     "abstand": 86.6
+    },
+    {
+     "id": "nr_fels",
+     "art": "fels",
+     "belohnung": "gezeitenstrahl",
+     "richtung": 121.3,
+     "abstand": 86.6
+    },
+    {
+     "id": "nr_schalter",
+     "art": "schalter",
+     "belohnung": "knochenweich",
+     "richtung": 164.5,
+     "abstand": 74.7
+    },
+    {
+     "id": "nr_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "goldglocke",
+     "richtung": 216.3,
+     "abstand": 55.8
+    },
+    {
+     "id": "nr_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "sternschnuppe",
+     "richtung": 323.7,
+     "abstand": 55.8
+    },
+    {
+     "id": "nr_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "glueckskoi",
+     "richtung": 270,
+     "abstand": 50
+    }
+   ],
+   "wege": [],
+   "ressourcen": {
+    "kristall": [
+     40,
+     3
+    ],
+    "holz": [
+     25,
+     2
+    ],
+    "stein": [
+     25,
+     2
+    ],
+    "beeren": [
+     35,
+     3
+    ],
+    "mondtau": [
+     25,
+     1
+    ],
+    "tiefseeperle": [
+     6,
+     1
+    ],
+    "blutkoralle": [
+     10,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     80,
+     160
+    ],
+    "zonen": [
+     [
+      "riesenkrabbe",
+      "sturmadler",
+      "seeschlange"
+     ],
+     [
+      "seeschlange",
+      "riesenkrabbe",
+      "sturmadler",
+      "feuerfuchs"
+     ],
+     [
+      "seeschlange",
+      "riesenkrabbe",
+      "weisser_tiger",
+      "donnerkronenwolf"
+     ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "seeraeuber",
+     "seeraeuber",
+     "meereszombie",
+     "ostmeer"
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     40,
+     90
+    ]
+   },
+   "wilde_passive": []
+  },
+  "kranichtal": {
+   "n": "Tal der Himmelskraniche",
+   "region": 4,
+   "karte": [
+    0.38,
+    0.62
+   ],
+   "rang": [
+    5,
+    5
+   ],
+   "offen": true,
+   "d": "Ein blühendes Tal im Herzen der Welt. Hier lehrt die Himmelskranich-Sekte, eine der großen Sekten des Zentralkontinents – nur wer Ansehen hat, darf eintreten.",
+   "groesse": 540,
+   "seed": 9787,
+   "biom": "kranichtal",
+   "relief": {
+    "hoehe": 12,
+    "frequenz": 0.0045,
+    "detail": 0.9,
+    "berge": 30,
+    "rand": 70,
+    "randhoehe": 70,
+    "horizont": 230
+   },
+   "erhebungen": [
+    [
+     0,
+     -40,
+     95,
+     14
+    ]
+   ],
+   "ankunft": [
+    0,
+    200
+   ],
+   "siedlungen": [
+    {
+     "id": "himmelskranich_sekte",
+     "typ": "sekte",
+     "fraktion": "himmelskranich",
+     "pos": [
+      0,
+      -40
+     ],
+     "radius": 66,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#2a4a6a",
+      "wand": "#f4f0e8",
+      "holz": "#3a2a20",
+      "saeule": "#c02a2a",
+      "banner": "#e8f0ff",
+      "stein": "#a8a6a0"
+     },
+     "bewohner": "kranich"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "kranichgrab",
+     "n": "Grab des Kranich-Unsterblichen",
+     "pos": [
+      -140,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 40,
+      "windfeder": 6
+     },
+     "waechter": [
+      "sturmadler",
+      "sturmadler",
+      "weisser_tiger",
+      "sturmkranich"
+     ],
+     "belohnung": {
+      "gu": [
+       "blauerhimmel",
+       "himmelsweisheit"
+      ],
+      "hilfs_gu": [
+       "boeserGedanke"
+      ],
+      "items": {
+       "heldenherz": 2,
+       "urkristall": 1,
+       "kristall": 100,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Ein Unsterblicher ritt hier einst auf einem Sturmkranich in den Himmel. Sein Kranich ist geblieben.",
+     "stil": "grab",
+     "akzent": "#bfe4ff"
+    },
+    {
+     "typ": "see",
+     "n": "Spiegelteich der Kraniche",
+     "pos": [
+      120,
+      90
+     ],
+     "radius": 22
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Himmelsquelle",
+     "pos": [
+      -110,
+      100
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "frostquelle",
+     "n": "Wolkenquelle",
+     "pos": [
+      150,
+      -120
+     ],
+     "radius": 10,
+     "item": "frostsplitter",
+     "anzahl": 8
+    },
+    {
+     "typ": "friedhof",
+     "n": "Stelen der Ahnen",
+     "pos": [
+      40,
+      160
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 8
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "kt_hecke",
+     "art": "hecke",
+     "belohnung": "goettliche_reise",
+     "richtung": 20,
+     "abstand": 165
+    },
+    {
+     "id": "kt_wasser",
+     "art": "wasser",
+     "belohnung": "himmelsdieb",
+     "richtung": 70,
+     "abstand": 175
+    },
+    {
+     "id": "kt_fels",
+     "art": "fels",
+     "belohnung": "qi_mauer",
+     "richtung": 115,
+     "abstand": 160
+    },
+    {
+     "id": "kt_schalter",
+     "art": "schalter",
+     "belohnung": "neun_palaeste",
+     "richtung": 165,
+     "abstand": 175
+    },
+    {
+     "id": "kt_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "fruehlingherbst",
+     "richtung": 210,
+     "abstand": 170
+    },
+    {
+     "id": "kt_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "himmelsweisheit",
+     "richtung": 255,
+     "abstand": 160
+    },
+    {
+     "id": "kt_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "himmelsglocke",
+     "richtung": 305,
+     "abstand": 170
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      200
+     ],
+     [
+      0,
+      30
+     ]
+    ],
+    [
+     [
+      -40,
+      -60
+     ],
+     [
+      -100,
+      -100
+     ],
+     [
+      -130,
+      -112
+     ]
+    ],
+    [
+     [
+      40,
+      -20
+     ],
+     [
+      90,
+      50
+     ],
+     [
+      110,
+      80
+     ]
+    ],
+    [
+     [
+      -30,
+      10
+     ],
+     [
+      -80,
+      70
+     ],
+     [
+      -100,
+      92
+     ]
+    ],
+    [
+     [
+      50,
+      -60
+     ],
+     [
+      120,
+      -100
+     ],
+     [
+      140,
+      -112
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "stein": [
+     45,
+     2
+    ],
+    "kristall": [
+     45,
+     3
+    ],
+    "holz": [
+     40,
+     2
+    ],
+    "beeren": [
+     40,
+     3
+    ],
+    "mondtau": [
+     30,
+     1
+    ],
+    "jadeader": [
+     12,
+     1
+    ],
+    "urkristall": [
+     3,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     110,
+     180
+    ],
+    "zonen": [
+     [
+      "sturmadler",
+      "donnerkronenwolf",
+      "weisser_tiger"
+     ],
+     [
+      "weisser_tiger",
+      "donnerkronenwolf",
+      "troll",
+      "sturmadler"
+     ],
+     [
+      "donnerkronenwolf",
+      "weisser_tiger",
+      "drachenling",
+      "obsidian"
+     ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "schattenaeltester",
+     "zehn_extreme",
+     "kranich_meister",
+     "himmelshof"
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     90,
+     200
+    ]
+   },
+   "wilde_passive": []
   }
  },
  "BIOME": {
@@ -4198,6 +5146,91 @@
    "nebel_dichte": 0.0022,
    "wasser": "#3a6a8a",
    "pflanzenfarbe": "#e6eef0"
+  },
+  "rote_schlucht": {
+   "n": "Flammenwut-Schlucht der Westlichen Wüste",
+   "farben": {
+    "gras_dunkel": "#8a6a3a",
+    "gras_hell": "#b08a4a",
+    "moos": "#9a7a42",
+    "erde": "#9a4a2a",
+    "fels": "#8a3a24",
+    "gipfel": "#c8906a",
+    "weg": "#b07a50",
+    "platz": "#c09060"
+   },
+   "vegetation": {
+    "kaktus": 0.5,
+    "totholz": 0.35,
+    "palme": 0.15
+   },
+   "baeume_pro_1000m2": 0.6,
+   "buesche_pro_1000m2": 0.9,
+   "gras_pro_1000m2": 10,
+   "felsen_pro_1000m2": 4.0,
+   "himmel": "#f0d8b8",
+   "himmel_oben": "#5a88c0",
+   "nebel": "#e8ccaa",
+   "nebel_dichte": 0.0018,
+   "wasser": "#3a7a7a",
+   "pflanzenfarbe": "#e0c890"
+  },
+  "nebelriff": {
+   "n": "Nebelriffe des Östlichen Meeres",
+   "farben": {
+    "gras_dunkel": "#34583a",
+    "gras_hell": "#5a8a4c",
+    "moos": "#4a7a44",
+    "erde": "#7a6a50",
+    "fels": "#6a6a66",
+    "gipfel": "#9a9a94",
+    "weg": "#b8a888",
+    "platz": "#b8a888",
+    "strand": "#d6c8a0"
+   },
+   "vegetation": {
+    "palme": 0.55,
+    "laubbaum": 0.3,
+    "totholz": 0.15
+   },
+   "baeume_pro_1000m2": 2.5,
+   "buesche_pro_1000m2": 2.5,
+   "gras_pro_1000m2": 22,
+   "felsen_pro_1000m2": 2.0,
+   "himmel": "#c4d2dc",
+   "himmel_oben": "#40688f",
+   "nebel": "#b4c4ce",
+   "nebel_dichte": 0.0034,
+   "wasser": "#1f5a78",
+   "meeresspiegel": 0.0
+  },
+  "kranichtal": {
+   "n": "Kranichtäler des Zentralkontinents",
+   "farben": {
+    "gras_dunkel": "#3a6a3a",
+    "gras_hell": "#6a9a52",
+    "moos": "#5a8a44",
+    "erde": "#6a5a44",
+    "fels": "#6e6e6a",
+    "gipfel": "#f2f4f6",
+    "weg": "#a89c86",
+    "platz": "#b8ac94"
+   },
+   "vegetation": {
+    "laubbaum": 0.6,
+    "bambus": 0.25,
+    "nadelbaum": 0.15
+   },
+   "baeume_pro_1000m2": 4.0,
+   "buesche_pro_1000m2": 3.0,
+   "gras_pro_1000m2": 30,
+   "felsen_pro_1000m2": 1.5,
+   "himmel": "#dde8f0",
+   "himmel_oben": "#4a80c0",
+   "nebel": "#d4e0e6",
+   "nebel_dichte": 0.0022,
+   "wasser": "#3a7a9a",
+   "pflanzenfarbe": "#f4c8d8"
   }
  }
 }
