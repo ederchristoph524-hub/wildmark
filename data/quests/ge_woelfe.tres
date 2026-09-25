@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://b6swurog23jmu"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_gwh6f"]
+
+[resource]
+script = ExtResource("1_gwh6f")
+id = &"ge_woelfe"
+display_name = "Wölfe am Weideland"
+description = "Der Ge-Häuptling bittet dich, das Weideland zu sichern: erlege 30 Bestien."
+reward_points = 2
+rule = {
+"area": "",
+"count": 30,
+"item": &"",
+"reward": {
+&"kristall": 50,
+&"wolfsgeist": 3
+},
+"type": &"kills"
+}

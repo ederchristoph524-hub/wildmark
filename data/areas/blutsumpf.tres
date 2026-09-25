@@ -1,0 +1,205 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://d2a25iovp74wq"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_7jbjq"]
+
+[resource]
+script = ExtResource("1_7jbjq")
+id = &"blutsumpf"
+display_name = "Blutsümpfe"
+map_position = Vector2(0.15, 0.8)
+rank_min = 3
+rank_max = 4
+open = true
+description = "Rote Sümpfe voller Miasma: Hier versteckt sich Fang Yuans Blutflügel-Sekte, der Wu-Klan späht ihr nach – und irgendwo liegt die Grotte des Blutmeer-Ahnen."
+size = 500.0
+terrain_seed = 9151
+biome = &"blutsumpf"
+relief = Dictionary[StringName, float]({
+&"berge": 18.0,
+&"detail": 0.8,
+&"frequenz": 0.006,
+&"hoehe": 8.0,
+&"horizont": 170.0,
+&"rand": 55.0,
+&"randhoehe": 45.0
+})
+arrival = Vector2(0, 190)
+paths = [[Vector2(0, 190), Vector2(5, 60), Vector2(20, 5)], [Vector2(55, -40), Vector2(110, -80), Vector2(135, -105)], [Vector2(10, -55), Vector2(-60, -90), Vector2(-125, -115)], [Vector2(-20, 20), Vector2(-80, 50), Vector2(-105, 62)], [Vector2(45, 5), Vector2(90, 40), Vector2(140, 55)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.7529412, 0.1254902, 0.16470589, 1),
+&"dach": Color(0.16470589, 0.078431375, 0.078431375, 1),
+&"holz": Color(0.16470589, 0.101960786, 0.09411765, 1),
+&"saeule": Color(0.47843137, 0.101960786, 0.101960786, 1),
+&"stein": Color(0.2901961, 0.22745098, 0.21960784, 1),
+&"wand": Color(0.3529412, 0.1882353, 0.1882353, 1)
+},
+"faction": &"blutfluegel",
+"houses": 0,
+"id": &"blutfluegel_versteck",
+"pond": 0.0,
+"position": Vector2(30, -30),
+"radius": 32.0,
+"residents": &"blutfluegel",
+"type": &"versteck"
+}, {
+"colors": {
+&"banner": Color(0.6901961, 0.1254902, 0.1254902, 1),
+&"dach": Color(0.41568628, 0.16470589, 0.1254902, 1),
+&"holz": Color(0.2901961, 0.16470589, 0.11764706, 1),
+&"saeule": Color(0.5411765, 0.16470589, 0.1254902, 1),
+&"stein": Color(0.5019608, 0.46666667, 0.41568628, 1),
+&"wand": Color(0.84705883, 0.78431374, 0.65882355, 1)
+},
+"faction": &"wu_clan",
+"houses": 4,
+"id": &"wu_spaeherlager",
+"pond": 0.0,
+"position": Vector2(-120, 70),
+"radius": 24.0,
+"residents": &"wu_spaeher",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"accent": Color(0.8156863, 0.1882353, 0.22745098, 1),
+"count": 0,
+"guards": Array[StringName]([&"seuche", &"seuche", &"riesenkrokodil", &"blutahn"]),
+"id": &"blutsee_grotte",
+"item": &"",
+"name": "Grotte des Blutmeer-Ahnen",
+"offering": {
+&"blutkoralle": 2,
+&"kristall": 20
+},
+"position": Vector2(-140, -120),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([&"blutrausch", &"blutschaedel"]),
+"items": {
+&"blutkoralle": 4,
+&"kristall": 50,
+&"reliquie_weisssilber": 1
+},
+"support": Array[StringName]([&"selbsthilfe"])
+},
+"style": &"grotte",
+"text": "Der Blutmeer-Ahn hinterließ eine Grotte voller Blut. Wer sie betritt, zahlt mit Blut – oder erbt es.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Blutsee",
+"offering": {},
+"position": Vector2(60, 110),
+"radius": 24.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Rote Quelle",
+"offering": {},
+"position": Vector2(140, -110),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 9,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Gräberfeld der Blutopfer",
+"offering": {},
+"position": Vector2(150, 60),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 15.0,
+"distance": 150.0,
+"id": &"bs_hecke",
+"kind": &"hecke",
+"reward": &"positionstausch"
+}, {
+"angle": 65.0,
+"distance": 165.0,
+"id": &"bs_wasser",
+"kind": &"wasser",
+"reward": &"pluender"
+}, {
+"angle": 110.0,
+"distance": 150.0,
+"id": &"bs_fels",
+"kind": &"fels",
+"reward": &"himmelsschirm"
+}, {
+"angle": 160.0,
+"distance": 165.0,
+"id": &"bs_schalter",
+"kind": &"schalter",
+"reward": &"schneekristall"
+}, {
+"angle": 205.0,
+"distance": 160.0,
+"id": &"bs_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"jahresfluss"
+}, {
+"angle": 250.0,
+"distance": 150.0,
+"id": &"bs_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"klarer_geist"
+}, {
+"angle": 300.0,
+"distance": 160.0,
+"id": &"bs_vorsprung",
+"kind": &"vorsprung",
+"reward": &"segensregen"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(40, 3),
+&"blutkoralle": Vector2i(8, 1),
+&"giftdrüse": Vector2i(15, 1),
+&"gruenkraut": Vector2i(40, 2),
+&"holz": Vector2i(45, 2),
+&"kristall": Vector2i(40, 2),
+&"stein": Vector2i(40, 2)
+})
+enemy_radii = Array[float]([100.0, 170.0])
+enemy_zones = [[&"riesenkrokodil", &"riesenskorpion", &"elektrowolf", &"sturmadler"], [&"riesenkrokodil", &"seuche", &"schatten", &"troll"], [&"seuche", &"schatten", &"troll", &"feuerfuchs", &"drachenling"]]
+wild_gu_rank = 3
+wild_gu_range = Vector2(70, 190)
+wild_passives = [[&"bitterkraft", &"body", 110.0, 190.0, true], [&"knochenfleisch", &"body", 130.0, 200.0, true]]
+wanderers = Array[StringName]([&"blutfluegel", &"blutfluegel", &"wegelagerer", &"wu_general"])
+wanderer_count = 3

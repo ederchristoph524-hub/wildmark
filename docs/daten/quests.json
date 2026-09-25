@@ -446,6 +446,63 @@
      "beeren": 6
     }
    }
+  },
+  {
+   "id": "blut_pruefung",
+   "n": "Blutzoll",
+   "d": "Die Blutflügel-Sekte verlangt einen Zoll: bringe 3 Blutkorallen.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "count": 3,
+    "reward": {
+     "kristall": 40,
+     "reliquie_weisssilber": 1
+    },
+    "item": "blutkoralle"
+   }
+  },
+  {
+   "id": "wu_spaeher_auftrag",
+   "n": "Späher im Sumpf",
+   "d": "Der Wu-Klan will die Dämonen des Sumpfs dezimiert sehen: besiege 3 dämonische Kultivierende.",
+   "sp": 2,
+   "regel": {
+    "type": "rogues",
+    "count": 3,
+    "reward": {
+     "kristall": 45,
+     "drachenschuppe": 1
+    }
+   }
+  },
+  {
+   "id": "yi_tian_pruefung",
+   "n": "Prüfung am Berg",
+   "d": "Wer der Yi-Tian-Sekte beitreten will, muss sich beweisen: gewinne 3 Duelle.",
+   "sp": 2,
+   "regel": {
+    "type": "duels",
+    "count": 3,
+    "reward": {
+     "kristall": 60,
+     "klingenstahl": 2
+    }
+   }
+  },
+  {
+   "id": "ge_woelfe",
+   "n": "Wölfe am Weideland",
+   "d": "Der Ge-Häuptling bittet dich, das Weideland zu sichern: erlege 30 Bestien.",
+   "sp": 2,
+   "regel": {
+    "type": "kills",
+    "count": 30,
+    "reward": {
+     "wolfsgeist": 3,
+     "kristall": 50
+    }
+   }
   }
  ],
  "GOALS": "[fn] ()=>[\n  {n:'Apertur erwecken',d:'Deine Aptitude wurde am See bestimmt.',ok:!!P.aptitude},\n  {n:'Vital-Gu verfeinern',d:'Das erste Gu, lebenslang gebunden.',ok:!!P.vitalGu},\n  {n:'Gipfel der Sterblichen',d:'Rang 5 · Lila-Kristall erreichen.',ok:P.rank>=5},\n  {n:'Unsterblichenaufstieg',d:'Rang 6 · das Gesegnete Land entsteht.',ok:P.rank>=6},\n  {n:'Waldgeist bezwingen',d:'Erste Erdkalamität.',ok:!!P.bosses.waldgeist?.dead},\n  {n:'Steinkönig bezwingen',d:'Zweite Erdkalamität.',ok:!!P.bosses.steinkoenig?.dead},\n  {n:'Lavadrache bezwingen',d:'Himmlische Trübsal.',ok:!!P.bosses.drache?.dead},\n  {n:'Grotten-Himmel',d:'Rang 8 · deine Apertur wird ein Kosmos.',ok:P.rank>=8},\n  {n:'Ehrwürdiger werden',d:'Rang 9 · Gelb-Aprikose. Zehn in drei Millionen Jahren.',ok:P.rank>=9},\n  {n:'Alle Länder einverleiben',d:'Nimm Lang Ya, den Kaiserhof und den Langlebigkeits-Himmel in deine Apertur auf.',ok:['langya','hof','longevity'].every(k=>(P.annexed||{})[k])},\n  {n:'Alle Wahren Erben',d:'Sammle die Vermächtnisse der Ehrwürdigen.',ok:Object.keys(INHERIT).every(k=>P.inherit?.[k])},\n  {n:'Sektenherr werden',d:'Steige bis an die Spitze einer Sekte auf.',ok:!!P.sect&&sectRankIdx()>=5},\n  {n:'Ewigkeits-Gu erlangen',d:'Das Ziel, an dem alle Ehrwürdigen scheiterten.',ok:guOwned('ewigkeit')},\n  {n:'Schicksals-Gu erlangen',d:'Das mächtigste Gu der Geschichte.',ok:guOwned('schicksal')},\n]"

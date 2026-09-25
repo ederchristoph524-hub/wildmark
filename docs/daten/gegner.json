@@ -1303,6 +1303,39 @@
    ],
    "f_reichweite": 9,
    "f_cd": 4
+  },
+  "blutahn": {
+   "n": "Blutpuppe des Blutmeer-Ahnen",
+   "hp": 3400,
+   "dmg": 32,
+   "spd": 3.2,
+   "xp": 1250,
+   "r": 1,
+   "c": "#b01a2a",
+   "z": 9,
+   "drop": [
+    [
+     "blutkoralle",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "kristall",
+     1
+    ],
+    [
+     "reliquie_weisssilber",
+     0.5
+    ]
+   ],
+   "shape": "boss",
+   "boss": 1,
+   "beh": "boss",
+   "minion": "seuche",
+   "rang": 4
   }
  },
  "VARIANTS": {
@@ -1732,6 +1765,30 @@
     "eberstoss",
     "eisenzahn",
     "steinhaut",
+    "wirbelwind"
+   ]
+  },
+  "yi_tian_aeltester": {
+   "n": "Ältester der Yi-Tian-Sekte",
+   "c": "#8ab0c0",
+   "f": "righteous",
+   "rang": 5,
+   "gu": [
+    "eisenhaut",
+    "sternpfeil_klein",
+    "hartes_qi",
+    "windklinge"
+   ]
+  },
+  "ge_krieger": {
+   "n": "Krieger des Ge-Stammes",
+   "c": "#c89a50",
+   "f": "righteous",
+   "rang": 4,
+   "gu": [
+    "eberstoss",
+    "windklinge",
+    "steinaffe_gestalt",
     "wirbelwind"
    ]
   }

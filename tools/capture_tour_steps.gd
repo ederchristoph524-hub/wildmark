@@ -21,7 +21,7 @@ func run(scene_tree: SceneTree) -> void:
 	EventBus.new_game_requested.emit({"first_family": &"mondlicht", "talent_grade": &"B", "apt": 70.0, "death_mode": &"standard", "area": _area_arg()})
 	await _frames(90)
 	main.hud.visible = false
-	GameState.time_of_day = 0.28
+	GameState.time_of_day = _time_arg()
 	_camera = Camera3D.new()
 	_camera.near = PlayerCamera.VIEW_NEAR
 	_camera.far = PlayerCamera.VIEW_FAR
@@ -41,6 +41,22 @@ func _area_arg() -> StringName:
 		if arg.begins_with("--area="):
 			return StringName(arg.trim_prefix("--area="))
 	return &"qing_mao"
+
+
+## --time=0.9 setzt die Tageszeit (0–1, Standard Vormittag); z. B. für Nachtbilder.
+func _time_arg() -> float:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--time="):
+			return float(arg.trim_prefix("--time="))
+	return 0.28
+
+
+## --wait=300 wartet so viele Bilder vor dem Foto (Partikel, Tageswechsel); Standard 12.
+func _wait_arg() -> int:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--wait="):
+			return int(arg.trim_prefix("--wait="))
+	return 12
 
 
 ## --only=name1,name2 beschränkt den Rundgang auf diese Aussichtspunkte.
@@ -76,7 +92,7 @@ func _views(world: World) -> Array[Array]:
 func _view(title: String, from: Vector3, to: Vector3) -> void:
 	_camera.global_position = from
 	_camera.look_at(to, Vector3.UP)
-	await _frames(12)
+	await _frames(_wait_arg())
 	await RenderingServer.frame_post_draw
 	var image: Image = tree.root.get_viewport().get_texture().get_image()
 	image.save_png(ProjectSettings.globalize_path(OUT_DIR + GameState.area + "_" + title + ".png"))

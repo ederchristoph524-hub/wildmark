@@ -78,6 +78,24 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"stamm", "Huang-Jin-Ältester", &"huang_jin_ehre", false, &"hall", Vector2(0.0, 0.0)],
 		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
+	&"blutfluegel": [
+		[&"klan", "Blutflügel-Ältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"klan", "Blutwächter", &"blut_pruefung", false, &"gate", Vector2(0.0, 0.0)],
+	],
+	&"wu_spaeher": [
+		[&"klan", "Wu-Späherführer", &"wu_spaeher_auftrag", false, &"hall", Vector2(0.0, 0.0)],
+		[&"wu_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"yi_tian": [
+		[&"klan", "Yi-Tian-Ältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"klan", "Yi-Tian-Torwächter", &"yi_tian_pruefung", false, &"gate", Vector2(0.0, 0.0)],
+		[&"sekten_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"ge": [
+		[&"stamm", "Ge-Häuptling", &"ge_woelfe", false, &"hall", Vector2(0.0, 0.0)],
+		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
 	&"sekte": [
 		[&"klan", "Torwächter", &"sekte_herz", false, &"gate", Vector2(0.0, 0.0)],
 		[&"klan", "Bibliothekar", &"sekte_bibliothek", false, &"academy", Vector2(0.0, 0.0)],
@@ -103,6 +121,10 @@ const MASTERS: Dictionary[StringName, Array] = {
 	&"schatten": [[&"schattensekte", "Schattenschüler", &"training"]],
 	&"huang_jin": [[&"huang_jin", "Huang-Jin-Krieger", &"training"]],
 	&"sekte": [[&"zehn_extreme", "Sektenmeister", &"training"], [&"himmelshof", "Gast des Himmlischen Hofes", &"tower"]],
+	&"blutfluegel": [[&"blutfluegel", "Blutflügel-Dämon", &"training"], [&"blutaeltester", "", &"tower"]],
+	&"wu_spaeher": [[&"wu_general", "Wu-Späher", &"training"]],
+	&"yi_tian": [[&"yi_tian", "Yi-Tian-Schüler", &"training"], [&"yi_tian_aeltester", "", &"tower"]],
+	&"ge": [[&"ge_krieger", "", &"training"]],
 }
 ## Beerenbüsche im Garten (Versatz zum Anker garden) – für die Kindheit.
 const BUSHES: Dictionary[StringName, Array] = {

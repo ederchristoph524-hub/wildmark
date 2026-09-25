@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://byuoo0uei0ncd"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_8lrpi"]
+
+[resource]
+script = ExtResource("1_8lrpi")
+id = &"yi_tian_pruefung"
+display_name = "Prüfung am Berg"
+description = "Wer der Yi-Tian-Sekte beitreten will, muss sich beweisen: gewinne 3 Duelle."
+reward_points = 2
+rule = {
+"area": "",
+"count": 3,
+"item": &"",
+"reward": {
+&"klingenstahl": 2,
+&"kristall": 60
+},
+"type": &"duels"
+}

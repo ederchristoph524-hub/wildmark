@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://uttutea5pcjs"]
+
+[ext_resource type="Script" path="res://scripts/resources/drop_entry.gd" id="1_tf0nw"]
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="2_gk6jv"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("1_tf0nw")
+item = &"blutkoralle"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("1_tf0nw")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("1_tf0nw")
+item = &"kristall"
+chance = 1.0
+
+[sub_resource type="Resource" id="drop_3"]
+script = ExtResource("1_tf0nw")
+item = &"reliquie_weisssilber"
+chance = 0.5
+
+[resource]
+script = ExtResource("2_gk6jv")
+id = &"blutahn"
+display_name = "Blutpuppe des Blutmeer-Ahnen"
+max_hp = 3400
+damage = 32
+speed = 3.2
+xp = 1250
+radius = 1.0
+color = Color(0.6901961, 0.101960786, 0.16470589, 1)
+zone = 9
+rank = 4
+drops = Array[ExtResource("1_tf0nw")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2"), SubResource("drop_3")])
+shape = &"boss"
+behavior = &"boss"
+minion = &"seuche"
+boss = true

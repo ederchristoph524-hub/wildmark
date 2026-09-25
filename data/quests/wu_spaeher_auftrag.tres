@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://coyifabjwtm8x"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_gtjtd"]
+
+[resource]
+script = ExtResource("1_gtjtd")
+id = &"wu_spaeher_auftrag"
+display_name = "Späher im Sumpf"
+description = "Der Wu-Klan will die Dämonen des Sumpfs dezimiert sehen: besiege 3 dämonische Kultivierende."
+reward_points = 2
+rule = {
+"area": "",
+"count": 3,
+"item": &"",
+"reward": {
+&"drachenschuppe": 1,
+&"kristall": 45
+},
+"type": &"rogues"
+}

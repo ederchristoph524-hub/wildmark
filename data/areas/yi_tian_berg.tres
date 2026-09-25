@@ -1,0 +1,226 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://coohmd2w6pspc"]
+
+[ext_resource type="Script" path="res://scripts/resources/area_data.gd" id="1_tyenu"]
+
+[resource]
+script = ExtResource("1_tyenu")
+id = &"yi_tian_berg"
+display_name = "Yi-Tian-Berg"
+region = 0
+map_position = Vector2(0.68, 0.13)
+rank_min = 4
+rank_max = 5
+open = true
+description = "Eine strenge Bergsekte hoch über den Graslanden. Unten weidet der Ge-Stamm, oben im Schnee wacht ein Schrein des Riesensonnen-Ehrwürdigen."
+size = 540.0
+terrain_seed = 9377
+biome = &"froststeppe"
+relief = Dictionary[StringName, float]({
+&"berge": 34.0,
+&"detail": 1.0,
+&"frequenz": 0.0045,
+&"hoehe": 14.0,
+&"horizont": 240.0,
+&"rand": 70.0,
+&"randhoehe": 75.0
+})
+hills = Array[Vector4]([Vector4(0, -50, 100, 18)])
+arrival = Vector2(0, 210)
+paths = [[Vector2(0, 210), Vector2(0, 10)], [Vector2(40, 20), Vector2(90, 80), Vector2(112, 100)], [Vector2(50, -60), Vector2(110, -100), Vector2(140, -122)], [Vector2(-50, -40), Vector2(-120, -90), Vector2(-150, -105)], [Vector2(-30, 40), Vector2(-90, 70), Vector2(-110, 80)]]
+settlements = Array[Dictionary]([{
+"colors": {
+&"banner": Color(0.2901961, 0.6901961, 0.6901961, 1),
+&"dach": Color(0.22745098, 0.2901961, 0.3529412, 1),
+&"holz": Color(0.22745098, 0.1882353, 0.15686275, 1),
+&"saeule": Color(0.5411765, 0.16470589, 0.16470589, 1),
+&"stein": Color(0.6039216, 0.6117647, 0.627451, 1),
+&"wand": Color(0.93333334, 0.9411765, 0.9490196, 1)
+},
+"faction": &"yi_tian",
+"houses": 0,
+"id": &"yi_tian_sekte",
+"pond": 0.0,
+"position": Vector2(0, -50),
+"radius": 64.0,
+"residents": &"yi_tian",
+"type": &"sekte"
+}, {
+"colors": {
+&"banner": Color(0.8784314, 0.6901961, 0.2509804, 1),
+&"dach": Color(0.5411765, 0.41568628, 0.22745098, 1),
+&"holz": Color(0.3529412, 0.2509804, 0.15686275, 1),
+&"saeule": Color(0.6039216, 0.41568628, 0.16470589, 1),
+&"stein": Color(0.5411765, 0.5019608, 0.4392157, 1),
+&"wand": Color(0.8862745, 0.8392157, 0.72156864, 1)
+},
+"faction": &"huang_jin",
+"houses": 6,
+"id": &"ge_lager",
+"pond": 0.0,
+"position": Vector2(120, 110),
+"radius": 28.0,
+"residents": &"ge",
+"type": &"zeltlager"
+}])
+places = Array[Dictionary]([{
+"accent": Color(1, 0.8235294, 0.23921569, 1),
+"count": 0,
+"guards": Array[StringName]([&"donnerkronenwolf", &"weisser_tiger", &"weisser_tiger", &"steppenfuerst"]),
+"id": &"riesensonne_schrein",
+"item": &"",
+"name": "Schrein des Riesensonnen-Ehrwürdigen",
+"offering": {
+&"kristall": 30,
+&"wolfsgeist": 2
+},
+"position": Vector2(150, -130),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([&"essenzeisenknochen"]),
+"gu": Array[StringName]([&"bestienkoenig_gestalt", &"himmelsglueck"]),
+"items": {
+&"heldenherz": 2,
+&"kristall": 80,
+&"reliquie_lilakristall": 1
+},
+"support": Array[StringName]([])
+},
+"style": &"tempel",
+"text": "Der Riesensonnen-Ehrwürdige vererbte der Nordebene sein Glück und seine Kraft. Sein Schrein prüft, ob du beides verdienst.",
+"type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"see",
+"item": &"",
+"name": "Frostsee",
+"offering": {},
+"position": Vector2(-130, 90),
+"radius": 22.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"see"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"geisterquelle",
+"item": &"",
+"name": "Sonnenquelle",
+"offering": {},
+"position": Vector2(-40, 130),
+"radius": 9.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"geisterquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"frostquelle",
+"item": &"frostsplitter",
+"name": "Gletscherquelle",
+"offering": {},
+"position": Vector2(-160, -110),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"frostquelle"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"count": 10,
+"guards": Array[StringName]([]),
+"id": &"friedhof",
+"item": &"knochenmehl",
+"name": "Heldengräber",
+"offering": {},
+"position": Vector2(40, 160),
+"radius": 12.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "",
+"type": &"friedhof"
+}])
+obstacles = Array[Dictionary]([{
+"angle": 20.0,
+"distance": 165.0,
+"id": &"yt_hecke",
+"kind": &"hecke",
+"reward": &"regenbogenlicht"
+}, {
+"angle": 70.0,
+"distance": 175.0,
+"id": &"yt_wasser",
+"kind": &"wasser",
+"reward": &"gierige_hand"
+}, {
+"angle": 115.0,
+"distance": 160.0,
+"id": &"yt_fels",
+"kind": &"fels",
+"reward": &"menschen_qi"
+}, {
+"angle": 165.0,
+"distance": 175.0,
+"id": &"yt_schalter",
+"kind": &"schalter",
+"reward": &"sechs_richtungen"
+}, {
+"angle": 210.0,
+"distance": 170.0,
+"id": &"yt_lichtsiegel",
+"kind": &"lichtsiegel",
+"reward": &"tage_wie_jahre"
+}, {
+"angle": 255.0,
+"distance": 160.0,
+"id": &"yt_blutsiegel",
+"kind": &"blutsiegel",
+"reward": &"tausend_gedanken"
+}, {
+"angle": 305.0,
+"distance": 170.0,
+"id": &"yt_vorsprung",
+"kind": &"vorsprung",
+"reward": &"tiger_gestalt"
+}])
+resources = Dictionary[StringName, Vector2i]({
+&"beeren": Vector2i(30, 3),
+&"frostsplitter": Vector2i(15, 1),
+&"holz": Vector2i(35, 2),
+&"kristall": Vector2i(45, 2),
+&"stein": Vector2i(50, 2),
+&"urkristall": Vector2i(2, 1),
+&"windfeder": Vector2i(12, 1)
+})
+enemy_radii = Array[float]([110.0, 180.0])
+enemy_zones = [[&"blitzwolf", &"elektrowolf", &"sturmadler", &"bergbaer"], [&"elektrowolf", &"sturmadler", &"troll", &"weisser_tiger"], [&"donnerkronenwolf", &"weisser_tiger", &"elektrowolf", &"troll"]]
+wild_gu_rank = 5
+wild_gu_range = Vector2(90, 200)
+wild_passives = [[&"liquor", &"support", 60.0, 150.0, false]]
+wanderers = Array[StringName]([&"wilde_horde", &"wolfsreiter", &"yi_tian", &"ge_krieger"])
+wanderer_count = 3

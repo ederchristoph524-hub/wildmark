@@ -4,16 +4,16 @@ extends Node
 
 const SKY_DAY: Color = Color(0.62, 0.83, 0.69)
 const SKY_TOP_DAY: Color = Color(0.36, 0.6, 0.72)
-const SKY_NIGHT: Color = Color(0.07, 0.11, 0.1)
-const SKY_TOP_NIGHT: Color = Color(0.02, 0.03, 0.06)
+const SKY_NIGHT: Color = Color(0.08, 0.12, 0.17)
+const SKY_TOP_NIGHT: Color = Color(0.03, 0.05, 0.1)
 const FOG_DAY: Color = Color(0.62, 0.78, 0.66)
-const FOG_NIGHT: Color = Color(0.11, 0.17, 0.14)
+const FOG_NIGHT: Color = Color(0.1, 0.15, 0.2)
 const SUN_DAY: Color = Color(1.0, 0.94, 0.82)
 const SUN_EVENING: Color = Color(1.0, 0.6, 0.35)
 const MOON: Color = Color(0.55, 0.65, 0.9)
 const TRANSITION: float = 0.04
 const SUN_ENERGY_DAY: float = 1.25
-const SUN_ENERGY_NIGHT: float = 0.22
+const SUN_ENERGY_NIGHT: float = 0.38
 ## Umgebungslicht: halb aus dem Himmel, halb warmes Streulicht (sonst färbt der Himmel alles bläulich).
 const AMBIENT_WARM: Color = Color(0.78, 0.72, 0.62)
 const AMBIENT_SKY_SHARE: float = 0.3
@@ -106,7 +106,7 @@ func _apply(time: float) -> void:
 	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(fog_day.darkened(0.45), daylight)
 	environment.fog_light_color = FOG_NIGHT.lerp(fog_day, daylight)
 	environment.fog_density = lerpf(fog_density * 3.0, fog_density, daylight)
-	environment.ambient_light_energy = lerpf(0.4, 0.82, daylight)
+	environment.ambient_light_energy = lerpf(0.6, 0.82, daylight)
 
 
 func _daylight(time: float, day_part: float) -> float:

@@ -75,6 +75,7 @@ func _ready() -> void:
 	if area.wanderer_count > 0:
 		wanderers = Wanderers.new(self)
 		add_child(wanderers)
+	add_child(Ambience.new(self))
 	BuildSystem.restore(self)
 	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)

@@ -3206,6 +3206,717 @@
      true
     ]
    ]
+  },
+  "blutsumpf": {
+   "offen": true,
+   "n": "Blutsümpfe",
+   "region": 1,
+   "karte": [
+    0.15,
+    0.8
+   ],
+   "rang": [
+    3,
+    4
+   ],
+   "d": "Rote Sümpfe voller Miasma: Hier versteckt sich Fang Yuans Blutflügel-Sekte, der Wu-Klan späht ihr nach – und irgendwo liegt die Grotte des Blutmeer-Ahnen.",
+   "groesse": 500,
+   "seed": 9151,
+   "biom": "blutsumpf",
+   "relief": {
+    "hoehe": 8,
+    "frequenz": 0.006,
+    "detail": 0.8,
+    "berge": 18,
+    "rand": 55,
+    "randhoehe": 45,
+    "horizont": 170
+   },
+   "ankunft": [
+    0,
+    190
+   ],
+   "siedlungen": [
+    {
+     "id": "blutfluegel_versteck",
+     "typ": "versteck",
+     "fraktion": "blutfluegel",
+     "pos": [
+      30,
+      -30
+     ],
+     "radius": 32,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#2a1414",
+      "wand": "#5a3030",
+      "holz": "#2a1a18",
+      "saeule": "#7a1a1a",
+      "banner": "#c0202a",
+      "stein": "#4a3a38"
+     },
+     "bewohner": "blutfluegel"
+    },
+    {
+     "id": "wu_spaeherlager",
+     "typ": "zeltlager",
+     "fraktion": "wu_clan",
+     "pos": [
+      -120,
+      70
+     ],
+     "radius": 24,
+     "haeuser": 4,
+     "farben": {
+      "dach": "#6a2a20",
+      "wand": "#d8c8a8",
+      "holz": "#4a2a1e",
+      "saeule": "#8a2a20",
+      "banner": "#b02020",
+      "stein": "#80776a"
+     },
+     "bewohner": "wu_spaeher"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "blutsee_grotte",
+     "n": "Grotte des Blutmeer-Ahnen",
+     "pos": [
+      -140,
+      -120
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 20,
+      "blutkoralle": 2
+     },
+     "waechter": [
+      "seuche",
+      "seuche",
+      "riesenkrokodil",
+      "blutahn"
+     ],
+     "belohnung": {
+      "gu": [
+       "blutrausch",
+       "blutschaedel"
+      ],
+      "hilfs_gu": [
+       "selbsthilfe"
+      ],
+      "items": {
+       "blutkoralle": 4,
+       "kristall": 50,
+       "reliquie_weisssilber": 1
+      }
+     },
+     "text": "Der Blutmeer-Ahn hinterließ eine Grotte voller Blut. Wer sie betritt, zahlt mit Blut – oder erbt es.",
+     "stil": "grotte",
+     "akzent": "#d0303a"
+    },
+    {
+     "typ": "see",
+     "n": "Blutsee",
+     "pos": [
+      60,
+      110
+     ],
+     "radius": 24
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Rote Quelle",
+     "pos": [
+      140,
+      -110
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "friedhof",
+     "n": "Gräberfeld der Blutopfer",
+     "pos": [
+      150,
+      60
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 9
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "bs_hecke",
+     "art": "hecke",
+     "belohnung": "positionstausch",
+     "richtung": 15,
+     "abstand": 150
+    },
+    {
+     "id": "bs_wasser",
+     "art": "wasser",
+     "belohnung": "pluender",
+     "richtung": 65,
+     "abstand": 165
+    },
+    {
+     "id": "bs_fels",
+     "art": "fels",
+     "belohnung": "himmelsschirm",
+     "richtung": 110,
+     "abstand": 150
+    },
+    {
+     "id": "bs_schalter",
+     "art": "schalter",
+     "belohnung": "schneekristall",
+     "richtung": 160,
+     "abstand": 165
+    },
+    {
+     "id": "bs_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "jahresfluss",
+     "richtung": 205,
+     "abstand": 160
+    },
+    {
+     "id": "bs_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "klarer_geist",
+     "richtung": 250,
+     "abstand": 150
+    },
+    {
+     "id": "bs_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "segensregen",
+     "richtung": 300,
+     "abstand": 160
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      190
+     ],
+     [
+      5,
+      60
+     ],
+     [
+      20,
+      5
+     ]
+    ],
+    [
+     [
+      55,
+      -40
+     ],
+     [
+      110,
+      -80
+     ],
+     [
+      135,
+      -105
+     ]
+    ],
+    [
+     [
+      10,
+      -55
+     ],
+     [
+      -60,
+      -90
+     ],
+     [
+      -125,
+      -115
+     ]
+    ],
+    [
+     [
+      -20,
+      20
+     ],
+     [
+      -80,
+      50
+     ],
+     [
+      -105,
+      62
+     ]
+    ],
+    [
+     [
+      45,
+      5
+     ],
+     [
+      90,
+      40
+     ],
+     [
+      140,
+      55
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "beeren": [
+     40,
+     3
+    ],
+    "stein": [
+     40,
+     2
+    ],
+    "kristall": [
+     40,
+     2
+    ],
+    "holz": [
+     45,
+     2
+    ],
+    "giftdrüse": [
+     15,
+     1
+    ],
+    "blutkoralle": [
+     8,
+     1
+    ],
+    "gruenkraut": [
+     40,
+     2
+    ]
+   },
+   "gegner": {
+    "radien": [
+     100,
+     170
+    ],
+    "zonen": [
+     [
+      "riesenkrokodil",
+      "riesenskorpion",
+      "elektrowolf",
+      "sturmadler"
+     ],
+     [
+      "riesenkrokodil",
+      "seuche",
+      "schatten",
+      "troll"
+     ],
+     [
+      "seuche",
+      "schatten",
+      "troll",
+      "feuerfuchs",
+      "drachenling"
+     ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "blutfluegel",
+     "blutfluegel",
+     "wegelagerer",
+     "wu_general"
+    ]
+   },
+   "wilde_gu": {
+    "rang": 3,
+    "abstand": [
+     70,
+     190
+    ]
+   },
+   "wilde_passive": [
+    [
+     "bitterkraft",
+     "body",
+     110,
+     190,
+     true
+    ],
+    [
+     "knochenfleisch",
+     "body",
+     130,
+     200,
+     true
+    ]
+   ]
+  },
+  "yi_tian_berg": {
+   "offen": true,
+   "n": "Yi-Tian-Berg",
+   "region": 0,
+   "karte": [
+    0.68,
+    0.13
+   ],
+   "rang": [
+    4,
+    5
+   ],
+   "d": "Eine strenge Bergsekte hoch über den Graslanden. Unten weidet der Ge-Stamm, oben im Schnee wacht ein Schrein des Riesensonnen-Ehrwürdigen.",
+   "groesse": 540,
+   "seed": 9377,
+   "biom": "froststeppe",
+   "relief": {
+    "hoehe": 14,
+    "frequenz": 0.0045,
+    "detail": 1.0,
+    "berge": 34,
+    "rand": 70,
+    "randhoehe": 75,
+    "horizont": 240
+   },
+   "erhebungen": [
+    [
+     0,
+     -50,
+     100,
+     18
+    ]
+   ],
+   "ankunft": [
+    0,
+    210
+   ],
+   "siedlungen": [
+    {
+     "id": "yi_tian_sekte",
+     "typ": "sekte",
+     "fraktion": "yi_tian",
+     "pos": [
+      0,
+      -50
+     ],
+     "radius": 64,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#3a4a5a",
+      "wand": "#eef0f2",
+      "holz": "#3a3028",
+      "saeule": "#8a2a2a",
+      "banner": "#4ab0b0",
+      "stein": "#9a9ca0"
+     },
+     "bewohner": "yi_tian"
+    },
+    {
+     "id": "ge_lager",
+     "typ": "zeltlager",
+     "fraktion": "huang_jin",
+     "pos": [
+      120,
+      110
+     ],
+     "radius": 28,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#8a6a3a",
+      "wand": "#e2d6b8",
+      "holz": "#5a4028",
+      "saeule": "#9a6a2a",
+      "banner": "#e0b040",
+      "stein": "#8a8070"
+     },
+     "bewohner": "ge"
+    }
+   ],
+   "orte": [
+    {
+     "typ": "erbe",
+     "id": "riesensonne_schrein",
+     "n": "Schrein des Riesensonnen-Ehrwürdigen",
+     "pos": [
+      150,
+      -130
+     ],
+     "radius": 11,
+     "opfer": {
+      "kristall": 30,
+      "wolfsgeist": 2
+     },
+     "waechter": [
+      "donnerkronenwolf",
+      "weisser_tiger",
+      "weisser_tiger",
+      "steppenfuerst"
+     ],
+     "belohnung": {
+      "gu": [
+       "bestienkoenig_gestalt",
+       "himmelsglueck"
+      ],
+      "koerper_gu": [
+       "essenzeisenknochen"
+      ],
+      "items": {
+       "heldenherz": 2,
+       "kristall": 80,
+       "reliquie_lilakristall": 1
+      }
+     },
+     "text": "Der Riesensonnen-Ehrwürdige vererbte der Nordebene sein Glück und seine Kraft. Sein Schrein prüft, ob du beides verdienst.",
+     "stil": "tempel",
+     "akzent": "#ffd23d"
+    },
+    {
+     "typ": "see",
+     "n": "Frostsee",
+     "pos": [
+      -130,
+      90
+     ],
+     "radius": 22
+    },
+    {
+     "typ": "geisterquelle",
+     "n": "Sonnenquelle",
+     "pos": [
+      -40,
+      130
+     ],
+     "radius": 9
+    },
+    {
+     "typ": "frostquelle",
+     "n": "Gletscherquelle",
+     "pos": [
+      -160,
+      -110
+     ],
+     "radius": 10,
+     "item": "frostsplitter",
+     "anzahl": 8
+    },
+    {
+     "typ": "friedhof",
+     "n": "Heldengräber",
+     "pos": [
+      40,
+      160
+     ],
+     "radius": 12,
+     "item": "knochenmehl",
+     "anzahl": 10
+    }
+   ],
+   "hindernisse": [
+    {
+     "id": "yt_hecke",
+     "art": "hecke",
+     "belohnung": "regenbogenlicht",
+     "richtung": 20,
+     "abstand": 165
+    },
+    {
+     "id": "yt_wasser",
+     "art": "wasser",
+     "belohnung": "gierige_hand",
+     "richtung": 70,
+     "abstand": 175
+    },
+    {
+     "id": "yt_fels",
+     "art": "fels",
+     "belohnung": "menschen_qi",
+     "richtung": 115,
+     "abstand": 160
+    },
+    {
+     "id": "yt_schalter",
+     "art": "schalter",
+     "belohnung": "sechs_richtungen",
+     "richtung": 165,
+     "abstand": 175
+    },
+    {
+     "id": "yt_lichtsiegel",
+     "art": "lichtsiegel",
+     "belohnung": "tage_wie_jahre",
+     "richtung": 210,
+     "abstand": 170
+    },
+    {
+     "id": "yt_blutsiegel",
+     "art": "blutsiegel",
+     "belohnung": "tausend_gedanken",
+     "richtung": 255,
+     "abstand": 160
+    },
+    {
+     "id": "yt_vorsprung",
+     "art": "vorsprung",
+     "belohnung": "tiger_gestalt",
+     "richtung": 305,
+     "abstand": 170
+    }
+   ],
+   "wege": [
+    [
+     [
+      0,
+      210
+     ],
+     [
+      0,
+      10
+     ]
+    ],
+    [
+     [
+      40,
+      20
+     ],
+     [
+      90,
+      80
+     ],
+     [
+      112,
+      100
+     ]
+    ],
+    [
+     [
+      50,
+      -60
+     ],
+     [
+      110,
+      -100
+     ],
+     [
+      140,
+      -122
+     ]
+    ],
+    [
+     [
+      -50,
+      -40
+     ],
+     [
+      -120,
+      -90
+     ],
+     [
+      -150,
+      -105
+     ]
+    ],
+    [
+     [
+      -30,
+      40
+     ],
+     [
+      -90,
+      70
+     ],
+     [
+      -110,
+      80
+     ]
+    ]
+   ],
+   "ressourcen": {
+    "stein": [
+     50,
+     2
+    ],
+    "kristall": [
+     45,
+     2
+    ],
+    "holz": [
+     35,
+     2
+    ],
+    "beeren": [
+     30,
+     3
+    ],
+    "frostsplitter": [
+     15,
+     1
+    ],
+    "windfeder": [
+     12,
+     1
+    ],
+    "urkristall": [
+     2,
+     1
+    ]
+   },
+   "gegner": {
+    "radien": [
+     110,
+     180
+    ],
+    "zonen": [
+     [
+      "blitzwolf",
+      "elektrowolf",
+      "sturmadler",
+      "bergbaer"
+     ],
+     [
+      "elektrowolf",
+      "sturmadler",
+      "troll",
+      "weisser_tiger"
+     ],
+     [
+      "donnerkronenwolf",
+      "weisser_tiger",
+      "elektrowolf",
+      "troll"
+     ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "wilde_horde",
+     "wolfsreiter",
+     "yi_tian",
+     "ge_krieger"
+    ]
+   },
+   "wilde_gu": {
+    "rang": 5,
+    "abstand": [
+     90,
+     200
+    ]
+   },
+   "wilde_passive": [
+    [
+     "liquor",
+     "support",
+     60,
+     150,
+     false
+    ]
+   ]
   }
  },
  "BIOME": {
@@ -3431,6 +4142,62 @@
    "nebel": "#c8d4dc",
    "nebel_dichte": 0.0024,
    "wasser": "#3a6a80"
+  },
+  "blutsumpf": {
+   "n": "Blutsümpfe der Südlichen Grenze",
+   "farben": {
+    "gras_dunkel": "#3a4a2a",
+    "gras_hell": "#5a6a36",
+    "moos": "#5a4a2a",
+    "erde": "#5a2a22",
+    "fels": "#4a3a38",
+    "gipfel": "#7a6a66",
+    "weg": "#6a4a3a",
+    "platz": "#7a5a48"
+   },
+   "vegetation": {
+    "laubbaum": 0.45,
+    "totholz": 0.25,
+    "bambus": 0.3
+   },
+   "baeume_pro_1000m2": 4.5,
+   "buesche_pro_1000m2": 5.0,
+   "gras_pro_1000m2": 26,
+   "felsen_pro_1000m2": 1.5,
+   "himmel": "#d8c4bc",
+   "himmel_oben": "#6a6090",
+   "nebel": "#bca098",
+   "nebel_dichte": 0.0034,
+   "wasser": "#6a1a1e",
+   "pflanzenfarbe": "#c8b8a0"
+  },
+  "froststeppe": {
+   "n": "Frostberge der Nördlichen Ebene",
+   "farben": {
+    "gras_dunkel": "#5a6a52",
+    "gras_hell": "#8a9a7a",
+    "moos": "#7a8a6a",
+    "erde": "#6a6258",
+    "fels": "#7a7e84",
+    "gipfel": "#f4f6f8",
+    "weg": "#9a948a",
+    "platz": "#aaa498"
+   },
+   "vegetation": {
+    "nadelbaum": 0.75,
+    "laubbaum": 0.1,
+    "steppengras": 0.6
+   },
+   "baeume_pro_1000m2": 1.8,
+   "buesche_pro_1000m2": 1.5,
+   "gras_pro_1000m2": 44,
+   "felsen_pro_1000m2": 2.5,
+   "himmel": "#dce6ee",
+   "himmel_oben": "#4a78b8",
+   "nebel": "#d0dae2",
+   "nebel_dichte": 0.0022,
+   "wasser": "#3a6a8a",
+   "pflanzenfarbe": "#e6eef0"
   }
  }
 }

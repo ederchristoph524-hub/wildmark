@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://ccd6hevoxs2j5"]
+
+[ext_resource type="Script" path="res://scripts/resources/biome_data.gd" id="1_yvvhr"]
+
+[resource]
+script = ExtResource("1_yvvhr")
+id = &"froststeppe"
+display_name = "Frostberge der Nördlichen Ebene"
+colors = Dictionary[StringName, Color]({
+&"erde": Color(0.41568628, 0.38431373, 0.34509805, 1),
+&"fels": Color(0.47843137, 0.49411765, 0.5176471, 1),
+&"gipfel": Color(0.95686275, 0.9647059, 0.972549, 1),
+&"gras_dunkel": Color(0.3529412, 0.41568628, 0.32156864, 1),
+&"gras_hell": Color(0.5411765, 0.6039216, 0.47843137, 1),
+&"moos": Color(0.47843137, 0.5411765, 0.41568628, 1),
+&"platz": Color(0.6666667, 0.6431373, 0.59607846, 1),
+&"weg": Color(0.6039216, 0.5803922, 0.5411765, 1)
+})
+vegetation = Dictionary[StringName, float]({
+&"laubbaum": 0.1,
+&"nadelbaum": 0.75,
+&"steppengras": 0.6
+})
+trees_per_1000 = 1.8
+bushes_per_1000 = 1.5
+grass_per_1000 = 44.0
+rocks_per_1000 = 2.5
+sky = Color(0.8627451, 0.9019608, 0.93333334, 1)
+sky_top = Color(0.2901961, 0.47058824, 0.72156864, 1)
+fog = Color(0.8156863, 0.85490197, 0.8862745, 1)
+fog_density = 0.0022
+water = Color(0.22745098, 0.41568628, 0.5411765, 1)
+plant_tint = Color(0.9019608, 0.93333334, 0.9411765, 1)
