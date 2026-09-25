@@ -27,6 +27,8 @@ var sash_color: Color = SASH_COLOR
 var show_aperture: bool = true
 var aperture_glow: MeshInstance3D = null
 var sitting: bool = false
+## Sichtweite der Figur (0 = unbegrenzt), für Dorfbewohner in großen Siedlungen.
+var view_distance: float = 0.0
 var _phase: float = 0.0
 var _amount: float = 0.0
 var _body: MeshInstance3D = null
@@ -40,6 +42,7 @@ func _ready() -> void:
 	_body.material_override = _material
 	add_child(_body)
 	_body.mesh = CharacterMesh.build(_colors(), false)
+	_body.visibility_range_end = view_distance
 	if show_aperture:
 		aperture_glow = MeshInstance3D.new()
 		aperture_glow.mesh = MeshBuilder.sphere(0.07, 6, 4)

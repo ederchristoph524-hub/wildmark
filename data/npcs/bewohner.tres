@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NpcTypeData" format=3 uid="uid://ls2fhlmeivoq"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_type_data.gd" id="1_csv03"]
+
+[resource]
+script = ExtResource("1_csv03")
+id = &"bewohner"
+display_name = "Bewohner"
+color = Color(0.627451, 0.5411765, 0.4392157, 1)
+region = 1
+side = &"righteous"
+lines = Array[String](["Die Gu-Meister kümmern sich um die Bestien – wir um den Reis.", "Hast du gehört? Man sagt, in den Bergen liegt ein Erbe verborgen.", "Nachts bleib lieber hinter der Mauer, die Wölfe sind hungrig.", "Ein Urstein hier, ein Urstein da – und schon ist der Monat vorbei.", "Mein Sohn will auch Gu-Meister werden. Die Götter mögen ihn schützen."])
+trade_give = Dictionary[StringName, int]({
+&"beeren": 10
+})
+trade_get = Dictionary[StringName, int]({
+&"kristall": 2
+})
+trade_text = "10 🫐 gegen 2 💎"

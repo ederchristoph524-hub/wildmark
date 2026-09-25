@@ -16,6 +16,8 @@ const SETTLEMENT_TITLES: Dictionary[StringName, String] = {
 	&"klan_dorf": "Dorf des %s", &"stadt": "Stadt des %s", &"zeltlager": "Lager: %s", &"oasenstadt": "Oase: %s",
 	&"inseldorf": "Insel: %s", &"festung": "Festung des %s", &"sekte": "Sitz: %s", &"versteck": "Versteck: %s",
 }
+const SQUARE_SETTLEMENTS: Array[StringName] = [&"stadt", &"festung"]
+const SQUARE_REACH: float = 1.3
 ## Übergang ins Gelände für Inseldörfer (sonst würde das Plateau ins Meer wachsen).
 const ISLAND_FALLOFF: float = 6.0
 
@@ -81,9 +83,11 @@ func _build_terrain() -> void:
 	for settlement: Dictionary in area.settlements:
 		var at: Vector2 = settlement["position"]
 		var radius: float = settlement["radius"]
-		terrain.flats.append(Vector4(at.x, at.y, radius + 4.0, ISLAND_FALLOFF if settlement["type"] == &"inseldorf" else SETTLEMENT_FALLOFF))
+		# Quadratische Mauern (Stadt, Festung) reichen mit den Ecken bis 1,27 × Radius – auch dort muss es eben sein.
+		var reach: float = radius * SQUARE_REACH if settlement["type"] in SQUARE_SETTLEMENTS else radius
+		terrain.flats.append(Vector4(at.x, at.y, reach + 4.0, ISLAND_FALLOFF if settlement["type"] == &"inseldorf" else SETTLEMENT_FALLOFF))
 		terrain.plazas.append(Vector4(at.x, at.y, radius * 0.95, 0.0))
-		clearings.append(Vector4(at.x, 0.0, at.y, radius + 8.0))
+		clearings.append(Vector4(at.x, 0.0, at.y, reach + 8.0))
 		settlement_areas.append(Vector4(at.x, 0.0, at.y, radius + 10.0))
 		roads.append_array(Settlement.roads(settlement))
 		if settlement.get("pond", 0.0) > 0.0:

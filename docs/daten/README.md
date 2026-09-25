@@ -17,6 +17,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 
 ## gu_system.json (sterbliche Ebene, Rang 1–5)
 
+- `rezepte` – Verschmelzungen: `ergebnis` (Gu-ID), `aus` (verbrauchte Gu), `material` (Item → Menge), `chance` (0–1), `hinweis`.
 - `familien` – 26 Familien: `pfad`, `rolle`, `wirkform` (20 Formen, siehe `GU_SYSTEM.md`), `tags`, `status` (ausgelöster Zustand), `futter`, `basis_r1` (Werte auf Rang 1, je nach Wirkform z. B. `schaden`, `cd`, `ess`, `hp_kosten` (Prozent des Höchstlebens), `reichweite`, `radius`, `dauer`, `takt`, `anzahl`, `winkel`, `rueckstoss`, `tempo`, `staerke`, `reduktion`, `wesen`), `aufstieg` (Materialien `r2`–`r5`), `mitglieder` (je Rang: `id`, `name`, `neu` = neu entworfen, sonst Lore aus `gu.json`, `ranggabe` als Text, `gaben` als Schalter), `welt` (Wirkung auf Objekte).
 - `koerper_gu` – dauerhaft eingeprägte Gu (`wirkung`: `grundschaden`, `max_hp`, `schaden_erlitten`). `hilfs_gu` – passive Hilfs-Gu mit Futter und `regeln` (Schlüssel für `PassiveGu`).
 - `zustaende` (mit `regel`: `dauer`, `dps`, `tempo`, `heilung`, `schaden_erlitten`, `bei_max`, `flucht`), `reaktionen` (`ausloeser` = Tag des Treffers, `auf` = Zustand des Ziels, `regel` = Parameter der Wirkung), `tags`, `merkmale` (`gewicht` für Zufallsauswahl), `merkmal_chance`.

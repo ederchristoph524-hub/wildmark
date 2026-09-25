@@ -2,6 +2,13 @@ class_name Npc
 extends Node3D
 ## Ein Dorfbewohner: Figur in der Farbe seiner NPC-Art, Name über dem Kopf, Gespräch mit Aufgabe oder Tausch.
 
+const WALK_SPEED: float = 1.2
+const WANDER_JITTER: float = 2.0
+const WAIT_MIN: float = 2.0
+const WAIT_MAX: float = 7.0
+## Dorfbewohner weiter weg sieht man nicht (spart Draw Calls in großen Siedlungen).
+const VIEW: float = 70.0
+
 var type: NpcTypeData = null
 var title: String = ""
 ## Aufgabe, die dieser NPC vergibt (leer = keine).
@@ -10,6 +17,10 @@ var offers_trade: bool = false
 ## Sekte der Siedlung und ob dieser Bewohner sie vertritt (Beitritt und Rang im Gespräch, siehe SectLife).
 var sect_id: StringName = &""
 var leader: bool = false
+## Spaziergänger: geht zwischen Ankerpunkten der Siedlung (wander_points) hin und her.
+var wander_points: Array[Vector3] = []
+var _walk_target: Vector3 = Vector3.INF
+var _wait: float = 0.0
 ## Robenfarbe (Klanfarbe); ohne Angabe die Farbe der NPC-Art.
 var robe_color: Color = Color(0, 0, 0, 0)
 var _model: PlayerModel = null
@@ -32,6 +43,7 @@ func _ready() -> void:
 	_model.body_color = robe
 	_model.show_aperture = false
 	PlayerModel.vary_looks(_model, display_title())
+	_model.view_distance = VIEW
 	add_child(_model)
 	_label = Label3D.new()
 	_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -54,12 +66,36 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
-	_model.animate(delta, 0.0)
 	var player: Node3D = get_tree().get_first_node_in_group(Player.GROUP_PLAYER) as Node3D
-	if player != null and player.global_position.distance_to(global_position) < 6.0:
+	var near_player: bool = player != null and player.global_position.distance_to(global_position) < 6.0
+	var speed: float = 0.0 if near_player or wander_points.is_empty() else _walk(delta)
+	_model.animate(delta, speed)
+	if near_player:
 		var to_player: Vector3 = player.global_position - global_position
 		_model.rotation.y = lerp_angle(_model.rotation.y, atan2(-to_player.x, -to_player.z), clampf(delta * 4.0, 0.0, 1.0))
 	_label.text = display_title() + _quest_mark()
+
+
+## Geht zum nächsten Ziel (mit kurzen Pausen); liefert die Geschwindigkeit für die Laufanimation.
+func _walk(delta: float) -> float:
+	if _wait > 0.0:
+		_wait -= delta
+		return 0.0
+	if _walk_target == Vector3.INF:
+		var point: Vector3 = wander_points[randi() % wander_points.size()]
+		_walk_target = point + Vector3(randf_range(-WANDER_JITTER, WANDER_JITTER), 0.0, randf_range(-WANDER_JITTER, WANDER_JITTER))
+	var offset: Vector3 = _walk_target - global_position
+	offset.y = 0.0
+	if offset.length() < 0.4:
+		_walk_target = Vector3.INF
+		_wait = randf_range(WAIT_MIN, WAIT_MAX)
+		return 0.0
+	var step: Vector3 = offset.normalized() * minf(WALK_SPEED * delta, offset.length())
+	var world: World = get_parent() as World
+	var next: Vector3 = global_position + step
+	global_position = world.ground_point(next.x, next.z) if world != null else next
+	_model.rotation.y = lerp_angle(_model.rotation.y, atan2(-offset.x, -offset.z), clampf(delta * 5.0, 0.0, 1.0))
+	return WALK_SPEED
 
 
 func display_title() -> String:

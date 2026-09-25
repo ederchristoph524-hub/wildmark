@@ -104,4 +104,97 @@ path_conflicts = Dictionary[StringName, Array]({
 attain_names = Array[String](["Gewöhnlich", "Quasi-Meister", "Meister", "Großmeister", "Großer Großmeister", "Höchster Großmeister"])
 attain_needs = Array[float]([0.0, 25.0, 70.0, 180.0, 420.0, 900.0])
 attain_colors = Array[Color]([Color(0.5411765, 0.5411765, 0.5803922, 1), Color(0.6039216, 0.72156864, 0.41568628, 1), Color(0.43529412, 0.7490196, 0.2901961, 1), Color(0.2901961, 0.6039216, 0.8156863, 1), Color(0.627451, 0.2901961, 0.8156863, 1), Color(1, 0.8235294, 0.23921569, 1)])
+recipes = Array[Dictionary]([{
+"chance": 0.8,
+"hint": "Weißer Eber und Jadehaut verschmelzen zu weißer Jade – Kraft und Härte in einem.",
+"inputs": Array[StringName]([&"weisseber", &"jadehaut"]),
+"materials": {
+&"kristall": 8
+},
+"result": &"weissjade"
+}, {
+"chance": 0.75,
+"hint": "Der Schnaps-Wurm lernt vier Geschmäcker.",
+"inputs": Array[StringName]([&"liquor"]),
+"materials": {
+&"beeren": 12,
+&"gruenkraut": 4,
+&"mondtau": 2
+},
+"result": &"vierwein"
+}, {
+"chance": 0.65,
+"hint": "Aus vier Geschmäckern werden sieben Düfte.",
+"inputs": Array[StringName]([&"vierwein"]),
+"materials": {
+&"blutkoralle": 1,
+&"gruenkraut": 6,
+&"mondtau": 4
+},
+"result": &"siebenduefte"
+}, {
+"chance": 0.55,
+"hint": "Der Schnapswurm öffnet neun Augen.",
+"inputs": Array[StringName]([&"siebenduefte", &"seelensuche"]),
+"materials": {
+&"seelenglas": 2
+},
+"result": &"neunaugen"
+}, {
+"chance": 0.75,
+"hint": "Eber und Kröte geben einen zähen Kämpfer.",
+"inputs": Array[StringName]([&"schwarzeber", &"schlammkroete"]),
+"materials": {
+&"wildfell": 4
+},
+"result": &"tapferkampf"
+}, {
+"chance": 0.6,
+"hint": "Knochen und Fleisch werden eins.",
+"inputs": Array[StringName]([&"eisenblut", &"jadeknochen"]),
+"materials": {
+&"knochenmehl": 4
+},
+"result": &"knochenfleisch"
+}, {
+"chance": 0.6,
+"hint": "Zehn Jin und die Kraft eines Jun ergeben tausend.",
+"inputs": Array[StringName]([&"zehnjin", &"junkraft"]),
+"materials": {
+&"baerengalle": 2
+},
+"result": &"tausendjun"
+}, {
+"chance": 0.5,
+"hint": "Tausend Jun und bittere Kraft ergeben zehntausend.",
+"inputs": Array[StringName]([&"tausendjun", &"bitterkraft"]),
+"materials": {
+&"heldenherz": 2
+},
+"result": &"zehntausendjun"
+}, {
+"chance": 0.5,
+"hint": "Eisenknochen, durchtränkt von Urwesen.",
+"inputs": Array[StringName]([&"eisenknochen", &"knochenfleisch"]),
+"materials": {
+&"urkristall": 1
+},
+"result": &"essenzeisenknochen"
+}, {
+"chance": 0.6,
+"hint": "Eine Steinapertur, die das Licht einer Perle trinkt.",
+"inputs": Array[StringName]([&"steinapertur", &"hellperle"]),
+"materials": {
+&"mondtau": 6
+},
+"result": &"himmelsessenz"
+}, {
+"chance": 0.6,
+"hint": "Tapferkeit wird zur Raserei.",
+"inputs": Array[StringName]([&"berserk", &"tapferkampf"]),
+"materials": {
+&"wolfsgeist": 1
+},
+"result": &"wildwut"
+}])
 start_families = Array[StringName]([&"mondlicht", &"flamme", &"stroemung", &"wirbel"])

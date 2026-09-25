@@ -19,6 +19,7 @@ func run() -> void:
 	_test_origin()
 	await _test_beast_tide()
 	_test_dao()
+	_test_recipes()
 
 
 func _test_cultivation() -> void:
@@ -184,3 +185,21 @@ func _test_origin() -> void:
 	SectLife.leave()
 	GameState.standing = &""
 	GameState.apt = apt
+
+
+## Verschmelzen: Weißer Eber + Jadehaut → Weißjade; Fehlschlag kostet nur Material.
+func _test_recipes() -> void:
+	var recipe: Dictionary = {}
+	for entry: Dictionary in GuRecipes.all():
+		if entry["result"] == &"weissjade":
+			recipe = entry
+	steps._check(not recipe.is_empty(), "Rezept Weißjade vorhanden")
+	if recipe.is_empty():
+		return
+	var saved_body: Array[StringName] = GameState.body_gu.duplicate()
+	GameState.body_gu.erase(&"weissjade")
+	GameState.body_gu.append_array([&"weisseber", &"jadehaut"])
+	GameState.add_item(&"kristall", 40)
+	steps._check(not GuRecipes.fuse(recipe, 0.99) and &"weisseber" in GameState.body_gu, "Fehlschlag: Gu bleiben")
+	steps._check(GuRecipes.fuse(recipe, 0.0) and &"weissjade" in GameState.body_gu and not &"weisseber" in GameState.body_gu and not &"jadehaut" in GameState.body_gu, "Weißjade verschmolzen")
+	GameState.body_gu = saved_body

@@ -251,6 +251,13 @@ func _build_system(src: Dictionary) -> GuSystemData:
 			system.trait_chances[StringName(str(key))] = ImportUtil.to_float(chances[key])
 	system.start_families = ImportUtil.names(src.get("start_familien"))
 	_fill_paths(system)
+	for entry: Variant in src.get("rezepte", []):
+		var d: Dictionary = entry
+		var materials: Dictionary = {}
+		for item: Variant in d.get("material", {}):
+			materials[StringName(str(item))] = ImportUtil.to_int(d["material"][item])
+		system.recipes.append({"result": ImportUtil.sn(d.get("ergebnis")), "inputs": ImportUtil.names(d.get("aus", [])), "materials": materials,
+			"chance": ImportUtil.to_float(d.get("chance"), 0.5), "hint": ImportUtil.text(d.get("hinweis"))})
 	return system
 
 

@@ -365,6 +365,10 @@ Die zwölf neuen Familien haben ebenfalls Welt-Wirkungen (`welt` je Familie): Ph
 **Ranggaben** (`mitglieder[].gaben`, `GuGifts`) erben sich nach oben; Zahlen addieren sich (Rang 3 mit `count_add: 1` nach Rang 2 mit `count_add: 1` = +2; der `ranggabe`-Text nennt das Ergebnis), außer `fan_angle`, `as_circle`, `teleport`, `chain_radius`, `width_mult`, `orbit_speed` und `cd_mult`, die der höhere Rang ersetzt. Listen und Objekte ersetzt der höhere Rang:
 `pierce`, `pierce_armor`, `fan`/`fan_angle`, `homing`, `chain`/`chain_radius`, `impact` (Schritte am Aufschlag), `radius_add`, `beam_all`, `width_mult`, `knockback`, `stacks_add`, `spread_on_death`, `stun`, `lifesteal`, `execute`, `as_circle`, `as_zone`, `pull`, `reflect`, `unstoppable`, `cleanse`, `heal_zone`, `companions_add`, `permanent`, `glide`, `air_dash`, `teleport`, `extra` (Schritte nach dem Wirken), für die neuen Wirkformen außerdem `step` (überschreibt Schritt-Parameter), `then`, `count_add`, `time_add`.
 
+### Verschmelzen (Rezepte)
+
+`gu_system.json → rezepte` verbindet Gu zu stärkeren, wie in Reverend Insanity: **Weißjade = Weißer Eber + Jadehaut**, die Schnapswurm-Reihe (Schnaps-Wurm → Vier Geschmäcker → Sieben Düfte → Neun Augen), Tausend- und Zehntausend-Jun-Kraft, Knochen-Fleisch-Einheit, Essenz-Eisenknochen, Himmels-Essenz-Schatzlotus, Berserker-Wut. Jedes Rezept: `ergebnis`, `aus` (verbrauchte Gu), `material`, `chance`, `hinweis`. Misslingt die Verschmelzung, ist nur das Material verloren (`GuRecipes`, Seite „Verschmelzen“ im Gu-Menü).
+
 ## 10. Spielstart
 
 Beim Erwachen wählt der Spieler seinen ersten Gu aus vier Rang-1-Familien: Mondlicht (Gu-Yue-Klan, Standard), Glutfunke, Wasserlicht oder Wirbelwind. Alle anderen Rang-1-Gu leben wild auf dem Qing-Mao-Berg.

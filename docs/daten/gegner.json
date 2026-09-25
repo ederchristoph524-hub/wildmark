@@ -1886,6 +1886,29 @@
     "gu": 1,
     "gu_rang": 5
    }
+  },
+  "bewohner": {
+   "n": "Bewohner",
+   "ic": "🧑",
+   "c": "#a08a70",
+   "region": 1,
+   "side": "righteous",
+   "lines": [
+    "Die Gu-Meister kümmern sich um die Bestien – wir um den Reis.",
+    "Hast du gehört? Man sagt, in den Bergen liegt ein Erbe verborgen.",
+    "Nachts bleib lieber hinter der Mauer, die Wölfe sind hungrig.",
+    "Ein Urstein hier, ein Urstein da – und schon ist der Monat vorbei.",
+    "Mein Sohn will auch Gu-Meister werden. Die Götter mögen ihn schützen."
+   ],
+   "trade": {
+    "give": {
+     "beeren": 10
+    },
+    "get": {
+     "kristall": 2
+    },
+    "d": "10 🫐 gegen 2 💎"
+   }
   }
  }
 }

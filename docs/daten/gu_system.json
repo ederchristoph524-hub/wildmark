@@ -8066,5 +8066,141 @@
  "merkmal_chance": {
   "eines": 0.39,
   "glaenzend": 0.01
- }
+ },
+ "rezepte": [
+  {
+   "ergebnis": "weissjade",
+   "aus": [
+    "weisseber",
+    "jadehaut"
+   ],
+   "material": {
+    "kristall": 8
+   },
+   "chance": 0.8,
+   "hinweis": "Weißer Eber und Jadehaut verschmelzen zu weißer Jade – Kraft und Härte in einem."
+  },
+  {
+   "ergebnis": "vierwein",
+   "aus": [
+    "liquor"
+   ],
+   "material": {
+    "gruenkraut": 4,
+    "mondtau": 2,
+    "beeren": 12
+   },
+   "chance": 0.75,
+   "hinweis": "Der Schnaps-Wurm lernt vier Geschmäcker."
+  },
+  {
+   "ergebnis": "siebenduefte",
+   "aus": [
+    "vierwein"
+   ],
+   "material": {
+    "mondtau": 4,
+    "blutkoralle": 1,
+    "gruenkraut": 6
+   },
+   "chance": 0.65,
+   "hinweis": "Aus vier Geschmäckern werden sieben Düfte."
+  },
+  {
+   "ergebnis": "neunaugen",
+   "aus": [
+    "siebenduefte",
+    "seelensuche"
+   ],
+   "material": {
+    "seelenglas": 2
+   },
+   "chance": 0.55,
+   "hinweis": "Der Schnapswurm öffnet neun Augen."
+  },
+  {
+   "ergebnis": "tapferkampf",
+   "aus": [
+    "schwarzeber",
+    "schlammkroete"
+   ],
+   "material": {
+    "wildfell": 4
+   },
+   "chance": 0.75,
+   "hinweis": "Eber und Kröte geben einen zähen Kämpfer."
+  },
+  {
+   "ergebnis": "knochenfleisch",
+   "aus": [
+    "eisenblut",
+    "jadeknochen"
+   ],
+   "material": {
+    "knochenmehl": 4
+   },
+   "chance": 0.6,
+   "hinweis": "Knochen und Fleisch werden eins."
+  },
+  {
+   "ergebnis": "tausendjun",
+   "aus": [
+    "zehnjin",
+    "junkraft"
+   ],
+   "material": {
+    "baerengalle": 2
+   },
+   "chance": 0.6,
+   "hinweis": "Zehn Jin und die Kraft eines Jun ergeben tausend."
+  },
+  {
+   "ergebnis": "zehntausendjun",
+   "aus": [
+    "tausendjun",
+    "bitterkraft"
+   ],
+   "material": {
+    "heldenherz": 2
+   },
+   "chance": 0.5,
+   "hinweis": "Tausend Jun und bittere Kraft ergeben zehntausend."
+  },
+  {
+   "ergebnis": "essenzeisenknochen",
+   "aus": [
+    "eisenknochen",
+    "knochenfleisch"
+   ],
+   "material": {
+    "urkristall": 1
+   },
+   "chance": 0.5,
+   "hinweis": "Eisenknochen, durchtränkt von Urwesen."
+  },
+  {
+   "ergebnis": "himmelsessenz",
+   "aus": [
+    "steinapertur",
+    "hellperle"
+   ],
+   "material": {
+    "mondtau": 6
+   },
+   "chance": 0.6,
+   "hinweis": "Eine Steinapertur, die das Licht einer Perle trinkt."
+  },
+  {
+   "ergebnis": "wildwut",
+   "aus": [
+    "berserk",
+    "tapferkampf"
+   ],
+   "material": {
+    "wolfsgeist": 1
+   },
+   "chance": 0.6,
+   "hinweis": "Tapferkeit wird zur Raserei."
+  }
+ ]
 }

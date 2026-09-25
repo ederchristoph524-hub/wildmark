@@ -171,6 +171,17 @@ func _check_gu_system(system: GuSystemData, traits: Array) -> void:
 	for gu_trait: TraitData in traits:
 		if gu_trait.weight <= 0:
 			_report.error("Merkmal '%s': Gewicht muss > 0 sein" % gu_trait.id)
+	for recipe: Dictionary in system.recipes:
+		var context: String = "Rezept '%s'" % recipe["result"]
+		_expect("gu", recipe["result"], context)
+		if (recipe["inputs"] as Array).is_empty():
+			_report.error("%s: braucht mindestens einen Gu ('aus')" % context)
+		for input: StringName in recipe["inputs"]:
+			_expect("gu", input, context + " (Zutat)")
+		for item: StringName in recipe["materials"]:
+			_expect("items", item, context + " (Material)")
+		if float(recipe["chance"]) <= 0.0 or float(recipe["chance"]) > 1.0:
+			_report.error("%s: chance muss in (0, 1] liegen" % context)
 
 
 func _check_enemies(list: Array) -> void:

@@ -15,6 +15,9 @@ extends Resource
 @export var attain_names: Array[String] = []
 @export var attain_needs: Array[float] = []
 @export var attain_colors: Array[Color] = []
+## Verschmelzungs-Rezepte (gu_system.json → rezepte): {"result": ID, "inputs": Array[StringName] (Gu, die verbraucht
+## werden), "materials": Dictionary[StringName, int], "chance": float, "hint": String}.
+@export var recipes: Array[Dictionary] = []
 ## Familien, aus denen beim Erwachen gewählt werden kann.
 @export var start_families: Array[StringName] = []
 
