@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://bixeyv3lk1u06"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_sh2ts"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_j0rke"]
+
+[sub_resource type="Resource" id="gu_kleines_glueck"]
+script = ExtResource("1_sh2ts")
+id = &"kleines_glueck"
+display_name = "Kleines-Glück-Gu"
+family = &"glueck"
+description = "Ein Hauch von Glück: 6 s lang trifft jeder vierte Schlag kritisch, und Bestien lassen öfter Beute fallen."
+
+[sub_resource type="Resource" id="gu_glueckswolke"]
+script = ExtResource("1_sh2ts")
+id = &"glueckswolke"
+display_name = "Glückswolke-Gu"
+family = &"glueck"
+rank = 2
+rank_gift = "30 % kritisch, 7 s."
+description = "Eine goldene Wolke folgt dir."
+gifts = {
+"step": {
+"chance": 0.3
+},
+"time_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_segensregen"]
+script = ExtResource("1_sh2ts")
+id = &"segensregen"
+display_name = "Segensregen-Gu"
+family = &"glueck"
+rank = 3
+rank_gift = "35 % kritisch, 8 s, Verbündete heilen 15 %."
+description = "Glück regnet auf alle um dich: Verbündete heilen."
+gifts = {
+"extra": [{
+"allies": true,
+"frac": 0.15,
+"radius": 10.0,
+"t": "heal"
+}],
+"step": {
+"chance": 0.35
+},
+"time_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_glueckskoi"]
+script = ExtResource("1_sh2ts")
+id = &"glueckskoi"
+display_name = "Glückskoi-Gu"
+family = &"glueck"
+rank = 4
+rank_gift = "40 % kritisch, 9 s, +15 % Schaden."
+description = "Der goldene Koi springt über das Drachentor – und du mit ihm."
+gifts = {
+"extra": [{
+"allies": true,
+"frac": 0.15,
+"radius": 10.0,
+"t": "heal"
+}, {
+"color": "#7dff9b",
+"damage": 1.15,
+"key": "glueckskoi",
+"t": "buff",
+"time": 9.0
+}],
+"step": {
+"chance": 0.4
+},
+"time_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_himmelsglueck"]
+script = ExtResource("1_sh2ts")
+id = &"himmelsglueck"
+display_name = "Himmelsglück-Gu"
+family = &"glueck"
+rank = 5
+rank_gift = "50 % kritisch, 10 s, +20 % Schaden; Feinde im Umkreis 8 werden geschwächt."
+description = "Das Glück des Himmels ist auf deiner Seite – und das Unglück bei deinen Feinden."
+gifts = {
+"extra": [{
+"allies": true,
+"frac": 0.15,
+"radius": 10.0,
+"t": "heal"
+}, {
+"color": "#7dff9b",
+"damage": 1.2,
+"key": "glueckskoi",
+"t": "buff",
+"time": 10.0
+}, {
+"color": "#7dff9b",
+"mult": 0.3,
+"radius": 8.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["stern"]
+}],
+"step": {
+"chance": 0.5
+},
+"time_add": 1.0
+}
+
+[resource]
+script = ExtResource("2_j0rke")
+id = &"glueck"
+display_name = "Glücksstern"
+path = &"glueck"
+role = "Kritische Treffer, Beute"
+form = &"glueck"
+tags = Array[StringName]([&"stern"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 15.0,
+&"dauer": 6.0,
+&"ess": 5.0,
+&"glueck": 0.25,
+&"schaden": 10.0
+})
+members = Array[ExtResource("1_sh2ts")]([SubResource("gu_kleines_glueck"), SubResource("gu_glueckswolke"), SubResource("gu_segensregen"), SubResource("gu_glueckskoi"), SubResource("gu_himmelsglueck")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 4,
+&"sternsand": 1
+},
+3: {
+&"sternsand": 2,
+&"wuestenrose": 1
+},
+4: {
+&"sternsand": 4,
+&"tiefseeperle": 1
+},
+5: {
+&"tiefseeperle": 2,
+&"urkristall": 1
+}
+})
+world_effect = "Mit Glück findest du, was andere übersehen: Beute und Materialien fallen häufiger."

@@ -12,18 +12,18 @@ Deshalb gilt: **Wenige Bausteine werden einmal gebaut, das Erlebnis entsteht aus
 
 | Hebel | Einmal bauen | Ergibt |
 |---|---|---|
-| 1. Baukasten | 22 Wirkformen, 19 Tags, 21 Schrittarten | alle aktiven Gu als reine Daten |
+| 1. Baukasten | 24 Wirkformen, 19 Tags, 22 Schrittarten | alle aktiven Gu als reine Daten |
 | 2. Zustände und Reaktionen | 10 Zustände, 16 Reaktionen | Dutzende Kombos, die niemand einzeln programmiert hat |
-| 3. Familien | 32 Familien mit je 5 Rängen | 160 aktive Gu mit spürbarem Aufstieg |
+| 3. Familien | 35 Familien mit je 5 Rängen | 175 aktive Gu mit spürbarem Aufstieg |
 | 4. Dieselben Regeln in der Welt | Zustände wirken auch auf Objekte | Erkundung und Rätsel ohne eigenes Rätselsystem |
 
-Dazu: **Merkmale** für wilde Gu, **23 Körper-Gu**, **34 Hilfs-Gu** und **125 Killer Moves** aus 96 Gu-Paaren in drei Stufen (Rang 1, 3, 5).
+Dazu: **Merkmale** für wilde Gu, **23 Körper-Gu**, **34 Hilfs-Gu** und **134 Killer Moves** aus 105 Gu-Paaren in drei Stufen (Rang 1, 3, 5).
 
 ## 2. Hebel 1: der Baukasten
 
 Jeder aktive Gu ist die Kombination aus einer **Wirkform**, einigen **Tags**, optional einem **Zustand**, Zahlenwerten (`basis_r1`) und **Ranggaben** (`gaben`). Neuer Code entsteht nur für eine neue Wirkform oder Schrittart, nie für einen einzelnen Gu.
 
-**Wirkformen (22):**
+**Wirkformen (24):**
 
 | Wirkform | Beschreibung | Umsetzung |
 |---|---|---|
@@ -49,6 +49,8 @@ Jeder aktive Gu ist die Kombination aus einer **Wirkform**, einigen **Tags**, op
 | `beschwoerung` | Wesen kämpfen auf Zeit für dich (skalieren mit dem Rang) | `GuForms` → `EnemySpawner.spawn_companion` |
 | `tausch` | tauscht den Platz mit einem Gegner und trifft ihn (Raum-Pfad) | `GuForms` → Schritt `swap` |
 | `eingebung` | alle anderen Gu früher bereit und eine Weile schneller (Weisheits-Pfad) | `GuForms` → Schritt `haste` |
+| `glueck` | Chance auf kritische Treffer und mehr Beute auf Zeit (Glückspfad) | `GuForms` → Schritt `luck` |
+| `verwandlung` | Bestiengestalt: größer, stärker, zäher (Verwandlungspfad) | `GuForms` → Schritt `buff` mit `grow` |
 
 **Tags:** Wucht (stößt zurück, zerschmettert Eingefrorene), Schnitt (20 % Wunde), Durchbohren (ignoriert Rüstung), Wind (verteilt Brand und Gift), Licht (blendet Nachtwesen), Feuer, Wasser, Blitz, Eis, Gift, Seele, Holz, Raum, Erde, Stern, Klang, Metall, Blut, Zeit. Element-Tags lösen die Reaktionen aus Abschnitt 3 aus.
 
@@ -99,7 +101,7 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 
 ## 4. Hebel 3: Familien
 
-**32 Familien mit je fünf Rängen (Rang 1–5, sterbliche Ebene).** Jede Familie ist ein Verb mit eigener Wirkform. Höhere Ränge nutzen dieselbe Umsetzung mit stärkeren Werten (×1,48 pro Rang, `FORMELN.md`) und einer **Ranggabe**, die neu hinzukommt. Namen folgen, wo möglich, den Gu aus Reverend Insanity (Allumfassender-Goldlicht-Wurm, Alles-oder-nichts, Knochenschild, Tarnschuppen, Selbstentzündung …).
+**35 Familien mit je fünf Rängen (Rang 1–5, sterbliche Ebene).** Jede Familie ist ein Verb mit eigener Wirkform. Höhere Ränge nutzen dieselbe Umsetzung mit stärkeren Werten (×1,48 pro Rang, `FORMELN.md`) und einer **Ranggabe**, die neu hinzukommt. Namen folgen, wo möglich, den Gu aus Reverend Insanity (Allumfassender-Goldlicht-Wurm, Alles-oder-nichts, Knochenschild, Tarnschuppen, Selbstentzündung …).
 
 | Familie | Pfad | Wirkform | Rang 1 | Rang 2 | Rang 3 | Rang 4 | Rang 5 |
 |---|---|---|---|---|---|---|---|
@@ -135,6 +137,9 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Irrgarten-Formation | Formation | Zone | Irrweg-Gu | Drei-Wege-Irrgarten-Gu (Radius 3,7, Schwäche) | Schneekristall-Formation-Gu (Frost je Takt, am Ende 1,5 s eingefroren) | Sechs-Richtungen-Labyrinth-Gu (Radius 4,7, 6 s, zieht ins Zentrum) | Neun-Paläste-Formation-Gu (Zieht stärker, am Ende Einsturz (2,5×, betäubt 1,5 s)) |
 | Zeitblase | Zeit | Zone | Dritte-Wache-Gu | Stundenglas-Gu (4,5 s, Zeitecho am Ende) | Jahresfluss-Gu (65 % langsamer, Echo 1,6× und 0,6 s Betäubung) | Tage-wie-Jahre-Gu (Radius 4, erstarrt 1 s zu Beginn, Echo 2×) | Frühling-Herbst-Hauch-Gu (Radius 5, erstarrt 1,5 s, Echo 2,5×; du heilst 25 % und wirst gereinigt) |
 | Gedankenblitz | Weisheit | Eingebung | Gedankenblitz-Gu | Weisheits-Gu (2,5 s früher bereit, 25 % schneller) | Klarer-Geist-Gu (3,5 s früher, 30 % schneller für 6 s, +15 % Schaden) | Tausend-Gedanken-Gu (4,5 s früher, 35 % schneller für 7 s, ein Gedankenstoß betäubt 0,6 s) | Himmelsweisheit-Gu (Alle Gu sofort bereit, 8 s doppelt so schnell, +20 % Schaden, Gedankenstoß betäubt 0,8 s) |
+| Glücksstern | Glück | Glück | Kleines-Glück-Gu | Glückswolke-Gu (30 % kritisch, 7 s) | Segensregen-Gu (35 % kritisch, 8 s, Verbündete heilen 15 %) | Glückskoi-Gu (40 % kritisch, 9 s, +15 % Schaden) | Himmelsglück-Gu (50 % kritisch, 10 s, +20 % Schaden; Feinde im Umkreis 8 werden geschwächt) |
+| Bestiengestalt | Verwandlung | Verwandlung | Steinaffen-Gestalt-Gu | Eber-Gestalt-Gu (+30 %, Stampfer (Radius 3,5) beim Verwandeln) | Bären-Gestalt-Gu (Anderthalbfache Größe, +35 %, 25 % zäher, unaufhaltsam, Stampfer) | Tiger-Gestalt-Gu (+45 %, 25 % schneller, Stampfer betäubt, Krallenhieb mit Blutung) | Bestienkönig-Gestalt-Gu (Fast doppelte Größe, +60 %, 35 % zäher, heilt 20 %, Brüllen verbreitet Furcht, 9 s) |
+| Glockenklang | Ton | Kreis | Bronzeglocken-Gu | Herzklang-Gu (Ein Nachhall nach 0,6 s) | Donnerglocken-Gu (Radius 4,5, betäubt 0,4 s, zwei Nachhalle) | Tausend-Glocken-Gu (Schallwelle (Kegel 12 m), drei Nachhalle) | Himmelsglocken-Gu (Radius 6, betäubt 0,5 s, Schallwelle, vier Nachhalle mit Betäubung) |
 
 ### Gu-Aufstieg
 
@@ -253,7 +258,9 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Feuersturm | 1 | Flamme + Wirbel | Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter |
 | Feuerwind | 1 | Windklinge + Flamme | Ein Windstoß trägt Flammen weit nach vorn und facht sie immer wieder an. |
 | Gewitterflut | 1 | Strömung + Blitz | Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle |
+| Gewitterglocke | 1 | Glockenklang + Blitz | Blitze laden alle um dich auf, dann schlägt die Glocke – und der Donner hallt in jedem Geladenen. |
 | Gletscherbruch | 1 | Frost + Wirbel | Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag |
+| Glücksstern | 1 | Glücksstern + Sternschwarm | Ein Stern des Glücks: suchende Sterne fliegen aus, und dein nächster Schlag ist fast sicher kritisch. |
 | Glutwirbel | 1 | Menschenfackel + Wirbel | Ein Wirbel aus Glut dreht sich um dich und saugt Gegner in die Flammen. |
 | Goldene Bestie | 1 | Goldener Tausendfüßler + Bestienphantom | Ein goldenes Bestienphantom mit Sägegliedern stürmt vor und zerfleischt alles. |
 | Himmelsschild | 1 | Hartes Qi + Haut | Qi und eherne Haut legen sich übereinander – du und alle neben dir stehen wie ein Fels. |
@@ -281,6 +288,7 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Seelenraub | 1 | Plünderhand + Seelenschrei | Ein Schrei lähmt vor Angst, dann greift die Geisterhand zu und reißt Essenz aus den Erstarrten. |
 | Sonnenflamme | 1 | Flamme + Menschenfackel | Dein Körper wird zur Fackel und entlädt eine Feuerwelle um dich. |
 | Spiegelflut | 1 | Wasserbild + Strömung | Zwei Wasserbilder springen aus einer Flutwelle, die alles zurückwirft. |
+| Steinriese | 1 | Bestiengestalt + Haut | Deine Haut wird zu Stein, dein Körper wächst: ein Riese, an dem Schläge abprallen. |
 | Sternenregen | 1 | Sternschwarm + Erdstachel | Sterne markieren die Feinde, dann stürzen drei Felsbrocken auf sie. |
 | Sternenmond | 1 | Sternschwarm + Mondlicht | Neun Mond- und Sternenklingen suchen sich selbst ihr Ziel. |
 | Sturmblitz | 1 | Blitz + Windklinge | Ein Windstoß trägt Blitze nach vorn; sie springen von Ziel zu Ziel. |
@@ -311,6 +319,7 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Geisterschrei | 3 | Seelenschrei + Tarnung | Ein unsichtbarer Schrei lähmt alle vor Angst, während du im Nebel verschwindest. |
 | Giftquelle | 3 | Gift + Wasserbild | Ein vergiftetes Wasserbild wandelt umher und hinterlässt eine Giftlache. |
 | Gifttausch | 3 | Positionstausch + Gift | Du hinterlässt eine Giftwolke und tauschst den Platz mit einem Gegner – er landet mitten darin. |
+| Glücksdieb | 3 | Glücksstern + Plünderhand | Mit Glück greifst du doppelt zu: Essenz und Beute fliegen dir nur so zu. |
 | Goldpanzer-Sturm | 3 | Goldener Tausendfüßler + Haut | Mit goldener Haut und Sägearm walzt du unaufhaltsam durch die Reihen. |
 | Goldraub | 3 | Goldener Tausendfüßler + Plünderhand | Der goldene Tausendfüßler rast durch die Reihen und reißt jedem Uressenz aus dem Leib. |
 | Klingenbestie | 3 | Schwertschatten + Bestienphantom | Ein Bestienphantom aus Klingen stürmt vor und zerfetzt alles vor dir. |
@@ -320,11 +329,13 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Lebensquell | 3 | Blatt + Wasserbild | Ein Heilteich breitet sich um dich aus, ein Wasserkrieger wacht darüber. |
 | Mondschatten-Tanz | 3 | Mondlicht + Schritt | Du jagst durch die Reihe und entlässt am Ende einen Fächer aus Mondklingen. |
 | Pestsonne | 3 | Gift + Flamme | Eine Giftsonne geht über dem Feld auf und entzündet sich zu einer riesigen Explosion. |
+| Phantomgestalt | 3 | Bestiengestalt + Bestienphantom | Du verschmilzt mit deinem Bestienphantom: jeder deiner Hiebe trägt die Wucht eines Bären. |
 | Qi-Bestie | 3 | Hartes Qi + Bestienphantom | Kraft-Qi verfestigt dein Bestienphantom: es rast als harte Qi-Gestalt geradeaus durch alle Gegner. |
 | Qi-Sturm | 3 | Hartes Qi + Windklinge | Die Qi-Hülle platzt in einem Sturm nach außen und fegt alle Gegner davon. |
 | Rasende Bestie | 3 | Kampfgeist + Bestienphantom | Im Kampfrausch wird dein Bestienphantom doppelt so groß. |
 | Rudelkönig | 3 | Sklaverei + Blatt | Heilt alle Gefährten voll und ruft zwei Blitzwölfe. |
 | Schattenmord | 3 | Tarnung + Schritt | Aus dem Nichts ein Stich ins Herz – gegen Geschwächte tödlich. |
+| Seelenglocke | 3 | Glockenklang + Seelenschrei | Die Glocke läutet für die Seelen: wer sie hört, flieht in Panik, und sie hallt nach. |
 | Seelenlabyrinth | 3 | Irrgarten-Formation + Seelenschrei | Ein Schrei fährt in den Irrgarten: die Gefangenen verlieren den Verstand und fliehen blind. |
 | Seelensturm | 3 | Seelenschrei + Windklinge | Ein heulender Sturm voller Seelenschreie: Furcht und Schwäche für alle. |
 | Seuchenmond | 3 | Gift + Blutmond | Ein fauliger roter Mond schwebt über dem Ziel und saugt Leben aus allem darunter. |
@@ -335,9 +346,12 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Unerschütterlicher Wille | 3 | Kampfgeist + Hartes Qi | Kampfgeist und hartes Qi: du wirst stärker, nichts wirft dich um, und wer neben dir kämpft, ist geschützt. |
 | Zeitdonner | 3 | Zeitblase + Blitz | Blitze fallen in die Zeitblase – und fallen im Echo ein zweites Mal. |
 | Zeitspiegel | 3 | Wasserbild + Zeitblase | Zwei Wasserbilder treten aus deiner Vergangenheit, während die Zeit um dich zäh wird. |
+| König des Rudels | 5 | Bestiengestalt + Sklaverei | Du wirst zum Bestienkönig, und ein Rudel Geisterwölfe folgt deinem Brüllen. |
+| Erdbebenglocke | 5 | Glockenklang + Erdstachel | Die Himmelsglocke schlägt in den Boden: die Erde bebt in Wellen, alles wird festgehalten und zerschmettert. |
 | Erdschlund | 5 | Erdstachel + Bestienphantom | Die Erde öffnet sich unter den Feinden und schließt sich wieder. |
 | Ewiger Winter | 5 | Zeitblase + Frost | Die Zeit gefriert: in der Blase wird es kälter und kälter, bis alles zu Eis zerspringt. |
 | Ewiges Eis | 5 | Frost + Wirbel | Alles im Umkreis 10 erstarrt zu ewigem Eis und zerspringt. |
+| Glücksritter | 5 | Glücksstern + Kampfgeist | Kampfgeist und Himmelsglück: jeder Schlag kann der entscheidende sein. |
 | Glühendes Qi | 5 | Hartes Qi + Menschenfackel | Deine Qi-Hülle glüht wie ein Brennofen; wenn sie vergeht, explodiert sie in einer Feuerwelle. |
 | Herr der Bestien | 5 | Sklaverei + Bestienphantom | Drei Bestienphantome brechen hervor und zwei Blitzwölfe folgen dir. |
 | Himmelsbrand | 5 | Flamme + Wirbel | Der Himmel brennt: ein Feuersturm im Umkreis 10, Feuerregen und ein Flammenmeer. |
@@ -407,12 +421,13 @@ Die zwölf neuen Familien haben ebenfalls Welt-Wirkungen (`welt` je Familie): Ph
 | `armor` | `kind` (`thorns`, `thunder`), `time`, `reduction`, `value` oder `value_mult` |
 | `heal` | `frac`, `time`, `allies`, `radius` |
 | `summon` | `enemy`, `count`, `time` (Spieler: Gefährten, Bestien: Diener) |
-| `buff` | `key`, `damage`, `speed`, `reduction`, `time` |
+| `buff` | `key`, `damage`, `speed`, `reduction`, `time`, `grow` (Modell wächst auf Zeit) |
 | `stealth` | `time` |
 | `teleport` / `dash` | `distance`; `teleport` mit `to: "target"` taucht direkt vor dem Ziel auf |
 | `cleanse`, `unstoppable`, `reflect` | `time` |
 | `swap` | `range`, `fresh` (ein anderes Ziel als zuletzt) – Positionstausch, dann Treffer |
 | `haste` | `refund` (Sekunden sofort), `cd_mult`, `time` – Abklingzeiten der anderen Gu |
+| `luck` | `chance`, `time` – kritische Treffer (× `physique_crit_mult`), beim Spieler Beute × `luck_loot_mult` |
 
 **Treffer-Parameter** jedes Schritts: `mult`, `tags`, `status`, `stacks`, `stun`, `knockback` (+ weg, − heran), `lifesteal`, `execute` (Bonus unter 30 % Leben), `pierce_armor`, `slow`/`slow_time`, `blind`, `freeze`, `set_stacks`, `essence_steal` (raubt Uressenz im Verhältnis zum Schaden), `color`.
 

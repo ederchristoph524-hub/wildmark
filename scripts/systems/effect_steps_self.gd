@@ -21,6 +21,8 @@ static func run_step(step: Dictionary, ctx: EffectContext) -> void:
 			caster.add_buff(StringName(str(step.get("key", "buff"))), float(step.get("damage", 1.0)), float(step.get("speed", 1.0)), float(step.get("time", 6.0)))
 			if step.has("reduction"):
 				caster.add_timed_reduction(&"buff_guard", float(step["reduction"]), float(step.get("time", 6.0)))
+			if step.has("grow"):
+				grow(caster, float(step["grow"]), float(step.get("time", 6.0)))
 			Fx.sphere(tree, caster.aim_point(), 1.4, Color(EffectSteps.step_color(step, ctx), 0.35), 0.6)
 		"stealth":
 			caster.start_stealth(float(step.get("time", 5.0)))
@@ -41,6 +43,11 @@ static func run_step(step: Dictionary, ctx: EffectContext) -> void:
 			caster.reflect_time = maxf(caster.reflect_time, float(step.get("time", 4.0)))
 		"swap":
 			_swap(step, ctx)
+		"luck":
+			caster.luck_chance = float(step.get("chance", 0.25))
+			caster.luck_time = maxf(caster.luck_time, float(step.get("time", 6.0)))
+			Fx.ring(tree, caster.global_position, 1.6, Color(0.5, 1.0, 0.6), 0.6)
+			Fx.sphere(tree, caster.aim_point(), 1.2, Color(0.5, 1.0, 0.6, 0.35), 0.5)
 		"haste":
 			EssenceTheft.hasten(caster, float(step.get("refund", 1.0)), float(step.get("cd_mult", 1.0)), float(step.get("time", 0.0)))
 			Fx.ring(tree, caster.global_position, 1.8, EffectSteps.step_color(step, ctx), 0.5)
@@ -120,6 +127,26 @@ static func _swap(step: Dictionary, ctx: EffectContext) -> void:
 	Fx.ring(ctx.tree(), from, 1.4, color, 0.4)
 	Fx.ring(ctx.tree(), to, 1.4, color, 0.4)
 	EffectSteps.strike(target, step, ctx, caster.global_position)
+
+
+## Verwandlung: das Modell (Spieler, Gu-Meister, Bestie) wächst für duration Sekunden auf factor und schrumpft wieder.
+static func grow(caster: Combatant, factor: float, duration: float) -> void:
+	for child: Node in caster.get_children():
+		if child is PlayerModel or child is EnemyModel:
+			var model: Node3D = child as Node3D
+			if not model.has_meta(&"base_scale"):
+				model.set_meta(&"base_scale", model.scale)
+			var base: Vector3 = model.get_meta(&"base_scale")
+			# Eine laufende Verwandlung endet, die neue übernimmt (sonst schrumpft die alte die neue).
+			var running: Variant = model.get_meta(&"grow_tween") if model.has_meta(&"grow_tween") else null
+			if running is Tween and (running as Tween).is_valid():
+				(running as Tween).kill()
+			var tween: Tween = model.create_tween()
+			model.set_meta(&"grow_tween", tween)
+			tween.tween_property(model, "scale", base * factor, 0.35).set_trans(Tween.TRANS_BACK)
+			tween.tween_interval(maxf(0.0, duration - 0.7))
+			tween.tween_property(model, "scale", base, 0.35)
+			return
 
 
 ## Taucht direkt vor dem Ziel wieder auf (Erdloch, Schattensprung); ist es weiter weg, nur so weit wie erlaubt.

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dglu41eklup83"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_5o7f7"]
+
+[resource]
+script = ExtResource("1_5o7f7")
+id = &"bestienkoenig_rudel"
+display_name = "König des Rudels"
+family_a = &"gestalt"
+family_b = &"sklaverei"
+channel_time = 1.1
+damage_mult = 4.2
+description = "Du wirst zum Bestienkönig, und ein Rudel Geisterwölfe folgt deinem Brüllen."
+hint = "Der König führt, das Rudel folgt."
+min_rank = 5
+steps = [{
+"color": "#ff8ae2",
+"damage": 1.5,
+"grow": 1.8,
+"key": "rudelkoenig",
+"reduction": 0.3,
+"speed": 1.2,
+"t": "buff",
+"time": 10.0
+}, {
+"count": 3.0,
+"enemy": "geisterwolf",
+"t": "summon",
+"time": 15.0
+}, {
+"angle": 120.0,
+"color": "#ff8ae2",
+"mult": 0.6,
+"reach": 9.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["klang", "seele"]
+}, {
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.2,
+"radius": 5.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}]

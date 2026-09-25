@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d0mlpt3juclyb"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_2aep5"]
+
+[resource]
+script = ExtResource("1_2aep5")
+id = &"gewitterglocke"
+display_name = "Gewitterglocke"
+family_a = &"glocke"
+family_b = &"blitz"
+channel_time = 0.8
+damage_mult = 2.5
+description = "Blitze laden alle um dich auf, dann schlägt die Glocke – und der Donner hallt in jedem Geladenen."
+hint = "Klang und Ladung: Donnerschlag."
+steps = [{
+"color": "#8ad0ff",
+"jumps": 4.0,
+"mult": 0.6,
+"radius": 7.0,
+"stacks": 2.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"knockback": 1.0,
+"mult": 1.0,
+"radius": 5.0,
+"stun": 0.4,
+"t": "circle",
+"tags": ["klang", "wucht"]
+}],
+"time": 0.3
+}]

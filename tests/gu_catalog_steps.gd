@@ -8,7 +8,7 @@ const WAIT_FRAMES: int = 100
 const DUMMY_HP: float = 100000.0
 ## Wirkformen ohne Schaden: geprüft wird ein Zustand am Spieler oder in der Welt.
 const UTILITY_FORMS: Array[StringName] = [&"selbstschild", &"selbst_heilung", &"bewegung", &"zaehmen", &"tarnung", &"staerkung", &"beschwoerung",
-	&"eingebung"]
+	&"eingebung", &"glueck", &"verwandlung"]
 
 var tree: SceneTree = null
 var main: Main = null
@@ -126,6 +126,10 @@ func _test_gu(family: GuFamilyData, gu: GuData) -> void:
 	var buffed: bool = not player.buffs.is_empty()
 	var shielded: bool = not player.reductions.is_empty()
 	var hasted: bool = player.holder.haste_time > 0.0
+	var lucky: bool = player.luck_time > 0.0
+	await _frames(25)
+	var grown: bool = player.model.scale.x > 1.05
+	player.luck_time = 0.0
 	var swapped: bool = player.global_position.distance_to(start_pos) > 1.0
 	player.holder.haste_time = 0.0
 	await _frames(WAIT_FRAMES)
@@ -148,6 +152,10 @@ func _test_gu(family: GuFamilyData, gu: GuData) -> void:
 			_check(not tree.get_nodes_in_group(Enemy.GROUP_COMPANIONS).is_empty(), label + ": nichts beschworen")
 		&"eingebung":
 			_check(hasted, label + ": Abklingzeiten nicht verkürzt")
+		&"glueck":
+			_check(lucky, label + ": kein Glück")
+		&"verwandlung":
+			_check(buffed and grown, label + ": keine Verwandlung")
 		&"tausch":
 			_check(swapped and _damage_dealt() > 0.0, label + ": kein Platztausch mit Schaden")
 		_:

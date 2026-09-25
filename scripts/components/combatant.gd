@@ -29,6 +29,9 @@ var flat_damage: float = 0.0
 var aggro_mult: float = 1.0
 ## Ranggabe Eisenhaut: Geschosse prallen zurück, solange > 0.
 var reflect_time: float = 0.0
+## Glückspfad: Chance auf kritische Treffer (und beim Spieler mehr Beute), solange luck_time läuft.
+var luck_chance: float = 0.0
+var luck_time: float = 0.0
 ## Bronzehaut: kein Rückstoß, keine Betäubung, solange > 0.
 var unstoppable_time: float = 0.0
 ## Tarnung: Bestien bemerken die Figur nicht; der erste Treffer daraus ist verstärkt.
@@ -152,6 +155,7 @@ func receive_hit(hit: HitInfo) -> void:
 	if hit.essence_steal > 0.0 and attacker != null and not attacker.is_dead() and dealt > 0.0:
 		EssenceTheft.steal(attacker, self, dealt, hit.essence_steal)
 	if dealt >= 0.5:
+		Sound.hit(aim_point(), team == TEAM_PLAYER)
 		var color: Color = PLAYER_DAMAGE_COLOR if team == TEAM_PLAYER else (PhysiqueEffects.CRIT_COLOR if hit.is_crit else DAMAGE_COLOR)
 		EventBus.floating_text.emit(str(roundi(dealt)) + ("!" if hit.is_crit else ""), aim_point(), color)
 	_after_hit(hit, dealt)
@@ -188,6 +192,7 @@ func start_regeneration(total: float, duration: float) -> void:
 func tick_combatant(delta: float) -> void:
 	invulnerable_time = maxf(0.0, invulnerable_time - delta)
 	reflect_time = maxf(0.0, reflect_time - delta)
+	luck_time = maxf(0.0, luck_time - delta)
 	unstoppable_time = maxf(0.0, unstoppable_time - delta)
 	stealth_time = maxf(0.0, stealth_time - delta)
 	for key: StringName in buffs.keys():

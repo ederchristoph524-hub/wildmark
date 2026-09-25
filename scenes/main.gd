@@ -26,6 +26,7 @@ func _ready() -> void:
 	_menu_layer.layer = 20
 	_menu_layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(_menu_layer)
+	add_child(Sound.new())
 	EventBus.new_game_requested.connect(_on_new_game)
 	EventBus.continue_requested.connect(_on_continue)
 	EventBus.return_to_menu_requested.connect(show_start_menu)

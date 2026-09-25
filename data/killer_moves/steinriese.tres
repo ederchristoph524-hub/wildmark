@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cmk32q532dxpj"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qj74d"]
+
+[resource]
+script = ExtResource("1_qj74d")
+id = &"steinriese"
+display_name = "Steinriese"
+family_a = &"gestalt"
+family_b = &"haut"
+channel_time = 1.0
+damage_mult = 2.3
+description = "Deine Haut wird zu Stein, dein Körper wächst: ein Riese, an dem Schläge abprallen."
+hint = "Stein und Gestalt."
+steps = [{
+"color": "#a0a0a8",
+"damage": 1.2,
+"grow": 1.5,
+"key": "steinriese",
+"reduction": 0.4,
+"t": "buff",
+"time": 7.0
+}, {
+"color": "#a0a0a8",
+"kind": "thorns",
+"reduction": 0.1,
+"t": "armor",
+"time": 7.0,
+"value_mult": 0.4
+}, {
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 0.8,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}]

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://buhbxaeapmkrt"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_r1pus"]
+
+[resource]
+script = ExtResource("1_r1pus")
+id = &"seelenglocke"
+display_name = "Seelenglocke"
+family_a = &"glocke"
+family_b = &"seelenschrei"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Die Glocke läutet für die Seelen: wer sie hört, flieht in Panik, und sie hallt nach."
+hint = "Totenglocke."
+min_rank = 3
+steps = [{
+"color": "#c9a0ff",
+"mult": 1.0,
+"radius": 5.5,
+"status": "furcht",
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang", "seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#c9a0ff",
+"mult": 0.9,
+"radius": 6.5,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["klang", "seele"]
+}],
+"time": 0.8
+}]

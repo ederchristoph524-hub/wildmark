@@ -1,0 +1,229 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://csa0ako1ow8j7"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_nj8c4"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_b3j2p"]
+
+[sub_resource type="Resource" id="gu_bronzeglocke"]
+script = ExtResource("1_nj8c4")
+id = &"bronzeglocke"
+display_name = "Bronzeglocken-Gu"
+family = &"glocke"
+description = "Ein Glockenschlag um dich, der Gegner zurückstößt und durch jede Deckung dringt."
+
+[sub_resource type="Resource" id="gu_herzklang"]
+script = ExtResource("1_nj8c4")
+id = &"herzklang"
+display_name = "Herzklang-Gu"
+family = &"glocke"
+rank = 2
+rank_gift = "Ein Nachhall nach 0,6 s."
+description = "Der Klang geht dir durch Mark und Bein – und hallt nach."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.6,
+"radius": 3.5,
+"stun": 0.0,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 0.6
+}]
+}
+
+[sub_resource type="Resource" id="gu_donnerglocke"]
+script = ExtResource("1_nj8c4")
+id = &"donnerglocke"
+display_name = "Donnerglocken-Gu"
+family = &"glocke"
+rank = 3
+rank_gift = "Radius 4,5, betäubt 0,4 s, zwei Nachhalle."
+description = "Die Glocke dröhnt wie Donner: größer, und jeder Schlag betäubt kurz."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.6,
+"radius": 4.5,
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.5,
+"radius": 4.5,
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 1.2
+}],
+"radius_add": 1.0,
+"stun": 0.4
+}
+
+[sub_resource type="Resource" id="gu_tausend_glocken"]
+script = ExtResource("1_nj8c4")
+id = &"tausend_glocken"
+display_name = "Tausend-Glocken-Gu"
+family = &"glocke"
+rank = 4
+rank_gift = "Schallwelle (Kegel 12 m), drei Nachhalle."
+description = "Tausend kleine Glocken: eine Schallwelle rollt nach vorn, die große Glocke hallt dreimal."
+gifts = {
+"extra": [{
+"angle": 60.0,
+"color": "#d9c27a",
+"knockback": 1.0,
+"mult": 0.9,
+"reach": 12.0,
+"t": "cone",
+"tags": ["klang"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.6,
+"radius": 4.5,
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.5,
+"radius": 4.5,
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 1.2
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.4,
+"radius": 4.5,
+"stun": 0.3,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 1.8
+}],
+"radius_add": 1.0,
+"stun": 0.4
+}
+
+[sub_resource type="Resource" id="gu_himmelsglocke"]
+script = ExtResource("1_nj8c4")
+id = &"himmelsglocke"
+display_name = "Himmelsglocken-Gu"
+family = &"glocke"
+rank = 5
+rank_gift = "Radius 6, betäubt 0,5 s, Schallwelle, vier Nachhalle mit Betäubung."
+description = "Eine Glocke so groß wie ein Tempel senkt sich vom Himmel: ihr Klang zerschmettert Geladene."
+gifts = {
+"cd_mult": 1.2,
+"extra": [{
+"angle": 70.0,
+"color": "#d9c27a",
+"knockback": 1.2,
+"mult": 1.0,
+"reach": 14.0,
+"t": "cone",
+"tags": ["klang"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.6,
+"radius": 6.0,
+"stun": 0.4,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.5,
+"radius": 6.0,
+"stun": 0.4,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 1.2
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.4,
+"radius": 6.0,
+"stun": 0.4,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 1.8
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"mult": 0.6,
+"radius": 6.0,
+"stun": 0.5,
+"t": "circle",
+"tags": ["klang"]
+}],
+"time": 2.4
+}],
+"radius_add": 2.5,
+"stun": 0.5
+}
+
+[resource]
+script = ExtResource("2_b3j2p")
+id = &"glocke"
+display_name = "Glockenklang"
+path = &"ton"
+role = "Rundumschlag, Nachhall, Betäubung"
+form = &"kreis"
+tags = Array[StringName]([&"klang", &"wucht"])
+feed_item = &"eisenerz"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 4.5,
+&"ess": 6.0,
+&"radius": 3.5,
+&"schaden": 14.0
+})
+members = Array[ExtResource("1_nj8c4")]([SubResource("gu_bronzeglocke"), SubResource("gu_herzklang"), SubResource("gu_donnerglocke"), SubResource("gu_tausend_glocken"), SubResource("gu_himmelsglocke")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 4,
+&"windfeder": 1
+},
+3: {
+&"klingenstahl": 1,
+&"seelenglas": 1
+},
+4: {
+&"donnerholz": 2,
+&"klingenstahl": 3
+},
+5: {
+&"donnerkrone": 1,
+&"klingenstahl": 4
+}
+})
+world_effect = "Ein Glockenschlag lässt brüchige Wände erzittern und weckt schlafende Bestien."

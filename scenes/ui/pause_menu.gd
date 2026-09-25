@@ -33,6 +33,11 @@ func _ready() -> void:
 		quality.text = GraphicsSettings.label()
 		EventBus.message.emit(tr("Schatten und Auflösung sofort, Pflanzendichte ab dem nächsten Gebietswechsel."), UiTheme.MUTED))
 	column.add_child(quality)
+	var sound: Button = UiTheme.button(Sound.label(), func() -> void: pass)
+	sound.pressed.connect(func() -> void:
+		Sound.cycle_volume()
+		sound.text = Sound.label())
+	column.add_child(sound)
 	column.add_child(UiTheme.button(tr("Zum Hauptmenü (speichert)"), _to_menu))
 	column.add_child(UiTheme.label(tr(CONTROLS_TEXT), 15, UiTheme.MUTED))
 

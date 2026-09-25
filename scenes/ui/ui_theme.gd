@@ -64,6 +64,7 @@ static func button(text: String, callback: Callable, min_height: float = 52.0) -
 	var node := Button.new()
 	node.text = text
 	node.custom_minimum_size = Vector2(0.0, min_height)
+	node.pressed.connect(func() -> void: Sound.play(&"click", Vector3.INF, -8.0))
 	node.pressed.connect(callback)
 	return node
 

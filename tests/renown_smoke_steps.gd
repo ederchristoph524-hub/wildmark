@@ -19,6 +19,7 @@ func run() -> void:
 	_test_renown_effects()
 	_test_bounty_hunter()
 	_test_disguise_and_compass()
+	_test_luck()
 	GameState.fame = 0
 	GameState.infamy = 0
 
@@ -130,6 +131,18 @@ func _test_disguise_and_compass() -> void:
 	GameState.support.erase(compass)
 	GameState.rank = rank
 	patrol.queue_free()
+
+
+## Glückspfad: Solange das Glück wirkt, treffen Wirkungsschritte kritisch.
+func _test_luck() -> void:
+	var player: Player = steps.player
+	player.luck_chance = 1.0
+	player.luck_time = 5.0
+	var ctx: EffectContext = EffectContext.create(player, 10.0, Vector3.FORWARD, Color.WHITE)
+	var hit: HitInfo = EffectSteps.make_hit({"mult": 1.0}, ctx)
+	steps._check(hit.is_crit and hit.damage > 10.0, "Glück: kritischer Treffer (%.1f)" % hit.damage)
+	player.luck_time = 0.0
+	player.luck_chance = 0.0
 
 
 func _spawn(id: StringName, at: Vector3) -> Wanderer:

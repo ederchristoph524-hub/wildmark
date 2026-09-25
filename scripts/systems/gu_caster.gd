@@ -48,6 +48,7 @@ func color() -> Color:
 func cast() -> bool:
 	var done: bool = _cast_form()
 	if done:
+		Sound.cast(family, gu.rank, caster.global_position)
 		var extra: Variant = GuGifts.flags(gu).get("extra", [])
 		if extra is Array and not (extra as Array).is_empty():
 			EffectSteps.run(extra, context())

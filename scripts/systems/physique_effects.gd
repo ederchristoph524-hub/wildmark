@@ -53,12 +53,14 @@ static func immune_statuses() -> Array[StringName]:
 	return result
 
 
-## Treffer des Spielers: kritisch (Metall) oder entzündend (Blitzglanz). Andere Figuren bleiben unverändert.
+## Treffer: kritisch (Metall-Physique oder Glückspfad) oder entzündend (Blitzglanz). Glück wirkt für jeden Wirker,
+## die Physique nur beim Spieler.
 static func decorate_hit(hit: HitInfo, caster: Combatant) -> void:
-	if not caster is Player or GameState.physique == &"" or hit.damage <= 0.0:
+	if caster == null or hit.damage <= 0.0 or hit.is_crit:
 		return
-	var physique_rule: Dictionary = rule()
-	if randf() < float(physique_rule.get("crit_chance", 0.0)):
+	var luck: float = caster.luck_chance if caster.luck_time > 0.0 else 0.0
+	var physique_rule: Dictionary = rule() if caster is Player and GameState.physique != &"" else {}
+	if randf() < maxf(luck, float(physique_rule.get("crit_chance", 0.0))):
 		hit.damage *= Balance.values.physique_crit_mult
 		hit.is_crit = true
 	var burn: StringName = StringName(str(physique_rule.get("on_hit_status", "")))

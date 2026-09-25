@@ -53,6 +53,8 @@ static func make_hit(step: Dictionary, ctx: EffectContext) -> HitInfo:
 	hit.lifesteal = float(step.get("lifesteal", 0.0))
 	hit.execute_bonus = float(step.get("execute", 0.0))
 	hit.essence_steal = float(step.get("essence_steal", 0.0))
+	if source is Combatant:
+		PhysiqueEffects.decorate_hit(hit, source as Combatant)
 	return hit
 
 

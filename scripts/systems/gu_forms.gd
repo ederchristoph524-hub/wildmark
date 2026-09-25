@@ -17,11 +17,15 @@ const FORM_SUMMON: StringName = &"beschwoerung"
 ## Positionstausch (Raum-Pfad) und Eingebung (Weisheits-Pfad: Abklingzeiten verkürzen).
 const FORM_SWAP: StringName = &"tausch"
 const FORM_HASTE: StringName = &"eingebung"
+## Glückspfad: kritische Treffer und mehr Beute auf Zeit.
+const FORM_LUCK: StringName = &"glueck"
+## Verwandlungspfad: Bestiengestalt (größer, stärker, zäher) mit Stampfer beim Verwandeln.
+const FORM_TRANSFORM: StringName = &"verwandlung"
 ## Summe des Schadens aller Sterne eines Schwarms bzw. aller Fallen auf ein Ziel (× Grundschaden).
 const SWARM_TOTAL: float = 3.0
 const TRAP_TOTAL: float = 2.5
 const FORMS: Array[StringName] = [FORM_ZONE, FORM_CONE, FORM_CHARGE, FORM_AURA, FORM_SWARM, FORM_ORBIT, FORM_TRAP, FORM_STEALTH, FORM_BUFF,
-	FORM_SUMMON, FORM_SWAP, FORM_HASTE]
+	FORM_SUMMON, FORM_SWAP, FORM_HASTE, FORM_LUCK, FORM_TRANSFORM]
 
 
 static func cast(caster: GuCaster) -> bool:
@@ -111,6 +115,11 @@ static func _base_step(family: GuFamilyData, gifts: Dictionary) -> Dictionary:
 			step = {"t": "swap", "range": reach, "stun": _value(family, &"betaeubung", 0.5)}
 		FORM_HASTE:
 			return {"t": "haste", "refund": _value(family, &"erstattung", 1.5), "cd_mult": _value(family, &"abklingfaktor", 0.8), "time": duration}
+		FORM_LUCK:
+			return {"t": "luck", "chance": _value(family, &"glueck", 0.25), "time": duration}
+		FORM_TRANSFORM:
+			return {"t": "buff", "key": String(family.id), "damage": _value(family, &"staerke", 1.3), "speed": _value(family, &"tempo", 1.0),
+				"reduction": _value(family, &"reduktion", 0.2), "time": duration, "grow": _value(family, &"groesse", 1.3)}
 	step.merge(hit)
 	return step
 

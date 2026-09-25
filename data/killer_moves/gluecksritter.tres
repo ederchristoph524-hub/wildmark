@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bf2g3v1o7tgmp"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qxqlt"]
+
+[resource]
+script = ExtResource("1_qxqlt")
+id = &"gluecksritter"
+display_name = "Glücksritter"
+family_a = &"glueck"
+family_b = &"kampfgeist"
+channel_time = 1.0
+damage_mult = 4.2
+description = "Kampfgeist und Himmelsglück: jeder Schlag kann der entscheidende sein."
+hint = "Das Glück ist mit den Tapferen."
+min_rank = 5
+steps = [{
+"chance": 0.6,
+"t": "luck",
+"time": 8.0
+}, {
+"color": "#7dff9b",
+"damage": 1.4,
+"key": "gluecksritter",
+"speed": 1.15,
+"t": "buff",
+"time": 8.0
+}, {
+"t": "unstoppable",
+"time": 4.0
+}, {
+"color": "#7dff9b",
+"knockback": 1.3,
+"mult": 1.2,
+"radius": 5.0,
+"stun": 0.5,
+"t": "circle",
+"tags": ["wucht", "stern"]
+}]

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dcyp8sbcfmse0"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_eg77u"]
+
+[resource]
+script = ExtResource("1_eg77u")
+id = &"erdbebenglocke"
+display_name = "Erdbebenglocke"
+family_a = &"glocke"
+family_b = &"erde"
+channel_time = 1.1
+damage_mult = 4.3
+description = "Die Himmelsglocke schlägt in den Boden: die Erde bebt in Wellen, alles wird festgehalten und zerschmettert."
+hint = "Wenn die Erde läutet …"
+min_rank = 5
+steps = [{
+"color": "#a08050",
+"mult": 1.0,
+"radius": 6.0,
+"status": "verwurzelt",
+"stun": 0.5,
+"t": "circle",
+"tags": ["klang", "erde"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d9c27a",
+"knockback": 1.2,
+"mult": 1.0,
+"radius": 8.0,
+"t": "circle",
+"tags": ["klang", "wucht"]
+}],
+"time": 0.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#a08050",
+"mult": 1.0,
+"radius": 10.0,
+"stun": 0.6,
+"t": "circle",
+"tags": ["klang", "erde"]
+}],
+"time": 1.2
+}]

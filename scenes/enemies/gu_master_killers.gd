@@ -47,6 +47,7 @@ static func execute(master: GuMaster, option: Dictionary, aim: Vector3, foe: Com
 	if not is_ready(master, option):
 		return
 	var move: KillerMoveData = option["move"]
+	Sound.play(&"killer", master.global_position)
 	var damage: float = 0.0
 	var power: float = INF
 	for index: int in [option["a"], option["b"]]:

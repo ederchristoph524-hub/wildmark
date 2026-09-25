@@ -302,6 +302,10 @@ extends Resource
 @export var sect_task_stones_per_rank: int = 4
 @export var sect_task_merit: int = 30
 
+@export_group("Glückspfad")
+## Solange ein Glück-Gu wirkt, fallen Beute und Materialien so viel häufiger.
+@export var luck_loot_mult: float = 1.6
+
 @export_group("Ruf und Wanderer")
 ## Berüchtigtheit: ab renown_wanted Kopfgeld (Jäger, Aufschlag, keine rechtschaffene Sekte), ab renown_demon kein
 ## Handel und kein Duell in rechtschaffenen Siedlungen; dämonische Sekten erst ab renown_demonic_join. Verblasst täglich.

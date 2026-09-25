@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b1biqorp6ppou"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_0xe0x"]
+
+[resource]
+script = ExtResource("1_0xe0x")
+id = &"gluecksdieb"
+display_name = "Glücksdieb"
+family_a = &"glueck"
+family_b = &"pluenderung"
+channel_time = 0.8
+damage_mult = 3.1
+description = "Mit Glück greifst du doppelt zu: Essenz und Beute fliegen dir nur so zu."
+hint = "Glück ist, was man sich nimmt."
+min_rank = 3
+steps = [{
+"chance": 0.5,
+"t": "luck",
+"time": 6.0
+}, {
+"angle": 100.0,
+"color": "#8fd06a",
+"essence_steal": 2.5,
+"knockback": -1.0,
+"mult": 1.1,
+"reach": 7.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}]

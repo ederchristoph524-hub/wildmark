@@ -13,6 +13,7 @@ var _elapsed: float = 0.0
 
 ## Scheibe (radius) oder Rechteck (length > 0) am Boden, wächst während duration.
 static func show_disc(tree: SceneTree, center: Vector3, radius: float, time: float) -> Telegraph:
+	Sound.play(&"warn", center, -4.0)
 	if _disc == null:
 		_disc = CylinderMesh.new()
 		_disc.top_radius = 1.0
@@ -33,6 +34,7 @@ static func show_disc(tree: SceneTree, center: Vector3, radius: float, time: flo
 
 
 static func show_line(tree: SceneTree, from: Vector3, to: Vector3, width: float, time: float) -> Telegraph:
+	Sound.play(&"warn", from, -4.0)
 	var telegraph := Telegraph.new()
 	var box := BoxMesh.new()
 	box.size = Vector3(width, 0.04, maxf(from.distance_to(to), 0.1))

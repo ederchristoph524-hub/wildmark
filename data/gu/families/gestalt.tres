@@ -1,0 +1,180 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://s1rd0dt4e81c"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_f2uwc"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_10mwu"]
+
+[sub_resource type="Resource" id="gu_steinaffe_gestalt"]
+script = ExtResource("1_f2uwc")
+id = &"steinaffe_gestalt"
+display_name = "Steinaffen-Gestalt-Gu"
+family = &"gestalt"
+description = "Du wirst zum Steinaffen: 7 s größer, stärker (+25 %) und zäher (20 % weniger Schaden)."
+
+[sub_resource type="Resource" id="gu_eber_gestalt"]
+script = ExtResource("1_f2uwc")
+id = &"eber_gestalt"
+display_name = "Eber-Gestalt-Gu"
+family = &"gestalt"
+rank = 2
+rank_gift = "+30 %, Stampfer (Radius 3,5) beim Verwandeln."
+description = "Die Gestalt des Wildebers: beim Verwandeln stampfst du und wirfst alles um."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.0,
+"radius": 3.5,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}],
+"step": {
+"damage": 1.3
+}
+}
+
+[sub_resource type="Resource" id="gu_baer_gestalt"]
+script = ExtResource("1_f2uwc")
+id = &"baer_gestalt"
+display_name = "Bären-Gestalt-Gu"
+family = &"gestalt"
+rank = 3
+rank_gift = "Anderthalbfache Größe, +35 %, 25 % zäher, unaufhaltsam, Stampfer."
+description = "Groß wie ein Bär und ebenso unaufhaltsam."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}, {
+"t": "unstoppable",
+"time": 7.0
+}],
+"step": {
+"damage": 1.35,
+"grow": 1.5,
+"reduction": 0.25
+}
+}
+
+[sub_resource type="Resource" id="gu_tiger_gestalt"]
+script = ExtResource("1_f2uwc")
+id = &"tiger_gestalt"
+display_name = "Tiger-Gestalt-Gu"
+family = &"gestalt"
+rank = 4
+rank_gift = "+45 %, 25 % schneller, Stampfer betäubt, Krallenhieb mit Blutung."
+description = "Die Krallen eines Tigers: schneller, und das erste Zuschlagen reißt tiefe Wunden."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.0,
+"radius": 4.0,
+"stun": 0.5,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}, {
+"angle": 120.0,
+"color": "#e07a4a",
+"mult": 1.0,
+"reach": 6.0,
+"stacks": 3.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["schnitt"]
+}, {
+"t": "unstoppable",
+"time": 7.0
+}],
+"step": {
+"damage": 1.45,
+"grow": 1.5,
+"reduction": 0.25,
+"speed": 1.25
+}
+}
+
+[sub_resource type="Resource" id="gu_bestienkoenig_gestalt"]
+script = ExtResource("1_f2uwc")
+id = &"bestienkoenig_gestalt"
+display_name = "Bestienkönig-Gestalt-Gu"
+family = &"gestalt"
+rank = 5
+rank_gift = "Fast doppelte Größe, +60 %, 35 % zäher, heilt 20 %, Brüllen verbreitet Furcht, 9 s."
+description = "Die Gestalt eines Bestienkönigs – sein Brüllen lässt die Schwachen fliehen."
+gifts = {
+"extra": [{
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.2,
+"radius": 5.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["wucht", "erde"]
+}, {
+"angle": 120.0,
+"color": "#ff8ae2",
+"mult": 0.5,
+"reach": 9.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["klang", "seele"]
+}, {
+"frac": 0.2,
+"t": "heal"
+}, {
+"t": "unstoppable",
+"time": 9.0
+}],
+"step": {
+"damage": 1.6,
+"grow": 1.8,
+"reduction": 0.35,
+"speed": 1.2
+},
+"time_add": 2.0
+}
+
+[resource]
+script = ExtResource("2_10mwu")
+id = &"gestalt"
+display_name = "Bestiengestalt"
+path = &"verwandlung"
+role = "Verwandlung, Nahkampf"
+form = &"verwandlung"
+tags = Array[StringName]([&"wucht"])
+feed_item = &"fleisch"
+feed_amount = 3
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 18.0,
+&"dauer": 7.0,
+&"ess": 7.0,
+&"groesse": 1.3,
+&"reduktion": 0.2,
+&"schaden": 14.0,
+&"staerke": 1.25,
+&"tempo": 1.0
+})
+members = Array[ExtResource("1_f2uwc")]([SubResource("gu_steinaffe_gestalt"), SubResource("gu_eber_gestalt"), SubResource("gu_baer_gestalt"), SubResource("gu_tiger_gestalt"), SubResource("gu_bestienkoenig_gestalt")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"baerengalle": 1,
+&"wildfell": 4
+},
+3: {
+&"baerengalle": 3,
+&"schlangenhaut": 2
+},
+4: {
+&"heldenherz": 1,
+&"wolfsgeist": 2
+},
+5: {
+&"drachenschuppe": 2,
+&"heldenherz": 2
+}
+})
+world_effect = "In Bestiengestalt schiebst du Felsbrocken beiseite und springst über Gräben."

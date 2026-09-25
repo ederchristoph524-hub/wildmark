@@ -30,14 +30,16 @@ static func spawn(tree: SceneTree, at: Vector3, contents: Dictionary, sack: bool
 	return pickup
 
 
-## Beute nach den Drop-Würfen aus gegner.json (Bosse lassen alles fallen).
+## Beute nach den Drop-Würfen aus gegner.json (Bosse lassen alles fallen); Glück (Glückspfad) erhöht die Chancen.
 static func drop_loot(tree: SceneTree, data: EnemyData, at: Vector3) -> void:
+	var player: Player = tree.get_first_node_in_group(Player.GROUP_PLAYER) as Player
+	var luck: float = Balance.values.luck_loot_mult if player != null and player.luck_time > 0.0 else 1.0
 	for drop: DropEntry in data.drops:
-		if data.boss or randf() < drop.chance:
+		if data.boss or randf() < drop.chance * luck:
 			spawn(tree, at + Vector3(randf_range(-0.6, 0.6), 0.6, randf_range(-0.6, 0.6)), {drop.item: 1})
 	var rules: Dictionary[StringName, Dictionary] = Balance.values.material_drops
 	for item: StringName in rules:
-		if _matches(data, rules[item].get("filter", &"")) and randf() < float(rules[item].get("chance", 0.0)):
+		if _matches(data, rules[item].get("filter", &"")) and randf() < float(rules[item].get("chance", 0.0)) * luck:
 			spawn(tree, at + Vector3(randf_range(-0.6, 0.6), 0.6, randf_range(-0.6, 0.6)), {item: 1})
 
 
@@ -99,6 +101,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _collect() -> void:
+	Sound.play(&"pickup")
 	var parts: PackedStringArray = []
 	for id: Variant in items:
 		var item_id: StringName = StringName(str(id))

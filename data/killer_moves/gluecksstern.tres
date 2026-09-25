@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c81uj04dovgmv"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_7erpb"]
+
+[resource]
+script = ExtResource("1_7erpb")
+id = &"gluecksstern"
+display_name = "Glücksstern"
+family_a = &"glueck"
+family_b = &"stern"
+channel_time = 0.8
+damage_mult = 2.4
+description = "Ein Stern des Glücks: suchende Sterne fliegen aus, und dein nächster Schlag ist fast sicher kritisch."
+hint = "Wer Glück hat, dem fallen Sterne zu."
+steps = [{
+"chance": 0.6,
+"t": "luck",
+"time": 4.0
+}, {
+"color": "#fff2b0",
+"count": 6.0,
+"homing": true,
+"mult": 0.6,
+"range": 14.0,
+"speed": 13.0,
+"spread": 120.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern"]
+}]
