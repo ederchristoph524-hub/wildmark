@@ -25,7 +25,8 @@ static func statuses(player: Player) -> String:
 		parts.append(Loc.t("Hilfs-Gu ruhen"))
 	var stones: int = GameState.item_count(&"kristall")
 	parts.append(Loc.t("Urstein: %d") % stones)
-	return " · ".join(parts)
+	var sect: String = SectLife.status_line()
+	return " · ".join(parts) + ("\n" + sect if sect != "" else "")
 
 
 static func gu_bar(player: Player) -> String:

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://brtoy0vt441v2"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_42g6n"]
+
+[resource]
+script = ExtResource("1_42g6n")
+id = &"flammenkaiser"
+display_name = "Flammenkaiser"
+family_a = &"flamme"
+family_b = &"fackel"
+channel_time = 1.2
+damage_mult = 3.4
+description = "Eine Feuersäule steigt am Ziel auf, danach regnen Glutkugeln in weitem Kreis."
+hint = "Der Kaiser trägt eine Krone aus Glut."
+min_rank = 3
+steps = [{
+"at": "target",
+"color": "#ff7a3a",
+"distance": 7.0,
+"mult": 1.2,
+"radius": 3.5,
+"stacks": 2.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#ffb030",
+"count": 8.0,
+"mult": 0.45,
+"range": 10.0,
+"spread": 360.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["feuer"]
+}],
+"time": 0.5
+}]

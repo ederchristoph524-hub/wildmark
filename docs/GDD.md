@@ -56,7 +56,7 @@ Vollständig in `docs/GU_SYSTEM.md`. Kurz: 12 Gu-Familien mit je drei Rängen, a
 - **Welt-Interaktion:** Zustände wirken auch auf Objekte (brennbare Hecken, gefrierbares Wasser, Ruinenschalter). Wilde Gu und Schätze liegen hinter solchen Hindernissen.
 
 ### Pfade und Dao-Markierungen
-Jede Gu-Nutzung sammelt Markierungen im jeweiligen Pfad. Beherrschung senkt Kosten und Cooldowns dieses Pfades. Gegensätzliche Pfade (Feuer/Wasser, Licht/Seele, Kraft/Weisheit, Blut/Holz, Zeit/Raum) verteuern sich gegenseitig. Spezialisierung wird belohnt.
+Jede Gu-Nutzung sammelt Markierungen im jeweiligen Pfad. Beherrschung senkt Kosten und Cooldowns dieses Pfades. Gegensätzliche Pfade (Feuer/Wasser, Licht/Seele, Kraft/Weisheit, Blut/Holz, Zeit/Raum) verteuern sich gegenseitig. Spezialisierung wird belohnt. Umgesetzt (`Dao`): Markierungen durch Gu-Einsatz, Killer Moves, Verfeinern und Erben; sechs Beherrschungsstufen vom Gewöhnlichen bis zum Höchsten Großmeister; Übersicht im Gu-Menü (Seite „Dao“).
 
 ### Kampf
 Ausschließlich über Gu und Killer Moves, taktisch, mittleres Tempo. Vollständig in `docs/KAMPFSYSTEM.md`.
@@ -77,7 +77,7 @@ Urstein ist Währung, Essenzquelle und Gu-Futter zugleich. Diese Dreifachrolle i
 
 ### Soziales
 - Dörfer mit NPCs, Händlern und Quests; Ruf pro Fraktion.
-- 15 Klans, Sekten und Stämme mit Rivalitäten, Beitrittsbedingungen, internen Rängen und Aufträgen.
+- 17 Klans, Sekten und Stämme mit Rivalitäten, Beitrittsbedingungen, internen Rängen und Aufträgen. Umgesetzt: Beitritt beim Oberhaupt jeder Siedlung, Verdienst (Aufgaben, Jagd, Spenden), sechs Ränge vom Außenschüler bis zum Sektenherrn mit Geschenken, tägliche Zuteilung an Urstein, Signatur-Gu ab Kernschüler, täglicher Sektenauftrag (Jagd, Lieferung, Duell).
 - NPC-Gu-Meister nach denselben Regeln wie der Spieler.
 
 ### Unsterblichen-Phase (Rang 6+)
@@ -103,7 +103,7 @@ Automatisch beim Schlafen, beim Betreten eines Ruheorts und alle 5 Minuten; zus�
 
 **M0 – Fundament:** Godot-Projekt, Struktur, Autoloads, Git, automatischer Web-Export auf GitHub Pages, Eingabe für Touch und Tastatur, Datenimport aus `docs/daten/`.
 
-**Aktueller Stand (sterbliche Ebene Rang 1–5 inhaltlich angelegt, noch ohne Playtest):** Neues Spiel mit spielbarer oder übersprungener Kindheit, Talent (inkl. der Zehn Extremen Physiques) und Todesmodus; Kultivieren mit Aura, Stufen und Durchbruch bis Rang 5; **acht bereisbare Gebiete** in fünf Regionen: Qing-Mao-Berg (Rang 1–2, Gu-Yue-, Bai- und Xiong-Dorf, Blumenwein-Erbe), Drei-Könige-Erbe (Rang 2–3, drei Erbschaften), Shang-Klan-Stadt (Rang 3, Handelsstadt mit Markt, Arena, Pagode, Auktionator), Graslande der Nördlichen Ebene (Rang 3–4, Jurtenlager, Wolfsflut-Hort), Oasenstadt im Sandmeer (Rang 4, Lehmstadt am Teich, Tempel unter den Dünen), Roter Drachenfluss (Rang 4–5, Wu-Festung, Drachenhort), Zehntausend Inseln (Rang 5, Meer mit Inseldörfern, Grotte des Seekönigs) und Berg der großen Sekten (Rang 5, Sekte der Zehn Extreme mit Terrassen). Minikarte und Weltkarte mit Reisen; Gebirgskranz bis zum Horizont, Biome mit eigenen Pflanzen, Farben und Meer. **24 Gu-Familien mit je 5 Rängen (120 aktive Gu)** mit eigenen Wirkformen und Ranggaben, 19 Körper- und 31 Hilfs-Gu, 10 Zustände, 16 Reaktionen, **45 Killer Moves** in drei Stufen; Bestien Rang 1–5 mit eigenen Fähigkeiten und Bestienkönige als Erbschafts-Wächter; Gu-Meister Rang 2–5 in allen Siedlungen (Duelle mit rangabhängigem Lohn); Händler mit regionalen Materialien und Auktionen für Rang-3- bis Rang-5-Gu. Offen: Playtest und Balancing über alle Ränge, Draw Calls in großen Siedlungen, Killer Moves für NPC-Gu-Meister, Relikt-Gu, Kalamitäten (M5).
+**Aktueller Stand (sterbliche Ebene Rang 1–5 inhaltlich angelegt, noch ohne Playtest):** Neues Spiel mit spielbarer oder übersprungener Kindheit, Talent (inkl. der Zehn Extremen Physiques) und Todesmodus; Kultivieren mit Aura, Stufen und Durchbruch bis Rang 5; **acht bereisbare Gebiete** in fünf Regionen: Qing-Mao-Berg (Rang 1–2, Gu-Yue-, Bai- und Xiong-Dorf, Blumenwein-Erbe), Drei-Könige-Erbe (Rang 2–3, drei Erbschaften), Shang-Klan-Stadt (Rang 3, Handelsstadt mit Markt, Arena, Pagode, Auktionator), Graslande der Nördlichen Ebene (Rang 3–4, Jurtenlager, Wolfsflut-Hort), Oasenstadt im Sandmeer (Rang 4, Lehmstadt am Teich, Tempel unter den Dünen), Roter Drachenfluss (Rang 4–5, Wu-Festung, Drachenhort), Zehntausend Inseln (Rang 5, Meer mit Inseldörfern, Grotte des Seekönigs) und Berg der großen Sekten (Rang 5, Sekte der Zehn Extreme mit Terrassen, Versteck der Schattensekte); dazu das Huang-Jin-Lager in den Graslanden. Erben mit eigener Bauform (Höhle, Grabhügel, Tempel, Steinkreis, Meeresgrotte), Materialorte mit eingefärbtem Boden und Ausstattung. Bestienfluten (Wolfsflut am Qing-Mao-Berg und in den Graslanden, Echsenflut am Drachenfluss, Flut der Tiefe auf den Inseln) mit Lohn und Sektenverdienst; Sektenleben (Beitritt, sechs Ränge, Zuteilung, Signatur-Gu). Minikarte (mit Gebiet und Region) und gemalte Weltkarte mit Küsten, Flüssen, Inseln und Reisen; Gebirgskranz bis zum Horizont, Biome mit eigenen Pflanzen, Farben und Meer. **26 Gu-Familien mit je 5 Rängen (130 aktive Gu)** mit eigenen Wirkformen und Ranggaben, 19 Körper- und 31 Hilfs-Gu, 10 Zustände, 16 Reaktionen, **88 Killer Moves** aus 59 Gu-Paaren in drei Stufen; Bestien Rang 1–5 mit eigenen Fähigkeiten und Bestienkönige als Erbschafts-Wächter; Gu-Meister Rang 2–5 in allen Siedlungen (Duelle mit rangabhängigem Lohn, angekündigte Killer Moves); Relikt-Gu zum Verfeinern; Händler mit regionalen Materialien und Auktionen für Rang-3- bis Rang-5-Gu. Balancing mit `tools/balance_probe.gd` gemessen (Bestien, Familien, Duelle; Rückstoß, Kontrolle, Killer Moves gedeckelt). Offen: Playtest am Handy, Kalamitäten (M5).
 
 **M1 – Bewegung und Welt:** Third-Person-Charakter (laufen, springen, Dash, Kamera), kleines Dschungelgebiet mit Vegetation, Tag-Nacht-Zyklus.
 
@@ -121,7 +121,7 @@ Automatisch beim Schlafen, beim Betreten eines Ruheorts und alle 5 Minuten; zus�
 
 **Erfolgskriterium M2:** Ein neuer Spieler spielt 60–90 Minuten freiwillig weiter, erreicht Rang 2 nach etwa 45 Minuten, hat mindestens drei Reaktionen und einen Killer Move selbst entdeckt und spricht von „seinem“ Gu. Erst wenn das erreicht ist, geht es weiter.
 
-**M3 – Tiefe:** Ränge 3–5 (umgesetzt: alle Familien bis Rang 5, zwölf neue Familien, 45 Killer Moves); offen: Dao-Beherrschung, Sekten mit Rängen und Aufträgen, weitere Startoptionen
+**M3 – Tiefe:** Ränge 3–5 (umgesetzt: alle Familien bis Rang 5, vierzehn neue Familien, 88 Killer Moves); umgesetzt: Sektenleben mit Rängen und Zuteilung, Dao-Beherrschung; umgesetzt: tägliche Sektenaufträge, Herkunft im Klan als Startoption
 **M4 – Welt:** weitere Regionen, Regionalmauern, Schnellreise, regionale Bosse (umgesetzt: sieben weitere Gebiete in allen fünf Regionen mit Reisen, Bestienkönigen und Erbschaften)
 **M5 – Unsterblichkeit:** Apertur-Welt, Kalamitäten, Gesegnete Länder, Erbschaften
 **M6 – Politur:** einheitliche Assets, Sound, Musik, Balancing, Performance

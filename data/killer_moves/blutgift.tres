@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bjkggentgnwda"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_16eys"]
+
+[resource]
+script = ExtResource("1_16eys")
+id = &"blutgift"
+display_name = "Blutgift-Stich"
+family_a = &"gift"
+family_b = &"blutmond"
+channel_time = 0.8
+damage_mult = 2.5
+description = "Blutklingen reißen Wunden, das Gift frisst sich hinein."
+hint = "Offene Wunden trinken Gift."
+steps = [{
+"color": "#d0303a",
+"count": 3.0,
+"mult": 0.7,
+"range": 13.0,
+"spread": 20.0,
+"status": "wunde",
+"t": "projectiles",
+"tags": ["blut", "schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 70.0,
+"color": "#8ce633",
+"mult": 0.5,
+"reach": 6.0,
+"stacks": 3.0,
+"status": "gift",
+"t": "cone",
+"tags": ["gift"]
+}],
+"time": 0.25
+}]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StandingData" format=3 uid="uid://ioavds6j0ess"]
+
+[ext_resource type="Script" path="res://scripts/resources/standing_data.gd" id="1_4ctqo"]
+
+[resource]
+script = ExtResource("1_4ctqo")
+id = &"haupt"
+display_name = "Hauptlinie"
+icon = "👑"
+description = "Direkter Nachkomme der Führung. Beste Ressourcen, hohe Erwartungen."
+gift = Dictionary[StringName, int]({
+&"beeren": 15,
+&"fleisch": 10,
+&"kristall": 25
+})
+home_merit = 60
+apt_bonus = 8.0

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://0b7nins8okgm"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_oswn3"]
+
+[resource]
+script = ExtResource("1_oswn3")
+id = &"blitzklingen"
+display_name = "Blitzklingen"
+family_a = &"blitz"
+family_b = &"schwert"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Klingen aus reinem Blitz kreisen um dich und entladen sich auf jeden, den sie berühren."
+hint = "Stahl leitet den Himmel."
+min_rank = 3
+steps = [{
+"color": "#8ad0ff",
+"count": 5.0,
+"mult": 0.45,
+"radius": 2.6,
+"speed": 1.2,
+"status": "ladung",
+"t": "orbit",
+"tags": ["schnitt", "blitz"],
+"time": 5.0
+}, {
+"color": "#8ad0ff",
+"jumps": 3.0,
+"mult": 0.7,
+"radius": 6.0,
+"t": "chain",
+"tags": ["blitz"]
+}]

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://y25f1k4p3ox1"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_ya7ts"]
+
+[resource]
+script = ExtResource("1_ya7ts")
+id = &"minenfeld"
+display_name = "Minenfeld"
+family_a = &"donnerknolle"
+family_b = &"erde"
+channel_time = 1.2
+damage_mult = 2.4
+description = "Die Erde verschluckt Knollen in einem weiten Kreis – wer darauf tritt, fliegt."
+hint = "Unter jedem Stein ein Donner."
+steps = [{
+"at": "aim",
+"color": "#a08050",
+"count": 5.0,
+"distance": 6.0,
+"knockback": 1.0,
+"mult": 0.7,
+"radius": 2.8,
+"spacing": 3.0,
+"status": "verwurzelt",
+"t": "trap",
+"tags": ["feuer", "erde", "wucht"],
+"time": 25.0,
+"trigger": 1.6
+}]

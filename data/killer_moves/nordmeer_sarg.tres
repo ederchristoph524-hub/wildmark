@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://ck28hjcf0pxn8"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_3qsbp"]
+
+[resource]
+script = ExtResource("1_3qsbp")
+id = &"nordmeer_sarg"
+display_name = "Sarg des Nordmeers"
+family_a = &"frost"
+family_b = &"stroemung"
+channel_time = 1.3
+damage_mult = 4.4
+description = "Das Meer steigt und gefriert: ein ganzes Feld erstarrt zu Eis, dann bricht es."
+hint = "Das kalte Meer vergisst nie."
+min_rank = 5
+steps = [{
+"at": "aim",
+"color": "#4a9ad0",
+"distance": 7.0,
+"mult": 0.6,
+"radius": 7.0,
+"status": "nass",
+"t": "circle",
+"tags": ["wasser"]
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#b3f2ff",
+"distance": 7.0,
+"freeze": 2.5,
+"mult": 0.0,
+"radius": 7.0,
+"t": "circle"
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#dff6ff",
+"distance": 7.0,
+"mult": 1.4,
+"radius": 7.0,
+"t": "circle",
+"tags": ["eis", "wucht"]
+}],
+"time": 1.4
+}]

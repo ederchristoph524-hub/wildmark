@@ -204,3 +204,15 @@ enemy_zones = [[&"feuerfuchs", &"blitzwolf", &"elektrowolf", &"riesenskorpion"],
 wild_gu_rank = 4
 wild_gu_range = Vector2(110, 210)
 wild_passives = [[&"tausendjun", &"body", 130.0, 210.0, false], [&"neunaugen", &"support", 150.0, 215.0, true], [&"himmelsessenz", &"support", 130.0, 210.0, true], [&"schneewaesche", &"support", 120.0, 200.0, false], [&"sterngedanke", &"support", 120.0, 210.0, false]]
+tide = {
+"beasts": Array[StringName]([&"feuerfuchs", &"lavaschnecke", &"drachenling"]),
+"count": 14,
+"every": 5,
+"leader": &"obsidian",
+"name": "Echsenflut am Drachenfluss",
+"reward": {
+&"drachenschuppe": 1,
+&"kristall": 90
+},
+"target": &"wu_festung"
+}

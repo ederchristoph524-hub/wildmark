@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cu1cjfilfyk1i"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_epbwk"]
+
+[resource]
+script = ExtResource("1_epbwk")
+id = &"giftquelle"
+display_name = "Giftquelle"
+family_a = &"gift"
+family_b = &"wasserbild"
+channel_time = 1.1
+damage_mult = 3.0
+description = "Ein vergiftetes Wasserbild wandelt umher und hinterlässt eine Giftlache."
+hint = "Trügerisch klares Wasser."
+min_rank = 3
+steps = [{
+"at": "aim",
+"color": "#6ac0a0",
+"distance": 6.0,
+"mult": 0.28,
+"radius": 4.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift", "wasser"],
+"time": 6.0
+}, {
+"count": 2.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 10.0
+}]

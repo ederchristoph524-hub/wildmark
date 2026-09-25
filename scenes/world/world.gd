@@ -14,7 +14,7 @@ const RESOURCE_MIN_DISTANCE: float = 20.0
 ## Kartenname je Siedlungsart (%s = Fraktion).
 const SETTLEMENT_TITLES: Dictionary[StringName, String] = {
 	&"klan_dorf": "Dorf des %s", &"stadt": "Stadt des %s", &"zeltlager": "Lager: %s", &"oasenstadt": "Oase: %s",
-	&"inseldorf": "Insel: %s", &"festung": "Festung des %s", &"sekte": "Sitz: %s",
+	&"inseldorf": "Insel: %s", &"festung": "Festung des %s", &"sekte": "Sitz: %s", &"versteck": "Versteck: %s",
 }
 ## Übergang ins Gelände für Inseldörfer (sonst würde das Plateau ins Meer wachsen).
 const ISLAND_FALLOFF: float = 6.0
@@ -24,6 +24,8 @@ var biome: BiomeData = null
 var terrain: Terrain = null
 var entities: Node3D = null
 var spawner: EnemySpawner = null
+## Bestienflut des Gebiets (null ohne gebiete.json → flut).
+var tide: BeastTide = null
 var day_night: DayNight = null
 var camp: Campfire = null
 ## Freiflächen ohne Bäume und Sammelstellen (Siedlungen, Orte, Hindernis-Orte): (x, _, z, Radius).
@@ -64,6 +66,9 @@ func _ready() -> void:
 	_place_wild_gu()
 	spawner = EnemySpawner.new(terrain, entities)
 	add_child(spawner)
+	if not area.tide.is_empty():
+		tide = BeastTide.new(self)
+		add_child(tide)
 	BuildSystem.restore(self)
 	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)

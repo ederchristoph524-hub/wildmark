@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dspym8oi6f3t8"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_px1v8"]
+
+[resource]
+script = ExtResource("1_px1v8")
+id = &"eisflut"
+display_name = "Eisflut"
+family_a = &"frost"
+family_b = &"stroemung"
+channel_time = 1.0
+damage_mult = 2.7
+description = "Eine Flutwelle durchnässt alles, der Frost friert es im selben Atemzug ein."
+hint = "Nasses friert schneller."
+steps = [{
+"color": "#4a9ad0",
+"knockback": 0.8,
+"length": 11.0,
+"mult": 0.7,
+"status": "nass",
+"t": "line",
+"tags": ["wasser"],
+"width": 3.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#b3f2ff",
+"length": 11.0,
+"mult": 0.6,
+"status": "frost",
+"t": "line",
+"tags": ["eis"],
+"width": 3.5
+}],
+"time": 0.3
+}]

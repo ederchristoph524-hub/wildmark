@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cllvikjya3tfa"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_stcri"]
+
+[resource]
+script = ExtResource("1_stcri")
+id = &"tausendklingen_sturm"
+display_name = "Tausend-Klingen-Sturm"
+family_a = &"tausendfuessler"
+family_b = &"schwert"
+channel_time = 1.0
+damage_mult = 4.4
+description = "Tausend goldene Glieder lösen sich als Klingen und kreisen, während du durchbrichst."
+hint = "Jedes Glied eine Klinge."
+min_rank = 5
+steps = [{
+"color": "#e0b040",
+"dash": true,
+"length": 12.0,
+"mult": 1.1,
+"pierce_armor": true,
+"t": "line",
+"tags": ["schnitt", "metall"],
+"width": 3.0
+}, {
+"color": "#e0b040",
+"count": 8.0,
+"mult": 0.45,
+"radius": 2.8,
+"speed": 1.2,
+"status": "blutung",
+"t": "orbit",
+"tags": ["schnitt", "metall"],
+"time": 5.0
+}]

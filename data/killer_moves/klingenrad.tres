@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b46nmj2a4eqk0"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_y7eef"]
+
+[resource]
+script = ExtResource("1_y7eef")
+id = &"klingenrad"
+display_name = "Klingenrad"
+family_a = &"knochenrad"
+family_b = &"schwert"
+channel_time = 1.0
+damage_mult = 3.1
+description = "Knochen und Klingen verschmelzen zu einem kreisenden Schutzrad, das schneidet und schützt."
+hint = "Rad und Schwert, Schild und Schneide."
+min_rank = 3
+steps = [{
+"color": "#f0f0e0",
+"count": 6.0,
+"mult": 0.45,
+"radius": 2.5,
+"reduction": 0.3,
+"speed": 1.1,
+"t": "orbit",
+"tags": ["schnitt", "durchbohren"],
+"time": 6.0
+}]

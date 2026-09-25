@@ -25,4 +25,4 @@ radius = 0.4
 color = Color(0.54509807, 0.56078434, 0.6039216, 1)
 zone = 1
 drops = Array[ExtResource("1_rgm1u")]([SubResource("drop_0"), SubResource("drop_1")])
-shape = &"quad"
+shape = &"wolf"

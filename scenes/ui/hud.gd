@@ -171,6 +171,8 @@ func _update_bars() -> void:
 		_rank_text.text = tr("Kindheit · Apertur noch verschlossen")
 	_status_text.text = HudText.statuses(player)
 	_quest_text.text = Childhood.tracker_text() if Childhood.is_child() else Quests.tracker_text()
+	if BeastTide.status_text != "":
+		_quest_text.text = BeastTide.status_text + ("\n" + _quest_text.text if _quest_text.text != "" else "")
 	_quest_text.visible = _quest_text.text != ""
 	_clock.text = HudText.clock()
 

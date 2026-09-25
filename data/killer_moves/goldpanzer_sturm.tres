@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dystuq3ybbn3"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_3u667"]
+
+[resource]
+script = ExtResource("1_3u667")
+id = &"goldpanzer_sturm"
+display_name = "Goldpanzer-Sturm"
+family_a = &"tausendfuessler"
+family_b = &"haut"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Mit goldener Haut und Sägearm walzt du unaufhaltsam durch die Reihen."
+hint = "Unverwundbar und unaufhaltsam."
+min_rank = 3
+steps = [{
+"t": "unstoppable",
+"time": 3.0
+}, {
+"color": "#e0b040",
+"kind": "thorns",
+"reduction": 0.35,
+"t": "armor",
+"time": 5.0,
+"value_mult": 0.4
+}, {
+"color": "#e0b040",
+"dash": true,
+"length": 12.0,
+"mult": 1.2,
+"pierce_armor": true,
+"stacks": 2.0,
+"status": "blutung",
+"t": "line",
+"tags": ["schnitt", "metall"],
+"width": 3.2
+}]

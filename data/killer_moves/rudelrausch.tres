@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b040jwu4u4f0x"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_f1trj"]
+
+[resource]
+script = ExtResource("1_f1trj")
+id = &"rudelrausch"
+display_name = "Rudelrausch"
+family_a = &"kampfgeist"
+family_b = &"sklaverei"
+channel_time = 1.0
+damage_mult = 2.2
+description = "Dein Kampfgeist springt auf das Rudel über: alle Gefährten werden geheilt und rasen."
+hint = "Das Rudel folgt dem Mutigen."
+steps = [{
+"allies": true,
+"frac": 0.3,
+"radius": 12.0,
+"t": "heal"
+}, {
+"color": "#e07a4a",
+"damage": 1.25,
+"key": "rudelrausch",
+"speed": 1.15,
+"t": "buff",
+"time": 8.0
+}, {
+"enemy": "geisterwolf",
+"t": "summon",
+"time": 12.0
+}]

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://crvysls81bfs4"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_fmr80"]
+
+[resource]
+script = ExtResource("1_fmr80")
+id = &"eismondsichel"
+display_name = "Eismondsichel"
+family_a = &"mondlicht"
+family_b = &"frost"
+channel_time = 1.0
+damage_mult = 3.3
+description = "Drei riesige Eissicheln durchbohren alles in einer Reihe und frieren es ein."
+hint = "Der Mond im Winter kennt keine Gnade."
+min_rank = 3
+steps = [{
+"color": "#b3f2ff",
+"count": 3.0,
+"mult": 0.9,
+"pierce": 4.0,
+"range": 18.0,
+"speed": 18.0,
+"spread": 24.0,
+"stacks": 3.0,
+"status": "frost",
+"t": "projectiles",
+"tags": ["licht", "eis", "schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#b3f2ff",
+"distance": 8.0,
+"mult": 0.8,
+"radius": 4.0,
+"t": "circle",
+"tags": ["eis", "wucht"]
+}],
+"time": 0.6
+}]

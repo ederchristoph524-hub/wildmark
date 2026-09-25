@@ -23,6 +23,7 @@ const TARGET_DIRS: Dictionary[String, String] = {
 	"biomes": "res://data/biomes/",
 	"builds": "res://data/builds/",
 	"gu_masters": "res://data/gu_masters/",
+	"standings": "res://data/standings/",
 }
 const GU_SYSTEM_PATH := "res://data/gu/gu_system.tres"
 const PROGRESSION_PATH := "res://data/progression.tres"
@@ -39,6 +40,7 @@ const COUNT_LABELS: Dictionary[String, String] = {
 	"items": "Items",
 	"regions": "Regionen",
 	"sects": "Sekten",
+	"standings": "Herkünfte",
 	"quests": "Quests",
 	"npcs": "NPC-Arten",
 	"areas": "Gebiete",
@@ -59,7 +61,9 @@ func run() -> bool:
 		return _finish(false)
 	var built: Dictionary = GuImportBuilder.new(report, sources["gu"]).build(sources["gu_system"])
 	built.merge(WorldImportBuilder.new(report).build(sources))
-	built["progression"] = ProgressionImportBuilder.new(report).build(sources["fortschritt"])
+	var progression_builder := ProgressionImportBuilder.new(report)
+	built["progression"] = progression_builder.build(sources["fortschritt"])
+	progression_builder.add_sect_ranks(built["progression"], sources["fraktionen"])
 	ImportValidator.new(report).validate(built, sources)
 	if report.has_errors():
 		return _finish(false)

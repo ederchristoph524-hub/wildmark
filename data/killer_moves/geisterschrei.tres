@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b1ytiepfnsg3f"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qp6i7"]
+
+[resource]
+script = ExtResource("1_qp6i7")
+id = &"geisterschrei"
+display_name = "Geisterschrei"
+family_a = &"seelenschrei"
+family_b = &"tarnung"
+channel_time = 0.9
+damage_mult = 3.0
+description = "Ein unsichtbarer Schrei lähmt alle vor Angst, während du im Nebel verschwindest."
+hint = "Die Stimme ohne Körper."
+min_rank = 3
+steps = [{
+"color": "#c9a0ff",
+"mult": 0.7,
+"radius": 7.0,
+"status": "furcht",
+"stun": 0.5,
+"t": "circle",
+"tags": ["seele", "klang"]
+}, {
+"t": "stealth",
+"time": 4.0
+}, {
+"color": "#c9a0ff",
+"damage": 1.3,
+"key": "geisterschrei",
+"speed": 1.2,
+"t": "buff",
+"time": 5.0
+}]

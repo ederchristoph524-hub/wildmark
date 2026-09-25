@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StandingData" format=3 uid="uid://dihyvymesyplb"]
+
+[ext_resource type="Script" path="res://scripts/resources/standing_data.gd" id="1_kcknc"]
+
+[resource]
+script = ExtResource("1_kcknc")
+id = &"diener"
+display_name = "Dienerfamilie"
+icon = "🧹"
+description = "Deine Familie dient dem Klan seit Generationen. Wenig, aber du kennst jeden Winkel."
+gift = Dictionary[StringName, int]({
+&"beeren": 8,
+&"holz": 25,
+&"stein": 20
+})
+home_merit = 5

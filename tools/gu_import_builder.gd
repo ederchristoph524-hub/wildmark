@@ -267,3 +267,14 @@ func _fill_paths(system: GuSystemData) -> void:
 		system.path_colors[StringName(str(key))] = ImportUtil.color(colors[key], "Pfadfarbe " + str(key), _report)
 	for key: Variant in conflicts:
 		system.path_conflicts[StringName(str(key))] = ImportUtil.names(conflicts[key])
+	var last: float = -1.0
+	for entry: Variant in _gu_json.get("ATTAIN", []):
+		var need: float = ImportUtil.to_float((entry as Dictionary).get("need"))
+		if need <= last:
+			_report.error("gu.json: ATTAIN-Schwellen müssen steigen ('%s')" % entry.get("n"))
+		last = need
+		system.attain_names.append(ImportUtil.text(entry.get("n")))
+		system.attain_needs.append(need)
+		system.attain_colors.append(ImportUtil.color(entry.get("c", "#ffffff"), "Beherrschung " + str(entry.get("n")), _report))
+	if system.attain_names.is_empty():
+		_report.error("gu.json: ATTAIN (Beherrschungsstufen) fehlt")

@@ -17,6 +17,6 @@ join_gift = Dictionary[StringName, int]({
 &"kristall": 6,
 &"stein": 35
 })
-signature_gu = &"himmelsdach"
+signature_gu = &"drehfels"
 politics = "Ein alter Unsterblicher, der selten erwacht. Der Orden lebt von seinem Ruf mehr als von seiner Kraft."
 description = "Uralte Tempel zwischen den Dünen der Westwüste."

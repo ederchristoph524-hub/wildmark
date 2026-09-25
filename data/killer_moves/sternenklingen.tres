@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://m6p3d5gqljl5"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_ipdt7"]
+
+[resource]
+script = ExtResource("1_ipdt7")
+id = &"sternenklingen"
+display_name = "Sternenklingen"
+family_a = &"stern"
+family_b = &"schwert"
+channel_time = 1.0
+damage_mult = 3.3
+description = "Sterne werden zu Klingen und kreisen, dann schießen sie auf das Ziel."
+hint = "Jeder Stern eine Klinge."
+min_rank = 3
+steps = [{
+"color": "#ffe38a",
+"count": 6.0,
+"mult": 0.4,
+"radius": 2.4,
+"t": "orbit",
+"tags": ["stern", "schnitt"],
+"time": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#ffe38a",
+"count": 6.0,
+"homing": true,
+"mult": 0.5,
+"range": 18.0,
+"spread": 50.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern", "schnitt"]
+}],
+"time": 3.0
+}]

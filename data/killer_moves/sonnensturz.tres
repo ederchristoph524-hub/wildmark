@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bip5hlunr13c4"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_mbcqu"]
+
+[resource]
+script = ExtResource("1_mbcqu")
+id = &"sonnensturz"
+display_name = "Sonnensturz"
+family_a = &"flamme"
+family_b = &"fackel"
+channel_time = 1.4
+damage_mult = 4.6
+description = "Eine kleine Sonne stürzt herab und hinterlässt ein brennendes Feld."
+hint = "Wer die Sonne ruft, muss sie auch fallen lassen."
+min_rank = 5
+steps = [{
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#ffd060",
+"distance": 8.0,
+"knockback": 1.2,
+"mult": 1.6,
+"radius": 6.0,
+"stacks": 3.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer", "wucht"]
+}, {
+"at": "target",
+"color": "#ff7a3a",
+"distance": 8.0,
+"mult": 0.3,
+"radius": 5.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 5.0
+}],
+"time": 0.7
+}]

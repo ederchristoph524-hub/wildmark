@@ -186,3 +186,15 @@ enemy_zones = [[&"riesenkrabbe", &"sturmadler", &"seeschlange"], [&"seeschlange"
 wild_gu_rank = 5
 wild_gu_range = Vector2(45, 85)
 wild_passives = [[&"zehntausendjun", &"body", 40.0, 85.0, false], [&"hundertschlachten", &"support", 50.0, 85.0, true], [&"glueckssicht", &"support", 40.0, 85.0, false], [&"fadenspur", &"support", 45.0, 85.0, false], [&"boeserGedanke", &"support", 50.0, 85.0, true]]
+tide = {
+"beasts": Array[StringName]([&"riesenkrabbe", &"seeschlange"]),
+"count": 8,
+"every": 6,
+"leader": &"seeschlange",
+"name": "Flut der Tiefe",
+"reward": {
+&"kristall": 120,
+&"tiefseeperle": 2
+},
+"target": &"perleninsel"
+}

@@ -185,7 +185,7 @@ places = Array[Dictionary]([{
 "radius": 9.0,
 "reward": {
 "body": Array[StringName]([]),
-"gu": Array[StringName]([]),
+"gu": Array[StringName]([&"eisenzahn"]),
 "items": {
 &"gruenkraut": 6,
 &"kristall": 15,
@@ -253,3 +253,15 @@ enemy_radii = Array[float]([100.0, 175.0])
 enemy_zones = [[&"ratte", &"pfeilhase", &"bambusnatter", &"slime", &"wolf"], [&"wolf", &"eber", &"steinaffe", &"bambusnatter", &"spinne", &"bat", &"pilz", &"giftschleim", &"pfeilhase"], [&"wolf", &"eber", &"steinaffe", &"blitzwolf", &"jadeaffe", &"bergbaer", &"schwarzeber_bestie", &"spinne", &"bat"]]
 wild_gu_range = Vector2(70, 230)
 wild_passives = [[&"rosaeber", &"body", 80.0, 150.0, false], [&"zehnjin", &"body", 190.0, 230.0, false], [&"hoffnung", &"support", 120.0, 200.0, false], [&"kleineslicht", &"support", 70.0, 140.0, false], [&"signal", &"support", 100.0, 180.0, false], [&"stealthstein", &"support", 120.0, 210.0, true], [&"schwarzeber", &"body", 90.0, 170.0, false], [&"weisseber", &"body", 110.0, 190.0, false], [&"jadehaut", &"body", 130.0, 210.0, true], [&"schlammkroete", &"body", 80.0, 150.0, false], [&"reisbeutel", &"support", 70.0, 150.0, false], [&"fussspur", &"support", 90.0, 170.0, false], [&"brise", &"support", 100.0, 200.0, true]]
+tide = {
+"beasts": Array[StringName]([&"wolf", &"wolf", &"blitzwolf"]),
+"count": 14,
+"every": 4,
+"leader": &"bergbaer",
+"name": "Wolfsflut",
+"reward": {
+&"fell": 6,
+&"kristall": 25
+},
+"target": &"gu_yue_dorf"
+}

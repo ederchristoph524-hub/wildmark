@@ -23,7 +23,7 @@ vegetation = Dictionary[StringName, float]({
 })
 trees_per_1000 = 0.35
 bushes_per_1000 = 1.5
-grass_per_1000 = 70.0
+grass_per_1000 = 140.0
 rocks_per_1000 = 0.8
 sky = Color(0.8117647, 0.8784314, 0.9098039, 1)
 sky_top = Color(0.24705882, 0.49803922, 0.8117647, 1)

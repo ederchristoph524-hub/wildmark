@@ -25,5 +25,5 @@ radius = 0.45
 color = Color(0.3529412, 0.22745098, 0.16470589, 1)
 zone = 1
 drops = Array[ExtResource("1_tqjwe")]([SubResource("drop_0"), SubResource("drop_1")])
-shape = &"quad"
+shape = &"boar"
 behavior = &"charge"

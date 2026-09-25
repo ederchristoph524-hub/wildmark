@@ -10,3 +10,7 @@ extends Resource
 @export var map_polygon: Array[Vector2] = []
 @export var wall_name: String = ""
 @export var wall_color: Color = Color.WHITE
+## Flüsse auf der Weltkarte: Liste von Linienzügen (je ein Array[Vector2], 0–1).
+@export var map_rivers: Array = []
+## Meeresregion (Östliches Meer): Wasser mit Inseln statt Land.
+@export var is_sea: bool = false

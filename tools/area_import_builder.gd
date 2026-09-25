@@ -95,6 +95,14 @@ func _fill_contents(area: AreaData, d: Dictionary) -> void:
 	area.wild_gu_rank = ImportUtil.to_int(wild.get("rang"), 1)
 	if wild.has("abstand"):
 		area.wild_gu_range = _vec(wild["abstand"])
+	var tide: Dictionary = d.get("flut", {})
+	if not tide.is_empty():
+		var reward: Dictionary = {}
+		for item: Variant in tide.get("belohnung", {}):
+			reward[StringName(str(item))] = ImportUtil.to_int(tide["belohnung"][item])
+		area.tide = {"beasts": ImportUtil.names(tide.get("bestien", [])), "leader": ImportUtil.sn(tide.get("anfuehrer", "")),
+			"count": ImportUtil.to_int(tide.get("anzahl"), 10), "every": ImportUtil.to_int(tide.get("alle_tage"), 4),
+			"target": ImportUtil.sn(tide.get("ziel", "")), "reward": reward, "name": ImportUtil.text(tide.get("n", "Bestienflut"))}
 	for entry: Variant in d.get("wilde_passive", []):
 		area.wild_passives.append([ImportUtil.sn(entry[0]), ImportUtil.sn(entry[1]), ImportUtil.to_float(entry[2]), ImportUtil.to_float(entry[3]), bool(entry[4])])
 

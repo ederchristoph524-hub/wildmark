@@ -107,6 +107,9 @@ func _claim() -> void:
 		spots.append(DataRegistry.body_gu(id))
 	for id: StringName in reward["gu"]:
 		spots.append(DataRegistry.gu(id))
+	# Das Vermächtnis prägt Dao-Markierungen in die Pfade seiner Gu.
+	for spot: Resource in spots:
+		Dao.add(GuRefining.path_of(spot), Balance.values.dao_inheritance / maxf(spots.size(), 1.0))
 	for i: int in spots.size():
 		var wild := WildGu.new()
 		wild.setup(StringName("erbe_%s_%d" % [data["id"], i]), spots[i])

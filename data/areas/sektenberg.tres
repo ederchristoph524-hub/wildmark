@@ -26,7 +26,7 @@ relief = Dictionary[StringName, float]({
 })
 hills = Array[Vector4]([Vector4(0, -60, 110, 16)])
 arrival = Vector2(0, 200)
-paths = [[Vector2(0, 200), Vector2(0, -5)], [Vector2(-50, -60), Vector2(-120, -120), Vector2(-145, -145)], [Vector2(50, -60), Vector2(130, -110)]]
+paths = [[Vector2(0, 200), Vector2(0, -5)], [Vector2(-50, -60), Vector2(-120, -120), Vector2(-145, -145)], [Vector2(50, -60), Vector2(130, -110)], [Vector2(0, 60), Vector2(-55, 48), Vector2(-80, 36)]]
 settlements = Array[Dictionary]([{
 "colors": {
 &"banner": Color(0.9098039, 0.7529412, 0.2509804, 1),
@@ -44,6 +44,23 @@ settlements = Array[Dictionary]([{
 "radius": 70.0,
 "residents": &"sekte",
 "type": &"sekte"
+}, {
+"colors": {
+&"banner": Color(0.5411765, 0.22745098, 0.8156863, 1),
+&"dach": Color(0.14117648, 0.101960786, 0.16470589, 1),
+&"holz": Color(0.16470589, 0.11764706, 0.14117648, 1),
+&"saeule": Color(0.3529412, 0.101960786, 0.16470589, 1),
+&"stein": Color(0.2901961, 0.27450982, 0.3137255, 1),
+&"wand": Color(0.2901961, 0.22745098, 0.28235295, 1)
+},
+"faction": &"schattensekte",
+"houses": 0,
+"id": &"schatten_versteck",
+"pond": 0.0,
+"position": Vector2(-105, 30),
+"radius": 30.0,
+"residents": &"schatten",
+"type": &"versteck"
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),

@@ -8,5 +8,5 @@ id = &"xiong_jaeger"
 display_name = "Xiong-Jagdmeister"
 color = Color(0.72156864, 0.39215687, 0.16470589, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"eberstoss", &"steinhaut", &"wirbelwind"])
+gu = Array[StringName]([&"eberstoss", &"eisenzahn", &"wirbelwind"])
 rank = 2

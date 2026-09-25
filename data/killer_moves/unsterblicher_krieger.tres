@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://csl5jyyidhuef"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_hsjxy"]
+
+[resource]
+script = ExtResource("1_hsjxy")
+id = &"unsterblicher_krieger"
+display_name = "Unsterblicher Krieger"
+family_a = &"kampfgeist"
+family_b = &"haut"
+channel_time = 1.0
+damage_mult = 4.2
+description = "Für einige Sekunden kann dich nichts fällen – du heilst, prallst zurück und schlägst doppelt."
+hint = "Der Krieger fällt nicht."
+min_rank = 5
+steps = [{
+"frac": 0.4,
+"t": "heal"
+}, {
+"color": "#e0b040",
+"kind": "thorns",
+"reduction": 0.5,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.5
+}, {
+"t": "reflect",
+"time": 3.0
+}, {
+"color": "#e0b040",
+"damage": 1.6,
+"key": "unsterblicher_krieger",
+"speed": 1.2,
+"t": "buff",
+"time": 6.0
+}]

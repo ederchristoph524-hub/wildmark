@@ -54,6 +54,7 @@ func refresh() -> void:
 	_add_tab(tr("Gu"), GuMenuPages.gu_page(player, refresh))
 	_add_tab(tr("Passive Gu"), PassivePage.build(player, refresh))
 	_add_tab(tr("Kombinationsbuch"), GuMenuPages.combo_page())
+	_add_tab(tr("Dao"), DaoPage.build())
 	_add_tab(tr("Inventar"), GuMenuPages.inventory_page(player, refresh))
 	_add_tab(tr("Bauen"), BuildPage.build(player, close))
 	_add_tab(tr("Aufgaben"), BuildPage.quests_page())

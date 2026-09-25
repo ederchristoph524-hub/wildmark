@@ -1,0 +1,153 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://cp186lmn5kw8g"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_5imc4"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_6ky7u"]
+
+[sub_resource type="Resource" id="gu_mutwurm"]
+script = ExtResource("1_5imc4")
+id = &"mutwurm"
+display_name = "Mutwurm-Gu"
+family = &"kampfgeist"
+description = "Ein warmer Wurm im Herzen: 6 s mehr Schaden und etwas Tempo."
+
+[sub_resource type="Resource" id="gu_tapferkeit"]
+script = ExtResource("1_5imc4")
+id = &"tapferkeit"
+display_name = "Tapferkeits-Gu"
+family = &"kampfgeist"
+rank = 2
+rank_gift = "Stärker und länger, reinigt dich von Furcht und Schwäche."
+description = "Wer Mut hat, zittert nicht."
+gifts = {
+"extra": [{
+"t": "cleanse"
+}],
+"step": {
+"damage": 1.3,
+"time": 7.0
+}
+}
+
+[sub_resource type="Resource" id="gu_kampfrausch"]
+script = ExtResource("1_5imc4")
+id = &"kampfrausch"
+display_name = "Kampfrausch-Gu"
+family = &"kampfgeist"
+rank = 3
+rank_gift = "Jeder Treffer heilt dich, du wirst schneller."
+description = "Der Rausch der Schlacht lässt dich Schmerz vergessen."
+gifts = {
+"extra": [{
+"t": "cleanse"
+}, {
+"frac": 0.12,
+"t": "heal"
+}],
+"step": {
+"damage": 1.35,
+"speed": 1.15,
+"time": 8.0
+}
+}
+
+[sub_resource type="Resource" id="gu_berserkerherz"]
+script = ExtResource("1_5imc4")
+id = &"berserkerherz"
+display_name = "Berserkerherz-Gu"
+family = &"kampfgeist"
+rank = 4
+rank_gift = "+50 % Schaden, unaufhaltsam, 20 % weniger Schaden."
+description = "Ein Herz, das nur für den Kampf schlägt."
+gifts = {
+"extra": [{
+"t": "cleanse"
+}, {
+"t": "unstoppable",
+"time": 8.0
+}, {
+"frac": 0.15,
+"t": "heal"
+}],
+"step": {
+"damage": 1.5,
+"reduction": 0.2,
+"speed": 1.2,
+"time": 8.0
+}
+}
+
+[sub_resource type="Resource" id="gu_kriegsgott"]
+script = ExtResource("1_5imc4")
+id = &"kriegsgott"
+display_name = "Kriegsgott-Gu"
+family = &"kampfgeist"
+rank = 5
+rank_gift = "+80 % Schaden, Rückprall, ein Kampfschrei stößt alle zurück."
+description = "Für Augenblicke wirst du zum Gott des Krieges."
+gifts = {
+"extra": [{
+"t": "cleanse"
+}, {
+"t": "unstoppable",
+"time": 9.0
+}, {
+"frac": 0.2,
+"t": "heal"
+}, {
+"t": "reflect",
+"time": 3.0
+}, {
+"color": "#e07a4a",
+"knockback": 1.5,
+"mult": 1.0,
+"radius": 5.0,
+"stun": 0.5,
+"t": "circle",
+"tags": ["wucht", "klang"]
+}],
+"step": {
+"damage": 1.8,
+"reduction": 0.3,
+"speed": 1.25,
+"time": 9.0
+}
+}
+
+[resource]
+script = ExtResource("2_6ky7u")
+id = &"kampfgeist"
+display_name = "Kampfgeist"
+path = &"kraft"
+role = "Stärkung"
+form = &"staerkung"
+tags = Array[StringName]([&"wucht"])
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 14.0,
+&"dauer": 6.0,
+&"ess": 6.0,
+&"schaden": 12.0,
+&"staerke": 1.2,
+&"tempo": 1.05
+})
+members = Array[ExtResource("1_5imc4")]([SubResource("gu_mutwurm"), SubResource("gu_tapferkeit"), SubResource("gu_kampfrausch"), SubResource("gu_berserkerherz"), SubResource("gu_kriegsgott")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"baerengalle": 1,
+&"wildfell": 3
+},
+3: {
+&"baerengalle": 3,
+&"wolfsgeist": 1
+},
+4: {
+&"heldenherz": 1,
+&"wolfsgeist": 2
+},
+5: {
+&"heldenherz": 2,
+&"urkristall": 1
+}
+})
+world_effect = "Mit entfesseltem Kampfgeist trägst du Felsbrocken, die sonst nur Bestien bewegen."

@@ -17,6 +17,7 @@ const DIRS: Dictionary[String, StringName] = {
 	"res://data/regions/": &"regions",
 	"res://data/sects/": &"sects",
 	"res://data/quests/": &"quests",
+	"res://data/standings/": &"standings",
 }
 
 var _failures: PackedStringArray = []

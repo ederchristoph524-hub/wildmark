@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://ygo4accrm2gp"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_vk08k"]
+
+[resource]
+script = ExtResource("1_vk08k")
+id = &"knochensturm"
+display_name = "Knochensturm"
+family_a = &"knochen"
+family_b = &"knochenrad"
+channel_time = 0.9
+damage_mult = 2.5
+description = "Knochenräder kreisen um dich und schleudern Splitter in alle Richtungen."
+hint = "Was zerbricht, fliegt weiter."
+steps = [{
+"color": "#f2ead8",
+"count": 4.0,
+"mult": 0.5,
+"radius": 2.2,
+"reduction": 0.2,
+"t": "orbit",
+"tags": ["durchbohren"],
+"time": 4.0
+}, {
+"color": "#f2ead8",
+"count": 8.0,
+"mult": 0.5,
+"pierce": 1.0,
+"range": 11.0,
+"spread": 360.0,
+"t": "projectiles",
+"tags": ["durchbohren"]
+}]

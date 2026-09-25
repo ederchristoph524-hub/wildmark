@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bycyr7ncgras5"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_845sv"]
+
+[resource]
+script = ExtResource("1_845sv")
+id = &"schattenmord"
+display_name = "Schattenmord"
+family_a = &"tarnung"
+family_b = &"schritt"
+channel_time = 0.8
+damage_mult = 3.2
+description = "Aus dem Nichts ein Stich ins Herz – gegen Geschwächte tödlich."
+hint = "Der Schatten zielt auf das Herz."
+min_rank = 3
+steps = [{
+"distance": 11.0,
+"t": "teleport",
+"to": "target"
+}, {
+"angle": 90.0,
+"color": "#7a6a9a",
+"execute": 1.0,
+"mult": 1.6,
+"pierce_armor": true,
+"reach": 3.5,
+"t": "cone",
+"tags": ["schnitt", "durchbohren"]
+}, {
+"t": "stealth",
+"time": 3.0
+}]

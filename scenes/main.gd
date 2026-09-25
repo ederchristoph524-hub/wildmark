@@ -21,6 +21,7 @@ var _loading: bool = false
 func _ready() -> void:
 	if DisplayServer.is_touchscreen_available():
 		get_tree().root.content_scale_factor = TOUCH_UI_SCALE
+	GraphicsSettings.apply(get_viewport())
 	_menu_layer = CanvasLayer.new()
 	_menu_layer.layer = 20
 	_menu_layer.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -35,6 +36,8 @@ func _ready() -> void:
 	EventBus.menu_toggled.connect(_on_menu_requested)
 	EventBus.travel_requested.connect(_on_travel)
 	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
+	EventBus.enemy_killed.connect(SectLife.on_enemy_killed)
+	EventBus.day_started.connect(SectLife.on_new_day)
 	show_start_menu()
 
 
@@ -64,6 +67,7 @@ func _give_start_kit() -> void:
 	GameState.essence = player.aperture.capacity()
 	GameState.add_item(&"kristall", START_STONES)
 	GameState.add_item(family.feed_item, family.feed_amount * START_FEEDINGS)
+	Origins.apply()
 	var progression: ProgressionData = DataRegistry.progression()
 	EventBus.message.emit(tr("Deine Apertur ist erwacht: Talent %s (%d %%).") % [GameState.talent_grade, roundi(GameState.apt)], progression.talent_colors.get(GameState.talent_grade, UiTheme.ACCENT))
 	var physique: PhysiqueData = PhysiqueEffects.current()

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cvfwqgtr3b7mi"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_2yyf6"]
+
+[resource]
+script = ExtResource("1_2yyf6")
+id = &"quellsegen"
+display_name = "Quellsegen"
+family_a = &"blatt"
+family_b = &"wasserbild"
+channel_time = 1.2
+damage_mult = 2.2
+description = "Eine Quelle heilt dich und deine Verbündeten, zwei Wasserbilder stehen dir bei."
+hint = "Klares Wasser, grünes Blatt."
+steps = [{
+"allies": true,
+"frac": 0.35,
+"radius": 10.0,
+"t": "heal"
+}, {
+"count": 2.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 12.0
+}]

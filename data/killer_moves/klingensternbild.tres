@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c5us8asewi2i"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_dgumd"]
+
+[resource]
+script = ExtResource("1_dgumd")
+id = &"klingensternbild"
+display_name = "Klingen-Sternbild"
+family_a = &"stern"
+family_b = &"schwert"
+channel_time = 1.2
+damage_mult = 4.4
+description = "Ein Sternbild aus hundert Klingen senkt sich auf das Schlachtfeld."
+hint = "Am Himmel steht ein Schwert."
+min_rank = 5
+steps = [{
+"color": "#ffe38a",
+"count": 16.0,
+"homing": true,
+"mult": 0.35,
+"range": 20.0,
+"spread": 360.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern", "schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"at": "target",
+"color": "#fff0b0",
+"distance": 8.0,
+"mult": 1.2,
+"pierce_armor": true,
+"radius": 5.0,
+"t": "circle",
+"tags": ["stern", "schnitt"]
+}],
+"time": 0.8
+}]

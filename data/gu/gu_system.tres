@@ -101,4 +101,7 @@ path_conflicts = Dictionary[StringName, Array]({
 &"wind": Array[StringName]([&"erde"]),
 &"zeit": Array[StringName]([&"raum"])
 })
+attain_names = Array[String](["Gewöhnlich", "Quasi-Meister", "Meister", "Großmeister", "Großer Großmeister", "Höchster Großmeister"])
+attain_needs = Array[float]([0.0, 25.0, 70.0, 180.0, 420.0, 900.0])
+attain_colors = Array[Color]([Color(0.5411765, 0.5411765, 0.5803922, 1), Color(0.6039216, 0.72156864, 0.41568628, 1), Color(0.43529412, 0.7490196, 0.2901961, 1), Color(0.2901961, 0.6039216, 0.8156863, 1), Color(0.627451, 0.2901961, 0.8156863, 1), Color(1, 0.8235294, 0.23921569, 1)])
 start_families = Array[StringName]([&"mondlicht", &"flamme", &"stroemung", &"wirbel"])

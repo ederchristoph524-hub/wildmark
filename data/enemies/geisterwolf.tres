@@ -14,5 +14,5 @@ radius = 0.4
 color = Color(0.72156864, 0.6039216, 0.9098039, 1)
 zone = 9
 rank = 2
-shape = &"quad"
+shape = &"wolf"
 no_spawn = true

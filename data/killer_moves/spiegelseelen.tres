@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cu64ilk5ifag1"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_7dokn"]
+
+[resource]
+script = ExtResource("1_7dokn")
+id = &"spiegelseelen"
+display_name = "Spiegelseelen"
+family_a = &"wasserbild"
+family_b = &"seelenschrei"
+channel_time = 1.3
+damage_mult = 4.2
+description = "Drei Seelenbilder schreien gleichzeitig – wer sie hört, zerbricht an der Angst."
+hint = "Das Spiegelbild hat eine Stimme."
+min_rank = 5
+steps = [{
+"count": 1.0,
+"enemy": "meeresgeist",
+"t": "summon",
+"time": 15.0
+}, {
+"color": "#c9a0ff",
+"mult": 0.6,
+"radius": 8.0,
+"status": "furcht",
+"t": "circle",
+"tags": ["seele"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0c0ff",
+"mult": 1.2,
+"radius": 8.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "circle",
+"tags": ["seele", "klang"]
+}],
+"time": 0.8
+}]

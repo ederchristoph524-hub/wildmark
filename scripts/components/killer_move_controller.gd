@@ -154,6 +154,7 @@ func _complete() -> void:
 			continue
 		damage = maxf(damage, float(holder.family_of(instance).base_r1.get(DAMAGE_KEY, 0.0)))
 		power = minf(power, holder.power_of(instance))
+		Dao.add(holder.family_of(instance).path, Balance.values.dao_per_killer)
 	if power == INF:
 		power = 1.0
 	_put_on_cooldown()

@@ -12,8 +12,12 @@ const LOCK_TURN_SPEED: float = 6.0
 ## Sichtweite bis zum Gebirgskranz am Horizont (Details blenden vorher per Sichtweite aus).
 const VIEW_NEAR: float = 0.1
 const VIEW_FAR: float = 1500.0
+## Drückt eine Wand den Federarm kürzer als das, wird die eigene Figur ausgeblendet (sonst füllt der Kopf das Bild).
+const CLOSE_UP: float = 1.4
 
 var yaw: float = 0.0
+## Kamera steckt dicht hinter der Figur (Wand im Rücken) – Player blendet dann das Modell aus.
+var close_up: bool = false
 var pitch: float = -0.35
 var camera: Camera3D = null
 var _arm: SpringArm3D = null
@@ -25,6 +29,10 @@ func _ready() -> void:
 	_arm.spring_length = ARM_LENGTH
 	_arm.collision_mask = 1
 	_arm.margin = 0.3
+	# Kugel statt Strahl: die Kamera rutscht an Kanten vorbei, statt hinter jedem Pfosten zu springen.
+	var probe := SphereShape3D.new()
+	probe.radius = 0.25
+	_arm.shape = probe
 	add_child(_arm)
 	camera = Camera3D.new()
 	camera.fov = 70.0
@@ -53,6 +61,7 @@ func follow(target_position: Vector3, locked_target: Node3D, delta: float) -> vo
 		var wanted: float = atan2(-to_target.x, -to_target.z)
 		yaw = lerp_angle(yaw, wanted, clampf(delta * LOCK_TURN_SPEED, 0.0, 1.0))
 	rotation = Vector3(pitch, yaw, 0.0)
+	close_up = _arm.get_hit_length() < CLOSE_UP
 
 
 ## Blickrichtung am Boden (für Bewegung und Zielen).

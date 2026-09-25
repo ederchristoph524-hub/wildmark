@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cgwxiyru0r1gl"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_a3kex"]
+
+[resource]
+script = ExtResource("1_a3kex")
+id = &"donnersturm"
+display_name = "Donnersturm"
+family_a = &"blitz"
+family_b = &"wind"
+channel_time = 1.1
+damage_mult = 3.3
+description = "Ein Gewittersturm zieht Gegner in seine Mitte und schlägt mit Blitzen ein."
+hint = "Im Auge des Sturms ist es still – nicht für lange."
+min_rank = 3
+steps = [{
+"at": "aim",
+"color": "#8ad0ff",
+"distance": 7.0,
+"mult": 0.35,
+"pull": 1.6,
+"radius": 5.0,
+"status": "ladung",
+"t": "zone",
+"tags": ["wind", "blitz"],
+"time": 4.0
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"color": "#dff0ff",
+"distance": 7.0,
+"mult": 1.1,
+"radius": 5.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["blitz", "klang"]
+}],
+"time": 1.5
+}]

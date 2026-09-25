@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cps4gi27l4fso"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_bb7eb"]
+
+[resource]
+script = ExtResource("1_bb7eb")
+id = &"blutfrost"
+display_name = "Blutfrost"
+family_a = &"frost"
+family_b = &"blutmond"
+channel_time = 1.0
+damage_mult = 3.2
+description = "Gefrorenes Blut: Eissplitter reißen Wunden und frieren sie zu."
+hint = "Blut gefriert rot."
+min_rank = 3
+steps = [{
+"color": "#c05070",
+"count": 5.0,
+"mult": 0.55,
+"range": 14.0,
+"spread": 50.0,
+"stacks": 2.0,
+"status": "frost",
+"t": "projectiles",
+"tags": ["eis", "blut"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 70.0,
+"color": "#e0e8f0",
+"mult": 0.8,
+"reach": 7.0,
+"stacks": 2.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["metall", "schnitt"]
+}],
+"time": 0.4
+}]

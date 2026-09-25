@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dfjsg8b5xe3q"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_8ftv0"]
+
+[resource]
+script = ExtResource("1_8ftv0")
+id = &"rudelsturm"
+display_name = "Rudelsturm"
+family_a = &"sklaverei"
+family_b = &"wind"
+channel_time = 1.0
+damage_mult = 2.4
+description = "Ein Wind treibt dein Rudel an: Gefährten werden schneller und stärker, ein Wolf eilt herbei."
+hint = "Das Rudel jagt mit dem Wind."
+steps = [{
+"allies": true,
+"frac": 0.2,
+"radius": 12.0,
+"t": "heal"
+}, {
+"enemy": "geisterwolf",
+"t": "summon",
+"time": 15.0
+}, {
+"angle": 60.0,
+"color": "#c8f0ff",
+"knockback": 1.0,
+"mult": 0.6,
+"reach": 8.0,
+"t": "cone",
+"tags": ["wind"]
+}]

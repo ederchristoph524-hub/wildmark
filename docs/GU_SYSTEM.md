@@ -14,10 +14,10 @@ Deshalb gilt: **Wenige Bausteine werden einmal gebaut, das Erlebnis entsteht aus
 |---|---|---|
 | 1. Baukasten | 20 Wirkformen, 18 Tags, 19 Schrittarten | alle aktiven Gu als reine Daten |
 | 2. Zustände und Reaktionen | 10 Zustände, 16 Reaktionen | Dutzende Kombos, die niemand einzeln programmiert hat |
-| 3. Familien | 24 Familien mit je 5 Rängen | 120 aktive Gu mit spürbarem Aufstieg |
+| 3. Familien | 26 Familien mit je 5 Rängen | 130 aktive Gu mit spürbarem Aufstieg |
 | 4. Dieselben Regeln in der Welt | Zustände wirken auch auf Objekte | Erkundung und Rätsel ohne eigenes Rätselsystem |
 
-Dazu: **Merkmale** für wilde Gu, **19 Körper-Gu**, **31 Hilfs-Gu** und **45 Killer Moves** in drei Stufen (Rang 1, 3, 5).
+Dazu: **Merkmale** für wilde Gu, **19 Körper-Gu**, **31 Hilfs-Gu** und **88 Killer Moves** aus 59 Gu-Paaren in drei Stufen (Rang 1, 3, 5).
 
 ## 2. Hebel 1: der Baukasten
 
@@ -97,7 +97,7 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 
 ## 4. Hebel 3: Familien
 
-**24 Familien mit je fünf Rängen (Rang 1–5, sterbliche Ebene).** Jede Familie ist ein Verb mit eigener Wirkform. Höhere Ränge nutzen dieselbe Umsetzung mit stärkeren Werten (×1,48 pro Rang, `FORMELN.md`) und einer **Ranggabe**, die neu hinzukommt. Namen folgen, wo möglich, den Gu aus Reverend Insanity (Allumfassender-Goldlicht-Wurm, Alles-oder-nichts, Knochenschild, Tarnschuppen, Selbstentzündung …).
+**26 Familien mit je fünf Rängen (Rang 1–5, sterbliche Ebene).** Jede Familie ist ein Verb mit eigener Wirkform. Höhere Ränge nutzen dieselbe Umsetzung mit stärkeren Werten (×1,48 pro Rang, `FORMELN.md`) und einer **Ranggabe**, die neu hinzukommt. Namen folgen, wo möglich, den Gu aus Reverend Insanity (Allumfassender-Goldlicht-Wurm, Alles-oder-nichts, Knochenschild, Tarnschuppen, Selbstentzündung …).
 
 | Familie | Pfad | Wirkform | Rang 1 | Rang 2 | Rang 3 | Rang 4 | Rang 5 |
 |---|---|---|---|---|---|---|---|
@@ -125,6 +125,8 @@ Zustände und Reaktionen sind reine Daten (`zustaende[].regel`, `reaktionen[].re
 | Menschenfackel | Feuer | Aura | Glutatem-Gu | Feuerhaut-Gu (+2 s) | Selbstentzündungs-Gu (Radius +1, 6 s +20 % Schaden) | Glutpanzer-Gu (20 % Schutz, Dornen) | Sonnenkörper-Gu (Radius +3, 1,8-facher Schaden, 25 % Schutz) |
 | Donnerknolle | Blitz | Falle | Knallsamen-Gu | Verkohlte-Donnerknolle-Gu (Drei Fallen, Blitz und Ladung) | Kettenknollen-Gu (Kettenblitz nach der Explosion) | Bebenknollen-Gu (Vier Fallen, Radius 3,5, betäubt 1 s) | Himmelsfeuer-Knollen-Gu (Sechs Fallen, Feuerfeld und Kettenblitz über 5 Ziele) |
 | Wasserbild | Wasser | Beschwörung | Wasserspiegel-Gu | Zwillingsspiegel-Gu (Zwei Bilder) | Wasserbild-Gu (Zwei Wasserkrieger (12 s)) | Gezeitenwächter-Gu (Drei Krieger (15 s)) | Meeresgeist-Gu (Zwei Meeresgeister (20 s), Heilung für alle) |
+| Goldener Tausendfüßler | Metall | Sturmlauf | Eisenzahn-Gu | Sägezahn-Gu (Durchbohrt Rüstung, +1 Blutung) | Stahlkiefer-Gu (Längerer Sturm, am Ende ein Rundumschnitt) | Kettensägen-Goldtausendfüßler-Gu (Hinrichtung, dreifacher Rundumschnitt – das Erbe des Blumenwein-Mönchs) | Himmelsgold-Tausendfüßler-Gu (Zwei Sturmläufe hintereinander, unaufhaltsam, jede Wunde blutet doppelt) |
+| Kampfgeist | Kraft | Stärkung | Mutwurm-Gu | Tapferkeits-Gu (Stärker und länger, reinigt dich von Furcht und Schwäche) | Kampfrausch-Gu (Jeder Treffer heilt dich, du wirst schneller) | Berserkerherz-Gu (+50 % Schaden, unaufhaltsam, 20 % weniger Schaden) | Kriegsgott-Gu (+80 % Schaden, Rückprall, ein Kampfschrei stößt alle zurück) |
 
 ### Gu-Aufstieg
 
@@ -223,49 +225,92 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Killer Move | ab Rang | Familien | Wirkung |
 |---|---|---|---|
 | Bestiensturm | 1 | Bestienphantom + Wirbel | Ein Eberphantom stürmt im Wirbel: alles vor dir fliegt und bleibt betäubt liegen. |
+| Blutgift-Stich | 1 | Gift + Blutmond | Blutklingen reißen Wunden, das Gift frisst sich hinein. |
 | Blutknochenregen | 1 | Blutmond + Knochen | Sieben Blut-Knochen-Speere im Fächer, die Leben rauben. |
+| Bronzebestie | 1 | Haut + Bestienphantom | Mit bronzener Haut stürmst du als Bestie durch die Reihen – unaufhaltsam. |
+| Dampfexplosion | 1 | Strömung + Flamme | Wasser trifft auf Feuer: eine Dampfexplosion blendet und verbrüht alle. |
 | Donnerfeld | 1 | Donnerknolle + Blitz | Fünf Donnerknollen im Kreis um dich; jede Explosion springt als Blitz weiter. |
 | Donnerpanzer | 1 | Haut + Blitz | Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel |
+| Eisflut | 1 | Frost + Strömung | Eine Flutwelle durchnässt alles, der Frost friert es im selben Atemzug ein. |
 | Feuersturm | 1 | Flamme + Wirbel | Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter |
 | Feuerwind | 1 | Windklinge + Flamme | Ein Windstoß trägt Flammen weit nach vorn und facht sie immer wieder an. |
 | Gewitterflut | 1 | Strömung + Blitz | Eine Flutwelle durchnässt alles vor dir, dann schlägt ein Blitz ein: garantierter Überschlag auf alle |
 | Gletscherbruch | 1 | Frost + Wirbel | Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag |
+| Glutwirbel | 1 | Menschenfackel + Wirbel | Ein Wirbel aus Glut dreht sich um dich und saugt Gegner in die Flammen. |
+| Goldene Bestie | 1 | Goldener Tausendfüßler + Bestienphantom | Ein goldenes Bestienphantom mit Sägegliedern stürmt vor und zerfleischt alles. |
 | Klingenschritt | 1 | Schwertschatten + Schritt | Du jagst durch die Reihen, Klingen kreisen um dich. |
 | Knochenbollwerk | 1 | Knochenrad + Haut | Sechs Knochenschilde und eine Steinhaut: fast nichts dringt zu dir durch. |
 | Knochenfestung | 1 | Knochen + Haut | Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP) |
+| Knochensturm | 1 | Knochen + Knochenrad | Knochenräder kreisen um dich und schleudern Splitter in alle Richtungen. |
+| Kriegsschrei | 1 | Kampfgeist + Seelenschrei | Dein Kampfschrei stärkt dich und lässt Gegner vor Angst erstarren. |
+| Minenfeld | 1 | Donnerknolle + Erdstachel | Die Erde verschluckt Knollen in einem weiten Kreis – wer darauf tritt, fliegt. |
+| Mondfrost | 1 | Mondlicht + Frost | Ein Kranz aus Mondsicheln fliegt nach außen; wen sie treffen, der erstarrt im Frost. |
 | Mondschritt | 1 | Mondlicht + Schritt | Du jagst durch eine Gegnerreihe und hinterlässt Mondklingen auf deinem Weg |
 | Pestfeuer | 1 | Gift + Flamme | Giftwolke, die sich entzündet: große Giftexplosion und brennender Boden |
 | Phönixatem | 1 | Menschenfackel + Blatt | Glut heilt statt zu verzehren: du regenerierst, während ein Feuerkreis dich schützt. |
+| Quellsegen | 1 | Blatt + Wasserbild | Eine Quelle heilt dich und deine Verbündeten, zwei Wasserbilder stehen dir bei. |
+| Roter Mond | 1 | Mondlicht + Blutmond | Eine rote Mondsichel schneidet tief und lässt das Ziel bluten. |
+| Rudelrausch | 1 | Kampfgeist + Sklaverei | Dein Kampfgeist springt auf das Rudel über: alle Gefährten werden geheilt und rasen. |
 | Rudelsegen | 1 | Sklaverei + Blatt | Heilt und stärkt alle Gefährten, ein weiterer Gefährte erscheint für 20 s |
+| Rudelsturm | 1 | Sklaverei + Windklinge | Ein Wind treibt dein Rudel an: Gefährten werden schneller und stärker, ein Wolf eilt herbei. |
+| Schattenschritt | 1 | Tarnung + Schritt | Du verschwindest und tauchst hinter deinem Ziel wieder auf. |
 | Schlammflut | 1 | Erdstachel + Strömung | Eine Flut durchnässt alles, dann brechen Erdstacheln hervor: Schlamm hält alle fest. |
 | Schleichgift | 1 | Tarnung + Gift | Du verschwindest und hinterlässt eine Giftwolke; dein nächster Schlag trifft aus dem Nichts. |
 | Seelenknechtschaft | 1 | Seelenschrei + Sklaverei | Ein Schrei lässt alle erstarren, zwei Geisterwölfe fallen über sie her. |
+| Sonnenflamme | 1 | Flamme + Menschenfackel | Dein Körper wird zur Fackel und entlädt eine Feuerwelle um dich. |
 | Spiegelflut | 1 | Wasserbild + Strömung | Zwei Wasserbilder springen aus einer Flutwelle, die alles zurückwirft. |
 | Sternenregen | 1 | Sternschwarm + Erdstachel | Sterne markieren die Feinde, dann stürzen drei Felsbrocken auf sie. |
 | Sternenmond | 1 | Sternschwarm + Mondlicht | Neun Mond- und Sternenklingen suchen sich selbst ihr Ziel. |
+| Sturmblitz | 1 | Blitz + Windklinge | Ein Windstoß trägt Blitze nach vorn; sie springen von Ziel zu Ziel. |
 | Klingenwirbel | 1 | Windklinge + Schwertschatten | Kreisende Klingen im Sturm: der Wind trägt sie weit nach außen. |
 | Alles verschlingen | 3 | Bestienphantom + Blutmond | Ein Blutphantom verschlingt alles vor dir und gibt dir das Leben zurück. |
+| Bergleib | 3 | Erdstachel + Haut | Dein Körper wird zu Fels; wer dich trifft, bebt mit, und die Erde schlägt um dich aus. |
 | Bergsturz | 3 | Erdstachel + Bestienphantom | Ein Bärenphantom schlägt auf den Boden, ein Bergsturz begräbt die Getroffenen. |
+| Blitzklingen | 3 | Blitz + Schwertschatten | Klingen aus reinem Blitz kreisen um dich und entladen sich auf jeden, den sie berühren. |
+| Blutfeuer | 3 | Blutmond + Menschenfackel | Dein Blut entzündet sich: brennende Sicheln, und jeder Treffer heilt dich. |
+| Blutfrost | 3 | Frost + Blutmond | Gefrorenes Blut: Eissplitter reißen Wunden und frieren sie zu. |
+| Blutsäge | 3 | Goldener Tausendfüßler + Blutmond | Blutige Sägezähne reißen tiefe Wunden – jede nährt dich. |
 | Donnerdrachen-Flut | 3 | Strömung + Blitz | Eine breite Flut, dann ein Blitzdrache, der über alle Nassen springt. |
 | Donnerkönig | 3 | Haut + Blitz | Ein Donnerpanzer, der Angreifer auflädt und alle drei Sekunden entlädt. |
+| Donnersturm | 3 | Blitz + Windklinge | Ein Gewittersturm zieht Gegner in seine Mitte und schlägt mit Blitzen ein. |
+| Eismondsichel | 3 | Mondlicht + Frost | Drei riesige Eissicheln durchbohren alles in einer Reihe und frieren es ein. |
 | Eissarg | 3 | Frost + Wirbel | Ein Eissturm friert alle im Umkreis 7 ein und zerschmettert sie doppelt. |
+| Erdbebenfeld | 3 | Donnerknolle + Erdstachel | Ein Beben reißt den Boden auf; darin liegen Knollen, die nacheinander hochgehen. |
 | Feuerlotus-Sturm | 3 | Flamme + Wirbel | Ein Lotus aus Flammen erblüht im Wirbel und brennt noch lange nach. |
+| Flammenkaiser | 3 | Flamme + Menschenfackel | Eine Feuersäule steigt am Ziel auf, danach regnen Glutkugeln in weitem Kreis. |
+| Geisterschrei | 3 | Seelenschrei + Tarnung | Ein unsichtbarer Schrei lähmt alle vor Angst, während du im Nebel verschwindest. |
+| Giftquelle | 3 | Gift + Wasserbild | Ein vergiftetes Wasserbild wandelt umher und hinterlässt eine Giftlache. |
+| Goldpanzer-Sturm | 3 | Goldener Tausendfüßler + Haut | Mit goldener Haut und Sägearm walzt du unaufhaltsam durch die Reihen. |
+| Klingenbestie | 3 | Schwertschatten + Bestienphantom | Ein Bestienphantom aus Klingen stürmt vor und zerfetzt alles vor dir. |
+| Klingenrad | 3 | Knochenrad + Schwertschatten | Knochen und Klingen verschmelzen zu einem kreisenden Schutzrad, das schneidet und schützt. |
 | Knochenzitadelle | 3 | Knochen + Haut | Ein Knochenpanzer, dazu vier kreisende Knochenspeere. |
+| Lebensquell | 3 | Blatt + Wasserbild | Ein Heilteich breitet sich um dich aus, ein Wasserkrieger wacht darüber. |
 | Mondschatten-Tanz | 3 | Mondlicht + Schritt | Du jagst durch die Reihe und entlässt am Ende einen Fächer aus Mondklingen. |
 | Pestsonne | 3 | Gift + Flamme | Eine Giftsonne geht über dem Feld auf und entzündet sich zu einer riesigen Explosion. |
+| Rasende Bestie | 3 | Kampfgeist + Bestienphantom | Im Kampfrausch wird dein Bestienphantom doppelt so groß. |
 | Rudelkönig | 3 | Sklaverei + Blatt | Heilt alle Gefährten voll und ruft zwei Blitzwölfe. |
+| Schattenmord | 3 | Tarnung + Schritt | Aus dem Nichts ein Stich ins Herz – gegen Geschwächte tödlich. |
 | Seelensturm | 3 | Seelenschrei + Windklinge | Ein heulender Sturm voller Seelenschreie: Furcht und Schwäche für alle. |
+| Seuchenmond | 3 | Gift + Blutmond | Ein fauliger roter Mond schwebt über dem Ziel und saugt Leben aus allem darunter. |
+| Sternenklingen | 3 | Sternschwarm + Schwertschatten | Sterne werden zu Klingen und kreisen, dann schießen sie auf das Ziel. |
 | Sternennebel-Hinterhalt | 3 | Tarnung + Sternschwarm | Aus dem Sternennebel stürzen zwölf Sterne auf alle Geblendeten. |
 | Erdschlund | 5 | Erdstachel + Bestienphantom | Die Erde öffnet sich unter den Feinden und schließt sich wieder. |
 | Ewiges Eis | 5 | Frost + Wirbel | Alles im Umkreis 10 erstarrt zu ewigem Eis und zerspringt. |
 | Herr der Bestien | 5 | Sklaverei + Bestienphantom | Drei Bestienphantome brechen hervor und zwei Blitzwölfe folgen dir. |
 | Himmelsbrand | 5 | Flamme + Wirbel | Der Himmel brennt: ein Feuersturm im Umkreis 10, Feuerregen und ein Flammenmeer. |
+| Weißknochen-Himmelsrad | 5 | Knochen + Knochenrad | Ein gewaltiges Knochenrad walzt in einer Linie über das Schlachtfeld und schützt dich danach. |
 | Jadehimmel-Brand | 5 | Gift + Flamme | Das uralte Jadegift senkt sich über das Land und entzündet sich. |
+| Klingen-Sternbild | 5 | Sternschwarm + Schwertschatten | Ein Sternbild aus hundert Klingen senkt sich auf das Schlachtfeld. |
 | Mondfinsternis | 5 | Mondlicht + Schritt | Drei Schritte durch die Dunkelheit, jeder hinterlässt einen Mondsturm. |
+| Sarg des Nordmeers | 5 | Frost + Strömung | Das Meer steigt und gefriert: ein ganzes Feld erstarrt zu Eis, dann bricht es. |
+| Sonnensturz | 5 | Flamme + Menschenfackel | Eine kleine Sonne stürzt herab und hinterlässt ein brennendes Feld. |
+| Spiegelseelen | 5 | Wasserbild + Seelenschrei | Drei Seelenbilder schreien gleichzeitig – wer sie hört, zerbricht an der Angst. |
 | Sternenkaiser | 5 | Sternschwarm + Mondlicht | Ein Sternenhimmel öffnet sich: sechzehn Sterne und drei Sternschnuppen. |
 | Taifun der Seelen | 5 | Seelenschrei + Windklinge | Ein Taifun aus Seelen zieht alles in sein Zentrum, voller Furcht und Schwäche. |
 | Tausend Donner | 5 | Strömung + Blitz | Eine Sturmflut, dann tausend Donner: jeder Nasse wird mehrfach getroffen. |
+| Tausend-Klingen-Sturm | 5 | Goldener Tausendfüßler + Schwertschatten | Tausend goldene Glieder lösen sich als Klingen und kreisen, während du durchbrichst. |
 | Unsterblicher Knochen | 5 | Knochen + Haut | Ein unzerstörbarer Knochenleib: unaufhaltsam, Dornen, sechs Knochenräder. |
+| Unsterblicher Krieger | 5 | Kampfgeist + Haut | Für einige Sekunden kann dich nichts fällen – du heilst, prallst zurück und schlägst doppelt. |
 | Zehntausend Klingen | 5 | Schwertschatten + Schritt | Du wirst zum Klingensturm: Sprung, zehn kreisende Klingen, ein Hagel aus Schwertschatten. |
 
 ## 8. Hebel 4: dieselben Regeln in der Welt

@@ -21,6 +21,8 @@ var area: StringName = &"qing_mao"
 ## Geöffnete Erbschaften (Orts-IDs).
 var inheritances: Array[StringName] = []
 var first_family: StringName = &"mondlicht"
+## Herkunft im Klan (StandingData-ID, leer = keine Angabe).
+var standing: StringName = &""
 
 # --- Spieler ---
 var rank: int = 1
@@ -67,6 +69,15 @@ var built_count: int = 0
 var visited_areas: Array[String] = []
 ## Beutesack nach dem Tod (Standard-Modus): {"position": Vector3, "items": Dictionary} oder leer.
 var loot_sack: Dictionary = {}
+## Dao-Markierungen je Pfad (Dao): Pfad-ID → Markierungen.
+var dao: Dictionary[StringName, float] = {}
+## Sektenleben (SectLife): Mitgliedschaft (Sekten-ID, leer = keine), Verdienst, Rang-Index, Tag der letzten Zuteilung.
+var sect: StringName = &""
+var sect_merit: int = 0
+var sect_rank: int = 0
+var sect_stipend_day: int = 0
+## Sektenauftrag des Tages (SectTasks); leer = noch keiner vergeben.
+var sect_task: Dictionary = {}
 
 # --- Welt ---
 var time_of_day: float = 0.0
@@ -82,6 +93,7 @@ func reset(options: Dictionary) -> void:
 	area = options.get("area", &"qing_mao")
 	inheritances = []
 	first_family = options.get("first_family", &"mondlicht")
+	standing = options.get("standing", &"")
 	rank = 1
 	stage = 0
 	wall = 0.0
@@ -113,6 +125,12 @@ func reset(options: Dictionary) -> void:
 	built_count = 0
 	visited_areas = []
 	loot_sack = {}
+	sect = &""
+	sect_merit = 0
+	sect_rank = 0
+	sect_stipend_day = 0
+	sect_task = {}
+	dao = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
 	play_time = 0.0
@@ -176,7 +194,7 @@ func to_dict() -> Dictionary:
 	for instance: GuInstance in gu:
 		gu_list.append(instance.to_dict())
 	return {
-		"options": {"death_mode": death_mode, "talent_grade": talent_grade, "apt": apt, "first_family": first_family, "physique": physique},
+		"options": {"death_mode": death_mode, "talent_grade": talent_grade, "apt": apt, "first_family": first_family, "physique": physique, "standing": standing},
 		"player": {
 			"rank": rank, "stage": stage, "wall": wall, "essence": essence, "hp": hp,
 			"bonus_hp": bonus_hp, "bonus_damage": bonus_damage,
@@ -188,6 +206,8 @@ func to_dict() -> Dictionary:
 			"quests": _names_to_strings(quests), "kills": kills, "built_count": built_count,
 			"duels_won": duels_won, "last_duel_day": last_duel_day, "duel_days": duel_days, "childhood_step": childhood_step, "area": area, "inheritances": inheritances,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
+			"sect": {"id": String(sect), "merit": sect_merit, "rank": sect_rank, "stipend_day": sect_stipend_day, "task": _task_to_dict()},
+			"dao": _names_to_strings(dao),
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -201,6 +221,7 @@ func from_dict(d: Dictionary) -> void:
 		"apt": float(options.get("apt", 50.0)),
 		"physique": StringName(str(options.get("physique", ""))),
 		"first_family": StringName(str(options.get("first_family", "mondlicht"))),
+		"standing": StringName(str(options.get("standing", ""))),
 	})
 	_player_from_dict(d.get("player", {}))
 	var world: Dictionary = d.get("world", {})
@@ -253,12 +274,32 @@ func _player_from_dict(p: Dictionary) -> void:
 			buildings.append({"id": StringName(str(entry.get("id", ""))), "position": _array_to_vec(entry.get("position", [])), "yaw": float(entry.get("yaw", 0.0)), "area": StringName(str(entry.get("area", "qing_mao")))})
 	for visited: Variant in p.get("visited_areas", []):
 		visited_areas.append(str(visited))
+	var saved_sect: Dictionary = p.get("sect", {})
+	sect = StringName(str(saved_sect.get("id", "")))
+	sect_merit = int(saved_sect.get("merit", 0))
+	sect_rank = int(saved_sect.get("rank", 0))
+	sect_stipend_day = int(saved_sect.get("stipend_day", 0))
+	var task: Dictionary = saved_sect.get("task", {})
+	if not task.is_empty():
+		sect_task = {"type": str(task.get("type", "")), "item": StringName(str(task.get("item", ""))), "count": int(task.get("count", 1)),
+			"start": int(task.get("start", 0)), "day": int(task.get("day", 0)), "done": bool(task.get("done", false))}
+	var saved_dao: Dictionary = p.get("dao", {})
+	for key: Variant in saved_dao:
+		dao[StringName(str(key))] = float(saved_dao[key])
 	var sack: Dictionary = p.get("loot_sack", {})
 	if not sack.is_empty():
 		var sack_items: Dictionary = {}
 		for key: Variant in sack.get("items", {}):
 			sack_items[StringName(str(key))] = int(sack["items"][key])
 		loot_sack = {"position": _array_to_vec(sack.get("position", [])), "items": sack_items, "area": StringName(str(sack.get("area", area)))}
+
+
+func _task_to_dict() -> Dictionary:
+	if sect_task.is_empty():
+		return {}
+	var result: Dictionary = sect_task.duplicate()
+	result["item"] = String(sect_task.get("item", ""))
+	return result
 
 
 func _sack_to_dict() -> Dictionary:

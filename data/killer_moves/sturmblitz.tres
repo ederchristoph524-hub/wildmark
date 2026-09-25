@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d063rvr8mjsch"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_pkf30"]
+
+[resource]
+script = ExtResource("1_pkf30")
+id = &"sturmblitz"
+display_name = "Sturmblitz"
+family_a = &"blitz"
+family_b = &"wind"
+channel_time = 0.8
+damage_mult = 2.6
+description = "Ein Windstoß trägt Blitze nach vorn; sie springen von Ziel zu Ziel."
+hint = "Der Wind trägt den Donner weiter."
+steps = [{
+"angle": 70.0,
+"color": "#c8f0ff",
+"knockback": 1.0,
+"mult": 0.8,
+"reach": 9.0,
+"status": "ladung",
+"t": "cone",
+"tags": ["wind", "blitz"]
+}, {
+"color": "#8ad0ff",
+"jumps": 4.0,
+"mult": 0.6,
+"radius": 7.0,
+"t": "chain",
+"tags": ["blitz"]
+}]

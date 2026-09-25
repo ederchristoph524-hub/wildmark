@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 		_cancel_idle_actions()
 	_move(delta, wish)
 	camera_rig.follow(global_position, targeting.locked_target, delta)
+	model.visible = not camera_rig.close_up
 	GameState.position = global_position
 	GameState.hp = health.hp
 

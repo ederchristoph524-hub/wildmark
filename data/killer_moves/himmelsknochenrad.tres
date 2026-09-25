@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://4f8g1mlh78nr"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_wwakw"]
+
+[resource]
+script = ExtResource("1_wwakw")
+id = &"himmelsknochenrad"
+display_name = "Weißknochen-Himmelsrad"
+family_a = &"knochen"
+family_b = &"knochenrad"
+channel_time = 1.3
+damage_mult = 4.4
+description = "Ein gewaltiges Knochenrad walzt in einer Linie über das Schlachtfeld und schützt dich danach."
+hint = "Das Rad des Himmels dreht sich aus Gebein."
+min_rank = 5
+steps = [{
+"color": "#f2ead8",
+"knockback": 1.4,
+"length": 14.0,
+"mult": 1.4,
+"pierce_armor": true,
+"t": "line",
+"tags": ["durchbohren", "wucht"],
+"width": 4.0
+}, {
+"color": "#f2ead8",
+"count": 6.0,
+"mult": 0.5,
+"radius": 2.8,
+"reduction": 0.35,
+"speed": 1.2,
+"t": "orbit",
+"tags": ["durchbohren"],
+"time": 6.0
+}]

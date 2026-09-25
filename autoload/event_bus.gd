@@ -27,6 +27,8 @@ signal item_changed(item_id: StringName, amount: int)
 signal stage_reached(rank: int, stage: int)
 signal breakthrough_attempted(success: bool, rank: int)
 signal night_changed(is_night: bool)
+## Ein neuer Spieltag beginnt (Zuteilungen, tägliche Ereignisse).
+signal day_started(day: int)
 
 ## Ein NPC möchte ein Gespräch öffnen (Npc).
 signal dialog_requested(npc: Node3D)

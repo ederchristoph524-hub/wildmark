@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bt6k8512pmbjm"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_miwr8"]
+
+[resource]
+script = ExtResource("1_miwr8")
+id = &"seuchenmond"
+display_name = "Seuchenmond"
+family_a = &"gift"
+family_b = &"blutmond"
+channel_time = 1.1
+damage_mult = 3.2
+description = "Ein fauliger roter Mond schwebt über dem Ziel und saugt Leben aus allem darunter."
+hint = "Der Mond blutet grün."
+min_rank = 3
+steps = [{
+"at": "target",
+"color": "#9aa030",
+"distance": 7.0,
+"lifesteal": 0.3,
+"mult": 0.3,
+"radius": 4.5,
+"status": "gift",
+"t": "zone",
+"tags": ["gift", "blut"],
+"time": 5.0
+}]

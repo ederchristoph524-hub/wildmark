@@ -43,4 +43,4 @@ ability = [{
 ability_range = 7.0
 ability_cooldown = 5.0
 drops = Array[ExtResource("1_3ny4w")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
-shape = &"quad"
+shape = &"wolf"

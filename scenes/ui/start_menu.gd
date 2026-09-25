@@ -1,9 +1,11 @@
 class_name StartMenu
 extends Control
-## Neues-Spiel-Menü: Kindheit (spielbar oder übersprungen), Todesmodus, Talent samt Extremer Physique, erster Gu (nur beim Überspringen) oder Weiterspielen.
+## Neues-Spiel-Menü: Kindheit (spielbar oder übersprungen), Todesmodus, Herkunft im Klan, Talent samt Extremer
+## Physique, erster Gu (nur beim Überspringen) oder Weiterspielen.
 
 const TALENT_RANDOM: StringName = &"random"
 const DEATH_MODES: Array[StringName] = [&"standard", &"relaxed", &"hardcore"]
+const DEFAULT_STANDING: StringName = &"neben"
 
 var _family: StringName = &""
 var _talent: StringName = TALENT_RANDOM
@@ -20,6 +22,8 @@ var _physique_grid: GridContainer = null
 var _physique_buttons: Dictionary[StringName, Button] = {}
 var _physique_text: Label = null
 var _death_buttons: Dictionary[StringName, Button] = {}
+var _standing: StringName = DEFAULT_STANDING
+var _standing_buttons: Dictionary[StringName, Button] = {}
 var _description: Label = null
 
 
@@ -71,6 +75,7 @@ func _build(column: VBoxContainer) -> void:
 	var start_text: String = tr("Neues Spiel") + (tr(" (überschreibt den Spielstand)") if SaveSystem.has_save() else "")
 	# Start-Knopf vor den Erklärungen, damit er am Handy quer ohne Scrollen sichtbar bleibt.
 	column.add_child(UiTheme.button(start_text, _start, 64.0))
+	_build_standing_section(column)
 	_build_talent_section(column)
 	_skip_section = VBoxContainer.new()
 	_skip_section.add_theme_constant_override(&"separation", 12)
@@ -78,6 +83,28 @@ func _build(column: VBoxContainer) -> void:
 	_build_skip_section(_skip_section)
 	_description = UiTheme.label("", 18, UiTheme.MUTED)
 	column.add_child(_description)
+
+
+## Herkunft im Klan (fraktionen.json → STANDING).
+func _build_standing_section(column: VBoxContainer) -> void:
+	column.add_child(UiTheme.label(tr("Herkunft"), 24, UiTheme.ACCENT))
+	var grid := GridContainer.new()
+	grid.columns = 3
+	column.add_child(grid)
+	var standings: Array[Resource] = DataRegistry.all(&"standings").duplicate()
+	# Vom Hauptzweig bis zur Waise (nach Ansehen im Klan).
+	standings.sort_custom(func(a: Resource, b: Resource) -> bool: return (a as StandingData).home_merit > (b as StandingData).home_merit)
+	for resource: Resource in standings:
+		var standing: StandingData = resource as StandingData
+		var button: Button = UiTheme.button(tr(standing.display_name), _choose_standing.bind(standing.id))
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		grid.add_child(button)
+		_standing_buttons[standing.id] = button
+
+
+func _choose_standing(id: StringName) -> void:
+	_standing = id
+	_refresh()
 
 
 func _build_skip_section(column: VBoxContainer) -> void:
@@ -167,8 +194,13 @@ func _refresh() -> void:
 	for id: StringName in _death_buttons:
 		_death_buttons[id].toggle_mode = true
 		_death_buttons[id].button_pressed = id == _death
+	for id: StringName in _standing_buttons:
+		_standing_buttons[id].toggle_mode = true
+		_standing_buttons[id].button_pressed = id == _standing
 	_description.text = _childhood_text() if _childhood else _family_text()
 	_description.text += "\n\n" + _talent_text() + "\n\n" + _death_text()
+	if DataRegistry.has(&"standings", _standing):
+		_description.text += "\n\n" + Origins.describe(DataRegistry.standing(_standing))
 
 
 func _childhood_text() -> String:
@@ -209,7 +241,7 @@ func _death_text() -> String:
 ## Mit Kindheit und Talent „Zufall“ würfelt erst der Talenttest beim Erwachen (talent_grade bleibt leer).
 func _start() -> void:
 	var b: BalanceData = Balance.values
-	var options: Dictionary = {"childhood": _childhood, "first_family": &"" if _childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &""}
+	var options: Dictionary = {"childhood": _childhood, "first_family": &"" if _childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &"", "standing": _standing}
 	if not (_childhood and _talent == TALENT_RANDOM):
 		var talent: Dictionary = Formulas.roll_talent(b, randf() * 100.0, randf()) if _talent == TALENT_RANDOM else Formulas.talent_for_grade(b, _talent, randf())
 		options["talent_grade"] = talent["grade"]

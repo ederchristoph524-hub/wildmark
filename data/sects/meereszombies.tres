@@ -17,6 +17,6 @@ min_rank = 4
 join_gift = Dictionary[StringName, int]({
 &"fleisch": 25
 })
-signature_gu = &"zombie"
+signature_gu = &"knochensplitter"
 politics = "Untote Unsterbliche, die keine Lebensspanne mehr verlieren. Zeit arbeitet für sie."
 description = "Die untoten Herren der östlichen Tiefsee."

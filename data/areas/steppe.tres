@@ -25,7 +25,7 @@ relief = Dictionary[StringName, float]({
 &"randhoehe": 28.0
 })
 arrival = Vector2(0, 230)
-paths = [[Vector2(0, 230), Vector2(-40, 120), Vector2(-80, 85)], [Vector2(-80, -2), Vector2(-130, -120), Vector2(-175, -160)], [Vector2(-38, 40), Vector2(60, 0), Vector2(118, -60)]]
+paths = [[Vector2(0, 230), Vector2(-40, 120), Vector2(-80, 85)], [Vector2(-80, -2), Vector2(-130, -120), Vector2(-175, -160)], [Vector2(-38, 40), Vector2(60, 0), Vector2(118, -60)], [Vector2(-40, 120), Vector2(20, 105), Vector2(45, 98)]]
 settlements = Array[Dictionary]([{
 "colors": {
 &"banner": Color(0.78431374, 0.2509804, 0.16470589, 1),
@@ -59,6 +59,23 @@ settlements = Array[Dictionary]([{
 "position": Vector2(150, -60),
 "radius": 32.0,
 "residents": &"lang_ya",
+"type": &"zeltlager"
+}, {
+"colors": {
+&"banner": Color(0.8784314, 0.6901961, 0.2509804, 1),
+&"dach": Color(0.6901961, 0.5411765, 0.22745098, 1),
+&"holz": Color(0.3529412, 0.25882354, 0.15686275, 1),
+&"saeule": Color(0.6901961, 0.5019608, 0.16470589, 1),
+&"stein": Color(0.5411765, 0.5176471, 0.45490196, 1),
+&"wand": Color(0.9411765, 0.9019608, 0.78431374, 1)
+},
+"faction": &"huang_jin",
+"houses": 6,
+"id": &"huang_jin_lager",
+"pond": 0.0,
+"position": Vector2(70, 95),
+"radius": 30.0,
+"residents": &"huang_jin",
 "type": &"zeltlager"
 }])
 places = Array[Dictionary]([{
@@ -201,3 +218,15 @@ enemy_zones = [[&"wolf", &"blitzwolf", &"pfeilhase", &"eber"], [&"blitzwolf", &"
 wild_gu_rank = 3
 wild_gu_range = Vector2(110, 230)
 wild_passives = [[&"tapferkampf", &"body", 120.0, 220.0, false], [&"jadeknochen", &"body", 150.0, 230.0, true], [&"wildwut", &"body", 200.0, 235.0, true], [&"verstaerker", &"support", 140.0, 230.0, true], [&"seelensuche", &"support", 110.0, 210.0, false], [&"selbsthilfe", &"support", 120.0, 220.0, false], [&"sofortigererfolg", &"support", 140.0, 230.0, false]]
+tide = {
+"beasts": Array[StringName]([&"blitzwolf", &"blitzwolf", &"elektrowolf"]),
+"count": 16,
+"every": 5,
+"leader": &"steppenfuerst",
+"name": "Wolfsflut der Graslande",
+"reward": {
+&"kristall": 60,
+&"wolfsgeist": 1
+},
+"target": &"wolfsstamm"
+}

@@ -6,7 +6,7 @@ const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", 
 const OBSTACLE_KINDS: Array[StringName] = [&"hecke", &"wasser", &"fels", &"schalter", &"lichtsiegel", &"blutsiegel", &"vorsprung"]
 ## Bauformen der Erben (wie InheritanceLooks.STYLES; hier als Text, weil das Importskript ohne Autoloads läuft).
 const INHERITANCE_STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte"]
-const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf", &"stadt", &"zeltlager", &"oasenstadt", &"inseldorf", &"festung", &"sekte"]
+const SETTLEMENT_TYPES: Array[StringName] = [&"klan_dorf", &"stadt", &"zeltlager", &"oasenstadt", &"inseldorf", &"festung", &"sekte", &"versteck"]
 
 var _report: ImportReport
 var _ids: Dictionary = {}
@@ -58,6 +58,7 @@ func _check_open(area: AreaData, context: String) -> void:
 		_require(obstacle["reward"], "gu", context + " Hindernis '%s'" % obstacle["id"])
 	for item: StringName in area.resources:
 		_require(item, "items", context + " Ressource")
+	_check_tide(area, context)
 	for zone: Variant in area.enemy_zones:
 		if (zone as Array).is_empty():
 			_report.error("%s: leere Gegnerzone" % context)
@@ -95,3 +96,21 @@ func _require(id: StringName, type: String, context: String) -> void:
 func _inside(position: Vector2, half: float, context: String) -> void:
 	if absf(position.x) > half or absf(position.y) > half:
 		_report.error("%s liegt außerhalb des Gebiets" % context)
+
+
+func _check_tide(area: AreaData, context: String) -> void:
+	if area.tide.is_empty():
+		return
+	for beast: StringName in area.tide["beasts"]:
+		_require(beast, "enemies", context + " Bestienflut")
+	if area.tide["leader"] != &"":
+		_require(area.tide["leader"], "enemies", context + " Bestienflut (Anführer)")
+	for item: StringName in area.tide["reward"]:
+		_require(item, "items", context + " Bestienflut (Belohnung)")
+	var found: bool = false
+	for settlement: Dictionary in area.settlements:
+		found = found or settlement["id"] == area.tide["target"]
+	if not found:
+		_report.error("%s: Bestienflut-Ziel '%s' ist keine Siedlung des Gebiets" % [context, area.tide["target"]])
+	if int(area.tide["every"]) < 1 or int(area.tide["count"]) < 1:
+		_report.error("%s: Bestienflut braucht anzahl ≥ 1 und alle_tage ≥ 1" % context)

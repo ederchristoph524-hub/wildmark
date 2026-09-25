@@ -27,6 +27,7 @@ func build(sources: Dictionary) -> Dictionary:
 		"npcs": _build_keyed(sources, "gegner", "NPCTYPE", _build_npc),
 		"builds": _build_keyed(sources, "materialien", "BUILD", _build_part),
 		"gu_masters": _build_keyed(sources, "gegner", "GUMASTER", _build_master),
+		"standings": _build_keyed(sources, "fraktionen", "STANDING", _build_standing),
 		"areas": _build_keyed(sources, "gebiete", "GEBIETE", AreaImportBuilder.new(_report).build_area),
 		"biomes": _build_keyed(sources, "gebiete", "BIOME", AreaImportBuilder.new(_report).build_biome),
 	}
@@ -166,8 +167,28 @@ func _build_region(d: Dictionary) -> Resource:
 		region.map_polygon.append(Vector2(ImportUtil.to_float(point[0]), ImportUtil.to_float(point[1])))
 	region.wall_name = ImportUtil.text(map.get("mauer"))
 	region.wall_color = ImportUtil.color(map.get("mauer_c", "#ffffff"), context, _report)
+	for river: Variant in map.get("fluesse", []):
+		var line: Array[Vector2] = []
+		for point: Variant in river:
+			line.append(Vector2(ImportUtil.to_float(point[0]), ImportUtil.to_float(point[1])))
+		region.map_rivers.append(line)
+	region.is_sea = bool(map.get("meer", false))
 	return region
 
+
+
+func _build_standing(id: StringName, d: Dictionary) -> Resource:
+	var standing := StandingData.new()
+	standing.id = id
+	standing.display_name = ImportUtil.text(d.get("n"))
+	standing.icon = ImportUtil.text(d.get("ic"))
+	standing.description = ImportUtil.text(d.get("d"))
+	var gift: Dictionary = d.get("gift", {})
+	for item: Variant in gift:
+		standing.gift[StringName(str(item))] = ImportUtil.to_int(gift[item])
+	standing.home_merit = ImportUtil.to_int(d.get("rep"))
+	standing.apt_bonus = ImportUtil.to_float(d.get("aptBonus"))
+	return standing
 
 
 func _build_sect(d: Dictionary) -> Resource:

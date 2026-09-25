@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://ddbyef8lkwxvf"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_8q33s"]
+
+[resource]
+script = ExtResource("1_8q33s")
+id = &"bronzebestie"
+display_name = "Bronzebestie"
+family_a = &"haut"
+family_b = &"phantom"
+channel_time = 0.9
+damage_mult = 2.4
+description = "Mit bronzener Haut stürmst du als Bestie durch die Reihen – unaufhaltsam."
+hint = "Eine Bestie aus Metall."
+steps = [{
+"t": "unstoppable",
+"time": 3.0
+}, {
+"color": "#c09050",
+"kind": "thorns",
+"reduction": 0.3,
+"t": "armor",
+"time": 4.0,
+"value_mult": 0.3
+}, {
+"color": "#c09050",
+"dash": true,
+"knockback": 1.4,
+"length": 9.0,
+"mult": 1.0,
+"t": "line",
+"tags": ["wucht", "metall"],
+"width": 2.6
+}]

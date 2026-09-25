@@ -27,6 +27,12 @@ func _ready() -> void:
 	column.add_child(UiTheme.label(tr("Pause"), 30, UiTheme.ACCENT))
 	column.add_child(UiTheme.button(tr("Fortsetzen"), close))
 	column.add_child(UiTheme.button(tr("Speichern"), _save))
+	var quality: Button = UiTheme.button(GraphicsSettings.label(), func() -> void: pass)
+	quality.pressed.connect(func() -> void:
+		GraphicsSettings.set_quality((GraphicsSettings.quality() + 1) % GraphicsSettings.NAMES.size(), get_viewport())
+		quality.text = GraphicsSettings.label()
+		EventBus.message.emit(tr("Schatten und Auflösung sofort, Pflanzendichte ab dem nächsten Gebietswechsel."), UiTheme.MUTED))
+	column.add_child(quality)
 	column.add_child(UiTheme.button(tr("Zum Hauptmenü (speichert)"), _to_menu))
 	column.add_child(UiTheme.label(tr(CONTROLS_TEXT), 15, UiTheme.MUTED))
 

@@ -16,6 +16,6 @@ min_rank = 5
 join_gift = Dictionary[StringName, int]({
 &"kristall": 18
 })
-signature_gu = &"dogshit"
+signature_gu = &"glueckssicht"
 politics = "Die Blutlinie eines Ehrwürdigen. Drei Unsterbliche, unantastbar in der Nordebene — aber erdrückende Erwartungen an jedes Kind."
 description = "Blutlinie des Riesensonnen-Ehrwürdigen. Herrscht über die Nordebene."

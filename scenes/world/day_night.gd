@@ -57,7 +57,7 @@ func _ready() -> void:
 	world_environment.environment = environment
 	add_child(world_environment)
 	sun = DirectionalLight3D.new()
-	sun.shadow_enabled = true
+	sun.shadow_enabled = GraphicsSettings.shadows()
 	sun.directional_shadow_max_distance = 45.0
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 	add_child(sun)
@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 		GameState.time_of_day -= 1.0
 		GameState.day += 1
 		EventBus.message.emit(tr("Tag %d bricht an") % GameState.day, SUN_DAY)
+		EventBus.day_started.emit(GameState.day)
 	var night: bool = Formulas.is_night(b, GameState.time_of_day)
 	if night != _was_night:
 		_was_night = night
@@ -92,7 +93,7 @@ func _apply(time: float) -> void:
 	var evening: float = 1.0 - clampf(sin(arc * PI) * 3.0, 0.0, 1.0)
 	sun.light_color = MOON.lerp(SUN_DAY.lerp(SUN_EVENING, evening), daylight)
 	sun.light_energy = lerpf(SUN_ENERGY_NIGHT, SUN_ENERGY_DAY, daylight)
-	sun.shadow_enabled = daylight > 0.3
+	sun.shadow_enabled = daylight > 0.3 and GraphicsSettings.shadows()
 	var sky_day: Color = biome.sky if biome != null else SKY_DAY
 	var sky_top_day: Color = biome.sky_top if biome != null else SKY_TOP_DAY
 	var fog_day: Color = biome.fog if biome != null else FOG_DAY

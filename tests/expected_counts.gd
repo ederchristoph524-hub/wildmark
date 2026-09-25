@@ -22,6 +22,7 @@ static func compute() -> Dictionary[StringName, int]:
 		&"regions": (_read("welt")["REGIONS"] as Array).size(),
 		&"sects": (_read("fraktionen")["SECTS"] as Array).size(),
 		&"quests": (_read("quests")["QUESTS"] as Array).size(),
+		&"standings": (_read("fraktionen")["STANDING"] as Dictionary).size(),
 	}
 	return result
 

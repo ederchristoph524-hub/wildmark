@@ -45,7 +45,7 @@ static func drop_loot(tree: SceneTree, data: EnemyData, at: Vector3) -> void:
 static func _matches(data: EnemyData, filter: StringName) -> bool:
 	match filter:
 		&"beast":
-			return data.shape in [&"quad", &"spider", &"beetle"]
+			return data.shape in [&"quad", &"wolf", &"cat", &"boar", &"spider", &"beetle"]
 		&"fly":
 			return data.flying
 		&"skeleton":

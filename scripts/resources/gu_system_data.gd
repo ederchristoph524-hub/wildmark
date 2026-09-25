@@ -11,6 +11,10 @@ extends Resource
 @export var path_colors: Dictionary[StringName, Color] = {}
 ## Pfad-ID → gegensätzliche Pfade (gu.json → PATH_CONFLICT).
 @export var path_conflicts: Dictionary[StringName, Array] = {}
+## Beherrschungsstufen eines Pfads (gu.json → ATTAIN): Name, nötige Dao-Markierungen, Farbe; Index = Stufe.
+@export var attain_names: Array[String] = []
+@export var attain_needs: Array[float] = []
+@export var attain_colors: Array[Color] = []
 ## Familien, aus denen beim Erwachen gewählt werden kann.
 @export var start_families: Array[StringName] = []
 

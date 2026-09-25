@@ -269,6 +269,39 @@ extends Resource
 ## Slot-Wechsel im Kampf braucht so lange Kanalisierung (KAMPFSYSTEM: 3 s).
 @export var slot_switch_channel: float = 3.0
 
+@export_group("Dao-Markierungen (FORMELN.md, Pfade)")
+## Markierungen je Gu-Einsatz, je Killer Move (für beide Pfade), beim Verfeinern (Basis + je Rang) und je Erbe.
+@export var dao_per_use: float = 1.0
+@export var dao_per_killer: float = 3.0
+@export var dao_refine_base: float = 4.0
+@export var dao_refine_per_rank: float = 3.0
+@export var dao_inheritance: float = 30.0
+## Kosten: max(dao_cost_min, 1 − Stufe × dao_cost_per_attain + Konflikt × dao_conflict_cost).
+@export var dao_cost_per_attain: float = 0.09
+@export var dao_cost_min: float = 0.4
+@export var dao_conflict_cost: float = 0.5
+## Abklingzeit: max(dao_cd_min, 1 − Stufe × dao_cd_per_attain).
+@export var dao_cd_per_attain: float = 0.07
+@export var dao_cd_min: float = 0.5
+## Konflikt = min(dao_conflict_max, gegensätzliche / (eigene + 1 + gegensätzliche) × dao_conflict_scale).
+@export var dao_conflict_max: float = 0.45
+@export var dao_conflict_scale: float = 0.6
+
+@export_group("Sektenleben")
+## Tägliche Zuteilung an Urstein im Eintrittsrang (× SectRankData.stipend_mult).
+@export var sect_stipend: int = 4
+## Verdienst: je abgegebener Aufgabe in einer Siedlung der Sekte, je Rang einer erlegten Bestie, je Spende.
+@export var sect_merit_quest: int = 25
+@export var sect_merit_per_beast_rank: int = 1
+@export var sect_donation_stones: int = 10
+@export var sect_donation_merit: int = 8
+## Sektenaufträge (SectTasks): Bestien (+ 2 je Rang), Material (+ 1 je Rang), Lohn in Urstein (+ je Sektenrang) und Verdienst.
+@export var sect_task_hunt: int = 6
+@export var sect_task_deliver: int = 4
+@export var sect_task_stones: int = 8
+@export var sect_task_stones_per_rank: int = 4
+@export var sect_task_merit: int = 30
+
 @export_group("Gu-Meister und Duell")
 ## Kultivierung des Dorf-Gu-Meisters (Rang 2, Stufe 1, durchschnittliches Talent).
 @export var master_rank: int = 2

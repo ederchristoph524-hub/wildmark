@@ -26,6 +26,12 @@ func build(shape: StringName, body_color: Color, radius: float, flying: bool) ->
 			_eyes(Vector3(0, 0.75, -0.75), 0.35)
 		&"quad":
 			_quad()
+		&"wolf":
+			_wolf(false)
+		&"cat":
+			_wolf(true)
+		&"boar":
+			_boar()
 		&"pilz":
 			_part(_cylinder(0.35, 0.45, 0.9), Vector3(0, 0.45, 0), Vector3.ONE, Color(0.92, 0.88, 0.78))
 			_part(_sphere(1.0), Vector3(0, 1.0, 0), Vector3(1.1, 0.55, 1.1), color)
@@ -92,6 +98,57 @@ func _quad() -> void:
 		for z: float in [-0.4, 0.45]:
 			_part(_box(), Vector3(x, 0.2, z), Vector3(0.14, 0.4, 0.14), color.darkened(0.25))
 	_eyes(Vector3(0, 0.82, -0.93), 0.2)
+
+
+## Wolf (oder mit cat = true eine Großkatze): gestreckter Rumpf mit tiefer Brust, gebogener Hals, Kopf mit
+## Schnauze und spitzen Ohren, schlanke Läufe, buschiger bzw. langer Schwanz; Rücken dunkler als der Bauch.
+func _wolf(cat: bool) -> void:
+	var back: Color = color.darkened(0.18)
+	var belly: Color = color.lightened(0.12)
+	_part(_sphere(0.42), Vector3(0, 0.78, -0.35), Vector3(0.95, 1.0, 1.1), color)
+	_part(_sphere(0.36), Vector3(0, 0.74, 0.35), Vector3(0.9, 0.9, 1.2), back)
+	_part(_box(), Vector3(0, 0.62, 0.0), Vector3(0.5, 0.3, 0.9), belly)
+	_part(_cylinder(0.16, 0.22, 0.5), Vector3(0, 1.0, -0.7), Vector3.ONE, color, Vector3(-0.8, 0, 0))
+	var head := Vector3(0, 1.12 if not cat else 1.05, -0.95)
+	_part(_sphere(0.24), head, Vector3(1.0, 0.9, 1.05), color.lightened(0.05))
+	var snout_length: float = 0.18 if cat else 0.34
+	_part(_cylinder(0.07, 0.14, snout_length), head + Vector3(0, -0.06, -0.14 - snout_length * 0.5), Vector3.ONE, belly, Vector3(-PI * 0.5, 0, 0))
+	_part(_sphere(0.05), head + Vector3(0, -0.04, -0.16 - snout_length), Vector3.ONE, Color(0.1, 0.08, 0.08))
+	for side: float in [-1.0, 1.0]:
+		var ear: Vector3 = head + Vector3(side * 0.13, 0.2, 0.02)
+		_part(_cylinder(0.0, 0.08 if not cat else 0.07, 0.22 if not cat else 0.14), ear, Vector3.ONE, back, Vector3(0, 0, side * -0.25))
+		for z: float in [-0.45, 0.42]:
+			_part(_cylinder(0.06, 0.08, 0.62), Vector3(side * 0.2, 0.31, z), Vector3.ONE, back.darkened(0.1), Vector3(0.1 if z < 0.0 else -0.12, 0, 0))
+			_part(_sphere(0.08), Vector3(side * 0.2, 0.04, z - 0.04), Vector3(1.0, 0.6, 1.3), back.darkened(0.2))
+	if cat:
+		_part(_cylinder(0.04, 0.07, 0.9), Vector3(0, 0.62, 1.0), Vector3.ONE, back, Vector3(2.2, 0, 0))
+		# Streifen an beiden Flanken und quer über den Rücken.
+		for i: int in 4:
+			var z: float = -0.45 + i * 0.28
+			for side: float in [-1.0, 1.0]:
+				_part(_box(), Vector3(side * 0.37, 0.78, z), Vector3(0.04, 0.34, 0.07), color.darkened(0.6), Vector3(0.25, 0, 0))
+			_part(_box(), Vector3(0, 1.15 - (z + 0.45) * 0.14, z), Vector3(0.4, 0.04, 0.07), color.darkened(0.6))
+	else:
+		_part(_cylinder(0.06, 0.15, 0.55), Vector3(0, 0.66, 0.92), Vector3.ONE, back, Vector3(2.1, 0, 0))
+	_eyes(head + Vector3(0, 0.07, -0.19), 0.2)
+
+
+## Eber: gedrungener, hoher Rumpf mit Rückenborsten, großer Kopf mit Rüssel und Hauern, kurze Läufe.
+func _boar() -> void:
+	var back: Color = color.darkened(0.2)
+	_part(_sphere(0.5), Vector3(0, 0.72, 0.1), Vector3(0.95, 0.9, 1.35), color)
+	for i: int in 5:
+		_part(_cylinder(0.0, 0.07, 0.22), Vector3(0, 1.18 - absf(i - 2) * 0.04, -0.35 + i * 0.2), Vector3.ONE, back, Vector3(0.3, 0, 0))
+	var head := Vector3(0, 0.7, -0.75)
+	_part(_box(), head, Vector3(0.5, 0.48, 0.5), color.lightened(0.05))
+	_part(_cylinder(0.13, 0.15, 0.22), head + Vector3(0, -0.06, -0.34), Vector3.ONE, color.lightened(0.15), Vector3(-PI * 0.5, 0, 0))
+	for side: float in [-1.0, 1.0]:
+		_part(_cylinder(0.0, 0.04, 0.26), head + Vector3(side * 0.14, -0.1, -0.4), Vector3.ONE, Color(0.95, 0.92, 0.85), Vector3(-0.6, 0, side * 0.5))
+		_part(_cylinder(0.0, 0.08, 0.16), head + Vector3(side * 0.18, 0.3, 0.05), Vector3.ONE, back, Vector3(0, 0, side * -0.4))
+		for z: float in [-0.35, 0.45]:
+			_part(_cylinder(0.08, 0.1, 0.42), Vector3(side * 0.26, 0.2, z), Vector3.ONE, back.darkened(0.1))
+	_part(_cylinder(0.02, 0.04, 0.3), Vector3(0, 0.8, 0.78), Vector3.ONE, back, Vector3(0.9, 0, 0))
+	_eyes(head + Vector3(0, 0.1, -0.26), 0.24)
 
 
 ## Schlange: Körper aus fünf Kugeln in einer Welle, erhobener Kopf.

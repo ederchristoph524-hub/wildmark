@@ -3,6 +3,8 @@ extends RefCounted
 ## Verfeinerung wilder Gu (FORMELN.md, Verfeinerung) und Merkmals-Würfe (GU_SYSTEM.md, Abschnitt 5).
 
 const RARE_TRAIT: StringName = &"glaenzend"
+## Körper-Gu prägen Markierungen in den Kraftpfad.
+const BODY_PATH: StringName = &"kraft"
 const ANY_TRAIT_KEY: StringName = &"eines"
 
 
@@ -76,6 +78,7 @@ static func refine(gu: Resource, aperture: ApertureComponent, roll: float = -1.0
 		return null
 	var id: StringName = gu.get("id")
 	var title: String = Loc.t(String(gu.get("display_name")))
+	Dao.add(path_of(gu), Balance.values.dao_refine_base + int(gu.get("rank")) * Balance.values.dao_refine_per_rank)
 	if gu is BodyGuData:
 		GameState.body_gu.append(id)
 		EventBus.message.emit(Loc.t("%s ist jetzt dauerhaft in deinen Körper eingeprägt.") % title, Color(1.0, 0.85, 0.3))
@@ -92,6 +95,15 @@ static func refine(gu: Resource, aperture: ApertureComponent, roll: float = -1.0
 	EventBus.message.emit(Loc.t("Verfeinert: %s%s") % [title, trait_text], Color(1.0, 0.85, 0.3))
 	EventBus.gu_obtained.emit(id)
 	return instance
+
+
+## Pfad eines Gu beliebiger Art (Körper-Gu gehören zum Kraftpfad).
+static func path_of(gu: Resource) -> StringName:
+	if gu is GuData:
+		return DataRegistry.family((gu as GuData).family).path
+	if gu is SupportGuData:
+		return (gu as SupportGuData).path
+	return BODY_PATH
 
 
 # --- Aufstiegsverfeinerung (GU_SYSTEM.md, Gu-Aufstieg) ---

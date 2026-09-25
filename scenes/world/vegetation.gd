@@ -46,7 +46,7 @@ func _ready() -> void:
 	var dry: bool = biome.vegetation.has(&"kaktus")
 	var rock_mesh: ArrayMesh = VegetationMeshes.rock(stone, stone.lightened(0.15) if dry else VegetationMeshes.MOSS)
 	_place_chunked(rock_mesh, _scatter(roundi(biome.rocks_per_1000 * area_k), 0.9, Vector2(0.5, 2.4)), 110.0, false, CHUNK_LARGE, false)
-	var grass: Array[Transform3D] = _scatter(roundi(biome.grass_per_1000 * area_k), 0.5, Vector2(0.7, 1.3))
+	var grass: Array[Transform3D] = _scatter(roundi(biome.grass_per_1000 * area_k * GraphicsSettings.grass_mult()), 0.5, Vector2(0.7, 1.3))
 	var flowers: int = floori(grass.size() / 8.0)
 	var tall: bool = biome.vegetation.has(&"steppengras")
 	_place_chunked(VegetationMeshes.tall_grass() if tall else VegetationMeshes.grass(), grass.slice(flowers), 32.0 if not tall else 45.0, false, CHUNK_SMALL)
@@ -152,7 +152,7 @@ func _place_chunked(mesh: Mesh, transforms: Array, view_distance: float, shadows
 		instance.multimesh = multimesh
 		instance.material_override = WorldMaterials.vertex_colored()
 		instance.position = center
-		instance.visibility_range_end = view_distance
+		instance.visibility_range_end = view_distance * GraphicsSettings.view_mult()
 		instance.visibility_range_end_margin = 8.0
 		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if shadows else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(instance)

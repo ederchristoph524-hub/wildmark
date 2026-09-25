@@ -1,0 +1,184 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://b026w0sttelet"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_0qgkk"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_k7w46"]
+
+[sub_resource type="Resource" id="gu_eisenzahn"]
+script = ExtResource("1_0qgkk")
+id = &"eisenzahn"
+display_name = "Eisenzahn-Gu"
+family = &"tausendfuessler"
+description = "Dein Arm wird kurz zu einer gezahnten Klinge – du stürmst vor und reißt Wunden."
+
+[sub_resource type="Resource" id="gu_saegezahn"]
+script = ExtResource("1_0qgkk")
+id = &"saegezahn"
+display_name = "Sägezahn-Gu"
+family = &"tausendfuessler"
+rank = 2
+rank_gift = "Durchbohrt Rüstung, +1 Blutung."
+description = "Die Zähne drehen sich wie eine Säge."
+gifts = {
+"pierce_armor": true,
+"stacks_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_stahlkiefer"]
+script = ExtResource("1_0qgkk")
+id = &"stahlkiefer"
+display_name = "Stahlkiefer-Gu"
+family = &"tausendfuessler"
+rank = 3
+rank_gift = "Längerer Sturm, am Ende ein Rundumschnitt."
+description = "Ein Kiefer aus Stahl packt alles im Weg."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.8,
+"radius": 3.2,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.25
+}],
+"step": {
+"length": 10.0,
+"width": 2.6
+}
+}
+
+[sub_resource type="Resource" id="gu_kettensaege_tausendfuessler"]
+script = ExtResource("1_0qgkk")
+id = &"kettensaege_tausendfuessler"
+display_name = "Kettensägen-Goldtausendfüßler-Gu"
+family = &"tausendfuessler"
+rank = 4
+rank_gift = "Hinrichtung, dreifacher Rundumschnitt – das Erbe des Blumenwein-Mönchs."
+description = "Dein Arm wird zum goldenen Tausendfüßler, dessen Glieder wie eine Kettensäge kreischen."
+gifts = {
+"execute": 0.6,
+"extra": [{
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.6,
+"radius": 3.5,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.2
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.6,
+"radius": 3.5,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.45
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.6,
+"radius": 3.5,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.7
+}],
+"step": {
+"length": 11.0,
+"width": 2.8
+}
+}
+
+[sub_resource type="Resource" id="gu_himmelsgold_tausendfuessler"]
+script = ExtResource("1_0qgkk")
+id = &"himmelsgold_tausendfuessler"
+display_name = "Himmelsgold-Tausendfüßler-Gu"
+family = &"tausendfuessler"
+rank = 5
+rank_gift = "Zwei Sturmläufe hintereinander, unaufhaltsam, jede Wunde blutet doppelt."
+description = "Ein Tausendfüßler aus reinem Himmelsgold schlingt sich um deinen Arm."
+gifts = {
+"extra": [{
+"t": "unstoppable",
+"time": 2.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"dash": true,
+"length": 11.0,
+"mult": 0.9,
+"pierce_armor": true,
+"stacks": 2.0,
+"status": "blutung",
+"t": "line",
+"tags": ["schnitt", "metall"],
+"width": 3.0
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#fff0b0",
+"mult": 0.8,
+"radius": 4.0,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.9
+}],
+"stacks_add": 1.0
+}
+
+[resource]
+script = ExtResource("2_k7w46")
+id = &"tausendfuessler"
+display_name = "Goldener Tausendfüßler"
+path = &"metall"
+role = "Sturmangriff, Durchbrecher"
+form = &"sturmlauf"
+tags = Array[StringName]([&"schnitt", &"metall"])
+status = &"blutung"
+feed_item = &"eisenerz"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"breite": 2.0,
+&"cd": 3.2,
+&"ess": 6.0,
+&"reichweite": 7.0,
+&"rueckstoss": 0.6,
+&"schaden": 16.0,
+&"stapel": 1.0
+})
+members = Array[ExtResource("1_0qgkk")]([SubResource("gu_eisenzahn"), SubResource("gu_saegezahn"), SubResource("gu_stahlkiefer"), SubResource("gu_kettensaege_tausendfuessler"), SubResource("gu_himmelsgold_tausendfuessler")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"eisenerz": 4,
+&"klingenstahl": 1
+},
+3: {
+&"klingenstahl": 3,
+&"knochenmehl": 2
+},
+4: {
+&"heldenherz": 1,
+&"klingenstahl": 5
+},
+5: {
+&"heldenherz": 2,
+&"sonnengold": 1
+}
+})
+world_effect = "Die Sägezähne zerschneiden Hecken, Ranken und morsche Tore."

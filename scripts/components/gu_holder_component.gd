@@ -63,7 +63,7 @@ func essence_cost(instance: GuInstance) -> float:
 	var family: GuFamilyData = family_of(instance)
 	var data: GuData = gu_data(instance)
 	var base_cost: float = float(family.base_r1.get(COST_KEY, 0.0))
-	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult")
+	return Formulas.gu_essence_cost(Balance.values, base_cost, data.rank, GameState.rank) * float(trait_rule(instance, "cost", 1.0)) * PassiveGu.mult("essence_cost_mult") * Dao.cost_mult(family.path)
 
 
 ## Lebenskosten (Blutpfad): hp_kosten ist ein Prozentsatz des Höchstlebens, damit der Preis mit dem Rang mitwächst.
@@ -73,7 +73,8 @@ func hp_cost(instance: GuInstance) -> float:
 
 func cooldown_of(instance: GuInstance) -> float:
 	var gift_mult: float = GuGifts.number(gu_data(instance), "cd_mult")
-	return float(family_of(instance).base_r1.get(COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult")
+	var family: GuFamilyData = family_of(instance)
+	return float(family.base_r1.get(COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult") * Dao.cooldown_mult(family.path)
 
 
 ## Leer = einsatzbereit, sonst Grund für die Anzeige.
@@ -118,6 +119,7 @@ func use_slot(slot: int, aim: Vector3, target: Combatant) -> bool:
 	if hp_cost(instance) > 0.0:
 		host.health.apply_damage(hp_cost(instance))
 	instance.cooldown_left = cooldown_of(instance)
+	Dao.add(family.path, Balance.values.dao_per_use * float(trait_rule(instance, "dao", 1.0)))
 	gu_used.emit(slot, family.id)
 	return true
 

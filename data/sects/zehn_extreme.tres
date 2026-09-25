@@ -15,9 +15,9 @@ power = 4
 rivals = Array[StringName]([&"schattensekte"])
 min_rank = 6
 join_gift = Dictionary[StringName, int]({
-&"kristall": 25,
-&"material": 2
+&"jadeader": 2,
+&"kristall": 25
 })
-signature_gu = &"verstaerkung"
+signature_gu = &"verstaerker"
 politics = "Sammelt Extreme Physiques wie andere Schätze. Wer hier geboren wird, wird von klein auf vermessen."
 description = "Sammelt Träger Extremer Physiques des Zentralkontinents."

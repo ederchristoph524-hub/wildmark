@@ -15,6 +15,10 @@ func run() -> void:
 	await _test_maps()
 	_test_area()
 	await _test_inheritance()
+	_test_sect_life()
+	_test_origin()
+	await _test_beast_tide()
+	_test_dao()
 
 
 func _test_cultivation() -> void:
@@ -99,4 +103,84 @@ func _test_inheritance() -> void:
 	for node: Node in steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
 		if node is WildGu and String((node as WildGu).spot_id).begins_with("erbe_"):
 			wild += 1
-	steps._check(inheritance.state == Inheritance.State.CLAIMED and &"blumenwein" in GameState.inheritances and wild == 1, "Erbe geöffnet: Schnaps-Wurm wartet (%d)" % wild)
+	var reward: Dictionary = inheritance.data["reward"]
+	var expected: int = (reward["support"] as Array).size() + (reward["gu"] as Array).size() + (reward["body"] as Array).size()
+	steps._check(inheritance.state == Inheritance.State.CLAIMED and &"blumenwein" in GameState.inheritances and wild == expected, "Erbe geöffnet: Schnaps-Wurm und Eisenzahn warten (%d/%d)" % [wild, expected])
+
+
+## Sektenleben: Beitritt beim Oberhaupt, Aufstieg mit Geschenken, Signatur-Gu, Zuteilung, Speichern.
+func _test_sect_life() -> void:
+	var leaders: Array[Node] = steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is Npc and (n as Npc).leader and (n as Npc).sect_id == &"gu_yue")
+	steps._check(not leaders.is_empty(), "das Dorfoberhaupt vertritt den Gu-Yue-Klan")
+	var sect: SectData = DataRegistry.sect(&"gu_yue")
+	var stones: int = GameState.item_count(&"kristall")
+	steps._check(SectLife.join(sect) and SectLife.is_member(&"gu_yue") and GameState.item_count(&"kristall") >= stones, "Beitritt mit Geschenk")
+	var gu_count: int = GameState.gu.size()
+	SectLife.add_merit(DataRegistry.progression().sect_ranks[2].merit_needed)
+	steps._check(GameState.sect_rank == 2 and GameState.gu.size() == gu_count + 1, "Aufstieg über zwei Ränge, Kernschüler erhält das Signatur-Gu")
+	var before: int = GameState.item_count(&"kristall")
+	SectLife.on_new_day(GameState.day + 1)
+	SectLife.on_new_day(GameState.day + 1)
+	steps._check(GameState.item_count(&"kristall") == before + SectLife.stipend(), "tägliche Zuteilung genau einmal")
+	var saved: Dictionary = GameState.to_dict()
+	GameState.from_dict(saved)
+	steps._check(GameState.sect == &"gu_yue" and GameState.sect_rank == 2, "Sekte und Rang werden gespeichert")
+	var task: Dictionary = SectTasks.today()
+	steps._check(task["day"] == GameState.day and int(task["count"]) > 0 and SectTasks.text(task) != "", "Sektenauftrag des Tages")
+	match String(task["type"]):
+		SectTasks.HUNT:
+			GameState.kills += int(task["count"])
+		SectTasks.DELIVER:
+			GameState.add_item(task["item"], int(task["count"]))
+		_:
+			GameState.duels_won += 1
+	var merit: int = GameState.sect_merit
+	steps._check(SectTasks.turn_in() and GameState.sect_merit > merit and not SectTasks.turn_in(), "Auftrag abgeben (einmal pro Tag)")
+	SectLife.leave()
+	steps._check(not SectLife.is_member(), "Austritt")
+
+
+## Bestienflut: Wellen stürmen auf das Gu-Yue-Dorf zu; sind alle erlegt, gibt es den Lohn.
+func _test_beast_tide() -> void:
+	await steps._clear_enemies()
+	var tide: BeastTide = steps.main.world.tide
+	steps._check(tide != null, "Qing-Mao-Berg hat eine Wolfsflut")
+	if tide == null:
+		return
+	var stones: int = GameState.item_count(&"kristall")
+	tide.start()
+	await steps._frames(roundi(BeastTide.WAVE_INTERVAL * 60.0 * BeastTide.WAVES) + 30)
+	var beasts: Array[Node] = steps.tree.get_nodes_in_group(Enemy.GROUP_ENEMIES)
+	steps._check(beasts.size() >= int(tide.tide["count"]) and BeastTide.status_text != "", "alle Wellen sind erschienen (%d Bestien)" % beasts.size())
+	for node: Node in beasts:
+		(node as Enemy).health.apply_damage(99999.0)
+	await steps._frames(10)
+	steps._check(not tide.active and GameState.item_count(&"kristall") > stones and BeastTide.status_text == "", "Flut abgewehrt, Lohn erhalten")
+
+
+## Dao: Markierungen heben die Beherrschung, senken Kosten und Abklingzeit; Gegenpfade verteuern.
+func _test_dao() -> void:
+	var saved: Dictionary = GameState.dao.duplicate()
+	GameState.dao.clear()
+	var base_cost: float = Dao.cost_mult(&"feuer")
+	Dao.add(&"feuer", DataRegistry.gu_system().attain_needs[2])
+	steps._check(Dao.attain(&"feuer") == 2 and Dao.cost_mult(&"feuer") < base_cost and Dao.cooldown_mult(&"feuer") < 1.0, "Meister im Feuerpfad: billiger und schneller")
+	steps._check(Dao.conflict(&"wasser") > 0.0 and Dao.cost_mult(&"wasser") > 1.0, "Feuer-Markierungen verteuern den Wasserpfad")
+	var round_trip: Dictionary = GameState.to_dict()
+	GameState.from_dict(round_trip)
+	steps._check(is_equal_approx(Dao.marks(&"feuer"), DataRegistry.gu_system().attain_needs[2]), "Markierungen werden gespeichert")
+	GameState.dao = saved
+
+
+## Herkunft Hauptlinie: Geschenk, Talentbonus und Mitgliedschaft im Gu-Yue-Klan mit Verdienst.
+func _test_origin() -> void:
+	var standing: StandingData = DataRegistry.standing(&"haupt")
+	var stones: int = GameState.item_count(&"kristall")
+	var apt: float = GameState.apt
+	GameState.standing = &"haupt"
+	Origins.apply()
+	steps._check(GameState.item_count(&"kristall") >= stones + standing.gift.get(&"kristall", 0) and GameState.apt >= minf(apt + standing.apt_bonus, 100.0) - 0.01, "Hauptlinie: Geschenk und Talentbonus")
+	steps._check(SectLife.is_member(Origins.HOME_SECT) and GameState.sect_merit >= standing.home_merit and GameState.sect_rank >= 1, "Hauptlinie ist Innerer Schüler im Gu-Yue-Klan")
+	SectLife.leave()
+	GameState.standing = &""
+	GameState.apt = apt

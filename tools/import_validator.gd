@@ -35,6 +35,10 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	_check_enemies(built["enemies"])
 	_check_items(built["items"])
 	_check_sects(built["sects"])
+	_check_sect_ranks(built["progression"])
+	for standing: StandingData in built["standings"]:
+		for item: StringName in standing.gift:
+			_expect("items", item, "Herkunft '%s' (Geschenk)" % standing.id)
 	_check_trades(built["npcs"], built["builds"])
 	_check_masters(built["gu_masters"], built["body"])
 	AreaValidator.new(_report, _ids).check(built["areas"], built["regions"])
@@ -201,6 +205,12 @@ func _check_sects(list: Array) -> void:
 		for item: StringName in sect.join_gift:
 			_expect("items", item, context + " (Beitrittsgeschenk)")
 		_check_signature_gu(sect, context)
+
+
+func _check_sect_ranks(progression: ProgressionData) -> void:
+	for rank: SectRankData in progression.sect_ranks:
+		for item: StringName in rank.reward:
+			_expect("items", item, "Sektenrang '%s' (Aufstiegsgeschenk)" % rank.display_name)
 
 
 func _check_trades(npcs: Array, parts: Array) -> void:

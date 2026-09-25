@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c2tgh2l3pm1h3"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_fl6ec"]
+
+[resource]
+script = ExtResource("1_fl6ec")
+id = &"schattenschritt"
+display_name = "Schattenschritt"
+family_a = &"tarnung"
+family_b = &"schritt"
+channel_time = 0.6
+damage_mult = 2.4
+description = "Du verschwindest und tauchst hinter deinem Ziel wieder auf."
+hint = "Wer nicht gesehen wird, ist schon da."
+steps = [{
+"t": "stealth",
+"time": 3.0
+}, {
+"distance": 9.0,
+"t": "teleport",
+"to": "target"
+}, {
+"color": "#7a6a9a",
+"mult": 1.0,
+"radius": 2.5,
+"status": "wunde",
+"t": "circle",
+"tags": ["schnitt"]
+}]

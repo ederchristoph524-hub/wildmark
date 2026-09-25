@@ -1,6 +1,7 @@
 class_name Minimap
 extends Control
-## Minikarte oben links: Gelände um den Spieler (Norden oben), Orte, Dorfbewohner, Bestien und Blickrichtung.
+## Minikarte oben links: Gelände um den Spieler (Norden oben), Orte, Dorfbewohner, Bestien und Blickrichtung,
+## unten eine Leiste mit Gebiet und Region.
 ## Antippen oder Klicken öffnet die große Karte.
 
 signal opened
@@ -11,6 +12,9 @@ const VIEW_RADIUS: float = 55.0
 const BORDER: Color = Color(0.86, 0.72, 0.36, 0.9)
 const BACKGROUND: Color = Color(0.05, 0.08, 0.07, 0.85)
 const PLAYER_COLOR: Color = Color(1.0, 1.0, 1.0)
+const CAPTION_HEIGHT: float = 18.0
+const CAPTION_SIZE: int = 12
+const CAPTION_BACKGROUND: Color = Color(0.0, 0.0, 0.0, 0.6)
 
 var player: Player = null
 var _redraw_time: float = 0.0
@@ -55,7 +59,21 @@ func _draw() -> void:
 			_draw_marker(point, marker["kind"])
 	_draw_player(size * 0.5)
 	draw_string(get_theme_default_font(), Vector2(size.x - 16.0, 16.0), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, BORDER)
+	_draw_caption(world)
 	draw_rect(rect, BORDER, false, 2.0)
+
+
+## Wo du bist: Gebiet und Region als Leiste am unteren Rand.
+func _draw_caption(world: World) -> void:
+	var region: RegionData = DataRegistry.region(world.area.region)
+	var text: String = tr(world.area.display_name) + ("" if region == null else " · " + tr(region.display_name))
+	var font: Font = get_theme_default_font()
+	var font_size: int = CAPTION_SIZE
+	while font_size > 8 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > size.x - 8.0:
+		font_size -= 1
+	draw_rect(Rect2(0.0, size.y - CAPTION_HEIGHT, size.x, CAPTION_HEIGHT), CAPTION_BACKGROUND)
+	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+	draw_string(font, Vector2((size.x - width) * 0.5, size.y - 5.0), text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, BORDER)
 
 
 func _draw_marker(point: Vector2, kind: StringName) -> void:

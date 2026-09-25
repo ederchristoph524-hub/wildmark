@@ -17,7 +17,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 
 ## gu_system.json (sterbliche Ebene, Rang 1–5)
 
-- `familien` – 24 Familien: `pfad`, `rolle`, `wirkform` (20 Formen, siehe `GU_SYSTEM.md`), `tags`, `status` (ausgelöster Zustand), `futter`, `basis_r1` (Werte auf Rang 1, je nach Wirkform z. B. `schaden`, `cd`, `ess`, `hp_kosten` (Prozent des Höchstlebens), `reichweite`, `radius`, `dauer`, `takt`, `anzahl`, `winkel`, `rueckstoss`, `tempo`, `staerke`, `reduktion`, `wesen`), `aufstieg` (Materialien `r2`–`r5`), `mitglieder` (je Rang: `id`, `name`, `neu` = neu entworfen, sonst Lore aus `gu.json`, `ranggabe` als Text, `gaben` als Schalter), `welt` (Wirkung auf Objekte).
+- `familien` – 26 Familien: `pfad`, `rolle`, `wirkform` (20 Formen, siehe `GU_SYSTEM.md`), `tags`, `status` (ausgelöster Zustand), `futter`, `basis_r1` (Werte auf Rang 1, je nach Wirkform z. B. `schaden`, `cd`, `ess`, `hp_kosten` (Prozent des Höchstlebens), `reichweite`, `radius`, `dauer`, `takt`, `anzahl`, `winkel`, `rueckstoss`, `tempo`, `staerke`, `reduktion`, `wesen`), `aufstieg` (Materialien `r2`–`r5`), `mitglieder` (je Rang: `id`, `name`, `neu` = neu entworfen, sonst Lore aus `gu.json`, `ranggabe` als Text, `gaben` als Schalter), `welt` (Wirkung auf Objekte).
 - `koerper_gu` – dauerhaft eingeprägte Gu (`wirkung`: `grundschaden`, `max_hp`, `schaden_erlitten`). `hilfs_gu` – passive Hilfs-Gu mit Futter und `regeln` (Schlüssel für `PassiveGu`).
 - `zustaende` (mit `regel`: `dauer`, `dps`, `tempo`, `heilung`, `schaden_erlitten`, `bei_max`, `flucht`), `reaktionen` (`ausloeser` = Tag des Treffers, `auf` = Zustand des Ziels, `regel` = Parameter der Wirkung), `tags`, `merkmale` (`gewicht` für Zufallsauswahl), `merkmal_chance`.
 - `killer_moves` – auf Familienebene (`a`, `b` = Familien-IDs), mit `kanal_s`, `mult`, `rang` (Mindestrang beider Gu), `hinweis`, `schritte` (Wirkungsschritte, siehe `GU_SYSTEM.md`, Abschnitt 9).
@@ -36,7 +36,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 
 ## gegner.json
 
-- `MON` – Bestien. `hp`, `dmg`, `spd` (Tempo), `xp`, `r` (Radius), `z` (Gefahrenzone), `rang` (1–5), `drop` (Liste `[Material-ID, Chance]`), `shape` (`quad`, `bear`, `croc`, `snake`, `monkey`, `scorpion`, `bird`, `spider`, `bat`, `slime`, `pilz`, `skel`, `ghost`, `golem` …), `beh` (Verhalten), optional `faehigkeit` (Wirkungsschritte wie bei Killer Moves) mit `f_reichweite` und `f_cd`, `poison`, `burn`, `fly`, `night` (nur nachts), `rng` (Fernkampf), `armor`, `boss`, `minion`, `nospawn` (nur Beschwörung).
+- `MON` – Bestien. `hp`, `dmg`, `spd` (Tempo), `xp`, `r` (Radius), `z` (Gefahrenzone), `rang` (1–5), `drop` (Liste `[Material-ID, Chance]`), `shape` (`quad`, `wolf`, `cat`, `boar`, `bear`, `croc`, `snake`, `monkey`, `scorpion`, `bird`, `spider`, `bat`, `slime`, `pilz`, `skel`, `ghost`, `golem` …), `beh` (Verhalten), optional `faehigkeit` (Wirkungsschritte wie bei Killer Moves) mit `f_reichweite` und `f_cd`, `poison`, `burn`, `fly`, `night` (nur nachts), `rng` (Fernkampf), `armor`, `boss`, `minion`, `nospawn` (nur Beschwörung).
 - `VARIANTS` – regionale Varianten. `GUMASTER` – NPC-Gu-Meister mit ihren Gu (`gu`, der Meister nutzt das Familienmitglied seines Rangs), Fraktion (`f`), `rang` und optional `stufe`. `NPCTYPE` – Händler/NPC-Typen mit `trade` (`give`, `get`, optional `gu` und `gu_rang` für zufällige Gu eines Rangs).
 
 ## materialien.json
@@ -59,7 +59,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 ## fraktionen.json
 
 - `SECTS` – 15 Klans/Sekten/Stämme: `f` Fraktion (righteous/demonic/…), `type`, `imm`, `power`, `rivals`, `pol` (politische Lage), `gift` (Beitrittsgeschenk), `gu` (Signatur-Gu), `req` (Beitrittsbedingung).
-- `SECTRANKS` – Ränge innerhalb einer Sekte (`need`, `perk`, `give`). `FACTIONS`, `ORGTYPE`, `STANDING` (Herkunft/Stand mit `aptBonus`).
+- `SECTRANKS` – Ränge innerhalb einer Sekte (`need` Verdienst, `perk`, `give` Aufstiegsgeschenk als Item-IDs, `zuteilung` Faktor auf die tägliche Zuteilung); importiert in `ProgressionData.sect_ranks`. `gu` einer Sekte ist ihr Signatur-Gu (geschenkt ab Kernschüler). `FACTIONS`, `ORGTYPE`, `STANDING` (Herkunft im Klan: `gift` Startgeschenk, `aptBonus` Talentbonus, `rep` Verdienst im Gu-Yue-Klan beim Start; importiert als `StandingData`).
 
 ## quests.json
 
@@ -80,9 +80,9 @@ Häufigste Pfade: Weisheit und Kraft (je 13), Metall (12), Verwandlung und Seele
 
 ## gebiete.json
 
-- `GEBIETE` – spielbare Gebiete der Gu-Welt (ID → Eintrag): `n` Name, `region` (ID aus `welt.json → REGIONS`), `karte` Position auf der Weltkarte (0–1, x Osten, y Süden), `rang` empfohlener Rang `[von, bis]`, `offen` bereits bereisbar, `d` Beschreibung. Offene Gebiete: `groesse` (m), `seed`, `biom`, `relief` (`hoehe`, `frequenz`, `detail`, `berge`, `rand`, `randhoehe`, `horizont` = Gebirgskranz, `basis` = Grundhöhe), `erhebungen` (`[x, z, Radius, Höhe]`, z. B. Inseln), `ankunft`, `siedlungen` (`typ`: `klan_dorf`, `stadt`, `festung`, `sekte`, `zeltlager`, `oasenstadt`, `inseldorf`; `fraktion`, `pos`, `radius`, `haeuser`, `farben` (`dach`, `wand`, `holz`, `saeule`, `banner`, `stein`, optional `platz`), `bewohner` (Gruppe in `SettlementPeople`), optional `teich`), `orte` (`geisterquelle`, `see`, `aschefeld`, `frostquelle`, `friedhof`, `erbe` mit `opfer`, `waechter`, `belohnung` {`gu`, `hilfs_gu`, `koerper_gu`, `items`}, `text`, `stil` (`hoehle`, `grab`, `tempel`, `altar`, `grotte`) und `akzent` (Leuchtfarbe)), `hindernisse` (`art`, `belohnung`, `richtung`, `abstand`), `wege`, `ressourcen`, `gegner` (`radien`, `zonen`: Gefahrenzonen als Zahl oder Bestien-IDs), `wilde_gu` (`rang`, `abstand`), `wilde_passive`.
+- `GEBIETE` – spielbare Gebiete der Gu-Welt (ID → Eintrag): `n` Name, `region` (ID aus `welt.json → REGIONS`), `karte` Position auf der Weltkarte (0–1, x Osten, y Süden), `rang` empfohlener Rang `[von, bis]`, `offen` bereits bereisbar, `d` Beschreibung. Offene Gebiete: `groesse` (m), `seed`, `biom`, `relief` (`hoehe`, `frequenz`, `detail`, `berge`, `rand`, `randhoehe`, `horizont` = Gebirgskranz, `basis` = Grundhöhe), `erhebungen` (`[x, z, Radius, Höhe]`, z. B. Inseln), `ankunft`, `siedlungen` (`typ`: `klan_dorf`, `stadt`, `festung`, `sekte`, `zeltlager`, `oasenstadt`, `inseldorf`, `versteck`; `fraktion`, `pos`, `radius`, `haeuser`, `farben` (`dach`, `wand`, `holz`, `saeule`, `banner`, `stein`, optional `platz`), `bewohner` (Gruppe in `SettlementPeople`), optional `teich`), `orte` (`geisterquelle`, `see`, `aschefeld`, `frostquelle`, `friedhof`, `erbe` mit `opfer`, `waechter`, `belohnung` {`gu`, `hilfs_gu`, `koerper_gu`, `items`}, `text`, `stil` (`hoehle`, `grab`, `tempel`, `altar`, `grotte`) und `akzent` (Leuchtfarbe)), `hindernisse` (`art`, `belohnung`, `richtung`, `abstand`), `wege`, `ressourcen`, `gegner` (`radien`, `zonen`: Gefahrenzonen als Zahl oder Bestien-IDs), `wilde_gu` (`rang`, `abstand`), `wilde_passive`, optional `flut` (Bestienflut: `n`, `bestien`, `anfuehrer`, `anzahl`, `alle_tage`, `ziel` = Siedlungs-ID, `belohnung`).
 - `BIOME` – Landschaften: `farben` (inkl. `strand`), `vegetation` (Anteile: `laubbaum`, `palme`, `nadelbaum`, `bambus`, `kaktus`, `totholz`; `steppengras` schaltet hohes Gras ein), Dichten je 1000 m², `himmel`, `himmel_oben`, `nebel`, `nebel_dichte`, `wasser`, optional `pflanzenfarbe` (Tönung) und `meeresspiegel`.
 
 ## welt.json → KARTE
 
-- Weltkarte je Region (Schlüssel = Regions-ID): `poly` Umriss (0–1), `mauer` Name der Regionalmauer, `mauer_c` ihre Farbe.
+- Weltkarte je Region (Schlüssel = Regions-ID): `poly` Umriss (0–1), `mauer` Name der Regionalmauer, `mauer_c` ihre Farbe, optional `fluesse` (Linienzüge 0–1) und `meer` (Meeresregion mit Inseln).

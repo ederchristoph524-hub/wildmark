@@ -11,3 +11,4 @@ description = "Zehntausend Inseln und endloses Wasser. Reich an Ressourcen, voll
 map_polygon = Array[Vector2]([Vector2(0.78, 0.29), Vector2(0.97, 0.26), Vector2(0.99, 0.5), Vector2(0.97, 0.73), Vector2(0.79, 0.74), Vector2(0.76, 0.5)])
 wall_name = "Blauwasser-Regionalmauer"
 wall_color = Color(0.14117648, 0.3372549, 0.6901961, 1)
+is_sea = true

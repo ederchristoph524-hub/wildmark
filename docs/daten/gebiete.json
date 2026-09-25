@@ -245,7 +245,10 @@
        "kristall": 15,
        "gruenkraut": 6,
        "reliquie_gruenkupfer": 1
-      }
+      },
+      "gu": [
+       "eisenzahn"
+      ]
      },
      "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter.",
      "stil": "hoehle",
@@ -469,7 +472,23 @@
      200,
      true
     ]
-   ]
+   ],
+   "flut": {
+    "n": "Wolfsflut",
+    "bestien": [
+     "wolf",
+     "wolf",
+     "blitzwolf"
+    ],
+    "anfuehrer": "bergbaer",
+    "anzahl": 14,
+    "alle_tage": 4,
+    "ziel": "gu_yue_dorf",
+    "belohnung": {
+     "kristall": 25,
+     "fell": 6
+    }
+   }
   },
   "drei_koenige": {
    "n": "Drei-Könige-Erbe",
@@ -1637,7 +1656,23 @@
      210,
      false
     ]
-   ]
+   ],
+   "flut": {
+    "n": "Echsenflut am Drachenfluss",
+    "bestien": [
+     "feuerfuchs",
+     "lavaschnecke",
+     "drachenling"
+    ],
+    "anfuehrer": "obsidian",
+    "anzahl": 14,
+    "alle_tage": 5,
+    "ziel": "wu_festung",
+    "belohnung": {
+     "kristall": 90,
+     "drachenschuppe": 1
+    }
+   }
   },
   "steppe": {
    "n": "Graslande der Stämme",
@@ -1708,6 +1743,26 @@
       "stein": "#8a8a84"
      },
      "bewohner": "lang_ya"
+    },
+    {
+     "id": "huang_jin_lager",
+     "typ": "zeltlager",
+     "fraktion": "huang_jin",
+     "pos": [
+      70,
+      95
+     ],
+     "radius": 30,
+     "haeuser": 6,
+     "farben": {
+      "dach": "#b08a3a",
+      "wand": "#f0e6c8",
+      "holz": "#5a4228",
+      "saeule": "#b0802a",
+      "banner": "#e0b040",
+      "stein": "#8a8474"
+     },
+     "bewohner": "huang_jin"
     }
    ],
    "orte": [
@@ -1872,6 +1927,20 @@
       118,
       -60
      ]
+    ],
+    [
+     [
+      -40,
+      120
+     ],
+     [
+      20,
+      105
+     ],
+     [
+      45,
+      98
+     ]
     ]
    ],
    "ressourcen": {
@@ -1985,7 +2054,23 @@
      230,
      false
     ]
-   ]
+   ],
+   "flut": {
+    "n": "Wolfsflut der Graslande",
+    "bestien": [
+     "blitzwolf",
+     "blitzwolf",
+     "elektrowolf"
+    ],
+    "anfuehrer": "steppenfuerst",
+    "anzahl": 16,
+    "alle_tage": 5,
+    "ziel": "wolfsstamm",
+    "belohnung": {
+     "kristall": 60,
+     "wolfsgeist": 1
+    }
+   }
   },
   "oase": {
    "n": "Oasenstadt im Sandmeer",
@@ -2645,7 +2730,22 @@
      85,
      true
     ]
-   ]
+   ],
+   "flut": {
+    "n": "Flut der Tiefe",
+    "bestien": [
+     "riesenkrabbe",
+     "seeschlange"
+    ],
+    "anfuehrer": "seeschlange",
+    "anzahl": 8,
+    "alle_tage": 6,
+    "ziel": "perleninsel",
+    "belohnung": {
+     "kristall": 120,
+     "tiefseeperle": 2
+    }
+   }
   },
   "sektenberg": {
    "n": "Berg der großen Sekten",
@@ -2704,6 +2804,26 @@
       "stein": "#9a968c"
      },
      "bewohner": "sekte"
+    },
+    {
+     "id": "schatten_versteck",
+     "typ": "versteck",
+     "fraktion": "schattensekte",
+     "pos": [
+      -105,
+      30
+     ],
+     "radius": 30,
+     "haeuser": 0,
+     "farben": {
+      "dach": "#241a2a",
+      "wand": "#4a3a48",
+      "holz": "#2a1e24",
+      "saeule": "#5a1a2a",
+      "banner": "#8a3ad0",
+      "stein": "#4a4650"
+     },
+     "bewohner": "schatten"
     }
    ],
    "orte": [
@@ -2859,6 +2979,20 @@
       130,
       -110
      ]
+    ],
+    [
+     [
+      0,
+      60
+     ],
+     [
+      -55,
+      48
+     ],
+     [
+      -80,
+      36
+     ]
     ]
    ],
    "ressourcen": {
@@ -2977,7 +3111,7 @@
    },
    "baeume_pro_1000m2": 5.5,
    "buesche_pro_1000m2": 4.5,
-   "gras_pro_1000m2": 30,
+   "gras_pro_1000m2": 80,
    "felsen_pro_1000m2": 1.4,
    "himmel": "#c4dadb",
    "himmel_oben": "#4f8cc6",
@@ -3005,7 +3139,7 @@
    },
    "baeume_pro_1000m2": 4.0,
    "buesche_pro_1000m2": 3.5,
-   "gras_pro_1000m2": 24,
+   "gras_pro_1000m2": 60,
    "felsen_pro_1000m2": 4.5,
    "himmel": "#c4dadb",
    "himmel_oben": "#4f8cc6",
@@ -3033,7 +3167,7 @@
    },
    "baeume_pro_1000m2": 6.5,
    "buesche_pro_1000m2": 6.0,
-   "gras_pro_1000m2": 34,
+   "gras_pro_1000m2": 90,
    "felsen_pro_1000m2": 1.2,
    "himmel": "#c8dcd6",
    "himmel_oben": "#4a88c0",
@@ -3060,7 +3194,7 @@
    },
    "baeume_pro_1000m2": 0.35,
    "buesche_pro_1000m2": 1.5,
-   "gras_pro_1000m2": 70,
+   "gras_pro_1000m2": 140,
    "felsen_pro_1000m2": 0.8,
    "himmel": "#cfe0e8",
    "himmel_oben": "#3f7fcf",
@@ -3088,7 +3222,7 @@
    },
    "baeume_pro_1000m2": 0.5,
    "buesche_pro_1000m2": 0.8,
-   "gras_pro_1000m2": 6,
+   "gras_pro_1000m2": 8,
    "felsen_pro_1000m2": 2.2,
    "himmel": "#e8dcc8",
    "himmel_oben": "#5a90c8",
@@ -3116,7 +3250,7 @@
    },
    "baeume_pro_1000m2": 6.0,
    "buesche_pro_1000m2": 5.0,
-   "gras_pro_1000m2": 30,
+   "gras_pro_1000m2": 80,
    "felsen_pro_1000m2": 1.5,
    "himmel": "#d8d0c4",
    "himmel_oben": "#4a80b8",
@@ -3144,7 +3278,7 @@
    },
    "baeume_pro_1000m2": 3.0,
    "buesche_pro_1000m2": 3.0,
-   "gras_pro_1000m2": 26,
+   "gras_pro_1000m2": 60,
    "felsen_pro_1000m2": 1.0,
    "himmel": "#cde4ec",
    "himmel_oben": "#3a88d0",
@@ -3172,7 +3306,7 @@
    },
    "baeume_pro_1000m2": 5.0,
    "buesche_pro_1000m2": 3.0,
-   "gras_pro_1000m2": 24,
+   "gras_pro_1000m2": 60,
    "felsen_pro_1000m2": 2.5,
    "himmel": "#d4e0e8",
    "himmel_oben": "#4a7cb8",

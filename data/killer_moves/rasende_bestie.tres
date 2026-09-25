@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cdhevabq5u1t7"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_niysm"]
+
+[resource]
+script = ExtResource("1_niysm")
+id = &"rasende_bestie"
+display_name = "Rasende Bestie"
+family_a = &"kampfgeist"
+family_b = &"phantom"
+channel_time = 0.9
+damage_mult = 3.3
+description = "Im Kampfrausch wird dein Bestienphantom doppelt so groß."
+hint = "Der Rausch nährt die Bestie."
+min_rank = 3
+steps = [{
+"color": "#e07a4a",
+"damage": 1.35,
+"key": "rasende_bestie",
+"speed": 1.15,
+"t": "buff",
+"time": 6.0
+}, {
+"angle": 110.0,
+"color": "#e07a4a",
+"knockback": 1.8,
+"mult": 1.3,
+"reach": 8.0,
+"stun": 0.6,
+"t": "cone",
+"tags": ["wucht"]
+}]

@@ -5,7 +5,6 @@ extends Control
 
 signal area_selected(area: AreaData)
 
-const OCEAN: Color = Color(0.07, 0.13, 0.2)
 const OCEAN_LINE: Color = Color(0.14, 0.24, 0.34)
 const LABEL: Color = Color(0.95, 0.92, 0.84)
 const CLOSED: Color = Color(0.55, 0.55, 0.55)
@@ -62,28 +61,38 @@ func _to_screen(uv: Vector2) -> Vector2:
 
 func _draw() -> void:
 	var rect: Rect2 = _map_rect()
-	draw_rect(rect, OCEAN)
-	for i: int in 9:
-		var y: float = rect.position.y + rect.size.y * (i + 0.5) / 9.0
-		draw_line(Vector2(rect.position.x, y), Vector2(rect.end.x, y), OCEAN_LINE, 1.0)
+	WorldMapPainter.ocean(self, rect, _time)
 	var regions: Array[Resource] = DataRegistry.all(&"regions")
+	var coasts: Dictionary = {}
 	for resource: Resource in regions:
 		var region: RegionData = resource
-		if region.map_polygon.size() >= 3:
-			draw_colored_polygon(_screen_polygon(region), region.color.darkened(0.45))
-	_draw_decor(regions)
+		if region.map_polygon.size() < 3:
+			continue
+		coasts[region.id] = WorldMapPainter.coast(region, _to_screen)
+		if region.is_sea:
+			WorldMapPainter.sea(self, coasts[region.id], region.color, DECOR_SEED + region.id)
+		else:
+			WorldMapPainter.land(self, coasts[region.id], region.color)
+	_draw_decor(regions, coasts)
 	for resource: Resource in regions:
 		var region: RegionData = resource
-		if region.map_polygon.size() >= 3:
-			var outline: PackedVector2Array = _screen_polygon(region)
-			outline.append(outline[0])
-			var glow: float = 0.6 + 0.4 * sin(_time * 1.5 + region.id)
-			draw_polyline(outline, Color(region.wall_color, 0.35 * glow), WALL_WIDTH * 2.2, true)
-			draw_polyline(outline, region.wall_color, WALL_WIDTH * 0.6, true)
-			_draw_label(_centroid(region) + Vector2(0, -22), tr(region.display_name), 17, LABEL)
+		for line: Variant in region.map_rivers:
+			if (line as Array).size() >= 2:
+				WorldMapPainter.river(self, line, _to_screen)
+	for resource: Resource in regions:
+		var region: RegionData = resource
+		if not coasts.has(region.id):
+			continue
+		var outline: PackedVector2Array = coasts[region.id]
+		outline.append(outline[0])
+		var glow: float = 0.6 + 0.4 * sin(_time * 1.5 + region.id)
+		draw_polyline(outline, Color(region.wall_color, 0.3 * glow), WALL_WIDTH * 2.2, true)
+		draw_polyline(outline, Color(region.wall_color, 0.85), WALL_WIDTH * 0.5, true)
+		_draw_label(_centroid(region) + Vector2(0, -22), tr(region.display_name), 17, LABEL)
 	for resource: Resource in DataRegistry.all(&"areas"):
 		_draw_area(resource as AreaData)
-	draw_rect(rect, Color(0.86, 0.72, 0.36), false, 2.0)
+	WorldMapPainter.compass(self, rect.end - Vector2(38, 44), 22.0, get_theme_default_font())
+	WorldMapPainter.frame(self, rect)
 
 
 func _draw_area(area: AreaData) -> void:
@@ -100,22 +109,34 @@ func _draw_area(area: AreaData) -> void:
 	_draw_label(point + Vector2(0, AREA_RADIUS + 16.0), "%s · %s" % [tr(area.display_name), ranks], 13, LABEL if area.open else CLOSED)
 
 
-## Landschaftszeichen: Berge im Süden, Gras im Norden, Dünen im Westen, Inseln im Osten, Tempel in der Mitte.
-func _draw_decor(regions: Array[Resource]) -> void:
+## Landschaftszeichen: Berge im Süden, Gras im Norden, Dünen im Westen, Tempel in der Mitte (das Meer hat Inseln).
+func _draw_decor(regions: Array[Resource], coasts: Dictionary) -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = DECOR_SEED
 	for resource: Resource in regions:
 		var region: RegionData = resource
-		if region.map_polygon.size() < 3:
+		if not coasts.has(region.id) or region.is_sea:
 			continue
-		var poly: PackedVector2Array = _screen_polygon(region)
+		var poly: PackedVector2Array = coasts[region.id]
 		var bounds: Rect2 = Rect2(poly[0], Vector2.ZERO)
 		for p: Vector2 in poly:
 			bounds = bounds.expand(p)
-		for i: int in 26:
+		for i: int in 30:
 			var point := Vector2(rng.randf_range(bounds.position.x, bounds.end.x), rng.randf_range(bounds.position.y, bounds.end.y))
-			if Geometry2D.is_point_in_polygon(point, poly):
+			if Geometry2D.is_point_in_polygon(point, poly) and Geometry2D.is_point_in_polygon(point, _inner(poly)):
 				_decor_symbol(region.id, point, region.color)
+
+
+## Etwas eingezogener Umriss, damit Zeichen nicht auf der Küste sitzen.
+func _inner(poly: PackedVector2Array) -> PackedVector2Array:
+	var center := Vector2.ZERO
+	for p: Vector2 in poly:
+		center += p
+	center /= poly.size()
+	var result := PackedVector2Array()
+	for p: Vector2 in poly:
+		result.append(center + (p - center) * 0.88)
+	return result
 
 
 func _decor_symbol(region_id: int, p: Vector2, color: Color) -> void:

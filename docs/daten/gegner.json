@@ -93,7 +93,7 @@
      0.6
     ]
    ],
-   "shape": "quad",
+   "shape": "wolf",
    "rang": 1
   },
   "eber": {
@@ -115,7 +115,7 @@
      0.4
     ]
    ],
-   "shape": "quad",
+   "shape": "boar",
    "beh": "charge",
    "rang": 1
   },
@@ -720,7 +720,7 @@
      0.05
     ]
    ],
-   "shape": "quad",
+   "shape": "wolf",
    "faehigkeit": [
     {
      "t": "line",
@@ -826,7 +826,7 @@
      0.5
     ]
    ],
-   "shape": "quad",
+   "shape": "boar",
    "beh": "charge"
   },
   "elektrowolf": {
@@ -853,7 +853,7 @@
      0.08
     ]
    ],
-   "shape": "quad",
+   "shape": "wolf",
    "faehigkeit": [
     {
      "t": "chain",
@@ -1067,7 +1067,7 @@
      0.08
     ]
    ],
-   "shape": "quad",
+   "shape": "wolf",
    "burn": 1,
    "faehigkeit": [
     {
@@ -1180,7 +1180,7 @@
      0.1
     ]
    ],
-   "shape": "quad",
+   "shape": "wolf",
    "faehigkeit": [
     {
      "t": "chain",
@@ -1227,7 +1227,7 @@
      0.1
     ]
    ],
-   "shape": "quad",
+   "shape": "cat",
    "beh": "charge"
   },
   "geisterwolf": {
@@ -1241,7 +1241,7 @@
    "z": 9,
    "rang": 2,
    "drop": [],
-   "shape": "quad",
+   "shape": "wolf",
    "nospawn": 1
   },
   "wasserbild": {
@@ -1492,7 +1492,7 @@
     "eberstoss",
     "steinhaut",
     "blutstropfen",
-    "glutfunke"
+    "mutwurm"
    ]
   },
   "wu_aeltester": {
@@ -1552,7 +1552,7 @@
    "rang": 2,
    "gu": [
     "eberstoss",
-    "steinhaut",
+    "eisenzahn",
     "wirbelwind"
    ]
   },
@@ -1565,6 +1565,17 @@
     "frostnadel",
     "wasserlicht",
     "wirbelwind"
+   ]
+  },
+  "huang_jin": {
+   "n": "Huang-Jin-Krieger",
+   "c": "#e0b040",
+   "f": "righteous",
+   "rang": 3,
+   "gu": [
+    "windklinge",
+    "stummermund",
+    "steinhaut"
    ]
   }
  },

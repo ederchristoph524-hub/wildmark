@@ -1,10 +1,12 @@
 class_name SettlementOutposts
 extends RefCounted
 ## Kleinere Siedlungsarten: Zeltlager der Steppe (Palisade, Jurten, Häuptlingsjurte, Totems), Oasenstadt der Wüste
-## (Lehmmauer, Lehmhäuser, Kuppeltempel am Teich, Palmen) und Inseldorf (Pfahlhäuser, Stege, Boote).
+## (Lehmmauer, Lehmhäuser, Kuppeltempel am Teich, Palmen), Inseldorf (Pfahlhäuser, Stege, Boote) und Versteck einer
+## Dämonensekte (verfallene Mauer, dunkle Pagode, Blutbecken).
 
 const PALISADE_SEGMENTS: int = 28
 const PALM_VIEW: float = 160.0
+const BLOOD_POOL: Color = Color(0.35, 0.03, 0.05)
 
 
 static func build(world: World, data: Dictionary, center: Vector3, b: MeshBuilder, boxes: Array[Array], rng: RandomNumberGenerator, anchors: Dictionary) -> void:
@@ -15,6 +17,8 @@ static func build(world: World, data: Dictionary, center: Vector3, b: MeshBuilde
 			_oasis(world, data, center, b, boxes, rng, anchors)
 		&"inseldorf":
 			_island(world, data, center, b, boxes, rng, anchors)
+		&"versteck":
+			_hideout(world, data, center, b, boxes, rng, anchors)
 
 
 ## Palisadenring mit Öffnung nach vorn, Jurtenkreis, große Häuptlingsjurte, Totems, Pferche und Übungsplatz.
@@ -170,3 +174,44 @@ static func _shore(world: World, center: Vector3, dir: Vector3, sea: float, max_
 			return point
 		distance += 1.0
 	return center + dir * max_distance
+
+
+## Versteck einer Dämonensekte: verfallener Mauerring mit Lücken, dunkle Pagode, zweistöckige Hallen, Blutbecken
+## im Hof, Banner und Fackeln.
+static func _hideout(world: World, data: Dictionary, center: Vector3, b: MeshBuilder, boxes: Array[Array], rng: RandomNumberGenerator, anchors: Dictionary) -> void:
+	var p: Dictionary = data["colors"]
+	var r: float = data["radius"]
+	var base := Transform3D(Basis.IDENTITY, center)
+	var segments: int = 16
+	var step: float = TAU / segments
+	for i: int in segments:
+		var angle: float = i * step
+		if absf(angle_difference(angle, PI * 0.5)) < step * 0.8 or rng.randf() < 0.2:
+			continue
+		var a: Vector3 = world.ground_point(center.x + cos(angle) * r, center.z + sin(angle) * r)
+		var c: Vector3 = world.ground_point(center.x + cos(angle + step * rng.randf_range(0.55, 0.95)) * r, center.z + sin(angle + step * 0.8) * r)
+		boxes.append_array(ArchitectureExtra.high_wall(b, a, c, rng.randf_range(2.2, 4.8), p))
+	var pagoda_at := Vector3(0, 0, -r * 0.45)
+	boxes.append_array(ArchitectureExtra.pagoda(b, base.translated_local(pagoda_at), 3, 7.0, p))
+	for side: float in [-1.0, 1.0]:
+		var at := Vector3(side * r * 0.5, 0, -r * 0.05)
+		boxes.append_array(HouseStyles.two_story(b, base * Transform3D(Basis(Vector3.UP, -side * PI * 0.5), at), 10.0, 7.5, p))
+	# Blutbecken: Steinring mit dunkelroter Füllung.
+	var pool := Vector3(0, 0, r * 0.15)
+	b.add(MeshBuilder.cylinder(3.2, 3.4, 0.7, 12), base * MeshBuilder.at(pool + Vector3.UP * 0.35), p["stein"])
+	b.add(MeshBuilder.cylinder(2.7, 2.7, 0.1, 12), base * MeshBuilder.at(pool + Vector3.UP * 0.66), BLOOD_POOL)
+	boxes.append([base.translated_local(pool + Vector3.UP * 0.35), Vector3(6.4, 0.7, 6.4)])
+	for side: float in [-1.0, 1.0]:
+		Architecture.banner_pole(b, base.translated_local(Vector3(side * 5.0, 0, r * 0.7)), p)
+		Architecture.lantern_post(b, base * Transform3D(Basis(Vector3.UP, PI * 0.5 * side), Vector3(side * 4.0, 0, pool.z + 5.0)), p)
+	anchors["gate"] = center + Vector3(3.0, 0, r * 0.85)
+	anchors["gate_outside"] = center + Vector3(-4.0, 0, r + 5.0)
+	anchors["hall"] = center + pagoda_at + Vector3(2.5, 0, 6.5)
+	anchors["academy"] = anchors["hall"]
+	anchors["market"] = center + Vector3(-5.0, 0, r * 0.5)
+	anchors["training"] = center + pool + Vector3(0, 0, 5.0)
+	anchors["arena"] = anchors["training"]
+	anchors["well"] = center + pool + Vector3(4.0, 0, 0)
+	anchors["tower"] = center + pagoda_at + Vector3(-6.0, 0, 4.0)
+	anchors["garden"] = anchors["tower"]
+	anchors["fire"] = center + Vector3(3.0, 0, r * 0.45)

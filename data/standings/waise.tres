@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StandingData" format=3 uid="uid://j73132bxs4fv"]
+
+[ext_resource type="Script" path="res://scripts/resources/standing_data.gd" id="1_a175b"]
+
+[resource]
+script = ExtResource("1_a175b")
+id = &"waise"
+display_name = "Waise"
+icon = "🕯️"
+description = "Ohne Eltern aufgewachsen. Niemand erwartet etwas von dir — niemand hilft dir."
+gift = Dictionary[StringName, int]({
+&"beeren": 6
+})

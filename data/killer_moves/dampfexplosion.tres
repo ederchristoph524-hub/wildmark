@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bsf60gjt5kn5q"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_kft5x"]
+
+[resource]
+script = ExtResource("1_kft5x")
+id = &"dampfexplosion"
+display_name = "Dampfexplosion"
+family_a = &"stroemung"
+family_b = &"flamme"
+channel_time = 0.9
+damage_mult = 2.6
+description = "Wasser trifft auf Feuer: eine Dampfexplosion blendet und verbrüht alle."
+hint = "Heißes und Kaltes sollten sich nicht küssen."
+steps = [{
+"color": "#4a9ad0",
+"length": 10.0,
+"mult": 0.5,
+"status": "nass",
+"t": "line",
+"tags": ["wasser"],
+"width": 3.0
+}, {
+"t": "delay",
+"then": [{
+"at": "aim",
+"blind": 3.0,
+"color": "#f0f0f0",
+"distance": 6.0,
+"mult": 1.0,
+"radius": 4.5,
+"t": "circle",
+"tags": ["feuer"]
+}],
+"time": 0.3
+}]

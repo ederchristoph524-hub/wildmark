@@ -45,6 +45,9 @@ extends Resource
 @export var wild_gu_range: Vector2 = Vector2(60.0, 200.0)
 ## Passive wilde Gu: [id, body|support, min, max, versteckt].
 @export var wild_passives: Array = []
+## Bestienflut (gebiete.json → flut): {"beasts": Array[StringName], "leader": StringName, "count": int, "every": int
+## (alle n Tage, nachts), "target": StringName (Siedlungs-ID), "reward": Dictionary[StringName, int]}; leer = keine.
+@export var tide: Dictionary = {}
 
 
 ## Siedlung per ID (leer, wenn es sie nicht gibt).

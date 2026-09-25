@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cul1bff2hjyu0"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_wk0xq"]
+
+[resource]
+script = ExtResource("1_wk0xq")
+id = &"erdbebenfeld"
+display_name = "Erdbebenfeld"
+family_a = &"donnerknolle"
+family_b = &"erde"
+channel_time = 1.3
+damage_mult = 3.2
+description = "Ein Beben reißt den Boden auf; darin liegen Knollen, die nacheinander hochgehen."
+hint = "Die Erde bebt, dann donnert sie."
+min_rank = 3
+steps = [{
+"at": "aim",
+"color": "#a08050",
+"distance": 6.0,
+"mult": 0.8,
+"radius": 5.0,
+"status": "verwurzelt",
+"stun": 0.6,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}, {
+"at": "aim",
+"color": "#ffb030",
+"count": 4.0,
+"distance": 6.0,
+"mult": 0.8,
+"radius": 3.0,
+"spacing": 2.5,
+"status": "ladung",
+"t": "trap",
+"tags": ["feuer", "blitz"],
+"time": 20.0,
+"trigger": 2.0
+}]

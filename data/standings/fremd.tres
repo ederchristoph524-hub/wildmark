@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StandingData" format=3 uid="uid://bb1d4waq2qvhp"]
+
+[ext_resource type="Script" path="res://scripts/resources/standing_data.gd" id="1_w4kov"]
+
+[resource]
+script = ExtResource("1_w4kov")
+id = &"fremd"
+display_name = "Aufgenommener"
+icon = "🚪"
+description = "Von außen aufgenommen. Man misstraut dir, aber du bist frei von Erwartungen."
+gift = Dictionary[StringName, int]({
+&"fleisch": 8,
+&"kristall": 6
+})
+home_merit = 10
+apt_bonus = 2.0

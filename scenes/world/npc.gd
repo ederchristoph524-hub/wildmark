@@ -7,6 +7,9 @@ var title: String = ""
 ## Aufgabe, die dieser NPC vergibt (leer = keine).
 var quest_id: StringName = &""
 var offers_trade: bool = false
+## Sekte der Siedlung und ob dieser Bewohner sie vertritt (Beitritt und Rang im Gespräch, siehe SectLife).
+var sect_id: StringName = &""
+var leader: bool = false
 ## Robenfarbe (Klanfarbe); ohne Angabe die Farbe der NPC-Art.
 var robe_color: Color = Color(0, 0, 0, 0)
 var _model: PlayerModel = null

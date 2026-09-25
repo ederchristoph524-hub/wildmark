@@ -241,7 +241,7 @@
    "gift": {
     "kristall": 18
    },
-   "gu": "dogshit"
+   "gu": "glueckssicht"
   },
   {
    "id": "ostmeer_allianz",
@@ -261,7 +261,7 @@
     "fleisch": 20,
     "kristall": 8
    },
-   "gu": "wasserschild"
+   "gu": "wasserspiegel"
   },
   {
    "id": "meereszombies",
@@ -282,7 +282,7 @@
    "gift": {
     "fleisch": 25
    },
-   "gu": "zombie"
+   "gu": "knochensplitter"
   },
   {
    "id": "wuestentempel",
@@ -302,7 +302,7 @@
     "stein": 35,
     "kristall": 6
    },
-   "gu": "himmelsdach"
+   "gu": "drehfels"
   },
   {
    "id": "karawanenbund",
@@ -341,9 +341,9 @@
    "req": 6,
    "gift": {
     "kristall": 25,
-    "material": 2
+    "jadeader": 2
    },
-   "gu": "verstaerkung"
+   "gu": "verstaerker"
   }
  ],
  "SECTRANKS": [
@@ -352,7 +352,8 @@
    "need": 0,
    "c": "#a9b5a0",
    "perk": "Zutritt zum Lager der Sekte.",
-   "give": {}
+   "give": {},
+   "zuteilung": 1.0
   },
   {
    "n": "Innerer Schüler",
@@ -360,8 +361,10 @@
    "c": "#7dd35a",
    "perk": "Größere Zuteilung, Zugang zu besseren Gu.",
    "give": {
-    "kristall": 10
-   }
+    "kristall": 10,
+    "jadeader": 1
+   },
+   "zuteilung": 1.5
   },
   {
    "n": "Kernschüler",
@@ -370,8 +373,10 @@
    "perk": "Doppelte Zuteilung, ein Sekten-Gu geschenkt.",
    "give": {
     "kristall": 20,
-    "material": 1
-   }
+    "jadeader": 2,
+    "reliquie_rotstahl": 1
+   },
+   "zuteilung": 2.0
   },
   {
    "n": "Ältester",
@@ -380,9 +385,10 @@
    "perk": "Dreifache Zuteilung, eigene Schatzkammer.",
    "give": {
     "kristall": 40,
-    "material": 2,
-    "perle": 2
-   }
+    "tiefseeperle": 1,
+    "reliquie_weisssilber": 1
+   },
+   "zuteilung": 3.0
   },
   {
    "n": "Großältester",
@@ -391,9 +397,10 @@
    "perk": "Vierfache Zuteilung, Zugang zum Sektenschatz.",
    "give": {
     "kristall": 70,
-    "material": 4,
-    "perle": 5
-   }
+    "tiefseeperle": 2,
+    "reliquie_gelbgold": 1
+   },
+   "zuteilung": 4.0
   },
   {
    "n": "Sektenherr",
@@ -402,9 +409,10 @@
    "perk": "Die Sekte gehorcht dir. Höchste Zuteilung.",
    "give": {
     "kristall": 120,
-    "material": 8,
-    "perle": 10
-   }
+    "erdkern": 2,
+    "reliquie_lilakristall": 1
+   },
+   "zuteilung": 6.0
   }
  ],
  "FACTIONS": {

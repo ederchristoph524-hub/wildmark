@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StandingData" format=3 uid="uid://dwjcy4mxc27rd"]
+
+[ext_resource type="Script" path="res://scripts/resources/standing_data.gd" id="1_f7ih3"]
+
+[resource]
+script = ExtResource("1_f7ih3")
+id = &"neben"
+display_name = "Nebenlinie"
+icon = "🧬"
+description = "Verwandt, aber zweitrangig. Solide Versorgung, wenig Beachtung."
+gift = Dictionary[StringName, int]({
+&"beeren": 10,
+&"kristall": 10
+})
+home_merit = 20
+apt_bonus = 3.0

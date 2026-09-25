@@ -25,5 +25,5 @@ color = Color(0.16470589, 0.14117648, 0.1254902, 1)
 zone = 2
 rank = 2
 drops = Array[ExtResource("1_oadks")]([SubResource("drop_0"), SubResource("drop_1")])
-shape = &"quad"
+shape = &"boar"
 behavior = &"charge"

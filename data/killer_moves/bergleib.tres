@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://j8kd4acx5sng"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_qxg3x"]
+
+[resource]
+script = ExtResource("1_qxg3x")
+id = &"bergleib"
+display_name = "Bergleib"
+family_a = &"erde"
+family_b = &"haut"
+channel_time = 1.1
+damage_mult = 3.0
+description = "Dein Körper wird zu Fels; wer dich trifft, bebt mit, und die Erde schlägt um dich aus."
+hint = "Sei der Berg."
+min_rank = 3
+steps = [{
+"color": "#a08050",
+"kind": "thorns",
+"reduction": 0.45,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.4
+}, {
+"color": "#a08050",
+"mult": 0.9,
+"radius": 5.0,
+"status": "verwurzelt",
+"stun": 0.6,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}]

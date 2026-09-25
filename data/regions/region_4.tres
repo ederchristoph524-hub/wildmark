@@ -11,3 +11,4 @@ description = "Das reiche Herz der Welt. Sitz des Himmlischen Hofes und der gro√
 map_polygon = Array[Vector2]([Vector2(0.3, 0.31), Vector2(0.5, 0.29), Vector2(0.7, 0.31), Vector2(0.74, 0.5), Vector2(0.7, 0.7), Vector2(0.5, 0.72), Vector2(0.3, 0.7), Vector2(0.27, 0.5)])
 wall_name = "Heilige Regionalmauer"
 wall_color = Color(0.9411765, 0.8627451, 0.5882353, 1)
+map_rivers = [Array[Vector2]([Vector2(0.4, 0.31), Vector2(0.43, 0.38), Vector2(0.42, 0.46), Vector2(0.45, 0.55), Vector2(0.43, 0.63), Vector2(0.48, 0.71)]), Array[Vector2]([Vector2(0.6, 0.3), Vector2(0.63, 0.4), Vector2(0.61, 0.5), Vector2(0.65, 0.58), Vector2(0.69, 0.67)])]

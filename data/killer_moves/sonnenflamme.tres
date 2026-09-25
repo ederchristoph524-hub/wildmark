@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://ch8qj6465qs5p"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_rdf53"]
+
+[resource]
+script = ExtResource("1_rdf53")
+id = &"sonnenflamme"
+display_name = "Sonnenflamme"
+family_a = &"flamme"
+family_b = &"fackel"
+channel_time = 1.0
+damage_mult = 2.6
+description = "Dein Körper wird zur Fackel und entlädt eine Feuerwelle um dich."
+hint = "Zwei Feuer, ein Herz."
+steps = [{
+"color": "#ff7a3a",
+"knockback": 0.8,
+"mult": 1.0,
+"radius": 5.0,
+"stacks": 2.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer"]
+}, {
+"color": "#ffb030",
+"follow": true,
+"mult": 0.2,
+"radius": 3.5,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer"],
+"time": 4.0
+}]

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://nog3ue4qvipf"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_rdxhq"]
+
+[resource]
+script = ExtResource("1_rdxhq")
+id = &"glutwirbel"
+display_name = "Glutwirbel"
+family_a = &"fackel"
+family_b = &"wirbel"
+channel_time = 0.9
+damage_mult = 2.5
+description = "Ein Wirbel aus Glut dreht sich um dich und saugt Gegner in die Flammen."
+hint = "Das Feuer tanzt im Wind."
+steps = [{
+"color": "#ff7a3a",
+"follow": true,
+"mult": 0.3,
+"pull": 0.8,
+"radius": 4.0,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer", "wind"],
+"time": 4.0
+}, {
+"color": "#c8f0ff",
+"mult": 0.6,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wind"]
+}]

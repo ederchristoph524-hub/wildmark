@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bojqx18r2kosl"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_vmtj1"]
+
+[resource]
+script = ExtResource("1_vmtj1")
+id = &"blutsaege"
+display_name = "Blutsäge"
+family_a = &"tausendfuessler"
+family_b = &"blutmond"
+channel_time = 0.8
+damage_mult = 3.1
+description = "Blutige Sägezähne reißen tiefe Wunden – jede nährt dich."
+hint = "Die Säge trinkt."
+min_rank = 3
+steps = [{
+"color": "#d0303a",
+"dash": true,
+"length": 10.0,
+"lifesteal": 0.3,
+"mult": 0.9,
+"stacks": 3.0,
+"status": "blutung",
+"t": "line",
+"tags": ["schnitt", "blut"],
+"width": 2.6
+}, {
+"t": "delay",
+"then": [{
+"color": "#d0303a",
+"lifesteal": 0.3,
+"mult": 0.8,
+"radius": 3.5,
+"t": "circle",
+"tags": ["blut", "schnitt"]
+}],
+"time": 0.3
+}]

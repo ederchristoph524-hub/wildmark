@@ -16,6 +16,8 @@ extends Resource
 @export var awaken_age: int = 13
 ## Die Zehn Extremen Physiques (nur beim Talentgrad „Durchbrochen“).
 @export var physiques: Array[PhysiqueData] = []
+## Ränge in Sekten und Klans (aus fraktionen.json → SECTRANKS), Index 0 = Eintritt.
+@export var sect_ranks: Array[SectRankData] = []
 
 
 func rank_name(rank: int) -> String:
@@ -32,6 +34,13 @@ func physique(id: StringName) -> PhysiqueData:
 		if entry.id == id:
 			return entry
 	return null
+
+
+## Sektenrang per Index (auf die Liste begrenzt), null ohne Daten.
+func sect_rank(index: int) -> SectRankData:
+	if sect_ranks.is_empty():
+		return null
+	return sect_ranks[clampi(index, 0, sect_ranks.size() - 1)]
 
 
 func stage_name(stage: int) -> String:

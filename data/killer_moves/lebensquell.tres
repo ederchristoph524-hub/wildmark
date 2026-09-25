@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cvnd0mhar3ivf"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_j08lb"]
+
+[resource]
+script = ExtResource("1_j08lb")
+id = &"lebensquell"
+display_name = "Lebensquell"
+family_a = &"blatt"
+family_b = &"wasserbild"
+channel_time = 1.4
+damage_mult = 2.8
+description = "Ein Heilteich breitet sich um dich aus, ein Wasserkrieger wacht darüber."
+hint = "Wo Wasser lebt, heilt alles."
+min_rank = 3
+steps = [{
+"color": "#7ad0c0",
+"follow": true,
+"heal": 0.04,
+"mult": 0.0,
+"radius": 5.0,
+"t": "zone",
+"time": 6.0
+}, {
+"enemy": "wasserkrieger",
+"t": "summon",
+"time": 15.0
+}]

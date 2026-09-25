@@ -48,10 +48,12 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"wuesten_haendler", "", &"", true, &"market", Vector2(-3.0, 3.0)],
 	],
 	&"karawane": [
+		[&"daemon", "Karawanenältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
 		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"wuesten_haendler", "", &"", true, &"gate", Vector2(0.0, 0.0)],
 	],
 	&"wu": [
+		[&"klan", "Wu-Verwalter", &"", false, &"hall", Vector2(-3.0, 1.0)],
 		[&"klan", "Festungswache", &"wu_schuppe", false, &"gate", Vector2(0.0, 0.0)],
 		[&"wu_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 		[&"auktionator_hoch", "", &"", true, &"market", Vector2(-4.0, 2.0)],
@@ -62,7 +64,17 @@ const RESIDENTS: Dictionary[StringName, Array] = {
 		[&"klan", "Inselältester", &"insel_perle", false, &"hall", Vector2(0.0, 0.0)],
 	],
 	&"meereszombie": [
+		[&"daemon", "Zombie-Kapitän", &"", false, &"hall", Vector2(0.0, 0.0)],
 		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
+	],
+	&"schatten": [
+		[&"klan", "Schattenältester", &"", false, &"hall", Vector2(-3.0, 1.0)],
+		[&"daemon", "", &"", true, &"market", Vector2(0.0, 0.0)],
+		[&"klan", "Schattenwächter", &"", false, &"gate", Vector2(0.0, 0.0)],
+	],
+	&"huang_jin": [
+		[&"stamm", "Huang-Jin-Ältester", &"", false, &"hall", Vector2(0.0, 0.0)],
+		[&"steppen_haendler", "", &"", true, &"market", Vector2(0.0, 0.0)],
 	],
 	&"sekte": [
 		[&"klan", "Torwächter", &"sekte_herz", false, &"gate", Vector2(0.0, 0.0)],
@@ -84,6 +96,8 @@ const MASTERS: Dictionary[StringName, Array] = {
 	&"wu": [[&"wu_general", "Wu-General", &"training"], [&"wu_aeltester", "Wu-Ältester", &"hall"]],
 	&"insel": [[&"ostmeer", "Inselwächter", &"training"]],
 	&"meereszombie": [[&"meereszombie", "Untoter Seefahrer", &"training"]],
+	&"schatten": [[&"schattensekte", "Schattenschüler", &"training"]],
+	&"huang_jin": [[&"huang_jin", "Huang-Jin-Krieger", &"training"]],
 	&"sekte": [[&"zehn_extreme", "Sektenmeister", &"training"], [&"himmelshof", "Gast des Himmlischen Hofes", &"tower"]],
 }
 ## Beerenbüsche im Garten (Versatz zum Anker garden) – für die Kindheit.
@@ -100,6 +114,9 @@ static func place(world: World, data: Dictionary, anchors: Dictionary) -> void:
 	for entry: Array in RESIDENTS.get(group, []):
 		var npc := Npc.new()
 		npc.setup(DataRegistry.npc_type(entry[0]), String(entry[1]), entry[2], bool(entry[3]))
+		# Wer in der Halle steht, vertritt die Sekte (Beitritt, Rang, Spenden).
+		npc.sect_id = data.get("faction", &"")
+		npc.leader = entry[4] == &"hall"
 		if entry[0] == &"klan":
 			npc.robe_color = robe
 		world.add_child(npc)

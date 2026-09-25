@@ -32,6 +32,31 @@ func build(src: Dictionary) -> ProgressionData:
 	return data
 
 
+## Sektenränge aus fraktionen.json → SECTRANKS (Verdienst, Aufstiegsgeschenk, Zuteilung).
+func add_sect_ranks(data: ProgressionData, src: Dictionary) -> void:
+	var last_need: int = -1
+	for entry: Variant in src.get("SECTRANKS", []):
+		if not entry is Dictionary:
+			_report.error("fraktionen.json: SECTRANKS-Eintrag ist kein Objekt")
+			continue
+		var d: Dictionary = entry
+		var rank := SectRankData.new()
+		rank.display_name = ImportUtil.text(d.get("n"))
+		rank.merit_needed = ImportUtil.to_int(d.get("need"))
+		rank.color = ImportUtil.color(d.get("c", "#ffffff"), "Sektenrang " + rank.display_name, _report)
+		rank.perk = ImportUtil.text(d.get("perk"))
+		rank.stipend_mult = ImportUtil.to_float(d.get("zuteilung"), 1.0)
+		var give: Dictionary = d.get("give", {})
+		for item: Variant in give:
+			rank.reward[StringName(str(item))] = ImportUtil.to_int(give[item])
+		if rank.merit_needed <= last_need:
+			_report.error("fraktionen.json: Sektenrang '%s' braucht nicht mehr Verdienst als der vorige" % rank.display_name)
+		last_need = rank.merit_needed
+		data.sect_ranks.append(rank)
+	if data.sect_ranks.is_empty():
+		_report.error("fraktionen.json: SECTRANKS fehlt")
+
+
 ## RANKS[0] ist leer (Ränge beginnen bei 1).
 func _fill_ranks(data: ProgressionData, ranks: Variant) -> void:
 	if not ranks is Array:

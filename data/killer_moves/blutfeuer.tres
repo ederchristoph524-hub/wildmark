@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dqouk8a3befu6"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_6viwh"]
+
+[resource]
+script = ExtResource("1_6viwh")
+id = &"blutfeuer"
+display_name = "Blutfeuer"
+family_a = &"blutmond"
+family_b = &"fackel"
+channel_time = 1.0
+damage_mult = 3.2
+description = "Dein Blut entzündet sich: brennende Sicheln, und jeder Treffer heilt dich."
+hint = "Heißes Blut brennt hell."
+min_rank = 3
+steps = [{
+"color": "#ff4a2a",
+"count": 5.0,
+"lifesteal": 0.3,
+"mult": 0.6,
+"range": 14.0,
+"spread": 60.0,
+"status": "brand",
+"t": "projectiles",
+"tags": ["blut", "feuer"]
+}, {
+"color": "#d0303a",
+"damage": 1.25,
+"key": "blutfeuer",
+"speed": 1.1,
+"t": "buff",
+"time": 5.0
+}]
