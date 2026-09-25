@@ -15,7 +15,7 @@ Claude Code liest diese Datei zu Beginn jeder Sitzung. Sie beschreibt Projekt, A
 | `docs/KAMPFSYSTEM.md` | Kampfablauf, Loadout, Steuerung, Tod, Startoptionen | Kampfablauf |
 | `docs/FORMELN.md` | Balancing-Formeln aus dem Prototyp | Zahlen und Berechnungen |
 | `docs/ART_STYLE.md` | Look, Paletten, Asset-Regeln | Grafik, Effekte, Assets |
-| `docs/daten/gu_system.json` | 26 Familien, Körper- und Hilfs-Gu, Zustände, Reaktionen, Merkmale, Killer Moves | Quelle für alle Gu-Resources |
+| `docs/daten/gu_system.json` | 32 Familien, Körper- und Hilfs-Gu, Zustände, Reaktionen, Merkmale, Killer Moves | Quelle für alle Gu-Resources |
 | `docs/daten/*.json` (übrige) | Gegner, Materialien, Sekten, Quests, Fortschritt, Unsterblichen-Systeme; `gu.json` nur als Ideenpool | Quelle für die übrigen `.tres` |
 | `docs/daten/README.md` | Feldbedeutungen der JSON-Dateien | – |
 | `docs/lore/` | RI-Enzyklopädie (zuerst `00_Übersicht_und_Index.md`) | Namen, Stimmung, Lore |

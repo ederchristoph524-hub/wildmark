@@ -203,3 +203,5 @@ enemy_zones = [[&"feuerfuchs", &"riesenskorpion", &"sturmadler"], [&"wuestenskor
 wild_gu_rank = 4
 wild_gu_range = Vector2(90, 200)
 wild_passives = [[&"tausendjun", &"body", 120.0, 200.0, false], [&"wildwut", &"body", 150.0, 205.0, true], [&"neunaugen", &"support", 150.0, 205.0, true], [&"sterngedanke", &"support", 110.0, 190.0, false], [&"himmelsessenz", &"support", 120.0, 200.0, false], [&"schneewaesche", &"support", 100.0, 190.0, false]]
+wanderers = Array[StringName]([&"sandraeuber", &"karawane", &"wuestentempel"])
+wanderer_count = 3

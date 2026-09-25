@@ -203,7 +203,7 @@ enemy_radii = Array[float]([130.0, 190.0])
 enemy_zones = [[&"feuerfuchs", &"blitzwolf", &"elektrowolf", &"riesenskorpion"], [&"feuerfuchs", &"drachenling", &"imp", &"riesenkrokodil", &"sturmadler"], [&"drachenling", &"lavaschnecke", &"obsidian", &"weisser_tiger", &"feuerfuchs", &"seuche"]]
 wild_gu_rank = 4
 wild_gu_range = Vector2(110, 210)
-wild_passives = [[&"tausendjun", &"body", 130.0, 210.0, false], [&"neunaugen", &"support", 150.0, 215.0, true], [&"himmelsessenz", &"support", 130.0, 210.0, true], [&"schneewaesche", &"support", 120.0, 200.0, false], [&"sterngedanke", &"support", 120.0, 210.0, false]]
+wild_passives = [[&"tausendjun", &"body", 130.0, 210.0, false], [&"neunaugen", &"support", 150.0, 215.0, true], [&"himmelsessenz", &"support", 130.0, 210.0, true], [&"schneewaesche", &"support", 120.0, 200.0, false], [&"sterngedanke", &"support", 120.0, 210.0, false], [&"panzer_gu", &"body", 100.0, 230.0, true]]
 tide = {
 "beasts": Array[StringName]([&"feuerfuchs", &"lavaschnecke", &"drachenling"]),
 "count": 14,
@@ -216,3 +216,5 @@ tide = {
 },
 "target": &"wu_festung"
 }
+wanderers = Array[StringName]([&"blutaeltester", &"blutfluegel", &"wu_general"])
+wanderer_count = 3

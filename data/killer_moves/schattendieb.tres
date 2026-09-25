@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bpwopgxmhssea"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_u8c7n"]
+
+[resource]
+script = ExtResource("1_u8c7n")
+id = &"schattendieb"
+display_name = "Schattendieb"
+family_a = &"pluenderung"
+family_b = &"tarnung"
+channel_time = 0.7
+damage_mult = 2.4
+description = "Du verschwindest und greifst aus dem Nichts zweimal zu – der Beraubte weiß nicht, wie ihm geschieht."
+hint = "Der beste Dieb wird nie gesehen."
+steps = [{
+"t": "stealth",
+"time": 2.5
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 2.0,
+"knockback": -0.8,
+"mult": 0.9,
+"reach": 6.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.4
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 2.0,
+"knockback": -0.8,
+"mult": 0.9,
+"reach": 6.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.8
+}]

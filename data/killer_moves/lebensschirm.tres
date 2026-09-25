@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://whl2f1v7gcc4"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_b6htd"]
+
+[resource]
+script = ExtResource("1_b6htd")
+id = &"lebensschirm"
+display_name = "Lebensschirm"
+family_a = &"qischirm"
+family_b = &"blatt"
+channel_time = 1.0
+damage_mult = 2.2
+description = "Unter dem Qi-Schirm wachsen Blätter: wer darin steht, heilt und hält aus."
+hint = "Hartes Qi schützt, was das Blatt heilt."
+steps = [{
+"ally_reduction": 0.3,
+"color": "#99ffff",
+"follow": true,
+"heal": 0.015,
+"knockback": 0.4,
+"mult": 0.2,
+"radius": 4.5,
+"t": "zone",
+"tags": ["wucht", "holz"],
+"tick": 0.5,
+"time": 6.0
+}, {
+"allies": true,
+"frac": 0.2,
+"radius": 8.0,
+"t": "heal"
+}]

@@ -1,0 +1,166 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://bao5yjuqq2fho"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_bu6tq"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_8xsdo"]
+
+[sub_resource type="Resource" id="gu_dritte_wache"]
+script = ExtResource("1_bu6tq")
+id = &"dritte_wache"
+display_name = "Dritte-Wache-Gu"
+family = &"zeit"
+description = "Das Gu der dritten Nachtwache: eine Zeitblase am Ziel, in der alles halb so schnell geschieht."
+
+[sub_resource type="Resource" id="gu_stundenglas"]
+script = ExtResource("1_bu6tq")
+id = &"stundenglas"
+display_name = "Stundenglas-Gu"
+family = &"zeit"
+rank = 2
+rank_gift = "4,5 s, Zeitecho am Ende."
+description = "Die Blase hält länger; wenn sie vergeht, hallt die Zeit als Echo nach."
+gifts = {
+"step": {
+"end": [{
+"color": "#a04ad0",
+"mult": 1.2,
+"radius": 3.0,
+"stun": 0.0,
+"t": "circle",
+"tags": ["zeit"]
+}]
+},
+"time_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_jahresfluss"]
+script = ExtResource("1_bu6tq")
+id = &"jahresfluss"
+display_name = "Jahresfluss-Gu"
+family = &"zeit"
+rank = 3
+rank_gift = "65 % langsamer, Echo 1,6× und 0,6 s Betäubung."
+description = "Jahre fließen wie Wasser: 65 % langsamer, das Echo betäubt."
+gifts = {
+"step": {
+"end": [{
+"color": "#a04ad0",
+"mult": 1.6,
+"radius": 3.0,
+"stun": 0.6,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"slow": 0.65
+}
+}
+
+[sub_resource type="Resource" id="gu_tage_wie_jahre"]
+script = ExtResource("1_bu6tq")
+id = &"tage_wie_jahre"
+display_name = "Tage-wie-Jahre-Gu"
+family = &"zeit"
+rank = 4
+rank_gift = "Radius 4, erstarrt 1 s zu Beginn, Echo 2×."
+description = "Ein Tag wird zum Jahr: wer in die Blase gerät, erstarrt zuerst ganz."
+gifts = {
+"extra": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 6.3,
+"freeze": 1.0,
+"mult": 0.0,
+"radius": 4.0,
+"t": "circle"
+}],
+"radius_add": 1.0,
+"step": {
+"end": [{
+"color": "#a04ad0",
+"mult": 2.0,
+"radius": 4.0,
+"stun": 0.6,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"slow": 0.65
+}
+}
+
+[sub_resource type="Resource" id="gu_fruehlingherbst"]
+script = ExtResource("1_bu6tq")
+id = &"fruehlingherbst"
+display_name = "Frühling-Herbst-Hauch-Gu"
+family = &"zeit"
+rank = 5
+rank_gift = "Radius 5, erstarrt 1,5 s, Echo 2,5×; du heilst 25 % und wirst gereinigt."
+description = "Ein Hauch der Frühling-Herbst-Zikade: für dich läuft die Zeit zurück, für sie steht sie still."
+gifts = {
+"cd_mult": 1.3,
+"extra": [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 6.3,
+"freeze": 1.5,
+"mult": 0.0,
+"radius": 5.0,
+"t": "circle"
+}, {
+"frac": 0.25,
+"t": "heal"
+}, {
+"t": "cleanse"
+}],
+"radius_add": 1.0,
+"step": {
+"end": [{
+"color": "#a04ad0",
+"mult": 2.5,
+"radius": 5.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"slow": 0.7
+}
+}
+
+[resource]
+script = ExtResource("2_8xsdo")
+id = &"zeit"
+display_name = "Zeitblase"
+path = &"zeit"
+role = "Verlangsamen, Zeitecho"
+form = &"zone"
+tags = Array[StringName]([&"zeit"])
+feed_item = &"mondtau"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 8.0,
+&"dauer": 3.5,
+&"ess": 7.0,
+&"radius": 3.0,
+&"reichweite": 9.0,
+&"schaden": 8.0,
+&"takt": 0.5,
+&"verlangsamung": 0.5
+})
+members = Array[ExtResource("1_bu6tq")]([SubResource("gu_dritte_wache"), SubResource("gu_stundenglas"), SubResource("gu_jahresfluss"), SubResource("gu_tage_wie_jahre"), SubResource("gu_fruehlingherbst")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 4,
+&"zeitharz": 1
+},
+3: {
+&"sternsand": 1,
+&"zeitharz": 2
+},
+4: {
+&"seelenglas": 2,
+&"zeitharz": 4
+},
+5: {
+&"urkristall": 1,
+&"zeitharz": 6
+}
+})
+world_effect = "In der Zeitblase fallen Tropfen langsam genug, um zwischen ihnen hindurchzugehen."

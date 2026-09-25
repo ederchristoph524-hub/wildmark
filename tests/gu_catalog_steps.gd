@@ -7,7 +7,8 @@ const SPOT: Vector3 = Vector3(0.0, 0.0, 106.0)
 const WAIT_FRAMES: int = 100
 const DUMMY_HP: float = 100000.0
 ## Wirkformen ohne Schaden: geprüft wird ein Zustand am Spieler oder in der Welt.
-const UTILITY_FORMS: Array[StringName] = [&"selbstschild", &"selbst_heilung", &"bewegung", &"zaehmen", &"tarnung", &"staerkung", &"beschwoerung"]
+const UTILITY_FORMS: Array[StringName] = [&"selbstschild", &"selbst_heilung", &"bewegung", &"zaehmen", &"tarnung", &"staerkung", &"beschwoerung",
+	&"eingebung"]
 
 var tree: SceneTree = null
 var main: Main = null
@@ -28,6 +29,10 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(20)
 	player = main.player
 	main.world.spawner.set_physics_process(false)
+	# Wandernde Gu-Meister würden die Messung stören.
+	main.world.wanderers.set_process(false)
+	for node: Node in tree.get_nodes_in_group(Wanderer.GROUP):
+		node.queue_free()
 	var tested: int = 0
 	for resource: Resource in DataRegistry.all(&"families"):
 		var family: GuFamilyData = resource as GuFamilyData
@@ -120,6 +125,9 @@ func _test_gu(family: GuFamilyData, gu: GuData) -> void:
 	var stealthed: bool = player.stealth_time > 0.0
 	var buffed: bool = not player.buffs.is_empty()
 	var shielded: bool = not player.reductions.is_empty()
+	var hasted: bool = player.holder.haste_time > 0.0
+	var swapped: bool = player.global_position.distance_to(start_pos) > 1.0
+	player.holder.haste_time = 0.0
 	await _frames(WAIT_FRAMES)
 	var label: String = "%s (%s, Rang %d, %s)" % [gu.id, family.id, gu.rank, family.form]
 	_check(cast_ok, label + ": cast() liefert false")
@@ -138,6 +146,10 @@ func _test_gu(family: GuFamilyData, gu: GuData) -> void:
 			_check(buffed, label + ": keine Stärkung")
 		&"beschwoerung":
 			_check(not tree.get_nodes_in_group(Enemy.GROUP_COMPANIONS).is_empty(), label + ": nichts beschworen")
+		&"eingebung":
+			_check(hasted, label + ": Abklingzeiten nicht verkürzt")
+		&"tausch":
+			_check(swapped and _damage_dealt() > 0.0, label + ": kein Platztausch mit Schaden")
 		_:
 			if family.form == &"falle":
 				await _trigger_traps()

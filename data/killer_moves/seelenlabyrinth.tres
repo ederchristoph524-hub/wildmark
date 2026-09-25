@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bqadw2u6bfxo2"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_5yy6l"]
+
+[resource]
+script = ExtResource("1_5yy6l")
+id = &"seelenlabyrinth"
+display_name = "Seelenlabyrinth"
+family_a = &"labyrinth"
+family_b = &"seelenschrei"
+channel_time = 1.0
+damage_mult = 3.2
+description = "Ein Schrei fährt in den Irrgarten: die Gefangenen verlieren den Verstand und fliehen blind."
+hint = "Wer sich verirrt, fürchtet jeden Schatten."
+min_rank = 3
+steps = [{
+"at": "target",
+"blind": 1.0,
+"color": "#d8c070",
+"distance": 7.0,
+"mult": 0.25,
+"pull": 0.8,
+"radius": 4.5,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele"],
+"tick": 0.5,
+"time": 5.0
+}, {
+"angle": 90.0,
+"color": "#c9a0ff",
+"mult": 0.9,
+"reach": 9.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele", "klang"]
+}]

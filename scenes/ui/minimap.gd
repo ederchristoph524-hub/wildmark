@@ -81,6 +81,11 @@ func _draw_marker(point: Vector2, kind: StringName) -> void:
 	match kind:
 		MapData.KIND_ENEMY:
 			draw_circle(point, 2.5, color)
+		MapData.KIND_ROGUE, MapData.KIND_PATROL:
+			draw_circle(point, 3.5, Color.BLACK)
+			draw_circle(point, 2.7, color)
+		MapData.KIND_WILD:
+			draw_colored_polygon(PackedVector2Array([point + Vector2(0, -4), point + Vector2(4, 0), point + Vector2(0, 4), point + Vector2(-4, 0)]), color)
 		MapData.KIND_PERSON:
 			draw_circle(point, 2.0, color)
 		MapData.KIND_QUEST:

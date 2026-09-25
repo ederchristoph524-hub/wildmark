@@ -11,10 +11,15 @@ const KIND_PERSON: StringName = &"person"
 const KIND_MASTER: StringName = &"master"
 const KIND_QUEST: StringName = &"quest"
 const KIND_ENEMY: StringName = &"enemy"
+## Wandernde Gu-Meister (dämonisch bzw. rechtschaffen) und wilde Gu (nur mit Kaktuszeiger-Gu).
+const KIND_ROGUE: StringName = &"rogue"
+const KIND_PATROL: StringName = &"patrol"
+const KIND_WILD: StringName = &"wild"
 const KIND_COLORS: Dictionary[StringName, Color] = {
 	&"village": Color(0.95, 0.8, 0.45), &"place": Color(0.75, 0.85, 1.0), &"site": Color(0.8, 0.6, 1.0),
 	&"camp": Color(1.0, 0.6, 0.25), &"person": Color(0.85, 0.85, 0.8), &"master": Color(0.6, 1.0, 0.6),
-	&"quest": Color(1.0, 0.85, 0.2), &"enemy": Color(1.0, 0.3, 0.25),
+	&"quest": Color(1.0, 0.85, 0.2), &"enemy": Color(1.0, 0.3, 0.25), &"rogue": Color(0.85, 0.25, 0.6),
+	&"patrol": Color(0.55, 0.8, 1.0), &"wild": Color(0.7, 1.0, 0.4),
 }
 
 static var _texture: ImageTexture = null
@@ -54,8 +59,15 @@ static func markers(world: World, with_enemies: bool) -> Array[Dictionary]:
 			var npc: Npc = node
 			var quest: bool = npc.quest_id != &"" and Quests.state(npc.quest_id) != Quests.DONE
 			result.append({"uv": to_uv(world, npc.global_position), "kind": KIND_QUEST if quest else KIND_PERSON, "label": npc.display_title()})
+		elif node is Wanderer:
+			var wanderer: Wanderer = node
+			result.append({"uv": to_uv(world, wanderer.global_position), "kind": KIND_ROGUE if wanderer.is_demonic() or wanderer.bounty_hunter else KIND_PATROL, "label": wanderer.display_title()})
 		elif node is GuMaster:
 			result.append({"uv": to_uv(world, (node as GuMaster).global_position), "kind": KIND_MASTER, "label": (node as GuMaster).display_title()})
+	if PassiveGu.flag("gu_compass"):
+		for node: Node in world.get_children():
+			if node is WildGu:
+				result.append({"uv": to_uv(world, (node as WildGu).global_position), "kind": KIND_WILD, "label": ""})
 	if with_enemies:
 		for node: Node in tree.get_nodes_in_group(Enemy.GROUP_ENEMIES):
 			var enemy: Enemy = node as Enemy

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://inm64i2om50x"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_tcjx5"]
+
+[resource]
+script = ExtResource("1_tcjx5")
+id = &"eistausch"
+display_name = "Eistausch"
+family_a = &"tausch"
+family_b = &"frost"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Du springst an den Platz des Gegners; wo du standest, erstarrt er in einem Eisblock."
+hint = "Kalt ist der Platz, den man tauscht."
+min_rank = 3
+steps = [{
+"color": "#bfeaff",
+"mult": 0.6,
+"range": 14.0,
+"stacks": 2.0,
+"status": "frost",
+"stun": 0.5,
+"t": "swap",
+"tags": ["raum", "eis"]
+}, {
+"at": "target",
+"color": "#bfeaff",
+"freeze": 2.0,
+"mult": 0.9,
+"radius": 3.5,
+"t": "circle",
+"tags": ["eis"]
+}]

@@ -67,7 +67,7 @@ func _visit(area: AreaData) -> void:
 	for node: Node in world.find_children("*", "", true, false):
 		if node is Npc:
 			npcs += 1
-		elif node is GuMaster:
+		elif node is GuMaster and not node is Wanderer:
 			masters += 1
 		elif node is Inheritance:
 			inheritances += 1

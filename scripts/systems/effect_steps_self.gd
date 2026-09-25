@@ -1,7 +1,7 @@
 class_name EffectStepsSelf
 extends RefCounted
 ## Wirkungsschritte, die den Wirker oder seine Verbündeten betreffen: Panzer, Heilung, Beschwörung, Stärkung,
-## Tarnung, Teleport, Sprint, Reinigung, Unaufhaltsamkeit, Rückprall (Teil von EffectSteps).
+## Tarnung, Teleport, Sprint, Reinigung, Unaufhaltsamkeit, Rückprall, Positionstausch, Eingebung (Teil von EffectSteps).
 
 const HEAL_COLOR: Color = Color(0.5, 1.0, 0.5)
 const SUMMON_OFFSET: float = 2.2
@@ -39,6 +39,11 @@ static func run_step(step: Dictionary, ctx: EffectContext) -> void:
 			caster.unstoppable_time = maxf(caster.unstoppable_time, float(step.get("time", 4.0)))
 		"reflect":
 			caster.reflect_time = maxf(caster.reflect_time, float(step.get("time", 4.0)))
+		"swap":
+			_swap(step, ctx)
+		"haste":
+			EssenceTheft.hasten(caster, float(step.get("refund", 1.0)), float(step.get("cd_mult", 1.0)), float(step.get("time", 0.0)))
+			Fx.ring(tree, caster.global_position, 1.8, EffectSteps.step_color(step, ctx), 0.5)
 		_:
 			push_warning("EffectSteps: unbekannte Schrittart '%s'" % step.get("t", ""))
 
@@ -84,6 +89,37 @@ static func _summon(step: Dictionary, ctx: EffectContext) -> void:
 		else:
 			spawner.call("spawn_minion", id, at, ctx.team)
 	Fx.sphere(ctx.tree(), ctx.caster.aim_point(), 2.5, Color(EffectSteps.step_color(step, ctx), 0.35), 0.6)
+
+
+## Positionstausch (Raum-Pfad): tauscht den Platz mit dem Ziel (oder dem nächsten Gegner in range; mit "fresh" mit
+## einem anderen als dem letzten) und trifft es mit den Treffer-Parametern des Schritts. Unaufhaltsame lassen sich
+## nicht versetzen.
+static func _swap(step: Dictionary, ctx: EffectContext) -> void:
+	var caster: Combatant = ctx.caster
+	var reach: float = float(step.get("range", 10.0))
+	var last: Combatant = ctx.target if ctx.target != null and is_instance_valid(ctx.target) and not ctx.target.is_dead() else null
+	var target: Combatant = null if bool(step.get("fresh", false)) else last
+	if target == null or target.global_position.distance_to(caster.global_position) > reach:
+		var options: Array[Combatant] = []
+		for other: Combatant in Combat.in_radius(Combat.hostiles(ctx.tree(), ctx.team), caster.global_position, reach):
+			if other != last or not bool(step.get("fresh", false)):
+				options.append(other)
+		target = Combat.nearest(options, caster.global_position + ctx.aim * 2.0)
+	if target == null:
+		return
+	var color: Color = EffectSteps.step_color(step, ctx)
+	var from: Vector3 = caster.global_position
+	var to: Vector3 = target.global_position
+	if target.unstoppable_time <= 0.0:
+		Fx.beam(ctx.tree(), from + Vector3.UP, to + Vector3.UP, color, 0.3, 0.15)
+		caster.global_position = to + Vector3.UP * 0.1
+		caster.velocity = Vector3.ZERO
+		target.global_position = from + Vector3.UP * 0.1
+		target.velocity = Vector3.ZERO
+	ctx.target = target
+	Fx.ring(ctx.tree(), from, 1.4, color, 0.4)
+	Fx.ring(ctx.tree(), to, 1.4, color, 0.4)
+	EffectSteps.strike(target, step, ctx, caster.global_position)
 
 
 ## Taucht direkt vor dem Ziel wieder auf (Erdloch, Schattensprung); ist es weiter weg, nur so weit wie erlaubt.

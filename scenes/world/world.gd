@@ -28,6 +28,7 @@ var entities: Node3D = null
 var spawner: EnemySpawner = null
 ## Bestienflut des Gebiets (null ohne gebiete.json → flut).
 var tide: BeastTide = null
+var wanderers: Wanderers = null
 var day_night: DayNight = null
 var camp: Campfire = null
 ## Freiflächen ohne Bäume und Sammelstellen (Siedlungen, Orte, Hindernis-Orte): (x, _, z, Radius).
@@ -71,6 +72,9 @@ func _ready() -> void:
 	if not area.tide.is_empty():
 		tide = BeastTide.new(self)
 		add_child(tide)
+	if area.wanderer_count > 0:
+		wanderers = Wanderers.new(self)
+		add_child(wanderers)
 	BuildSystem.restore(self)
 	if not GameState.loot_sack.is_empty() and GameState.loot_sack.get("area", area.id) == area.id:
 		Pickup.spawn(get_tree(), GameState.loot_sack["position"], GameState.loot_sack["items"], true)

@@ -10,6 +10,9 @@ const COOLDOWN_KEY: StringName = &"cd"
 
 var host: Combatant = null
 var aperture: ApertureComponent = null
+## Weisheits-Pfad (hasten): Abklingzeiten laufen eine Weile schneller.
+var haste_mult: float = 1.0
+var haste_time: float = 0.0
 
 
 func _init(owner_combatant: Combatant, owner_aperture: ApertureComponent) -> void:
@@ -23,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		return
 	for instance: GuInstance in GameState.gu:
 		instance.cooldown_left = maxf(0.0, instance.cooldown_left - delta)
+	haste_time = maxf(0.0, haste_time - delta)
 	_update_hunger(delta)
 
 
@@ -74,7 +78,17 @@ func hp_cost(instance: GuInstance) -> float:
 func cooldown_of(instance: GuInstance) -> float:
 	var gift_mult: float = GuGifts.number(gu_data(instance), "cd_mult")
 	var family: GuFamilyData = family_of(instance)
-	return float(family.base_r1.get(COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult") * Dao.cooldown_mult(family.path)
+	# Die Eingebung selbst lädt nicht schneller (sonst hält sie sich dauerhaft am Laufen).
+	var haste: float = haste_mult if haste_time > 0.0 and family.form != GuForms.FORM_HASTE else 1.0
+	return float(family.base_r1.get(COOLDOWN_KEY, 1.0)) * (gift_mult if gift_mult > 0.0 else 1.0) * float(trait_rule(instance, "cooldown", 1.0)) * PassiveGu.mult("cooldown_mult") * Dao.cooldown_mult(family.path) * haste
+
+
+## Alle Abklingzeiten sofort um refund Sekunden kürzer, danach duration Sekunden lang × cd_mult (EssenceTheft.hasten).
+func hasten(refund: float, cd_mult: float, duration: float) -> void:
+	for instance: GuInstance in GameState.gu:
+		instance.cooldown_left = maxf(0.0, instance.cooldown_left - refund)
+	haste_mult = cd_mult
+	haste_time = maxf(haste_time, duration)
 
 
 ## Leer = einsatzbereit, sonst Grund für die Anzeige.

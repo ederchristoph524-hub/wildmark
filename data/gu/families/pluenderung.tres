@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://mengkaeruw5x"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_xha3q"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_g1317"]
+
+[sub_resource type="Resource" id="gu_langfinger"]
+script = ExtResource("1_xha3q")
+id = &"langfinger"
+display_name = "Langfinger-Gu"
+family = &"pluenderung"
+description = "Eine geisterhafte Hand greift nach vorn und reißt dem Getroffenen Uressenz aus dem Leib."
+
+[sub_resource type="Resource" id="gu_raubgriff"]
+script = ExtResource("1_xha3q")
+id = &"raubgriff"
+display_name = "Raubgriff-Gu"
+family = &"pluenderung"
+rank = 2
+rank_gift = "Raub +50 %, Schwäche."
+description = "Der Griff sitzt tiefer: mehr Raub, und der Beraubte wird schwach."
+gifts = {
+"essence_steal": 0.5,
+"step": {
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[sub_resource type="Resource" id="gu_pluender"]
+script = ExtResource("1_xha3q")
+id = &"pluender"
+display_name = "Plünder-Gu"
+family = &"pluenderung"
+rank = 3
+rank_gift = "Reichweite 6, zieht heran, Hinrichtung +40 %."
+description = "Das Gu aus der Serie: es reißt Gegner heran und nimmt Sterbenden alles."
+gifts = {
+"essence_steal": 0.0,
+"execute": 0.4,
+"step": {
+"angle": 90.0,
+"knockback": -1.0,
+"reach": 6.0,
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[sub_resource type="Resource" id="gu_gierige_hand"]
+script = ExtResource("1_xha3q")
+id = &"gierige_hand"
+display_name = "Gierige-Hand-Gu"
+family = &"pluenderung"
+rank = 4
+rank_gift = "Zweiter Griff nach 0,35 s mit doppeltem Raub."
+description = "Die Hand greift ein zweites Mal zu – und der zweite Griff raubt doppelt."
+gifts = {
+"extra": [{
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 3.0,
+"knockback": -0.8,
+"mult": 0.7,
+"reach": 6.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.35
+}]
+}
+
+[sub_resource type="Resource" id="gu_himmelsdieb"]
+script = ExtResource("1_xha3q")
+id = &"himmelsdieb"
+display_name = "Himmelsdieb-Gu"
+family = &"pluenderung"
+rank = 5
+rank_gift = "Zwei Griffe, danach 6 s +30 % Schaden."
+description = "Wer dem Himmel stiehlt, stiehlt auch Stärke: jeder Raub macht dich 6 s stärker."
+gifts = {
+"essence_steal": 0.5,
+"extra": [{
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 3.5,
+"knockback": -0.8,
+"mult": 0.8,
+"reach": 6.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.35
+}, {
+"color": "#8fd06a",
+"damage": 1.3,
+"key": "himmelsdieb",
+"speed": 1.05,
+"t": "buff",
+"time": 6.0
+}]
+}
+
+[resource]
+script = ExtResource("2_g1317")
+id = &"pluenderung"
+display_name = "Plünderhand"
+path = &"diebstahl"
+role = "Nahkampf, Essenzraub"
+form = &"kegel"
+tags = Array[StringName]([&"schnitt"])
+feed_item = &"fleisch"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 2.4,
+&"ess": 3.0,
+&"essenzraub": 1.0,
+&"reichweite": 4.5,
+&"rueckstoss": 0.0,
+&"schaden": 15.0,
+&"winkel": 75.0
+})
+members = Array[ExtResource("1_xha3q")]([SubResource("gu_langfinger"), SubResource("gu_raubgriff"), SubResource("gu_pluender"), SubResource("gu_gierige_hand"), SubResource("gu_himmelsdieb")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"schlangenhaut": 2,
+&"wildfell": 2
+},
+3: {
+&"schlangenhaut": 3,
+&"seelenglas": 1
+},
+4: {
+&"giftdrüse": 4,
+&"seelenglas": 3
+},
+5: {
+&"schlangenhaut": 5,
+&"urkristall": 1
+}
+})
+world_effect = "Die Geisterhand greift durch Gitter und holt Dinge heran, die du nicht erreichst."

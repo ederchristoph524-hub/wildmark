@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c7g8gjubjspr4"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_0mpd2"]
+
+[resource]
+script = ExtResource("1_0mpd2")
+id = &"zeitdonner"
+display_name = "Zeitdonner"
+family_a = &"zeit"
+family_b = &"blitz"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Blitze fallen in die Zeitblase – und fallen im Echo ein zweites Mal."
+hint = "Der Donner hallt, bevor der Blitz fällt."
+min_rank = 3
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 7.0,
+"end": [{
+"color": "#8ad0ff",
+"jumps": 4.0,
+"mult": 0.9,
+"radius": 7.0,
+"stun": 0.4,
+"t": "chain",
+"tags": ["blitz", "zeit"]
+}],
+"mult": 0.2,
+"radius": 4.0,
+"slow": 0.6,
+"status": "ladung",
+"t": "zone",
+"tags": ["zeit", "blitz"],
+"tick": 0.5,
+"time": 3.0
+}, {
+"color": "#8ad0ff",
+"jumps": 4.0,
+"mult": 0.7,
+"radius": 7.0,
+"status": "ladung",
+"t": "chain",
+"tags": ["blitz"]
+}]

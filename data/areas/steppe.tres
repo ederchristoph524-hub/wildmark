@@ -217,7 +217,7 @@ enemy_radii = Array[float]([150.0, 210.0])
 enemy_zones = [[&"wolf", &"blitzwolf", &"pfeilhase", &"eber"], [&"blitzwolf", &"elektrowolf", &"sturmadler", &"schwarzeber_bestie", &"bergbaer"], [&"elektrowolf", &"sturmadler", &"feuerfuchs", &"troll", &"schatten"]]
 wild_gu_rank = 3
 wild_gu_range = Vector2(110, 230)
-wild_passives = [[&"tapferkampf", &"body", 120.0, 220.0, false], [&"jadeknochen", &"body", 150.0, 230.0, true], [&"wildwut", &"body", 200.0, 235.0, true], [&"verstaerker", &"support", 140.0, 230.0, true], [&"seelensuche", &"support", 110.0, 210.0, false], [&"selbsthilfe", &"support", 120.0, 220.0, false], [&"sofortigererfolg", &"support", 140.0, 230.0, false]]
+wild_passives = [[&"tapferkampf", &"body", 120.0, 220.0, false], [&"jadeknochen", &"body", 150.0, 230.0, true], [&"wildwut", &"body", 200.0, 235.0, true], [&"verstaerker", &"support", 140.0, 230.0, true], [&"seelensuche", &"support", 110.0, 210.0, false], [&"selbsthilfe", &"support", 120.0, 220.0, false], [&"sofortigererfolg", &"support", 140.0, 230.0, false], [&"donnerfluegel_gu", &"support", 100.0, 240.0, false]]
 tide = {
 "beasts": Array[StringName]([&"blitzwolf", &"blitzwolf", &"elektrowolf"]),
 "count": 16,
@@ -230,3 +230,5 @@ tide = {
 },
 "target": &"wolfsstamm"
 }
+wanderers = Array[StringName]([&"wilde_horde", &"wolfsreiter", &"huang_jin"])
+wanderer_count = 3

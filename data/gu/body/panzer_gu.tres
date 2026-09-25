@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://kscs6pkykcf0"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_ocewr"]
+
+[resource]
+script = ExtResource("1_ocewr")
+id = &"panzer_gu"
+display_name = "Panzer-Gu"
+rank = 3
+effects = Dictionary[StringName, float]({
+&"max_hp": 40.0,
+&"schaden_erlitten": -0.12
+})

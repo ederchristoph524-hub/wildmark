@@ -48,6 +48,9 @@ extends Resource
 ## Bestienflut (gebiete.json → flut): {"beasts": Array[StringName], "leader": StringName, "count": int, "every": int
 ## (alle n Tage, nachts), "target": StringName (Siedlungs-ID), "reward": Dictionary[StringName, int]}; leer = keine.
 @export var tide: Dictionary = {}
+## Wandernde Gu-Meister auf den Straßen (gebiete.json → wanderer: meister, anzahl gleichzeitig), siehe Wanderers.
+@export var wanderers: Array[StringName] = []
+@export var wanderer_count: int = 0
 
 
 ## Siedlung per ID (leer, wenn es sie nicht gibt).

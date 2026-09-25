@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://cuuogndhmj3kl"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_m70mb"]
+
+[resource]
+script = ExtResource("1_m70mb")
+id = &"eiskristall"
+display_name = "Eiskristall-Gu"
+rank = 4
+effects = Dictionary[StringName, float]({
+&"max_hp": 50.0,
+&"schaden_erlitten": -0.1
+})

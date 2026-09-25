@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bc2yseku6cjwh"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_26vwk"]
+
+[resource]
+script = ExtResource("1_26vwk")
+id = &"blutraub"
+display_name = "Blutraub"
+family_a = &"pluenderung"
+family_b = &"blutmond"
+channel_time = 0.8
+damage_mult = 3.2
+description = "Blutige Hände reißen Leben und Essenz zugleich heraus."
+hint = "Was fließt, lässt sich stehlen."
+min_rank = 3
+steps = [{
+"angle": 100.0,
+"color": "#d0303a",
+"essence_steal": 2.0,
+"knockback": -1.0,
+"lifesteal": 0.3,
+"mult": 1.1,
+"reach": 7.0,
+"stacks": 2.0,
+"status": "blutung",
+"t": "cone",
+"tags": ["blut", "schnitt"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d0303a",
+"essence_steal": 1.0,
+"lifesteal": 0.3,
+"mult": 0.8,
+"radius": 4.0,
+"t": "circle",
+"tags": ["blut"]
+}],
+"time": 0.35
+}]

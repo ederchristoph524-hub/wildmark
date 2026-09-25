@@ -20,6 +20,7 @@ func run() -> void:
 	await _test_beast_tide()
 	_test_dao()
 	_test_recipes()
+	await RenownSmokeSteps.new(steps).run()
 
 
 func _test_cultivation() -> void:

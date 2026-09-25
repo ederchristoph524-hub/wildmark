@@ -302,6 +302,36 @@ extends Resource
 @export var sect_task_stones_per_rank: int = 4
 @export var sect_task_merit: int = 30
 
+@export_group("Ruf und Wanderer")
+## Berüchtigtheit: ab renown_wanted Kopfgeld (Jäger, Aufschlag, keine rechtschaffene Sekte), ab renown_demon kein
+## Handel und kein Duell in rechtschaffenen Siedlungen; dämonische Sekten erst ab renown_demonic_join. Verblasst täglich.
+@export var renown_wanted: int = 40
+@export var renown_demon: int = 80
+@export var renown_demonic_join: int = 15
+@export var renown_decay: int = 2
+@export var renown_wanted_markup: float = 1.5
+## Ansehen (bzw. Berüchtigtheit in dämonischen Sekten): Verdienst-Faktor ab „Geachtet" und „Held".
+@export var renown_famous: int = 30
+@export var renown_hero: int = 80
+@export var renown_merit_famous: float = 1.25
+@export var renown_merit_hero: float = 1.5
+## Taten: Rechtschaffene überfallen, ausrauben, töten; Dämonen töten; Besiegte verschonen.
+@export var renown_attack: int = 4
+@export var renown_rob: int = 6
+@export var renown_kill_righteous: int = 15
+@export var renown_kill_demonic: int = 8
+@export var renown_spare: int = 3
+## Wandernde Gu-Meister (gebiete.json → wanderer): Angriffsreichweite, Vorwarnung, Aufgabe ab Lebensanteil (wie Duell),
+## Verfolgung bis wanderer_leash, Geldbeutel je Rang (± 30 %), Chance auf einen zweiten Gu beim Töten, Nachschub.
+@export var wanderer_aggro: float = 14.0
+@export var wanderer_warning: float = 1.2
+@export var wanderer_leash: float = 40.0
+@export var wanderer_purse: int = 6
+@export var wanderer_second_gu: float = 0.3
+@export var wanderer_respawn: float = 180.0
+## Kopfgeldjäger erscheinen morgens so weit entfernt (einer, als Dämon zwei).
+@export var bounty_distance: float = 55.0
+
 @export_group("Gu-Meister und Duell")
 ## Kultivierung des Dorf-Gu-Meisters (Rang 2, Stufe 1, durchschnittliches Talent).
 @export var master_rank: int = 2
@@ -328,7 +358,7 @@ extends Resource
 ## Der Gu-Meister gibt bei 25 % Leben auf, der Spieler unterliegt bei 15 %.
 @export var duel_surrender_ratio: float = 0.25
 @export var duel_player_floor: float = 0.15
-## Entfernt sich der Spieler weiter vom Duellplatz, endet das Duell.
+## Entfernt sich der Spieler weiter vom Gu-Meister, endet das Duell (Wanderer: wanderer_leash).
 @export var duel_leash: float = 26.0
 @export var duel_reward_stones: int = 4
 @export var duel_first_win_stones: int = 10

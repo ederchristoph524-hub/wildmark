@@ -1408,7 +1408,8 @@
    "gu": [
     "goldlicht",
     "sternpfeil",
-    "eisenhaut"
+    "eisenhaut",
+    "irrweg"
    ],
    "rang": 5
   },
@@ -1576,6 +1577,99 @@
     "windklinge",
     "stummermund",
     "steinhaut"
+   ]
+  },
+  "streuner": {
+   "n": "Streunender Dämonenkultivierender",
+   "c": "#6a3a4a",
+   "f": "demonic",
+   "rang": 1,
+   "stufe": 0,
+   "gu": [
+    "mondlicht",
+    "stachelwurm"
+   ]
+  },
+  "wegelagerer": {
+   "n": "Wegelagerer",
+   "c": "#7a5a3a",
+   "f": "demonic",
+   "rang": 2,
+   "stufe": 2,
+   "gu": [
+    "windklinge",
+    "knochensplitter",
+    "langfinger"
+   ]
+  },
+  "shang_wache": {
+   "n": "Shang-Karawanenwache",
+   "c": "#d8b040",
+   "f": "righteous",
+   "rang": 3,
+   "gu": [
+    "steinhaut",
+    "sternpfeil_klein",
+    "wirbelwind"
+   ]
+  },
+  "wolfsreiter": {
+   "n": "Wolfsreiter der Horde",
+   "c": "#8a6a4a",
+   "f": "demonic",
+   "rang": 3,
+   "gu": [
+    "rattensklave",
+    "eberstoss",
+    "windklinge"
+   ]
+  },
+  "sandraeuber": {
+   "n": "Sandräuber",
+   "c": "#b88a50",
+   "f": "demonic",
+   "rang": 4,
+   "gu": [
+    "drehfels",
+    "stachelwurm",
+    "steinhaut",
+    "aurahuelle"
+   ]
+  },
+  "seeraeuber": {
+   "n": "Seeräuber der Zehntausend Inseln",
+   "c": "#3a6a8a",
+   "f": "demonic",
+   "rang": 4,
+   "gu": [
+    "wasserlicht",
+    "windklinge",
+    "knochensplitter",
+    "eisenzahn"
+   ]
+  },
+  "blutaeltester": {
+   "n": "Blutflügel-Ältester",
+   "c": "#901a2a",
+   "f": "demonic",
+   "rang": 5,
+   "gu": [
+    "blutstropfen",
+    "knochensplitter",
+    "steinhaut",
+    "aurahuelle"
+   ]
+  },
+  "schattenaeltester": {
+   "n": "Schattenältester",
+   "c": "#6a2a90",
+   "f": "demonic",
+   "rang": 5,
+   "gu": [
+    "kleiner_tausch",
+    "mondlicht",
+    "stachelwurm",
+    "aurahuelle"
    ]
   }
  },

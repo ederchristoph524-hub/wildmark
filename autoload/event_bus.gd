@@ -32,6 +32,8 @@ signal day_started(day: int)
 
 ## Ein NPC möchte ein Gespräch öffnen (Npc).
 signal dialog_requested(npc: Node3D)
+## Auswahl mit Knöpfen: options = [[Beschriftung, Callable], …] (ChoiceMenu).
+signal choice_requested(title: String, text: String, options: Array)
 
 ## Kamera drehen per Wischen (Pixel-Delta vom Touch-Bereich).
 signal camera_look(delta: Vector2)

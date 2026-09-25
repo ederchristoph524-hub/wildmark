@@ -25,13 +25,15 @@ static func grant(master: GuMaster) -> void:
 		drop_gu(master)
 
 
-## Einer seiner Gu entkommt und bleibt wild neben ihm zurück (muss verfeinert werden).
-static func drop_gu(master: GuMaster) -> WildGu:
+## Einer seiner Gu (ohne Angabe ein zufälliger) entkommt und bleibt wild neben ihm zurück (muss verfeinert werden).
+## key: eindeutige ID des wilden Gu, sonst nach Duellzahl.
+static func drop_gu(master: GuMaster, instance: GuInstance = null, key: String = "") -> WildGu:
 	if master.gu_list.is_empty():
 		return null
-	var instance: GuInstance = master.gu_list[randi() % master.gu_list.size()]
+	if instance == null:
+		instance = master.gu_list[randi() % master.gu_list.size()]
 	var wild := WildGu.new()
-	wild.setup(StringName("duell_%s_%d" % [instance.gu_id, GameState.duels_won]), DataRegistry.gu(instance.gu_id))
+	wild.setup(StringName(key if key != "" else "duell_%s_%d" % [instance.gu_id, GameState.duels_won]), DataRegistry.gu(instance.gu_id))
 	master.get_parent().add_child(wild)
 	wild.global_position = master.global_position + Vector3(1.2, 0.8, 0.0)
 	EventBus.message.emit(Loc.t("%s entgleitet ihm und bleibt wild zurück – verfeinere ihn!") % Loc.t(DataRegistry.gu(instance.gu_id).display_name), Color(1.0, 0.85, 0.4))

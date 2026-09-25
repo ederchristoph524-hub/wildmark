@@ -30,6 +30,8 @@ var stun: float = 0.0
 var lifesteal: float = 0.0
 ## Zusatzschaden gegen Ziele unter 30 % Leben (Hinrichtung).
 var execute_bonus: float = 0.0
+## Raubt Uressenz im Verhältnis zum Schaden (Plünderung, EssenceTheft).
+var essence_steal: float = 0.0
 
 
 static func create(amount: float, from: Node3D, from_team: int) -> HitInfo:

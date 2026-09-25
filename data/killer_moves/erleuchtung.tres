@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://17rjogjoo4kg"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_i78sq"]
+
+[resource]
+script = ExtResource("1_i78sq")
+id = &"erleuchtung"
+display_name = "Erleuchtung"
+family_a = &"weisheit"
+family_b = &"mondlicht"
+channel_time = 0.7
+damage_mult = 2.3
+description = "Ein Gedankenblitz im Mondlicht: sieben Klingen fliegen, und deine Gu laden schneller."
+hint = "Klarheit schneidet schärfer als Stahl."
+steps = [{
+"cd_mult": 0.8,
+"color": "#7fc8ff",
+"refund": 2.0,
+"t": "haste",
+"time": 5.0
+}, {
+"color": "#d9e6ff",
+"count": 7.0,
+"mult": 0.6,
+"range": 14.0,
+"spread": 60.0,
+"t": "projectiles",
+"tags": ["licht", "schnitt"]
+}]

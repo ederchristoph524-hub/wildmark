@@ -68,16 +68,17 @@ func _ready() -> void:
 	_update_label()
 
 
-## Gu-Meister nutzen den Familien-Gu ihres Rangs (wie ein Spieler nach der Aufstiegsverfeinerung).
+## Gu-Meister nutzen den höchsten Familien-Gu bis zu ihrem Rang (wie ein Spieler nach der Aufstiegsverfeinerung);
+## ein höherrangiger Eintrag in den Daten wird auf ihren Rang zurückgestuft.
 func _member_for_rank(id: StringName) -> GuData:
 	if not DataRegistry.has_gu(id):
 		return null
 	var base_gu: GuData = DataRegistry.gu(id)
-	var best: GuData = base_gu
+	var best: GuData = null
 	for member: GuData in DataRegistry.family(base_gu.family).members:
-		if member.rank <= rank and member.rank > best.rank:
+		if member.rank <= rank and (best == null or member.rank > best.rank):
 			best = member
-	return best
+	return best if best != null else base_gu
 
 
 func _build_body() -> void:
@@ -265,8 +266,9 @@ func _near_player(distance: float) -> bool:
 	return player != null and player.global_position.distance_to(global_position) < distance
 
 
+## Entfernt sich der Gegner zu weit von ihm (Rückstoß zählt nicht als Flucht, solange er in Reichweite bleibt).
 func _opponent_left() -> bool:
-	return opponent.is_dead() or opponent.global_position.distance_to(home) > Balance.values.duel_leash
+	return opponent.is_dead() or opponent.global_position.distance_to(global_position) > Balance.values.duel_leash
 
 
 func _enter(new_state: DuelState) -> void:
@@ -304,7 +306,9 @@ func interact_label() -> String:
 
 ## Als Kind: Erwachen (sobald das Tutorial so weit ist); danach Duell.
 func interact(player: Player) -> void:
-	if not Childhood.is_child():
+	if not Childhood.is_child() and data.faction == Renown.RIGHTEOUS and Renown.is_demon() and not Renown.disguised():
+		EventBus.message.emit(tr("%s: „Ein Dämon fordert mich heraus? Verschwinde, bevor ich die Wache rufe!“") % display_title(), Renown.INFAMY_COLOR)
+	elif not Childhood.is_child():
 		start_duel(player)
 	elif Childhood.is_awakening_step():
 		EventBus.awakening_requested.emit()

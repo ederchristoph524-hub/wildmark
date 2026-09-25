@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cqo1uv2wxoi4t"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_6fqij"]
+
+[resource]
+script = ExtResource("1_6fqij")
+id = &"zeitsprung"
+display_name = "Zeitsprung"
+family_a = &"zeit"
+family_b = &"schritt"
+channel_time = 1.0
+damage_mult = 4.2
+description = "Du springst durch die Zeit: am Ausgangspunkt bleibt eine Blase stehen, die alles erstarren lässt, und für dich laufen die Gu schneller."
+hint = "Wer die Zeit überholt, kommt vor sich selbst an."
+min_rank = 5
+steps = [{
+"at": "self",
+"color": "#a04ad0",
+"end": [{
+"color": "#a04ad0",
+"mult": 2.2,
+"radius": 5.0,
+"stun": 0.8,
+"t": "circle",
+"tags": ["zeit"]
+}],
+"mult": 0.3,
+"radius": 5.0,
+"slow": 0.7,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 0.5,
+"time": 4.0
+}, {
+"distance": 12.0,
+"t": "teleport"
+}, {
+"cd_mult": 0.7,
+"color": "#a04ad0",
+"refund": 3.0,
+"t": "haste",
+"time": 5.0
+}]

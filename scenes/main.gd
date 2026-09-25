@@ -38,6 +38,8 @@ func _ready() -> void:
 	EventBus.enemy_killed.connect(func(_id: StringName, _where: Vector3) -> void: GameState.kills += 1)
 	EventBus.enemy_killed.connect(SectLife.on_enemy_killed)
 	EventBus.day_started.connect(SectLife.on_new_day)
+	EventBus.day_started.connect(Renown.on_new_day)
+	EventBus.choice_requested.connect(_on_choice)
 	show_start_menu()
 
 
@@ -277,6 +279,12 @@ func _on_dialog(npc: Node3D) -> void:
 	dialog.npc = npc as Npc
 	_open_menu(dialog)
 	Childhood.on_dialog(dialog.npc.quest_id)
+
+
+func _on_choice(title: String, text: String, options: Array) -> void:
+	if player == null or player.is_dead():
+		return
+	_open_menu(ChoiceMenu.create(title, text, options))
 
 
 func _on_reaction(reaction_id: StringName, _where: Vector3) -> void:

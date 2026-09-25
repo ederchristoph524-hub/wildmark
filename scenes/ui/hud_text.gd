@@ -25,8 +25,11 @@ static func statuses(player: Player) -> String:
 		parts.append(Loc.t("Hilfs-Gu ruhen"))
 	var stones: int = GameState.item_count(&"kristall")
 	parts.append(Loc.t("Urstein: %d") % stones)
-	var sect: String = SectLife.status_line()
-	return " · ".join(parts) + ("\n" + sect if sect != "" else "")
+	var lines: PackedStringArray = [" · ".join(parts)]
+	for extra: String in [SectLife.status_line(), Renown.status_line()]:
+		if extra != "":
+			lines.append(extra)
+	return "\n".join(lines)
 
 
 static func gu_bar(player: Player) -> String:

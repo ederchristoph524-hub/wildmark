@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://mksy6vo18vnd"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_tv2n4"]
+
+[resource]
+script = ExtResource("1_tv2n4")
+id = &"menschenhaut"
+display_name = "Menschenhaut-Gu"
+rank = 3
+path = &"verwandlung"
+effect_text = "Verkleidung: Rechtschaffene erkennen dich nicht (kein Angriff, kein Aufschlag, keine Kopfgeldjäger)"
+feed_item = &"fleisch"
+feed_amount = 3
+rules = {
+"disguise": true
+}

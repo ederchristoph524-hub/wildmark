@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://doqedwneih66g"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_0ambx"]
+
+[resource]
+script = ExtResource("1_0ambx")
+id = &"qibestie"
+display_name = "Qi-Bestie"
+family_a = &"qischirm"
+family_b = &"phantom"
+channel_time = 0.9
+damage_mult = 3.3
+description = "Kraft-Qi verfestigt dein Bestienphantom: es rast als harte Qi-Gestalt geradeaus durch alle Gegner."
+hint = "Das Phantom bekommt einen Körper aus Qi."
+min_rank = 3
+steps = [{
+"color": "#99ffff",
+"knockback": 1.8,
+"length": 14.0,
+"mult": 1.3,
+"pierce_armor": true,
+"stun": 0.5,
+"t": "line",
+"tags": ["wucht"],
+"width": 3.2
+}, {
+"ally_reduction": 0.25,
+"color": "#99ffff",
+"follow": true,
+"knockback": 0.5,
+"mult": 0.2,
+"radius": 3.5,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 0.5,
+"time": 4.0
+}]

@@ -14,10 +14,14 @@ const FORM_TRAP: StringName = &"falle"
 const FORM_STEALTH: StringName = &"tarnung"
 const FORM_BUFF: StringName = &"staerkung"
 const FORM_SUMMON: StringName = &"beschwoerung"
+## Positionstausch (Raum-Pfad) und Eingebung (Weisheits-Pfad: Abklingzeiten verkürzen).
+const FORM_SWAP: StringName = &"tausch"
+const FORM_HASTE: StringName = &"eingebung"
 ## Summe des Schadens aller Sterne eines Schwarms bzw. aller Fallen auf ein Ziel (× Grundschaden).
 const SWARM_TOTAL: float = 3.0
 const TRAP_TOTAL: float = 2.5
-const FORMS: Array[StringName] = [FORM_ZONE, FORM_CONE, FORM_CHARGE, FORM_AURA, FORM_SWARM, FORM_ORBIT, FORM_TRAP, FORM_STEALTH, FORM_BUFF, FORM_SUMMON]
+const FORMS: Array[StringName] = [FORM_ZONE, FORM_CONE, FORM_CHARGE, FORM_AURA, FORM_SWARM, FORM_ORBIT, FORM_TRAP, FORM_STEALTH, FORM_BUFF,
+	FORM_SUMMON, FORM_SWAP, FORM_HASTE]
 
 
 static func cast(caster: GuCaster) -> bool:
@@ -68,6 +72,12 @@ static func _base_step(family: GuFamilyData, gifts: Dictionary) -> Dictionary:
 	for key: String in ["stun", "lifesteal", "execute", "pierce_armor"]:
 		if gifts.has(key):
 			hit[key] = gifts[key]
+	# Diebstahl- und Formations-Pfad: Essenzraub und Blenden schon im Grundwert der Familie.
+	var steal: float = _value(family, &"essenzraub", 0.0) + float(gifts.get("essence_steal", 0.0))
+	if steal > 0.0:
+		hit["essence_steal"] = steal
+	if _value(family, &"blenden", 0.0) > 0.0:
+		hit["blind"] = _value(family, &"blenden", 0.0)
 	var radius: float = _value(family, &"radius", 3.0) + float(gifts.get("radius_add", 0.0))
 	var reach: float = _value(family, &"reichweite", 8.0)
 	var duration: float = _value(family, &"dauer", 5.0) + float(gifts.get("time_add", 0.0))
@@ -82,7 +92,8 @@ static func _base_step(family: GuFamilyData, gifts: Dictionary) -> Dictionary:
 		FORM_CHARGE:
 			step = {"t": "line", "length": reach, "width": _value(family, &"breite", 2.2), "knockback": _value(family, &"rueckstoss", 1.2), "dash": true}
 		FORM_AURA:
-			step = {"t": "zone", "follow": true, "radius": radius, "time": duration, "tick": _value(family, &"takt", 0.5)}
+			step = {"t": "zone", "follow": true, "radius": radius, "time": duration, "tick": _value(family, &"takt", 0.5),
+				"ally_reduction": _value(family, &"schirm", 0.0), "knockback": _value(family, &"rueckstoss", 0.0)}
 		FORM_SWARM:
 			step = {"t": "projectiles", "count": count, "spread": _value(family, &"winkel", 70.0), "homing": true, "range": reach, "speed": _value(family, &"tempo", 14.0)}
 		FORM_ORBIT:
@@ -96,6 +107,10 @@ static func _base_step(family: GuFamilyData, gifts: Dictionary) -> Dictionary:
 				"reduction": _value(family, &"reduktion", 0.0), "time": duration}
 		FORM_SUMMON:
 			return {"t": "summon", "enemy": String(family.base_r1.get(&"wesen", "wolf")), "time": duration, "count": count}
+		FORM_SWAP:
+			step = {"t": "swap", "range": reach, "stun": _value(family, &"betaeubung", 0.5)}
+		FORM_HASTE:
+			return {"t": "haste", "refund": _value(family, &"erstattung", 1.5), "cd_mult": _value(family, &"abklingfaktor", 0.8), "time": duration}
 	step.merge(hit)
 	return step
 

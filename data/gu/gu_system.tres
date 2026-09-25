@@ -22,7 +22,8 @@ tags = Dictionary[StringName, String]({
 &"stern": "trifft Geschwächte besonders hart, sucht Ziele",
 &"wasser": "macht nass",
 &"wind": "verteilt Brand und Gift auf Nachbarn, verweht Wolken",
-&"wucht": "stößt zurück, zerschmettert Eingefrorene, bricht Felsen"
+&"wucht": "stößt zurück, zerschmettert Eingefrorene, bricht Felsen",
+&"zeit": "verlangsamt, hallt als Zeitecho nach"
 })
 trait_chances = Dictionary[StringName, float]({
 &"eines": 0.39,
@@ -31,9 +32,11 @@ trait_chances = Dictionary[StringName, float]({
 path_names = Dictionary[StringName, String]({
 &"blitz": "Blitz",
 &"blut": "Blut",
+&"diebstahl": "Diebstahl",
 &"eis": "Eis",
 &"erde": "Erde",
 &"feuer": "Feuer",
+&"formation": "Formation",
 &"gift": "Gift",
 &"glueck": "Glück",
 &"holz": "Holz",
@@ -59,9 +62,11 @@ path_names = Dictionary[StringName, String]({
 path_colors = Dictionary[StringName, Color]({
 &"blitz": Color(0.5411765, 0.8156863, 1, 1),
 &"blut": Color(0.8156863, 0.1882353, 0.22745098, 1),
+&"diebstahl": Color(0.56078434, 0.8156863, 0.41568628, 1),
 &"eis": Color(0.7490196, 0.91764706, 1, 1),
 &"erde": Color(0.627451, 0.5019608, 0.3137255, 1),
 &"feuer": Color(1, 0.47843137, 0.22745098, 1),
+&"formation": Color(0.84705883, 0.7529412, 0.4392157, 1),
 &"gift": Color(0.60784316, 0.23137255, 1, 1),
 &"glueck": Color(0.49019608, 1, 0.60784316, 1),
 &"holz": Color(0.43529412, 0.7490196, 0.2901961, 1),

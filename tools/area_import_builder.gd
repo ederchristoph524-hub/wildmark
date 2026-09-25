@@ -95,6 +95,9 @@ func _fill_contents(area: AreaData, d: Dictionary) -> void:
 	area.wild_gu_rank = ImportUtil.to_int(wild.get("rang"), 1)
 	if wild.has("abstand"):
 		area.wild_gu_range = _vec(wild["abstand"])
+	var wanderer: Dictionary = d.get("wanderer", {})
+	area.wanderers = ImportUtil.names(wanderer.get("meister", []))
+	area.wanderer_count = ImportUtil.to_int(wanderer.get("anzahl"), 0)
 	var tide: Dictionary = d.get("flut", {})
 	if not tide.is_empty():
 		var reward: Dictionary = {}

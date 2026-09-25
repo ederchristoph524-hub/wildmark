@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://desvvg8gx8xkw"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_h2dmo"]
+
+[resource]
+script = ExtResource("1_h2dmo")
+id = &"wegelagerer"
+display_name = "Wegelagerer"
+color = Color(0.47843137, 0.3529412, 0.22745098, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"windklinge", &"knochensplitter", &"langfinger"])
+rank = 2
+stage = 2

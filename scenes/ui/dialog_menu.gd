@@ -118,10 +118,16 @@ func _add_sect_task() -> void:
 
 
 func _add_trade() -> void:
-	_column.add_child(UiTheme.label(tr("Tausch: %s") % Trade.offer_text(npc.type), 17))
-	var reason: String = Trade.blocked_reason(npc.type)
+	var refused: String = Renown.trade_refused(npc.sect_id)
+	if refused != "":
+		_column.add_child(UiTheme.label(refused, 17, Renown.INFAMY_COLOR))
+		return
+	var markup: float = Renown.trade_markup(npc.sect_id)
+	var note: String = tr(" (Aufschlag für Gesuchte)") if markup > 1.0 else ""
+	_column.add_child(UiTheme.label(tr("Tausch: %s") % Trade.offer_text(npc.type, markup) + note, 17))
+	var reason: String = Trade.blocked_reason(npc.type, markup)
 	var on_trade: Callable = func() -> void:
-		Trade.trade(npc.type)
+		Trade.trade(npc.type, markup)
 		refresh()
 	var button: Button = UiTheme.button(tr("Tauschen") if reason == "" else reason, on_trade)
 	button.disabled = reason != ""

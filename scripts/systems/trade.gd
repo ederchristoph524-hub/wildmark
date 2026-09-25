@@ -3,19 +3,24 @@ extends RefCounted
 ## Tausch mit NPCs nach ihrem Angebot aus gegner.json (NPCTYPE → trade).
 
 
-static func blocked_reason(npc: NpcTypeData) -> String:
+## Preis eines Tauschguts mit Aufschlag (Renown.trade_markup).
+static func cost(npc: NpcTypeData, item: StringName, markup: float = 1.0) -> int:
+	return ceili(npc.trade_give[item] * markup)
+
+
+static func blocked_reason(npc: NpcTypeData, markup: float = 1.0) -> String:
 	for item: StringName in npc.trade_give:
-		if GameState.item_count(item) < npc.trade_give[item]:
-			return Loc.t("Es fehlt: %s (%d/%d)") % [Loc.t(DataRegistry.item(item).display_name), GameState.item_count(item), npc.trade_give[item]]
+		if GameState.item_count(item) < cost(npc, item, markup):
+			return Loc.t("Es fehlt: %s (%d/%d)") % [Loc.t(DataRegistry.item(item).display_name), GameState.item_count(item), cost(npc, item, markup)]
 	if npc.trade_gu > 0 and GameState.held_count() >= PassiveGu.capacity():
 		return Loc.t("Deine Apertur fasst keine weiteren Gu.")
 	return ""
 
 
-static func offer_text(npc: NpcTypeData) -> String:
+static func offer_text(npc: NpcTypeData, markup: float = 1.0) -> String:
 	var give: PackedStringArray = []
 	for item: StringName in npc.trade_give:
-		give.append("%d %s" % [npc.trade_give[item], Loc.t(DataRegistry.item(item).display_name)])
+		give.append("%d %s" % [cost(npc, item, markup), Loc.t(DataRegistry.item(item).display_name)])
 	var get_parts: PackedStringArray = []
 	for item: StringName in npc.trade_get:
 		get_parts.append("%d %s" % [npc.trade_get[item], Loc.t(DataRegistry.item(item).display_name)])
@@ -24,11 +29,11 @@ static func offer_text(npc: NpcTypeData) -> String:
 	return Loc.t("%s gegen %s") % [", ".join(give), ", ".join(get_parts)]
 
 
-static func trade(npc: NpcTypeData) -> bool:
-	if blocked_reason(npc) != "":
+static func trade(npc: NpcTypeData, markup: float = 1.0) -> bool:
+	if blocked_reason(npc, markup) != "":
 		return false
 	for item: StringName in npc.trade_give:
-		GameState.take_item(item, npc.trade_give[item])
+		GameState.take_item(item, cost(npc, item, markup))
 	for item: StringName in npc.trade_get:
 		GameState.add_item(item, npc.trade_get[item])
 	for i: int in npc.trade_gu:

@@ -2571,7 +2571,9 @@
   "stern": "Stern",
   "schwert": "Schwert",
   "verbergen": "Verbergen",
-  "knochen": "Knochen"
+  "knochen": "Knochen",
+  "diebstahl": "Diebstahl",
+  "formation": "Formation"
  },
  "PATH_COLOR": {
   "raffinerie": "#c9a070",
@@ -2599,7 +2601,9 @@
   "stern": "#fff2b0",
   "schwert": "#e8f4ff",
   "verbergen": "#8090a0",
-  "knochen": "#f2ead8"
+  "knochen": "#f2ead8",
+  "diebstahl": "#8fd06a",
+  "formation": "#d8c070"
  },
  "PATH_CONFLICT": {
   "feuer": [

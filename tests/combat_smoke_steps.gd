@@ -135,7 +135,7 @@ func _tap(at: Vector2) -> void:
 
 func _test_duel() -> void:
 	await steps._clear_enemies()
-	var masters: Array[Node] = steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is GuMaster and (n as GuMaster).data.id == &"gu_yue")
+	var masters: Array[Node] = steps.tree.get_nodes_in_group(Player.GROUP_INTERACTABLES).filter(func(n: Node) -> bool: return n is GuMaster and not n is Wanderer and (n as GuMaster).data.id == &"gu_yue")
 	steps._check(masters.size() == 1, "der Klanlehrer im Gu-Yue-Dorf")
 	if masters.is_empty():
 		return

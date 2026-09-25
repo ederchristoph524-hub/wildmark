@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://cjmf3cgxq3fym"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_in7ou"]
+
+[resource]
+script = ExtResource("1_in7ou")
+id = &"streuner"
+display_name = "Streunender Dämonenkultivierender"
+color = Color(0.41568628, 0.22745098, 0.2901961, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"mondlicht", &"stachelwurm"])
+rank = 1
+stage = 0

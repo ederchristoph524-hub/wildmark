@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://buoo003ugcjqf"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_c5d28"]
+
+[resource]
+script = ExtResource("1_c5d28")
+id = &"sterngedanke"
+display_name = "Sterngedanke"
+family_a = &"weisheit"
+family_b = &"stern"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Deine Gedanken ordnen sich wie Sternbilder: Sterne suchen jeden Gegner, deine Gu sind früher bereit."
+hint = "Die Sterne denken mit."
+min_rank = 3
+steps = [{
+"cd_mult": 0.75,
+"color": "#7fc8ff",
+"refund": 3.0,
+"t": "haste",
+"time": 6.0
+}, {
+"color": "#fff2b0",
+"count": 10.0,
+"homing": true,
+"mult": 0.5,
+"range": 16.0,
+"speed": 13.0,
+"spread": 140.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["stern"]
+}]

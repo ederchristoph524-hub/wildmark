@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://b5cd74g8o8jkr"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_3tjoe"]
+
+[resource]
+script = ExtResource("1_3tjoe")
+id = &"donnerfluegel_gu"
+display_name = "Donnerflügel-Gu"
+rank = 3
+path = &"blitz"
+effect_text = "Laufen 20 % schneller"
+feed_item = &"beeren"
+feed_amount = 3
+rules = {
+"move_speed_mult": 1.2
+}

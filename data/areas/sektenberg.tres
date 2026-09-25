@@ -203,4 +203,6 @@ enemy_radii = Array[float]([130.0, 190.0])
 enemy_zones = [[&"sturmadler", &"feuerfuchs", &"elektrowolf"], [&"weisser_tiger", &"donnerkronenwolf", &"sturmadler", &"schatten"], [&"weisser_tiger", &"donnerkronenwolf", &"obsidian", &"troll", &"schatten"]]
 wild_gu_rank = 5
 wild_gu_range = Vector2(120, 205)
-wild_passives = [[&"zehntausendjun", &"body", 140.0, 205.0, false], [&"fadenspur", &"support", 130.0, 200.0, false], [&"glueckssicht", &"support", 120.0, 200.0, false], [&"hundertschlachten", &"support", 160.0, 205.0, true]]
+wild_passives = [[&"zehntausendjun", &"body", 140.0, 205.0, false], [&"fadenspur", &"support", 130.0, 200.0, false], [&"glueckssicht", &"support", 120.0, 200.0, false], [&"hundertschlachten", &"support", 160.0, 205.0, true], [&"eiskristall", &"body", 100.0, 230.0, true]]
+wanderers = Array[StringName]([&"schattenaeltester", &"schattensekte", &"zehn_extreme", &"himmelshof"])
+wanderer_count = 3

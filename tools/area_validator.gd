@@ -59,6 +59,10 @@ func _check_open(area: AreaData, context: String) -> void:
 	for item: StringName in area.resources:
 		_require(item, "items", context + " Ressource")
 	_check_tide(area, context)
+	for master: StringName in area.wanderers:
+		_require(master, "gu_masters", context + " Wanderer")
+	if area.wanderer_count > 0 and area.wanderers.is_empty():
+		_report.error("%s: wanderer.anzahl ohne meister" % context)
 	for zone: Variant in area.enemy_zones:
 		if (zone as Array).is_empty():
 			_report.error("%s: leere Gegnerzone" % context)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SupportGuData" format=3 uid="uid://bodoth43bc8l7"]
+
+[ext_resource type="Script" path="res://scripts/resources/support_gu_data.gd" id="1_adtu4"]
+
+[resource]
+script = ExtResource("1_adtu4")
+id = &"kaktuszeiger"
+display_name = "Kaktuszeiger-Gu"
+rank = 2
+path = &"information"
+effect_text = "Zeigt alle wilden Gu des Gebiets auf der Karte"
+feed_item = &"beeren"
+feed_amount = 2
+rules = {
+"gu_compass": true
+}

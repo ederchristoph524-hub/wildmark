@@ -8,5 +8,5 @@ id = &"himmelshof"
 display_name = "Hüter des Himmelshofs"
 color = Color(0.49803922, 0.78431374, 1, 1)
 faction = &"righteous"
-gu = Array[StringName]([&"goldlicht", &"sternpfeil", &"eisenhaut"])
+gu = Array[StringName]([&"goldlicht", &"sternpfeil", &"eisenhaut", &"irrweg"])
 rank = 5

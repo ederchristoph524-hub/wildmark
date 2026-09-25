@@ -125,7 +125,7 @@ func _shoot_cultivation(player: Player) -> void:
 ## Duell mit dem Klanlehrer: Spieler vor dem Gu-Meister, kurz nach dem Countdown.
 func _shoot_duel(player: Player) -> void:
 	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
-		if node is GuMaster:
+		if node is GuMaster and not node is Wanderer:
 			var master: GuMaster = node
 			var start: Vector3 = player.global_position
 			player.global_position = master.global_position + Vector3(0.0, 0.3, 6.0)

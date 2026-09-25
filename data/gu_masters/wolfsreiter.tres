@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://pju0kka10e1y"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_ov07k"]
+
+[resource]
+script = ExtResource("1_ov07k")
+id = &"wolfsreiter"
+display_name = "Wolfsreiter der Horde"
+color = Color(0.5411765, 0.41568628, 0.2901961, 1)
+faction = &"demonic"
+gu = Array[StringName]([&"rattensklave", &"eberstoss", &"windklinge"])
+rank = 3

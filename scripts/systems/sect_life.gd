@@ -36,7 +36,7 @@ static func join_blocked(sect: SectData) -> String:
 		return Loc.t("Du gehörst schon dazu.")
 	if sect.min_rank > GameState.rank:
 		return Loc.t("Erst ab %s.") % Loc.t(DataRegistry.progression().rank_name(sect.min_rank))
-	return ""
+	return Renown.join_blocked(sect)
 
 
 ## Tritt bei (verlässt eine andere Sekte, Verdienst dort verfällt) und erhält das Beitrittsgeschenk.
@@ -68,7 +68,7 @@ static func leave() -> void:
 static func add_merit(amount: int) -> void:
 	if GameState.sect == &"" or amount <= 0:
 		return
-	GameState.sect_merit += amount
+	GameState.sect_merit += roundi(amount * Renown.merit_mult())
 	var next: SectRankData = next_rank()
 	while next != null and GameState.sect_merit >= next.merit_needed:
 		GameState.sect_rank += 1

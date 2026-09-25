@@ -373,6 +373,16 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "streuner",
+     "streuner",
+     "gu_yue",
+     "bai_waechter",
+     "xiong_jaeger"
+    ]
+   },
    "wilde_gu": {
     "rang": 1,
     "abstand": [
@@ -470,6 +480,13 @@
      "support",
      100,
      200,
+     true
+    ],
+    [
+     "kaktuszeiger",
+     "support",
+     120,
+     220,
      true
     ]
    ],
@@ -844,6 +861,15 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "wegelagerer",
+     "blutfluegel",
+     "xiong_jaeger",
+     "yi_tian"
+    ]
+   },
    "wilde_gu": {
     "rang": 2,
     "abstand": [
@@ -920,6 +946,13 @@
      "support",
      120,
      170,
+     true
+    ],
+    [
+     "stahlsehnen",
+     "body",
+     120,
+     200,
      true
     ]
    ]
@@ -1249,6 +1282,15 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "wegelagerer",
+     "blutfluegel",
+     "shang_wache",
+     "yi_tian"
+    ]
+   },
    "wilde_gu": {
     "rang": 3,
     "abstand": [
@@ -1326,6 +1368,20 @@
      110,
      190,
      false
+    ],
+    [
+     "krokodilkraft",
+     "body",
+     90,
+     220,
+     false
+    ],
+    [
+     "menschenhaut",
+     "support",
+     120,
+     240,
+     true
     ]
    ]
   },
@@ -1613,6 +1669,14 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "blutaeltester",
+     "blutfluegel",
+     "wu_general"
+    ]
+   },
    "wilde_gu": {
     "rang": 4,
     "abstand": [
@@ -1655,6 +1719,13 @@
      120,
      210,
      false
+    ],
+    [
+     "panzer_gu",
+     "body",
+     100,
+     230,
+     true
     ]
    ],
    "flut": {
@@ -1997,6 +2068,14 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "wilde_horde",
+     "wolfsreiter",
+     "huang_jin"
+    ]
+   },
    "wilde_gu": {
     "rang": 3,
     "abstand": [
@@ -2052,6 +2131,13 @@
      "support",
      140,
      230,
+     false
+    ],
+    [
+     "donnerfluegel_gu",
+     "support",
+     100,
+     240,
      false
     ]
    ],
@@ -2362,6 +2448,14 @@
       "drachenling",
       "seuche"
      ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "sandraeuber",
+     "karawane",
+     "wuestentempel"
     ]
    },
    "wilde_gu": {
@@ -2685,6 +2779,14 @@
       "weisser_tiger",
       "donnerkronenwolf"
      ]
+    ]
+   },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "seeraeuber",
+     "meereszombie",
+     "ostmeer"
     ]
    },
    "wilde_gu": {
@@ -3051,6 +3153,15 @@
      ]
     ]
    },
+   "wanderer": {
+    "anzahl": 3,
+    "meister": [
+     "schattenaeltester",
+     "schattensekte",
+     "zehn_extreme",
+     "himmelshof"
+    ]
+   },
    "wilde_gu": {
     "rang": 5,
     "abstand": [
@@ -3085,6 +3196,13 @@
      "support",
      160,
      205,
+     true
+    ],
+    [
+     "eiskristall",
+     "body",
+     100,
+     230,
      true
     ]
    ]

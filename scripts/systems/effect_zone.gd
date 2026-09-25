@@ -2,10 +2,12 @@ class_name EffectZone
 extends Node3D
 ## Wirkungsfläche auf Zeit (Schritt "zone"): trifft Gegner darin in Takten (Schaden, Zustand, Verlangsamung, Sog),
 ## heilt optional Verbündete. Mit "follow" folgt sie dem Wirker (Aura, z. B. Menschenfackel).
-## Parameter: radius, time, tick, mult (pro Takt), tags, status, stacks, slow, pull, heal (Anteil Maximalleben pro Takt), follow.
+## Parameter: radius, time, tick, mult (pro Takt), tags, status, stacks, slow, pull, heal (Anteil Maximalleben pro Takt), follow,
+## ally_reduction (Verbündete darin nehmen weniger Schaden, Qi-Schirm), end (Schritte am Ort, wenn die Zone vergeht).
 
 const DISC_HEIGHT: float = 0.06
 const PULL_FORCE: float = 0.35
+const GUARD_KEY: StringName = &"qi_schirm"
 
 var step: Dictionary = {}
 var ctx: EffectContext = null
@@ -50,6 +52,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	time_left -= delta
 	if time_left <= 0.0 or ctx == null:
+		# Zum Schluss (Formation bricht zusammen, Qi-Hülle platzt): Schritte am Ort der Zone.
+		if ctx != null and ctx.is_valid() and step.get("end") is Array:
+			EffectSteps.run(step["end"], ctx.at_point(global_position))
 		queue_free()
 		return
 	if follow:
@@ -78,6 +83,10 @@ func _pulse() -> void:
 			tug.can_react = false
 			tug.knockback = inward.normalized() * Balance.values.knockback_force * PULL_FORCE * pull
 			target.receive_hit(tug)
+	var guard: float = float(step.get("ally_reduction", 0.0))
+	if guard > 0.0:
+		for ally: Combatant in Combat.in_radius(Combat.members(tree, ctx.team), center, radius):
+			ally.add_timed_reduction(GUARD_KEY, guard, tick * 1.5)
 	var heal: float = float(step.get("heal", 0.0))
 	if heal > 0.0:
 		for ally: Combatant in Combat.in_radius(Combat.members(tree, ctx.team), center, radius):

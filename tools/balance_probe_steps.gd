@@ -34,6 +34,10 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(20)
 	player = main.player
 	main.world.spawner.set_physics_process(false)
+	# Wandernde Gu-Meister würden die Messung stören.
+	main.world.wanderers.set_process(false)
+	for node: Node in tree.get_nodes_in_group(Wanderer.GROUP):
+		node.queue_free()
 	if OS.get_cmdline_user_args().has("--solo"):
 		await _solo_table()
 		tree.quit()
@@ -67,7 +71,8 @@ func _solo(family: GuFamilyData, rank: int) -> float:
 	for node: Node in Combat.fx_parent(tree).get_children():
 		if node is EffectZone or node is OrbitBlades or node is GuTrap or node is Projectile:
 			node.queue_free()
-	await _frames(2)
+	# Verzögerte Schritte (delay) des vorigen Gu laufen sonst ins nächste Ziel.
+	await _frames(70)
 	_setup(rank)
 	GameState.gu.clear()
 	GameState.slots.fill(GameState.EMPTY_SLOT)

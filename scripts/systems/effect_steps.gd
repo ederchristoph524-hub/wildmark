@@ -39,7 +39,8 @@ static func run_step(step: Dictionary, ctx: EffectContext) -> void:
 
 
 ## Treffer aus Schritt-Parametern: mult, tags, status, stacks, stun, knockback (+ weg, − heran), lifesteal,
-## execute (Bonus unter 30 % Leben), pierce_armor, slow/slow_time, blind, freeze, set_stacks {Zustand: Stapel}.
+## execute (Bonus unter 30 % Leben), pierce_armor, slow/slow_time, blind, freeze, set_stacks {Zustand: Stapel},
+## essence_steal (raubt Uressenz im Verhältnis zum Schaden).
 static func make_hit(step: Dictionary, ctx: EffectContext) -> HitInfo:
 	var source: Node3D = ctx.caster if ctx.is_valid() else null
 	var hit := HitInfo.create(ctx.damage * float(step.get("mult", 1.0)), source, ctx.team).with_tags(tag_list(step.get("tags", [])))
@@ -51,6 +52,7 @@ static func make_hit(step: Dictionary, ctx: EffectContext) -> HitInfo:
 	hit.stun = float(step.get("stun", 0.0))
 	hit.lifesteal = float(step.get("lifesteal", 0.0))
 	hit.execute_bonus = float(step.get("execute", 0.0))
+	hit.essence_steal = float(step.get("essence_steal", 0.0))
 	return hit
 
 

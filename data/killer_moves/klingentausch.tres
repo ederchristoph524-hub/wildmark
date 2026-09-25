@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d6l1p3833eun"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_yf64t"]
+
+[resource]
+script = ExtResource("1_yf64t")
+id = &"klingentausch"
+display_name = "Klingentausch"
+family_a = &"tausch"
+family_b = &"schwert"
+channel_time = 1.0
+damage_mult = 4.3
+description = "Tausch um Tausch: an jedem Ort, an dem du auftauchst, kreisen Schwerter."
+hint = "Das Schwert ist schneller als der Raum."
+min_rank = 5
+steps = [{
+"color": "#6ad04a",
+"mult": 0.7,
+"range": 16.0,
+"status": "wunde",
+"stun": 0.8,
+"t": "swap",
+"tags": ["raum", "schnitt"]
+}, {
+"color": "#e8f4ff",
+"count": 6.0,
+"mult": 0.45,
+"radius": 2.6,
+"speed": 1.2,
+"status": "blutung",
+"t": "orbit",
+"tags": ["schnitt"],
+"time": 5.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"fresh": true,
+"mult": 0.7,
+"range": 14.0,
+"status": "wunde",
+"stun": 0.8,
+"t": "swap",
+"tags": ["raum", "schnitt"]
+}],
+"time": 0.5
+}]

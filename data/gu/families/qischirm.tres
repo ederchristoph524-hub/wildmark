@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://cx4vip77o7158"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_msaaj"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_n5tlh"]
+
+[sub_resource type="Resource" id="gu_hartes_qi"]
+script = ExtResource("1_msaaj")
+id = &"hartes_qi"
+display_name = "Hartes-Qi-Gu"
+family = &"qischirm"
+description = "Eine unsichtbare Hülle aus verdichtetem Qi: 5 s nehmen du und Verbündete darin 20 % weniger Schaden, Gegner werden weggedrückt."
+
+[sub_resource type="Resource" id="gu_kraft_qi"]
+script = ExtResource("1_msaaj")
+id = &"kraft_qi"
+display_name = "Kraft-Qi-Gu"
+family = &"qischirm"
+rank = 2
+rank_gift = "25 % Schutz, stärkerer Stoß."
+description = "Qi verdichtet sich wie Muskeln: die Hülle schützt stärker und stößt härter."
+gifts = {
+"step": {
+"ally_reduction": 0.25,
+"knockback": 0.6
+}
+}
+
+[sub_resource type="Resource" id="gu_himmelsschirm"]
+script = ExtResource("1_msaaj")
+id = &"himmelsschirm"
+display_name = "Himmelsschirm-Gu"
+family = &"qischirm"
+rank = 3
+rank_gift = "Radius 5, 6 s, 30 % Schutz, 2 s Rückprall."
+description = "Ein Schirm spannt sich über dir auf; Geschosse prallen ab."
+gifts = {
+"extra": [{
+"t": "reflect",
+"time": 2.0
+}],
+"radius_add": 1.5,
+"step": {
+"ally_reduction": 0.3,
+"knockback": 0.6
+},
+"time_add": 1.0
+}
+
+[sub_resource type="Resource" id="gu_menschen_qi"]
+script = ExtResource("1_msaaj")
+id = &"menschen_qi"
+display_name = "Menschen-Qi-Gu"
+family = &"qischirm"
+rank = 4
+rank_gift = "35 % Schutz, heilt Verbündete darin."
+description = "Das Qi der Menschen nährt alle unter dem Schirm."
+gifts = {
+"extra": [{
+"t": "reflect",
+"time": 2.0
+}],
+"step": {
+"ally_reduction": 0.35,
+"heal": 0.01,
+"knockback": 0.6
+}
+}
+
+[sub_resource type="Resource" id="gu_qi_mauer"]
+script = ExtResource("1_msaaj")
+id = &"qi_mauer"
+display_name = "Große-Qi-Mauer-Gu"
+family = &"qischirm"
+rank = 5
+rank_gift = "40 % Schutz, Radius 6,5, 7 s, unaufhaltsam, am Ende eine Qi-Explosion."
+description = "Eine Mauer aus Qi, unaufhaltsam – und wenn sie vergeht, platzt sie nach außen."
+gifts = {
+"extra": [{
+"t": "reflect",
+"time": 3.0
+}, {
+"t": "unstoppable",
+"time": 7.0
+}],
+"radius_add": 1.5,
+"step": {
+"ally_reduction": 0.4,
+"end": [{
+"color": "#99ffff",
+"knockback": 1.6,
+"mult": 2.5,
+"radius": 6.5,
+"t": "circle",
+"tags": ["wucht"]
+}],
+"heal": 0.012,
+"knockback": 0.8
+},
+"time_add": 1.0
+}
+
+[resource]
+script = ExtResource("2_n5tlh")
+id = &"qischirm"
+display_name = "Hartes Qi"
+path = &"qi"
+role = "Schutz für dich und Verbündete"
+form = &"aura"
+tags = Array[StringName]([&"wucht"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"cd": 12.0,
+&"dauer": 5.0,
+&"ess": 7.0,
+&"radius": 3.5,
+&"rueckstoss": 0.4,
+&"schaden": 5.0,
+&"schirm": 0.2,
+&"takt": 0.5
+})
+members = Array[ExtResource("1_msaaj")]([SubResource("gu_hartes_qi"), SubResource("gu_kraft_qi"), SubResource("gu_himmelsschirm"), SubResource("gu_menschen_qi"), SubResource("gu_qi_mauer")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"jadeader": 2,
+&"windfeder": 2
+},
+3: {
+&"baerengalle": 1,
+&"jadeader": 3
+},
+4: {
+&"heldenherz": 1,
+&"jadeader": 5
+},
+5: {
+&"heldenherz": 2,
+&"urkristall": 1
+}
+})
+world_effect = "Die Qi-Hülle trägt dich unbeschadet durch Dornen und Glut."

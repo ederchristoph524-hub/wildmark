@@ -3663,6 +3663,1070 @@
      }
     }
    ]
+  },
+  {
+   "id": "tausch",
+   "name": "Positionstausch",
+   "pfad": "raum",
+   "rolle": "Kontrolle, Stellungsspiel",
+   "wirkform": "tausch",
+   "tags": [
+    "raum"
+   ],
+   "status": null,
+   "futter": {
+    "r": "mondtau",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 14,
+    "cd": 6.0,
+    "ess": 6,
+    "reichweite": 10.0,
+    "betaeubung": 0.6
+   },
+   "aufstieg": {
+    "r2": {
+     "windfeder": 3,
+     "geisterseide": 1
+    },
+    "r3": {
+     "geisterseide": 2,
+     "sternsand": 2
+    },
+    "r4": {
+     "sternsand": 4,
+     "seelenglas": 2
+    },
+    "r5": {
+     "urkristall": 1,
+     "geisterseide": 4
+    }
+   },
+   "welt": "Tauscht den Platz mit einem Gegner – schick ihn in deine Fallen, in Feuer oder über den Abgrund.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "kleiner_tausch",
+     "name": "Kleiner-Tausch-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Tauscht blitzschnell den Platz mit einem Gegner bis 10 m und betäubt ihn kurz."
+    },
+    {
+     "rang": 2,
+     "id": "sprungtor",
+     "name": "Sprungtor-Gu",
+     "neu": true,
+     "ranggabe": "Reichweite 14 m, am alten Platz blendet ein Lichtring (Radius 2,5).",
+     "beschreibung": "Ein Tor aus Raum öffnet sich zweimal: dort, wo du warst, blitzt es blendend auf.",
+     "gaben": {
+      "step": {
+       "range": 14.0
+      },
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 2.5,
+        "mult": 0.4,
+        "tags": [
+         "licht",
+         "raum"
+        ],
+        "blind": 1.5,
+        "color": "#6ad04a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 3,
+     "id": "positionstausch",
+     "name": "Positionstausch-Gu",
+     "neu": true,
+     "ranggabe": "Betäubt 1 s und verwundet.",
+     "beschreibung": "Das Gu aus der Serie: wer versetzt wird, ist verwundet und länger benommen.",
+     "gaben": {
+      "step": {
+       "range": 14.0,
+       "stun": 1.0,
+       "status": "wunde"
+      },
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 2.5,
+        "mult": 0.4,
+        "tags": [
+         "licht",
+         "raum"
+        ],
+        "blind": 1.5,
+        "color": "#6ad04a"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "regenbogenlicht",
+     "name": "Regenbogenlicht-Gu",
+     "neu": true,
+     "ranggabe": "Reichweite 18 m, Lichtexplosion (Radius 3,5) blendet 2 s.",
+     "beschreibung": "Du wirst für einen Wimpernschlag zu Licht – 18 m weit, und das Licht explodiert am Versetzten.",
+     "gaben": {
+      "step": {
+       "range": 18.0,
+       "stun": 1.0,
+       "status": "wunde"
+      },
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 3.5,
+        "mult": 0.8,
+        "tags": [
+         "licht",
+         "raum"
+        ],
+        "blind": 2.0,
+        "color": "#ffe9a0"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "goettliche_reise",
+     "name": "Göttliche-Reise-Gu",
+     "neu": true,
+     "ranggabe": "Tauscht nacheinander mit drei Gegnern, jeder Tauschort explodiert.",
+     "beschreibung": "Die Reise kennt keine Entfernung: du springst von Gegner zu Gegner und lässt jeden benommen zurück.",
+     "gaben": {
+      "step": {
+       "range": 18.0,
+       "stun": 1.0,
+       "status": "wunde"
+      },
+      "cd_mult": 1.2,
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 3.5,
+        "mult": 0.8,
+        "tags": [
+         "licht",
+         "raum"
+        ],
+        "blind": 2.0,
+        "color": "#ffe9a0"
+       },
+       {
+        "t": "delay",
+        "time": 0.35,
+        "then": [
+         {
+          "t": "swap",
+          "fresh": true,
+          "range": 12.0,
+          "stun": 0.8,
+          "mult": 0.7,
+          "tags": [
+           "raum"
+          ],
+          "status": "wunde",
+          "color": "#6ad04a"
+         },
+         {
+          "t": "circle",
+          "at": "target",
+          "radius": 3.0,
+          "mult": 0.6,
+          "tags": [
+           "licht",
+           "raum"
+          ],
+          "blind": 1.5,
+          "color": "#ffe9a0"
+         }
+        ]
+       },
+       {
+        "t": "delay",
+        "time": 0.7,
+        "then": [
+         {
+          "t": "swap",
+          "fresh": true,
+          "range": 12.0,
+          "stun": 0.8,
+          "mult": 0.7,
+          "tags": [
+           "raum"
+          ],
+          "status": "wunde",
+          "color": "#6ad04a"
+         },
+         {
+          "t": "circle",
+          "at": "target",
+          "radius": 3.0,
+          "mult": 0.6,
+          "tags": [
+           "licht",
+           "raum"
+          ],
+          "blind": 1.5,
+          "color": "#ffe9a0"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "pluenderung",
+   "name": "Plünderhand",
+   "pfad": "diebstahl",
+   "rolle": "Nahkampf, Essenzraub",
+   "wirkform": "kegel",
+   "tags": [
+    "schnitt"
+   ],
+   "status": null,
+   "futter": {
+    "r": "fleisch",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 15,
+    "cd": 2.4,
+    "ess": 3,
+    "reichweite": 4.5,
+    "winkel": 75.0,
+    "rueckstoss": 0.0,
+    "essenzraub": 1.0
+   },
+   "aufstieg": {
+    "r2": {
+     "schlangenhaut": 2,
+     "wildfell": 2
+    },
+    "r3": {
+     "schlangenhaut": 3,
+     "seelenglas": 1
+    },
+    "r4": {
+     "seelenglas": 3,
+     "giftdrüse": 4
+    },
+    "r5": {
+     "urkristall": 1,
+     "schlangenhaut": 5
+    }
+   },
+   "welt": "Die Geisterhand greift durch Gitter und holt Dinge heran, die du nicht erreichst.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "langfinger",
+     "name": "Langfinger-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Eine geisterhafte Hand greift nach vorn und reißt dem Getroffenen Uressenz aus dem Leib."
+    },
+    {
+     "rang": 2,
+     "id": "raubgriff",
+     "name": "Raubgriff-Gu",
+     "neu": true,
+     "ranggabe": "Raub +50 %, Schwäche.",
+     "beschreibung": "Der Griff sitzt tiefer: mehr Raub, und der Beraubte wird schwach.",
+     "gaben": {
+      "essence_steal": 0.5,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "pluender",
+     "name": "Plünder-Gu",
+     "neu": true,
+     "ranggabe": "Reichweite 6, zieht heran, Hinrichtung +40 %.",
+     "beschreibung": "Das Gu aus der Serie: es reißt Gegner heran und nimmt Sterbenden alles.",
+     "gaben": {
+      "essence_steal": 0.0,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1,
+       "reach": 6.0,
+       "angle": 90.0,
+       "knockback": -1.0
+      },
+      "execute": 0.4
+     }
+    },
+    {
+     "rang": 4,
+     "id": "gierige_hand",
+     "name": "Gierige-Hand-Gu",
+     "neu": true,
+     "ranggabe": "Zweiter Griff nach 0,35 s mit doppeltem Raub.",
+     "beschreibung": "Die Hand greift ein zweites Mal zu – und der zweite Griff raubt doppelt.",
+     "gaben": {
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.35,
+        "then": [
+         {
+          "t": "cone",
+          "reach": 6.0,
+          "angle": 90.0,
+          "mult": 0.7,
+          "tags": [
+           "schnitt"
+          ],
+          "status": "schwaeche",
+          "essence_steal": 3.0,
+          "knockback": -0.8,
+          "color": "#8fd06a"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "himmelsdieb",
+     "name": "Himmelsdieb-Gu",
+     "neu": true,
+     "ranggabe": "Zwei Griffe, danach 6 s +30 % Schaden.",
+     "beschreibung": "Wer dem Himmel stiehlt, stiehlt auch Stärke: jeder Raub macht dich 6 s stärker.",
+     "gaben": {
+      "essence_steal": 0.5,
+      "extra": [
+       {
+        "t": "delay",
+        "time": 0.35,
+        "then": [
+         {
+          "t": "cone",
+          "reach": 6.0,
+          "angle": 90.0,
+          "mult": 0.8,
+          "tags": [
+           "schnitt"
+          ],
+          "status": "schwaeche",
+          "essence_steal": 3.5,
+          "knockback": -0.8,
+          "color": "#8fd06a"
+         }
+        ]
+       },
+       {
+        "t": "buff",
+        "key": "himmelsdieb",
+        "damage": 1.3,
+        "speed": 1.05,
+        "time": 6.0,
+        "color": "#8fd06a"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "qischirm",
+   "name": "Hartes Qi",
+   "pfad": "qi",
+   "rolle": "Schutz für dich und Verbündete",
+   "wirkform": "aura",
+   "tags": [
+    "wucht"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 5,
+    "cd": 12.0,
+    "ess": 7,
+    "radius": 3.5,
+    "dauer": 5.0,
+    "takt": 0.5,
+    "schirm": 0.2,
+    "rueckstoss": 0.4
+   },
+   "aufstieg": {
+    "r2": {
+     "jadeader": 2,
+     "windfeder": 2
+    },
+    "r3": {
+     "jadeader": 3,
+     "baerengalle": 1
+    },
+    "r4": {
+     "jadeader": 5,
+     "heldenherz": 1
+    },
+    "r5": {
+     "heldenherz": 2,
+     "urkristall": 1
+    }
+   },
+   "welt": "Die Qi-Hülle trägt dich unbeschadet durch Dornen und Glut.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "hartes_qi",
+     "name": "Hartes-Qi-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Eine unsichtbare Hülle aus verdichtetem Qi: 5 s nehmen du und Verbündete darin 20 % weniger Schaden, Gegner werden weggedrückt."
+    },
+    {
+     "rang": 2,
+     "id": "kraft_qi",
+     "name": "Kraft-Qi-Gu",
+     "neu": true,
+     "ranggabe": "25 % Schutz, stärkerer Stoß.",
+     "beschreibung": "Qi verdichtet sich wie Muskeln: die Hülle schützt stärker und stößt härter.",
+     "gaben": {
+      "step": {
+       "ally_reduction": 0.25,
+       "knockback": 0.6
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "himmelsschirm",
+     "name": "Himmelsschirm-Gu",
+     "neu": true,
+     "ranggabe": "Radius 5, 6 s, 30 % Schutz, 2 s Rückprall.",
+     "beschreibung": "Ein Schirm spannt sich über dir auf; Geschosse prallen ab.",
+     "gaben": {
+      "radius_add": 1.5,
+      "time_add": 1.0,
+      "step": {
+       "ally_reduction": 0.3,
+       "knockback": 0.6
+      },
+      "extra": [
+       {
+        "t": "reflect",
+        "time": 2.0
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "menschen_qi",
+     "name": "Menschen-Qi-Gu",
+     "neu": true,
+     "ranggabe": "35 % Schutz, heilt Verbündete darin.",
+     "beschreibung": "Das Qi der Menschen nährt alle unter dem Schirm.",
+     "gaben": {
+      "step": {
+       "ally_reduction": 0.35,
+       "knockback": 0.6,
+       "heal": 0.01
+      },
+      "extra": [
+       {
+        "t": "reflect",
+        "time": 2.0
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "qi_mauer",
+     "name": "Große-Qi-Mauer-Gu",
+     "neu": true,
+     "ranggabe": "40 % Schutz, Radius 6,5, 7 s, unaufhaltsam, am Ende eine Qi-Explosion.",
+     "beschreibung": "Eine Mauer aus Qi, unaufhaltsam – und wenn sie vergeht, platzt sie nach außen.",
+     "gaben": {
+      "radius_add": 1.5,
+      "time_add": 1.0,
+      "step": {
+       "ally_reduction": 0.4,
+       "knockback": 0.8,
+       "heal": 0.012,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 6.5,
+         "mult": 2.5,
+         "tags": [
+          "wucht"
+         ],
+         "knockback": 1.6,
+         "color": "#99ffff"
+        }
+       ]
+      },
+      "extra": [
+       {
+        "t": "reflect",
+        "time": 3.0
+       },
+       {
+        "t": "unstoppable",
+        "time": 7.0
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "labyrinth",
+   "name": "Irrgarten-Formation",
+   "pfad": "formation",
+   "rolle": "Flächenkontrolle",
+   "wirkform": "zone",
+   "tags": [
+    "seele"
+   ],
+   "status": null,
+   "futter": {
+    "r": "gruenkraut",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 6,
+    "cd": 9.0,
+    "ess": 7,
+    "reichweite": 9.0,
+    "radius": 3.2,
+    "dauer": 4.0,
+    "takt": 0.5,
+    "verlangsamung": 0.35,
+    "blenden": 1.0
+   },
+   "aufstieg": {
+    "r2": {
+     "geisterseide": 1,
+     "sternsand": 1
+    },
+    "r3": {
+     "frostsplitter": 4,
+     "sternsand": 2
+    },
+    "r4": {
+     "sternsand": 4,
+     "erdkern": 1
+    },
+    "r5": {
+     "erdkern": 2,
+     "urkristall": 1
+    }
+   },
+   "welt": "Formationen verraten verborgene Wege: im Irrgarten leuchten versteckte Pfade auf.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "irrweg",
+     "name": "Irrweg-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Labyrinth aus Nebel am Ziel: Gegner darin irren geblendet und langsam umher."
+    },
+    {
+     "rang": 2,
+     "id": "drei_wege",
+     "name": "Drei-Wege-Irrgarten-Gu",
+     "neu": true,
+     "ranggabe": "Radius 3,7, Schwäche.",
+     "beschreibung": "Drei Wege, keiner führt hinaus: die Verirrten werden schwach.",
+     "gaben": {
+      "radius_add": 0.5,
+      "step": {
+       "status": "schwaeche",
+       "stacks": 1
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "schneekristall",
+     "name": "Schneekristall-Formation-Gu",
+     "neu": true,
+     "ranggabe": "Frost je Takt, am Ende 1,5 s eingefroren.",
+     "beschreibung": "Eiskristalle wachsen zwischen den Wänden; wenn die Formation zerfällt, friert alles darin ein.",
+     "gaben": {
+      "step": {
+       "status": "frost",
+       "stacks": 1,
+       "tags": [
+        "seele",
+        "eis"
+       ],
+       "end": [
+        {
+         "t": "circle",
+         "radius": 3.7,
+         "mult": 0.6,
+         "tags": [
+          "eis"
+         ],
+         "freeze": 1.5,
+         "color": "#bfeaff"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "sechs_richtungen",
+     "name": "Sechs-Richtungen-Labyrinth-Gu",
+     "neu": true,
+     "ranggabe": "Radius 4,7, 6 s, zieht ins Zentrum.",
+     "beschreibung": "Das Gu aus der Serie: sechs Richtungen, alle führen zurück ins Zentrum.",
+     "gaben": {
+      "radius_add": 1.0,
+      "time_add": 2.0,
+      "step": {
+       "status": "frost",
+       "stacks": 1,
+       "tags": [
+        "seele",
+        "eis"
+       ],
+       "pull": 1.0,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 4.7,
+         "mult": 0.8,
+         "tags": [
+          "eis"
+         ],
+         "freeze": 1.5,
+         "color": "#bfeaff"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "rang": 5,
+     "id": "neun_palaeste",
+     "name": "Neun-Paläste-Formation-Gu",
+     "neu": true,
+     "ranggabe": "Zieht stärker, am Ende Einsturz (2,5×, betäubt 1,5 s).",
+     "beschreibung": "Neun Paläste stürzen zusammen: wer im Irrgarten gefangen war, wird zermalmt.",
+     "gaben": {
+      "radius_add": 0.5,
+      "step": {
+       "status": "frost",
+       "stacks": 1,
+       "tags": [
+        "seele",
+        "eis"
+       ],
+       "pull": 1.4,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 5.2,
+         "mult": 0.5,
+         "tags": [
+          "eis"
+         ],
+         "freeze": 1.0,
+         "color": "#bfeaff"
+        },
+        {
+         "t": "delay",
+         "time": 1.0,
+         "then": [
+          {
+           "t": "circle",
+           "radius": 5.2,
+           "mult": 2.5,
+           "tags": [
+            "erde",
+            "wucht"
+           ],
+           "stun": 1.5,
+           "knockback": 1.0,
+           "color": "#d8c070"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "zeit",
+   "name": "Zeitblase",
+   "pfad": "zeit",
+   "rolle": "Verlangsamen, Zeitecho",
+   "wirkform": "zone",
+   "tags": [
+    "zeit"
+   ],
+   "status": null,
+   "futter": {
+    "r": "mondtau",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 8,
+    "cd": 8.0,
+    "ess": 7,
+    "reichweite": 9.0,
+    "radius": 3.0,
+    "dauer": 3.5,
+    "takt": 0.5,
+    "verlangsamung": 0.5
+   },
+   "aufstieg": {
+    "r2": {
+     "zeitharz": 1,
+     "mondtau": 4
+    },
+    "r3": {
+     "zeitharz": 2,
+     "sternsand": 1
+    },
+    "r4": {
+     "zeitharz": 4,
+     "seelenglas": 2
+    },
+    "r5": {
+     "zeitharz": 6,
+     "urkristall": 1
+    }
+   },
+   "welt": "In der Zeitblase fallen Tropfen langsam genug, um zwischen ihnen hindurchzugehen.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "dritte_wache",
+     "name": "Dritte-Wache-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Das Gu der dritten Nachtwache: eine Zeitblase am Ziel, in der alles halb so schnell geschieht."
+    },
+    {
+     "rang": 2,
+     "id": "stundenglas",
+     "name": "Stundenglas-Gu",
+     "neu": true,
+     "ranggabe": "4,5 s, Zeitecho am Ende.",
+     "beschreibung": "Die Blase hält länger; wenn sie vergeht, hallt die Zeit als Echo nach.",
+     "gaben": {
+      "time_add": 1.0,
+      "step": {
+       "end": [
+        {
+         "t": "circle",
+         "radius": 3.0,
+         "mult": 1.2,
+         "tags": [
+          "zeit"
+         ],
+         "stun": 0.0,
+         "color": "#a04ad0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "jahresfluss",
+     "name": "Jahresfluss-Gu",
+     "neu": true,
+     "ranggabe": "65 % langsamer, Echo 1,6× und 0,6 s Betäubung.",
+     "beschreibung": "Jahre fließen wie Wasser: 65 % langsamer, das Echo betäubt.",
+     "gaben": {
+      "step": {
+       "slow": 0.65,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 3.0,
+         "mult": 1.6,
+         "tags": [
+          "zeit"
+         ],
+         "stun": 0.6,
+         "color": "#a04ad0"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "rang": 4,
+     "id": "tage_wie_jahre",
+     "name": "Tage-wie-Jahre-Gu",
+     "neu": true,
+     "ranggabe": "Radius 4, erstarrt 1 s zu Beginn, Echo 2×.",
+     "beschreibung": "Ein Tag wird zum Jahr: wer in die Blase gerät, erstarrt zuerst ganz.",
+     "gaben": {
+      "radius_add": 1.0,
+      "step": {
+       "slow": 0.65,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 4.0,
+         "mult": 2.0,
+         "tags": [
+          "zeit"
+         ],
+         "stun": 0.6,
+         "color": "#a04ad0"
+        }
+       ]
+      },
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 4.0,
+        "mult": 0.0,
+        "freeze": 1.0,
+        "distance": 6.3,
+        "color": "#a04ad0"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "fruehlingherbst",
+     "name": "Frühling-Herbst-Hauch-Gu",
+     "neu": true,
+     "ranggabe": "Radius 5, erstarrt 1,5 s, Echo 2,5×; du heilst 25 % und wirst gereinigt.",
+     "beschreibung": "Ein Hauch der Frühling-Herbst-Zikade: für dich läuft die Zeit zurück, für sie steht sie still.",
+     "gaben": {
+      "radius_add": 1.0,
+      "cd_mult": 1.3,
+      "step": {
+       "slow": 0.7,
+       "end": [
+        {
+         "t": "circle",
+         "radius": 5.0,
+         "mult": 2.5,
+         "tags": [
+          "zeit"
+         ],
+         "stun": 0.8,
+         "color": "#a04ad0"
+        }
+       ]
+      },
+      "extra": [
+       {
+        "t": "circle",
+        "at": "target",
+        "radius": 5.0,
+        "mult": 0.0,
+        "freeze": 1.5,
+        "distance": 6.3,
+        "color": "#a04ad0"
+       },
+       {
+        "t": "heal",
+        "frac": 0.25
+       },
+       {
+        "t": "cleanse"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "weisheit",
+   "name": "Gedankenblitz",
+   "pfad": "weisheit",
+   "rolle": "Abklingzeiten, Unterstützung",
+   "wirkform": "eingebung",
+   "tags": [
+    "seele"
+   ],
+   "status": null,
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "basis_r1": {
+    "schaden": 10,
+    "cd": 16.0,
+    "ess": 5,
+    "dauer": 5.0,
+    "erstattung": 1.5,
+    "abklingfaktor": 0.8
+   },
+   "aufstieg": {
+    "r2": {
+     "seelenglas": 1,
+     "mondtau": 4
+    },
+    "r3": {
+     "seelenglas": 2,
+     "sternsand": 1
+    },
+    "r4": {
+     "seelenglas": 4,
+     "wuestenrose": 1
+    },
+    "r5": {
+     "seelenglas": 6,
+     "urkristall": 1
+    }
+   },
+   "welt": "Ein Gedankenblitz verrät dir, welcher Stein in einer Wand nachgibt.",
+   "mitglieder": [
+    {
+     "rang": 1,
+     "id": "gedankenblitz",
+     "name": "Gedankenblitz-Gu",
+     "neu": true,
+     "ranggabe": null,
+     "beschreibung": "Ein Einfall wie ein Blitz: alle anderen Gu sind 1,5 s früher bereit und laden 5 s lang 20 % schneller."
+    },
+    {
+     "rang": 2,
+     "id": "weisheits_gu",
+     "name": "Weisheits-Gu",
+     "neu": true,
+     "ranggabe": "2,5 s früher bereit, 25 % schneller.",
+     "beschreibung": "Das Gu aus der Serie beschleunigt das Denken.",
+     "gaben": {
+      "step": {
+       "refund": 2.5,
+       "cd_mult": 0.75
+      }
+     }
+    },
+    {
+     "rang": 3,
+     "id": "klarer_geist",
+     "name": "Klarer-Geist-Gu",
+     "neu": true,
+     "ranggabe": "3,5 s früher, 30 % schneller für 6 s, +15 % Schaden.",
+     "beschreibung": "Ein klarer Geist sieht jede Schwachstelle.",
+     "gaben": {
+      "step": {
+       "refund": 3.5,
+       "cd_mult": 0.7,
+       "time": 6.0
+      },
+      "extra": [
+       {
+        "t": "buff",
+        "key": "klarer_geist",
+        "damage": 1.15,
+        "time": 6.0,
+        "color": "#7fc8ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 4,
+     "id": "tausend_gedanken",
+     "name": "Tausend-Gedanken-Gu",
+     "neu": true,
+     "ranggabe": "4,5 s früher, 35 % schneller für 7 s, ein Gedankenstoß betäubt 0,6 s.",
+     "beschreibung": "Tausend Gedanken zugleich – einer davon trifft den Gegner wie ein Hammer.",
+     "gaben": {
+      "step": {
+       "refund": 4.5,
+       "cd_mult": 0.65,
+       "time": 7.0
+      },
+      "extra": [
+       {
+        "t": "buff",
+        "key": "klarer_geist",
+        "damage": 1.15,
+        "time": 7.0,
+        "color": "#7fc8ff"
+       },
+       {
+        "t": "cone",
+        "reach": 7.0,
+        "angle": 70.0,
+        "mult": 0.8,
+        "tags": [
+         "seele"
+        ],
+        "stun": 0.6,
+        "color": "#7fc8ff"
+       }
+      ]
+     }
+    },
+    {
+     "rang": 5,
+     "id": "himmelsweisheit",
+     "name": "Himmelsweisheit-Gu",
+     "neu": true,
+     "ranggabe": "Alle Gu sofort bereit, 8 s doppelt so schnell, +20 % Schaden, Gedankenstoß betäubt 0,8 s.",
+     "beschreibung": "Für einen Augenblick denkst du wie ein Ehrwürdiger: alle Gu sind sofort bereit.",
+     "gaben": {
+      "cd_mult": 1.25,
+      "step": {
+       "refund": 30.0,
+       "cd_mult": 0.5,
+       "time": 8.0
+      },
+      "extra": [
+       {
+        "t": "buff",
+        "key": "klarer_geist",
+        "damage": 1.2,
+        "time": 8.0,
+        "color": "#7fc8ff"
+       },
+       {
+        "t": "cone",
+        "reach": 7.0,
+        "angle": 70.0,
+        "mult": 1.0,
+        "tags": [
+         "seele"
+        ],
+        "stun": 0.8,
+        "color": "#7fc8ff"
+       }
+      ]
+     }
+    }
+   ]
   }
  ],
  "koerper_gu": [
@@ -3824,6 +4888,41 @@
    "rang": 5,
    "wirkung": {
     "grundschaden": 110
+   }
+  },
+  {
+   "id": "stahlsehnen",
+   "name": "Stahlsehnen-Gu",
+   "rang": 3,
+   "wirkung": {
+    "grundschaden": 5,
+    "max_hp": 30
+   }
+  },
+  {
+   "id": "krokodilkraft",
+   "name": "Krokodilkraft-Gu",
+   "rang": 3,
+   "wirkung": {
+    "grundschaden": 8
+   }
+  },
+  {
+   "id": "panzer_gu",
+   "name": "Panzer-Gu",
+   "rang": 3,
+   "wirkung": {
+    "max_hp": 40,
+    "schaden_erlitten": -0.12
+   }
+  },
+  {
+   "id": "eiskristall",
+   "name": "Eiskristall-Gu",
+   "rang": 4,
+   "wirkung": {
+    "max_hp": 50,
+    "schaden_erlitten": -0.1
    }
   }
  ],
@@ -4274,6 +5373,48 @@
     "detection_mult": 3.0,
     "insight_mult": 2.0
    }
+  },
+  {
+   "id": "menschenhaut",
+   "name": "Menschenhaut-Gu",
+   "rang": 3,
+   "pfad": "verwandlung",
+   "wirkung": "Verkleidung: Rechtschaffene erkennen dich nicht (kein Angriff, kein Aufschlag, keine Kopfgeldjäger)",
+   "futter": {
+    "r": "fleisch",
+    "n": 3
+   },
+   "regeln": {
+    "disguise": true
+   }
+  },
+  {
+   "id": "kaktuszeiger",
+   "name": "Kaktuszeiger-Gu",
+   "rang": 2,
+   "pfad": "information",
+   "wirkung": "Zeigt alle wilden Gu des Gebiets auf der Karte",
+   "futter": {
+    "r": "beeren",
+    "n": 2
+   },
+   "regeln": {
+    "gu_compass": true
+   }
+  },
+  {
+   "id": "donnerfluegel_gu",
+   "name": "Donnerflügel-Gu",
+   "rang": 3,
+   "pfad": "blitz",
+   "wirkung": "Laufen 20 % schneller",
+   "futter": {
+    "r": "beeren",
+    "n": 3
+   },
+   "regeln": {
+    "move_speed_mult": 1.2
+   }
   }
  ],
  "zustaende": {
@@ -4618,7 +5759,8 @@
   "stern": "trifft Geschwächte besonders hart, sucht Ziele",
   "klang": "betäubt Geladene, dringt durch Deckung",
   "metall": "zerspringt an Eingefrorenen zu Splittern",
-  "blut": "heilt an blutenden Zielen"
+  "blut": "heilt an blutenden Zielen",
+  "zeit": "verlangsamt, hallt als Zeitecho nach"
  },
  "merkmale": [
   {
@@ -8053,6 +9195,600 @@
      "speed": 1.2,
      "time": 6.0,
      "color": "#e0b040"
+    }
+   ]
+  },
+  {
+   "id": "tauschfalle",
+   "name": "Tauschfalle",
+   "a": "tausch",
+   "b": "donnerknolle",
+   "kanal_s": 0.8,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Du legst Knollen um dich – und tauschst den Platz mit einem Gegner, der mitten darauf landet.",
+   "hinweis": "Wer tauscht, lässt etwas zurück.",
+   "schritte": [
+    {
+     "t": "trap",
+     "count": 3,
+     "spacing": 1.4,
+     "radius": 2.6,
+     "time": 8.0,
+     "trigger": 1.8,
+     "at": "self",
+     "mult": 0.8,
+     "tags": [
+      "feuer",
+      "blitz"
+     ],
+     "status": "ladung",
+     "color": "#ff9a3a"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "swap",
+       "range": 12.0,
+       "stun": 1.0,
+       "mult": 0.4,
+       "tags": [
+        "raum"
+       ],
+       "color": "#6ad04a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eistausch",
+   "name": "Eistausch",
+   "a": "tausch",
+   "b": "frost",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Du springst an den Platz des Gegners; wo du standest, erstarrt er in einem Eisblock.",
+   "hinweis": "Kalt ist der Platz, den man tauscht.",
+   "schritte": [
+    {
+     "t": "swap",
+     "range": 14.0,
+     "stun": 0.5,
+     "mult": 0.6,
+     "tags": [
+      "raum",
+      "eis"
+     ],
+     "status": "frost",
+     "stacks": 2,
+     "color": "#bfeaff"
+    },
+    {
+     "t": "circle",
+     "at": "target",
+     "radius": 3.5,
+     "mult": 0.9,
+     "tags": [
+      "eis"
+     ],
+     "freeze": 2.0,
+     "color": "#bfeaff"
+    }
+   ]
+  },
+  {
+   "id": "klingentausch",
+   "name": "Klingentausch",
+   "a": "tausch",
+   "b": "schwert",
+   "kanal_s": 1.0,
+   "mult": 4.3,
+   "rang": 5,
+   "wirkung": "Tausch um Tausch: an jedem Ort, an dem du auftauchst, kreisen Schwerter.",
+   "hinweis": "Das Schwert ist schneller als der Raum.",
+   "schritte": [
+    {
+     "t": "swap",
+     "range": 16.0,
+     "stun": 0.8,
+     "mult": 0.7,
+     "tags": [
+      "raum",
+      "schnitt"
+     ],
+     "status": "wunde",
+     "color": "#6ad04a"
+    },
+    {
+     "t": "orbit",
+     "count": 6,
+     "radius": 2.6,
+     "time": 5.0,
+     "speed": 1.2,
+     "mult": 0.45,
+     "tags": [
+      "schnitt"
+     ],
+     "status": "blutung",
+     "color": "#e8f4ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.5,
+     "then": [
+      {
+       "t": "swap",
+       "fresh": true,
+       "range": 14.0,
+       "stun": 0.8,
+       "mult": 0.7,
+       "tags": [
+        "raum",
+        "schnitt"
+       ],
+       "status": "wunde",
+       "color": "#6ad04a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "schattendieb",
+   "name": "Schattendieb",
+   "a": "pluenderung",
+   "b": "tarnung",
+   "kanal_s": 0.7,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Du verschwindest und greifst aus dem Nichts zweimal zu – der Beraubte weiß nicht, wie ihm geschieht.",
+   "hinweis": "Der beste Dieb wird nie gesehen.",
+   "schritte": [
+    {
+     "t": "stealth",
+     "time": 2.5
+    },
+    {
+     "t": "delay",
+     "time": 0.4,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 6.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt"
+       ],
+       "status": "schwaeche",
+       "essence_steal": 2.0,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 0.8,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 6.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt"
+       ],
+       "status": "schwaeche",
+       "essence_steal": 2.0,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "blutraub",
+   "name": "Blutraub",
+   "a": "pluenderung",
+   "b": "blutmond",
+   "kanal_s": 0.8,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Blutige Hände reißen Leben und Essenz zugleich heraus.",
+   "hinweis": "Was fließt, lässt sich stehlen.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 7.0,
+     "angle": 100.0,
+     "mult": 1.1,
+     "tags": [
+      "blut",
+      "schnitt"
+     ],
+     "status": "blutung",
+     "stacks": 2,
+     "essence_steal": 2.0,
+     "lifesteal": 0.3,
+     "knockback": -1.0,
+     "color": "#d0303a"
+    },
+    {
+     "t": "delay",
+     "time": 0.35,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 4.0,
+       "mult": 0.8,
+       "tags": [
+        "blut"
+       ],
+       "lifesteal": 0.3,
+       "essence_steal": 1.0,
+       "color": "#d0303a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lebensschirm",
+   "name": "Lebensschirm",
+   "a": "qischirm",
+   "b": "blatt",
+   "kanal_s": 1.0,
+   "mult": 2.2,
+   "rang": 1,
+   "wirkung": "Unter dem Qi-Schirm wachsen Blätter: wer darin steht, heilt und hält aus.",
+   "hinweis": "Hartes Qi schützt, was das Blatt heilt.",
+   "schritte": [
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 4.5,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "wucht",
+      "holz"
+     ],
+     "ally_reduction": 0.3,
+     "heal": 0.015,
+     "knockback": 0.4,
+     "color": "#99ffff"
+    },
+    {
+     "t": "heal",
+     "frac": 0.2,
+     "allies": true,
+     "radius": 8.0
+    }
+   ]
+  },
+  {
+   "id": "qibestie",
+   "name": "Qi-Bestie",
+   "a": "qischirm",
+   "b": "phantom",
+   "kanal_s": 0.9,
+   "mult": 3.3,
+   "rang": 3,
+   "wirkung": "Kraft-Qi verfestigt dein Bestienphantom: es rast als harte Qi-Gestalt geradeaus durch alle Gegner.",
+   "hinweis": "Das Phantom bekommt einen Körper aus Qi.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 14.0,
+     "width": 3.2,
+     "mult": 1.3,
+     "tags": [
+      "wucht"
+     ],
+     "knockback": 1.8,
+     "stun": 0.5,
+     "pierce_armor": true,
+     "color": "#99ffff"
+    },
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 3.5,
+     "time": 4.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "wucht"
+     ],
+     "ally_reduction": 0.25,
+     "knockback": 0.5,
+     "color": "#99ffff"
+    }
+   ]
+  },
+  {
+   "id": "seelenlabyrinth",
+   "name": "Seelenlabyrinth",
+   "a": "labyrinth",
+   "b": "seelenschrei",
+   "kanal_s": 1.0,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Ein Schrei fährt in den Irrgarten: die Gefangenen verlieren den Verstand und fliehen blind.",
+   "hinweis": "Wer sich verirrt, fürchtet jeden Schatten.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 4.5,
+     "time": 5.0,
+     "tick": 0.5,
+     "mult": 0.25,
+     "tags": [
+      "seele"
+     ],
+     "blind": 1.0,
+     "slow": 0.4,
+     "pull": 0.8,
+     "color": "#d8c070"
+    },
+    {
+     "t": "cone",
+     "reach": 9.0,
+     "angle": 90.0,
+     "mult": 0.9,
+     "tags": [
+      "seele",
+      "klang"
+     ],
+     "status": "furcht",
+     "color": "#c9a0ff"
+    }
+   ]
+  },
+  {
+   "id": "sternenformation",
+   "name": "Sternenformation",
+   "a": "labyrinth",
+   "b": "stern",
+   "kanal_s": 1.2,
+   "mult": 4.4,
+   "rang": 5,
+   "wirkung": "Die Formation spiegelt den Sternenhimmel: aus ihren Ecken regnen Sterne auf alles darin.",
+   "hinweis": "Sterne kennen den Weg durch jedes Labyrinth.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 5.5,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.25,
+     "tags": [
+      "seele",
+      "stern"
+     ],
+     "blind": 1.0,
+     "slow": 0.45,
+     "pull": 1.2,
+     "color": "#d8c070"
+    },
+    {
+     "t": "delay",
+     "time": 1.0,
+     "then": [
+      {
+       "t": "projectiles",
+       "count": 10,
+       "spread": 360.0,
+       "homing": true,
+       "mult": 0.6,
+       "tags": [
+        "stern"
+       ],
+       "status": "schwaeche",
+       "range": 14.0,
+       "speed": 12.0,
+       "color": "#fff2b0"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 3.0,
+     "then": [
+      {
+       "t": "circle",
+       "at": "target",
+       "distance": 7.0,
+       "radius": 5.5,
+       "mult": 1.6,
+       "tags": [
+        "stern",
+        "wucht"
+       ],
+       "stun": 1.0,
+       "color": "#fff2b0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "zeitdonner",
+   "name": "Zeitdonner",
+   "a": "zeit",
+   "b": "blitz",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Blitze fallen in die Zeitblase – und fallen im Echo ein zweites Mal.",
+   "hinweis": "Der Donner hallt, bevor der Blitz fällt.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 4.0,
+     "time": 3.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "zeit",
+      "blitz"
+     ],
+     "status": "ladung",
+     "slow": 0.6,
+     "end": [
+      {
+       "t": "chain",
+       "jumps": 4,
+       "radius": 7.0,
+       "mult": 0.9,
+       "tags": [
+        "blitz",
+        "zeit"
+       ],
+       "stun": 0.4,
+       "color": "#8ad0ff"
+      }
+     ],
+     "color": "#a04ad0"
+    },
+    {
+     "t": "chain",
+     "jumps": 4,
+     "radius": 7.0,
+     "mult": 0.7,
+     "tags": [
+      "blitz"
+     ],
+     "status": "ladung",
+     "color": "#8ad0ff"
+    }
+   ]
+  },
+  {
+   "id": "zeitsprung",
+   "name": "Zeitsprung",
+   "a": "zeit",
+   "b": "schritt",
+   "kanal_s": 1.0,
+   "mult": 4.2,
+   "rang": 5,
+   "wirkung": "Du springst durch die Zeit: am Ausgangspunkt bleibt eine Blase stehen, die alles erstarren lässt, und für dich laufen die Gu schneller.",
+   "hinweis": "Wer die Zeit überholt, kommt vor sich selbst an.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 5.0,
+     "time": 4.0,
+     "tick": 0.5,
+     "mult": 0.3,
+     "tags": [
+      "zeit"
+     ],
+     "slow": 0.7,
+     "end": [
+      {
+       "t": "circle",
+       "radius": 5.0,
+       "mult": 2.2,
+       "tags": [
+        "zeit"
+       ],
+       "stun": 0.8,
+       "color": "#a04ad0"
+      }
+     ],
+     "color": "#a04ad0"
+    },
+    {
+     "t": "teleport",
+     "distance": 12.0
+    },
+    {
+     "t": "haste",
+     "refund": 3.0,
+     "cd_mult": 0.7,
+     "time": 5.0,
+     "color": "#a04ad0"
+    }
+   ]
+  },
+  {
+   "id": "erleuchtung",
+   "name": "Erleuchtung",
+   "a": "weisheit",
+   "b": "mondlicht",
+   "kanal_s": 0.7,
+   "mult": 2.3,
+   "rang": 1,
+   "wirkung": "Ein Gedankenblitz im Mondlicht: sieben Klingen fliegen, und deine Gu laden schneller.",
+   "hinweis": "Klarheit schneidet schärfer als Stahl.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 2.0,
+     "cd_mult": 0.8,
+     "time": 5.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "projectiles",
+     "count": 7,
+     "spread": 60.0,
+     "mult": 0.6,
+     "tags": [
+      "licht",
+      "schnitt"
+     ],
+     "range": 14.0,
+     "color": "#d9e6ff"
+    }
+   ]
+  },
+  {
+   "id": "sterngedanke",
+   "name": "Sterngedanke",
+   "a": "weisheit",
+   "b": "stern",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Deine Gedanken ordnen sich wie Sternbilder: Sterne suchen jeden Gegner, deine Gu sind früher bereit.",
+   "hinweis": "Die Sterne denken mit.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 3.0,
+     "cd_mult": 0.75,
+     "time": 6.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "projectiles",
+     "count": 10,
+     "spread": 140.0,
+     "homing": true,
+     "mult": 0.5,
+     "tags": [
+      "stern"
+     ],
+     "status": "schwaeche",
+     "range": 16.0,
+     "speed": 13.0,
+     "color": "#fff2b0"
     }
    ]
   }

@@ -210,4 +210,6 @@ enemy_radii = Array[float]([140.0, 200.0])
 enemy_zones = [[&"wolf", &"blitzwolf", &"bambusnatter", &"jadeaffe"], [&"elektrowolf", &"riesenskorpion", &"sturmadler", &"bergbaer", &"blitzwolf"], [&"riesenkrokodil", &"elektrowolf", &"riesenskorpion", &"sturmadler", &"schatten", &"troll"]]
 wild_gu_rank = 3
 wild_gu_range = Vector2(110, 220)
-wild_passives = [[&"tapferkampf", &"body", 120.0, 200.0, false], [&"junkraft", &"body", 140.0, 210.0, false], [&"eisenknochen", &"body", 150.0, 215.0, true], [&"siebenduefte", &"support", 110.0, 190.0, false], [&"verstaerker", &"support", 130.0, 210.0, true], [&"schatzlicht", &"support", 120.0, 200.0, true], [&"seelensuche", &"support", 110.0, 200.0, false], [&"steinapertur", &"support", 120.0, 210.0, false], [&"luftsack", &"support", 140.0, 215.0, true], [&"selbsthilfe", &"support", 110.0, 190.0, false]]
+wild_passives = [[&"tapferkampf", &"body", 120.0, 200.0, false], [&"junkraft", &"body", 140.0, 210.0, false], [&"eisenknochen", &"body", 150.0, 215.0, true], [&"siebenduefte", &"support", 110.0, 190.0, false], [&"verstaerker", &"support", 130.0, 210.0, true], [&"schatzlicht", &"support", 120.0, 200.0, true], [&"seelensuche", &"support", 110.0, 200.0, false], [&"steinapertur", &"support", 120.0, 210.0, false], [&"luftsack", &"support", 140.0, 215.0, true], [&"selbsthilfe", &"support", 110.0, 190.0, false], [&"krokodilkraft", &"body", 90.0, 220.0, false], [&"menschenhaut", &"support", 120.0, 240.0, true]]
+wanderers = Array[StringName]([&"wegelagerer", &"blutfluegel", &"shang_wache", &"yi_tian"])
+wanderer_count = 3

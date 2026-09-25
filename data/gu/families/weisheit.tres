@@ -1,0 +1,151 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://sl4i5ja1tcdk"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_5atcb"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_5e6bm"]
+
+[sub_resource type="Resource" id="gu_gedankenblitz"]
+script = ExtResource("1_5atcb")
+id = &"gedankenblitz"
+display_name = "Gedankenblitz-Gu"
+family = &"weisheit"
+description = "Ein Einfall wie ein Blitz: alle anderen Gu sind 1,5 s früher bereit und laden 5 s lang 20 % schneller."
+
+[sub_resource type="Resource" id="gu_weisheits_gu"]
+script = ExtResource("1_5atcb")
+id = &"weisheits_gu"
+display_name = "Weisheits-Gu"
+family = &"weisheit"
+rank = 2
+rank_gift = "2,5 s früher bereit, 25 % schneller."
+description = "Das Gu aus der Serie beschleunigt das Denken."
+gifts = {
+"step": {
+"cd_mult": 0.75,
+"refund": 2.5
+}
+}
+
+[sub_resource type="Resource" id="gu_klarer_geist"]
+script = ExtResource("1_5atcb")
+id = &"klarer_geist"
+display_name = "Klarer-Geist-Gu"
+family = &"weisheit"
+rank = 3
+rank_gift = "3,5 s früher, 30 % schneller für 6 s, +15 % Schaden."
+description = "Ein klarer Geist sieht jede Schwachstelle."
+gifts = {
+"extra": [{
+"color": "#7fc8ff",
+"damage": 1.15,
+"key": "klarer_geist",
+"t": "buff",
+"time": 6.0
+}],
+"step": {
+"cd_mult": 0.7,
+"refund": 3.5,
+"time": 6.0
+}
+}
+
+[sub_resource type="Resource" id="gu_tausend_gedanken"]
+script = ExtResource("1_5atcb")
+id = &"tausend_gedanken"
+display_name = "Tausend-Gedanken-Gu"
+family = &"weisheit"
+rank = 4
+rank_gift = "4,5 s früher, 35 % schneller für 7 s, ein Gedankenstoß betäubt 0,6 s."
+description = "Tausend Gedanken zugleich – einer davon trifft den Gegner wie ein Hammer."
+gifts = {
+"extra": [{
+"color": "#7fc8ff",
+"damage": 1.15,
+"key": "klarer_geist",
+"t": "buff",
+"time": 7.0
+}, {
+"angle": 70.0,
+"color": "#7fc8ff",
+"mult": 0.8,
+"reach": 7.0,
+"stun": 0.6,
+"t": "cone",
+"tags": ["seele"]
+}],
+"step": {
+"cd_mult": 0.65,
+"refund": 4.5,
+"time": 7.0
+}
+}
+
+[sub_resource type="Resource" id="gu_himmelsweisheit"]
+script = ExtResource("1_5atcb")
+id = &"himmelsweisheit"
+display_name = "Himmelsweisheit-Gu"
+family = &"weisheit"
+rank = 5
+rank_gift = "Alle Gu sofort bereit, 8 s doppelt so schnell, +20 % Schaden, Gedankenstoß betäubt 0,8 s."
+description = "Für einen Augenblick denkst du wie ein Ehrwürdiger: alle Gu sind sofort bereit."
+gifts = {
+"cd_mult": 1.25,
+"extra": [{
+"color": "#7fc8ff",
+"damage": 1.2,
+"key": "klarer_geist",
+"t": "buff",
+"time": 8.0
+}, {
+"angle": 70.0,
+"color": "#7fc8ff",
+"mult": 1.0,
+"reach": 7.0,
+"stun": 0.8,
+"t": "cone",
+"tags": ["seele"]
+}],
+"step": {
+"cd_mult": 0.5,
+"refund": 30.0,
+"time": 8.0
+}
+}
+
+[resource]
+script = ExtResource("2_5e6bm")
+id = &"weisheit"
+display_name = "Gedankenblitz"
+path = &"weisheit"
+role = "Abklingzeiten, Unterstützung"
+form = &"eingebung"
+tags = Array[StringName]([&"seele"])
+feed_item = &"beeren"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"abklingfaktor": 0.8,
+&"cd": 16.0,
+&"dauer": 5.0,
+&"erstattung": 1.5,
+&"ess": 5.0,
+&"schaden": 10.0
+})
+members = Array[ExtResource("1_5atcb")]([SubResource("gu_gedankenblitz"), SubResource("gu_weisheits_gu"), SubResource("gu_klarer_geist"), SubResource("gu_tausend_gedanken"), SubResource("gu_himmelsweisheit")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"mondtau": 4,
+&"seelenglas": 1
+},
+3: {
+&"seelenglas": 2,
+&"sternsand": 1
+},
+4: {
+&"seelenglas": 4,
+&"wuestenrose": 1
+},
+5: {
+&"seelenglas": 6,
+&"urkristall": 1
+}
+})
+world_effect = "Ein Gedankenblitz verrät dir, welcher Stein in einer Wand nachgibt."

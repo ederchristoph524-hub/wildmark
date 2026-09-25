@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://ckvs14lql1lxu"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_de1pc"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_s0mae"]
+
+[sub_resource type="Resource" id="gu_irrweg"]
+script = ExtResource("1_de1pc")
+id = &"irrweg"
+display_name = "Irrweg-Gu"
+family = &"labyrinth"
+description = "Ein Labyrinth aus Nebel am Ziel: Gegner darin irren geblendet und langsam umher."
+
+[sub_resource type="Resource" id="gu_drei_wege"]
+script = ExtResource("1_de1pc")
+id = &"drei_wege"
+display_name = "Drei-Wege-Irrgarten-Gu"
+family = &"labyrinth"
+rank = 2
+rank_gift = "Radius 3,7, Schwäche."
+description = "Drei Wege, keiner führt hinaus: die Verirrten werden schwach."
+gifts = {
+"radius_add": 0.5,
+"step": {
+"stacks": 1.0,
+"status": "schwaeche"
+}
+}
+
+[sub_resource type="Resource" id="gu_schneekristall"]
+script = ExtResource("1_de1pc")
+id = &"schneekristall"
+display_name = "Schneekristall-Formation-Gu"
+family = &"labyrinth"
+rank = 3
+rank_gift = "Frost je Takt, am Ende 1,5 s eingefroren."
+description = "Eiskristalle wachsen zwischen den Wänden; wenn die Formation zerfällt, friert alles darin ein."
+gifts = {
+"step": {
+"end": [{
+"color": "#bfeaff",
+"freeze": 1.5,
+"mult": 0.6,
+"radius": 3.7,
+"t": "circle",
+"tags": ["eis"]
+}],
+"stacks": 1.0,
+"status": "frost",
+"tags": ["seele", "eis"]
+}
+}
+
+[sub_resource type="Resource" id="gu_sechs_richtungen"]
+script = ExtResource("1_de1pc")
+id = &"sechs_richtungen"
+display_name = "Sechs-Richtungen-Labyrinth-Gu"
+family = &"labyrinth"
+rank = 4
+rank_gift = "Radius 4,7, 6 s, zieht ins Zentrum."
+description = "Das Gu aus der Serie: sechs Richtungen, alle führen zurück ins Zentrum."
+gifts = {
+"radius_add": 1.0,
+"step": {
+"end": [{
+"color": "#bfeaff",
+"freeze": 1.5,
+"mult": 0.8,
+"radius": 4.7,
+"t": "circle",
+"tags": ["eis"]
+}],
+"pull": 1.0,
+"stacks": 1.0,
+"status": "frost",
+"tags": ["seele", "eis"]
+},
+"time_add": 2.0
+}
+
+[sub_resource type="Resource" id="gu_neun_palaeste"]
+script = ExtResource("1_de1pc")
+id = &"neun_palaeste"
+display_name = "Neun-Paläste-Formation-Gu"
+family = &"labyrinth"
+rank = 5
+rank_gift = "Zieht stärker, am Ende Einsturz (2,5×, betäubt 1,5 s)."
+description = "Neun Paläste stürzen zusammen: wer im Irrgarten gefangen war, wird zermalmt."
+gifts = {
+"radius_add": 0.5,
+"step": {
+"end": [{
+"color": "#bfeaff",
+"freeze": 1.0,
+"mult": 0.5,
+"radius": 5.2,
+"t": "circle",
+"tags": ["eis"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#d8c070",
+"knockback": 1.0,
+"mult": 2.5,
+"radius": 5.2,
+"stun": 1.5,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"time": 1.0
+}],
+"pull": 1.4,
+"stacks": 1.0,
+"status": "frost",
+"tags": ["seele", "eis"]
+}
+}
+
+[resource]
+script = ExtResource("2_s0mae")
+id = &"labyrinth"
+display_name = "Irrgarten-Formation"
+path = &"formation"
+role = "Flächenkontrolle"
+form = &"zone"
+tags = Array[StringName]([&"seele"])
+feed_item = &"gruenkraut"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"blenden": 1.0,
+&"cd": 9.0,
+&"dauer": 4.0,
+&"ess": 7.0,
+&"radius": 3.2,
+&"reichweite": 9.0,
+&"schaden": 6.0,
+&"takt": 0.5,
+&"verlangsamung": 0.35
+})
+members = Array[ExtResource("1_de1pc")]([SubResource("gu_irrweg"), SubResource("gu_drei_wege"), SubResource("gu_schneekristall"), SubResource("gu_sechs_richtungen"), SubResource("gu_neun_palaeste")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"geisterseide": 1,
+&"sternsand": 1
+},
+3: {
+&"frostsplitter": 4,
+&"sternsand": 2
+},
+4: {
+&"erdkern": 1,
+&"sternsand": 4
+},
+5: {
+&"erdkern": 2,
+&"urkristall": 1
+}
+})
+world_effect = "Formationen verraten verborgene Wege: im Irrgarten leuchten versteckte Pfade auf."

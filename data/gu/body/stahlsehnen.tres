@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyGuData" format=3 uid="uid://bk63sp6xe5x1a"]
+
+[ext_resource type="Script" path="res://scripts/resources/body_gu_data.gd" id="1_qtg3i"]
+
+[resource]
+script = ExtResource("1_qtg3i")
+id = &"stahlsehnen"
+display_name = "Stahlsehnen-Gu"
+rank = 3
+effects = Dictionary[StringName, float]({
+&"grundschaden": 5.0,
+&"max_hp": 30.0
+})

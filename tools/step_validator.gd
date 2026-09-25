@@ -3,11 +3,11 @@ extends RefCounted
 ## Prüft Wirkungsschritte (Killer Moves, Ranggaben, Bestien-Fähigkeiten) und Wirkformen der Familien.
 
 const STEP_TYPES: Array[String] = ["circle", "line", "cone", "projectiles", "chain", "zone", "orbit", "trap", "delay",
-	"armor", "heal", "summon", "buff", "stealth", "teleport", "dash", "cleanse", "unstoppable", "reflect"]
+	"armor", "heal", "summon", "buff", "stealth", "teleport", "dash", "cleanse", "unstoppable", "reflect", "swap", "haste"]
 ## Wirkformen aus GuCaster und GuForms (hier als Text, weil das Importskript ohne Autoloads läuft).
 const FORMS: Array[StringName] = [&"geschoss", &"geschoss_explodierend", &"geschoss_schnell", &"strahl", &"stich", &"kreis",
 	&"selbstschild", &"selbst_heilung", &"bewegung", &"zaehmen", &"zone", &"kegel", &"sturmlauf", &"aura", &"schwarm",
-	&"umkreisen", &"falle", &"tarnung", &"staerkung", &"beschwoerung"]
+	&"umkreisen", &"falle", &"tarnung", &"staerkung", &"beschwoerung", &"tausch", &"eingebung"]
 const FORM_SUMMON: StringName = &"beschwoerung"
 ## Ranggaben, die Schritte (Liste) oder einen Schritt (Objekt) enthalten.
 const STEP_LIST_GIFTS: Array[String] = ["extra", "impact", "then"]

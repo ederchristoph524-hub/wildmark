@@ -149,6 +149,8 @@ func receive_hit(hit: HitInfo) -> void:
 		status.stun(hit.stun)
 	if hit.lifesteal > 0.0 and attacker != null and not attacker.is_dead() and dealt > 0.0:
 		attacker.heal(dealt * hit.lifesteal)
+	if hit.essence_steal > 0.0 and attacker != null and not attacker.is_dead() and dealt > 0.0:
+		EssenceTheft.steal(attacker, self, dealt, hit.essence_steal)
 	if dealt >= 0.5:
 		var color: Color = PLAYER_DAMAGE_COLOR if team == TEAM_PLAYER else (PhysiqueEffects.CRIT_COLOR if hit.is_crit else DAMAGE_COLOR)
 		EventBus.floating_text.emit(str(roundi(dealt)) + ("!" if hit.is_crit else ""), aim_point(), color)

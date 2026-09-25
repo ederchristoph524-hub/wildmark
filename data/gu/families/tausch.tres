@@ -1,0 +1,190 @@
+[gd_resource type="Resource" script_class="GuFamilyData" format=3 uid="uid://bk5ij02od76ta"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_data.gd" id="1_43iyk"]
+[ext_resource type="Script" path="res://scripts/resources/gu_family_data.gd" id="2_cybot"]
+
+[sub_resource type="Resource" id="gu_kleiner_tausch"]
+script = ExtResource("1_43iyk")
+id = &"kleiner_tausch"
+display_name = "Kleiner-Tausch-Gu"
+family = &"tausch"
+description = "Tauscht blitzschnell den Platz mit einem Gegner bis 10 m und betäubt ihn kurz."
+
+[sub_resource type="Resource" id="gu_sprungtor"]
+script = ExtResource("1_43iyk")
+id = &"sprungtor"
+display_name = "Sprungtor-Gu"
+family = &"tausch"
+rank = 2
+rank_gift = "Reichweite 14 m, am alten Platz blendet ein Lichtring (Radius 2,5)."
+description = "Ein Tor aus Raum öffnet sich zweimal: dort, wo du warst, blitzt es blendend auf."
+gifts = {
+"extra": [{
+"at": "target",
+"blind": 1.5,
+"color": "#6ad04a",
+"mult": 0.4,
+"radius": 2.5,
+"t": "circle",
+"tags": ["licht", "raum"]
+}],
+"step": {
+"range": 14.0
+}
+}
+
+[sub_resource type="Resource" id="gu_positionstausch"]
+script = ExtResource("1_43iyk")
+id = &"positionstausch"
+display_name = "Positionstausch-Gu"
+family = &"tausch"
+rank = 3
+rank_gift = "Betäubt 1 s und verwundet."
+description = "Das Gu aus der Serie: wer versetzt wird, ist verwundet und länger benommen."
+gifts = {
+"extra": [{
+"at": "target",
+"blind": 1.5,
+"color": "#6ad04a",
+"mult": 0.4,
+"radius": 2.5,
+"t": "circle",
+"tags": ["licht", "raum"]
+}],
+"step": {
+"range": 14.0,
+"status": "wunde",
+"stun": 1.0
+}
+}
+
+[sub_resource type="Resource" id="gu_regenbogenlicht"]
+script = ExtResource("1_43iyk")
+id = &"regenbogenlicht"
+display_name = "Regenbogenlicht-Gu"
+family = &"tausch"
+rank = 4
+rank_gift = "Reichweite 18 m, Lichtexplosion (Radius 3,5) blendet 2 s."
+description = "Du wirst für einen Wimpernschlag zu Licht – 18 m weit, und das Licht explodiert am Versetzten."
+gifts = {
+"extra": [{
+"at": "target",
+"blind": 2.0,
+"color": "#ffe9a0",
+"mult": 0.8,
+"radius": 3.5,
+"t": "circle",
+"tags": ["licht", "raum"]
+}],
+"step": {
+"range": 18.0,
+"status": "wunde",
+"stun": 1.0
+}
+}
+
+[sub_resource type="Resource" id="gu_goettliche_reise"]
+script = ExtResource("1_43iyk")
+id = &"goettliche_reise"
+display_name = "Göttliche-Reise-Gu"
+family = &"tausch"
+rank = 5
+rank_gift = "Tauscht nacheinander mit drei Gegnern, jeder Tauschort explodiert."
+description = "Die Reise kennt keine Entfernung: du springst von Gegner zu Gegner und lässt jeden benommen zurück."
+gifts = {
+"cd_mult": 1.2,
+"extra": [{
+"at": "target",
+"blind": 2.0,
+"color": "#ffe9a0",
+"mult": 0.8,
+"radius": 3.5,
+"t": "circle",
+"tags": ["licht", "raum"]
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"fresh": true,
+"mult": 0.7,
+"range": 12.0,
+"status": "wunde",
+"stun": 0.8,
+"t": "swap",
+"tags": ["raum"]
+}, {
+"at": "target",
+"blind": 1.5,
+"color": "#ffe9a0",
+"mult": 0.6,
+"radius": 3.0,
+"t": "circle",
+"tags": ["licht", "raum"]
+}],
+"time": 0.35
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"fresh": true,
+"mult": 0.7,
+"range": 12.0,
+"status": "wunde",
+"stun": 0.8,
+"t": "swap",
+"tags": ["raum"]
+}, {
+"at": "target",
+"blind": 1.5,
+"color": "#ffe9a0",
+"mult": 0.6,
+"radius": 3.0,
+"t": "circle",
+"tags": ["licht", "raum"]
+}],
+"time": 0.7
+}],
+"step": {
+"range": 18.0,
+"status": "wunde",
+"stun": 1.0
+}
+}
+
+[resource]
+script = ExtResource("2_cybot")
+id = &"tausch"
+display_name = "Positionstausch"
+path = &"raum"
+role = "Kontrolle, Stellungsspiel"
+form = &"tausch"
+tags = Array[StringName]([&"raum"])
+feed_item = &"mondtau"
+feed_amount = 2
+base_r1 = Dictionary[StringName, Variant]({
+&"betaeubung": 0.6,
+&"cd": 6.0,
+&"ess": 6.0,
+&"reichweite": 10.0,
+&"schaden": 14.0
+})
+members = Array[ExtResource("1_43iyk")]([SubResource("gu_kleiner_tausch"), SubResource("gu_sprungtor"), SubResource("gu_positionstausch"), SubResource("gu_regenbogenlicht"), SubResource("gu_goettliche_reise")])
+upgrade_materials = Dictionary[int, Dictionary]({
+2: {
+&"geisterseide": 1,
+&"windfeder": 3
+},
+3: {
+&"geisterseide": 2,
+&"sternsand": 2
+},
+4: {
+&"seelenglas": 2,
+&"sternsand": 4
+},
+5: {
+&"geisterseide": 4,
+&"urkristall": 1
+}
+})
+world_effect = "Tauscht den Platz mit einem Gegner – schick ihn in deine Fallen, in Feuer oder über den Abgrund."

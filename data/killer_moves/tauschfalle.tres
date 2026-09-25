@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://4tbsmw0qls0r"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_jg6g2"]
+
+[resource]
+script = ExtResource("1_jg6g2")
+id = &"tauschfalle"
+display_name = "Tauschfalle"
+family_a = &"tausch"
+family_b = &"donnerknolle"
+channel_time = 0.8
+damage_mult = 2.4
+description = "Du legst Knollen um dich – und tauschst den Platz mit einem Gegner, der mitten darauf landet."
+hint = "Wer tauscht, lässt etwas zurück."
+steps = [{
+"at": "self",
+"color": "#ff9a3a",
+"count": 3.0,
+"mult": 0.8,
+"radius": 2.6,
+"spacing": 1.4,
+"status": "ladung",
+"t": "trap",
+"tags": ["feuer", "blitz"],
+"time": 8.0,
+"trigger": 1.8
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"mult": 0.4,
+"range": 12.0,
+"stun": 1.0,
+"t": "swap",
+"tags": ["raum"]
+}],
+"time": 0.3
+}]

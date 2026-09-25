@@ -102,7 +102,7 @@ func _test_awakening() -> void:
 
 func _master() -> GuMaster:
 	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
-		if node is GuMaster:
+		if node is GuMaster and not node is Wanderer:
 			return node
 	return null
 

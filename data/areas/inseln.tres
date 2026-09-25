@@ -198,3 +198,5 @@ tide = {
 },
 "target": &"perleninsel"
 }
+wanderers = Array[StringName]([&"seeraeuber", &"meereszombie", &"ostmeer"])
+wanderer_count = 3

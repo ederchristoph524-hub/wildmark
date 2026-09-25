@@ -78,6 +78,9 @@ var sect_rank: int = 0
 var sect_stipend_day: int = 0
 ## Sektenauftrag des Tages (SectTasks); leer = noch keiner vergeben.
 var sect_task: Dictionary = {}
+## Ruf (Renown): Ansehen auf dem rechtschaffenen, Berüchtigtheit auf dem dämonischen Pfad.
+var fame: int = 0
+var infamy: int = 0
 
 # --- Welt ---
 var time_of_day: float = 0.0
@@ -130,6 +133,8 @@ func reset(options: Dictionary) -> void:
 	sect_rank = 0
 	sect_stipend_day = 0
 	sect_task = {}
+	fame = 0
+	infamy = 0
 	dao = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
@@ -207,7 +212,7 @@ func to_dict() -> Dictionary:
 			"duels_won": duels_won, "last_duel_day": last_duel_day, "duel_days": duel_days, "childhood_step": childhood_step, "area": area, "inheritances": inheritances,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 			"sect": {"id": String(sect), "merit": sect_merit, "rank": sect_rank, "stipend_day": sect_stipend_day, "task": _task_to_dict()},
-			"dao": _names_to_strings(dao),
+			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy},
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -283,6 +288,9 @@ func _player_from_dict(p: Dictionary) -> void:
 	if not task.is_empty():
 		sect_task = {"type": str(task.get("type", "")), "item": StringName(str(task.get("item", ""))), "count": int(task.get("count", 1)),
 			"start": int(task.get("start", 0)), "day": int(task.get("day", 0)), "done": bool(task.get("done", false))}
+	var renown: Dictionary = p.get("renown", {})
+	fame = int(renown.get("fame", 0))
+	infamy = int(renown.get("infamy", 0))
 	var saved_dao: Dictionary = p.get("dao", {})
 	for key: Variant in saved_dao:
 		dao[StringName(str(key))] = float(saved_dao[key])
