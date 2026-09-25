@@ -73,6 +73,13 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(10)
 	await _shot("07_gu_menue")
 	for child: Node in main._menu_layer.get_children():
+		var tabs: Array[Node] = child.find_children("*", "TabContainer", true, false)
+		if not tabs.is_empty():
+			var container: TabContainer = tabs[0] as TabContainer
+			container.current_tab = container.get_tab_count() - 1
+	await _frames(20)
+	await _shot("07b_apertur")
+	for child: Node in main._menu_layer.get_children():
 		child.queue_free()
 	await _frames(3)
 	main._on_menu_closed()

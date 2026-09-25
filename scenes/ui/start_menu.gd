@@ -3,6 +3,7 @@ extends Control
 ## Neues-Spiel-Menü: Kindheit (spielbar oder übersprungen), Todesmodus, Herkunft im Klan, Talent samt Extremer
 ## Physique, erster Gu (nur beim Überspringen) oder Weiterspielen.
 
+const GROUP: StringName = &"start_menu"
 const TALENT_RANDOM: StringName = &"random"
 const DEATH_MODES: Array[StringName] = [&"standard", &"relaxed", &"hardcore"]
 const DEFAULT_STANDING: StringName = &"neben"
@@ -29,11 +30,9 @@ var _description: Label = null
 
 func _ready() -> void:
 	theme = UiTheme.get_theme()
+	add_to_group(GROUP)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var background := ColorRect.new()
-	background.color = Color(0.03, 0.06, 0.05)
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	add_child(background)
+	add_child(StartBackground.new())
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED

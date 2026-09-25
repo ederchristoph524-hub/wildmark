@@ -134,6 +134,9 @@ static func cultivation_page(player: Player, refresh: Callable) -> Control:
 	var column := VBoxContainer.new()
 	var progression: ProgressionData = DataRegistry.progression()
 	var aperture: ApertureComponent = player.aperture
+	var view := ApertureView.new()
+	view.essence_ratio = aperture.ratio()
+	column.add_child(view)
 	var text: String = Loc.t("%s · %s\nTalent %s (%d %%) – höchstens Rang %d\nUressenz %.1f / %.1f · Regeneration %.2f/s\nAperturwand %d %%") % [
 		Loc.t(progression.rank_name(GameState.rank)), Loc.t(progression.stage_name(GameState.stage)),
 		GameState.talent_grade, roundi(GameState.apt), aperture.rank_cap(),

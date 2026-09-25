@@ -17,9 +17,10 @@ colors = Dictionary[StringName, Color]({
 &"weg": Color(0.65882355, 0.6117647, 0.5254902, 1)
 })
 vegetation = Dictionary[StringName, float]({
-&"bambus": 0.25,
-&"laubbaum": 0.6,
-&"nadelbaum": 0.15
+&"bambus": 0.2,
+&"bluetenbaum": 0.45,
+&"laubbaum": 0.25,
+&"nadelbaum": 0.1
 })
 trees_per_1000 = 4.0
 bushes_per_1000 = 3.0
@@ -28,4 +29,3 @@ sky_top = Color(0.2901961, 0.5019608, 0.7529412, 1)
 fog = Color(0.83137256, 0.8784314, 0.9019608, 1)
 fog_density = 0.0022
 water = Color(0.22745098, 0.47843137, 0.6039216, 1)
-plant_tint = Color(0.95686275, 0.78431374, 0.84705883, 1)

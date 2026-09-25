@@ -5217,9 +5217,10 @@
     "platz": "#b8ac94"
    },
    "vegetation": {
-    "laubbaum": 0.6,
-    "bambus": 0.25,
-    "nadelbaum": 0.15
+    "bluetenbaum": 0.45,
+    "laubbaum": 0.25,
+    "bambus": 0.2,
+    "nadelbaum": 0.1
    },
    "baeume_pro_1000m2": 4.0,
    "buesche_pro_1000m2": 3.0,
@@ -5229,8 +5230,7 @@
    "himmel_oben": "#4a80c0",
    "nebel": "#d4e0e6",
    "nebel_dichte": 0.0022,
-   "wasser": "#3a7a9a",
-   "pflanzenfarbe": "#f4c8d8"
+   "wasser": "#3a7a9a"
   }
  }
 }

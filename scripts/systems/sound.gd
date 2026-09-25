@@ -183,10 +183,9 @@ func _play_music(delta: float) -> void:
 		return
 	var night: bool = Formulas.is_night(Balance.values, GameState.time_of_day)
 	_music_left = randf_range(MUSIC_GAP.x, MUSIC_GAP.y) * (1.6 if night else 1.0)
-	var world: World = get_tree().get_first_node_in_group(World.GROUP_WORLD) as World
-	if world == null or get_tree().paused or volume() <= 0.0:
+	var scale: Array = _music_scale()
+	if scale.is_empty() or get_tree().paused or volume() <= 0.0:
 		return
-	var scale: Array = SCALES.get(world.area.region, SCALES[1])
 	_note = clampi(_note + randi_range(-2, 2), 0, scale.size() - 1)
 	var octave: float = 0.5 if night else 1.0
 	_pluck(_pluck_id(ROOT_HZ * octave * pow(2.0, float(scale[_note]) / 12.0)))
@@ -205,13 +204,20 @@ func _pluck(id: StringName) -> void:
 	voice.play()
 
 
+## Tonleiter der aktuellen Region; im Startmenü die des Qing-Mao-Bergs; sonst keine Musik.
+func _music_scale() -> Array:
+	var world: World = get_tree().get_first_node_in_group(World.GROUP_WORLD) as World
+	if world != null:
+		return SCALES.get(world.area.region, SCALES[1])
+	if get_tree().get_first_node_in_group(StartMenu.GROUP) != null:
+		return SCALES[1]
+	return []
+
+
 ## Die Töne der aktuellen Region vorbauen (einer pro Bild).
 func _warm_music() -> bool:
-	var world: World = get_tree().get_first_node_in_group(World.GROUP_WORLD) as World
-	if world == null:
-		return false
 	for octave: float in [1.0, 0.5, 0.25]:
-		for step: Variant in SCALES.get(world.area.region, SCALES[1]):
+		for step: Variant in _music_scale():
 			var id: StringName = _pluck_id(ROOT_HZ * octave * pow(2.0, float(step) / 12.0))
 			if not _streams.has(id):
 				stream(id)

@@ -56,7 +56,8 @@ func _ready() -> void:
 ## Baumarten nach Biom-Anteilen; über der Baumgrenze nur Nadelbäume.
 func _place_trees(count: int) -> void:
 	var meshes: Dictionary[StringName, Mesh] = {&"laubbaum": VegetationMeshes.broadleaf(), &"laubbaum_rund": VegetationMeshes.round_tree(), &"palme": VegetationMeshes.palm(),
-		&"nadelbaum": VegetationMeshes.pine(), &"bambus": VegetationMeshes.bamboo(), &"kaktus": VegetationMeshes.cactus(), &"totholz": VegetationMeshes.dead_tree()}
+		&"nadelbaum": VegetationMeshes.pine(), &"bambus": VegetationMeshes.bamboo(), &"kaktus": VegetationMeshes.cactus(), &"totholz": VegetationMeshes.dead_tree(),
+		&"bluetenbaum": VegetationMeshes.blossom_tree()}
 	var kinds: Array[StringName] = []
 	var weights: Array[float] = []
 	for kind: StringName in biome.vegetation:

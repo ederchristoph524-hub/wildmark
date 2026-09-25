@@ -16,6 +16,9 @@ const ROCK_DARK: Color = Color(0.23, 0.22, 0.2)
 const MOSS: Color = Color(0.25, 0.33, 0.16)
 const CACTUS: Color = Color(0.3, 0.45, 0.25)
 const DEAD_WOOD: Color = Color(0.42, 0.36, 0.3)
+const BLOSSOM: Color = Color(0.93, 0.66, 0.76)
+const BLOSSOM_LIGHT: Color = Color(0.98, 0.86, 0.9)
+const BLOSSOM_DEEP: Color = Color(0.86, 0.5, 0.64)
 const FLOWER_COLORS: Array[Color] = [Color(0.85, 0.25, 0.3), Color(0.95, 0.8, 0.3), Color(0.7, 0.45, 0.85), Color(0.95, 0.95, 0.9)]
 
 
@@ -43,6 +46,19 @@ static func round_tree() -> ArrayMesh:
 	b.add(MeshBuilder.sphere(2.0, 7, 4), MeshBuilder.at(Vector3(0, 4.2, 0), Vector3(1.0, 0.8, 1.0)), LEAF_MID)
 	b.add(MeshBuilder.sphere(1.3, 6, 4), MeshBuilder.at(Vector3(0.9, 4.9, 0.5)), LEAF_LIGHT)
 	b.add(MeshBuilder.sphere(1.2, 6, 4), MeshBuilder.at(Vector3(-0.8, 3.8, -0.7)), LEAF_DARK)
+	return b.build()
+
+
+## Blütenbaum (Kranichtal): geschwungener dunkler Stamm, Krone aus rosa und weißen Blütenballen.
+static func blossom_tree() -> ArrayMesh:
+	var b := MeshBuilder.new()
+	b.add(MeshBuilder.cylinder(0.16, 0.3, 3.6, 6), MeshBuilder.at(Vector3(0, 1.8, 0), Vector3.ONE, Vector3(0, 0, 0.08)), TRUNK_DARK)
+	for side: float in [-1.0, 1.0]:
+		b.add(MeshBuilder.cylinder(0.06, 0.12, 2.2, 5), MeshBuilder.at(Vector3(side * 0.7, 3.8, 0.1), Vector3.ONE, Vector3(0, 0, -side * 0.8)), TRUNK_DARK)
+	var blobs: Array[Array] = [[Vector3(0, 4.6, 0), 1.9, BLOSSOM], [Vector3(1.5, 4.3, 0.4), 1.4, BLOSSOM_LIGHT], [Vector3(-1.4, 4.4, -0.4), 1.5, BLOSSOM],
+		[Vector3(0.3, 5.4, -0.7), 1.2, BLOSSOM_LIGHT], [Vector3(-0.5, 5.1, 0.9), 1.1, BLOSSOM_DEEP]]
+	for blob: Array in blobs:
+		b.add(MeshBuilder.sphere(blob[1], 6, 4), MeshBuilder.at(blob[0], Vector3(1.0, 0.7, 1.0)), blob[2])
 	return b.build()
 
 
