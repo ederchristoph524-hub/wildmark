@@ -8,12 +8,16 @@ const KIND_AWAKEN: StringName = &"awaken"
 ## Schritte: Art, Hinweistext, Ziel (NPC über seine Aufgabe bzw. Gegenstand und Anzahl).
 const STEPS: Array[Dictionary] = [
 	{"kind": KIND_TALK, "text": "Sprich mit dem Dorfältesten beim Feuer (E / Aktion)", "npc_quest": &"bau"},
+	{"kind": KIND_TALK, "text": "Dein Onkel wartet am Brunnen – sprich mit ihm", "npc_quest": &"onkel"},
 	{"kind": KIND_ITEM, "text": "Sammle %d Beeren an den Büschen im Dorf (Faust / Linksklick)", "item": &"beeren", "count": 6},
 	{"kind": KIND_AWAKEN, "text": "Geh zum Klanlehrer – heute ist dein Erwachen (E / Aktion)"},
 ]
 ## Was Dorfbewohner einem Kind sagen (Aufgabe des NPC → Zeile); sonst die allgemeine Zeile.
 const LINES: Dictionary[StringName, String] = {
-	&"bau": "Heute ist der Tag deines Erwachens. Sammle vorher Beeren für das Fest – die Büsche stehen innerhalb der Palisade. Dann geh zum Klanlehrer.",
+	&"bau": "Heute ist der Tag deines Erwachens. Dein Onkel wartet am Brunnen. Sammle dann Beeren für das Fest – die Büsche stehen innerhalb der Palisade – und geh zum Klanlehrer.",
+	&"onkel": "Deine Eltern haben dir etwas hinterlassen … aber was soll ein Kind damit? Ich verwalte es für dich, bis du ein richtiger Gu-Meister bist. Geh jetzt, sammle Beeren für das Fest.",
+	&"tante_kraeuter": "Iss dich satt, heute ist dein großer Tag. Und glaub nicht alles, was dein Onkel dir erzählt.",
+	&"akademie": "Nach dem Erwachen lernst du hier in der Akademie, wilde Gu zu verfeinern. Erst musst du erwachen.",
 }
 const DEFAULT_LINE: String = "Bald bist du ein Gu-Meister wie wir alle. Hör auf den Dorfältesten."
 

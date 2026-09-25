@@ -141,6 +141,8 @@ func _finish(player_won: bool) -> void:
 		super(player_won)
 		return
 	surrendered = true
+	if is_demonic() and not bounty_hunter:
+		GameState.rogues_defeated += 1
 	if opponent != null:
 		opponent.status.clear_negative()
 	opponent = null

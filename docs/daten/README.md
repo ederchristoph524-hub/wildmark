@@ -64,7 +64,7 @@ Alle Dateien wurden automatisch aus dem Prototyp (`docs/referenz/wildmark_protot
 
 ## quests.json
 
-- `QUESTS` – 18 Quests, `sp` Belohnung, `f` Abschlussbedingung (Referenzlogik). `GOALS` – Hauptziel-Kette als Referenzlogik.
+- `QUESTS` – Quests, `sp` Belohnung, `f` Abschlussbedingung (Referenzlogik) oder `regel` für das Spiel: `type` (`item` mit `item`, `kills`, `built`, `area`, `day`, `rogues` = besiegte dämonische Wanderer, `duels`, `refine` = verfeinerte wilde Gu, `rank`, `inheritance` mit Erbe-ID in `item`, `infamy`, `fame`), `count`, `reward`. Zähler-Arten zählen ab Annahme. Wer eine Aufgabe vergibt, steht in `SettlementPeople.RESIDENTS`. `GOALS` – Hauptziel-Kette als Referenzlogik.
 
 ## unsterblich.json
 

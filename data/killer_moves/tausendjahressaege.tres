@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://da8vqu8s46nai"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_or4ea"]
+
+[resource]
+script = ExtResource("1_or4ea")
+id = &"tausendjahressaege"
+display_name = "Tausend-Jahre-Säge"
+family_a = &"tausendfuessler"
+family_b = &"zeit"
+channel_time = 1.1
+damage_mult = 4.4
+description = "Die Zeit steht fast still, und die goldene Säge fährt dreimal durch alles, was darin gefangen ist."
+hint = "Für die Säge vergehen Jahre, für sie Augenblicke."
+min_rank = 5
+steps = [{
+"at": "self",
+"color": "#a04ad0",
+"mult": 0.2,
+"radius": 6.0,
+"slow": 0.75,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 0.5,
+"time": 3.0
+}, {
+"color": "#e0b040",
+"dash": true,
+"length": 11.0,
+"mult": 0.9,
+"pierce_armor": true,
+"status": "blutung",
+"t": "line",
+"tags": ["schnitt", "metall"],
+"width": 3.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.9,
+"radius": 4.0,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 0.5
+}, {
+"t": "delay",
+"then": [{
+"color": "#e0b040",
+"mult": 0.9,
+"radius": 4.0,
+"status": "blutung",
+"t": "circle",
+"tags": ["schnitt", "metall"]
+}],
+"time": 1.0
+}]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://6awrbtoo8k4n"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_ptt8l"]
+
+[resource]
+script = ExtResource("1_ptt8l")
+id = &"oase_raeuber"
+display_name = "Sandräuber"
+description = "Besiege 3 Sandräuber und andere Dämonen rund um die Oase."
+reward_points = 2
+rule = {
+"area": "",
+"count": 3,
+"item": &"",
+"reward": {
+&"kristall": 45,
+&"wuestenrose": 1
+},
+"type": &"rogues"
+}

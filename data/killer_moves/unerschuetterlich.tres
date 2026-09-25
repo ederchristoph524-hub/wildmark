@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://d1ds26fjta52v"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_8qdu0"]
+
+[resource]
+script = ExtResource("1_8qdu0")
+id = &"unerschuetterlich"
+display_name = "Unerschütterlicher Wille"
+family_a = &"kampfgeist"
+family_b = &"qischirm"
+channel_time = 0.9
+damage_mult = 3.0
+description = "Kampfgeist und hartes Qi: du wirst stärker, nichts wirft dich um, und wer neben dir kämpft, ist geschützt."
+hint = "Der Wille ist die härteste Mauer."
+min_rank = 3
+steps = [{
+"color": "#e07a4a",
+"damage": 1.35,
+"key": "unerschuetterlich",
+"speed": 1.1,
+"t": "buff",
+"time": 7.0
+}, {
+"t": "unstoppable",
+"time": 5.0
+}, {
+"ally_reduction": 0.35,
+"color": "#99ffff",
+"follow": true,
+"knockback": 0.5,
+"mult": 0.2,
+"radius": 5.0,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 0.5,
+"time": 7.0
+}]

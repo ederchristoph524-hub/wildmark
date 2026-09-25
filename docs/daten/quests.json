@@ -246,6 +246,206 @@
      "urkristall": 1
     }
    }
+  },
+  {
+   "id": "akademie",
+   "n": "Unterricht in der Akademie",
+   "d": "Verfeinere 2 wilde Gu – die Akademie lehrt, wie man sie zähmt.",
+   "sp": 2,
+   "regel": {
+    "type": "refine",
+    "count": 2,
+    "reward": {
+     "kristall": 15,
+     "reliquie_gruenkupfer": 1
+    }
+   }
+  },
+  {
+   "id": "bai_daemonen",
+   "n": "Dämonen am Bai-Pass",
+   "d": "Besiege 2 dämonische Kultivierende auf den Wegen des Qing-Mao-Bergs.",
+   "sp": 2,
+   "regel": {
+    "type": "rogues",
+    "count": 2,
+    "reward": {
+     "kristall": 20,
+     "wildfell": 3
+    }
+   }
+  },
+  {
+   "id": "blumenwein_suche",
+   "n": "Das Erbe im Berg",
+   "d": "Finde das Erbe des Blumenwein-Mönchs, nach dem die Bai seit Jahren suchen.",
+   "sp": 2,
+   "regel": {
+    "type": "inheritance",
+    "count": 1,
+    "reward": {
+     "kristall": 30,
+     "mondtau": 4
+    },
+    "item": "blumenwein"
+   }
+  },
+  {
+   "id": "xiong_duelle",
+   "n": "Kraft der Xiong",
+   "d": "Gewinne 3 Duelle gegen Gu-Meister.",
+   "sp": 2,
+   "regel": {
+    "type": "duels",
+    "count": 3,
+    "reward": {
+     "kristall": 25,
+     "baerengalle": 1
+    }
+   }
+  },
+  {
+   "id": "shang_wege",
+   "n": "Sichere Handelswege",
+   "d": "Besiege 3 dämonische Kultivierende, die den Karawanen der Shang auflauern.",
+   "sp": 2,
+   "regel": {
+    "type": "rogues",
+    "count": 3,
+    "reward": {
+     "kristall": 40,
+     "klingenstahl": 1
+    }
+   }
+  },
+  {
+   "id": "oase_raeuber",
+   "n": "Sandräuber",
+   "d": "Besiege 3 Sandräuber und andere Dämonen rund um die Oase.",
+   "sp": 2,
+   "regel": {
+    "type": "rogues",
+    "count": 3,
+    "reward": {
+     "kristall": 45,
+     "wuestenrose": 1
+    }
+   }
+  },
+  {
+   "id": "wu_wuerdig",
+   "n": "Würdig der Wu",
+   "d": "Erreiche Rang 5 – erst dann spricht der Wu-Klan mit dir wie mit seinesgleichen.",
+   "sp": 2,
+   "regel": {
+    "type": "rank",
+    "count": 5,
+    "reward": {
+     "kristall": 80,
+     "drachenschuppe": 1
+    }
+   }
+  },
+  {
+   "id": "schatten_blut",
+   "n": "Blut an den Händen",
+   "d": "Die Schattensekte nimmt nur, wer berüchtigt ist: erreiche Berüchtigtheit 30.",
+   "sp": 2,
+   "regel": {
+    "type": "infamy",
+    "count": 30,
+    "reward": {
+     "kristall": 50,
+     "seelenglas": 2
+    }
+   }
+  },
+  {
+   "id": "sekte_bibliothek",
+   "n": "Wissen der Sekte",
+   "d": "Verfeinere 5 wilde Gu und berichte dem Bibliothekar.",
+   "sp": 2,
+   "regel": {
+    "type": "refine",
+    "count": 5,
+    "reward": {
+     "kristall": 60,
+     "sternsand": 2
+    }
+   }
+  },
+  {
+   "id": "huang_jin_ehre",
+   "n": "Ehre der Huang Jin",
+   "d": "Die Huang-Jin-Familie achtet nur Rechtschaffene: erreiche Ansehen 30.",
+   "sp": 2,
+   "regel": {
+    "type": "fame",
+    "count": 30,
+    "reward": {
+     "kristall": 40,
+     "wolfsgeist": 2
+    }
+   }
+  },
+  {
+   "id": "zombie_perlen",
+   "n": "Tiefseeperlen",
+   "d": "Bringe dem Zombie-Kapitän 2 Tiefseeperlen.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "count": 2,
+    "reward": {
+     "kristall": 45,
+     "blutkoralle": 2
+    },
+    "item": "tiefseeperle"
+   }
+  },
+  {
+   "id": "karawane_wolle",
+   "n": "Waren für den Karawanenbund",
+   "d": "Bringe dem Karawanenältesten 6 Sternsand aus der Wüste.",
+   "sp": 2,
+   "regel": {
+    "type": "item",
+    "count": 6,
+    "reward": {
+     "kristall": 50,
+     "reliquie_weisssilber": 1
+    },
+    "item": "sternsand"
+   }
+  },
+  {
+   "id": "onkel",
+   "n": "Das Erbe deiner Eltern",
+   "d": "Dein Onkel verwaltet, was deine Eltern dir hinterlassen haben. Gewinne ein Duell gegen einen Gu-Meister, dann rückt er einen Teil heraus.",
+   "sp": 1,
+   "regel": {
+    "type": "duels",
+    "count": 1,
+    "reward": {
+     "kristall": 25,
+     "reliquie_gruenkupfer": 1
+    }
+   }
+  },
+  {
+   "id": "tante_kraeuter",
+   "n": "Kräuter für die Tante",
+   "d": "Bringe deiner Tante 5 Grünkraut aus dem Dschungel.",
+   "sp": 1,
+   "regel": {
+    "type": "item",
+    "item": "gruenkraut",
+    "count": 5,
+    "reward": {
+     "kristall": 10,
+     "beeren": 6
+    }
+   }
   }
  ],
  "GOALS": "[fn] ()=>[\n  {n:'Apertur erwecken',d:'Deine Aptitude wurde am See bestimmt.',ok:!!P.aptitude},\n  {n:'Vital-Gu verfeinern',d:'Das erste Gu, lebenslang gebunden.',ok:!!P.vitalGu},\n  {n:'Gipfel der Sterblichen',d:'Rang 5 · Lila-Kristall erreichen.',ok:P.rank>=5},\n  {n:'Unsterblichenaufstieg',d:'Rang 6 · das Gesegnete Land entsteht.',ok:P.rank>=6},\n  {n:'Waldgeist bezwingen',d:'Erste Erdkalamität.',ok:!!P.bosses.waldgeist?.dead},\n  {n:'Steinkönig bezwingen',d:'Zweite Erdkalamität.',ok:!!P.bosses.steinkoenig?.dead},\n  {n:'Lavadrache bezwingen',d:'Himmlische Trübsal.',ok:!!P.bosses.drache?.dead},\n  {n:'Grotten-Himmel',d:'Rang 8 · deine Apertur wird ein Kosmos.',ok:P.rank>=8},\n  {n:'Ehrwürdiger werden',d:'Rang 9 · Gelb-Aprikose. Zehn in drei Millionen Jahren.',ok:P.rank>=9},\n  {n:'Alle Länder einverleiben',d:'Nimm Lang Ya, den Kaiserhof und den Langlebigkeits-Himmel in deine Apertur auf.',ok:['langya','hof','longevity'].every(k=>(P.annexed||{})[k])},\n  {n:'Alle Wahren Erben',d:'Sammle die Vermächtnisse der Ehrwürdigen.',ok:Object.keys(INHERIT).every(k=>P.inherit?.[k])},\n  {n:'Sektenherr werden',d:'Steige bis an die Spitze einer Sekte auf.',ok:!!P.sect&&sectRankIdx()>=5},\n  {n:'Ewigkeits-Gu erlangen',d:'Das Ziel, an dem alle Ehrwürdigen scheiterten.',ok:guOwned('ewigkeit')},\n  {n:'Schicksals-Gu erlangen',d:'Das mächtigste Gu der Geschichte.',ok:guOwned('schicksal')},\n]"

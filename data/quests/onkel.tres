@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://c62etccftq6ni"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_54bo1"]
+
+[resource]
+script = ExtResource("1_54bo1")
+id = &"onkel"
+display_name = "Das Erbe deiner Eltern"
+description = "Dein Onkel verwaltet, was deine Eltern dir hinterlassen haben. Gewinne ein Duell gegen einen Gu-Meister, dann rückt er einen Teil heraus."
+reward_points = 1
+rule = {
+"area": "",
+"count": 1,
+"item": &"",
+"reward": {
+&"kristall": 25,
+&"reliquie_gruenkupfer": 1
+},
+"type": &"duels"
+}

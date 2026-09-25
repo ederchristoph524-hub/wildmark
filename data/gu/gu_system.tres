@@ -201,5 +201,78 @@ recipes = Array[Dictionary]([{
 &"wolfsgeist": 1
 },
 "result": &"wildwut"
+}, {
+"chance": 0.6,
+"hint": "Tarnschuppen und Schlammhaut verschmelzen zu einer zweiten, fremden Haut – niemand erkennt dich mehr.",
+"inputs": Array[StringName]([&"tarnschuppe", &"schlammkroete"]),
+"materials": {
+&"schlangenhaut": 3
+},
+"result": &"menschenhaut"
+}, {
+"chance": 0.75,
+"hint": "Signal und Fußspur zusammen zeigen wie ein Kaktusstachel auf jeden wilden Gu.",
+"inputs": Array[StringName]([&"signal", &"fussspur"]),
+"materials": {
+&"gruenkraut": 4
+},
+"result": &"kaktuszeiger"
+}, {
+"chance": 0.65,
+"hint": "Blitzauge und Brise wachsen zu Donnerflügeln zusammen.",
+"inputs": Array[StringName]([&"blitzauge", &"brise"]),
+"materials": {
+&"donnerholz": 2
+},
+"result": &"donnerfluegel_gu"
+}, {
+"chance": 0.65,
+"hint": "Jadehaut und Steinhaut härten zu einem Panzer wie der eines Krokodilkönigs.",
+"inputs": Array[StringName]([&"jadehaut", &"steinhaut"]),
+"materials": {
+&"knochenmehl": 2,
+&"schlangenhaut": 2
+},
+"result": &"panzer_gu"
+}, {
+"chance": 0.55,
+"hint": "Zehn Jin und die Kraft des Schwarzebers packen zu wie ein Krokodil.",
+"inputs": Array[StringName]([&"zehnjin", &"schwarzeber"]),
+"materials": {
+&"drachenschuppe": 1
+},
+"result": &"krokodilkraft"
+}, {
+"chance": 0.6,
+"hint": "Eisenblut und Eisenzahn machen deine Sehnen zu Stahl.",
+"inputs": Array[StringName]([&"eisenblut", &"eisenzahn"]),
+"materials": {
+&"klingenstahl": 1
+},
+"result": &"stahlsehnen"
+}, {
+"chance": 0.55,
+"hint": "Jadeknochen und Frost wachsen zu einem Körper aus Eiskristall.",
+"inputs": Array[StringName]([&"jadeknochen", &"frostnadel"]),
+"materials": {
+&"frostsplitter": 6
+},
+"result": &"eiskristall"
+}, {
+"chance": 0.5,
+"hint": "Fang Yuans Versuch mit dem Mondglanz: Mondlicht und Kleines Licht verschmelzen zur Mondsichel – oder zu nichts.",
+"inputs": Array[StringName]([&"mondlicht", &"kleineslicht"]),
+"materials": {
+&"mondtau": 3
+},
+"result": &"mondsichel"
+}, {
+"chance": 0.5,
+"hint": "Zwei Blut-Gu werden zu einem Schädel voller Blut – dem Gu, um den im Klan Blut floss.",
+"inputs": Array[StringName]([&"blutdorn", &"blutstropfen"]),
+"materials": {
+&"blutkoralle": 2
+},
+"result": &"blutschaedel"
 }])
 start_families = Array[StringName]([&"mondlicht", &"flamme", &"stroemung", &"wirbel"])

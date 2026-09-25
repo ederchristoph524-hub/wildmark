@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c7vque7yuuwhv"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_j7csy"]
+
+[resource]
+script = ExtResource("1_j7csy")
+id = &"raubtierrudel"
+display_name = "Raubtierrudel"
+family_a = &"pluenderung"
+family_b = &"sklaverei"
+channel_time = 1.1
+damage_mult = 4.3
+description = "Dein Rudel fällt über die Feinde her, und jeder Biss, jeder Griff raubt dir neue Essenz."
+hint = "Das Rudel teilt die Beute."
+min_rank = 5
+steps = [{
+"count": 3.0,
+"enemy": "geisterwolf",
+"t": "summon",
+"time": 15.0
+}, {
+"angle": 110.0,
+"color": "#8fd06a",
+"essence_steal": 3.0,
+"knockback": -1.0,
+"mult": 1.2,
+"reach": 8.0,
+"stacks": 2.0,
+"status": "schwaeche",
+"t": "cone",
+"tags": ["schnitt"]
+}, {
+"color": "#8fd06a",
+"damage": 1.3,
+"key": "raubtierrudel",
+"speed": 1.15,
+"t": "buff",
+"time": 8.0
+}]

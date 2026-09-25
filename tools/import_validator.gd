@@ -39,6 +39,7 @@ func validate(built: Dictionary, sources: Dictionary) -> void:
 	for standing: StandingData in built["standings"]:
 		for item: StringName in standing.gift:
 			_expect("items", item, "Herkunft '%s' (Geschenk)" % standing.id)
+	_check_quests(built["quests"])
 	_check_trades(built["npcs"], built["builds"])
 	_check_masters(built["gu_masters"], built["body"])
 	AreaValidator.new(_report, _ids).check(built["areas"], built["regions"])
@@ -222,6 +223,24 @@ func _check_sect_ranks(progression: ProgressionData) -> void:
 	for rank: SectRankData in progression.sect_ranks:
 		for item: StringName in rank.reward:
 			_expect("items", item, "Sektenrang '%s' (Aufstiegsgeschenk)" % rank.display_name)
+
+
+const QUEST_TYPES: Array[StringName] = [&"item", &"kills", &"built", &"area", &"day", &"rogues", &"duels", &"refine", &"rank",
+	&"inheritance", &"infamy", &"fame"]
+
+
+## Aufgaben mit Regel: bekannte Art, vorhandene Gegenstände (Abgabe und Belohnung).
+func _check_quests(quests: Array) -> void:
+	for quest: QuestData in quests:
+		if quest.rule.is_empty():
+			continue
+		var context: String = "Quest '%s'" % quest.id
+		if StringName(quest.rule.get("type", &"")) not in QUEST_TYPES:
+			_report.error("%s: unbekannte Art '%s'" % [context, quest.rule.get("type", "")])
+		if StringName(quest.rule.get("type", &"")) == &"item":
+			_expect("items", quest.rule.get("item", &""), context + " (Abgabe)")
+		for item: StringName in quest.rule.get("reward", {}):
+			_expect("items", item, context + " (Belohnung)")
 
 
 func _check_trades(npcs: Array, parts: Array) -> void:

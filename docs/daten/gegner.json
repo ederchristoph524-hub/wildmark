@@ -1671,6 +1671,69 @@
     "stachelwurm",
     "aurahuelle"
    ]
+  },
+  "gu_yue_chi": {
+   "n": "Vorsteher der Chi-Familie",
+   "c": "#c86a4a",
+   "f": "righteous",
+   "rang": 2,
+   "stufe": 3,
+   "gu": [
+    "glutfunke",
+    "steinhaut",
+    "wirbelwind",
+    "lebensblatt"
+   ]
+  },
+  "gu_yue_mo": {
+   "n": "Vorsteher der Mo-Familie",
+   "c": "#4a6ac8",
+   "f": "righteous",
+   "rang": 2,
+   "stufe": 3,
+   "gu": [
+    "mondlicht",
+    "frostnadel",
+    "sprungwurm",
+    "eisenhaut"
+   ]
+  },
+  "gu_yue_bo": {
+   "n": "Klanführer der Gu Yue",
+   "c": "#6ab86a",
+   "f": "righteous",
+   "rang": 3,
+   "stufe": 2,
+   "gu": [
+    "mondlicht",
+    "steinhaut",
+    "wirbelwind",
+    "lebensblatt"
+   ]
+  },
+  "bai_aeltester": {
+   "n": "Ältester des Bai-Klans",
+   "c": "#e8eef8",
+   "f": "righteous",
+   "rang": 3,
+   "gu": [
+    "frostnadel",
+    "wasserlicht",
+    "eisenhaut",
+    "wirbelwind"
+   ]
+  },
+  "xiong_aeltester": {
+   "n": "Ältester des Xiong-Klans",
+   "c": "#a8542a",
+   "f": "righteous",
+   "rang": 3,
+   "gu": [
+    "eberstoss",
+    "eisenzahn",
+    "steinhaut",
+    "wirbelwind"
+   ]
   }
  },
  "NPCTYPE": {

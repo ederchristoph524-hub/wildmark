@@ -81,6 +81,8 @@ var sect_task: Dictionary = {}
 ## Ruf (Renown): Ansehen auf dem rechtschaffenen, Berüchtigtheit auf dem dämonischen Pfad.
 var fame: int = 0
 var infamy: int = 0
+## Besiegte dämonische Wanderer (Aufgaben „rogues").
+var rogues_defeated: int = 0
 
 # --- Welt ---
 var time_of_day: float = 0.0
@@ -135,6 +137,7 @@ func reset(options: Dictionary) -> void:
 	sect_task = {}
 	fame = 0
 	infamy = 0
+	rogues_defeated = 0
 	dao = {}
 	time_of_day = Balance.values.start_time_of_day
 	day = 1
@@ -212,7 +215,7 @@ func to_dict() -> Dictionary:
 			"duels_won": duels_won, "last_duel_day": last_duel_day, "duel_days": duel_days, "childhood_step": childhood_step, "area": area, "inheritances": inheritances,
 			"buildings": _buildings_to_list(), "visited_areas": visited_areas,
 			"sect": {"id": String(sect), "merit": sect_merit, "rank": sect_rank, "stipend_day": sect_stipend_day, "task": _task_to_dict()},
-			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy},
+			"dao": _names_to_strings(dao), "renown": {"fame": fame, "infamy": infamy, "rogues": rogues_defeated},
 		},
 		"world": {"time_of_day": time_of_day, "day": day, "play_time": play_time},
 	}
@@ -291,6 +294,7 @@ func _player_from_dict(p: Dictionary) -> void:
 	var renown: Dictionary = p.get("renown", {})
 	fame = int(renown.get("fame", 0))
 	infamy = int(renown.get("infamy", 0))
+	rogues_defeated = int(renown.get("rogues", 0))
 	var saved_dao: Dictionary = p.get("dao", {})
 	for key: Variant in saved_dao:
 		dao[StringName(str(key))] = float(saved_dao[key])

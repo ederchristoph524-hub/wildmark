@@ -63,6 +63,8 @@ static func center_info(player: Player) -> String:
 	if player.aperture.meditating:
 		if player.aperture.ritual_left > 0.0:
 			return Loc.t("Durchbruch … %.1f s") % player.aperture.ritual_left
+		if GameState.stage >= Balance.values.max_stage and GameState.rank >= player.aperture.rank_cap():
+			return Loc.t("Kultivieren … Uressenz %d %% – Gipfel erreicht, kein höherer Rang möglich") % roundi(player.aperture.ratio() * 100.0)
 		if GameState.stage >= Balance.values.max_stage:
 			return Loc.t("Kultivieren … Uressenz %d %% – ab %d %% ist der Durchbruch möglich") % [roundi(player.aperture.ratio() * 100.0), roundi(Balance.values.breakthrough_min_essence * 100.0)]
 		return Loc.t("Kultivieren … Aperturwand %d %% (bewegen zum Beenden)") % roundi(GameState.wall * 100.0)

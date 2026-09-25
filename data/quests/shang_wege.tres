@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://co5oimup3wv5t"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_lxnhq"]
+
+[resource]
+script = ExtResource("1_lxnhq")
+id = &"shang_wege"
+display_name = "Sichere Handelswege"
+description = "Besiege 3 dämonische Kultivierende, die den Karawanen der Shang auflauern."
+reward_points = 2
+rule = {
+"area": "",
+"count": 3,
+"item": &"",
+"reward": {
+&"klingenstahl": 1,
+&"kristall": 40
+},
+"type": &"rogues"
+}

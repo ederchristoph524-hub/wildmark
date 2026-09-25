@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bbvjiqbeynncs"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_m6cjx"]
+
+[resource]
+script = ExtResource("1_m6cjx")
+id = &"wirbeltausch"
+display_name = "Wirbeltausch"
+family_a = &"tausch"
+family_b = &"wirbel"
+channel_time = 0.8
+damage_mult = 2.4
+description = "Du springst an den Platz eines Gegners und wirbelst alles um dich herum durcheinander."
+hint = "Mitten hinein!"
+steps = [{
+"color": "#6ad04a",
+"mult": 0.5,
+"range": 12.0,
+"stun": 0.5,
+"t": "swap",
+"tags": ["raum"]
+}, {
+"color": "#e0a070",
+"knockback": 1.4,
+"mult": 1.0,
+"radius": 4.0,
+"t": "circle",
+"tags": ["wucht", "wind"]
+}]

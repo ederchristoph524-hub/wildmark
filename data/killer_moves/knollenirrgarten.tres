@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://tvw4opf1jytx"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_g4whd"]
+
+[resource]
+script = ExtResource("1_g4whd")
+id = &"knollenirrgarten"
+display_name = "Irrgarten der Knollen"
+family_a = &"donnerknolle"
+family_b = &"labyrinth"
+channel_time = 1.2
+damage_mult = 4.3
+description = "Ein Irrgarten zieht alle in seine Mitte – dort liegen die Knollen schon bereit."
+hint = "In jedem Irrgarten gibt es eine Falle."
+min_rank = 5
+steps = [{
+"at": "aim",
+"blind": 1.0,
+"color": "#d8c070",
+"distance": 7.0,
+"mult": 0.2,
+"pull": 1.4,
+"radius": 5.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele"],
+"tick": 0.5,
+"time": 5.0
+}, {
+"at": "aim",
+"color": "#ff9a3a",
+"count": 6.0,
+"distance": 7.0,
+"mult": 1.0,
+"radius": 3.0,
+"spacing": 1.6,
+"status": "ladung",
+"stun": 0.8,
+"t": "trap",
+"tags": ["feuer", "blitz"],
+"time": 8.0,
+"trigger": 1.8
+}]

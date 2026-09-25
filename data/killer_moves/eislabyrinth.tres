@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://luhut2i68b6q"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_3im3j"]
+
+[resource]
+script = ExtResource("1_3im3j")
+id = &"eislabyrinth"
+display_name = "Eislabyrinth"
+family_a = &"labyrinth"
+family_b = &"frost"
+channel_time = 1.0
+damage_mult = 2.4
+description = "Die Wände des Irrgartens sind aus Eis; wer lange genug umherirrt, erstarrt."
+hint = "Kalte Wege führen nirgendwohin."
+steps = [{
+"at": "target",
+"blind": 1.0,
+"color": "#b3f2ff",
+"distance": 7.0,
+"end": [{
+"color": "#b3f2ff",
+"freeze": 1.5,
+"mult": 0.6,
+"radius": 4.0,
+"t": "circle",
+"tags": ["eis"]
+}],
+"mult": 0.25,
+"radius": 4.0,
+"slow": 0.4,
+"status": "frost",
+"t": "zone",
+"tags": ["seele", "eis"],
+"tick": 0.5,
+"time": 4.0
+}]

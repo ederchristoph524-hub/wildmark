@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dsmltucv4p3od"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_yeiu2"]
+
+[resource]
+script = ExtResource("1_yeiu2")
+id = &"gluehendes_qi"
+display_name = "Glühendes Qi"
+family_a = &"qischirm"
+family_b = &"fackel"
+channel_time = 1.1
+damage_mult = 4.3
+description = "Deine Qi-Hülle glüht wie ein Brennofen; wenn sie vergeht, explodiert sie in einer Feuerwelle."
+hint = "Hartes Qi, heißes Qi."
+min_rank = 5
+steps = [{
+"ally_reduction": 0.4,
+"color": "#ffb060",
+"end": [{
+"color": "#ff7a3a",
+"knockback": 1.6,
+"mult": 2.2,
+"radius": 6.5,
+"stacks": 2.0,
+"status": "brand",
+"t": "circle",
+"tags": ["feuer", "wucht"]
+}],
+"follow": true,
+"knockback": 0.5,
+"mult": 0.35,
+"radius": 5.5,
+"status": "brand",
+"t": "zone",
+"tags": ["feuer", "wucht"],
+"tick": 0.5,
+"time": 6.0
+}, {
+"t": "unstoppable",
+"time": 6.0
+}]

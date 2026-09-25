@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://g0rk71e7g0qu"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_4hgb3"]
+
+[resource]
+script = ExtResource("1_4hgb3")
+id = &"diebessprung"
+display_name = "Diebessprung"
+family_a = &"pluenderung"
+family_b = &"schritt"
+channel_time = 0.7
+damage_mult = 3.1
+description = "Ein Schritt durch den Raum bis vor den Gegner, zwei Griffe – und du bist mit seiner Essenz schon weg."
+hint = "Schnelle Hände, schnelle Füße."
+min_rank = 3
+steps = [{
+"distance": 14.0,
+"t": "teleport",
+"to": "target"
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 2.5,
+"knockback": -0.8,
+"mult": 0.9,
+"reach": 6.0,
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.1
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 2.5,
+"knockback": -0.8,
+"mult": 0.9,
+"reach": 6.0,
+"t": "cone",
+"tags": ["schnitt"]
+}, {
+"distance": -8.0,
+"t": "teleport"
+}],
+"time": 0.45
+}]

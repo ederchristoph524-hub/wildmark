@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cf8d3mdw07wjg"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_38vsf"]
+
+[resource]
+script = ExtResource("1_38vsf")
+id = &"boesartiger_gedanke"
+display_name = "Bösartiger Gedanke"
+family_a = &"weisheit"
+family_b = &"gift"
+channel_time = 0.8
+damage_mult = 3.1
+description = "Ein kalt berechneter Plan: Gift, Furcht und schnellere Gu – alles in einem Augenblick."
+hint = "Der Gedanke ist schon Gift."
+min_rank = 3
+steps = [{
+"cd_mult": 0.75,
+"color": "#7fc8ff",
+"refund": 3.0,
+"t": "haste",
+"time": 6.0
+}, {
+"angle": 80.0,
+"color": "#8ce633",
+"mult": 0.9,
+"reach": 8.0,
+"stacks": 3.0,
+"status": "gift",
+"t": "cone",
+"tags": ["gift", "seele"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 80.0,
+"color": "#c9a0ff",
+"mult": 0.3,
+"reach": 8.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele"]
+}],
+"time": 0.3
+}]

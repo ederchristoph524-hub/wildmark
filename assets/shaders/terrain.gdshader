@@ -36,10 +36,18 @@ void fragment() {
 	float near = 1.0 - smoothstep(6.0, 35.0, length(world_pos - CAMERA_POSITION_WORLD));
 	float grain = value_noise(world_pos.xz * 2.3) * 0.6 + value_noise(world_pos.xz * 6.1) * 0.4;
 	vec3 base = v_color * (0.88 + 0.22 * variation);
+	// Großräumige Flecken auf Wiesen: trockenere, gelbliche Hänge und sattere, kühle Senken (nur auf Grün).
+	float macro = value_noise(world_pos.xz * 0.018) * 0.7 + value_noise(world_pos.xz * 0.05) * 0.3;
+	float green = clamp((v_color.g - max(v_color.r, v_color.b)) * 10.0, 0.0, 1.0);
+	vec3 dry = base * vec3(1.14, 1.03, 0.7);
+	vec3 lush = base * vec3(0.8, 0.94, 0.86);
+	base = mix(base, mix(lush, dry, smoothstep(0.3, 0.75, macro)), green * 0.6);
 	// Helle Körner wärmer (trockenes Gras, Sand), dunkle kühler (Moos, Schatten zwischen Halmen).
 	vec3 warm = base * vec3(1.12, 1.08, 0.86);
 	vec3 cool = base * vec3(0.8, 0.88, 0.86);
-	ALBEDO = mix(base, grain > 0.5 ? warm : cool, abs(grain - 0.5) * 1.6 * near);
+	vec3 albedo = mix(base, grain > 0.5 ? warm : cool, abs(grain - 0.5) * 1.6 * near);
+	// Etwas entsättigt: der AgX-Tonemapper und das Himmelslicht machen Wiesen sonst grell.
+	ALBEDO = mix(vec3(dot(albedo, vec3(0.3, 0.59, 0.11))), albedo, 0.86);
 	ROUGHNESS = 0.95;
 	SPECULAR = 0.12;
 }

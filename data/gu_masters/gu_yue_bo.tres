@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://dc4yuc354ik8n"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_mblcb"]
+
+[resource]
+script = ExtResource("1_mblcb")
+id = &"gu_yue_bo"
+display_name = "Klanführer der Gu Yue"
+color = Color(0.41568628, 0.72156864, 0.41568628, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"mondlicht", &"steinhaut", &"wirbelwind", &"lebensblatt"])
+rank = 3
+stage = 2

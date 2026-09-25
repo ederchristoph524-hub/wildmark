@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://cx5y4qd6vdjga"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_6vapn"]
+
+[resource]
+script = ExtResource("1_6vapn")
+id = &"tante_kraeuter"
+display_name = "Kräuter für die Tante"
+description = "Bringe deiner Tante 5 Grünkraut aus dem Dschungel."
+reward_points = 1
+rule = {
+"area": "",
+"count": 5,
+"item": &"gruenkraut",
+"reward": {
+&"beeren": 6,
+&"kristall": 10
+},
+"type": &"item"
+}

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bx6gi2pkwjoir"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_8vy0o"]
+
+[resource]
+script = ExtResource("1_8vy0o")
+id = &"steinlabyrinth"
+display_name = "Steinlabyrinth"
+family_a = &"labyrinth"
+family_b = &"erde"
+channel_time = 1.0
+damage_mult = 3.2
+description = "Steinwände wachsen aus dem Boden und drängen alle in die Mitte, wo die Erde einbricht."
+hint = "Die Erde baut die besten Mauern."
+min_rank = 3
+steps = [{
+"at": "target",
+"blind": 1.0,
+"color": "#d8c070",
+"distance": 7.0,
+"end": [{
+"color": "#a08050",
+"mult": 2.0,
+"radius": 3.5,
+"status": "verwurzelt",
+"stun": 1.0,
+"t": "circle",
+"tags": ["erde", "wucht"]
+}],
+"mult": 0.25,
+"pull": 1.2,
+"radius": 5.0,
+"slow": 0.4,
+"t": "zone",
+"tags": ["seele", "erde"],
+"tick": 0.5,
+"time": 4.0
+}]

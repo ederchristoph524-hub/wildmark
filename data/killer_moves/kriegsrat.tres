@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://xy1tre011rmb"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_kxgtv"]
+
+[resource]
+script = ExtResource("1_kxgtv")
+id = &"kriegsrat"
+display_name = "Kriegsrat"
+family_a = &"kampfgeist"
+family_b = &"weisheit"
+channel_time = 1.0
+damage_mult = 4.0
+description = "Ein Plan wie ein Blitz: alle Gu sind sofort bereit, und du schlägst mit der Kraft eines Heeres."
+hint = "Ein kluger Krieger kämpft zweimal."
+min_rank = 5
+steps = [{
+"cd_mult": 0.6,
+"color": "#7fc8ff",
+"refund": 20.0,
+"t": "haste",
+"time": 8.0
+}, {
+"color": "#e07a4a",
+"damage": 1.5,
+"key": "kriegsrat",
+"speed": 1.15,
+"t": "buff",
+"time": 8.0
+}, {
+"t": "cleanse"
+}, {
+"color": "#e07a4a",
+"knockback": 1.2,
+"mult": 1.0,
+"radius": 5.0,
+"stun": 0.6,
+"t": "circle",
+"tags": ["wucht", "klang"]
+}]

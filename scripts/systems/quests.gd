@@ -1,6 +1,8 @@
 class_name Quests
 extends RefCounted
 ## Quests aus quests.json mit Bedingungen und Belohnungen (quests.json → regel, sonst Balance.quest_rules).
+## Arten: item, kills, built, area, day, rogues (dämonische Wanderer besiegt), duels, refine (wilde Gu verfeinert),
+## rank, inheritance (item = Erbe-ID), infamy, fame.
 
 const ACTIVE: String = "active"
 const DONE: String = "done"
@@ -24,8 +26,16 @@ static func current(id: StringName) -> int:
 	match r.get("type", &""):
 		&"item":
 			return GameState.item_count(r["item"])
-		&"kills":
-			return GameState.kills - begin
+		&"kills", &"rogues", &"duels", &"refine":
+			return _counter(r.get("type", &"")) - begin
+		&"rank":
+			return GameState.rank
+		&"inheritance":
+			return 1 if r.get("item", &"") in GameState.inheritances else 0
+		&"infamy":
+			return GameState.infamy
+		&"fame":
+			return GameState.fame
 		&"built":
 			return GameState.built_count
 		&"area":
@@ -43,9 +53,22 @@ static func is_complete(id: StringName) -> bool:
 	return state(id) == ACTIVE and current(id) >= needed(id)
 
 
+## Zähler, die ab Annahme der Aufgabe zählen (Stand wird beim Start gemerkt).
+static func _counter(type: StringName) -> int:
+	match type:
+		&"kills":
+			return GameState.kills
+		&"rogues":
+			return GameState.rogues_defeated
+		&"duels":
+			return GameState.duels_won
+		&"refine":
+			return GameState.collected_wild_gu.size()
+	return 0
+
+
 static func start(id: StringName) -> void:
-	var start_value: int = GameState.kills if rule(id).get("type", &"") == &"kills" else 0
-	GameState.quests[id] = {"state": ACTIVE, "start": start_value}
+	GameState.quests[id] = {"state": ACTIVE, "start": _counter(rule(id).get("type", &""))}
 	EventBus.message.emit(Loc.t("Neue Aufgabe: %s") % Loc.t(DataRegistry.quest(id).display_name), UiTheme.ACCENT)
 
 

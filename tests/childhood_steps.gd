@@ -48,15 +48,24 @@ func _test_safe_village() -> void:
 	_check(awakenings[0] == 0, "Klanlehrer weckt erst am Ende der Kindheit")
 
 
+## Alle Gesprächsschritte (Dorfältester, Onkel) nacheinander.
 func _test_talk() -> void:
-	for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
-		if node is Npc and (node as Npc).quest_id == Childhood.STEPS[0]["npc_quest"]:
-			node.call("interact", player)
-	await _frames(2)
-	_check(GameState.childhood_step == 1, "Gespräch mit dem Dorfältesten erledigt")
-	_close_menus()
-	await _frames(2)
-	_check(SaveSystem.save_game() and SaveSystem.load_game() and GameState.childhood_step == 1, "Kindheit wird gespeichert und geladen")
+	var talks: int = 0
+	while Childhood.current().get("kind", &"") == Childhood.KIND_TALK:
+		var wanted: StringName = Childhood.current()["npc_quest"]
+		for node: Node in tree.get_nodes_in_group(Player.GROUP_INTERACTABLES):
+			if node is Npc and (node as Npc).quest_id == wanted:
+				node.call("interact", player)
+				break
+		await _frames(2)
+		_close_menus()
+		await _frames(2)
+		talks += 1
+		if talks > Childhood.STEPS.size():
+			break
+	_check(talks == 2 and Childhood.current().get("kind", &"") == Childhood.KIND_ITEM, "Gespräche mit Dorfältestem und Onkel erledigt")
+	var step: int = GameState.childhood_step
+	_check(SaveSystem.save_game() and SaveSystem.load_game() and GameState.childhood_step == step, "Kindheit wird gespeichert und geladen")
 
 
 func _test_gather() -> void:
@@ -72,7 +81,7 @@ func _test_gather() -> void:
 		for hit: int in ResourceNode.HITS_NEEDED:
 			bush.harvest_hit(player)
 		await _frames(90)
-	_check(GameState.item_count(&"beeren") >= int(Childhood.STEPS[1]["count"]) and Childhood.is_awakening_step(), "Beeren gesammelt, Erwachen steht an")
+	_check(GameState.item_count(&"beeren") >= 6 and Childhood.is_awakening_step(), "Beeren gesammelt, Erwachen steht an")
 
 
 func _test_awakening() -> void:

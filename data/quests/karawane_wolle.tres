@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://dbugv0kos8mxg"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_73b4i"]
+
+[resource]
+script = ExtResource("1_73b4i")
+id = &"karawane_wolle"
+display_name = "Waren für den Karawanenbund"
+description = "Bringe dem Karawanenältesten 6 Sternsand aus der Wüste."
+reward_points = 2
+rule = {
+"area": "",
+"count": 6,
+"item": &"sternsand",
+"reward": {
+&"kristall": 50,
+&"reliquie_weisssilber": 1
+},
+"type": &"item"
+}

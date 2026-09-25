@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bp1mlo41kn0cn"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_rujo0"]
+
+[resource]
+script = ExtResource("1_rujo0")
+id = &"dritte_wache_mond"
+display_name = "Mond der dritten Wache"
+family_a = &"zeit"
+family_b = &"mondlicht"
+channel_time = 0.8
+damage_mult = 2.5
+description = "Um Mitternacht dehnt sich die Zeit: Mondklingen hängen in der Luft und treffen Verlangsamte doppelt."
+hint = "Zur dritten Wache ist der Mond am schärfsten."
+steps = [{
+"at": "target",
+"color": "#a04ad0",
+"distance": 7.0,
+"mult": 0.15,
+"radius": 3.5,
+"slow": 0.55,
+"t": "zone",
+"tags": ["zeit"],
+"tick": 0.5,
+"time": 3.0
+}, {
+"color": "#d9e6ff",
+"count": 5.0,
+"mult": 0.6,
+"range": 14.0,
+"spread": 40.0,
+"status": "schwaeche",
+"t": "projectiles",
+"tags": ["licht", "schnitt"]
+}]

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://dhbfkornqut5q"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_x77g5"]
+
+[resource]
+script = ExtResource("1_x77g5")
+id = &"qisturm"
+display_name = "Qi-Sturm"
+family_a = &"qischirm"
+family_b = &"wind"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Die Qi-Hülle platzt in einem Sturm nach außen und fegt alle Gegner davon."
+hint = "Verdichtetes Qi will hinaus."
+min_rank = 3
+steps = [{
+"color": "#99ffff",
+"knockback": 2.0,
+"mult": 1.2,
+"radius": 6.0,
+"stun": 0.4,
+"t": "circle",
+"tags": ["wucht", "wind"]
+}, {
+"angle": 70.0,
+"color": "#c8f0ff",
+"knockback": 1.4,
+"mult": 0.9,
+"reach": 11.0,
+"t": "cone",
+"tags": ["wind", "schnitt"]
+}, {
+"ally_reduction": 0.3,
+"color": "#99ffff",
+"follow": true,
+"knockback": 0.6,
+"mult": 0.15,
+"radius": 4.0,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 0.5,
+"time": 5.0
+}]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://bgiwf77cwxfaj"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_h130i"]
+
+[resource]
+script = ExtResource("1_h130i")
+id = &"zombie_perlen"
+display_name = "Tiefseeperlen"
+description = "Bringe dem Zombie-Kapitän 2 Tiefseeperlen."
+reward_points = 2
+rule = {
+"area": "",
+"count": 2,
+"item": &"tiefseeperle",
+"reward": {
+&"blutkoralle": 2,
+&"kristall": 45
+},
+"type": &"item"
+}

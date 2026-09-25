@@ -9791,6 +9791,1102 @@
      "color": "#fff2b0"
     }
    ]
+  },
+  {
+   "id": "knochenkarussell",
+   "name": "Knochenkarussell",
+   "a": "knochenrad",
+   "b": "tausch",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Du tauschst mit einem Gegner und landest mitten zwischen seinen Gefährten – Knochenräder fegen um dich.",
+   "hinweis": "Wer den Platz wechselt, bringt seine Räder mit.",
+   "schritte": [
+    {
+     "t": "swap",
+     "range": 14.0,
+     "stun": 0.6,
+     "mult": 0.6,
+     "tags": [
+      "raum",
+      "durchbohren"
+     ],
+     "color": "#6ad04a"
+    },
+    {
+     "t": "orbit",
+     "count": 5,
+     "radius": 2.6,
+     "time": 4.0,
+     "speed": 1.3,
+     "mult": 0.5,
+     "tags": [
+      "durchbohren"
+     ],
+     "reduction": 0.25,
+     "color": "#f2ead8"
+    },
+    {
+     "t": "circle",
+     "radius": 4.0,
+     "mult": 0.8,
+     "tags": [
+      "durchbohren",
+      "wucht"
+     ],
+     "knockback": 1.2,
+     "color": "#f2ead8"
+    }
+   ]
+  },
+  {
+   "id": "knollenirrgarten",
+   "name": "Irrgarten der Knollen",
+   "a": "donnerknolle",
+   "b": "labyrinth",
+   "kanal_s": 1.2,
+   "mult": 4.3,
+   "rang": 5,
+   "wirkung": "Ein Irrgarten zieht alle in seine Mitte – dort liegen die Knollen schon bereit.",
+   "hinweis": "In jedem Irrgarten gibt es eine Falle.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "aim",
+     "distance": 7.0,
+     "radius": 5.0,
+     "time": 5.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "seele"
+     ],
+     "blind": 1.0,
+     "slow": 0.4,
+     "pull": 1.4,
+     "color": "#d8c070"
+    },
+    {
+     "t": "trap",
+     "count": 6,
+     "spacing": 1.6,
+     "radius": 3.0,
+     "time": 8.0,
+     "trigger": 1.8,
+     "at": "aim",
+     "distance": 7.0,
+     "mult": 1.0,
+     "tags": [
+      "feuer",
+      "blitz"
+     ],
+     "status": "ladung",
+     "stun": 0.8,
+     "color": "#ff9a3a"
+    }
+   ]
+  },
+  {
+   "id": "zeitspiegel",
+   "name": "Zeitspiegel",
+   "a": "wasserbild",
+   "b": "zeit",
+   "kanal_s": 1.0,
+   "mult": 3.1,
+   "rang": 3,
+   "wirkung": "Zwei Wasserbilder treten aus deiner Vergangenheit, während die Zeit um dich zäh wird.",
+   "hinweis": "Spiegelbilder altern nicht.",
+   "schritte": [
+    {
+     "t": "summon",
+     "enemy": "wasserbild",
+     "count": 2,
+     "time": 12.0
+    },
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 5.0,
+     "time": 5.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "zeit",
+      "wasser"
+     ],
+     "slow": 0.6,
+     "color": "#a04ad0"
+    }
+   ]
+  },
+  {
+   "id": "goldraub",
+   "name": "Goldraub",
+   "a": "tausendfuessler",
+   "b": "pluenderung",
+   "kanal_s": 0.8,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Der goldene Tausendfüßler rast durch die Reihen und reißt jedem Uressenz aus dem Leib.",
+   "hinweis": "Gold frisst Essenz.",
+   "schritte": [
+    {
+     "t": "line",
+     "length": 11.0,
+     "width": 2.8,
+     "mult": 1.1,
+     "tags": [
+      "schnitt",
+      "metall"
+     ],
+     "status": "blutung",
+     "stacks": 2,
+     "dash": true,
+     "essence_steal": 2.0,
+     "execute": 0.4,
+     "color": "#e0b040"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 6.0,
+       "angle": 90.0,
+       "mult": 0.8,
+       "tags": [
+        "schnitt"
+       ],
+       "essence_steal": 2.0,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tausendjahressaege",
+   "name": "Tausend-Jahre-Säge",
+   "a": "tausendfuessler",
+   "b": "zeit",
+   "kanal_s": 1.1,
+   "mult": 4.4,
+   "rang": 5,
+   "wirkung": "Die Zeit steht fast still, und die goldene Säge fährt dreimal durch alles, was darin gefangen ist.",
+   "hinweis": "Für die Säge vergehen Jahre, für sie Augenblicke.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 6.0,
+     "time": 3.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "zeit"
+     ],
+     "slow": 0.75,
+     "color": "#a04ad0"
+    },
+    {
+     "t": "line",
+     "length": 11.0,
+     "width": 3.0,
+     "mult": 0.9,
+     "tags": [
+      "schnitt",
+      "metall"
+     ],
+     "status": "blutung",
+     "dash": true,
+     "pierce_armor": true,
+     "color": "#e0b040"
+    },
+    {
+     "t": "delay",
+     "time": 0.5,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 4.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt",
+        "metall"
+       ],
+       "status": "blutung",
+       "color": "#e0b040"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 1.0,
+     "then": [
+      {
+       "t": "circle",
+       "radius": 4.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt",
+        "metall"
+       ],
+       "status": "blutung",
+       "color": "#e0b040"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "unerschuetterlich",
+   "name": "Unerschütterlicher Wille",
+   "a": "kampfgeist",
+   "b": "qischirm",
+   "kanal_s": 0.9,
+   "mult": 3.0,
+   "rang": 3,
+   "wirkung": "Kampfgeist und hartes Qi: du wirst stärker, nichts wirft dich um, und wer neben dir kämpft, ist geschützt.",
+   "hinweis": "Der Wille ist die härteste Mauer.",
+   "schritte": [
+    {
+     "t": "buff",
+     "key": "unerschuetterlich",
+     "damage": 1.35,
+     "speed": 1.1,
+     "time": 7.0,
+     "color": "#e07a4a"
+    },
+    {
+     "t": "unstoppable",
+     "time": 5.0
+    },
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 5.0,
+     "time": 7.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "wucht"
+     ],
+     "ally_reduction": 0.35,
+     "knockback": 0.5,
+     "color": "#99ffff"
+    }
+   ]
+  },
+  {
+   "id": "kriegsrat",
+   "name": "Kriegsrat",
+   "a": "kampfgeist",
+   "b": "weisheit",
+   "kanal_s": 1.0,
+   "mult": 4.0,
+   "rang": 5,
+   "wirkung": "Ein Plan wie ein Blitz: alle Gu sind sofort bereit, und du schlägst mit der Kraft eines Heeres.",
+   "hinweis": "Ein kluger Krieger kämpft zweimal.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 20.0,
+     "cd_mult": 0.6,
+     "time": 8.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "buff",
+     "key": "kriegsrat",
+     "damage": 1.5,
+     "speed": 1.15,
+     "time": 8.0,
+     "color": "#e07a4a"
+    },
+    {
+     "t": "cleanse"
+    },
+    {
+     "t": "circle",
+     "radius": 5.0,
+     "mult": 1.0,
+     "tags": [
+      "wucht",
+      "klang"
+     ],
+     "stun": 0.6,
+     "knockback": 1.2,
+     "color": "#e07a4a"
+    }
+   ]
+  },
+  {
+   "id": "wirbeltausch",
+   "name": "Wirbeltausch",
+   "a": "tausch",
+   "b": "wirbel",
+   "kanal_s": 0.8,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Du springst an den Platz eines Gegners und wirbelst alles um dich herum durcheinander.",
+   "hinweis": "Mitten hinein!",
+   "schritte": [
+    {
+     "t": "swap",
+     "range": 12.0,
+     "stun": 0.5,
+     "mult": 0.5,
+     "tags": [
+      "raum"
+     ],
+     "color": "#6ad04a"
+    },
+    {
+     "t": "circle",
+     "radius": 4.0,
+     "mult": 1.0,
+     "tags": [
+      "wucht",
+      "wind"
+     ],
+     "knockback": 1.4,
+     "color": "#e0a070"
+    }
+   ]
+  },
+  {
+   "id": "gifttausch",
+   "name": "Gifttausch",
+   "a": "tausch",
+   "b": "gift",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Du hinterlässt eine Giftwolke und tauschst den Platz mit einem Gegner – er landet mitten darin.",
+   "hinweis": "Wer tauscht, bekommt, was zurückbleibt.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 3.5,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.35,
+     "tags": [
+      "gift"
+     ],
+     "status": "gift",
+     "stacks": 2,
+     "slow": 0.3,
+     "color": "#8ce633"
+    },
+    {
+     "t": "delay",
+     "time": 0.25,
+     "then": [
+      {
+       "t": "swap",
+       "range": 14.0,
+       "stun": 1.2,
+       "mult": 0.5,
+       "tags": [
+        "raum",
+        "gift"
+       ],
+       "status": "gift",
+       "stacks": 2,
+       "color": "#6ad04a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seelenraub",
+   "name": "Seelenraub",
+   "a": "pluenderung",
+   "b": "seelenschrei",
+   "kanal_s": 0.8,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Ein Schrei lähmt vor Angst, dann greift die Geisterhand zu und reißt Essenz aus den Erstarrten.",
+   "hinweis": "Wer sich fürchtet, hält nichts fest.",
+   "schritte": [
+    {
+     "t": "cone",
+     "reach": 8.0,
+     "angle": 90.0,
+     "mult": 0.6,
+     "tags": [
+      "seele",
+      "klang"
+     ],
+     "status": "furcht",
+     "color": "#c9a0ff"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 8.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt"
+       ],
+       "essence_steal": 3.0,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diebessprung",
+   "name": "Diebessprung",
+   "a": "pluenderung",
+   "b": "schritt",
+   "kanal_s": 0.7,
+   "mult": 3.1,
+   "rang": 3,
+   "wirkung": "Ein Schritt durch den Raum bis vor den Gegner, zwei Griffe – und du bist mit seiner Essenz schon weg.",
+   "hinweis": "Schnelle Hände, schnelle Füße.",
+   "schritte": [
+    {
+     "t": "teleport",
+     "to": "target",
+     "distance": 14.0
+    },
+    {
+     "t": "delay",
+     "time": 0.1,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 6.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt"
+       ],
+       "essence_steal": 2.5,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      }
+     ]
+    },
+    {
+     "t": "delay",
+     "time": 0.45,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 6.0,
+       "angle": 90.0,
+       "mult": 0.9,
+       "tags": [
+        "schnitt"
+       ],
+       "essence_steal": 2.5,
+       "knockback": -0.8,
+       "color": "#8fd06a"
+      },
+      {
+       "t": "teleport",
+       "distance": -8.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "raubtierrudel",
+   "name": "Raubtierrudel",
+   "a": "pluenderung",
+   "b": "sklaverei",
+   "kanal_s": 1.1,
+   "mult": 4.3,
+   "rang": 5,
+   "wirkung": "Dein Rudel fällt über die Feinde her, und jeder Biss, jeder Griff raubt dir neue Essenz.",
+   "hinweis": "Das Rudel teilt die Beute.",
+   "schritte": [
+    {
+     "t": "summon",
+     "enemy": "geisterwolf",
+     "count": 3,
+     "time": 15.0
+    },
+    {
+     "t": "cone",
+     "reach": 8.0,
+     "angle": 110.0,
+     "mult": 1.2,
+     "tags": [
+      "schnitt"
+     ],
+     "essence_steal": 3.0,
+     "status": "schwaeche",
+     "stacks": 2,
+     "knockback": -1.0,
+     "color": "#8fd06a"
+    },
+    {
+     "t": "buff",
+     "key": "raubtierrudel",
+     "damage": 1.3,
+     "speed": 1.15,
+     "time": 8.0,
+     "color": "#8fd06a"
+    }
+   ]
+  },
+  {
+   "id": "himmelsschild",
+   "name": "Himmelsschild",
+   "a": "qischirm",
+   "b": "haut",
+   "kanal_s": 1.0,
+   "mult": 2.2,
+   "rang": 1,
+   "wirkung": "Qi und eherne Haut legen sich übereinander – du und alle neben dir stehen wie ein Fels.",
+   "hinweis": "Zwei Schilde, ein Wille.",
+   "schritte": [
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 4.5,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.15,
+     "tags": [
+      "wucht"
+     ],
+     "ally_reduction": 0.4,
+     "knockback": 0.6,
+     "color": "#99ffff"
+    },
+    {
+     "t": "armor",
+     "kind": "thorns",
+     "time": 6.0,
+     "reduction": 0.1,
+     "value_mult": 0.4,
+     "color": "#f0c860"
+    }
+   ]
+  },
+  {
+   "id": "qisturm",
+   "name": "Qi-Sturm",
+   "a": "qischirm",
+   "b": "wind",
+   "kanal_s": 0.9,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Die Qi-Hülle platzt in einem Sturm nach außen und fegt alle Gegner davon.",
+   "hinweis": "Verdichtetes Qi will hinaus.",
+   "schritte": [
+    {
+     "t": "circle",
+     "radius": 6.0,
+     "mult": 1.2,
+     "tags": [
+      "wucht",
+      "wind"
+     ],
+     "knockback": 2.0,
+     "stun": 0.4,
+     "color": "#99ffff"
+    },
+    {
+     "t": "cone",
+     "reach": 11.0,
+     "angle": 70.0,
+     "mult": 0.9,
+     "tags": [
+      "wind",
+      "schnitt"
+     ],
+     "knockback": 1.4,
+     "color": "#c8f0ff"
+    },
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 4.0,
+     "time": 5.0,
+     "tick": 0.5,
+     "mult": 0.15,
+     "tags": [
+      "wucht"
+     ],
+     "ally_reduction": 0.3,
+     "knockback": 0.6,
+     "color": "#99ffff"
+    }
+   ]
+  },
+  {
+   "id": "gluehendes_qi",
+   "name": "Glühendes Qi",
+   "a": "qischirm",
+   "b": "fackel",
+   "kanal_s": 1.1,
+   "mult": 4.3,
+   "rang": 5,
+   "wirkung": "Deine Qi-Hülle glüht wie ein Brennofen; wenn sie vergeht, explodiert sie in einer Feuerwelle.",
+   "hinweis": "Hartes Qi, heißes Qi.",
+   "schritte": [
+    {
+     "t": "zone",
+     "follow": true,
+     "radius": 5.5,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.35,
+     "tags": [
+      "feuer",
+      "wucht"
+     ],
+     "status": "brand",
+     "ally_reduction": 0.4,
+     "knockback": 0.5,
+     "end": [
+      {
+       "t": "circle",
+       "radius": 6.5,
+       "mult": 2.2,
+       "tags": [
+        "feuer",
+        "wucht"
+       ],
+       "status": "brand",
+       "stacks": 2,
+       "knockback": 1.6,
+       "color": "#ff7a3a"
+      }
+     ],
+     "color": "#ffb060"
+    },
+    {
+     "t": "unstoppable",
+     "time": 6.0
+    }
+   ]
+  },
+  {
+   "id": "eislabyrinth",
+   "name": "Eislabyrinth",
+   "a": "labyrinth",
+   "b": "frost",
+   "kanal_s": 1.0,
+   "mult": 2.4,
+   "rang": 1,
+   "wirkung": "Die Wände des Irrgartens sind aus Eis; wer lange genug umherirrt, erstarrt.",
+   "hinweis": "Kalte Wege führen nirgendwohin.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 4.0,
+     "time": 4.0,
+     "tick": 0.5,
+     "mult": 0.25,
+     "tags": [
+      "seele",
+      "eis"
+     ],
+     "status": "frost",
+     "blind": 1.0,
+     "slow": 0.4,
+     "end": [
+      {
+       "t": "circle",
+       "radius": 4.0,
+       "mult": 0.6,
+       "tags": [
+        "eis"
+       ],
+       "freeze": 1.5,
+       "color": "#b3f2ff"
+      }
+     ],
+     "color": "#b3f2ff"
+    }
+   ]
+  },
+  {
+   "id": "steinlabyrinth",
+   "name": "Steinlabyrinth",
+   "a": "labyrinth",
+   "b": "erde",
+   "kanal_s": 1.0,
+   "mult": 3.2,
+   "rang": 3,
+   "wirkung": "Steinwände wachsen aus dem Boden und drängen alle in die Mitte, wo die Erde einbricht.",
+   "hinweis": "Die Erde baut die besten Mauern.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 5.0,
+     "time": 4.0,
+     "tick": 0.5,
+     "mult": 0.25,
+     "tags": [
+      "seele",
+      "erde"
+     ],
+     "blind": 1.0,
+     "slow": 0.4,
+     "pull": 1.2,
+     "end": [
+      {
+       "t": "circle",
+       "radius": 3.5,
+       "mult": 2.0,
+       "tags": [
+        "erde",
+        "wucht"
+       ],
+       "stun": 1.0,
+       "status": "verwurzelt",
+       "color": "#a08050"
+      }
+     ],
+     "color": "#d8c070"
+    }
+   ]
+  },
+  {
+   "id": "verlorener_pfad",
+   "name": "Verlorener Pfad",
+   "a": "labyrinth",
+   "b": "tausch",
+   "kanal_s": 1.1,
+   "mult": 4.2,
+   "rang": 5,
+   "wirkung": "Du baust einen Irrgarten um dich und tauschst den Platz mit dem stärksten Gegner – er bleibt darin gefangen.",
+   "hinweis": "Wer tauscht, lässt den anderen im Labyrinth.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 5.0,
+     "time": 6.0,
+     "tick": 0.5,
+     "mult": 0.3,
+     "tags": [
+      "seele"
+     ],
+     "blind": 1.5,
+     "slow": 0.5,
+     "pull": 1.5,
+     "status": "schwaeche",
+     "end": [
+      {
+       "t": "circle",
+       "radius": 5.0,
+       "mult": 2.0,
+       "tags": [
+        "seele",
+        "wucht"
+       ],
+       "stun": 1.2,
+       "color": "#d8c070"
+      }
+     ],
+     "color": "#d8c070"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "swap",
+       "range": 16.0,
+       "stun": 1.0,
+       "mult": 0.6,
+       "tags": [
+        "raum"
+       ],
+       "status": "wunde",
+       "color": "#6ad04a"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ewiger_winter",
+   "name": "Ewiger Winter",
+   "a": "zeit",
+   "b": "frost",
+   "kanal_s": 1.2,
+   "mult": 4.4,
+   "rang": 5,
+   "wirkung": "Die Zeit gefriert: in der Blase wird es kälter und kälter, bis alles zu Eis zerspringt.",
+   "hinweis": "Der längste Winter dauert einen Atemzug.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 5.5,
+     "time": 4.0,
+     "tick": 0.5,
+     "mult": 0.3,
+     "tags": [
+      "zeit",
+      "eis"
+     ],
+     "status": "frost",
+     "slow": 0.75,
+     "end": [
+      {
+       "t": "circle",
+       "radius": 5.5,
+       "mult": 0.0,
+       "freeze": 2.0,
+       "color": "#b3f2ff"
+      },
+      {
+       "t": "delay",
+       "time": 1.0,
+       "then": [
+        {
+         "t": "circle",
+         "radius": 5.5,
+         "mult": 2.4,
+         "tags": [
+          "eis",
+          "wucht"
+         ],
+         "color": "#dff6ff"
+        }
+       ]
+      }
+     ],
+     "color": "#b3f2ff"
+    }
+   ]
+  },
+  {
+   "id": "fruehlingsrueckkehr",
+   "name": "Frühlingsrückkehr",
+   "a": "zeit",
+   "b": "blatt",
+   "kanal_s": 1.3,
+   "mult": 2.8,
+   "rang": 3,
+   "wirkung": "Für dich läuft die Zeit rückwärts zum Frühling: Wunden schließen sich, Gifte weichen, Feinde erstarren.",
+   "hinweis": "Der Frühling kommt immer wieder.",
+   "schritte": [
+    {
+     "t": "heal",
+     "frac": 0.35,
+     "time": 5.0
+    },
+    {
+     "t": "cleanse"
+    },
+    {
+     "t": "zone",
+     "at": "self",
+     "radius": 5.0,
+     "time": 5.0,
+     "tick": 0.5,
+     "mult": 0.2,
+     "tags": [
+      "zeit",
+      "holz"
+     ],
+     "slow": 0.6,
+     "heal": 0.01,
+     "color": "#7ad06a"
+    }
+   ]
+  },
+  {
+   "id": "dritte_wache_mond",
+   "name": "Mond der dritten Wache",
+   "a": "zeit",
+   "b": "mondlicht",
+   "kanal_s": 0.8,
+   "mult": 2.5,
+   "rang": 1,
+   "wirkung": "Um Mitternacht dehnt sich die Zeit: Mondklingen hängen in der Luft und treffen Verlangsamte doppelt.",
+   "hinweis": "Zur dritten Wache ist der Mond am schärfsten.",
+   "schritte": [
+    {
+     "t": "zone",
+     "at": "target",
+     "distance": 7.0,
+     "radius": 3.5,
+     "time": 3.0,
+     "tick": 0.5,
+     "mult": 0.15,
+     "tags": [
+      "zeit"
+     ],
+     "slow": 0.55,
+     "color": "#a04ad0"
+    },
+    {
+     "t": "projectiles",
+     "count": 5,
+     "spread": 40.0,
+     "mult": 0.6,
+     "tags": [
+      "licht",
+      "schnitt"
+     ],
+     "status": "schwaeche",
+     "range": 14.0,
+     "color": "#d9e6ff"
+    }
+   ]
+  },
+  {
+   "id": "boesartiger_gedanke",
+   "name": "Bösartiger Gedanke",
+   "a": "weisheit",
+   "b": "gift",
+   "kanal_s": 0.8,
+   "mult": 3.1,
+   "rang": 3,
+   "wirkung": "Ein kalt berechneter Plan: Gift, Furcht und schnellere Gu – alles in einem Augenblick.",
+   "hinweis": "Der Gedanke ist schon Gift.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 3.0,
+     "cd_mult": 0.75,
+     "time": 6.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "cone",
+     "reach": 8.0,
+     "angle": 80.0,
+     "mult": 0.9,
+     "tags": [
+      "gift",
+      "seele"
+     ],
+     "status": "gift",
+     "stacks": 3,
+     "color": "#8ce633"
+    },
+    {
+     "t": "delay",
+     "time": 0.3,
+     "then": [
+      {
+       "t": "cone",
+       "reach": 8.0,
+       "angle": 80.0,
+       "mult": 0.3,
+       "tags": [
+        "seele"
+       ],
+       "status": "furcht",
+       "color": "#c9a0ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "schwertgedanke",
+   "name": "Schwertgedanke",
+   "a": "weisheit",
+   "b": "schwert",
+   "kanal_s": 1.0,
+   "mult": 4.3,
+   "rang": 5,
+   "wirkung": "Jeder Gedanke wird zur Klinge: Schwerter kreisen um dich, und alle Gu sind früher bereit.",
+   "hinweis": "Das schärfste Schwert ist der Verstand.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 6.0,
+     "cd_mult": 0.6,
+     "time": 8.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "orbit",
+     "count": 8,
+     "radius": 2.8,
+     "time": 6.0,
+     "speed": 1.3,
+     "mult": 0.45,
+     "tags": [
+      "schnitt"
+     ],
+     "status": "blutung",
+     "color": "#e8f4ff"
+    },
+    {
+     "t": "projectiles",
+     "count": 6,
+     "spread": 50.0,
+     "mult": 0.6,
+     "tags": [
+      "schnitt"
+     ],
+     "pierce": 2,
+     "range": 16.0,
+     "speed": 18.0,
+     "color": "#e8f4ff"
+    }
+   ]
+  },
+  {
+   "id": "vorausgedacht",
+   "name": "Vorausgedacht",
+   "a": "weisheit",
+   "b": "donnerknolle",
+   "kanal_s": 0.9,
+   "mult": 2.3,
+   "rang": 1,
+   "wirkung": "Du weißt schon, wohin sie laufen werden: Knollen liegen bereit, und deine Gu laden schneller.",
+   "hinweis": "Wer vorausdenkt, legt die Falle zuerst.",
+   "schritte": [
+    {
+     "t": "haste",
+     "refund": 2.0,
+     "cd_mult": 0.8,
+     "time": 5.0,
+     "color": "#7fc8ff"
+    },
+    {
+     "t": "trap",
+     "count": 3,
+     "spacing": 2.0,
+     "radius": 2.6,
+     "time": 20.0,
+     "trigger": 1.8,
+     "at": "aim",
+     "distance": 5.0,
+     "mult": 0.9,
+     "tags": [
+      "feuer",
+      "blitz"
+     ],
+     "status": "ladung",
+     "color": "#ff9a3a"
+    }
+   ]
   }
  ],
  "start_familien": [
@@ -9937,6 +11033,115 @@
    },
    "chance": 0.6,
    "hinweis": "Tapferkeit wird zur Raserei."
+  },
+  {
+   "ergebnis": "menschenhaut",
+   "aus": [
+    "tarnschuppe",
+    "schlammkroete"
+   ],
+   "material": {
+    "schlangenhaut": 3
+   },
+   "chance": 0.6,
+   "hinweis": "Tarnschuppen und Schlammhaut verschmelzen zu einer zweiten, fremden Haut – niemand erkennt dich mehr."
+  },
+  {
+   "ergebnis": "kaktuszeiger",
+   "aus": [
+    "signal",
+    "fussspur"
+   ],
+   "material": {
+    "gruenkraut": 4
+   },
+   "chance": 0.75,
+   "hinweis": "Signal und Fußspur zusammen zeigen wie ein Kaktusstachel auf jeden wilden Gu."
+  },
+  {
+   "ergebnis": "donnerfluegel_gu",
+   "aus": [
+    "blitzauge",
+    "brise"
+   ],
+   "material": {
+    "donnerholz": 2
+   },
+   "chance": 0.65,
+   "hinweis": "Blitzauge und Brise wachsen zu Donnerflügeln zusammen."
+  },
+  {
+   "ergebnis": "panzer_gu",
+   "aus": [
+    "jadehaut",
+    "steinhaut"
+   ],
+   "material": {
+    "schlangenhaut": 2,
+    "knochenmehl": 2
+   },
+   "chance": 0.65,
+   "hinweis": "Jadehaut und Steinhaut härten zu einem Panzer wie der eines Krokodilkönigs."
+  },
+  {
+   "ergebnis": "krokodilkraft",
+   "aus": [
+    "zehnjin",
+    "schwarzeber"
+   ],
+   "material": {
+    "drachenschuppe": 1
+   },
+   "chance": 0.55,
+   "hinweis": "Zehn Jin und die Kraft des Schwarzebers packen zu wie ein Krokodil."
+  },
+  {
+   "ergebnis": "stahlsehnen",
+   "aus": [
+    "eisenblut",
+    "eisenzahn"
+   ],
+   "material": {
+    "klingenstahl": 1
+   },
+   "chance": 0.6,
+   "hinweis": "Eisenblut und Eisenzahn machen deine Sehnen zu Stahl."
+  },
+  {
+   "ergebnis": "eiskristall",
+   "aus": [
+    "jadeknochen",
+    "frostnadel"
+   ],
+   "material": {
+    "frostsplitter": 6
+   },
+   "chance": 0.55,
+   "hinweis": "Jadeknochen und Frost wachsen zu einem Körper aus Eiskristall."
+  },
+  {
+   "ergebnis": "mondsichel",
+   "aus": [
+    "mondlicht",
+    "kleineslicht"
+   ],
+   "material": {
+    "mondtau": 3
+   },
+   "chance": 0.5,
+   "hinweis": "Fang Yuans Versuch mit dem Mondglanz: Mondlicht und Kleines Licht verschmelzen zur Mondsichel – oder zu nichts."
+  },
+  {
+   "ergebnis": "blutschaedel",
+   "aus": [
+    "blutdorn",
+    "blutstropfen"
+   ],
+   "material": {
+    "blutkoralle": 2
+   },
+   "chance": 0.5,
+   "hinweis": "Zwei Blut-Gu werden zu einem Schädel voller Blut – dem Gu, um den im Klan Blut floss."
   }
  ]
 }

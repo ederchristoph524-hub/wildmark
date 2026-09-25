@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GuMasterData" format=3 uid="uid://83sgujq5nfx6"]
+
+[ext_resource type="Script" path="res://scripts/resources/gu_master_data.gd" id="1_747ub"]
+
+[resource]
+script = ExtResource("1_747ub")
+id = &"gu_yue_mo"
+display_name = "Vorsteher der Mo-Familie"
+color = Color(0.2901961, 0.41568628, 0.78431374, 1)
+faction = &"righteous"
+gu = Array[StringName]([&"mondlicht", &"frostnadel", &"sprungwurm", &"eisenhaut"])
+rank = 2
+stage = 3

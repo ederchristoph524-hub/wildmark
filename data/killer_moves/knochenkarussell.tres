@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://b0rxsc0nt46gu"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_grrh4"]
+
+[resource]
+script = ExtResource("1_grrh4")
+id = &"knochenkarussell"
+display_name = "Knochenkarussell"
+family_a = &"knochenrad"
+family_b = &"tausch"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Du tauschst mit einem Gegner und landest mitten zwischen seinen Gefährten – Knochenräder fegen um dich."
+hint = "Wer den Platz wechselt, bringt seine Räder mit."
+min_rank = 3
+steps = [{
+"color": "#6ad04a",
+"mult": 0.6,
+"range": 14.0,
+"stun": 0.6,
+"t": "swap",
+"tags": ["raum", "durchbohren"]
+}, {
+"color": "#f2ead8",
+"count": 5.0,
+"mult": 0.5,
+"radius": 2.6,
+"reduction": 0.25,
+"speed": 1.3,
+"t": "orbit",
+"tags": ["durchbohren"],
+"time": 4.0
+}, {
+"color": "#f2ead8",
+"knockback": 1.2,
+"mult": 0.8,
+"radius": 4.0,
+"t": "circle",
+"tags": ["durchbohren", "wucht"]
+}]

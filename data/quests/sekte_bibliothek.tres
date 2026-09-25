@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://nuuufu8v1c61"]
+
+[ext_resource type="Script" path="res://scripts/resources/quest_data.gd" id="1_xry7e"]
+
+[resource]
+script = ExtResource("1_xry7e")
+id = &"sekte_bibliothek"
+display_name = "Wissen der Sekte"
+description = "Verfeinere 5 wilde Gu und berichte dem Bibliothekar."
+reward_points = 2
+rule = {
+"area": "",
+"count": 5,
+"item": &"",
+"reward": {
+&"kristall": 60,
+&"sternsand": 2
+},
+"type": &"refine"
+}

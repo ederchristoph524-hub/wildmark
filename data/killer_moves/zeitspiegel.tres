@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://kqipj8xanjtq"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_mexfb"]
+
+[resource]
+script = ExtResource("1_mexfb")
+id = &"zeitspiegel"
+display_name = "Zeitspiegel"
+family_a = &"wasserbild"
+family_b = &"zeit"
+channel_time = 1.0
+damage_mult = 3.1
+description = "Zwei Wasserbilder treten aus deiner Vergangenheit, während die Zeit um dich zäh wird."
+hint = "Spiegelbilder altern nicht."
+min_rank = 3
+steps = [{
+"count": 2.0,
+"enemy": "wasserbild",
+"t": "summon",
+"time": 12.0
+}, {
+"at": "self",
+"color": "#a04ad0",
+"mult": 0.2,
+"radius": 5.0,
+"slow": 0.6,
+"t": "zone",
+"tags": ["zeit", "wasser"],
+"tick": 0.5,
+"time": 5.0
+}]

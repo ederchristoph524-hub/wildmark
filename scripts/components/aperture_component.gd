@@ -169,7 +169,16 @@ func _stage_up() -> void:
 	EventBus.message.emit(tr("Aperturwand verfeinert · %s") % tr(progression.stage_name(GameState.stage)), progression.rank_color(GameState.rank))
 	if GameState.stage >= b.max_stage:
 		set_meditating(false)
-		EventBus.message.emit(tr("Höchststufe erreicht – mit fast voller Apertur kannst du den Durchbruch wagen."), progression.rank_color(GameState.rank))
+		EventBus.message.emit(_peak_text(), progression.rank_color(GameState.rank))
+
+
+## Was auf der Höchststufe als Nächstes kommt: Durchbruch, Grenze des Talents oder die Schwelle zur Unsterblichkeit.
+func _peak_text() -> String:
+	if GameState.rank < rank_cap():
+		return tr("Höchststufe erreicht – mit fast voller Apertur kannst du den Durchbruch wagen.")
+	if GameState.rank >= 5:
+		return tr("Gipfel von Rang 5: die sterbliche Ebene ist vollendet. Der Schritt zur Unsterblichkeit (Rang 6) ist noch verschlossen.")
+	return tr("Höchststufe erreicht – doch dein Talent (Grad %s) trägt dich nicht höher.") % GameState.talent_grade
 
 
 ## Durchbruch zum nächsten Rang. roll in [0, 1) für Tests; Standard ist Zufall.

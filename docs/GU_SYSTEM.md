@@ -17,7 +17,7 @@ Deshalb gilt: **Wenige Bausteine werden einmal gebaut, das Erlebnis entsteht aus
 | 3. Familien | 32 Familien mit je 5 Rängen | 160 aktive Gu mit spürbarem Aufstieg |
 | 4. Dieselben Regeln in der Welt | Zustände wirken auch auf Objekte | Erkundung und Rätsel ohne eigenes Rätselsystem |
 
-Dazu: **Merkmale** für wilde Gu, **23 Körper-Gu**, **34 Hilfs-Gu** und **101 Killer Moves** aus 72 Gu-Paaren in drei Stufen (Rang 1, 3, 5).
+Dazu: **Merkmale** für wilde Gu, **23 Körper-Gu**, **34 Hilfs-Gu** und **125 Killer Moves** aus 96 Gu-Paaren in drei Stufen (Rang 1, 3, 5).
 
 ## 2. Hebel 1: der Baukasten
 
@@ -246,7 +246,9 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Dampfexplosion | 1 | Strömung + Flamme | Wasser trifft auf Feuer: eine Dampfexplosion blendet und verbrüht alle. |
 | Donnerfeld | 1 | Donnerknolle + Blitz | Fünf Donnerknollen im Kreis um dich; jede Explosion springt als Blitz weiter. |
 | Donnerpanzer | 1 | Haut + Blitz | Panzer 6 s: jeder Angreifer erhält 3 Ladungsstapel |
+| Mond der dritten Wache | 1 | Zeitblase + Mondlicht | Um Mitternacht dehnt sich die Zeit: Mondklingen hängen in der Luft und treffen Verlangsamte doppelt. |
 | Eisflut | 1 | Frost + Strömung | Eine Flutwelle durchnässt alles, der Frost friert es im selben Atemzug ein. |
+| Eislabyrinth | 1 | Irrgarten-Formation + Frost | Die Wände des Irrgartens sind aus Eis; wer lange genug umherirrt, erstarrt. |
 | Erleuchtung | 1 | Gedankenblitz + Mondlicht | Ein Gedankenblitz im Mondlicht: sieben Klingen fliegen, und deine Gu laden schneller. |
 | Feuersturm | 1 | Flamme + Wirbel | Flammenwirbel um dich; alle getroffenen Ziele brennen, Brand springt weiter |
 | Feuerwind | 1 | Windklinge + Flamme | Ein Windstoß trägt Flammen weit nach vorn und facht sie immer wieder an. |
@@ -254,6 +256,7 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Gletscherbruch | 1 | Frost + Wirbel | Eiswirbel friert alle im Umkreis ein und zerschmettert sie im Nachschlag |
 | Glutwirbel | 1 | Menschenfackel + Wirbel | Ein Wirbel aus Glut dreht sich um dich und saugt Gegner in die Flammen. |
 | Goldene Bestie | 1 | Goldener Tausendfüßler + Bestienphantom | Ein goldenes Bestienphantom mit Sägegliedern stürmt vor und zerfleischt alles. |
+| Himmelsschild | 1 | Hartes Qi + Haut | Qi und eherne Haut legen sich übereinander – du und alle neben dir stehen wie ein Fels. |
 | Klingenschritt | 1 | Schwertschatten + Schritt | Du jagst durch die Reihen, Klingen kreisen um dich. |
 | Knochenbollwerk | 1 | Knochenrad + Haut | Sechs Knochenschilde und eine Steinhaut: fast nichts dringt zu dir durch. |
 | Knochenfestung | 1 | Knochen + Haut | Knochenpanzer 6 s: jeder Treffer auf dich schießt einen Knochendorn zurück (kostet HP) |
@@ -275,13 +278,16 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Schlammflut | 1 | Erdstachel + Strömung | Eine Flut durchnässt alles, dann brechen Erdstacheln hervor: Schlamm hält alle fest. |
 | Schleichgift | 1 | Tarnung + Gift | Du verschwindest und hinterlässt eine Giftwolke; dein nächster Schlag trifft aus dem Nichts. |
 | Seelenknechtschaft | 1 | Seelenschrei + Sklaverei | Ein Schrei lässt alle erstarren, zwei Geisterwölfe fallen über sie her. |
+| Seelenraub | 1 | Plünderhand + Seelenschrei | Ein Schrei lähmt vor Angst, dann greift die Geisterhand zu und reißt Essenz aus den Erstarrten. |
 | Sonnenflamme | 1 | Flamme + Menschenfackel | Dein Körper wird zur Fackel und entlädt eine Feuerwelle um dich. |
 | Spiegelflut | 1 | Wasserbild + Strömung | Zwei Wasserbilder springen aus einer Flutwelle, die alles zurückwirft. |
 | Sternenregen | 1 | Sternschwarm + Erdstachel | Sterne markieren die Feinde, dann stürzen drei Felsbrocken auf sie. |
 | Sternenmond | 1 | Sternschwarm + Mondlicht | Neun Mond- und Sternenklingen suchen sich selbst ihr Ziel. |
 | Sturmblitz | 1 | Blitz + Windklinge | Ein Windstoß trägt Blitze nach vorn; sie springen von Ziel zu Ziel. |
 | Tauschfalle | 1 | Positionstausch + Donnerknolle | Du legst Knollen um dich – und tauschst den Platz mit einem Gegner, der mitten darauf landet. |
+| Vorausgedacht | 1 | Gedankenblitz + Donnerknolle | Du weißt schon, wohin sie laufen werden: Knollen liegen bereit, und deine Gu laden schneller. |
 | Klingenwirbel | 1 | Windklinge + Schwertschatten | Kreisende Klingen im Sturm: der Wind trägt sie weit nach außen. |
+| Wirbeltausch | 1 | Positionstausch + Wirbel | Du springst an den Platz eines Gegners und wirbelst alles um dich herum durcheinander. |
 | Alles verschlingen | 3 | Bestienphantom + Blutmond | Ein Blutphantom verschlingt alles vor dir und gibt dir das Leben zurück. |
 | Bergleib | 3 | Erdstachel + Haut | Dein Körper wird zu Fels; wer dich trifft, bebt mit, und die Erde schlägt um dich aus. |
 | Bergsturz | 3 | Erdstachel + Bestienphantom | Ein Bärenphantom schlägt auf den Boden, ein Bergsturz begräbt die Getroffenen. |
@@ -290,6 +296,8 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Blutfrost | 3 | Frost + Blutmond | Gefrorenes Blut: Eissplitter reißen Wunden und frieren sie zu. |
 | Blutraub | 3 | Plünderhand + Blutmond | Blutige Hände reißen Leben und Essenz zugleich heraus. |
 | Blutsäge | 3 | Goldener Tausendfüßler + Blutmond | Blutige Sägezähne reißen tiefe Wunden – jede nährt dich. |
+| Bösartiger Gedanke | 3 | Gedankenblitz + Gift | Ein kalt berechneter Plan: Gift, Furcht und schnellere Gu – alles in einem Augenblick. |
+| Diebessprung | 3 | Plünderhand + Schritt | Ein Schritt durch den Raum bis vor den Gegner, zwei Griffe – und du bist mit seiner Essenz schon weg. |
 | Donnerdrachen-Flut | 3 | Strömung + Blitz | Eine breite Flut, dann ein Blitzdrache, der über alle Nassen springt. |
 | Donnerkönig | 3 | Haut + Blitz | Ein Donnerpanzer, der Angreifer auflädt und alle drei Sekunden entlädt. |
 | Donnersturm | 3 | Blitz + Windklinge | Ein Gewittersturm zieht Gegner in seine Mitte und schlägt mit Blitzen ein. |
@@ -299,45 +307,61 @@ Ein Killer Move verlangt je einen bereiten Gu zweier Familien. Es gibt drei Stuf
 | Erdbebenfeld | 3 | Donnerknolle + Erdstachel | Ein Beben reißt den Boden auf; darin liegen Knollen, die nacheinander hochgehen. |
 | Feuerlotus-Sturm | 3 | Flamme + Wirbel | Ein Lotus aus Flammen erblüht im Wirbel und brennt noch lange nach. |
 | Flammenkaiser | 3 | Flamme + Menschenfackel | Eine Feuersäule steigt am Ziel auf, danach regnen Glutkugeln in weitem Kreis. |
+| Frühlingsrückkehr | 3 | Zeitblase + Blatt | Für dich läuft die Zeit rückwärts zum Frühling: Wunden schließen sich, Gifte weichen, Feinde erstarren. |
 | Geisterschrei | 3 | Seelenschrei + Tarnung | Ein unsichtbarer Schrei lähmt alle vor Angst, während du im Nebel verschwindest. |
 | Giftquelle | 3 | Gift + Wasserbild | Ein vergiftetes Wasserbild wandelt umher und hinterlässt eine Giftlache. |
+| Gifttausch | 3 | Positionstausch + Gift | Du hinterlässt eine Giftwolke und tauschst den Platz mit einem Gegner – er landet mitten darin. |
 | Goldpanzer-Sturm | 3 | Goldener Tausendfüßler + Haut | Mit goldener Haut und Sägearm walzt du unaufhaltsam durch die Reihen. |
+| Goldraub | 3 | Goldener Tausendfüßler + Plünderhand | Der goldene Tausendfüßler rast durch die Reihen und reißt jedem Uressenz aus dem Leib. |
 | Klingenbestie | 3 | Schwertschatten + Bestienphantom | Ein Bestienphantom aus Klingen stürmt vor und zerfetzt alles vor dir. |
 | Klingenrad | 3 | Knochenrad + Schwertschatten | Knochen und Klingen verschmelzen zu einem kreisenden Schutzrad, das schneidet und schützt. |
+| Knochenkarussell | 3 | Knochenrad + Positionstausch | Du tauschst mit einem Gegner und landest mitten zwischen seinen Gefährten – Knochenräder fegen um dich. |
 | Knochenzitadelle | 3 | Knochen + Haut | Ein Knochenpanzer, dazu vier kreisende Knochenspeere. |
 | Lebensquell | 3 | Blatt + Wasserbild | Ein Heilteich breitet sich um dich aus, ein Wasserkrieger wacht darüber. |
 | Mondschatten-Tanz | 3 | Mondlicht + Schritt | Du jagst durch die Reihe und entlässt am Ende einen Fächer aus Mondklingen. |
 | Pestsonne | 3 | Gift + Flamme | Eine Giftsonne geht über dem Feld auf und entzündet sich zu einer riesigen Explosion. |
 | Qi-Bestie | 3 | Hartes Qi + Bestienphantom | Kraft-Qi verfestigt dein Bestienphantom: es rast als harte Qi-Gestalt geradeaus durch alle Gegner. |
+| Qi-Sturm | 3 | Hartes Qi + Windklinge | Die Qi-Hülle platzt in einem Sturm nach außen und fegt alle Gegner davon. |
 | Rasende Bestie | 3 | Kampfgeist + Bestienphantom | Im Kampfrausch wird dein Bestienphantom doppelt so groß. |
 | Rudelkönig | 3 | Sklaverei + Blatt | Heilt alle Gefährten voll und ruft zwei Blitzwölfe. |
 | Schattenmord | 3 | Tarnung + Schritt | Aus dem Nichts ein Stich ins Herz – gegen Geschwächte tödlich. |
 | Seelenlabyrinth | 3 | Irrgarten-Formation + Seelenschrei | Ein Schrei fährt in den Irrgarten: die Gefangenen verlieren den Verstand und fliehen blind. |
 | Seelensturm | 3 | Seelenschrei + Windklinge | Ein heulender Sturm voller Seelenschreie: Furcht und Schwäche für alle. |
 | Seuchenmond | 3 | Gift + Blutmond | Ein fauliger roter Mond schwebt über dem Ziel und saugt Leben aus allem darunter. |
+| Steinlabyrinth | 3 | Irrgarten-Formation + Erdstachel | Steinwände wachsen aus dem Boden und drängen alle in die Mitte, wo die Erde einbricht. |
 | Sternenklingen | 3 | Sternschwarm + Schwertschatten | Sterne werden zu Klingen und kreisen, dann schießen sie auf das Ziel. |
 | Sternennebel-Hinterhalt | 3 | Tarnung + Sternschwarm | Aus dem Sternennebel stürzen zwölf Sterne auf alle Geblendeten. |
 | Sterngedanke | 3 | Gedankenblitz + Sternschwarm | Deine Gedanken ordnen sich wie Sternbilder: Sterne suchen jeden Gegner, deine Gu sind früher bereit. |
+| Unerschütterlicher Wille | 3 | Kampfgeist + Hartes Qi | Kampfgeist und hartes Qi: du wirst stärker, nichts wirft dich um, und wer neben dir kämpft, ist geschützt. |
 | Zeitdonner | 3 | Zeitblase + Blitz | Blitze fallen in die Zeitblase – und fallen im Echo ein zweites Mal. |
+| Zeitspiegel | 3 | Wasserbild + Zeitblase | Zwei Wasserbilder treten aus deiner Vergangenheit, während die Zeit um dich zäh wird. |
 | Erdschlund | 5 | Erdstachel + Bestienphantom | Die Erde öffnet sich unter den Feinden und schließt sich wieder. |
+| Ewiger Winter | 5 | Zeitblase + Frost | Die Zeit gefriert: in der Blase wird es kälter und kälter, bis alles zu Eis zerspringt. |
 | Ewiges Eis | 5 | Frost + Wirbel | Alles im Umkreis 10 erstarrt zu ewigem Eis und zerspringt. |
+| Glühendes Qi | 5 | Hartes Qi + Menschenfackel | Deine Qi-Hülle glüht wie ein Brennofen; wenn sie vergeht, explodiert sie in einer Feuerwelle. |
 | Herr der Bestien | 5 | Sklaverei + Bestienphantom | Drei Bestienphantome brechen hervor und zwei Blitzwölfe folgen dir. |
 | Himmelsbrand | 5 | Flamme + Wirbel | Der Himmel brennt: ein Feuersturm im Umkreis 10, Feuerregen und ein Flammenmeer. |
 | Weißknochen-Himmelsrad | 5 | Knochen + Knochenrad | Ein gewaltiges Knochenrad walzt in einer Linie über das Schlachtfeld und schützt dich danach. |
 | Jadehimmel-Brand | 5 | Gift + Flamme | Das uralte Jadegift senkt sich über das Land und entzündet sich. |
 | Klingen-Sternbild | 5 | Sternschwarm + Schwertschatten | Ein Sternbild aus hundert Klingen senkt sich auf das Schlachtfeld. |
 | Klingentausch | 5 | Positionstausch + Schwertschatten | Tausch um Tausch: an jedem Ort, an dem du auftauchst, kreisen Schwerter. |
+| Irrgarten der Knollen | 5 | Donnerknolle + Irrgarten-Formation | Ein Irrgarten zieht alle in seine Mitte – dort liegen die Knollen schon bereit. |
+| Kriegsrat | 5 | Kampfgeist + Gedankenblitz | Ein Plan wie ein Blitz: alle Gu sind sofort bereit, und du schlägst mit der Kraft eines Heeres. |
 | Mondfinsternis | 5 | Mondlicht + Schritt | Drei Schritte durch die Dunkelheit, jeder hinterlässt einen Mondsturm. |
 | Sarg des Nordmeers | 5 | Frost + Strömung | Das Meer steigt und gefriert: ein ganzes Feld erstarrt zu Eis, dann bricht es. |
+| Raubtierrudel | 5 | Plünderhand + Sklaverei | Dein Rudel fällt über die Feinde her, und jeder Biss, jeder Griff raubt dir neue Essenz. |
+| Schwertgedanke | 5 | Gedankenblitz + Schwertschatten | Jeder Gedanke wird zur Klinge: Schwerter kreisen um dich, und alle Gu sind früher bereit. |
 | Sonnensturz | 5 | Flamme + Menschenfackel | Eine kleine Sonne stürzt herab und hinterlässt ein brennendes Feld. |
 | Spiegelseelen | 5 | Wasserbild + Seelenschrei | Drei Seelenbilder schreien gleichzeitig – wer sie hört, zerbricht an der Angst. |
 | Sternenformation | 5 | Irrgarten-Formation + Sternschwarm | Die Formation spiegelt den Sternenhimmel: aus ihren Ecken regnen Sterne auf alles darin. |
 | Sternenkaiser | 5 | Sternschwarm + Mondlicht | Ein Sternenhimmel öffnet sich: sechzehn Sterne und drei Sternschnuppen. |
 | Taifun der Seelen | 5 | Seelenschrei + Windklinge | Ein Taifun aus Seelen zieht alles in sein Zentrum, voller Furcht und Schwäche. |
 | Tausend Donner | 5 | Strömung + Blitz | Eine Sturmflut, dann tausend Donner: jeder Nasse wird mehrfach getroffen. |
+| Tausend-Jahre-Säge | 5 | Goldener Tausendfüßler + Zeitblase | Die Zeit steht fast still, und die goldene Säge fährt dreimal durch alles, was darin gefangen ist. |
 | Tausend-Klingen-Sturm | 5 | Goldener Tausendfüßler + Schwertschatten | Tausend goldene Glieder lösen sich als Klingen und kreisen, während du durchbrichst. |
 | Unsterblicher Knochen | 5 | Knochen + Haut | Ein unzerstörbarer Knochenleib: unaufhaltsam, Dornen, sechs Knochenräder. |
 | Unsterblicher Krieger | 5 | Kampfgeist + Haut | Für einige Sekunden kann dich nichts fällen – du heilst, prallst zurück und schlägst doppelt. |
+| Verlorener Pfad | 5 | Irrgarten-Formation + Positionstausch | Du baust einen Irrgarten um dich und tauschst den Platz mit dem stärksten Gegner – er bleibt darin gefangen. |
 | Zehntausend Klingen | 5 | Schwertschatten + Schritt | Du wirst zum Klingensturm: Sprung, zehn kreisende Klingen, ein Hagel aus Schwertschatten. |
 | Zeitsprung | 5 | Zeitblase + Schritt | Du springst durch die Zeit: am Ausgangspunkt bleibt eine Blase stehen, die alles erstarren lässt, und für dich laufen die Gu schneller. |
 
@@ -397,7 +421,7 @@ Die zwölf neuen Familien haben ebenfalls Welt-Wirkungen (`welt` je Familie): Ph
 
 ### Verschmelzen (Rezepte)
 
-`gu_system.json → rezepte` verbindet Gu zu stärkeren, wie in Reverend Insanity: **Weißjade = Weißer Eber + Jadehaut**, die Schnapswurm-Reihe (Schnaps-Wurm → Vier Geschmäcker → Sieben Düfte → Neun Augen), Tausend- und Zehntausend-Jun-Kraft, Knochen-Fleisch-Einheit, Essenz-Eisenknochen, Himmels-Essenz-Schatzlotus, Berserker-Wut. Jedes Rezept: `ergebnis`, `aus` (verbrauchte Gu), `material`, `chance`, `hinweis`. Misslingt die Verschmelzung, ist nur das Material verloren (`GuRecipes`, Seite „Verschmelzen“ im Gu-Menü).
+`gu_system.json → rezepte` verbindet Gu zu stärkeren, wie in Reverend Insanity: **Weißjade = Weißer Eber + Jadehaut**, die Schnapswurm-Reihe (Schnaps-Wurm → Vier Geschmäcker → Sieben Düfte → Neun Augen), Tausend- und Zehntausend-Jun-Kraft, Knochen-Fleisch-Einheit, Essenz-Eisenknochen, Himmels-Essenz-Schatzlotus, Berserker-Wut. Dazu Menschenhaut (Tarnschuppe + Schlammhaut), Kaktuszeiger, Donnerflügel, Panzer, Krokodilkraft, Stahlsehnen, Eiskristall und zwei Abkürzungen für aktive Gu: Mondsichel (Fang Yuans Mondglanz-Versuch, 50 %) und Blutschädel. Jedes Rezept: `ergebnis`, `aus` (verbrauchte Gu), `material`, `chance`, `hinweis`. Misslingt die Verschmelzung, ist nur das Material verloren (`GuRecipes`, Seite „Verschmelzen“ im Gu-Menü).
 
 ## 10. Spielstart
 

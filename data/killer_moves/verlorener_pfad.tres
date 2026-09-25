@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://cbnojmr7s4y21"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_bl7o8"]
+
+[resource]
+script = ExtResource("1_bl7o8")
+id = &"verlorener_pfad"
+display_name = "Verlorener Pfad"
+family_a = &"labyrinth"
+family_b = &"tausch"
+channel_time = 1.1
+damage_mult = 4.2
+description = "Du baust einen Irrgarten um dich und tauschst den Platz mit dem stärksten Gegner – er bleibt darin gefangen."
+hint = "Wer tauscht, lässt den anderen im Labyrinth."
+min_rank = 5
+steps = [{
+"at": "self",
+"blind": 1.5,
+"color": "#d8c070",
+"end": [{
+"color": "#d8c070",
+"mult": 2.0,
+"radius": 5.0,
+"stun": 1.2,
+"t": "circle",
+"tags": ["seele", "wucht"]
+}],
+"mult": 0.3,
+"pull": 1.5,
+"radius": 5.0,
+"slow": 0.5,
+"status": "schwaeche",
+"t": "zone",
+"tags": ["seele"],
+"tick": 0.5,
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"mult": 0.6,
+"range": 16.0,
+"status": "wunde",
+"stun": 1.0,
+"t": "swap",
+"tags": ["raum"]
+}],
+"time": 0.3
+}]

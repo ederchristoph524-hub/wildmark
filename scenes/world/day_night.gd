@@ -39,11 +39,11 @@ func _ready() -> void:
 	environment.ambient_light_sky_contribution = AMBIENT_SKY_SHARE
 	environment.ambient_light_energy = 0.7
 	environment.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
-	environment.tonemap_mode = Environment.TONE_MAPPER_ACES
-	environment.tonemap_exposure = 1.0
+	environment.tonemap_mode = Environment.TONE_MAPPER_AGX
+	environment.tonemap_exposure = 1.15
 	environment.tonemap_white = 6.0
 	environment.adjustment_enabled = true
-	environment.adjustment_saturation = 1.04
+	environment.adjustment_saturation = 1.0
 	environment.adjustment_contrast = 1.06
 	environment.fog_enabled = true
 	environment.fog_density = 0.012
@@ -59,6 +59,8 @@ func _ready() -> void:
 	sun = DirectionalLight3D.new()
 	sun.shadow_enabled = GraphicsSettings.shadows()
 	sun.directional_shadow_max_distance = 45.0
+	# Schatten nicht schwarz: etwas Himmelslicht fällt immer hinein.
+	sun.shadow_opacity = 0.78
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 	add_child(sun)
 	_was_night = Formulas.is_night(Balance.values, GameState.time_of_day)
@@ -104,7 +106,7 @@ func _apply(time: float) -> void:
 	_sky_material.ground_bottom_color = SKY_NIGHT.lerp(fog_day.darkened(0.45), daylight)
 	environment.fog_light_color = FOG_NIGHT.lerp(fog_day, daylight)
 	environment.fog_density = lerpf(fog_density * 3.0, fog_density, daylight)
-	environment.ambient_light_energy = lerpf(0.35, 0.6, daylight)
+	environment.ambient_light_energy = lerpf(0.4, 0.82, daylight)
 
 
 func _daylight(time: float, day_part: float) -> float:

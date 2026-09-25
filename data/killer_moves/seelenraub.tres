@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://c5c8h63kj6pxp"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_d04wf"]
+
+[resource]
+script = ExtResource("1_d04wf")
+id = &"seelenraub"
+display_name = "Seelenraub"
+family_a = &"pluenderung"
+family_b = &"seelenschrei"
+channel_time = 0.8
+damage_mult = 2.4
+description = "Ein Schrei lähmt vor Angst, dann greift die Geisterhand zu und reißt Essenz aus den Erstarrten."
+hint = "Wer sich fürchtet, hält nichts fest."
+steps = [{
+"angle": 90.0,
+"color": "#c9a0ff",
+"mult": 0.6,
+"reach": 8.0,
+"status": "furcht",
+"t": "cone",
+"tags": ["seele", "klang"]
+}, {
+"t": "delay",
+"then": [{
+"angle": 90.0,
+"color": "#8fd06a",
+"essence_steal": 3.0,
+"knockback": -0.8,
+"mult": 0.9,
+"reach": 8.0,
+"t": "cone",
+"tags": ["schnitt"]
+}],
+"time": 0.3
+}]

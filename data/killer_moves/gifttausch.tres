@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://rv822dugs5yt"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_af7ed"]
+
+[resource]
+script = ExtResource("1_af7ed")
+id = &"gifttausch"
+display_name = "Gifttausch"
+family_a = &"tausch"
+family_b = &"gift"
+channel_time = 0.9
+damage_mult = 3.2
+description = "Du hinterlässt eine Giftwolke und tauschst den Platz mit einem Gegner – er landet mitten darin."
+hint = "Wer tauscht, bekommt, was zurückbleibt."
+min_rank = 3
+steps = [{
+"at": "self",
+"color": "#8ce633",
+"mult": 0.35,
+"radius": 3.5,
+"slow": 0.3,
+"stacks": 2.0,
+"status": "gift",
+"t": "zone",
+"tags": ["gift"],
+"tick": 0.5,
+"time": 6.0
+}, {
+"t": "delay",
+"then": [{
+"color": "#6ad04a",
+"mult": 0.5,
+"range": 14.0,
+"stacks": 2.0,
+"status": "gift",
+"stun": 1.2,
+"t": "swap",
+"tags": ["raum", "gift"]
+}],
+"time": 0.25
+}]

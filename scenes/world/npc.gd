@@ -51,7 +51,8 @@ func _ready() -> void:
 	_label.pixel_size = 0.006
 	_label.outline_size = 10
 	_label.position.y = 2.25
-	_label.visibility_range_end = 30.0
+	# Spaziergänger ohne Aufgabe nur aus der Nähe beschriften, sonst überlagern sich die Namen im Gedränge.
+	_label.visibility_range_end = 30.0 if quest_id != &"" or offers_trade or leader else 7.0
 	add_child(_label)
 	var body := StaticBody3D.new()
 	var shape := CollisionShape3D.new()

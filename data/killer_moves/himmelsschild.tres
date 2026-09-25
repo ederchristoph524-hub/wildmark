@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://bnrtuq0reecyf"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_c25sk"]
+
+[resource]
+script = ExtResource("1_c25sk")
+id = &"himmelsschild"
+display_name = "Himmelsschild"
+family_a = &"qischirm"
+family_b = &"haut"
+channel_time = 1.0
+damage_mult = 2.2
+description = "Qi und eherne Haut legen sich übereinander – du und alle neben dir stehen wie ein Fels."
+hint = "Zwei Schilde, ein Wille."
+steps = [{
+"ally_reduction": 0.4,
+"color": "#99ffff",
+"follow": true,
+"knockback": 0.6,
+"mult": 0.15,
+"radius": 4.5,
+"t": "zone",
+"tags": ["wucht"],
+"tick": 0.5,
+"time": 6.0
+}, {
+"color": "#f0c860",
+"kind": "thorns",
+"reduction": 0.1,
+"t": "armor",
+"time": 6.0,
+"value_mult": 0.4
+}]

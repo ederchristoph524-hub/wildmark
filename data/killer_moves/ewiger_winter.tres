@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="KillerMoveData" format=3 uid="uid://x2nwf1s1sfe7"]
+
+[ext_resource type="Script" path="res://scripts/resources/killer_move_data.gd" id="1_0butx"]
+
+[resource]
+script = ExtResource("1_0butx")
+id = &"ewiger_winter"
+display_name = "Ewiger Winter"
+family_a = &"zeit"
+family_b = &"frost"
+channel_time = 1.2
+damage_mult = 4.4
+description = "Die Zeit gefriert: in der Blase wird es kälter und kälter, bis alles zu Eis zerspringt."
+hint = "Der längste Winter dauert einen Atemzug."
+min_rank = 5
+steps = [{
+"at": "target",
+"color": "#b3f2ff",
+"distance": 7.0,
+"end": [{
+"color": "#b3f2ff",
+"freeze": 2.0,
+"mult": 0.0,
+"radius": 5.5,
+"t": "circle"
+}, {
+"t": "delay",
+"then": [{
+"color": "#dff6ff",
+"mult": 2.4,
+"radius": 5.5,
+"t": "circle",
+"tags": ["eis", "wucht"]
+}],
+"time": 1.0
+}],
+"mult": 0.3,
+"radius": 5.5,
+"slow": 0.75,
+"status": "frost",
+"t": "zone",
+"tags": ["zeit", "eis"],
+"tick": 0.5,
+"time": 4.0
+}]
