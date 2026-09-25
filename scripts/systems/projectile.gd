@@ -24,6 +24,7 @@ var chain_radius: float = 6.0
 var impact: Array = []
 var impact_ctx: EffectContext = null
 
+var _trail: CPUParticles3D = null
 var _travelled: float = 0.0
 var _already_hit: Array[Combatant] = []
 
@@ -55,6 +56,7 @@ func _ready() -> void:
 	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mesh.scale = Vector3(radius, radius, radius * 2.2) * 1.4
 	add_child(mesh)
+	_trail = GuVfx.trail(self, GuVfx.style_of(hit.path, hit.tags), radius / 0.35)
 	if direction.length_squared() > 0.0:
 		look_at(global_position + direction, Vector3.UP if absf(direction.y) < 0.99 else Vector3.RIGHT)
 
@@ -92,6 +94,7 @@ func _check_targets(from: Vector3, to: Vector3) -> bool:
 			_chain_from(target)
 		if pierce <= 0:
 			_run_impact(target.global_position)
+			GuVfx.release(_trail)
 			queue_free()
 			return true
 		pierce -= 1
@@ -127,7 +130,10 @@ func _finish(point: Vector3) -> void:
 		for target: Combatant in Combat.in_radius(Combat.hostiles(get_tree(), hit.team), point, explode_radius):
 			target.receive_hit(hit)
 		Fx.sphere(get_tree(), point, explode_radius, Color(color, 0.6), 0.3)
+	var style: StringName = GuVfx.style_of(hit.path, hit.tags)
+	GuVfx.burst(get_tree(), point, style, maxf(1.0, explode_radius / 1.5), 1.2 if explode_radius > 0.0 else 0.7)
 	_run_impact(point)
+	GuVfx.release(_trail)
 	queue_free()
 
 

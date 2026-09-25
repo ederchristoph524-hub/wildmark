@@ -16,6 +16,9 @@ const KILL_COLOR: Color = Color(0.75, 0.1, 0.12)
 ## Wegpunkte (Straße), die er hin und zurück abläuft; leer = bleibt an seinem Platz.
 var route: Array[Vector3] = []
 var bounty_hunter: bool = false
+## Klanfehde (ClanFeud): Fraktion, deren Siedlung er angreift – greift deren Mitglieder an, auch im Dorf.
+var raid_target: StringName = &""
+var raid_cry: String = ""
 var surrendered: bool = false
 var fleeing: bool = false
 var purse: int = 0
@@ -39,6 +42,8 @@ func is_demonic() -> bool:
 func is_hostile() -> bool:
 	if surrendered or fleeing:
 		return false
+	if raid_target != &"":
+		return SectLife.is_member(raid_target) and not Renown.disguised()
 	if bounty_hunter:
 		return not Renown.disguised()
 	return not Renown.spared_by_demons() if is_demonic() else Renown.hunted_by_righteous()
@@ -57,7 +62,7 @@ func _idle() -> Vector3:
 		return Vector3.ZERO
 	if player != null and not player.is_dead() and not Childhood.is_child() and is_hostile():
 		var distance: float = player.global_position.distance_to(global_position)
-		if distance < Balance.values.wanderer_aggro and not _in_settlement(player.global_position):
+		if distance < Balance.values.wanderer_aggro and (raid_target != &"" or not _in_settlement(player.global_position)):
 			ambush(player)
 			return Vector3.ZERO
 		if bounty_hunter and distance < CHASE_RANGE:
@@ -112,6 +117,8 @@ func ambush(foe: Combatant) -> void:
 
 
 func _threat() -> String:
+	if raid_target != &"":
+		return raid_cry
 	if bounty_hunter:
 		return tr("%s: „Im Namen der rechtschaffenen Klans – dein Kopf gehört mir!“") % display_title()
 	if is_demonic():
@@ -161,7 +168,7 @@ func _finish(player_won: bool) -> void:
 func interact_label() -> String:
 	if surrendered:
 		return tr("Urteil über %s") % display_title()
-	if is_demonic() or bounty_hunter:
+	if is_demonic() or bounty_hunter or raid_target != &"":
 		return tr("Angreifen: %s") % display_title()
 	return tr("Überfallen: %s (dämonische Tat)") % display_title()
 
@@ -172,7 +179,7 @@ func interact(player: Player) -> void:
 		return
 	if Childhood.is_child() or fleeing:
 		return
-	if not is_demonic() and not bounty_hunter:
+	if not is_demonic() and not bounty_hunter and raid_target == &"":
 		Renown.add_infamy(Balance.values.renown_attack, tr("Überfall auf %s") % display_title())
 	ambush(player)
 
@@ -180,7 +187,9 @@ func interact(player: Player) -> void:
 func offer_choices() -> void:
 	var b: BalanceData = Balance.values
 	var text: String
-	if is_demonic():
+	if raid_target != &"":
+		text = tr("Ein Angreifer – Richten bleibt ohne Folgen für deinen Ruf. Töten: sein Geldbeutel und seine Gu · Ausrauben: %d Urstein · Verschonen: Ansehen +%d") % [purse, b.renown_spare]
+	elif is_demonic():
 		text = tr("Töten: Ansehen +%d, sein Geldbeutel und seine Gu · Ausrauben: %d Urstein · Verschonen: Ansehen +%d") % [b.renown_kill_demonic, purse, b.renown_spare]
 	else:
 		text = tr("Töten: Berüchtigtheit +%d, sein Geldbeutel und seine Gu · Ausrauben: %d Urstein, Berüchtigtheit +%d · Verschonen: Ansehen +%d") % [b.renown_kill_righteous, purse, b.renown_rob, b.renown_spare]
@@ -202,9 +211,9 @@ func kill() -> void:
 		var wild: WildGu = DuelRewards.drop_gu(self, order[i], "wanderer_%s_%d_%d" % [order[i].gu_id, Time.get_ticks_msec(), i])
 		if wild != null:
 			wild.global_position += Vector3(0.0, 0.0, 1.4 * i)
-	if is_demonic():
+	if is_demonic() and raid_target == &"":
 		Renown.add_fame(b.renown_kill_demonic, tr("%s erschlagen") % display_title())
-	else:
+	elif raid_target == &"":
 		Renown.add_infamy(b.renown_kill_righteous, tr("Mord an %s") % display_title())
 	Fx.sphere(get_tree(), global_position + Vector3.UP, 1.3, KILL_COLOR, 0.6)
 	queue_free()
@@ -214,7 +223,7 @@ func rob() -> void:
 	if not surrendered or fleeing:
 		return
 	_take_purse()
-	if not is_demonic():
+	if not is_demonic() and raid_target == &"":
 		Renown.add_infamy(Balance.values.renown_rob, tr("%s ausgeraubt") % display_title())
 	_leave(true)
 

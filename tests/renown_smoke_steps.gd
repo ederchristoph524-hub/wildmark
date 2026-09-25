@@ -18,6 +18,8 @@ func run() -> void:
 	await _test_righteous_robbery()
 	_test_renown_effects()
 	_test_bounty_hunter()
+	_test_places()
+	await _test_clan_feud()
 	_test_disguise_and_compass()
 	_test_luck()
 	GameState.fame = 0
@@ -143,6 +145,61 @@ func _test_luck() -> void:
 	steps._check(hit.is_crit and hit.damage > 10.0, "Glück: kritischer Treffer (%.1f)" % hit.damage)
 	player.luck_time = 0.0
 	player.luck_chance = 0.0
+
+
+## Urstein-Ader (Abbau ohne Mitgliedschaft ist Diebstahl) und Dao-Ort (Kultivieren prägt Markierungen).
+func _test_places() -> void:
+	var vein: ResourceNode = null
+	for node: Node in steps.tree.get_nodes_in_group(Player.GROUP_HARVESTABLE):
+		if node is ResourceNode and (node as ResourceNode).owner_sect == &"gu_yue":
+			vein = node
+			break
+	steps._check(vein != null, "Urstein-Ader des Gu-Yue-Klans mit Brocken")
+	if vein != null:
+		var sect: StringName = GameState.sect
+		GameState.sect = &""
+		var infamy: int = GameState.infamy
+		for i: int in 6:
+			vein.harvest_hit(steps.player)
+		steps._check(GameState.infamy > infamy, "Urstein aus fremder Ader gestohlen: Berüchtigtheit")
+		GameState.sect = sect
+	var site: DaoSite = steps.tree.get_first_node_in_group(DaoSite.GROUP) as DaoSite
+	steps._check(site != null and DaoSite.path_at(steps.tree, site.global_position) == site.path, "Dao-Ort im Gebiet")
+	if site != null:
+		var before: float = Dao.marks(site.path)
+		steps.player.global_position = site.global_position + Vector3(2.0, 0.5, 0.0)
+		steps.player.aperture._meditate(10.0)
+		steps._check(Dao.marks(site.path) > before, "Kultivieren am Dao-Ort prägt Markierungen")
+
+
+## Klanfehde: Bai-Angreifer rücken gegen das Gu-Yue-Dorf vor und greifen Klanmitglieder an; sind alle besiegt, gibt
+## es Lohn, und Richten bleibt ohne Folgen für den Ruf.
+func _test_clan_feud() -> void:
+	var feud: ClanFeud = steps.main.world.feud
+	steps._check(feud != null, "Qing-Mao-Berg hat eine Klanfehde")
+	if feud == null:
+		return
+	var sect: StringName = GameState.sect
+	GameState.sect = &"gu_yue"
+	var stones: int = GameState.item_count(&"kristall")
+	feud.start()
+	await steps._frames(5)
+	var raiders: Array[Wanderer] = feud.raiders.duplicate()
+	steps._check(raiders.size() == int(feud.feud["count"]) and ClanFeud.status_text != "", "Angreifer rücken an (%d)" % raiders.size())
+	steps._check(not raiders.is_empty() and raiders[0].is_hostile() and steps.main.world.wanderers.count_alive(false) <= steps.main.world.area.wanderer_count,
+		"Angreifer sind Klanmitgliedern feindlich und zählen nicht als Wanderer")
+	for raider: Wanderer in raiders:
+		raider._finish(true)
+	await steps._frames(5)
+	steps._check(not feud.active and GameState.item_count(&"kristall") > stones and ClanFeud.status_text == "", "Überfall abgewehrt, Lohn erhalten")
+	var infamy: int = GameState.infamy
+	if not raiders.is_empty() and is_instance_valid(raiders[0]):
+		raiders[0].kill()
+	steps._check(GameState.infamy == infamy, "Angreifer richten kostet keinen Ruf")
+	for raider: Wanderer in raiders:
+		if is_instance_valid(raider):
+			raider.queue_free()
+	GameState.sect = sect
 
 
 func _spawn(id: StringName, at: Vector3) -> Wanderer:

@@ -63,6 +63,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(1, 0.6901961, 0.1882353, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"sandwurm", &"wuestenskorpion", &"wuestenskorpion", &"obsidian"]),
 "id": &"duenentempel",
@@ -72,6 +73,8 @@ places = Array[Dictionary]([{
 &"kristall": 20,
 &"stein": 20
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-150, -120),
 "radius": 11.0,
 "reward": {
@@ -90,12 +93,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 12,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
 "item": &"glutasche",
 "name": "Lavafeld",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, -130),
 "radius": 14.0,
 "reward": {
@@ -109,12 +115,15 @@ places = Array[Dictionary]([{
 "type": &"aschefeld"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Sternquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-160, 100),
 "radius": 9.0,
 "reward": {
@@ -128,12 +137,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Karawanenfriedhof",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(80, -180),
 "radius": 11.0,
 "reward": {
@@ -145,6 +157,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Sonnenuhr im Sand",
+"offering": {},
+"owner": &"",
+"path": &"zeit",
+"position": Vector2(180, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ihr Schatten läuft manchmal rückwärts. Die Wüste hat eigene Stunden.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 20.0,

@@ -253,6 +253,30 @@
      "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter.",
      "stil": "hoehle",
      "akzent": "#e8c070"
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Urstein-Ader des Gu-Yue-Klans",
+     "pos": [
+      135,
+      -10
+     ],
+     "radius": 10,
+     "anzahl": 7,
+     "ertrag": 2,
+     "besitzer": "gu_yue",
+     "text": "Der Reichtum des Klans: eine Ader milchig-grüner Ursteine im Fels. Klanmitglieder arbeiten hier Schichten; wer sonst hackt, ist ein Dieb."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Mondschrein der Gu Yue",
+     "pos": [
+      -25,
+      175
+     ],
+     "radius": 10,
+     "pfad": "licht",
+     "text": "Hier beteten die Ahnen der Gu Yue zum alten Mond. Wer im Mondlicht kultiviert, versteht das Licht."
     }
    ],
    "hindernisse": [
@@ -505,6 +529,22 @@
      "kristall": 25,
      "fell": 6
     }
+   },
+   "fehde": {
+    "n": "Überfall des Bai-Klans",
+    "angreifer": "bai_clan",
+    "ziel": "gu_yue_dorf",
+    "meister": [
+     "bai_waechter",
+     "bai_aeltester"
+    ],
+    "anzahl": 3,
+    "alle_tage": 5,
+    "versatz": 2,
+    "belohnung": {
+     "kristall": 18,
+     "gruenkraut": 4
+    }
    }
   },
   "drei_koenige": {
@@ -695,6 +735,17 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 9
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Schwerthügel",
+     "pos": [
+      -15,
+      -45
+     ],
+     "radius": 10,
+     "pfad": "schwert",
+     "text": "Tausend zerbrochene Klingen stecken im Hügel. Ihre Absicht schneidet noch immer."
     }
    ],
    "hindernisse": [
@@ -1110,6 +1161,30 @@
      "radius": 12,
      "item": "glutasche",
      "anzahl": 10
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Ursteinmine der Shang",
+     "pos": [
+      172,
+      12
+     ],
+     "radius": 11,
+     "anzahl": 8,
+     "ertrag": 3,
+     "besitzer": "shang_clan",
+     "text": "Die Mine, die den Reichtum der Shang-Stadt nährt. Die Aufseher zählen jeden Stein."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Dang-Hun-Berg",
+     "pos": [
+      80,
+      -180
+     ],
+     "radius": 10,
+     "pfad": "seele",
+     "text": "Der Berg, der Seelen läutert. Wer hier sitzt, spürt, wie sein Geist gewogen wird."
     }
    ],
    "hindernisse": [
@@ -1511,6 +1586,30 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 10
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Drachenader der Wu",
+     "pos": [
+      120,
+      60
+     ],
+     "radius": 11,
+     "anzahl": 7,
+     "ertrag": 3,
+     "besitzer": "wu_clan",
+     "text": "Rote Adern im Uferfels des Drachenflusses. Die Wu dulden keine Diebe."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Drachenwirbel",
+     "pos": [
+      50,
+      140
+     ],
+     "radius": 10,
+     "pfad": "wasser",
+     "text": "Der Fluss dreht sich hier im Kreis, als schliefe ein Drache darunter."
     }
    ],
    "hindernisse": [
@@ -1903,6 +2002,29 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 10
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Verlassene Ader",
+     "pos": [
+      -150,
+      150
+     ],
+     "radius": 10,
+     "anzahl": 5,
+     "ertrag": 2,
+     "text": "Ein Stamm grub hier, bis die Wolfsflut kam. Niemand beansprucht die Ader mehr."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Hügel der Riesenkraft",
+     "pos": [
+      20,
+      -50
+     ],
+     "radius": 10,
+     "pfad": "kraft",
+     "text": "Die Stämme messen hier ihre Kraft. Der Boden erinnert sich an jeden Schlag."
     }
    ],
    "hindernisse": [
@@ -2299,6 +2421,17 @@
      "radius": 11,
      "item": "knochenmehl",
      "anzahl": 8
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Sonnenuhr im Sand",
+     "pos": [
+      180,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "zeit",
+     "text": "Ihr Schatten läuft manchmal rückwärts. Die Wüste hat eigene Stunden."
     }
    ],
    "hindernisse": [
@@ -2672,6 +2805,17 @@
      "radius": 10,
      "item": "blutkoralle",
      "anzahl": 6
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Muschelhorn der Gezeiten",
+     "pos": [
+      -168,
+      -66
+     ],
+     "radius": 10,
+     "pfad": "ton",
+     "text": "Ein riesiges Muschelhorn auf der Klippe. Bei Flut singt es – und wer lauscht, versteht den Klang."
     }
    ],
    "hindernisse": [
@@ -2994,6 +3138,29 @@
      "radius": 12,
      "item": "seelenglas",
      "anzahl": 6
+    },
+    {
+     "typ": "ursteinader",
+     "n": "Umkämpfte Ader",
+     "pos": [
+      140,
+      60
+     ],
+     "radius": 10,
+     "anzahl": 6,
+     "ertrag": 3,
+     "text": "Zwischen den großen Sekten liegt eine Ader, die keiner hält – weil jeder sie will."
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Stein der Einsicht",
+     "pos": [
+      20,
+      110
+     ],
+     "radius": 10,
+     "pfad": "weisheit",
+     "text": "Schüler der Zehn Extreme sitzen hier nächtelang. Wer die Risse liest, versteht mehr."
     }
    ],
    "hindernisse": [
@@ -3205,7 +3372,23 @@
      230,
      true
     ]
-   ]
+   ],
+   "fehde": {
+    "n": "Angriff der Schattensekte",
+    "angreifer": "schattensekte",
+    "ziel": "zehn_extreme_sekte",
+    "meister": [
+     "schattensekte",
+     "schattenaeltester"
+    ],
+    "anzahl": 3,
+    "alle_tage": 6,
+    "versatz": 3,
+    "belohnung": {
+     "kristall": 60,
+     "seelenglas": 1
+    }
+   }
   },
   "blutsumpf": {
    "offen": true,
@@ -3344,6 +3527,17 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 9
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Blutaltar",
+     "pos": [
+      165,
+      -35
+     ],
+     "radius": 10,
+     "pfad": "blut",
+     "text": "Der Stein ist nie trocken. Das Blut des Sumpfes flüstert dem, der zuhört."
     }
    ],
    "hindernisse": [
@@ -3715,6 +3909,17 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 10
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Altar des ewigen Eises",
+     "pos": [
+      170,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "eis",
+     "text": "Hier friert selbst die Zeit ein wenig. Das Eis lehrt Geduld."
     }
    ],
    "hindernisse": [
@@ -4046,6 +4251,17 @@
      "radius": 11,
      "item": "knochenmehl",
      "anzahl": 8
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Glutherz der Schlucht",
+     "pos": [
+      160,
+      -10
+     ],
+     "radius": 10,
+     "pfad": "feuer",
+     "text": "Aus dem Spalt steigt Hitze, die nie verlischt – das Herz der Flammenwut."
     }
    ],
    "hindernisse": [
@@ -4408,6 +4624,17 @@
      "radius": 10,
      "item": "blutkoralle",
      "anzahl": 6
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Donnerklippe",
+     "pos": [
+      135,
+      -95
+     ],
+     "radius": 10,
+     "pfad": "blitz",
+     "text": "Kein Sturm zieht vorbei, ohne hier einzuschlagen. Die Luft knistert ewig."
     }
    ],
    "hindernisse": [
@@ -4672,6 +4899,17 @@
      "radius": 12,
      "item": "knochenmehl",
      "anzahl": 8
+    },
+    {
+     "typ": "dao_ort",
+     "n": "Windklippe der Kraniche",
+     "pos": [
+      170,
+      -30
+     ],
+     "radius": 10,
+     "pfad": "wind",
+     "text": "Die Kraniche lernen hier fliegen. Der Wind hat keinen Anfang und kein Ende."
     }
    ],
    "hindernisse": [

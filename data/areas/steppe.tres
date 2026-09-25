@@ -80,12 +80,15 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Lang-Ya-See",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(200, 80),
 "radius": 34.0,
 "reward": {
@@ -99,12 +102,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Quelle des Himmelswolfs",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(0, -150),
 "radius": 10.0,
 "reward": {
@@ -118,6 +124,7 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.7882353, 0.627451, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"elektrowolf", &"elektrowolf", &"blitzwolf", &"blitzwolf", &"steppenfuerst"]),
 "id": &"wolfsflut",
@@ -127,6 +134,8 @@ places = Array[Dictionary]([{
 &"fleisch": 15,
 &"kristall": 12
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-180, -170),
 "radius": 11.0,
 "reward": {
@@ -144,12 +153,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Knochenfeld der Riesen",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(60, 180),
 "radius": 12.0,
 "reward": {
@@ -161,6 +173,50 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 2,
+"count": 5,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Verlassene Ader",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(-150, 150),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein Stamm grub hier, bis die Wolfsflut kam. Niemand beansprucht die Ader mehr.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Hügel der Riesenkraft",
+"offering": {},
+"owner": &"",
+"path": &"kraft",
+"position": Vector2(20, -50),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Stämme messen hier ihre Kraft. Der Boden erinnert sich an jeden Schlag.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 350.0,

@@ -78,12 +78,15 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Geisterquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(28, -100),
 "radius": 9.0,
 "reward": {
@@ -97,12 +100,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Jadesee",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(95, 65),
 "radius": 22.0,
 "reward": {
@@ -116,12 +122,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 9,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
 "item": &"glutasche",
 "name": "Aschefeld",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, 150),
 "radius": 12.0,
 "reward": {
@@ -135,12 +144,15 @@ places = Array[Dictionary]([{
 "type": &"aschefeld"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"frostquelle",
 "item": &"frostsplitter",
 "name": "Frostquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-205, 25),
 "radius": 8.0,
 "reward": {
@@ -154,12 +166,15 @@ places = Array[Dictionary]([{
 "type": &"frostquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 7,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Alter Friedhof",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-80, -205),
 "radius": 11.0,
 "reward": {
@@ -173,6 +188,7 @@ places = Array[Dictionary]([{
 "type": &"friedhof"
 }, {
 "accent": Color(0.9098039, 0.7529412, 0.4392157, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"wolf", &"wolf", &"eber"]),
 "id": &"blumenwein",
@@ -181,6 +197,8 @@ places = Array[Dictionary]([{
 "offering": {
 &"kristall": 3
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-175, 120),
 "radius": 9.0,
 "reward": {
@@ -196,6 +214,50 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "Ein Mönch der Dämonenwege liebte Blumenwein mehr als sein Leben. In der Felsspalte ruht sein Schnaps-Wurm – und der Zorn seiner Wächter.",
 "type": &"erbe"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 2,
+"count": 7,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Urstein-Ader des Gu-Yue-Klans",
+"offering": {},
+"owner": &"gu_yue",
+"path": &"",
+"position": Vector2(135, -10),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Reichtum des Klans: eine Ader milchig-grüner Ursteine im Fels. Klanmitglieder arbeiten hier Schichten; wer sonst hackt, ist ein Dieb.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Mondschrein der Gu Yue",
+"offering": {},
+"owner": &"",
+"path": &"licht",
+"position": Vector2(-25, 175),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hier beteten die Ahnen der Gu Yue zum alten Mond. Wer im Mondlicht kultiviert, versteht das Licht.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 20.0,
@@ -262,6 +324,19 @@ tide = {
 "reward": {
 &"fell": 6,
 &"kristall": 25
+},
+"target": &"gu_yue_dorf"
+}
+feud = {
+"attacker": &"bai_clan",
+"count": 3,
+"every": 5,
+"masters": Array[StringName]([&"bai_waechter", &"bai_aeltester"]),
+"name": "Überfall des Bai-Klans",
+"offset": 2,
+"reward": {
+&"gruenkraut": 4,
+&"kristall": 18
 },
 "target": &"gu_yue_dorf"
 }

@@ -5,6 +5,7 @@ render_mode cull_back;
 
 varying vec3 world_pos;
 varying vec3 v_color;
+varying vec3 world_normal;
 
 vec3 srgb_to_linear(vec3 c) {
 	return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(vec3(0.04045), c));
@@ -28,6 +29,7 @@ float value_noise(vec2 p) {
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	v_color = srgb_to_linear(COLOR.rgb);
+	world_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 }
 
 void fragment() {
@@ -42,6 +44,11 @@ void fragment() {
 	vec3 dry = base * vec3(1.14, 1.03, 0.7);
 	vec3 lush = base * vec3(0.8, 0.94, 0.86);
 	base = mix(base, mix(lush, dry, smoothstep(0.3, 0.75, macro)), green * 0.6);
+	// Steile Hänge: nackter Fels mit waagrechten Schichten, in der Tönung des Bioms (entsättigt, etwas wärmer).
+	float steep = smoothstep(0.2, 0.42, 1.0 - normalize(world_normal).y);
+	float strata = value_noise(vec2(world_pos.y * 1.4, (world_pos.x + world_pos.z) * 0.12)) * 0.7 + variation * 0.3;
+	vec3 rock = mix(vec3(dot(base, vec3(0.33))), base, 0.3) * vec3(1.04, 0.98, 0.9) * (0.62 + 0.4 * strata);
+	base = mix(base, rock, steep * 0.85);
 	// Helle Körner wärmer (trockenes Gras, Sand), dunkle kühler (Moos, Schatten zwischen Halmen).
 	vec3 warm = base * vec3(1.12, 1.08, 0.86);
 	vec3 cool = base * vec3(0.8, 0.88, 0.86);

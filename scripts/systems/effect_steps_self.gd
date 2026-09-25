@@ -5,6 +5,8 @@ extends RefCounted
 
 const HEAL_COLOR: Color = Color(0.5, 1.0, 0.5)
 const SUMMON_OFFSET: float = 2.2
+## So lange stoßen sich zwei Getauschte nicht (bis die Physik die neuen Plätze kennt).
+const SWAP_GHOST_TIME: float = 0.3
 
 
 static func run_step(step: Dictionary, ctx: EffectContext) -> void:
@@ -101,6 +103,14 @@ static func _summon(step: Dictionary, ctx: EffectContext) -> void:
 ## Positionstausch (Raum-Pfad): tauscht den Platz mit dem Ziel (oder dem nächsten Gegner in range; mit "fresh" mit
 ## einem anderen als dem letzten) und trifft es mit den Treffer-Parametern des Schritts. Unaufhaltsame lassen sich
 ## nicht versetzen.
+static func _end_swap_ghost(first: WeakRef, second: WeakRef) -> void:
+	var a: Combatant = first.get_ref() as Combatant
+	var b: Combatant = second.get_ref() as Combatant
+	if a != null and b != null:
+		a.remove_collision_exception_with(b)
+		b.remove_collision_exception_with(a)
+
+
 static func _swap(step: Dictionary, ctx: EffectContext) -> void:
 	var caster: Combatant = ctx.caster
 	var reach: float = float(step.get("range", 10.0))
@@ -119,6 +129,11 @@ static func _swap(step: Dictionary, ctx: EffectContext) -> void:
 	var to: Vector3 = target.global_position
 	if target.unstoppable_time <= 0.0:
 		Fx.beam(ctx.tree(), from + Vector3.UP, to + Vector3.UP, color, 0.3, 0.15)
+		# Die Physik kennt kurz noch die alten Plätze: ohne Ausnahme stünde jeder auf dem anderen, beide würden sich
+		# jedes Bild zurücktauschen und hochschaukeln. Darum stoßen sich die beiden kurz nicht.
+		caster.add_collision_exception_with(target)
+		target.add_collision_exception_with(caster)
+		ctx.tree().create_timer(SWAP_GHOST_TIME, false, true).timeout.connect(_end_swap_ghost.bind(weakref(caster), weakref(target)))
 		caster.global_position = to + Vector3.UP * 0.1
 		caster.velocity = Vector3.ZERO
 		target.global_position = from + Vector3.UP * 0.1

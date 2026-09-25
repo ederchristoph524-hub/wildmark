@@ -46,6 +46,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8784314, 0.627451, 0.3137255, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"obsidian", &"obsidian", &"sandwurm", &"erdwall_waechter"]),
 "id": &"paradies_erdwall",
@@ -55,6 +56,8 @@ places = Array[Dictionary]([{
 &"erdkern": 2,
 &"kristall": 20
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-130, -120),
 "radius": 11.0,
 "reward": {
@@ -72,12 +75,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 12,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
 "item": &"glutasche",
 "name": "Glutboden",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(140, -100),
 "radius": 14.0,
 "reward": {
@@ -91,12 +97,15 @@ places = Array[Dictionary]([{
 "type": &"aschefeld"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Schluchtbecken",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-60, 100),
 "radius": 18.0,
 "reward": {
@@ -110,12 +119,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Federquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(110, 120),
 "radius": 9.0,
 "reward": {
@@ -129,12 +141,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Knochen im Sand",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-150, 40),
 "radius": 11.0,
 "reward": {
@@ -146,6 +161,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Glutherz der Schlucht",
+"offering": {},
+"owner": &"",
+"path": &"feuer",
+"position": Vector2(160, -10),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Aus dem Spalt steigt Hitze, die nie verlischt – das Herz der Flammenwut.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 25.0,

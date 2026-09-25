@@ -28,6 +28,7 @@ var entities: Node3D = null
 var spawner: EnemySpawner = null
 ## Bestienflut des Gebiets (null ohne gebiete.json → flut).
 var tide: BeastTide = null
+var feud: ClanFeud = null
 var wanderers: Wanderers = null
 var day_night: DayNight = null
 var camp: Campfire = null
@@ -72,6 +73,9 @@ func _ready() -> void:
 	if not area.tide.is_empty():
 		tide = BeastTide.new(self)
 		add_child(tide)
+	if not area.feud.is_empty():
+		feud = ClanFeud.new(self)
+		add_child(feud)
 	if area.wanderer_count > 0:
 		wanderers = Wanderers.new(self)
 		add_child(wanderers)

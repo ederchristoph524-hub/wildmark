@@ -45,12 +45,15 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Roter Drachenfluss",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-170, 60),
 "radius": 30.0,
 "reward": {
@@ -64,12 +67,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Drachenbecken",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, 150),
 "radius": 24.0,
 "reward": {
@@ -83,12 +89,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Drachenquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(170, -60),
 "radius": 10.0,
 "reward": {
@@ -102,6 +111,7 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(1, 0.47843137, 0.22745098, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"drache", &"drachenling", &"drachenling"]),
 "id": &"drachenhort",
@@ -111,6 +121,8 @@ places = Array[Dictionary]([{
 &"glutasche": 10,
 &"kristall": 30
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-160, -170),
 "radius": 12.0,
 "reward": {
@@ -129,12 +141,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Grab der Wu-Ahnen",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, -180),
 "radius": 12.0,
 "reward": {
@@ -146,6 +161,50 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 3,
+"count": 7,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Drachenader der Wu",
+"offering": {},
+"owner": &"wu_clan",
+"path": &"",
+"position": Vector2(120, 60),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Rote Adern im Uferfels des Drachenflusses. Die Wu dulden keine Diebe.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Drachenwirbel",
+"offering": {},
+"owner": &"",
+"path": &"wasser",
+"position": Vector2(50, 140),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Fluss dreht sich hier im Kreis, als schliefe ein Drache darunter.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 0.0,

@@ -47,6 +47,10 @@ func _ready() -> void:
 	_disc.position.y = 0.12
 	add_child(_disc)
 	Fx.ring(get_tree(), global_position, radius, color, 0.4)
+	var tags: Array[StringName] = []
+	for tag: Variant in step.get("tags", []):
+		tags.append(StringName(str(tag)))
+	GuVfx.zone(self, GuVfx.style_of(ctx.path if ctx != null else &"", tags), radius)
 
 
 func _physics_process(delta: float) -> void:

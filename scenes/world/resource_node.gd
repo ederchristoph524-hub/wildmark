@@ -24,6 +24,8 @@ const LOOKS: Dictionary[StringName, Dictionary] = {
 
 var item: StringName = &"beeren"
 var amount: int = 2
+## Besitzer (Sekten-ID) einer Urstein-Ader; leer = frei.
+var owner_sect: StringName = &""
 var _hits: int = 0
 var _regrow: float = 0.0
 var _visual: Node3D = null
@@ -80,8 +82,23 @@ func harvest_hit(_player: Node3D) -> void:
 		return
 	_hits = 0
 	Pickup.spawn(get_tree(), global_position + Vector3(0, 1.2, 0), {item: roundi(amount * PassiveGu.mult("harvest_mult"))})
+	if owner_sect != &"":
+		_owned_harvest()
 	_regrow = REGROW_TIME
 	_refresh()
+
+
+## Ader eines Klans: Mitglieder arbeiten eine Schicht (Verdienst), Fremde stehlen (Berüchtigtheit), verkleidet unerkannt.
+func _owned_harvest() -> void:
+	var sect: SectData = DataRegistry.sect(owner_sect)
+	var sect_name: String = Loc.t(sect.display_name) if sect != null else String(owner_sect)
+	if SectLife.is_member(owner_sect):
+		SectLife.add_merit(Balance.values.vein_member_merit)
+		EventBus.message.emit(Loc.t("Schicht in der Ader – Verdienst +%d") % Balance.values.vein_member_merit, Renown.FAME_COLOR)
+	elif Renown.disguised():
+		EventBus.message.emit(Loc.t("Unter fremdem Gesicht bleibt der Diebstahl unbemerkt."), Renown.FAME_COLOR)
+	else:
+		Renown.add_infamy(Balance.values.renown_vein_theft, Loc.t("Urstein aus der Ader von %s gestohlen") % sect_name)
 
 
 func _process(delta: float) -> void:

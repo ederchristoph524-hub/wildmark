@@ -24,6 +24,11 @@ static func execute(move: KillerMoveData, caster: Combatant, damage: float, aim:
 	ctx.power = power
 	ctx.path = family.path if family != null else &""
 	EffectSteps.run(move.steps, ctx)
+	# Beide Pfade des Paars entladen sich sichtbar am Wirker.
+	for family_id: StringName in [move.family_a, move.family_b]:
+		var partner: GuFamilyData = DataRegistry.family(family_id)
+		if partner != null:
+			GuVfx.burst(caster.get_tree(), caster.aim_point(), GuVfx.style_of(partner.path, partner.tags), 1.5, 1.3)
 	EventBus.floating_text.emit(Loc.t(move.display_name) + "!", caster.aim_point() + Vector3.UP, ANNOUNCE_COLOR)
 	EventBus.killer_move_used.emit(move.id)
 

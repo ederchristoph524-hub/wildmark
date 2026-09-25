@@ -42,7 +42,7 @@ func count_alive(hunters: bool) -> int:
 	var total: int = 0
 	for node: Node in get_tree().get_nodes_in_group(Wanderer.GROUP):
 		var wanderer: Wanderer = node as Wanderer
-		if wanderer.bounty_hunter == hunters and not wanderer.fleeing:
+		if wanderer.bounty_hunter == hunters and not wanderer.fleeing and wanderer.raid_target == &"":
 			total += 1
 	return total
 

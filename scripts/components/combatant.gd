@@ -38,6 +38,8 @@ var unstoppable_time: float = 0.0
 var stealth_time: float = 0.0
 ## Stärkungen (Quelle → {damage, speed, time}); multiplikativ.
 var buffs: Dictionary[StringName, Dictionary] = {}
+## Frühester Zeitpunkt (ms) für die nächsten Treffer-Funken (GuVfx drosselt je Ziel).
+var vfx_ready_msec: int = 0
 
 var _knockback: Vector3 = Vector3.ZERO
 var _dead: bool = false
@@ -156,6 +158,7 @@ func receive_hit(hit: HitInfo) -> void:
 		EssenceTheft.steal(attacker, self, dealt, hit.essence_steal)
 	if dealt >= 0.5:
 		Sound.hit(aim_point(), team == TEAM_PLAYER)
+		GuVfx.hit(self, hit)
 		var color: Color = PLAYER_DAMAGE_COLOR if team == TEAM_PLAYER else (PhysiqueEffects.CRIT_COLOR if hit.is_crit else DAMAGE_COLOR)
 		EventBus.floating_text.emit(str(roundi(dealt)) + ("!" if hit.is_crit else ""), aim_point(), color)
 	_after_hit(hit, dealt)

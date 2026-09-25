@@ -2,7 +2,7 @@ class_name AreaValidator
 extends RefCounted
 ## Prüft die Gebiete aus gebiete.json: Region, Biom, Siedlungs-Fraktionen, Orte, Gegner-Zonen, Funde und Belohnungen.
 
-const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", &"frostquelle", &"friedhof", &"erbe"]
+const PLACE_TYPES: Array[StringName] = [&"geisterquelle", &"see", &"aschefeld", &"frostquelle", &"friedhof", &"erbe", &"ursteinader", &"dao_ort"]
 const OBSTACLE_KINDS: Array[StringName] = [&"hecke", &"wasser", &"fels", &"schalter", &"lichtsiegel", &"blutsiegel", &"vorsprung"]
 ## Bauformen der Erben (wie InheritanceLooks.STYLES; hier als Text, weil das Importskript ohne Autoloads läuft).
 const INHERITANCE_STYLES: Array[StringName] = [&"hoehle", &"grab", &"tempel", &"altar", &"grotte"]
@@ -49,6 +49,10 @@ func _check_open(area: AreaData, context: String) -> void:
 		_inside(place["position"], half, context + " Ort '%s'" % place["name"])
 		if place["item"] != &"":
 			_require(place["item"], "items", context + " Ort '%s' Gegenstand" % place["name"])
+		if place["type"] == &"dao_ort" and place.get("path", &"") == &"":
+			_report.error("%s: Dao-Ort '%s' ohne pfad" % [context, place["name"]])
+		if place.get("owner", &"") != &"":
+			_require(place["owner"], "sects", context + " Ort '%s' Besitzer" % place["name"])
 		if place["type"] == &"erbe" and place["style"] not in INHERITANCE_STYLES:
 			_report.error("%s: Erbe '%s' mit unbekanntem Stil '%s'" % [context, place["name"], place["style"]])
 		_check_place_reward(place, context)
@@ -59,6 +63,7 @@ func _check_open(area: AreaData, context: String) -> void:
 	for item: StringName in area.resources:
 		_require(item, "items", context + " Ressource")
 	_check_tide(area, context)
+	_check_feud(area, context)
 	for master: StringName in area.wanderers:
 		_require(master, "gu_masters", context + " Wanderer")
 	if area.wanderer_count > 0 and area.wanderers.is_empty():
@@ -100,6 +105,23 @@ func _require(id: StringName, type: String, context: String) -> void:
 func _inside(position: Vector2, half: float, context: String) -> void:
 	if absf(position.x) > half or absf(position.y) > half:
 		_report.error("%s liegt außerhalb des Gebiets" % context)
+
+
+func _check_feud(area: AreaData, context: String) -> void:
+	if area.feud.is_empty():
+		return
+	_require(area.feud["attacker"], "sects", context + " Klanfehde (Angreifer)")
+	if (area.feud["masters"] as Array).is_empty():
+		_report.error("%s: Klanfehde ohne meister" % context)
+	for master: StringName in area.feud["masters"]:
+		_require(master, "gu_masters", context + " Klanfehde")
+	for item: StringName in area.feud["reward"]:
+		_require(item, "items", context + " Klanfehde (Lohn)")
+	var found: bool = false
+	for settlement: Dictionary in area.settlements:
+		found = found or settlement["id"] == area.feud["target"]
+	if not found:
+		_report.error("%s: Klanfehde-Ziel '%s' ist keine Siedlung des Gebiets" % [context, area.feud["target"]])
 
 
 func _check_tide(area: AreaData, context: String) -> void:

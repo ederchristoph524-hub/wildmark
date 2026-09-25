@@ -64,12 +64,15 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Himmelsquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(140, -120),
 "radius": 12.0,
 "reward": {
@@ -83,6 +86,7 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(1, 0.8235294, 0.23921569, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"weisser_tiger", &"donnerkronenwolf", &"weisser_tiger"]),
 "id": &"zehn_extreme_pruefung",
@@ -92,6 +96,8 @@ places = Array[Dictionary]([{
 &"jadeader": 4,
 &"kristall": 50
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-150, -150),
 "radius": 11.0,
 "reward": {
@@ -110,12 +116,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Spiegelsee",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-160, 110),
 "radius": 26.0,
 "reward": {
@@ -129,12 +138,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"seelenglas",
 "name": "Stelenwald",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(160, 120),
 "radius": 12.0,
 "reward": {
@@ -146,6 +158,50 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 3,
+"count": 6,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Umkämpfte Ader",
+"offering": {},
+"owner": &"",
+"path": &"",
+"position": Vector2(140, 60),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Zwischen den großen Sekten liegt eine Ader, die keiner hält – weil jeder sie will.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Stein der Einsicht",
+"offering": {},
+"owner": &"",
+"path": &"weisheit",
+"position": Vector2(20, 110),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Schüler der Zehn Extreme sitzen hier nächtelang. Wer die Risse liest, versteht mehr.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 10.0,
@@ -204,5 +260,18 @@ enemy_zones = [[&"sturmadler", &"feuerfuchs", &"elektrowolf"], [&"weisser_tiger"
 wild_gu_rank = 5
 wild_gu_range = Vector2(120, 205)
 wild_passives = [[&"zehntausendjun", &"body", 140.0, 205.0, false], [&"fadenspur", &"support", 130.0, 200.0, false], [&"glueckssicht", &"support", 120.0, 200.0, false], [&"hundertschlachten", &"support", 160.0, 205.0, true], [&"eiskristall", &"body", 100.0, 230.0, true]]
+feud = {
+"attacker": &"schattensekte",
+"count": 3,
+"every": 6,
+"masters": Array[StringName]([&"schattensekte", &"schattenaeltester"]),
+"name": "Angriff der Schattensekte",
+"offset": 3,
+"reward": {
+&"kristall": 60,
+&"seelenglas": 1
+},
+"target": &"zehn_extreme_sekte"
+}
 wanderers = Array[StringName]([&"schattenaeltester", &"schattensekte", &"zehn_extreme", &"himmelshof"])
 wanderer_count = 3

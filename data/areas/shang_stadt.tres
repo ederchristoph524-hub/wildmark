@@ -46,12 +46,15 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Bucht des Shang-Flusses",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-170, 120),
 "radius": 26.0,
 "reward": {
@@ -65,12 +68,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Goldquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(170, -150),
 "radius": 10.0,
 "reward": {
@@ -84,6 +90,7 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.9098039, 0.95686275, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"riesenkrokodil", &"riesenskorpion", &"sturmadler"]),
 "id": &"klingengrab",
@@ -93,6 +100,8 @@ places = Array[Dictionary]([{
 &"eisenerz": 6,
 &"kristall": 15
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-170, -150),
 "radius": 9.0,
 "reward": {
@@ -110,6 +119,7 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.41568628, 0.72156864, 0.41568628, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"riesenkrokodil", &"riesenkrokodil", &"riesenkrokodil"]),
 "id": &"krokodilhort",
@@ -119,6 +129,8 @@ places = Array[Dictionary]([{
 &"fleisch": 12,
 &"kristall": 10
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-195, 20),
 "radius": 10.0,
 "reward": {
@@ -136,12 +148,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"aschefeld",
 "item": &"glutasche",
 "name": "Schlackenfeld",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(175, 150),
 "radius": 12.0,
 "reward": {
@@ -153,6 +168,50 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"aschefeld"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 3,
+"count": 8,
+"guards": Array[StringName]([]),
+"id": &"ursteinader",
+"item": &"",
+"name": "Ursteinmine der Shang",
+"offering": {},
+"owner": &"shang_clan",
+"path": &"",
+"position": Vector2(172, 12),
+"radius": 11.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Mine, die den Reichtum der Shang-Stadt nährt. Die Aufseher zählen jeden Stein.",
+"type": &"ursteinader"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Dang-Hun-Berg",
+"offering": {},
+"owner": &"",
+"path": &"seele",
+"position": Vector2(80, -180),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Der Berg, der Seelen läutert. Wer hier sitzt, spürt, wie sein Geist gewogen wird.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 20.0,

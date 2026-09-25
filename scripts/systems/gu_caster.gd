@@ -14,6 +14,8 @@ const FORM_MOVE: StringName = &"bewegung"
 const FORM_TAME: StringName = &"zaehmen"
 const TAG_FORCE: StringName = &"wucht"
 const DEFAULT_RANGE: float = 10.0
+## Wirkformen, die nur den Wirker betreffen (kräftigeres Aufleuchten).
+const SELF_FORMS: Array[StringName] = [&"selbstschild", &"selbst_heilung", &"tarnung", &"staerkung", &"eingebung", &"glueck", &"verwandlung", &"bewegung"]
 const SHIELD_KEY: StringName = &"haut"
 const HEAL_COLOR: Color = Color(0.5, 1.0, 0.5)
 ## Summe der Klingen eines Fächers auf ein Ziel (Regenbogenlicht, Phönixfeder, Mondgift).
@@ -49,10 +51,20 @@ func cast() -> bool:
 	var done: bool = _cast_form()
 	if done:
 		Sound.cast(family, gu.rank, caster.global_position)
+		_cast_flash()
 		var extra: Variant = GuGifts.flags(gu).get("extra", [])
 		if extra is Array and not (extra as Array).is_empty():
 			EffectSteps.run(extra, context())
 	return done
+
+
+## Aufleuchten beim Wirken in der Handschrift des Pfads; Selbst-Wirkungen (Schutz, Heilung, Tarnung …) kräftiger.
+func _cast_flash() -> void:
+	var style: StringName = GuVfx.style_of(family.path, family.tags)
+	if family.form in SELF_FORMS:
+		GuVfx.burst(caster.get_tree(), caster.aim_point(), style, 1.1, 1.0)
+	else:
+		GuVfx.burst(caster.get_tree(), caster.aim_point() + aim_direction.normalized() * 0.6, style, 0.55, 0.4)
 
 
 ## Wirkungs-Kontext für Schritte: Grundschaden der Familie × Stärke, Farbe und Pfad.

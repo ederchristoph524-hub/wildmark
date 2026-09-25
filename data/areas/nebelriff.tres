@@ -64,6 +64,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.41568628, 0.8627451, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"seeschlange", &"riesenkrabbe", &"riesenkrabbe", &"seekoenig"]),
 "id": &"tiefsee_tempel",
@@ -73,6 +74,8 @@ places = Array[Dictionary]([{
 &"kristall": 40,
 &"tiefseeperle": 1
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-180, -120),
 "radius": 10.0,
 "reward": {
@@ -90,12 +93,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Nebelquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-120, 170),
 "radius": 9.0,
 "reward": {
@@ -109,12 +115,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"blutkoralle",
 "name": "Wrackbucht",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(60, 85),
 "radius": 10.0,
 "reward": {
@@ -126,6 +135,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Donnerklippe",
+"offering": {},
+"owner": &"",
+"path": &"blitz",
+"position": Vector2(135, -95),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Kein Sturm zieht vorbei, ohne hier einzuschlagen. Die Luft knistert ewig.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 15.5,

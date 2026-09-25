@@ -126,6 +126,7 @@ func rank_cap() -> int:
 func _meditate(delta: float) -> void:
 	var b: BalanceData = Balance.values
 	var spring: float = SpiritSpring.bonus_at(host.get_tree(), host.global_position)
+	Dao.add(DaoSite.path_at(host.get_tree(), host.global_position), b.dao_site_rate * delta)
 	if GameState.stage >= b.max_stage:
 		gain(regeneration() * b.meditation_peak_regen_mult * spring * delta)
 		return

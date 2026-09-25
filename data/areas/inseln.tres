@@ -64,6 +64,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.3019608, 0.7647059, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"seekoenig", &"seeschlange", &"riesenkrabbe"]),
 "id": &"seekoenig_grotte",
@@ -73,6 +74,8 @@ places = Array[Dictionary]([{
 &"fleisch": 20,
 &"kristall": 40
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-40, -210),
 "radius": 10.0,
 "reward": {
@@ -92,12 +95,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Gezeitenquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-200, -70),
 "radius": 9.0,
 "reward": {
@@ -111,12 +117,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 6,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"blutkoralle",
 "name": "Schiffsfriedhof",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, 170),
 "radius": 10.0,
 "reward": {
@@ -128,6 +137,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Muschelhorn der Gezeiten",
+"offering": {},
+"owner": &"",
+"path": &"ton",
+"position": Vector2(-168, -66),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Ein riesiges Muschelhorn auf der Klippe. Bei Flut singt es – und wer lauscht, versteht den Klang.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 15.5,

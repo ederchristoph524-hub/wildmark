@@ -47,6 +47,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.7490196, 0.89411765, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"sturmadler", &"sturmadler", &"weisser_tiger", &"sturmkranich"]),
 "id": &"kranichgrab",
@@ -56,6 +57,8 @@ places = Array[Dictionary]([{
 &"kristall": 40,
 &"windfeder": 6
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-140, -120),
 "radius": 11.0,
 "reward": {
@@ -74,12 +77,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Spiegelteich der Kraniche",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(120, 90),
 "radius": 22.0,
 "reward": {
@@ -93,12 +99,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Himmelsquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-110, 100),
 "radius": 9.0,
 "reward": {
@@ -112,12 +121,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"frostquelle",
 "item": &"frostsplitter",
 "name": "Wolkenquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(150, -120),
 "radius": 10.0,
 "reward": {
@@ -131,12 +143,15 @@ places = Array[Dictionary]([{
 "type": &"frostquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Stelen der Ahnen",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(40, 160),
 "radius": 12.0,
 "reward": {
@@ -148,6 +163,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Windklippe der Kraniche",
+"offering": {},
+"owner": &"",
+"path": &"wind",
+"position": Vector2(170, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Die Kraniche lernen hier fliegen. Der Wind hat keinen Anfang und kein Ende.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 20.0,

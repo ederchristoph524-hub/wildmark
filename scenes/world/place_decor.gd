@@ -1,7 +1,8 @@
 class_name PlaceDecor
 extends RefCounted
 ## Ausstattung der Materialorte (WorldAreas): Schlackenfeld mit verkohlten Stümpfen und glühenden Rissen, alter
-## Friedhof mit Grabreihen, Steinlaternen, Schrein und Mauerresten, Frostquelle mit Eisspitzen und Schneewehen.
+## Friedhof mit Grabreihen, Steinlaternen, Schrein und Mauerresten, Frostquelle mit Eisspitzen und Schneewehen,
+## Urstein-Ader mit Stollen, leuchtenden Adern im Fels, Lore auf Schienen und Abraumhalden.
 ## Je Ort ein Mesh mit Vertex-Farben und eines für die leuchtenden Teile (zwei Draw Calls).
 
 const CHAR: Color = Color(0.13, 0.1, 0.08)
@@ -18,6 +19,12 @@ const SHRINE_ROOF: Color = Color(0.25, 0.25, 0.28)
 const SNOW: Color = Color(0.76, 0.82, 0.88)
 const FROST_ROCK: Color = Color(0.62, 0.7, 0.78)
 const ICE: Color = Color(0.7, 0.92, 1.0)
+const VEIN_ROCK: Color = Color(0.33, 0.32, 0.31)
+const SHAFT: Color = Color(0.05, 0.045, 0.04)
+const TIMBER: Color = Color(0.42, 0.29, 0.17)
+const RAIL: Color = Color(0.32, 0.32, 0.34)
+## Urstein: milchig weißgrün, leuchtet sanft.
+const PRIMEVAL: Color = Color(0.78, 1.0, 0.86)
 const VIEW: float = 110.0
 
 
@@ -109,6 +116,69 @@ static func frost_spring(world: World, center: Vector2, radius: float) -> void:
 		b.add(MeshBuilder.sphere(rng.randf_range(0.6, 1.2), 7, 3), MeshBuilder.at(at, Vector3(1.4, 0.22, 1.0), Vector3(0, rng.randf() * TAU, 0)), SNOW.darkened(rng.randf_range(0.0, 0.08)))
 	_add(world, b, WorldMaterials.vertex_colored())
 	_add(world, glow, WorldMaterials.glowing(ICE))
+
+
+## Urstein-Ader: Felsbuckel im Norden mit Stolleneingang (Holzrahmen, dunkler Schacht), Ursteinadern im Fels, Schienen
+## mit Lore zum Platz, Abraumhalden, Kisten und eine Spitzhacke.
+static func stone_vein(world: World, center: Vector2, radius: float) -> void:
+	var rng := _rng(center)
+	var b := MeshBuilder.new()
+	var glow := MeshBuilder.new()
+	var back := Vector2(center.x, center.y - radius * 0.8)
+	for i: int in 13:
+		var offset := Vector2(rng.randf_range(-radius * 0.95, radius * 0.95), rng.randf_range(-5.0, 0.5))
+		if absf(offset.x) < 2.6 and offset.y > -2.5:
+			offset.y -= 3.0
+		var at: Vector3 = world.ground_point(back.x + offset.x, back.y + offset.y)
+		var size: float = rng.randf_range(2.8, 4.8) * (1.25 if absf(offset.x) < radius * 0.4 else 1.0)
+		var middle: Vector3 = at + Vector3.UP * size * 0.35
+		b.add(MeshBuilder.sphere(size, 7, 4), MeshBuilder.at(middle, Vector3(1.2, 0.9, 1.0)), VEIN_ROCK.darkened(rng.randf_range(0.0, 0.2)))
+		# Adern auf der Vorderseite (zum Platz hin).
+		for k: int in 3:
+			var lift: float = size * rng.randf_range(0.0, 0.55)
+			var depth: float = size * sqrt(maxf(0.0, 1.0 - pow(lift / (size * 0.9), 2.0))) * 0.96
+			var side: float = rng.randf_range(-0.6, 0.6) * size
+			glow.add(MeshBuilder.box(Vector3(rng.randf_range(0.6, 1.4), 0.1, 0.14)), MeshBuilder.at(middle + Vector3(side, lift, depth * cos(side / size)), Vector3.ONE, Vector3(0, 0, rng.randf_range(-0.7, 0.7))), PRIMEVAL)
+	var mouth: Vector3 = world.ground_point(back.x, back.y + 1.5)
+	b.add(MeshBuilder.box(Vector3(2.8, 3.0, 0.6)), MeshBuilder.at(mouth + Vector3(0, 1.5, -0.4)), SHAFT)
+	for side: float in [-1.0, 1.0]:
+		b.add(MeshBuilder.box(Vector3(0.35, 3.4, 0.35)), MeshBuilder.at(mouth + Vector3(side * 1.6, 1.7, 0.0)), TIMBER)
+		b.add(MeshBuilder.box(Vector3(0.25, 1.6, 0.25)), MeshBuilder.at(mouth + Vector3(side * 1.1, 2.9, 0.05), Vector3.ONE, Vector3(0, 0, side * 0.9)), TIMBER.darkened(0.1))
+	b.add(MeshBuilder.box(Vector3(4.2, 0.42, 0.5)), MeshBuilder.at(mouth + Vector3(0, 3.5, 0.0)), TIMBER.darkened(0.05))
+	glow.add(MeshBuilder.sphere(0.18, 5, 3), MeshBuilder.at(mouth + Vector3(0, 3.0, 0.3)), PRIMEVAL)
+	_rails(world, b, glow, Vector2(back.x, back.y + 1.5), radius, rng)
+	for i: int in 5:
+		var at: Vector3 = _point(world, center, radius * 0.9, rng)
+		if at.distance_to(mouth) < 4.0:
+			continue
+		var size: float = rng.randf_range(0.8, 1.5)
+		b.add(MeshBuilder.sphere(size, 6, 3), MeshBuilder.at(at, Vector3(1.4, 0.45, 1.1), Vector3(0, rng.randf() * TAU, 0)), VEIN_ROCK.darkened(rng.randf_range(0.15, 0.3)))
+	for i: int in 3:
+		var at: Vector3 = world.ground_point(back.x + 3.2 + i * 0.9, back.y + 3.0 + rng.randf() * 0.6)
+		b.add(MeshBuilder.box(Vector3(0.8, 0.7, 0.8)), MeshBuilder.at(at + Vector3.UP * 0.35, Vector3.ONE, Vector3(0, rng.randf_range(-0.3, 0.3), 0)), TIMBER.lightened(0.08))
+	var pick: Vector3 = world.ground_point(back.x - 2.6, back.y + 2.2)
+	b.add(MeshBuilder.cylinder(0.05, 0.05, 1.3, 5), MeshBuilder.at(pick + Vector3(0, 0.6, 0), Vector3.ONE, Vector3(0.35, 0, 0.2)), TIMBER)
+	b.add(MeshBuilder.box(Vector3(0.9, 0.1, 0.1)), MeshBuilder.at(pick + Vector3(0.1, 1.22, 0.2), Vector3.ONE, Vector3(0.35, 0, 0.2)), RAIL)
+	_add(world, b, WorldMaterials.vertex_colored())
+	_add(world, glow, WorldMaterials.glowing(PRIMEVAL))
+
+
+## Schienen vom Stollen zum Platz, darauf eine Lore mit Ursteinbrocken.
+static func _rails(world: World, b: MeshBuilder, glow: MeshBuilder, start: Vector2, radius: float, rng: RandomNumberGenerator) -> void:
+	var length: float = radius * 1.1
+	var steps: int = floori(length / 0.9)
+	for i: int in steps:
+		var at: Vector3 = world.ground_point(start.x, start.y + 0.5 + i * 0.9)
+		b.add(MeshBuilder.box(Vector3(1.5, 0.08, 0.22)), MeshBuilder.at(at + Vector3.UP * 0.05), TIMBER.darkened(0.2))
+		for side: float in [-0.5, 0.5]:
+			b.add(MeshBuilder.box(Vector3(0.08, 0.1, 0.95)), MeshBuilder.at(at + Vector3(side, 0.14, 0.0)), RAIL)
+	var cart: Vector3 = world.ground_point(start.x, start.y + length * 0.45)
+	b.add(MeshBuilder.box(Vector3(1.2, 0.7, 1.5)), MeshBuilder.at(cart + Vector3.UP * 0.65), TIMBER.darkened(0.15))
+	for x: float in [-0.62, 0.62]:
+		for z: float in [-0.5, 0.5]:
+			b.add(MeshBuilder.cylinder(0.22, 0.22, 0.1, 8), MeshBuilder.at(cart + Vector3(x, 0.25, z), Vector3.ONE, Vector3(0, 0, PI * 0.5)), RAIL.darkened(0.3))
+	for i: int in 5:
+		glow.add(MeshBuilder.sphere(rng.randf_range(0.14, 0.24), 5, 3), MeshBuilder.at(cart + Vector3(rng.randf_range(-0.4, 0.4), 1.05, rng.randf_range(-0.5, 0.5))), PRIMEVAL)
 
 
 ## Grab: Stele mit Kappe, abgerundeter Stein oder Erdhügel mit kleinem Stein; leicht schief, teils bemoost.

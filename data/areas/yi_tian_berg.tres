@@ -64,6 +64,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(1, 0.8235294, 0.23921569, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"donnerkronenwolf", &"weisser_tiger", &"weisser_tiger", &"steppenfuerst"]),
 "id": &"riesensonne_schrein",
@@ -73,6 +74,8 @@ places = Array[Dictionary]([{
 &"kristall": 30,
 &"wolfsgeist": 2
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(150, -130),
 "radius": 11.0,
 "reward": {
@@ -90,12 +93,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Frostsee",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-130, 90),
 "radius": 22.0,
 "reward": {
@@ -109,12 +115,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Sonnenquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-40, 130),
 "radius": 9.0,
 "reward": {
@@ -128,12 +137,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 8,
 "guards": Array[StringName]([]),
 "id": &"frostquelle",
 "item": &"frostsplitter",
 "name": "Gletscherquelle",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-160, -110),
 "radius": 10.0,
 "reward": {
@@ -147,12 +159,15 @@ places = Array[Dictionary]([{
 "type": &"frostquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 10,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Heldengräber",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(40, 160),
 "radius": 12.0,
 "reward": {
@@ -164,6 +179,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Altar des ewigen Eises",
+"offering": {},
+"owner": &"",
+"path": &"eis",
+"position": Vector2(170, -30),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Hier friert selbst die Zeit ein wenig. Das Eis lehrt Geduld.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 20.0,

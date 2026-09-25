@@ -276,6 +276,8 @@ extends Resource
 @export var dao_refine_base: float = 4.0
 @export var dao_refine_per_rank: float = 3.0
 @export var dao_inheritance: float = 30.0
+## Kultivieren an einem Dao-Ort: Markierungen je Sekunde in dessen Pfad (Meister nach gut sieben Minuten).
+@export var dao_site_rate: float = 0.15
 ## Kosten: max(dao_cost_min, 1 − Stufe × dao_cost_per_attain + Konflikt × dao_conflict_cost).
 @export var dao_cost_per_attain: float = 0.09
 @export var dao_cost_min: float = 0.4
@@ -325,6 +327,9 @@ extends Resource
 @export var renown_kill_righteous: int = 15
 @export var renown_kill_demonic: int = 8
 @export var renown_spare: int = 3
+## Urstein aus der Ader eines fremden Klans abbauen (unverkleidet); Mitglieder verdienen dabei Verdienst.
+@export var renown_vein_theft: int = 3
+@export var vein_member_merit: int = 1
 ## Wandernde Gu-Meister (gebiete.json → wanderer): Angriffsreichweite, Vorwarnung, Aufgabe ab Lebensanteil (wie Duell),
 ## Verfolgung bis wanderer_leash, Geldbeutel je Rang (± 30 %), Chance auf einen zweiten Gu beim Töten, Nachschub.
 @export var wanderer_aggro: float = 14.0

@@ -45,6 +45,7 @@ settlements = Array[Dictionary]([{
 }])
 places = Array[Dictionary]([{
 "accent": Color(0.8156863, 0.1882353, 0.22745098, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"bergbaer"]),
 "id": &"blutkoenig",
@@ -54,6 +55,8 @@ places = Array[Dictionary]([{
 &"knochenmehl": 2,
 &"kristall": 6
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(-120, -40),
 "radius": 9.0,
 "reward": {
@@ -71,6 +74,7 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"jadeaffe", &"jadeaffe", &"jadeaffe", &"steinkoenig"]),
 "id": &"steinkoenig_erbe",
@@ -80,6 +84,8 @@ places = Array[Dictionary]([{
 &"kristall": 5,
 &"stein": 20
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(110, -90),
 "radius": 10.0,
 "reward": {
@@ -98,6 +104,7 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.5411765, 0.8156863, 1, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([&"blitzwolf", &"blitzwolf", &"blitzwolf", &"elektrowolf"]),
 "id": &"wolfskoenig",
@@ -107,6 +114,8 @@ places = Array[Dictionary]([{
 &"fell": 10,
 &"kristall": 8
 },
+"owner": &"",
+"path": &"",
 "position": Vector2(0, -170),
 "radius": 10.0,
 "reward": {
@@ -124,12 +133,15 @@ places = Array[Dictionary]([{
 "type": &"erbe"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"geisterquelle",
 "item": &"",
 "name": "Quelle der drei Könige",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(60, 40),
 "radius": 9.0,
 "reward": {
@@ -143,12 +155,15 @@ places = Array[Dictionary]([{
 "type": &"geisterquelle"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 0,
 "guards": Array[StringName]([]),
 "id": &"see",
 "item": &"",
 "name": "Drachenschuppen-See",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(-150, 90),
 "radius": 20.0,
 "reward": {
@@ -162,12 +177,15 @@ places = Array[Dictionary]([{
 "type": &"see"
 }, {
 "accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
 "count": 9,
 "guards": Array[StringName]([]),
 "id": &"friedhof",
 "item": &"knochenmehl",
 "name": "Knochental",
 "offering": {},
+"owner": &"",
+"path": &"",
 "position": Vector2(130, 95),
 "radius": 12.0,
 "reward": {
@@ -179,6 +197,28 @@ places = Array[Dictionary]([{
 "style": &"hoehle",
 "text": "",
 "type": &"friedhof"
+}, {
+"accent": Color(0.8509804, 0.7019608, 0.34901962, 1),
+"amount": 1,
+"count": 0,
+"guards": Array[StringName]([]),
+"id": &"dao_ort",
+"item": &"",
+"name": "Schwerthügel",
+"offering": {},
+"owner": &"",
+"path": &"schwert",
+"position": Vector2(-15, -45),
+"radius": 10.0,
+"reward": {
+"body": Array[StringName]([]),
+"gu": Array[StringName]([]),
+"items": {},
+"support": Array[StringName]([])
+},
+"style": &"hoehle",
+"text": "Tausend zerbrochene Klingen stecken im Hügel. Ihre Absicht schneidet noch immer.",
+"type": &"dao_ort"
 }])
 obstacles = Array[Dictionary]([{
 "angle": 0.0,

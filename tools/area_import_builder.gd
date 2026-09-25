@@ -98,6 +98,15 @@ func _fill_contents(area: AreaData, d: Dictionary) -> void:
 	var wanderer: Dictionary = d.get("wanderer", {})
 	area.wanderers = ImportUtil.names(wanderer.get("meister", []))
 	area.wanderer_count = ImportUtil.to_int(wanderer.get("anzahl"), 0)
+	var feud: Dictionary = d.get("fehde", {})
+	if not feud.is_empty():
+		var spoils: Dictionary = {}
+		for item: Variant in feud.get("belohnung", {}):
+			spoils[StringName(str(item))] = ImportUtil.to_int(feud["belohnung"][item])
+		area.feud = {"name": ImportUtil.text(feud.get("n", "Klanfehde")), "attacker": ImportUtil.sn(feud.get("angreifer")),
+			"target": ImportUtil.sn(feud.get("ziel")), "masters": ImportUtil.names(feud.get("meister", [])),
+			"count": ImportUtil.to_int(feud.get("anzahl"), 3), "every": ImportUtil.to_int(feud.get("alle_tage"), 5),
+			"offset": ImportUtil.to_int(feud.get("versatz"), 2), "reward": spoils}
 	var tide: Dictionary = d.get("flut", {})
 	if not tide.is_empty():
 		var reward: Dictionary = {}
@@ -127,6 +136,7 @@ func _place(entry: Dictionary) -> Dictionary:
 		"type": ImportUtil.sn(entry.get("typ")), "id": ImportUtil.sn(entry.get("id", entry.get("typ"))), "name": ImportUtil.text(entry.get("n")),
 		"position": _vec(entry.get("pos", [0, 0])), "radius": ImportUtil.to_float(entry.get("radius"), 8.0),
 		"item": ImportUtil.sn(entry.get("item")), "count": ImportUtil.to_int(entry.get("anzahl")), "text": ImportUtil.text(entry.get("text")),
+		"owner": ImportUtil.sn(entry.get("besitzer")), "amount": ImportUtil.to_int(entry.get("ertrag"), 1), "path": ImportUtil.sn(entry.get("pfad")),
 	}
 	var offering: Dictionary = {}
 	for item: Variant in entry.get("opfer", {}):
