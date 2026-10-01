@@ -1,51 +1,72 @@
 class_name StartFreeSection
 extends VBoxContainer
-## Startmenü „Freier Start“: Geburtsort (Gebiet und Siedlung), Rang 1–9 mit Stufe und – ab Rang 6 – Grad des Gesegneten
-## Landes, Eingebung und Zahl der unsterblichen Gu. Liefert die Optionen für FreeStart.apply.
+## Startmenü „Freier Start“: alles vor dem Spiel festlegen – Geburtsort (Gebiet und Siedlung), Kultivierung (Rang 1–9,
+## Stufe, Talent in Prozent), Unsterblichkeit (Grad des Landes, Eingebung), Gu (StartFreeGu) und Leben (StartFreeLife:
+## Sekte, Ruf, Dao, Vermögen, Tageszeit). Jedes Kapitel klappt auf; options() liefert alles für FreeStart.apply.
 
 signal changed
+## Talent im Regler geändert (Grad für die Talent-Knöpfe des Startmenüs).
+signal apt_changed(grade: StringName)
+signal start_requested
 
-const IMMORTAL_GU_COUNTS: Array[int] = [0, 1, 3, 6, 12]
 const RANDOM: StringName = &""
+const APT_DEFAULT: int = 70
 
 var area_id: StringName = &"qing_mao"
 var settlement_id: StringName = &""
 var rank: int = 1
 var stage: int = 0
+var apt: int = APT_DEFAULT
 var grade: int = 1
 var inspiration: StringName = RANDOM
-var immortal_gu: int = 3
+var gu: StartFreeGu = null
+var life: StartFreeLife = null
 
-var _area_buttons: Dictionary[StringName, Button] = {}
-var _settlement_box: HFlowContainer = null
-var _rank_buttons: Array[Button] = []
-var _stage_buttons: Array[Button] = []
-var _immortal_box: VBoxContainer = null
-var _grade_buttons: Array[Button] = []
-var _inspiration_buttons: Dictionary[StringName, Button] = {}
-var _gu_buttons: Array[Button] = []
+var _folds: Array[VBoxContainer] = []
+var _immortal_fold: VBoxContainer = null
+var _settlement_box: VBoxContainer = null
+var _apt_slider: HSlider = null
+var _apt_label: Label = null
+var _rank_row: Array[Button] = []
 
 
 func _ready() -> void:
-	add_theme_constant_override(&"separation", 10)
-	add_child(UiTheme.label(tr("Geburtsort"), 24, UiTheme.ACCENT))
-	add_child(UiTheme.label(tr("Wo du zur Welt kommst – jedes Gebiet, auch Gesegnete Länder und abgeschottete Dimensionen (✦)."), 16, UiTheme.MUTED))
-	_build_areas()
-	_settlement_box = HFlowContainer.new()
-	add_child(_settlement_box)
-	add_child(UiTheme.label(tr("Kultivierung"), 24, UiTheme.ACCENT))
-	_build_ranks()
-	_immortal_box = VBoxContainer.new()
-	_immortal_box.add_theme_constant_override(&"separation", 10)
-	add_child(_immortal_box)
-	_build_immortal()
-	refresh()
+	add_theme_constant_override(&"separation", 8)
+	add_child(UiTheme.label(tr("Freier Start – alles selbst festlegen"), 26, UiTheme.ACCENT))
+	StartPick.hint(self, tr("Tippe ein Kapitel an, um es aufzuklappen. Was du nicht änderst, bleibt beim Standard. Herkunft, Talentgrad samt Extremer Physique und Todesmodus stehen oben."))
+	_folds.append(StartPick.fold(self, tr("Geburtsort"), _build_birth, _birth_summary))
+	_folds.append(StartPick.fold(self, tr("Kultivierung"), _build_cultivation, _cultivation_summary, true))
+	_immortal_fold = StartPick.fold(self, tr("Unsterblichkeit"), _build_immortal, _immortal_summary)
+	_folds.append(_immortal_fold)
+	gu = StartFreeGu.new()
+	gu.changed.connect(_emit)
+	add_child(gu)
+	life = StartFreeLife.new()
+	life.changed.connect(_emit)
+	add_child(life)
+	var start: Button = UiTheme.button(tr("Mit diesen Einstellungen starten"), func() -> void: start_requested.emit(), 64.0)
+	add_child(start)
+	_apply_rank()
 
 
-func _build_areas() -> void:
-	var grid := GridContainer.new()
-	grid.columns = 3
-	add_child(grid)
+func _emit() -> void:
+	for fold: VBoxContainer in _folds:
+		StartPick.refresh_fold(fold)
+	changed.emit()
+
+
+# --- Geburtsort ---
+
+func _birth_summary() -> String:
+	var area: AreaData = DataRegistry.area(area_id)
+	var text: String = tr(area.display_name) if area != null else String(area_id)
+	if settlement_id != &"" and area != null:
+		text += " · " + _settlement_title(area.settlement(settlement_id))
+	return text
+
+
+func _build_birth(parent: VBoxContainer) -> void:
+	StartPick.hint(parent, tr("Jedes Gebiet, auch Gesegnete Länder und abgeschottete Dimensionen (✦). Danach: Ankunftspunkt oder eine Siedlung."))
 	var areas: Array[Resource] = DataRegistry.all(&"areas").duplicate()
 	areas.sort_custom(func(a: Resource, b: Resource) -> bool:
 		var x: AreaData = a as AreaData
@@ -53,152 +74,188 @@ func _build_areas() -> void:
 		if x.entry_rank() != y.entry_rank():
 			return x.entry_rank() < y.entry_rank()
 		return x.region < y.region if x.region != y.region else String(x.id) < String(y.id))
+	var entries: Array = []
 	for resource: Resource in areas:
 		var area: AreaData = resource as AreaData
-		var mark: String = " ✦" if not area.immortal.is_empty() else ""
-		var button: Button = UiTheme.button(tr(area.display_name) + mark, _choose_area.bind(area.id), 48.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		grid.add_child(button)
-		_area_buttons[area.id] = button
-
-
-func _build_ranks() -> void:
-	var progression: ProgressionData = DataRegistry.progression()
-	var ranks := GridContainer.new()
-	ranks.columns = 5
-	add_child(ranks)
-	for r: int in range(1, 10):
-		var button: Button = UiTheme.button(tr("Rang %d") % r, _choose_rank.bind(r), 48.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.add_theme_color_override(&"font_color", progression.rank_color(r).lerp(UiTheme.TEXT, 0.3))
-		ranks.add_child(button)
-		_rank_buttons.append(button)
-	var stages := HBoxContainer.new()
-	add_child(stages)
-	for s: int in Balance.values.max_stage + 1:
-		var button: Button = UiTheme.button(tr(progression.stage_name(s)), _choose_stage.bind(s), 48.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		stages.add_child(button)
-		_stage_buttons.append(button)
-
-
-func _build_immortal() -> void:
-	var system: ImmortalSystemData = DataRegistry.immortal()
-	_immortal_box.add_child(UiTheme.label(tr("Gesegnetes Land"), 22, UiTheme.ACCENT))
-	var grades := HBoxContainer.new()
-	_immortal_box.add_child(grades)
-	for i: int in system.land_grades.size():
-		var button: Button = UiTheme.button(tr(String(system.land_grades[i].get("name", ""))), _choose_grade.bind(i), 48.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		grades.add_child(button)
-		_grade_buttons.append(button)
-	_immortal_box.add_child(UiTheme.label(tr("Eingebung (Frage an Himmel und Erde)"), 22, UiTheme.ACCENT))
-	var questions := GridContainer.new()
-	questions.columns = 2
-	_immortal_box.add_child(questions)
-	var entries: Array = [{"id": RANDOM, "text": tr("Zufall")}]
-	entries.append_array(system.inspirations)
-	for entry: Dictionary in entries:
-		var button: Button = UiTheme.button(tr(String(entry["text"])), _choose_inspiration.bind(entry["id"]), 52.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		questions.add_child(button)
-		_inspiration_buttons[entry["id"]] = button
-	_immortal_box.add_child(UiTheme.label(tr("Unsterbliche Gu zu Beginn (mit allen sterblichen Gliedern ihrer Killer Moves)"), 22, UiTheme.ACCENT))
-	var counts := HBoxContainer.new()
-	_immortal_box.add_child(counts)
-	for count: int in IMMORTAL_GU_COUNTS:
-		var button: Button = UiTheme.button(str(count), _choose_gu.bind(count), 48.0)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		counts.add_child(button)
-		_gu_buttons.append(button)
-
-
-func _choose_area(id: StringName) -> void:
-	area_id = id
-	settlement_id = &""
-	refresh()
-
-
-func _choose_settlement(id: StringName) -> void:
-	settlement_id = id
-	refresh()
-
-
-func _choose_rank(value: int) -> void:
-	rank = value
-	refresh()
-
-
-func _choose_stage(value: int) -> void:
-	stage = value
-	refresh()
-
-
-func _choose_grade(value: int) -> void:
-	grade = value
-	refresh()
-
-
-func _choose_inspiration(id: StringName) -> void:
-	inspiration = id
-	refresh()
-
-
-func _choose_gu(count: int) -> void:
-	immortal_gu = count
-	refresh()
-
-
-func refresh() -> void:
-	for id: StringName in _area_buttons:
-		_press(_area_buttons[id], id == area_id)
+		entries.append({"id": area.id, "text": tr(area.display_name) + (" ✦" if not area.immortal.is_empty() else "")})
+	var selected: Dictionary = {area_id: true}
+	StartPick.grid(parent, 2, entries, selected, false, func() -> void:
+		area_id = selected.keys()[0]
+		settlement_id = &""
+		_rebuild_settlements()
+		_emit())
+	_settlement_box = VBoxContainer.new()
+	parent.add_child(_settlement_box)
 	_rebuild_settlements()
-	for i: int in _rank_buttons.size():
-		_press(_rank_buttons[i], i + 1 == rank)
-	for i: int in _stage_buttons.size():
-		_press(_stage_buttons[i], i == stage)
-	_immortal_box.visible = rank >= Immortal.FIRST_RANK
-	for i: int in _grade_buttons.size():
-		_press(_grade_buttons[i], i == grade)
-	for id: StringName in _inspiration_buttons:
-		_press(_inspiration_buttons[id], id == inspiration)
-	for i: int in _gu_buttons.size():
-		_press(_gu_buttons[i], IMMORTAL_GU_COUNTS[i] == immortal_gu)
-	changed.emit()
 
 
 func _rebuild_settlements() -> void:
+	if _settlement_box == null:
+		return
 	for child: Node in _settlement_box.get_children():
 		child.queue_free()
 	var area: AreaData = DataRegistry.area(area_id)
 	if area == null or area.settlements.is_empty():
 		return
-	var arrival: Button = UiTheme.button(tr("Ankunftspunkt"), _choose_settlement.bind(&""), 44.0)
-	_press(arrival, settlement_id == &"")
-	_settlement_box.add_child(arrival)
+	var entries: Array = [{"id": &"", "text": tr("Ankunftspunkt")}]
 	for settlement: Dictionary in area.settlements:
-		var sect: SectData = DataRegistry.sect(settlement["faction"])
-		var title: String = tr(String(World.SETTLEMENT_TITLES.get(settlement["type"], "Dorf des %s"))) % (tr(sect.display_name) if sect != null else "")
-		var button: Button = UiTheme.button(title, _choose_settlement.bind(settlement["id"]), 44.0)
-		_press(button, settlement_id == settlement["id"])
-		_settlement_box.add_child(button)
+		entries.append({"id": settlement["id"], "text": _settlement_title(settlement)})
+	var selected: Dictionary = {settlement_id: true}
+	StartPick.grid(_settlement_box, 2, entries, selected, false, func() -> void:
+		settlement_id = selected.keys()[0]
+		_emit())
 
 
-static func _press(button: Button, pressed: bool) -> void:
-	button.toggle_mode = true
-	button.set_pressed_no_signal(pressed)
+static func _settlement_title(settlement: Dictionary) -> String:
+	if settlement.is_empty():
+		return ""
+	var sect: SectData = DataRegistry.sect(settlement["faction"])
+	return Loc.t(String(World.SETTLEMENT_TITLES.get(settlement["type"], "Dorf des %s"))) % (Loc.t(sect.display_name) if sect != null else "")
 
+
+# --- Kultivierung ---
+
+func _cultivation_summary() -> String:
+	var progression: ProgressionData = DataRegistry.progression()
+	return "%s · %s · %s %d %%" % [tr(progression.rank_name(rank)), tr(progression.stage_name(stage)), tr("Talent"), apt]
+
+
+func _build_cultivation(parent: VBoxContainer) -> void:
+	var progression: ProgressionData = DataRegistry.progression()
+	var ranks := GridContainer.new()
+	ranks.columns = 5
+	parent.add_child(ranks)
+	for r: int in range(1, 10):
+		var button: Button = UiTheme.button(tr("Rang %d") % r, _choose_rank.bind(r), StartPick.ROW_HEIGHT)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.add_theme_color_override(&"font_color", progression.rank_color(r).lerp(UiTheme.TEXT, 0.3))
+		ranks.add_child(button)
+		_rank_row.append(button)
+	var stages: Array = []
+	var labels: Array = []
+	for s: int in Balance.values.max_stage + 1:
+		stages.append(s)
+		labels.append(tr(progression.stage_name(s)))
+	StartPick.presets(parent, stages, labels, stage, func(value: Variant) -> void:
+		stage = int(value)
+		_emit())
+	_apt_label = UiTheme.label("", 18, UiTheme.ACCENT)
+	parent.add_child(_apt_label)
+	_apt_slider = HSlider.new()
+	_apt_slider.min_value = 1
+	_apt_slider.max_value = 100
+	_apt_slider.step = 1
+	_apt_slider.value = apt
+	_apt_slider.custom_minimum_size = Vector2(0.0, 40.0)
+	_apt_slider.value_changed.connect(func(value: float) -> void: set_apt(roundi(value)))
+	parent.add_child(_apt_slider)
+	StartPick.hint(parent, tr("100 % = Extreme Physique (welche, wählst du oben unter „Talent“). Das Talent bestimmt Apertur-Größe, Regeneration und wie viele Gu du tragen kannst."))
+	_paint_ranks()
+	_update_apt_label()
+
+
+func _choose_rank(value: int) -> void:
+	rank = value
+	_apply_rank()
+	_emit()
+
+
+func _apply_rank() -> void:
+	_paint_ranks()
+	if _immortal_fold != null:
+		_immortal_fold.visible = rank >= Immortal.FIRST_RANK
+	if gu != null:
+		gu.set_rank(rank)
+	if life != null:
+		life.set_rank(rank)
+
+
+func _paint_ranks() -> void:
+	for i: int in _rank_row.size():
+		StartPick.press(_rank_row[i], i + 1 == rank)
+
+
+## Talent in Prozent (1–100); meldet den passenden Grad.
+func set_apt(value: int) -> void:
+	apt = clampi(value, 1, 100)
+	if _apt_slider != null and roundi(_apt_slider.value) != apt:
+		_apt_slider.set_value_no_signal(apt)
+	_update_apt_label()
+	apt_changed.emit(grade_for_apt(apt))
+	_emit()
+
+
+func _update_apt_label() -> void:
+	if _apt_label != null:
+		_apt_label.text = tr("Talent: %d %% (Grad %s)") % [apt, tr(String(grade_for_apt(apt)))]
+
+
+## Talentgrad zu einem Prozentwert (Spannen aus BalanceData; unter der kleinsten Spanne der niedrigste Grad).
+static func grade_for_apt(value: int) -> StringName:
+	var b: BalanceData = Balance.values
+	for i: int in b.talent_grades.size():
+		if value >= b.talent_pct_min[i] and value <= b.talent_pct_max[i]:
+			return StringName(b.talent_grades[i])
+	return StringName(b.talent_grades[b.talent_grades.size() - 1])
+
+
+## Mitte der Spanne eines Grades (für die Talent-Knöpfe des Startmenüs).
+static func apt_for_grade(talent: StringName) -> int:
+	var b: BalanceData = Balance.values
+	var index: int = b.talent_grades.find(String(talent))
+	if index < 0:
+		return APT_DEFAULT
+	return floori((b.talent_pct_min[index] + b.talent_pct_max[index]) / 2.0)
+
+
+# --- Unsterblichkeit ---
+
+func _immortal_summary() -> String:
+	var name_text: String = tr(String(DataRegistry.immortal().grade(grade).get("name", "")))
+	return "%s · %s" % [name_text, tr("Eingebung zufällig") if inspiration == RANDOM else tr("Eingebung gewählt")]
+
+
+func _build_immortal(parent: VBoxContainer) -> void:
+	var system: ImmortalSystemData = DataRegistry.immortal()
+	parent.add_child(UiTheme.label(tr("Gesegnetes Land"), 18, UiTheme.ACCENT))
+	StartPick.hint(parent, tr("Der Grad bestimmt Größe, Zeitfluss, Essenzsteine am Tag und deine Startperlen."))
+	var grades: Array = []
+	var labels: Array = []
+	for i: int in system.land_grades.size():
+		grades.append(i)
+		labels.append(tr(String(system.land_grades[i].get("name", ""))))
+	StartPick.presets(parent, grades, labels, grade, func(value: Variant) -> void:
+		grade = int(value)
+		_emit(), true)
+	parent.add_child(UiTheme.label(tr("Eingebung (Frage an Himmel und Erde)"), 18, UiTheme.ACCENT))
+	var entries: Array = [{"id": RANDOM, "text": tr("Zufall")}]
+	for entry: Dictionary in system.inspirations:
+		entries.append({"id": entry["id"], "text": tr(String(entry["text"]))})
+	var selected: Dictionary = {inspiration: true}
+	var container: GridContainer = StartPick.grid(parent, 1, entries, selected, false, func() -> void:
+		inspiration = selected.keys()[0]
+		_emit())
+	for button: Node in container.get_children():
+		(button as Button).clip_text = false
+		(button as Button).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+
+
+# --- Ergebnis ---
 
 func options() -> Dictionary:
-	return {"rank": rank, "stage": stage, "grade": grade, "inspiration": inspiration, "immortal_gu": immortal_gu, "settlement": settlement_id}
+	var result: Dictionary = {"rank": rank, "stage": stage, "grade": grade, "inspiration": inspiration, "settlement": settlement_id, "apt": apt}
+	result.merge(gu.options(), true)
+	result.merge(life.options(), true)
+	return result
 
 
 func describe() -> String:
 	var progression: ProgressionData = DataRegistry.progression()
-	var area: AreaData = DataRegistry.area(area_id)
-	var text: String = tr("Freier Start: geboren in %s als %s, %s.") % [tr(area.display_name) if area != null else String(area_id), tr(progression.rank_name(rank)), tr(progression.stage_name(stage))]
+	var text: String = tr("Freier Start: geboren in %s als %s, %s, Talent %d %%.") % [_birth_summary(), tr(progression.rank_name(rank)), tr(progression.stage_name(stage)), apt]
 	if rank >= Immortal.FIRST_RANK:
-		text += "\n" + tr("Unsterblicher mit %s, %d unsterblichen Gu und Dutzenden sterblichen Gu. Jede Perle %s ist für sterbliche Gu ein unerschöpfliches Meer an Uressenz.") % [
-			tr(String(DataRegistry.immortal().grade(grade).get("name", ""))), immortal_gu, tr(Immortal.essence_name(rank))]
+		text += "\n" + tr("Unsterblicher mit %s. Jede Perle %s ist für sterbliche Gu ein unerschöpfliches Meer an Uressenz.") % [
+			tr(String(DataRegistry.immortal().grade(grade).get("name", ""))), tr(Immortal.essence_name(rank))]
+	for extra: String in [gu.describe() if gu != null else "", life.describe() if life != null else ""]:
+		if extra != "":
+			text += "\n" + extra
 	return text

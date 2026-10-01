@@ -90,7 +90,14 @@ Ein Unsterblichen-Killer-Move = **ein unsterblicher Gu als Kern + viele sterblic
 
 ## 11. Freier Start
 
-Startmenü → Spielmodus **Freier Start** (statt „Geschichte“): Geburtsort (jedes Gebiet, auch Gesegnete Länder und Dimensionen, dazu Ankunftspunkt oder eine Siedlung), Rang 1–9 und Stufe, Talent bis zu den Zehn Extremen Physiques, Herkunft, erster Gu; ab Rang 6 Grad des Gesegneten Landes, Eingebung und 0/1/3/6/12 unsterbliche Gu (bevorzugt im Pfad des ersten Gu, samt allen sterblichen Gliedern ihrer Killer Moves). `FreeStart.apply` rechnet Rang- und Stufengaben wie echte Durchbrüche nach, setzt Dao-Markierungen für die erfüllten Durchbruch-Bedingungen, Perlen, Ursteine und Essenzsteine. Die Kindheit entfällt im freien Start.
+Startmenü → Spielmodus **Freier Start**. Alles ist einstellbar, in aufklappbaren Kapiteln (`StartFreeSection`, `StartFreeGu`, `StartFreeLife`, Bausteine in `StartPick`):
+- **Geburtsort:** jedes Gebiet (auch Gesegnete Länder und Dimensionen), Ankunftspunkt oder eine Siedlung.
+- **Kultivierung:** Rang 1–9, Stufe, Talent als Prozent-Regler (1–100; 100 % = Extreme Physique, welche, wählt man unter „Talent“). Herkunft und Todesmodus wie im normalen Start.
+- **Unsterblichkeit** (ab Rang 6): Grad des Gesegneten Landes, Eingebung.
+- **Gu:** erster Gu aus allen 35 Familien, weitere sterbliche Gu gezielt und/oder zufällig, Körper-Gu, Hilfs-Gu, unsterbliche Gu gezielt (Filter nach Pfad) und/oder zufällig – samt allen sterblichen Gliedern ihrer Killer Moves.
+- **Leben:** Sekte und Sektenrang (mit Geschenken und ab Kernschüler Signatur-Gu), Ansehen und Berüchtigtheit, Dao-Hauptpfad und Beherrschung, Ursteine, Essenzsteine, zusätzliche Perlen, Tageszeit.
+
+`FreeStart.apply` (mit `FreeStartExtras`) rechnet Rang- und Stufengaben wie echte Durchbrüche nach, setzt Dao-Markierungen für die erfüllten Durchbruch-Bedingungen, Perlen, Gu, Sekte, Ruf und Vermögen. Die Kindheit entfällt im freien Start.
 
 ## 12. Bedienung
 

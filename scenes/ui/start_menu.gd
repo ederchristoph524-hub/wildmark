@@ -86,11 +86,13 @@ func _build(column: VBoxContainer) -> void:
 	var start_text: String = tr("Neues Spiel") + (tr(" (überschreibt den Spielstand)") if SaveSystem.has_save() else "")
 	# Start-Knopf vor den Erklärungen, damit er am Handy quer ohne Scrollen sichtbar bleibt.
 	column.add_child(UiTheme.button(start_text, _start, 64.0))
-	_free_section = StartFreeSection.new()
-	_free_section.changed.connect(_update_description)
-	column.add_child(_free_section)
 	_build_standing_section(column)
 	_build_talent_section(column)
+	_free_section = StartFreeSection.new()
+	_free_section.changed.connect(_update_description)
+	_free_section.apt_changed.connect(_on_free_apt)
+	_free_section.start_requested.connect(_start)
+	column.add_child(_free_section)
 	_skip_section = VBoxContainer.new()
 	_skip_section.add_theme_constant_override(&"separation", 12)
 	column.add_child(_skip_section)
@@ -185,6 +187,15 @@ func _choose_family(id: StringName) -> void:
 
 func _choose_talent(grade: StringName) -> void:
 	_talent = grade
+	if _free:
+		# Im freien Start ist der Prozent-Regler maßgeblich: der Knopf setzt ihn auf die Mitte des Grades.
+		var rolled: Dictionary = Formulas.roll_talent(Balance.values, randf() * 100.0, randf())
+		_free_section.set_apt(int(rolled["apt"]) if grade == TALENT_RANDOM else StartFreeSection.apt_for_grade(grade))
+	_refresh()
+
+
+func _on_free_apt(grade: StringName) -> void:
+	_talent = grade
 	_refresh()
 
 
@@ -202,7 +213,7 @@ func _refresh() -> void:
 		_childhood_buttons[i].toggle_mode = true
 		_childhood_buttons[i].button_pressed = (i == 0) == _childhood
 		_childhood_buttons[i].disabled = _free
-	_skip_section.visible = not _childhood or _free
+	_skip_section.visible = not _childhood and not _free
 	for id: StringName in _family_buttons:
 		_family_buttons[id].button_pressed = id == _family
 		_family_buttons[id].toggle_mode = true
@@ -230,7 +241,7 @@ func _update_description() -> void:
 	var playing_child: bool = _childhood and not _free
 	_description.text = _childhood_text() if playing_child else _family_text()
 	if _free:
-		_description.text = _free_section.describe() + "\n\n" + _description.text
+		_description.text = _free_section.describe()
 	_description.text += "\n\n" + _talent_text() + "\n\n" + _death_text()
 	if DataRegistry.has(&"standings", _standing):
 		_description.text += "\n\n" + Origins.describe(DataRegistry.standing(_standing))
@@ -277,9 +288,15 @@ func _start() -> void:
 	var childhood: bool = _childhood and not _free
 	var options: Dictionary = {"childhood": childhood, "first_family": &"" if childhood else _family, "death_mode": _death, "talent_grade": &"", "physique": &"", "standing": _standing}
 	if _free:
-		options["free"] = _free_section.options()
+		var free: Dictionary = _free_section.options()
+		options["free"] = free
 		options["area"] = _free_section.area_id
-	if not (childhood and _talent == TALENT_RANDOM):
+		options["first_family"] = free["first_family"]
+		options["apt"] = float(free["apt"])
+		options["talent_grade"] = StartFreeSection.grade_for_apt(int(free["apt"]))
+		if options["talent_grade"] == PhysiqueEffects.GRADE:
+			options["physique"] = _physique if _physique != &"" else PhysiqueEffects.roll()
+	elif not (childhood and _talent == TALENT_RANDOM):
 		var talent: Dictionary = Formulas.roll_talent(b, randf() * 100.0, randf()) if _talent == TALENT_RANDOM else Formulas.talent_for_grade(b, _talent, randf())
 		options["talent_grade"] = talent["grade"]
 		options["apt"] = talent["apt"]

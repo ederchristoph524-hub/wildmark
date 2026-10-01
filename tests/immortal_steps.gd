@@ -20,6 +20,7 @@ func run(scene_tree: SceneTree) -> void:
 	main = (load("res://scenes/main.tscn") as PackedScene).instantiate() as Main
 	tree.root.add_child(main)
 	await _frames(3)
+	await _test_start_menu()
 	await _test_free_start()
 	await _test_mortal_gu_and_ants()
 	await _test_immortal_gu()
@@ -30,6 +31,7 @@ func run(scene_tree: SceneTree) -> void:
 	_test_breakthrough()
 	await _test_save_load()
 	await _test_ascension()
+	await _test_everything()
 	for failure: String in _failures:
 		printerr("FEHLGESCHLAGEN: ", failure)
 	print("test_immortal: %s" % ("OK" if _failures.is_empty() else "%d Fehler" % _failures.size()))
@@ -65,6 +67,24 @@ func _travel(area_id: StringName) -> void:
 		waited += 1
 	await _frames(20)
 	player = main.player
+
+
+## Der echte Weg über das Startmenü: Freier Start, Rang 6, Talent 100 % → Extreme Physique.
+func _test_start_menu() -> void:
+	print("-- Startmenü")
+	var menu: StartMenu = main._start_menu
+	menu._choose_mode(true)
+	menu._free_section._choose_rank(6)
+	menu._free_section.set_apt(100)
+	_check(menu._talent == PhysiqueEffects.GRADE, "Talent 100 % wählt den Grad der Extremen Physique")
+	menu._start()
+	var waited: int = 0
+	while (main.player == null or GameState.rank != 6) and waited < MAX_BUILD_FRAMES:
+		await _frames(1)
+		waited += 1
+	await _frames(10)
+	_check(Immortal.is_immortal() and GameState.physique != &"" and is_equal_approx(GameState.apt, 100.0), "Startmenü: Unsterblicher mit Extremer Physique")
+	_check(GameState.childhood_step == -1, "keine Kindheit im freien Start")
 
 
 func _test_free_start() -> void:
@@ -286,3 +306,38 @@ func _test_ascension() -> void:
 	_check(ImmortalAscension.blocked_reason(player) == "", "Aufstieg möglich")
 	ImmortalAscension.ascend(grade, true)
 	_check(Immortal.is_immortal() and GameState.immortal.beads_for(6) > 0.0, "aufgestiegen – Gesegnetes Land und Perlen")
+
+
+## Freier Start mit allem: Ort samt Siedlung, Talent, gezielte Gu aller Arten, Sekte, Ruf, Dao, Vermögen, Tageszeit.
+func _test_everything() -> void:
+	print("-- alles einstellen")
+	var immortal_ids: Array[StringName] = [&"wellenschwert_gu", &"herbstlicht_gu"]
+	var free: Dictionary = {
+		"rank": 8, "stage": 2, "grade": 3, "inspiration": &"kosten", "settlement": &"", "apt": 100,
+		"first_family": &"schwert", "mortal": [&"wind", &"zeit", &"stern"] as Array[StringName], "mortal_random": 0,
+		"body": [&"eisenblut"] as Array[StringName], "support": [&"blitzauge"] as Array[StringName],
+		"immortal_ids": immortal_ids, "immortal_gu": 0,
+		"sect": &"gu_yue", "sect_rank": 3, "fame": 2000, "infamy": 0, "dao_path": &"zeit", "dao_level": 5,
+		"stones": 100000, "immortal_stones": 1000, "beads": 100, "time": 0.75,
+	}
+	EventBus.new_game_requested.emit({"first_family": &"schwert", "talent_grade": &"Durchbrochen", "apt": 100.0, "physique": &"ice",
+		"death_mode": &"standard", "free": free, "area": &"qing_mao"})
+	var waited: int = 0
+	while (main.player == null or GameState.rank != 8) and waited < MAX_BUILD_FRAMES:
+		await _frames(1)
+		waited += 1
+	await _frames(20)
+	player = main.player
+	var state: ImmortalState = GameState.immortal
+	_check(GameState.rank == 8 and GameState.stage == 2 and state.grade == 3 and state.inspiration == &"kosten", "Rang 8 Oberstufe, Super-Land, Eingebung gewählt")
+	_check(GameState.physique == &"ice" and is_equal_approx(GameState.apt, 100.0), "Extreme Physique und Talent 100 %")
+	_check(ImmortalGu.owns(&"wellenschwert_gu") and ImmortalGu.owns(&"herbstlicht_gu") and state.gu.size() == 2, "gezielt gewählte unsterbliche Gu (%d)" % state.gu.size())
+	var families: Dictionary = ImmortalGu.held_families()
+	_check(families.has(&"schwert") and families.has(&"wind") and families.has(&"zeit") and families.has(&"stern"), "erster Gu und gewählte sterbliche Gu")
+	_check(DataRegistry.gu(GameState.gu[0].gu_id).rank == 5, "erster Gu auf Rang 5")
+	_check(&"eisenblut" in GameState.body_gu and GameState.support.size() == 1, "Körper- und Hilfs-Gu")
+	_check(GameState.sect == &"gu_yue" and GameState.sect_rank == 3, "Sekte Gu Yue, Rang 3")
+	_check(GameState.fame == 2000 and Immortal.main_path() == &"zeit" and Dao.attain(&"zeit") == 5, "Ansehen, Hauptpfad Zeit, Höchster Großmeister")
+	_check(GameState.item_count(&"kristall") == 100000 and GameState.item_count(ImmortalAperture.STONE_ITEM) == 1000, "Vermögen fest eingestellt")
+	_check(state.beads_for(8) >= 100.0, "zusätzliche Perlen (%.0f)" % state.beads_for(8))
+	_check(absf(GameState.time_of_day - 0.75) < 0.05, "Geburt in der Nacht")

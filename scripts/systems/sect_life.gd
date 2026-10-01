@@ -81,11 +81,11 @@ static func _promote(rank: SectRankData) -> void:
 		GameState.add_item(item, rank.reward[item])
 	EventBus.message.emit(Loc.t("Aufstieg in %s: %s") % [Loc.t(current_sect().display_name), Loc.t(rank.display_name)], rank.color)
 	if GameState.sect_rank == SIGNATURE_RANK:
-		_grant_signature_gu(current_sect())
+		grant_signature_gu(current_sect())
 
 
-## Signatur-Gu der Sekte als Geschenk (bei Familien das Mitglied deines Rangs).
-static func _grant_signature_gu(sect: SectData) -> void:
+## Signatur-Gu der Sekte als Geschenk (bei Familien das Mitglied deines Rangs; auch für den freien Start).
+static func grant_signature_gu(sect: SectData) -> void:
 	var id: StringName = sect.signature_gu
 	var title: String = ""
 	if DataRegistry.has_gu(id):

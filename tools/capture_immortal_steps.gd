@@ -21,11 +21,14 @@ func run(scene_tree: SceneTree) -> void:
 	main._start_menu._choose_mode(true)
 	main._start_menu._free_section._choose_rank(7)
 	await _frames(5)
-	await _shot("01_start_frei")
 	var scroll: ScrollContainer = main._start_menu.find_children("*", "ScrollContainer", true, false)[0] as ScrollContainer
-	scroll.scroll_vertical = 900
+	await _shot("01_start_frei")
+	_open_all_folds(main._start_menu)
 	await _frames(5)
-	await _shot("01b_start_frei_unten")
+	for i: int in 10:
+		scroll.scroll_vertical = 600 + i * 650
+		await _frames(5)
+		await _shot("01_start_frei_%d" % i)
 	EventBus.new_game_requested.emit({"first_family": &"flamme", "talent_grade": &"A", "apt": 92.0, "death_mode": &"standard", "area": &"qing_mao",
 		"free": {"rank": 7, "stage": 1, "grade": 2, "inspiration": &"dao", "immortal_gu": 6, "settlement": &""}})
 	await _frames(120)
@@ -59,6 +62,14 @@ func run(scene_tree: SceneTree) -> void:
 	await _frames(400)
 	await _shot("05_kalamitaet")
 	tree.quit(0)
+
+
+## Klappt die Kapitel des freien Starts auf (außer den langen Listen sterblicher und unsterblicher Gu).
+func _open_all_folds(root: Node) -> void:
+	for node: Node in root.find_children("*", "Button", true, false):
+		var button: Button = node as Button
+		if button.text.begins_with("▸") and not button.text.contains("sterbliche Gu") and not button.text.contains("Hilfs") and not button.text.contains("Körper"):
+			button.pressed.emit()
 
 
 func _open_tab(title: String) -> void:

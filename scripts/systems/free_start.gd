@@ -3,7 +3,9 @@ extends RefCounted
 ## Freier Start (Startmenü „Freier Start“, docs/UNSTERBLICH.md, 12): Geburtsort (Gebiet und Siedlung), Rang 1–9 mit Stufe,
 ## Talent samt Extremer Physique, Grad des Gesegneten Landes, Eingebung und unsterbliche Gu – der Spieler beginnt so, als
 ## hätte er den Weg dorthin schon hinter sich: Rang- und Stufengaben, Dao-Markierungen, Perlen, Gu und Ursteine.
-## Optionen (Dictionary unter options["free"]): rank, stage, grade, inspiration, immortal_gu, settlement.
+## Optionen (Dictionary unter options["free"], aus StartFreeSection): rank, stage, apt, grade, inspiration, settlement,
+## first_family, mortal (Familien-IDs), mortal_random, body, support, immortal_ids, immortal_gu (zufällige Anzahl) und die
+## Lebens-Optionen aus FreeStartExtras (Sekte, Ruf, Dao, Vermögen, Tageszeit).
 
 const GIFT_COLOR: Color = Color(1.0, 0.85, 0.45)
 const DAO_MARGIN: float = 1.1
@@ -14,7 +16,9 @@ static func apply(player: Player, world: World, free: Dictionary) -> void:
 	var b: BalanceData = Balance.values
 	var target: int = clampi(int(free.get("rank", 1)), 1, ImmortalProgress.VENERABLE_RANK)
 	var stage: int = clampi(int(free.get("stage", 0)), 0, b.max_stage)
-	var path: StringName = _main_path()
+	var path: StringName = StringName(free.get("dao_path", &""))
+	path = path if path != &"" else _main_path()
+	FreeStartExtras.give_dao_level(path, int(free.get("dao_level", 0)))
 	_raise_mortal(mini(target, Immortal.MORTAL_PEAK), stage if target <= Immortal.MORTAL_PEAK else b.max_stage)
 	if target >= Immortal.FIRST_RANK:
 		_give_dao(path, target)
@@ -25,9 +29,13 @@ static func apply(player: Player, world: World, free: Dictionary) -> void:
 		GameState.immortal.calamities_survived = stage * int(Immortal.rank_info().get("per_stage", 3))
 		Immortal.sync_stage()
 		GameState.immortal.next_calamity_day = GameState.day + int(Immortal.rank_info().get("days", 3))
+		for id: StringName in free.get("immortal_ids", []):
+			if ImmortalGu.grant(id, true):
+				_give_killer_parts(id)
 		_give_immortal_gu(clampi(int(free.get("immortal_gu", 0)), 0, 12), path)
-	_give_mortal_gu(target)
+	_give_mortal_gu(target, free.get("mortal", []), int(free.get("mortal_random", Balance.immortal.free_start_gu + mini(target, Immortal.MORTAL_PEAK) - 1)))
 	_give_items(target)
+	FreeStartExtras.apply(free)
 	ImmortalGu.check_insight(true)
 	ImmortalWorld.refresh_player()
 	GameState.essence = player.aperture.capacity()
@@ -104,15 +112,28 @@ static func _give_killer_parts(core: StringName) -> void:
 
 
 ## Sterbliche Gu: der erste Gu wächst auf den Rang mit, dazu weitere Familien – soweit die Apertur sie trägt.
-static func _give_mortal_gu(target: int) -> void:
+## chosen: gezielt gewählte Familien (zuerst), random: so viele weitere zufällige.
+static func _give_mortal_gu(target: int, chosen: Array, random: int) -> void:
 	var rank: int = mini(target, Immortal.MORTAL_PEAK)
 	var first: GuFamilyData = DataRegistry.family(GameState.first_family)
 	if first != null and not GameState.gu.is_empty():
 		GameState.gu[0].gu_id = first.member_for_rank(rank).id
+	var held: Dictionary = ImmortalGu.held_families()
+	var dropped: int = 0
+	for id: Variant in chosen:
+		var picked: GuFamilyData = DataRegistry.family(StringName(id))
+		if picked == null or held.has(picked.id):
+			continue
+		if GameState.held_count() >= PassiveGu.capacity():
+			dropped += 1
+			continue
+		GameState.add_gu(GuInstance.create(picked.member_for_rank(rank).id, GuRefining.roll_trait()))
+		held[picked.id] = true
+	if dropped > 0:
+		EventBus.message.emit(Loc.t("Deine Apertur trägt nicht alle gewählten Gu – %d bleiben draußen (mehr Talent oder höherer Rang).") % dropped, UiTheme.MUTED)
 	var families: Array[Resource] = DataRegistry.all(&"families").duplicate()
 	families.shuffle()
-	var held: Dictionary = ImmortalGu.held_families()
-	var wanted: int = Balance.immortal.free_start_gu + (rank - 1)
+	var wanted: int = random
 	for resource: Resource in families:
 		if wanted <= 0 or GameState.held_count() >= PassiveGu.capacity():
 			break
